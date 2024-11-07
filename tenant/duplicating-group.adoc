@@ -1,0 +1,40 @@
+---
+permalink: tenant/duplicating-group.html 
+sidebar: sidebar 
+keywords: how to duplicate tenant group 
+summary: 既存のグループを複製することで、新しいグループをより迅速に作成できます。 
+---
+= グループが重複しています
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+既存のグループを複製することで、新しいグループをより迅速に作成できます。
+
+.開始する前に
+* を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+* Root Access権限のあるユーザグループに属している必要があります。を参照して link:tenant-management-permissions.html["テナント管理権限"]
+
+
+.手順
+. * access management * > * Groups * を選択します。
+. 複製するグループのチェックボックスをオンにします。
+. 「 * グループを複製 * 」を選択します。グループの作成の詳細については、またはのグループの作成手順を参照してくださいlink:creating-groups-for-s3-tenant.html["S3 テナント"]link:creating-groups-for-swift-tenant.html["Swift テナント"]。
+. [ ローカルグループ *] タブを選択してローカルグループを作成するか、または [ フェデレーショングループ *] タブを選択して、以前に設定したアイデンティティソースからグループをインポートします。
++
+StorageGRIDシステムでシングルサインオン（SSO）が有効になっている場合、ローカルグループに属するユーザはテナントマネージャにサインインできません。ただし、に基づいてクライアントアプリケーションを使用してテナントのリソースを管理することはできます。link:tenant-management-permissions.html["グループ権限"]
+
+. グループの名前を入力します。
++
+** * ローカルグループ * ：表示名と一意の名前の両方を入力します。表示名はあとで編集できます。
+** * フェデレーショングループ * ：一意の名前を入力します。Active Directoryの場合、一意の名前は属性に関連付けられた名前です `sAMAccountName`。OpenLDAPの場合、一意の名前は属性に関連付けられた名前です `uid`。
+
+
+. 「 * Continue * 」を選択します。
+. 必要に応じて、このグループの権限を変更します。
+. 「 * Continue * 」を選択します。
+. 必要に応じて、 S3 テナントのグループを複製する場合は、 * S3 ポリシーの追加 * オプションボタンとは別のポリシーを選択します。カスタムポリシーを選択した場合は、 JSON 文字列を必要に応じて更新します。
+. 「 * グループを作成 * 」を選択します。
+

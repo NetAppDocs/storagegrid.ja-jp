@@ -1,0 +1,39 @@
+---
+permalink: monitor/managing-alerts.html 
+sidebar: sidebar 
+keywords: alert rules, managing alerts, alerts, alert notifications. edit alert rules 
+summary: アラートシステムでは、 StorageGRID の運用中に発生する問題を、使いやすいインターフェイスを通じて検出し、評価し、解決することができます。 
+---
+= アラートの管理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+アラートシステムでは、 StorageGRID の運用中に発生する問題を、使いやすいインターフェイスを通じて検出し、評価し、解決することができます。
+
+アラートルールの条件が true と評価されると、特定の重大度レベルでアラートがトリガーされます。アラートがトリガーされると、次の処理が行われます。
+
+* Grid Managerのダッシュボードにアラートの重大度アイコンが表示され、現在のアラートの数が増分されます。
+* このアラートはノード * の概要ページおよび * ノード * > * _node_name > * Overview * タブに表示されます。
+* SMTP サーバを設定し、受信者に E メールアドレスを提供している場合は、 E メール通知が送信されます。
+* StorageGRID SNMP エージェントが設定されている場合は、簡易ネットワーク管理プロトコル（ SNMP ）通知が送信されます。
+
+
+カスタムアラートの作成、アラートの編集または無効化、アラート通知の管理を行うことができます。
+
+詳細については、以下をご覧ください。
+
+* ビデオを確認します。 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["ビデオ:アラートの概要"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
+image::../media/video-screenshot-alert-overview-118.png[ビデオ:アラートの概要]
+
+* ビデオを確認します。 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3["ビデオ:カスタムアラート"^]
++
+[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=54af90c4-9a38-4136-9621-b1ff008604a3]
+image::../media/video-screenshot-alert-create-custom-118.png[ビデオ:カスタムアラート]
+
+* を参照してくださいlink:alerts-reference.html["アラート一覧"]。
+

@@ -1,0 +1,43 @@
+---
+permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
+sidebar: sidebar 
+keywords: ilm rule step 3, define ingest behavior 
+summary: Create ILM Ruleウィザードのステップ3 \（取り込み動作を選択\）では、このルールでフィルタされたオブジェクトを取り込み時に保護する方法を選択できます。 
+---
+= ステップ3 / 3：取り込み動作を選択します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Create ILM Ruleウィザードの* Select ingest behavior *ステップでは、このルールでフィルタされたオブジェクトを取り込み時に保護する方法を選択できます。
+
+.タスクの内容
+StorageGRID は、中間コピーを作成してオブジェクトをキューに登録し、あとで ILM 評価を実行するか、またはコピーを作成してルールの配置手順をすぐに満たすことができます。
+
+.手順
+. 使用するを選択しlink:data-protection-options-for-ingest.html["取り込み動作"]ます。
++
+詳細については、を参照してください link:advantages-disadvantages-of-ingest-options.html["取り込みオプションのメリット、デメリット、および制限事項"]。
+
++
+[NOTE]
+====
+ルールで次のいずれかの配置が使用されている場合は、BalancedオプションまたはStrictオプションは使用できません。
+
+** クラウドストレージプール： 0 日目
+** ルールがユーザ定義の作成時間を参照時間として使用している場合のクラウドストレージプール
+
+
+を参照して link:example-5-ilm-rules-and-policy-for-strict-ingest-behavior.html["例 5 ：取り込み動作が Strict の場合の ILM ルールとポリシー"]
+
+====
+. 「 * Create * 」を選択します。
++
+ILMルールが作成されます。ルールは、に追加されてポリシーがアクティブ化されるまでアクティブになりませんlink:creating-ilm-policy.html["ILMポリシー"]。
+
++
+ルールの詳細を表示するには、[ILM rules]ページでルールの名前を選択します。
+
+

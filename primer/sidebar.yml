@@ -1,0 +1,47 @@
+---
+section: primer
+title: StorageGRID の詳細をご覧ください
+entries:
+- title: StorageGRID とは
+  pdf-filename: StorageGRID グリッド入門
+  url: "/primer/index.html"
+- title: StorageGRID を使用したハイブリッドクラウド
+  url: "/primer/hybrid-clouds-with-storagegrid.html"
+- title: アーキテクチャとネットワークトポロジ
+  url: "/primer/storagegrid-architecture-and-network-topology.html"
+- title: グリッドノードおよびサービス
+  entries:
+  - title: ノードとサービス
+    url: "/primer/nodes-and-services.html"
+    pdf-filename: ノードとサービス
+  - title: 管理ノードとは
+    url: "/primer/what-admin-node-is.html"
+  - title: ストレージノードとは
+    url: "/primer/what-storage-node-is.html"
+  - title: ゲートウェイノードとは
+    url: "/primer/what-gateway-node-is.html"
+  - title: アーカイブノードとは
+    url: "/primer/what-archive-node-is.html"
+- title: StorageGRID によるデータの管理方法
+  entries:
+  - title: オブジェクトとは何ですか
+    pdf-filename: StorageGRID によるデータ管理の概要
+    url: "/primer/how-storagegrid-manages-data.html"
+  - title: オブジェクトのライフサイクル
+    url: "/primer/life-of-object.html"
+  - title: 取り込みのデータフロー
+    url: "/primer/ingest-data-flow.html"
+  - title: コピー管理
+    url: "/primer/copy-management.html"
+  - title: 読み出しのデータフロー
+    url: "/primer/retrieve-data-flow.html"
+  - title: データフローを削除します
+    url: "/primer/delete-data-flow.html"
+  - title: 情報ライフサイクル管理
+    url: "/primer/using-information-lifecycle-management.html"
+- title: StorageGRID の詳細をご覧ください
+  entries:
+  - title: Grid Manager を探索します
+    url: "/primer/exploring-grid-manager.html"
+  - title: Tenant Manager を確認します
+    url: "/primer/exploring-tenant-manager.html"

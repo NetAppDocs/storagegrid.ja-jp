@@ -1,0 +1,36 @@
+---
+permalink: fabricpool/best-practices-for-high-availability-groups.html 
+sidebar: sidebar 
+keywords: fabricPool, high availability group, HA group, active-active, active-backup, cloud tier, best practices 
+summary: StorageGRID をFabricPool クラウド階層として接続する前に、StorageGRID のハイアベイラビリティ（HA）グループについて確認し、FabricPool でHAグループを使用する場合のベストプラクティスを確認してください。 
+---
+= ハイアベイラビリティ（ HA ）グループのベストプラクティス
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID をFabricPool クラウド階層として接続する前に、StorageGRID のハイアベイラビリティ（HA）グループについて確認し、FabricPool でHAグループを使用する場合のベストプラクティスを確認してください。
+
+
+
+== HA グループとは何ですか？
+
+ハイアベイラビリティ（HA）グループは、複数のStorageGRID ゲートウェイノード、管理ノード、またはその両方のインターフェイスの集まりです。HAグループは、クライアントデータ接続の可用性を維持するのに役立ちます。HAグループのアクティブインターフェイスで障害が発生しても、FabricPool の処理にほとんど影響を与えずにバックアップインターフェイスでワークロードを管理できます。
+
+各 HA グループは、関連付けられたノード上の共有サービスへの可用性の高いアクセスを提供します。たとえば、ゲートウェイノード上のインターフェイスのみ、または管理ノードとゲートウェイノードの両方で構成される HA グループは、共有のロードバランササービスへの可用性の高いアクセスを提供します。
+
+ハイアベイラビリティグループの詳細については、を参照してくださいlink:../admin/managing-high-availability-groups.html["ハイアベイラビリティ（HA）グループを管理します"]。
+
+
+
+== HAグループを使用する
+
+FabricPool 用のStorageGRID HAグループを作成するためのベストプラクティスは、ワークロードによって異なります。
+
+* プライマリワークロードのデータでFabricPool を使用する場合は、データの読み出しが中断されないように、少なくとも2つのロードバランシングノードを含むHAグループを作成する必要があります。
+* FabricPool の snapshot-only のボリューム階層化ポリシーまたは非プライマリのローカルのパフォーマンス階層（ディザスタリカバリ先や NetApp SnapMirror ® デスティネーションなど）を使用する予定の場合は、 1 つのノードだけで HA グループを設定できます。
+
+
+ここでは、アクティブ / バックアップ HA の HA グループの設定（一方のノードがアクティブでもう一方のノードがバックアップ）について説明します。ただし、 DNS ラウンドロビンまたはアクティブ / アクティブ HA を使用することもできます。これらの他のHA構成の利点については、を参照してくださいlink:../admin/configuration-options-for-ha-groups.html["HA グループの設定オプション"]。

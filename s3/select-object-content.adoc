@@ -1,0 +1,182 @@
+---
+permalink: s3/select-object-content.html 
+sidebar: sidebar 
+keywords: SelectObjectContent, filter object content 
+summary: S3 SelectObjectContent 要求を使用すると、シンプルな SQL ステートメントに基づいて S3 オブジェクトのコンテンツをフィルタリングできます。 
+---
+= SelectObjectContent の順に選択します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 SelectObjectContent 要求を使用すると、シンプルな SQL ステートメントに基づいて S3 オブジェクトのコンテンツをフィルタリングできます。
+
+詳細については、を参照してください https://docs.aws.amazon.com/AmazonS3/latest/API/API_SelectObjectContent.html["Amazon Simple Storage Service APIリファレンス：SelectObjectContent"^]。
+
+.開始する前に
+* テナントアカウントには S3 Select 権限が割り当てられます。
+* 照会するオブジェクトに対する権限が `s3:GetObject`必要です。
+* 照会するオブジェクトは、次のいずれかの形式である必要があります。
++
+** * CSV *。そのまま使用することも、GZIPやbzip2のアーカイブに圧縮して使用することもできます。
+** *寄木細工*。寄木細工オブジェクトの追加要件：
++
+*** S3 Selectでは、GZIPまたはSnappyを使用したカラムナ圧縮のみがサポートされます。S3 Selectでは、寄木細工オブジェクトのオブジェクト全体の圧縮はサポートされません。
+*** S3 Selectは寄木細工の出力をサポートしていません。出力形式はCSVまたはJSONで指定する必要があります。
+*** 圧縮されていない行グループの最大サイズは512MBです。
+*** オブジェクトのスキーマで指定されているデータ型を使用する必要があります。
+*** interval、json、list、time、またはUUID論理型は使用できません。
+
+
+
+
+* SQL 式の最大長は 256KB です。
+* 入力または結果のすべてのレコードの最大長は 1MiB です。
+
+
+
+
+== CSV要求の構文例
+
+[source, asciidoc]
+----
+POST /{Key+}?select&select-type=2 HTTP/1.1
+Host: Bucket.s3.abc-company.com
+x-amz-expected-bucket-owner: ExpectedBucketOwner
+<?xml version="1.0" encoding="UTF-8"?>
+<SelectObjectContentRequest xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+   <Expression>string</Expression>
+   <ExpressionType>string</ExpressionType>
+   <RequestProgress>
+      <Enabled>boolean</Enabled>
+   </RequestProgress>
+   <InputSerialization>
+      <CompressionType>GZIP</CompressionType>
+      <CSV>
+         <AllowQuotedRecordDelimiter>boolean</AllowQuotedRecordDelimiter>
+         <Comments>#</Comments>
+         <FieldDelimiter>\t</FieldDelimiter>
+         <FileHeaderInfo>USE</FileHeaderInfo>
+         <QuoteCharacter>'</QuoteCharacter>
+         <QuoteEscapeCharacter>\\</QuoteEscapeCharacter>
+         <RecordDelimiter>\n</RecordDelimiter>
+      </CSV>
+   </InputSerialization>
+   <OutputSerialization>
+      <CSV>
+         <FieldDelimiter>string</FieldDelimiter>
+         <QuoteCharacter>string</QuoteCharacter>
+         <QuoteEscapeCharacter>string</QuoteEscapeCharacter>
+         <QuoteFields>string</QuoteFields>
+         <RecordDelimiter>string</RecordDelimiter>
+      </CSV>
+   </OutputSerialization>
+   <ScanRange>
+      <End>long</End>
+      <Start>long</Start>
+   </ScanRange>
+</SelectObjectContentRequest>
+----
+
+
+== 寄木リクエスト構文の例
+
+[source, asciidoc]
+----
+POST /{Key+}?select&select-type=2 HTTP/1.1
+Host: Bucket.s3.abc-company.com
+x-amz-expected-bucket-owner: ExpectedBucketOwner
+<?xml version="1.0" encoding="UTF-8"?>
+<SelectObjectContentRequest xmlns=http://s3.amazonaws.com/doc/2006-03-01/>
+   <Expression>string</Expression>
+   <ExpressionType>string</ExpressionType>
+   <RequestProgress>
+      <Enabled>boolean</Enabled>
+   </RequestProgress>
+   <InputSerialization>
+      <CompressionType>GZIP</CompressionType>
+      <PARQUET>
+      </PARQUET>
+   </InputSerialization>
+   <OutputSerialization>
+      <CSV>
+         <FieldDelimiter>string</FieldDelimiter>
+         <QuoteCharacter>string</QuoteCharacter>
+         <QuoteEscapeCharacter>string</QuoteEscapeCharacter>
+         <QuoteFields>string</QuoteFields>
+         <RecordDelimiter>string</RecordDelimiter>
+      </CSV>
+   </OutputSerialization>
+   <ScanRange>
+      <End>long</End>
+      <Start>long</Start>
+   </ScanRange>
+</SelectObjectContentRequest>
+----
+
+
+== SQL クエリの例
+
+このクエリは、州名、 2010 年人口、 2015 年推定人口、米国の人口調査データからの変化率を取得します。状態でないファイル内のレコードは無視されます。
+
+[listing]
+----
+SELECT STNAME, CENSUS2010POP, POPESTIMATE2015, CAST((POPESTIMATE2015 - CENSUS2010POP) AS DECIMAL) / CENSUS2010POP * 100.0 FROM S3Object WHERE NAME = STNAME
+----
+照会するファイルの最初の数行は `SUB-EST2020_ALL.csv`次のようになります。
+
+[listing]
+----
+SUMLEV,STATE,COUNTY,PLACE,COUSUB,CONCIT,PRIMGEO_FLAG,FUNCSTAT,NAME,STNAME,CENSUS2010POP,
+ESTIMATESBASE2010,POPESTIMATE2010,POPESTIMATE2011,POPESTIMATE2012,POPESTIMATE2013,POPESTIMATE2014,
+POPESTIMATE2015,POPESTIMATE2016,POPESTIMATE2017,POPESTIMATE2018,POPESTIMATE2019,POPESTIMATE042020,
+POPESTIMATE2020
+040,01,000,00000,00000,00000,0,A,Alabama,Alabama,4779736,4780118,4785514,4799642,4816632,4831586,
+4843737,4854803,4866824,4877989,4891628,4907965,4920706,4921532
+162,01,000,00124,00000,00000,0,A,Abbeville city,Alabama,2688,2705,2699,2694,2645,2629,2610,2602,
+2587,2578,2565,2555,2555,2553
+162,01,000,00460,00000,00000,0,A,Adamsville city,Alabama,4522,4487,4481,4474,4453,4430,4399,4371,
+4335,4304,4285,4254,4224,4211
+162,01,000,00484,00000,00000,0,A,Addison town,Alabama,758,754,751,750,745,744,742,734,734,728,
+725,723,719,717
+----
+
+
+== AWS-CLIの使用例（CSV）
+
+[listing]
+----
+aws s3api select-object-content --endpoint-url https://10.224.7.44:10443 --no-verify-ssl  --bucket 619c0755-9e38-42e0-a614-05064f74126d --key SUB-EST2020_ALL.csv --expression-type SQL --input-serialization '{"CSV": {"FileHeaderInfo": "USE", "Comments": "#", "QuoteEscapeCharacter": "\"", "RecordDelimiter": "\n", "FieldDelimiter": ",", "QuoteCharacter": "\"", "AllowQuotedRecordDelimiter": false}, "CompressionType": "NONE"}' --output-serialization '{"CSV": {"QuoteFields": "ASNEEDED", "QuoteEscapeCharacter": "#", "RecordDelimiter": "\n", "FieldDelimiter": ",", "QuoteCharacter": "\""}}' --expression "SELECT STNAME, CENSUS2010POP, POPESTIMATE2015, CAST((POPESTIMATE2015 - CENSUS2010POP) AS DECIMAL) / CENSUS2010POP * 100.0 FROM S3Object WHERE NAME = STNAME" changes.csv
+----
+出力ファイルの最初の数行は `changes.csv`次のようになります。
+
+[listing]
+----
+Alabama,4779736,4854803,1.5705260708959658022953568983726297854
+Alaska,710231,738430,3.9703983633493891424057806544631253775
+Arizona,6392017,6832810,6.8959922978928247531256565807005832431
+Arkansas,2915918,2979732,2.1884703204959810255295244928012378949
+California,37253956,38904296,4.4299724839960620557988526104449148971
+Colorado,5029196,5454328,8.4532796097030221132761578590295546246
+----
+
+
+== AWS-CLIの使用例（寄木細工）
+
+[listing]
+----
+aws s3api select-object-content  -endpoint-url https://10.224.7.44:10443 --bucket 619c0755-9e38-42e0-a614-05064f74126d --key SUB-EST2020_ALL.parquet --expression "SELECT STNAME, CENSUS2010POP, POPESTIMATE2015, CAST((POPESTIMATE2015 - CENSUS2010POP) AS DECIMAL) / CENSUS2010POP * 100.0 FROM S3Object WHERE NAME = STNAME" --expression-type 'SQL' --input-serialization '{"Parquet":{}}'  --output-serialization '{"CSV": {}}' changes.csv
+----
+出力ファイルの最初のいくつかの行は、.csvを変更します。次のようになります。
+
+[listing]
+----
+Alabama,4779736,4854803,1.5705260708959658022953568983726297854
+Alaska,710231,738430,3.9703983633493891424057806544631253775
+Arizona,6392017,6832810,6.8959922978928247531256565807005832431
+Arkansas,2915918,2979732,2.1884703204959810255295244928012378949
+California,37253956,38904296,4.4299724839960620557988526104449148971
+Colorado,5029196,5454328,8.4532796097030221132761578590295546246
+----

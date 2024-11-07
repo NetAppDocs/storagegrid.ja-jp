@@ -1,0 +1,62 @@
+---
+permalink: troubleshoot/troubleshooting-metadata-issues.html 
+sidebar: sidebar 
+keywords: how to troubleshoot metadata issues 
+summary: メタデータに問題が発生した場合は、問題の原因と推奨される対処方法をアラートで通知します。特に、Low metadata storageアラートがトリガーされた場合は、新しいストレージノードを追加する必要があります。 
+---
+= メタデータに関する問題のトラブルシューティング
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+メタデータに問題が発生した場合は、問題の原因と推奨される対処方法をアラートで通知します。特に、Low metadata storageアラートがトリガーされた場合は、新しいストレージノードを追加する必要があります。
+
+.開始する前に
+Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+
+.タスクの内容
+メタデータ関連アラートがトリガーされたそれぞれの推奨される対処方法に従います。Low metadata storage * アラートがトリガーされた場合は、新しいストレージノードを追加する必要があります。
+
+StorageGRID は、各ストレージノードのボリューム 0 上にオブジェクトメタデータ用に一定量のスペースをリザーブします。このスペースは_actualリザーブスペース_と呼ばれ、オブジェクトメタデータに使用できるスペース（使用できるメタデータスペース）と、コンパクションや修復などの重要なデータベース処理に必要なスペースに分割されます。許可されるメタデータスペースは、オブジェクトの全体的な容量を決定します。
+
+image::../media/metadata_allowed_space_volume_0.png[Metadata Allowed Space ：ボリューム 0]
+
+オブジェクトメタデータがメタデータに使用できるスペースの100%を超えると、データベース処理を効率的に実行できず、エラーが発生します。
+
+link:../monitor/monitoring-storage-capacity.html#monitor-object-metadata-capacity-for-each-storage-node["各ストレージノードのオブジェクトメタデータ容量を監視します"]エラーを予測し、発生する前に修正するのに役立ちます。
+
+StorageGRID は、次の Prometheus 指標を使用して、許可されているメタデータスペースの使用状況を測定します。
+
+[listing]
+----
+storagegrid_storage_utilization_metadata_bytes/storagegrid_storage_utilization_metadata_allowed_bytes
+----
+この Prometheus 式が特定のしきい値に達すると、 * Low metadata storage * アラートがトリガーされます。
+
+* * Minor * ：オブジェクトメタデータが、許可されているメタデータスペースの 70% 以上を使用しています。できるだけ早く新しいストレージノードを追加する必要があります。
+* * Major * ：オブジェクトメタデータが使用しているメタデータスペースが 90% 以上あります。すぐに新しいストレージノードを追加する必要があります。
++
+
+CAUTION: オブジェクトメタデータが使用可能なメタデータスペースの90%以上を使用している場合は、ダッシュボードに警告が表示されます。この警告が表示された場合は、すぐに新しいストレージノードを追加する必要があります。オブジェクトメタデータの使用量は、使用できるスペースの 100% を超えないようにする必要があります。
+
+* * クリティカル * ：オブジェクトメタデータが使用可能なメタデータスペースの 100% 以上を使用しており、重要なデータベース処理に必要なスペースを使い始めています。新しいオブジェクトの取り込みを停止し、すぐに新しいストレージノードを追加する必要があります。
+
+
+
+CAUTION: ボリューム 0 のサイズが Metadata Reserved Space ストレージオプションより小さい場合（非本番環境など）は、「 Low metadata storage * 」アラートが正確に計算されないことがあります。
+
+.手順
+. [ * alerts * > * current * ] を選択します。
+. アラートの表で、必要に応じて「 * Low metadata storage * 」アラートグループを展開し、表示する特定のアラートを選択します。
+. アラートダイアログボックスで詳細を確認します。
+. Major または Critical の * Low metadata storage * アラートがトリガーされた場合は、すぐに拡張を実行してストレージノードを追加します。
++
+
+NOTE: StorageGRID は各サイトですべてのオブジェクトメタデータの完全なコピーを保持するため、グリッド全体のメタデータ容量は最も小規模なサイトのメタデータ容量によって制限されます。1つのサイトにメタデータ容量を追加する必要がある場合は、同じ数のストレージノードも必要ですlink:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["他のサイトを展開します"]。
+
++
+拡張の実行後、 StorageGRID によって既存のオブジェクトメタデータが新しいノードに再配分され、グリッドの全体的なメタデータ容量が増加します。ユーザによる操作は必要ありません。Low metadata storage * アラートがクリアされます。
+
+

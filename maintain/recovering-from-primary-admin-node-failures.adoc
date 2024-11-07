@@ -1,0 +1,30 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node failure 
+summary: プライマリ管理ノードの障害からリカバリするには、特定のタスクを実行する必要があります。プライマリ管理ノードは、グリッドの Configuration Management Node \ （ CMN \ ）サービスをホストします。 
+---
+= プライマリ管理ノードの障害からリカバリします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プライマリ管理ノードの障害からリカバリするには、特定のタスクを実行する必要があります。プライマリ管理ノードは、グリッドの Configuration Management Node （ CMN ）サービスをホストします。
+
+
+CAUTION: 障害が発生したプライマリ管理ノードはすぐに修復または交換する必要があります。そうしないと、グリッドが新しいオブジェクトを取り込めなくなる可能性があります。正確な期間はオブジェクトの取り込み頻度によって異なります。お使いのグリッドでの正確な期間が必要な場合は、テクニカルサポートにお問い合わせください。
+
+プライマリ管理ノード上の Configuration Management Node （ CMN ）サービスは、グリッドに対してオブジェクト ID のブロックを発行します。これらの ID は、オブジェクトの取り込み時にオブジェクトに割り当てられます。使用可能な識別子がないと、新しいオブジェクトを取り込むことはできません。グリッドには約 1 カ月分の ID がキャッシュされているため、 CMN を使用できない場合でもオブジェクトの取り込みを続行できます。ただし、キャッシュされた識別子を使い切ると、新しいオブジェクトを追加できなくなります。
+
+プライマリ管理ノードをリカバリするには、次の手順を実行します。
+
+. link:copying-audit-logs-from-failed-primary-admin-node.html["障害が発生したプライマリ管理ノードから監査ログをコピーする"]
+. link:replacing-primary-admin-node.html["プライマリ管理ノードを交換"]
+. link:configuring-replacement-primary-admin-node.html["交換用プライマリ管理ノードの設定"]
+. link:assess-hotfix-requirement-during-primary-admin-node-recovery.html["リカバリされたプライマリ管理ノードにホットフィックスの要件があるかどうかを確認します。"]
+. link:restoring-audit-log-on-recovered-primary-admin-node.html["リカバリされたプライマリ管理ノードで監査ログをリストアする"]
+. link:restoring-admin-node-database-primary-admin-node.html["プライマリ管理ノードをリカバリする際の管理ノードデータベースのリストア"]
+. link:restoring-prometheus-metrics-primary-admin-node.html["プライマリ管理ノードをリカバリする際にPrometheus指標をリストアする"]
+

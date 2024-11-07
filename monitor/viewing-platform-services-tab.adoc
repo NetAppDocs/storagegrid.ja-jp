@@ -1,0 +1,20 @@
+---
+permalink: monitor/viewing-platform-services-tab.html 
+sidebar: sidebar 
+keywords: platform services tab 
+summary: プラットフォームサービスタブには、サイトでの S3 プラットフォームサービスの処理に関する情報が表示されます。 
+---
+= プラットフォームサービスタブを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プラットフォームサービスタブには、サイトでの S3 プラットフォームサービスの処理に関する情報が表示されます。
+
+各サイトの [ プラットフォームサービス ] タブが表示されます。このタブには、 CloudMirror レプリケーションや検索統合サービスなどの S3 プラットフォームサービスに関する情報が表示されます。このタブのグラフには、保留中の要求数、要求の完了率、要求の失敗率などの指標が表示されます。
+
+image::../media/nodes_page_site_level_platform_services.gif[ノードページサイトレベルのプラットフォームサービス]
+
+S3プラットフォームサービスの詳細（トラブルシューティングの詳細を含む）については、を参照してくださいlink:../admin/index.html["StorageGRID の管理手順"]。

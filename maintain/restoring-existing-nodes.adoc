@@ -1,0 +1,220 @@
+---
+permalink: maintain/restoring-existing-nodes.html 
+sidebar: sidebar 
+keywords: recover, restore node to host, node configuration file, start host service 
+summary: 障害グリッドノードを新しいLinuxホストにリストアするには、次の手順を実行してノード構成ファイルをリストアします。 
+---
+= グリッドノードをホストにリストアします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+障害グリッドノードを新しいLinuxホストにリストアするには、次の手順を実行してノード構成ファイルをリストアします。
+
+. <<restore-validate-grid-nodes,ノードをリストアして検証>>ノード構成ファイルをリストアする。新規インストールの場合は、ホストにインストールするグリッドノードごとにノード構成ファイルを作成します。交換ホストにグリッドノードをリストアするときは、障害グリッドノードのノード構成ファイルをリストアまたは交換します。
+. <<start-storagegrid-host-service,StorageGRID ホストサービスを開始します>>です。
+. 必要に応じて、<<recover-nodes-fail-start,起動しないノードをリカバリ>>。
+
+
+以前のホストのブロックストレージボリュームが保持されている場合は、追加のリカバリ手順の実行が必要になることがあります。このセクションのコマンドを使用して、必要な追加手順を特定できます。
+
+
+
+== グリッドノードをリストアして検証する
+
+障害グリッドノードのグリッド構成ファイルをリストアして検証し、エラーをすべて解決する必要があります。
+
+.タスクの内容
+前のホストの障害によってボリュームが失われていないかぎり、ホストに必要なグリッドノードをインポートできます。 `/var/local`たとえば、使用しているLinuxオペレーティングシステムでのStorageGRIDのインストール手順に従って、StorageGRIDシステムのデータボリュームに共有ストレージを使用していた場合は、 `/var/local`ボリュームが残っている可能性があります。ノードをインポートすると、ノード構成ファイルがホストにリストアされます。
+
+欠落しているノードをインポートできない場合は、ノードのグリッド構成ファイルを再作成する必要があります。
+
+次に、 StorageGRID の再起動に進む前に、グリッド構成ファイルを検証し、予想されるネットワークまたはストレージの問題を解決する必要があります。ノードの構成ファイルを再作成する場合は、リカバリするノードに使用されていたのと同じ名前を交換用ノードに使用する必要があります。
+
+ノードのボリュームの場所の詳細については、インストール手順を参照してください `/var/local`。
+
+* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
+* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
+
+
+.手順
+. リカバリしたホストのコマンドラインで、現在設定されているすべてのStorageGRIDノードを一覧表示します。``sudo storagegrid node list``
++
+グリッドノードが設定されていない場合、出力は表示されません。グリッドノードが設定されている場合は、次の形式で出力が表示されます。
+
++
+[listing]
+----
+Name               Metadata-Volume
+================================================================
+dc1-adm1           /dev/mapper/sgws-adm1-var-local
+dc1-gw1            /dev/mapper/sgws-gw1-var-local
+dc1-sn1            /dev/mapper/sgws-sn1-var-local
+dc1-arc1           /dev/mapper/sgws-arc1-var-local
+----
++
+ホストで設定する必要があるグリッドノードの一部またはすべてが表示されない場合は、表示されないグリッドノードをリストアする必要があります。
+
+. ボリュームを含むグリッドノードをインポートするには `/var/local`：
++
+.. インポートする各ノードに対して次のコマンドを実行します。``sudo storagegrid node import node-var-local-volume-path``
++
+ `storagegrid node import`コマンドが成功するのは、ターゲットノードが最後に実行されたホストでクリーンシャットダウンされている場合だけです。そうでない場合は、次のようなエラーが表示されます。
+
++
+`This node (_node-name_) appears to be owned by another host (UUID host-uuid).`
+
++
+`Use the --force flag if you are sure import is safe.`
+
+.. 別のホストが所有しているノードに関するエラーが表示された場合は、フラグを指定してコマンドをもう一度実行し `--force`、インポートを完了します。``sudo storagegrid --force node import node-var-local-volume-path``
++
+
+NOTE: フラグを指定してインポートされたノードが `--force`グリッドに再参加できるようにするには、追加のリカバリ手順が必要です（を参照）link:whats-next-performing-additional-recovery-steps-if-required.html["次の手順：必要に応じて追加のリカバリ手順を実行します"]。
+
+
+
+. ボリュームがないグリッドノードの `/var/local`場合は、ノードの構成ファイルを再作成してホストにリストアします。手順については、次を参照してください。
++
+** link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linuxのノード構成ファイルの作成"]
+** link:../ubuntu/creating-node-configuration-files.html["UbuntuまたはDebianのノード構成ファイルを作成します"]
++
+
+NOTE: ノードの構成ファイルを再作成する場合は、リカバリするノードに使用されていたのと同じ名前を交換用ノードに使用する必要があります。Linux 環境の場合は、構成ファイルの名前にノード名が含まれていることを確認します。可能な場合は、同じネットワークインターフェイス、ブロックデバイスマッピング、および IP アドレスを使用してください。これにより、リカバリ時にノードにコピーしなければならないデータ量を最小限に抑えることができるため、リカバリにかかる時間を大幅に（場合によっては、数週間から数分に）短縮できます。
+
++
+
+NOTE: ノードの構成ファイルを再作成するときに、で始まる構成変数の値として新しいブロックデバイス（StorageGRIDノードで以前に使用していなかったデバイス）を使用する場合 `BLOCK_DEVICE_`は、のガイドラインに従ってください<<fix-block-errors,ブロックデバイスが見つからないエラーを修正します>>。
+
+
+
+. リカバリしたホストで次のコマンドを実行して、すべての StorageGRID ノードを一覧表示します。
++
+`sudo storagegrid node list`
+
+. StorageGRID のノードリストの出力に表示されている各グリッドノードのノード構成ファイルを検証します。
++
+`sudo storagegrid node validate _node-name_`
+
++
+StorageGRID ホストサービスを開始する前に、すべてのエラーまたは警告に対処する必要があります。以下のセクションでは、リカバリ時に特に問題となるエラーについて詳しく説明します。
+
+
+
+
+
+=== ネットワークインターフェイスが見つからないエラーを修正
+
+ホストネットワークが正しく設定されていない場合や名前のスペルが間違っている場合は、StorageGRIDがファイルに指定されているマッピングをチェックするときにエラーが発生し `/etc/storagegrid/nodes/_node-name_.conf`ます。
+
+次のエラーまたは警告が表示されることがあります。
+
+[listing]
+----
+Checking configuration file /etc/storagegrid/nodes/<node-name>.conf for node <node-name>...
+ERROR: <node-name>: GRID_NETWORK_TARGET = <host-interface-name>
+       <node-name>: Interface <host-interface-name>' does not exist
+----
+エラーは、グリッドネットワーク、管理ネットワーク、またはクライアントネットワークについて報告される場合があります。このエラーは、ファイルが指定されたStorageGRIDネットワークをという名前のホストインターフェイスにマッピングしている `_host-interface-name_`が、現在のホストにその名前のインターフェイスがないことを意味します `/etc/storagegrid/nodes/_node-name_.conf`。
+
+このエラーが表示された場合は、の手順を完了していることを確認してくださいlink:deploying-new-linux-hosts.html["新しい Linux ホストを導入する"]。すべてのホストインターフェイスに、元のホストで使用されていた名前と同じ名前を使用します。
+
+ノード構成ファイルに指定されている名前をホストインターフェイスに付けることができない場合は、ノード構成ファイルを編集して、 GRID_NETWORK_TARGET 、 ADMIN_NETWORK_TARGET 、または CLIENT_network_target の値を既存のホストインターフェイスに一致するように変更できます。
+
+ホストインターフェイスが適切な物理ネットワークポートまたは VLAN へのアクセスを提供し、インターフェイスがボンドデバイスまたはブリッジデバイスを直接参照していないことを確認してください。ホストのボンドデバイスの上に VLAN （または他の仮想インターフェイス）を設定するか、ブリッジと仮想イーサネット（ veth ）のペアを使用する必要があります。
+
+
+
+=== ブロックデバイスが見つからないエラーを修正します
+
+システムは、リカバリされた各ノードが有効なブロックデバイススペシャルファイル、またはブロックデバイススペシャルファイルへの有効なソフトリンクにマッピングされていることを確認します。StorageGRIDがファイル内で無効なマッピングを検出すると、 `/etc/storagegrid/nodes/_node-name_.conf`ブロックデバイスが見つからないというエラーが表示されます。
+
+次のエラーが発生することがあります。
+
+[listing]
+----
+Checking configuration file /etc/storagegrid/nodes/<node-name>.conf for node <node-name>...
+ERROR: <node-name>: BLOCK_DEVICE_PURPOSE = <path-name>
+       <node-name>: <path-name> does not exist
+----
+つまり、_node-name_forで使用されるブロックデバイスがLinuxファイルシステム内の指定されたパス名にマッピングされ `PURPOSE`ますが、その場所に有効なブロックデバイススペシャルファイルまたはブロックデバイススペシャルファイルへのソフトリンクがないことを意味します `/etc/storagegrid/nodes/_node-name_.conf`。
+
+の手順が完了していることを確認しますlink:deploying-new-linux-hosts.html["新しい Linux ホストを導入する"]。すべてのブロックデバイスに、元のホストで使用されていたのと同じ永続的なデバイス名を使用します。
+
+見つからないブロックデバイススペシャルファイルをリストアまたは再作成できない場合は、適切なサイズとストレージカテゴリの新しいブロックデバイスを割り当て、ノード構成ファイルを編集して、新しいブロックデバイススペシャルファイルを参照するようにの値を変更します `BLOCK_DEVICE_PURPOSE`。
+
+Linuxオペレーティングシステムに対応した表を使用して、適切なサイズとストレージカテゴリを決定します。
+
+* link:../rhel/storage-and-performance-requirements.html["Red Hat Enterprise Linuxのストレージとパフォーマンスの要件"]
+* link:../ubuntu/storage-and-performance-requirements.html["UbuntuまたはDebianのストレージとパフォーマンスの要件"]
+
+
+ブロックデバイスの交換に進む前に、ホストストレージの設定に関する推奨事項を確認してください。
+
+* link:../rhel/configuring-host-storage.html["Red Hat Enterprise Linux用のホストストレージの設定"]
+* link:../ubuntu/configuring-host-storage.html["UbuntuまたはDebian用のホストストレージを設定します"]
+
+
+
+NOTE: 障害が発生したホストで元のブロックデバイスが失われたために、で始まる構成ファイルの変数に新しいブロックストレージデバイスを指定する必要がある場合は `BLOCK_DEVICE_`、リカバリ手順を実行する前に新しいブロックデバイスがフォーマットされていないことを確認してください。共有ストレージを使用していて新しいボリュームを作成済みの場合、新しいブロックデバイスはアンフォーマットされます。状況がわからない場合は、新しいブロックストレージデバイスのスペシャルファイルに対して次のコマンドを実行します。
+
+[CAUTION]
+====
+次のコマンドは、新しいブロックストレージデバイスに対してのみ実行してください。デバイス上のデータはすべて失われるため、リカバリ対象のノードの有効なデータがブロックストレージに残っていると思われる場合は、このコマンドを実行しないでください。
+
+`sudo dd if=/dev/zero of=/dev/mapper/my-block-device-name bs=1G count=1`
+
+====
+
+
+== StorageGRID ホストサービスを開始する
+
+StorageGRID ノードを起動し、ホストのリブート後もノードが再起動されるようにするには、 StorageGRID ホストサービスを有効にして開始する必要があります。
+
+.手順
+. 各ホストで次のコマンドを実行します。
++
+[listing]
+----
+sudo systemctl enable storagegrid
+sudo systemctl start storagegrid
+----
+. 次のコマンドを実行して、導入の進行状況を確認します。
++
+[listing]
+----
+sudo storagegrid node status node-name
+----
+. いずれかのノードのステータスが「Not Running」または「Stopped」になった場合は、次のコマンドを実行します。
++
+[listing]
+----
+sudo storagegrid node start node-name
+----
+. StorageGRID ホストサービスを以前に有効にして開始している場合（またはサービスを有効にして開始したかどうかがわからない場合）は、次のコマンドも実行します。
++
+[listing]
+----
+sudo systemctl reload-or-restart storagegrid
+----
+
+
+
+
+== 正常に開始しないノードをリカバリします
+
+StorageGRID ノードがグリッドに正常に再参加できずリカバリ可能と表示されない場合は、ノードが破損している可能性があります。ノードを強制的にリカバリモードに設定することができます。
+
+.手順
+. ノードのネットワーク設定が正しいことを確認します。
++
+ネットワークインターフェイスのマッピングまたはグリッドネットワークのIPアドレス/ゲートウェイが正しくないため、ノードがグリッドに再参加できなかった可能性があります。
+
+. ネットワーク設定が正しい場合は、次のコマンドを実行し `force-recovery`ます。
++
+`sudo storagegrid node force-recovery _node-name_`
+
+. ノードに対して追加のリカバリ手順を実行します。を参照して link:whats-next-performing-additional-recovery-steps-if-required.html["次の手順：必要に応じて追加のリカバリ手順を実行します"]
+

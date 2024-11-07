@@ -1,0 +1,80 @@
+---
+permalink: maintain/restoring-network-connectivity-for-isolated-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
+summary: 状況によっては、1つ以上のノードグループがグリッドの残りの部分にアクセスできない場合があります。たとえば、サイト全体またはグリッド全体でIPアドレスを変更すると、ノードが分離される可能性があります。 
+---
+= 分離されているノードのネットワーク接続をリストア
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+状況によっては、1つ以上のノードグループがグリッドの残りの部分にアクセスできない場合があります。たとえば、サイト全体またはグリッド全体でIPアドレスを変更すると、ノードが分離される可能性があります。
+
+.タスクの内容
+ノードの分離は次のように表示されます。
+
+* などのアラート：*ノードと通信できません*（*アラート*>*現在の*）
+* 接続関連の診断（* support *>* Tools *>* Diagnostics*）
+
+
+分離されているノードがあると、次のような影響があります。
+
+* 複数のノードが分離されていると、 Grid Manager へのサインインやアクセスができなくなる可能性があります。
+* 複数のノードが分離されている場合は、Tenant Managerのダッシュボードに表示されるストレージ使用量とクォータの値が最新でない可能性があります。合計はネットワーク接続が回復すると更新されます。
+
+
+分離問題 を解決するには、グリッドから分離されている各分離ノードまたはグループ内の 1 つ（プライマリ管理ノードを含まないサブネット内のすべてのノード）で、コマンドラインユーティリティを実行します。このユーティリティは、グリッド内の分離されていないノードの IP アドレスをノードに提供します。これにより、分離されているノードまたはノードのグループがグリッド全体に再びアクセスできるようになります。
+
+
+NOTE: ネットワークでマルチキャストドメインネームシステム（mDNS）が無効になっている場合は、分離された各ノードでコマンドラインユーティリティを実行する必要があります。
+
+.手順
+この手順は、一部のサービスのみがオフラインである場合、または通信エラーが報告されている場合は適用されません。
+
+. ノードにアクセスして分離に関するメッセージを確認します `/var/local/log/dynip.log`。
++
+例：
+
++
+[listing]
+----
+[2018-01-09T19:11:00.545] UpdateQueue - WARNING -- Possible isolation, no contact with other nodes.
+If this warning persists, manual action might be required.
+----
++
+VMware コンソールを使用している場合は、ノードが分離された可能性があることを示すメッセージが含まれます。
+
++
+Linux環境では、分離メッセージがファイルに表示されます `/var/log/storagegrid/node/<nodename>.log`。
+
+. 分離に関するメッセージが繰り返し表示され、保持されている場合は、次のコマンドを実行します。
++
+`add_node_ip.py <address>`
+
++
+ `<address>`は、グリッドに接続されているリモートノードのIPアドレスです。
+
++
+[listing]
+----
+# /usr/sbin/add_node_ip.py  10.224.4.210
+
+Retrieving local host information
+Validating remote node at address 10.224.4.210
+Sending node IP hint for 10.224.4.210 to local node
+Local node found on remote node. Update complete.
+----
+. 分離されていた各ノードについて、次の点を確認します。
++
+** ノードのサービスが開始されている。
+** コマンドの実行後、動的IPサービスのステータスは「Running」になります `storagegrid-status`。
+** [Nodes]ページで、ノードがグリッドの残りの部分から切断されていると表示されなくなります。
+
+
+
+
+
+NOTE: コマンドを実行しても問題が解決しない場合 `add_node_ip.py`は、解決が必要な他のネットワークの問題がある可能性があります。

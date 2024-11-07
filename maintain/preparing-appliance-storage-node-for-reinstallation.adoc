@@ -1,0 +1,43 @@
+---
+permalink: maintain/preparing-appliance-storage-node-for-reinstallation.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
+summary: アプライアンスストレージノードをリカバリする場合は、最初に StorageGRID ソフトウェアを再インストールするアプライアンスを準備する必要があります。 
+---
+= 再インストールのためのアプライアンスストレージノードの準備
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+アプライアンスストレージノードをリカバリする場合は、最初に StorageGRID ソフトウェアを再インストールするアプライアンスを準備する必要があります。
+
+.手順
+. 障害が発生したストレージノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. StorageGRIDソフトウェアをインストールするためのアプライアンスストレージノードを準備します。 `sgareinstall`
+. 続行するかどうかを確認するメッセージが表示されたら、 `y`
++
+アプライアンスがリブートされ、 SSH セッションが終了します。通常は 5 分程度で StorageGRID アプライアンスインストーラが使用可能になりますが、場合によっては最大で 30 分待つ必要があります。
+
++
+
+CAUTION: 電源を再投入したり、アプライアンスをリセットしたりして、リブートを高速化しようとしないでください。BIOS、BMC、またはその他のファームウェアの自動アップグレードを中断することがあります。
+
++
+StorageGRID アプライアンスストレージノードがリセットされ、ストレージノード上のデータにアクセスできなくなります。元のインストールプロセスで設定した IP アドレスはそのまま使用する必要がありますが、手順 の完了時に確認しておくことを推奨します。
+
++
+コマンドの実行後、 `sgareinstall`StorageGRIDでプロビジョニングされたアカウント、パスワード、およびSSHキーがすべて削除され、新しいホストキーが生成されます。
+
+

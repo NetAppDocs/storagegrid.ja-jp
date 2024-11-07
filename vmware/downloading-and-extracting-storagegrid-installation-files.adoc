@@ -1,0 +1,141 @@
+---
+permalink: vmware/downloading-and-extracting-storagegrid-installation-files.html 
+sidebar: sidebar 
+keywords: how to download vmware installation files 
+summary: StorageGRID インストールアーカイブをダウンロードし、ファイルを展開する必要があります。必要に応じて、インストールパッケージ内のファイルを手動で検証できます。 
+---
+= StorageGRID インストールファイルをダウンロードして展開します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID インストールアーカイブをダウンロードし、ファイルを展開する必要があります。必要に応じて、インストールパッケージ内のファイルを手動で検証できます。
+
+.手順
+. に進みます https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["ネットアップの StorageGRID ダウンロードページ"^]。
+. 最新のリリースをダウンロードするボタンを選択するか、ドロップダウンメニューから別のバージョンを選択して、「 * Go * 」を選択します。
+. ネットアップアカウントのユーザ名とパスワードを使用してサインインします。
+. Caution/MustRead文が表示された場合は'その文を読み'チェックボックスをオンにします
++
+
+CAUTION: StorageGRID リリースのインストール後に、必要な修正プログラムを適用する必要があります。詳細については、link:../maintain/storagegrid-hotfix-procedure.html["リカバリとメンテナンスの手順の Hotfix 手順"]
+
+. [End User License Agreement]を読み、チェックボックスをオンにして、*[Accept & Continue]*を選択します。
+. [Install StorageGRID *]列で、VMwareの.tgzまたは.zipインストールアーカイブを選択します。
++
+
+NOTE: サービスラップトップでWindowsを実行している場合は、ファイルを使用し `.zip`ます。
+
+. インストールアーカイブを保存します。
+. [[vmware-download-verification-package]]インストールアーカイブを検証する必要がある場合は、次の手順を実行します。
++
+.. StorageGRIDコード署名検証パッケージをダウンロードします。このパッケージのファイル名はの形式を使用し `StorageGRID_<version-number>_Code_Signature_Verification_Package.tar.gz`ます。 `<version-number>`はStorageGRIDソフトウェアのバージョンです。
+.. 手順~を実行しlink:../vmware/download-files-verify.html["インストールファイルを手動で検証する"]ます。
+
+
+. インストールアーカイブからファイルを展開します。
+. 必要なファイルを選択します。
++
+必要なファイルは、計画したグリッドトポロジおよび StorageGRID システムの導入方法によって異なります。
+
+
+
+
+NOTE: 次の表に示すパスは、展開されたインストールアーカイブによってインストールされた最上位ディレクトリに対する相対パスです。
+
+[cols="1a,1a"]
+|===
+| パスとファイル名 | 製品説明 
+
+
+| ./vsphere/README （ ./vsphere/README  a| 
+StorageGRID ダウンロードファイルに含まれているすべてのファイルについて説明するテキストファイル。
+
+
+
+| ./vsphere/NLF000000.txt にアクセスします  a| 
+製品サポートのない無償ライセンス。
+
+
+
+| ./vsphere/NetApp-SG-version-sha.vmdk  a| 
+グリッドノード仮想マシンを作成するためのテンプレートとして使用される仮想マシンディスクファイル。
+
+
+
+| ./vsphere/vsphere-primary-admin.ovf ./vsphere-primary-admin.mf  a| 
+(`.mf`プライマリ管理ノードを導入するためのOpen Virtualization Formatテンプレートファイル）(`.ovf`とマニフェストファイル
+
+
+
+| ./vsphere/vsphere-non-primary-admin.ovf ./vsphere/vsphere-non-primary-admin.mf  a| 
+テンプレートファイル(`.ovf`）とマニフェストファイル(`.mf`）。非プライマリ管理ノードを導入するためのものです。
+
+
+
+| ./vsphere/vsphere-gateway.ovf ./vsphere/vsphere-gateway.mf  a| 
+テンプレートファイル(`.ovf`）とマニフェストファイル(`.mf`）を使用してゲートウェイノードを導入します。
+
+
+
+| ./vsphere/vsphere-storage.OVF ./vsphere/vsphere-storage.mf  a| 
+(`.mf`仮想マシンベースのストレージノードを導入するためのテンプレートファイル(`.ovf`とマニフェストファイル）
+
+
+
+| 導入スクリプトツール | 製品説明 
+
+
+| ./vsphere/deploy-vsphere-ovftool.sh にアクセスします  a| 
+仮想グリッドノードの導入を自動化するための Bash シェルスクリプト。
+
+
+
+| ./vsphere/deploy-vsphere-ovftool-sample.ini にアクセスします  a| 
+スクリプトで使用する構成ファイルの例 `deploy-vsphere-ovftool.sh`。
+
+
+
+| ./vsphere/configure-storagegrid.py にアクセスします  a| 
+StorageGRID システムの設定を自動化するための Python スクリプト。
+
+
+
+| ./vsphere/configure-sga.py にアクセスします  a| 
+StorageGRID アプライアンスの設定を自動化するための Python スクリプト。
+
+
+
+| ./vsphere/storagegrid-ssoauth.py にアクセスします  a| 
+シングルサインオン（SSO）が有効な場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。このスクリプトは、Pingフェデレーション統合にも使用できます。
+
+
+
+| ./vsphere/configure -storagegrid-sample.json という形式で実行します  a| 
+スクリプトで使用する構成ファイルの例 `configure-storagegrid.py`。
+
+
+
+| ./vsphere/configure -storagegrid-bank.json （ページ構成  a| 
+スクリプトで使用する空の構成ファイル `configure-storagegrid.py`。
+
+
+
+| ./vsphere/storagegrid-ssoauth-azure.pyを参照してください  a| 
+Active DirectoryまたはPingフェデレーションを使用してシングルサインオン（SSO）が有効になっている場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。
+
+
+
+| ./vsphere/storagegrid-ssoauth-azure.js  a| 
+関連するPythonスクリプトによって呼び出され、AzureとのSSO対話を実行するヘルパースクリプト `storagegrid-ssoauth-azure.py`。
+
+
+
+| ./vsphere/extra/api-schemas  a| 
+StorageGRID の API スキーマ
+
+*注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
+
+|===

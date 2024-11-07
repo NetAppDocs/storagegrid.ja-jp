@@ -1,0 +1,39 @@
+---
+permalink: audit/accessing-audit-log-file.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, log, log file, access, accessing 
+summary: 監査共有には、アクティブな audit.log ファイルと圧縮された監査ログファイルが含まれています。監査ログファイルには、管理ノードのコマンドラインから直接アクセスできます。 
+---
+= 監査ログファイルにアクセスします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+監査共有には、アクティブなファイルと圧縮された監査ログファイルが格納され `audit.log`ます。監査ログファイルには、管理ノードのコマンドラインから直接アクセスできます。
+
+.開始する前に
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+* ファイルが必要 `Passwords.txt`です。
+* 管理ノードの IP アドレスを確認しておく必要があります。
+
+
+.手順
+. 管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+
+
+. 監査ログファイルが保存されているディレクトリに移動します。
++
+`cd /var/local/log`
+
+. 必要に応じて、現在の監査ログファイルまたは保存された監査ログファイルを表示します。
+

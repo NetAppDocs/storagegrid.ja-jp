@@ -1,0 +1,406 @@
+---
+permalink: maintain/gathering-required-materials-for-grid-node-recovery.html 
+sidebar: sidebar 
+keywords: storagegrid, recovery, grid node recovery, node recovery 
+summary: メンテナンス手順を実行する前に、障害グリッドノードのリカバリに必要な情報、ファイル、機器などが揃っていることを確認する必要があります。 
+---
+= グリッドノードのリカバリに必要な項目を収集します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+メンテナンス手順を実行する前に、障害グリッドノードのリカバリに必要な情報、ファイル、機器などが揃っていることを確認する必要があります。
+
+[cols="1a,2a"]
+|===
+| 項目 | 脚注 
+
+
+ a| 
+StorageGRID インストールアーカイブ
+ a| 
+グリッドノードのリカバリが必要な場合は、プラットフォームに応じてを実行する必要があり<<download-and-extract-install-files-recover,StorageGRID インストールファイルをダウンロードします>>ます。
+
+*注：*ストレージノードで障害ストレージボリュームをリカバリする場合は、ファイルをダウンロードする必要はありません。
+
+
+
+ a| 
+サービスラップトップ
+ a| 
+サービスラップトップには次のものが必要です。
+
+* ネットワークポート
+* SSH クライアント（ PuTTY など）
+* link:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]
+
+
+
+
+ a| 
+リカバリパッケージ `.zip`ファイル
+ a| 
+最新のリカバリパッケージファイルのコピーを取得し `.zip`ます。
+`sgws-recovery-package-_id-revision_.zip`
+
+ファイルの内容 `.zip`は、システムが変更されるたびに更新されます。そのような変更を行うと、最新バージョンのリカバリパッケージを安全な場所に保管するよう求められます。グリッド障害からリカバリするには、最新のコピーを使用します。
+
+プライマリ管理ノードが正常に動作している場合は、 Grid Manager からリカバリパッケージをダウンロードできます。[* maintenance * （メンテナンス） ] > [* System * （システム * ） ] > [* Recovery packツケ （リカバリパッケージ * ）
+
+Grid Managerにアクセスできない場合は、ADCサービスを含む一部のストレージノードでリカバリパッケージの暗号化されたコピーを見つけることができます。各ストレージノードで、リカバリパッケージの場所を確認します。リビジョン番号が最も大きいリカバリパッケージを使用します。 `/var/local/install/sgws-recovery-package-_grid-id_-_revision_.zip.gpg`
+
+
+
+ a| 
+`Passwords.txt`ファイル
+ a| 
+コマンドラインでグリッドノードにアクセスするために必要なパスワードが含まれています。リカバリパッケージに含まれています。
+
+
+
+ a| 
+プロビジョニングパスフレーズ
+ a| 
+このパスフレーズは、 StorageGRID システムが最初にインストールされるときに作成されて文書化されます。プロビジョニングパスフレーズがファイルに含まれていません `Passwords.txt`。
+
+
+
+ a| 
+ご使用のプラットフォームの最新ドキュメント
+ a| 
+ドキュメントについては、プラットフォームのベンダーの Web サイトを参照してください。
+
+現在サポートされているプラットフォームのバージョンについては、を参照してください https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^]。
+
+|===
+
+
+== StorageGRID インストールファイルをダウンロードして展開します
+
+.[[download-and-extract-install-files-recover]]
+ソフトウェアをダウンロードし、ファイルを展開しlink:recovering-from-storage-node-failures.html["ストレージノード上の障害ストレージボリュームのリカバリ"]ます。
+
+グリッドで現在実行されているバージョンの StorageGRID を使用する必要があります。
+
+.手順
+. 現在インストールされているソフトウェアのバージョンを確認します。Grid Manager の上部からヘルプアイコンを選択し、 * バージョン情報 * を選択します。
+. に進みます https://mysupport.netapp.com/site/products/all/details/storagegrid/downloads-tab["ネットアップの StorageGRID ダウンロードページ"^]。
+. グリッドで現在実行されている StorageGRID のバージョンを選択します。
++
+StorageGRIDソフトウェアのバージョンの形式は次のとおりです。 `11.x.y`
+
+. ネットアップアカウントのユーザ名とパスワードを使用してサインインします。
+. [End User License Agreement]を読み、チェックボックスをオンにして、*[Accept & Continue]*を選択します。
+. ダウンロードページの* Install StorageGRID *列で、使用しているプラットフォームに対応するファイルまたは `.zip`ファイルを選択し `.tgz`ます。
++
+インストールアーカイブファイルに表示されるバージョンは、現在インストールされているソフトウェアのバージョンと一致している必要があります。
+
++
+Windowsを実行している場合は、ファイルを使用し `.zip`ます。
+
++
+[cols="1a,2a"]
+|===
+| プラットフォーム | インストールアーカイブ 
+
+
+ a| 
+Red Hat Enterprise Linux
+| `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
+
+
+ a| 
+Ubuntu 、 Debian 、またはアプライアンス
+| `StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-DEB-_uniqueID_.tgz` 
+
+
+ a| 
+VMware
+| `StorageGRID-Webscale-_version_-VMware-_uniqueID_.zip` 
+`StorageGRID-Webscale-_version_-VMware-_uniqueID_.tgz` 
+|===
+. アーカイブファイルをダウンロードして展開します。
+. プラットフォームに応じた手順に従って、プラットフォームとリカバリが必要なグリッドノードに基づいて必要なファイルを選択します。
++
+各プラットフォームの手順に記載されているパスは、アーカイブファイルによってインストールされた最上位ディレクトリに対する相対パスです。
+
+. をリカバリする場合はlink:../rhel/index.html["Red Hat Enterprise Linuxシステム"]、適切なファイルを選択します。
+
+
+[cols="1a,1a"]
+|===
+| パスとファイル名 | 製品説明 
+
+
+| ./rps/README  a| 
+StorageGRID ダウンロードファイルに含まれているすべてのファイルについて説明するテキストファイル。
+
+
+
+| ./rps/NLF000000.txt  a| 
+製品サポートのない無償ライセンス。
+
+
+
+| ./rps/StorageGRID-Webscale-Images-_version_-SHA.rpm  a| 
+RHELホストにStorageGRIDノードイメージをインストールするためのRPMパッケージ。
+
+
+
+| ./rps/StorageGRID-Webscale-Service-_version_-SHA.rpm  a| 
+RHELホストにStorageGRIDホストサービスをインストールするためのRPMパッケージ。
+
+
+
+| 導入スクリプトツール | 製品説明 
+
+
+| ./rps/configure-storagegrid.py  a| 
+StorageGRID システムの設定を自動化するための Python スクリプト。
+
+
+
+| ./rps/configure-sga.py  a| 
+StorageGRID アプライアンスの設定を自動化するための Python スクリプト。
+
+
+
+| ./rpms/configure -storagegrid-sample.json  a| 
+スクリプトで使用する構成ファイルの例 `configure-storagegrid.py`。
+
+
+
+| ./rps/storagegrid-ssoauth.py  a| 
+シングルサインオンが有効な場合にグリッド管理 API にサインインするために使用できる Python スクリプトの例。このスクリプトは、Pingフェデレーション統合にも使用できます。
+
+
+
+| ./rpms/configure -storagegridBlank.json （ StorageGRID を構成する  a| 
+スクリプトで使用する空の構成ファイル `configure-storagegrid.py`。
+
+
+
+| ./rps/extra/Ansible と入力します  a| 
+StorageGRIDコンテナ導入用のRHELホストを設定するためのサンプルのAnsibleのロールとプレイブック。必要に応じて、ロールまたはプレイブックをカスタマイズできます。
+
+
+
+| ./rpms/ storagegrid-ssoauth-azure.pyを参照してください  a| 
+Active DirectoryまたはPingフェデレーションを使用してシングルサインオン（SSO）が有効になっている場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。
+
+
+
+| ./rpms/storagegrid-ssoauth-azure.js  a| 
+関連するPythonスクリプトによって呼び出され、AzureとのSSO対話を実行するヘルパースクリプト `storagegrid-ssoauth-azure.py`。
+
+
+
+| ./rpms/extra/api-schemas  a| 
+StorageGRID の API スキーマ
+
+*注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
+
+|===
+. をリカバリする場合はlink:../ubuntu/index.html["Ubuntu または Debian システム"]、適切なファイルを選択します。
+
+
+[cols="1a,1a"]
+|===
+| パスとファイル名 | 製品説明 
+
+
+| ./debs/README  a| 
+StorageGRID ダウンロードファイルに含まれているすべてのファイルについて説明するテキストファイル。
+
+
+
+| ./debs/NLF000000.txt  a| 
+テスト環境やコンセプトの実証環境に使用できる、非本番環境のNetAppライセンスファイル。
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+Ubuntu ホストまたは Debian ホストに StorageGRID ノードイメージをインストールするための DEB パッケージ。
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+ファイルのMD5チェックサム `/debs/storagegrid-webscale-images-version-SHA.deb`。
+
+
+
+| ./debs/storagegrid-webscale-service-version-SHA.deb  a| 
+Ubuntu ホストまたは Debian ホストに StorageGRID ホストサービスをインストールするための DEB パッケージ。
+
+
+
+| 導入スクリプトツール | 製品説明 
+
+
+| ./debs/configure-storagegrid.py  a| 
+StorageGRID システムの設定を自動化するための Python スクリプト。
+
+
+
+| ./debs/configure-sga.py  a| 
+StorageGRID アプライアンスの設定を自動化するための Python スクリプト。
+
+
+
+| ./debs/storagegrid-ssoauth.py  a| 
+シングルサインオンが有効な場合にグリッド管理 API にサインインするために使用できる Python スクリプトの例。このスクリプトは、Pingフェデレーション統合にも使用できます。
+
+
+
+| ./debs/configure -storagegrid-sample.json という形式で指定します  a| 
+スクリプトで使用する構成ファイルの例 `configure-storagegrid.py`。
+
+
+
+| ./debs/configure -storagegrid-bank.json という形式で実行します  a| 
+スクリプトで使用する空の構成ファイル `configure-storagegrid.py`。
+
+
+
+| ./debs/extras /Ansible を実行します  a| 
+StorageGRID コンテナ導入用の Ubuntu ホストまたは Debian ホストを設定するためのサンプルの Ansible のロールとプレイブック。必要に応じて、ロールまたはプレイブックをカスタマイズできます。
+
+
+
+| ./debs/ storagegrid-ssoauth-azure.py  a| 
+Active DirectoryまたはPingフェデレーションを使用してシングルサインオン（SSO）が有効になっている場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。
+
+
+
+| ./debs/storagegrid-ssoauth-azure.js  a| 
+関連するPythonスクリプトによって呼び出され、AzureとのSSO対話を実行するヘルパースクリプト `storagegrid-ssoauth-azure.py`。
+
+
+
+| ./debs/extra/api-schemas  a| 
+StorageGRID の API スキーマ
+
+*注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
+
+|===
+. をリカバリする場合はlink:../vmware/index.html["VMware システム"]、適切なファイルを選択します。
+
+
+[cols="1a,1a"]
+|===
+| パスとファイル名 | 製品説明 
+
+
+| ./vsphere/README （ ./vsphere/README  a| 
+StorageGRID ダウンロードファイルに含まれているすべてのファイルについて説明するテキストファイル。
+
+
+
+| ./vsphere/NLF000000.txt にアクセスします  a| 
+製品サポートのない無償ライセンス。
+
+
+
+| ./vsphere/NetApp-SG-version-sha.vmdk  a| 
+グリッドノード仮想マシンを作成するためのテンプレートとして使用される仮想マシンディスクファイル。
+
+
+
+| ./vsphere/vsphere-primary-admin.ovf ./vsphere-primary-admin.mf  a| 
+(`.mf`プライマリ管理ノードを導入するためのOpen Virtualization Formatテンプレートファイル）(`.ovf`とマニフェストファイル
+
+
+
+| ./vsphere/vsphere-non-primary-admin.ovf ./vsphere/vsphere-non-primary-admin.mf  a| 
+テンプレートファイル(`.ovf`）とマニフェストファイル(`.mf`）。非プライマリ管理ノードを導入するためのものです。
+
+
+
+| ./vsphere/vsphere-gateway.ovf ./vsphere/vsphere-gateway.mf  a| 
+テンプレートファイル(`.ovf`）とマニフェストファイル(`.mf`）を使用してゲートウェイノードを導入します。
+
+
+
+| ./vsphere/vsphere-storage.OVF ./vsphere/vsphere-storage.mf  a| 
+(`.mf`仮想マシンベースのストレージノードを導入するためのテンプレートファイル(`.ovf`とマニフェストファイル）
+
+
+
+| 導入スクリプトツール | 製品説明 
+
+
+| ./vsphere/deploy-vsphere-ovftool.sh にアクセスします  a| 
+仮想グリッドノードの導入を自動化するための Bash シェルスクリプト。
+
+
+
+| ./vsphere/deploy-vsphere-ovftool-sample.ini にアクセスします  a| 
+スクリプトで使用する構成ファイルの例 `deploy-vsphere-ovftool.sh`。
+
+
+
+| ./vsphere/configure-storagegrid.py にアクセスします  a| 
+StorageGRID システムの設定を自動化するための Python スクリプト。
+
+
+
+| ./vsphere/configure-sga.py にアクセスします  a| 
+StorageGRID アプライアンスの設定を自動化するための Python スクリプト。
+
+
+
+| ./vsphere/storagegrid-ssoauth.py にアクセスします  a| 
+シングルサインオン（SSO）が有効な場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。このスクリプトは、Pingフェデレーション統合にも使用できます。
+
+
+
+| ./vsphere/configure -storagegrid-sample.json という形式で実行します  a| 
+スクリプトで使用する構成ファイルの例 `configure-storagegrid.py`。
+
+
+
+| ./vsphere/configure -storagegrid-bank.json （ページ構成  a| 
+スクリプトで使用する空の構成ファイル `configure-storagegrid.py`。
+
+
+
+| ./vsphere/storagegrid-ssoauth-azure.pyを参照してください  a| 
+Active DirectoryまたはPingフェデレーションを使用してシングルサインオン（SSO）が有効になっている場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。
+
+
+
+| ./vsphere/storagegrid-ssoauth-azure.js  a| 
+関連するPythonスクリプトによって呼び出され、AzureとのSSO対話を実行するヘルパースクリプト `storagegrid-ssoauth-azure.py`。
+
+
+
+| ./vsphere/extra/api-schemas  a| 
+StorageGRID の API スキーマ
+
+*注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
+
+|===
+. StorageGRID アプライアンスベースのシステムをリカバリする場合は、該当するファイルを選択してください。
+
+
+[cols="1a,1a"]
+|===
+| パスとファイル名 | 製品説明 
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb  a| 
+アプライアンスに StorageGRID ノードイメージをインストールするための DEB パッケージ。
+
+
+
+| ./debs/storagegrid-webscale-images-version-SHA.deb.md5  a| 
+ファイルのMD5チェックサム `/debs/storagegridwebscale-
+images-version-SHA.deb`。
+
+|===
+
+NOTE: アプライアンスのインストールの場合、これらのファイルが必要になるのは、ネットワークトラフィックを回避する必要がある場合だけです。アプライアンスは、プライマリ管理ノードから必要なファイルをダウンロードできます。

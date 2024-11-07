@@ -1,0 +1,80 @@
+---
+permalink: s3/put-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT bucket consistency request 
+summary: PUT Bucket consistency要求では、バケットで実行される処理に適用する整合性を指定できます。 
+---
+= PUT Bucket consistency
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+PUT Bucket consistency要求では、バケットで実行される処理に適用する整合性を指定できます。
+
+デフォルトの整合性は、新規作成されたオブジェクトのリードアフターライトを保証するように設定されます。
+
+.開始する前に
+この処理を完了するには、s3：PutBucketConsistency権限またはrootアカウントが必要です。
+
+
+
+== リクエスト
+
+ `x-ntap-sg-consistency`パラメータには、次のいずれかの値を指定する必要があります。
+
+[cols="1a,2a"]
+|===
+| 整合性 | 製品説明 
+
+
+ a| 
+すべて
+ a| 
+すべてのノードが即座にデータを受け取り、受け取れない場合は要求が失敗します。
+
+
+
+ a| 
+strong-global
+ a| 
+すべてのサイトのすべてのクライアント要求について、リードアフターライト整合性が保証されます。
+
+
+
+ a| 
+strong-site
+ a| 
+1 つのサイト内のすべてのクライアント要求について、リードアフターライト整合性が保証されます。
+
+
+
+ a| 
+read-after-new-write の場合
+ a| 
+（デフォルト）新規オブジェクトにはリードアフターライト整合性を、オブジェクトの更新には結果整合性を提供します。高可用性が確保され、データ保護が保証されます。ほとんどの場合に推奨されます。
+
+
+
+ a| 
+利用可能
+ a| 
+新規オブジェクトとオブジェクトの更新の両方について結果整合性を提供します。S3バケットの場合は、必要な場合にのみ使用します（読み取り頻度の低いログ値を含むバケットや、存在しないキーに対するHEAD処理やGET処理など）。S3 FabricPool バケットではサポートされません。
+
+|===
+*注：*一般に、「Read-after-new-write」整合性を使用する必要があります。要求が正しく動作しない場合は、可能であればアプリケーションクライアントの動作を変更します。または、API要求ごとに整合性を指定するようにクライアントを設定します。バケットレベルの整合性は最後の手段として設定してください。
+
+
+
+== 要求例
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /bucket?x-ntap-sg-consistency=strong-global HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+.関連情報
+link:consistency-controls.html["整合性の値"]

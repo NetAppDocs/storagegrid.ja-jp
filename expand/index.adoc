@@ -1,0 +1,74 @@
+---
+permalink: expand/index.html 
+sidebar: sidebar 
+keywords: expand grid 
+summary: システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。 
+---
+= カクチヨウタイフ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。
+
+StorageGRIDを拡張すると、次の項目を追加できます。
+
+* ストレージボリュームからストレージノードへ
+* キソンノサイトヘノアタラシイクリツトノオト
+* まったく新しいサイト
+
+
+拡張を実施する理由によって、追加する必要がある各タイプの新しいノードの数と、追加する新しいノードの場所が決まります。たとえば、ストレージ容量の拡張、メタデータ容量の追加、冗長性や新機能の追加を行う場合、ノード要件は異なります。
+
+実行している拡張のタイプに応じた手順に従います。
+
+[role="tabbed-block"]
+====
+.ストレージボリュームを追加します
+--
+の手順に従いますlink:adding-storage-volumes-to-storage-nodes.html["ストレージノードへのストレージボリュームの追加"]。
+
+--
+.グリッドノードの追加
+--
+. の手順に従いますlink:adding-grid-nodes-to-existing-site-or-adding-new-site.html["既存のサイトへのグリッドノードの追加"]。
+. link:updating-subnets-for-grid-network.html["サブネットの更新"]です。
+. グリッドノードの導入：
++
+** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["アプライアンス"]
+** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
+** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
++
+
+NOTE: 「Linux」とは、Red Hat Enterprise Linux、Ubuntu、またはDebian環境を指します。サポートされているバージョンの一覧については、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^]ください。
+
+
+
+. link:performing-expansion.html["拡張の実行"]です。
+. link:configuring-expanded-storagegrid-system.html["拡張したシステムの設定"]です。
+
+
+--
+.新しいサイトを追加します
+--
+. の手順に従いますlink:adding-grid-nodes-to-existing-site-or-adding-new-site.html["新しいサイトを追加しています"]。
+. link:updating-subnets-for-grid-network.html["サブネットの更新"]です。
+. グリッドノードの導入：
++
+** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["アプライアンス"]
+** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
+** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
++
+
+NOTE: 「Linux」とは、Red Hat Enterprise Linux、Ubuntu、またはDebian環境を指します。サポートされているバージョンの一覧については、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^]ください。
+
+
+
+. link:performing-expansion.html["拡張の実行"]です。
+. link:configuring-expanded-storagegrid-system.html["拡張したシステムの設定"]です。
+
+
+--
+====

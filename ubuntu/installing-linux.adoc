@@ -1,0 +1,102 @@
+---
+permalink: ubuntu/installing-linux.html 
+sidebar: sidebar 
+keywords: how to install Linux 
+summary: StorageGRIDは、すべてのUbuntuまたはDebianグリッドホストにインストールする必要があります。サポートされているバージョンの一覧については、NetApp Interoperability Matrix Toolを参照してください。 
+---
+= Linux をインストールします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRIDは、すべてのUbuntuまたはDebianグリッドホストにインストールする必要があります。サポートされているバージョンの一覧については、NetApp Interoperability Matrix Toolを参照してください。
+
+.開始する前に
+お使いのオペレーティングシステムが、以下に示すStorageGRIDのカーネルバージョンの最小要件を満たしていることを確認してください。コマンドを使用し `uname -r`てオペレーティングシステムのカーネルバージョンを確認するか、OSベンダーに問い合わせてください。
+
+*注:* Ubuntuバージョン18.04および20.04のサポートは廃止され、今後のリリースで削除される予定です。
+
+[cols="1a,2a,3a"]
+|===
+| Ubuntuバージョン | 最小カーネルバージョン | カーネルパッケージ名 
+
+
+ a| 
+18.04.6（廃止予定）
+ a| 
+5.4.0-150-汎用
+ a| 
+linux-image-5.4.0-150-generic/bionic-updates、bionic-security、現在5.4.0-150.167~18.04.1
+
+
+
+ a| 
+20.04.5（廃止予定）
+ a| 
+5.4.0-131-generic
+ a| 
+linux-image-5.4.0-131-generic/focal-updates、現在は5.4.0-131.147
+
+
+
+ a| 
+22.04.1
+ a| 
+5.15.0-47-汎用
+ a| 
+linux-image-5.15.0-47-generic/jammy-updates、jammy-security、現在は5.15.0-47.51
+
+
+
+ a| 
+24.04
+ a| 
+6.8.0-31-汎用
+ a| 
+linux-image-6.8.0-31-generic/noble、現在は6.8.0-31.31
+
+|===
+*注意:* Debianバージョン11のサポートは非推奨となり、今後のリリースで削除される予定です。
+
+[cols="1a,2a,2a"]
+|===
+| Debianバージョン | 最小カーネルバージョン | カーネルパッケージ名 
+
+
+ a| 
+11（廃止）
+ a| 
+5.10.0-18-amd64
+ a| 
+linux-image-5.10.0-18-amd64/stable、現在は5.10.150-1
+
+
+
+ a| 
+12
+ a| 
+6.1.0-9-amd64
+ a| 
+linux-image-6.1.0-9-amd64/stable、現在は6.1.27-1
+
+|===
+.手順
+. ディストリビュータの指示または標準の手順 に従って、すべての物理グリッドホストまたは仮想グリッドホストに Linux をインストールします。
++
+
+NOTE: グラフィカルデスクトップ環境はインストールしないでください。Ubuntu をインストールする場合は、 * 標準のシステムユーティリティ * を選択する必要があります。Ubuntu ホストへの SSH アクセスを有効にするには、 * OpenSSH サーバ * を選択することを推奨します。その他のオプションはすべてクリアしたままにできます。
+
+. すべてのホストが Ubuntu または Debian のパッケージリポジトリにアクセスできることを確認します。
+. スワップが有効になっている場合：
++
+.. 次のコマンドを実行します。 `$ sudo swapoff --all`
+.. からすべてのスワップエントリを削除し `/etc/fstab`て、設定を維持します。
++
+
+NOTE: スワップを完全に無効にできないと、パフォーマンスが大幅に低下する可能性があります
+
+
+
+

@@ -1,0 +1,94 @@
+---
+permalink: s3/get-bucket-consistency-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET bucket consistency 
+summary: GET Bucket consistency要求を使用すると、特定のバケットに適用されている整合性を確認できます。 
+---
+= GET Bucket consistency
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+GET Bucket consistency要求を使用すると、特定のバケットに適用されている整合性を確認できます。
+
+デフォルトの整合性は、新規作成されたオブジェクトのリードアフターライトを保証するように設定されます。
+
+この処理を完了するには、s3：GetBucketConsistency権限またはrootアカウントが必要です。
+
+
+
+== 要求例
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /bucket?x-ntap-sg-consistency HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== 応答
+
+応答XMLでは、 `<Consistency>`次のいずれかの値が返されます。
+
+[cols="1a,2a"]
+|===
+| 整合性 | 製品説明 
+
+
+ a| 
+すべて
+ a| 
+すべてのノードが即座にデータを受け取り、受け取れない場合は要求が失敗します。
+
+
+
+ a| 
+strong-global
+ a| 
+すべてのサイトのすべてのクライアント要求について、リードアフターライト整合性が保証されます。
+
+
+
+ a| 
+strong-site
+ a| 
+1 つのサイト内のすべてのクライアント要求について、リードアフターライト整合性が保証されます。
+
+
+
+ a| 
+read-after-new-write の場合
+ a| 
+（デフォルト）新規オブジェクトにはリードアフターライト整合性を、オブジェクトの更新には結果整合性を提供します。高可用性が確保され、データ保護が保証されます。ほとんどの場合に推奨されます。
+
+
+
+ a| 
+利用可能
+ a| 
+新規オブジェクトとオブジェクトの更新の両方について結果整合性を提供します。S3バケットの場合は、必要な場合にのみ使用します（読み取り頻度の低いログ値を含むバケットや、存在しないキーに対するHEAD処理やGET処理など）。S3 FabricPool バケットではサポートされません。
+
+|===
+
+
+== 応答例
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Fri, 18 Sep 2020 01:02:18 GMT
+Connection: CLOSE
+Server: StorageGRID/11.5.0
+x-amz-request-id: 12345
+Content-Length: 127
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Consistency xmlns="http://s3.storagegrid.com/doc/2015-02-01/">read-after-new-write</Consistency>
+----
+.関連情報
+link:consistency-controls.html["整合性の値"]

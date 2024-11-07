@@ -1,0 +1,92 @@
+---
+permalink: maintain/removing-port-remaps-on-bare-metal-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
+summary: ロードバランササービスのエンドポイントを設定する場合、ポートの再マッピングのマッピング先ポートとしてすでに設定されているポートを使用するには、まず既存のポートの再マッピングを削除する必要があります。そうしないと、エンドポイントが有効になりません。 
+---
+= ベアメタルホストでのポートの再マッピングを削除します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ロードバランササービスのエンドポイントを設定する場合、ポートの再マッピングのマッピング先ポートとしてすでに設定されているポートを使用するには、まず既存のポートの再マッピングを削除する必要があります。そうしないと、エンドポイントが有効になりません。
+
+.タスクの内容
+ベアメタルホストで StorageGRID を実行している場合は、ポートの再マッピングを削除する一般的な手順 ではなく、この手順 に従ってください。ノードのすべてのポートの再マッピングを削除してノードを再起動するには、再マッピングされたポートが競合している各管理ノードおよびゲートウェイノードのノード構成ファイルを編集する必要があります。
+
+
+CAUTION: この手順 は、ポートの再マッピングをすべて削除します。一部の再マッピングを保持する必要がある場合は、テクニカルサポートにお問い合わせください。
+
+ロードバランサエンドポイントの設定については、 StorageGRID の管理手順を参照してください。
+
+
+NOTE: この手順 では、ノードの再起動時にサービスが一時的に失われる可能性があります。
+
+.手順
+. ノードをサポートしているホストにログインします。root として、または sudo 権限を持つアカウントでログインします。
+. 次のコマンドを実行して、ノードを一時的に無効にします。 `sudo storagegrid node stop _node-name_`
+. vim や pico などのテキストエディタを使用して、ノードのノード構成ファイルを編集します。
++
+ノード構成ファイルはにあります `/etc/storagegrid/nodes/_node-name_.conf`。
+
+. ノード構成ファイルで、ポートの再マッピングが含まれているセクションを探します。
++
+次の例の最後の 2 行を参照してください。
+
++
+[listing, subs="specialcharacters,quotes"]
+----
+ADMIN_NETWORK_CONFIG = STATIC
+ADMIN_NETWORK_ESL = 10.0.0.0/8, 172.19.0.0/16, 172.21.0.0/16
+ADMIN_NETWORK_GATEWAY = 10.224.0.1
+ADMIN_NETWORK_IP = 10.224.5.140
+ADMIN_NETWORK_MASK = 255.255.248.0
+ADMIN_NETWORK_MTU = 1400
+ADMIN_NETWORK_TARGET = eth1
+ADMIN_NETWORK_TARGET_TYPE = Interface
+BLOCK_DEVICE_VAR_LOCAL = /dev/sda2
+CLIENT_NETWORK_CONFIG = STATIC
+CLIENT_NETWORK_GATEWAY = 47.47.0.1
+CLIENT_NETWORK_IP = 47.47.5.140
+CLIENT_NETWORK_MASK = 255.255.248.0
+CLIENT_NETWORK_MTU = 1400
+CLIENT_NETWORK_TARGET = eth2
+CLIENT_NETWORK_TARGET_TYPE = Interface
+GRID_NETWORK_CONFIG = STATIC
+GRID_NETWORK_GATEWAY = 192.168.0.1
+GRID_NETWORK_IP = 192.168.5.140
+GRID_NETWORK_MASK = 255.255.248.0
+GRID_NETWORK_MTU = 1400
+GRID_NETWORK_TARGET = eth0
+GRID_NETWORK_TARGET_TYPE = Interface
+NODE_TYPE = VM_API_Gateway
+*PORT_REMAP = client/tcp/8082/443*
+*PORT_REMAP_INBOUND = client/tcp/8082/443*
+----
+. PORT_REMAP エントリと PORT_REMAP_INBOUND エントリを編集して、ポートの再マッピングを削除します。
++
+[listing]
+----
+PORT_REMAP =
+PORT_REMAP_INBOUND =
+----
+. 次のコマンドを実行して、ノードのノード構成ファイルに対する変更を検証します。``sudo storagegrid node validate _node-name_``
++
+エラーや警告がある場合は、次の手順に進む前に対処してください。
+
+. 次のコマンドを実行して、ポートの再マッピングを行わずにノードを再起動します。 `sudo storagegrid node start _node-name_`
+. ファイルに記載されているパスワードを使用して、ノードにadminとしてログインし `Passwords.txt`ます。
+. サービスが正しく開始されることを確認します。
++
+.. サーバ上のすべてのサービスのステータスのリストを表示します。``sudo storagegrid-status``
++
+ステータスは自動的に更新されます。
+
+.. すべてのサービスのステータスが「 Running 」または「 Verified 」になるまで待ちます。
+.. ステータス画面を終了します。``Ctrl+C``
+
+
+. 再マッピングされたポートが競合している管理ノードおよびゲートウェイノードごとに上記の手順を繰り返します。
+

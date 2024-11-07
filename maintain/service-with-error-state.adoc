@@ -1,0 +1,60 @@
+---
+permalink: maintain/service-with-error-state.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, service error state, error, error state 
+summary: サービスがエラー状態になったことが検出された場合は、サービスの再開を試みてください。 
+---
+= エラー状態のサービス
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+サービスがエラー状態になったことが検出された場合は、サービスの再開を試みてください。
+
+.開始する前に
+あなたはファイルを持ってい `Passwords.txt`ます。
+
+.タスクの内容
+Server Manager は、サービスを監視し、予期せず停止したサービスがあれば再起動します。サービスで障害が発生すると、 Server Manager はそのサービスの再起動を試行します。5 分以内にサービスの開始が 3 回失敗すると、サービスはエラー状態になります。Server Manager は再起動を試行しません。
+
+.手順
+. グリッドノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. サービスのエラー状態を確認します。 `service _servicename_ status`
++
+例：
+
++
+[listing]
+----
+service ldr status
+----
++
+サービスがエラー状態の場合は、次のメッセージが返されます。 `_servicename_ in error state`例：
+
++
+[listing]
+----
+ldr in error state
+----
++
+
+NOTE: サービスステータスがの場合は `disabled`、の手順を参照してくださいlink:using-donotstart-file.html["サービスの DoNotStart ファイルを削除しています"]。
+
+. サービスを再起動してエラー状態の解消を試みます。 `service _servicename_ restart`
++
+サービスを再開できない場合は、テクニカルサポートにお問い合わせください。
+
+. コマンドシェルからログアウトします。 `exit`
+

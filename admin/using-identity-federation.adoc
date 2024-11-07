@@ -1,0 +1,238 @@
+---
+permalink: admin/using-identity-federation.html 
+sidebar: sidebar 
+keywords: how to use identity federation, how to use federated groups with Grid Manager 
+summary: アイデンティティフェデレーションを使用すると、グループやユーザを迅速に設定できます。また、ユーザは使い慣れたクレデンシャルを使用して StorageGRID にサインインできます。 
+---
+= アイデンティティフェデレーションを使用する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+アイデンティティフェデレーションを使用すると、グループやユーザを迅速に設定できます。また、ユーザは使い慣れたクレデンシャルを使用して StorageGRID にサインインできます。
+
+
+
+== Grid Manager のアイデンティティフェデレーションを設定する
+
+管理者グループとユーザを Active Directory 、 Azure Active Directory （ Azure AD ）、 OpenLDAP 、 Oracle Directory Server などの別のシステムで管理する場合は、 Grid Manager でアイデンティティフェデレーションを設定できます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:admin-group-permissions.html["特定のアクセス権限"]
+* アイデンティティプロバイダとして Active Directory 、 Azure AD 、 OpenLDAP 、または Oracle Directory Server を使用している。
++
+
+NOTE: 記載されていない LDAP v3 サービスを使用する場合は、テクニカルサポートにお問い合わせください。
+
+* OpenLDAP を使用する場合は、 OpenLDAP サーバを設定する必要があります。を参照して <<OpenLDAP サーバの設定に関するガイドライン>>
+* シングルサインオン（SSO）を有効にする場合は、を確認しておきlink:requirements-for-sso.html["シングルサインオンの要件と考慮事項"]ます。
+* LDAP サーバとの通信に Transport Layer Security （ TLS ）を使用する場合は、アイデンティティプロバイダが TLS 1.2 または 1.3 を使用しています。を参照して link:supported-ciphers-for-outgoing-tls-connections.html["発信 TLS 接続でサポートされる暗号"]
+
+
+.タスクの内容
+Active Directory 、 Azure AD 、 OpenLDAP 、 Oracle Directory Server などの別のシステムからグループをインポートする場合は、 Grid Manager のアイデンティティソースを設定できます。インポートできるグループのタイプは次のとおりです。
+
+* 管理者グループ。管理者グループ内のユーザは、グループに割り当てられた管理権限に基づいて、 Grid Manager にサインインしてタスクを実行できます。
+* 独自のアイデンティティソースを使用しないテナントのテナントユーザグループ。テナントグループ内のユーザは、 Tenant Manager でグループに割り当てられた権限に基づいてタスクを実行し、 Tenant Manager にサインインしてタスクを実行できます。詳細については、およびlink:../tenant/index.html["テナントアカウントを使用する"]を参照してくださいlink:creating-tenant-account.html["テナントアカウントを作成する"]。
+
+
+
+
+=== 設定を入力します
+
+.手順
+. [ * 設定 * > * アクセス制御 * > * アイデンティティフェデレーション * ] を選択します。
+. ［ * アイデンティティフェデレーションを有効にする * ］ を選択
+. LDAP サービスタイプセクションで、設定する LDAP サービスのタイプを選択します。
++
+image::../media/ldap_service_type.png[LDAP サービスタイプオプションを示すアイデンティティフェデレーションページ]
+
++
+Oracle Directory Server を使用する LDAP サーバーの値を設定するには、 * その他 * を選択します。
+
+. [* その他 *] を選択した場合は、 [LDAP 属性 ] セクションのフィールドに入力します。それ以外の場合は、次の手順に進みます。
++
+** * User Unique Name * ： LDAP ユーザの一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `uid`OpenLDAPの場合と同じ `sAMAccountName`です。Oracle Directory Serverを設定する場合は、と入力します `uid`。
+** * User UUID * ： LDAP ユーザの永続的な一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `entryUUID`OpenLDAPの場合と同じ `objectGUID`です。Oracle Directory Serverを設定する場合は、と入力します `nsuniqueid`。指定した属性の各ユーザの値は、 16 バイトまたは文字列形式の 32 桁の 16 進数である必要があります。ハイフンは無視されます。
+** * Group Unique Name * ： LDAP グループの一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `cn`OpenLDAPの場合と同じ `sAMAccountName`です。Oracle Directory Serverを設定する場合は、と入力します `cn`。
+** * グループ UUID * ： LDAP グループの永続的な一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `entryUUID`OpenLDAPの場合と同じ `objectGUID`です。Oracle Directory Serverを設定する場合は、と入力します `nsuniqueid`。指定した属性の各グループの値は、 16 バイトまたは文字列形式の 32 桁の 16 進数である必要があります。ハイフンは無視されます。
+
+
+. すべての LDAP サービスタイプについて、 LDAP サーバの設定セクションに必要な LDAP サーバおよびネットワーク接続情報を入力します。
++
+** * Hostname * ： LDAP サーバの完全修飾ドメイン名（ FQDN ）または IP アドレス。
+** * Port * ： LDAP サーバへの接続に使用するポート。
++
+
+NOTE: STARTTLS のデフォルトポートは 389 、 LDAPS のデフォルトポートは 636 です。ただし、ファイアウォールが正しく設定されていれば、任意のポートを使用できます。
+
+** * Username * ： LDAP サーバに接続するユーザの識別名（ DN ）の完全パス。
++
+Active Directory の場合は、ダウンレベルログオン名またはユーザープリンシパル名を指定することもできます。
+
++
+指定するユーザには、グループおよびユーザを表示する権限、および次の属性にアクセスする権限が必要です。
+
++
+*** `sAMAccountName`または `uid`
+*** `objectGUID`、 `entryUUID`、または `nsuniqueid`
+*** `cn`
+*** `memberOf`または `isMemberOf`
+*** * Active Directory *： `objectSid`、 `primaryGroupID`、 `userAccountControl`、および `userPrincipalName`
+*** * Azure *： `accountEnabled`および `userPrincipalName`
+
+
+** * Password * ：ユーザ名に関連付けられたパスワード。
++
+
+NOTE: 今後パスワードを変更する場合は、このページでパスワードを更新する必要があります。
+
+** * Group Base DN * ：グループを検索する LDAP サブツリーの識別名（ DN ）の完全パス。Active Directory では、ベース DN に対して相対的な識別名（ DC=storagegrid 、 DC=example 、 DC=com など）のグループをすべてフェデレーテッドグループとして使用できます。
++
+
+NOTE: * グループの一意な名前 * 値は、所属する * グループベース DN * 内で一意である必要があります。
+
+** * User Base DN * ：ユーザを検索する LDAP サブツリーの識別名（ DN ）の完全パス。
++
+
+NOTE: * ユーザーの一意な名前 * 値は、それぞれが属する * ユーザーベース DN * 内で一意である必要があります。
+
+** *ユーザー名のバインド形式*（オプション）：パターンを自動的に決定できない場合にStorageGRID が使用するデフォルトのユーザー名パターン。
++
+StorageGRID がサービスアカウントにバインドできない場合にユーザがサインインできるようにするため、 * バインドユーザ名形式 * を指定することを推奨します。
+
++
+次のいずれかのパターンを入力します。
+
++
+*** * UserPrincipalNameパターン（Active DirectoryおよびAzure）*： `[USERNAME]@_example_.com`
+*** *下位レベルのログオン名パターン（Active DirectoryおよびAzure）*： `_example_\[USERNAME]`
+*** *識別名パターン*： `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
++
+記載されているとおりに * [username] * を含めます。
+
+
+
+
+
+. Transport Layer Security （ TLS ）セクションで、セキュリティ設定を選択します。
++
+** * STARTTLS を使用 * ： STARTTLS を使用して LDAP サーバとの通信を保護します。Active Directory 、 OpenLDAP 、またはその他のオプションですが、 Azure ではこのオプションはサポートされていません。
+** * LDAPS を使用 * ： LDAPS （ LDAP over SSL ）オプションでは、 TLS を使用して LDAP サーバへの接続を確立します。Azure ではこのオプションを選択する必要があります。
+** * TLS を使用しないでください * ： StorageGRID システムと LDAP サーバの間のネットワークトラフィックは保護されません。このオプションは Azure ではサポートされていません。
++
+
+NOTE: Active Directory サーバで LDAP 署名が適用される場合、 [TLS を使用しない ] オプションの使用はサポートされていません。STARTTLS または LDAPS を使用する必要があります。
+
+
+
+. STARTTLS または LDAPS を選択した場合は、接続の保護に使用する証明書を選択します。
++
+** * オペレーティングシステムの CA 証明書を使用 * ：オペレーティングシステムにインストールされているデフォルトの Grid CA 証明書を使用して接続を保護します。
+** * カスタム CA 証明書を使用 * ：カスタムセキュリティ証明書を使用します。
++
+この設定を選択した場合は、カスタムセキュリティ証明書をコピーして CA 証明書テキストボックスに貼り付けます。
+
+
+
+
+
+
+
+=== 接続をテストして設定を保存します
+
+すべての値を入力したら、設定を保存する前に接続をテストする必要があります。StorageGRID では、 LDAP サーバの接続設定とバインドユーザ名の形式が指定されている場合は検証されます。
+
+.手順
+. [ 接続のテスト * ] を選択します。
+. バインドユーザ名の形式を指定しなかった場合は、次の手順を実行します。
++
+** 接続設定が有効な場合は、「Test connection successful」というメッセージが表示されます。[ 保存（ Save ） ] を選択して、構成を保存します。
+** 接続設定が無効な場合は、「test connection could not be established」というメッセージが表示されます。[ 閉じる（ Close ） ] を選択します。その後、問題を解決して接続を再度テストします。
+
+
+. バインドユーザ名の形式を指定した場合は、有効なフェデレーテッドユーザのユーザ名とパスワードを入力します。
++
+たとえば、自分のユーザ名とパスワードを入力します。ユーザ名に特殊文字（@、/など）を使用しないでください。
+
++
+image::../media/identity_federation_test_connection.png[アイデンティティフェデレーションでは、バインドユーザ名の形式を検証するよう求められ]
+
++
+** 接続設定が有効な場合は、「Test connection successful」というメッセージが表示されます。[ 保存（ Save ） ] を選択して、構成を保存します。
+** 接続設定、バインドユーザ名形式、またはテストユーザ名とパスワードが無効な場合は、エラーメッセージが表示されます。問題を解決してから、もう一度接続をテストしてください。
+
+
+
+
+
+
+== アイデンティティソースとの強制同期
+
+StorageGRID システムは、アイデンティティソースからフェデレーテッドグループおよびユーザを定期的に同期します。ユーザの権限をすぐに有効にしたり制限したりする必要がある場合は、同期を強制的に開始できます。
+
+.手順
+. アイデンティティフェデレーションページに移動します。
+. ページの上部にある「 * サーバーを同期」を選択します。
++
+環境によっては、同期プロセスにしばらく時間がかかることがあります。
+
++
+
+NOTE: アイデンティティフェデレーション同期エラー * アラートは、アイデンティティソースからフェデレーテッドグループとユーザを同期する問題 がある場合にトリガーされます。
+
+
+
+
+
+== アイデンティティフェデレーションを無効にする
+
+グループとユーザのアイデンティティフェデレーションを一時的または永続的に無効にすることができます。アイデンティティフェデレーションを無効にすると、 StorageGRID とアイデンティティソース間のやり取りは発生しません。ただし、設定は保持されるため、簡単に再度有効にすることができます。
+
+.タスクの内容
+アイデンティティフェデレーションを無効にする前に、次の点に注意してください。
+
+* フェデレーテッドユーザはサインインできなくなります。
+* 現在サインインしているフェデレーテッドユーザは、セッションが有効な間は StorageGRID システムに引き続きアクセスできますが、セッションが期限切れになると以降はサインインできなくなります。
+* StorageGRIDシステムとアイデンティティソース間の同期は行われず、同期されていないアカウントについてはアラートは生成されません。
+* シングルサインオン（SSO）が*有効*または*サンドボックスモード*に設定されている場合、*アイデンティティフェデレーションを有効にする*チェックボックスは無効になります。アイデンティティフェデレーションを無効にするには、シングルサインオンページの SSO ステータスが * 無効 * になっている必要があります。を参照して link:../admin/disabling-single-sign-on.html["シングルサインオンを無効にします"]
+
+
+.手順
+. アイデンティティフェデレーションページに移動します。
+. [アイデンティティフェデレーションを有効にする]*チェックボックスをオフにします。
+
+
+
+
+== OpenLDAP サーバの設定に関するガイドライン
+
+アイデンティティフェデレーションに OpenLDAP サーバを使用する場合は、 OpenLDAP サーバで特定の設定が必要です。
+
+
+CAUTION: ActiveDirectoryやAzure以外のアイデンティティソースの場合、StorageGRID は外部で無効にしたユーザへのS3アクセスを自動的にブロックしません。S3アクセスをブロックするには、そのユーザのS3キーをすべて削除するか、すべてのグループからユーザを削除します。
+
+
+
+=== memberof オーバーレイと refint オーバーレイ
+
+memberof オーバーレイと refint オーバーレイを有効にする必要があります。詳細については、のリバースグループメンバーシップのメンテナンス手順を参照してくださいhttp://www.openldap.org/doc/admin24/index.html["OpenLDAP のドキュメント：バージョン 2.4 管理者ガイド"^]。
+
+
+
+=== インデックス作成
+
+次の OpenLDAP 属性とインデックスキーワードを設定する必要があります。
+
+* `olcDbIndex: objectClass eq`
+* `olcDbIndex: uid eq,pres,sub`
+* `olcDbIndex: cn eq,pres,sub`
+* `olcDbIndex: entryUUID eq`
+
+
+また、パフォーマンスを最適化するには、 Username のヘルプで説明されているフィールドにインデックスを設定してください。
+
+のリバースグループメンバーシップのメンテナンスに関する情報を参照してくださいhttp://www.openldap.org/doc/admin24/index.html["OpenLDAP のドキュメント：バージョン 2.4 管理者ガイド"^]。

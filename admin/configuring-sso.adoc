@@ -1,0 +1,139 @@
+---
+permalink: admin/configuring-sso.html 
+sidebar: sidebar 
+keywords: configure single sign on, sso, SAML 
+summary: シングルサインオン \ （ SSO \ ）が有効な場合、ユーザは、組織によって実装された SSO サインインプロセスを使用してクレデンシャルが許可された場合にのみ、 Grid Manager 、テナントマネージャ、 Grid 管理 API 、またはテナント管理 API にアクセスできます。ローカルユーザは StorageGRID にサインインできません。 
+---
+= シングルサインオンを設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+シングルサインオン（ SSO ）が有効な場合、ユーザは、組織によって実装された SSO サインインプロセスを使用してクレデンシャルが許可されている場合にのみ、 Grid Manager 、テナントマネージャ、 Grid 管理 API 、またはテナント管理 API にアクセスできます。ローカルユーザはStorageGRID にサインインできません。
+
+
+
+== シングルサインオンの仕組み
+
+StorageGRID システムでは、 Security Assertion Markup Language 2.0 （ SAML 2.0 ）標準を使用したシングルサインオン（ SSO ）がサポートされます。
+
+シングルサインオン（ SSO ）を有効にする前に、 SSO が有効になった場合に StorageGRID のサインインとサインアウトのプロセスにどのような影響があるかを確認してください。
+
+
+
+=== SSO が有効な場合はサインインします
+
+SSO が有効な場合に StorageGRID にサインインすると、組織の SSO ページにリダイレクトされてクレデンシャルが検証されます。
+
+.手順
+. Web ブラウザで、 StorageGRID 管理ノードの完全修飾ドメイン名または IP アドレスを入力します。
++
+StorageGRID のサインインページが表示されます。
+
++
+** このブラウザで初めて URL にアクセスした場合は、アカウント ID の入力を求められます。
++
+image::../media/sso_sign_in_first_time.png[SSO を有効にしてサインインします]
+
+** Grid Manager または Tenant Manager に以前にアクセスしていた場合は、最近のアカウントを選択するか、アカウント ID を入力するように求められます。
++
+image::../media/sign_in_sso.png[SSO が有効な場合は、 StorageGRID のサインインページが表示されます]
+
+
+
++
+
+NOTE: テナントアカウントの完全なURL（完全修飾ドメイン名またはIPアドレスのあとにを追加したもの）を入力すると、StorageGRIDのサインインページは表示されません `/?accountId=_20-digit-account-id_`。代わりに、組織のSSOサインインページにすぐにリダイレクトされ、そこでできます<<signin_sso,SSO クレデンシャルを使用してサインインします>>。
+
+. Grid Manager と Tenant Manager のどちらにアクセスするかを指定します。
++
+** Grid Manager にアクセスするには、 * Account ID * フィールドを空白のままにします。アカウント ID に「 * 0 」と入力するか、最近のアカウントのリストに * Grid Manager * が表示されている場合はそれを選択します。
+** Tenant Manager にアクセスするには、 20 桁のテナントアカウント ID を入力するか、最近のアカウントのリストにテナントが表示されている場合は名前でテナントを選択します。
+
+
+. 「サインイン」を選択します
++
+StorageGRID は、組織の SSO サインインページにリダイレクトします。例：
+
++
+image::../media/sso_organization_page.gif[組織の SSO サインインページの例]
+
+. [[signin_soS] SSO クレデンシャルを使用してサインインします。
++
+SSO クレデンシャルが正しい場合：
+
++
+.. アイデンティティプロバイダ（ IdP ）が StorageGRID に認証応答を返します。
+.. StorageGRID が認証応答を検証します。
+.. 応答が有効で、 StorageGRID アクセス権限のあるフェデレーテッドグループに属している場合は、選択したアカウントに応じて、 Grid Manager またはテナントマネージャにサインインされます。
++
+
+NOTE: サービスアカウントにアクセスできない場合でも、 StorageGRID アクセス権限を持つフェデレーテッドグループに属する既存のユーザであれば、サインインできます。
+
+
+
+. 必要に応じて、他の管理ノードにアクセスします。または、適切な権限がある場合は Grid Manager またはテナントマネージャにアクセスします。
++
+SSOクレデンシャルを再入力する必要はありません。
+
+
+
+
+
+=== SSO が有効な場合はサインアウトします
+
+StorageGRID で SSO が有効になっている場合にサインアウトするとどうなるかは、サインイン先とサインアウト元によって異なります。
+
+.手順
+. ユーザインターフェイスの右上隅にある[サインアウト]リンクを探します。
+. [サインアウト]*を選択します。
++
+StorageGRID のサインインページが表示されます。[Recent Accounts] * ドロップダウンが更新されて、 * Grid Manager * またはテナント名が表示されるようになり、これらのユーザインターフェイスにあとからすばやくアクセスできるようになります。
+
++
+[cols="1a,1a,1a"]
+|===
+| サインイン先 | サインアウト元 | サインアウトされる対象 
+
+
+ a| 
+1 つ以上の管理ノードでグリッドマネージャを使用します
+ a| 
+任意の管理ノード上の Grid Manager
+ a| 
+すべての管理ノード上の Grid Manager
+
+* 注： * SSO に Azure を使用している場合、すべての管理ノードからサインアウトするまでに数分かかることがあります。
+
+
+
+ a| 
+1 つ以上の管理ノード上の Tenant Manager
+ a| 
+任意の管理ノード上の Tenant Manager
+ a| 
+すべての管理ノード上の Tenant Manager
+
+
+
+ a| 
+Grid Manager と Tenant Manager の両方
+ a| 
+Grid Manager
+ a| 
+Grid Manager のみ。SSO からサインアウトするには、 Tenant Manager からもサインアウトする必要があります。
+
+
+
+ a| 
+テナントマネージャ
+ a| 
+Tenant Manager のみ。SSO からサインアウトするには、 Grid Manager からもサインアウトする必要があります。
+
+|===
+
+
+
+NOTE: 次の表は、単一のブラウザセッションを使用している場合にサインアウトしたときの動作をまとめたものです。複数のブラウザセッションで StorageGRID にサインインしている場合は、すべてのブラウザセッションから個別にサインアウトする必要があります。

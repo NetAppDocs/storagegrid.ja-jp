@@ -1,0 +1,42 @@
+---
+permalink: s3/operations-on-the-service.html 
+sidebar: sidebar 
+keywords: listbuckets, get service, operations on the service 
+summary: StorageGRID システムでは、サービスに対する処理がサポートされます。 
+---
+= サービスの処理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID システムでは、サービスに対して次の処理をサポートしています。
+
+[cols="1a,2a"]
+|===
+| 操作 | インプリメンテーション 
+
+
+ a| 
+ListBuckets
+
+（以前の名前はGET Service）
+ a| 
+Amazon S3 REST API のすべての動作が実装されています。予告なく変更される場合があります。
+
+
+
+ a| 
+GET Storage Usage の略
+ a| 
+StorageGRID要求ではlink:get-storage-usage-request.html["GET Storage Usage の略"]、アカウントで使用されているストレージの合計容量と、アカウントに関連付けられているバケットごとに表示されます。これは、パス/とカスタムクエリパラメータ(`?x-ntap-sg-usage`）が追加されたサービスに対する処理です。
+
+
+
+ a| 
+オプション/
+ a| 
+クライアントアプリケーションからストレージノードのS3ポートに要求を発行して（S3認証クレデンシャルは不要）、ストレージノードが使用可能かどうかを確認できます `OPTIONS /`。この要求は監視に使用できるほか、外部のロードバランサがストレージノードの停止を特定する目的でも使用できます。
+
+|===

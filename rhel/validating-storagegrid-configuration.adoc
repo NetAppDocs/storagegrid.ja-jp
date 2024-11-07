@@ -1,0 +1,34 @@
+---
+permalink: rhel/validating-storagegrid-configuration.html 
+sidebar: sidebar 
+keywords: how to validate red hat linux configuration 
+summary: 各 StorageGRID ノードの /etc/storagegrid/nodes に構成ファイルを作成したら、それらのファイルの内容を検証する必要があります。 
+---
+= StorageGRID 構成を検証
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRIDノードごとに構成ファイルをに作成したら `/etc/storagegrid/nodes`、それらのファイルの内容を検証する必要があります。
+
+構成ファイルの内容を検証するには、各ホストで次のコマンドを実行します。
+
+[listing]
+----
+sudo storagegrid node validate all
+----
+ファイルが正しい場合は、次の例に示すように、各構成ファイルの出力に * PASSED * と表示されます。
+
+
+NOTE: メタデータのみのノードでLUNを1つだけ使用している場合は、警告メッセージが表示されても無視してかまいません。
+
+image::../media/rhel_node_configuration_file_output.gif[この図には説明が付随しています。]
+
+
+TIP: 自動インストールの場合は、コマンドのまたは `--quiet`オプション `storagegrid`（など） `storagegrid --quiet...`を使用して、この出力を抑制できます `-q`。出力を抑制した場合、構成で警告またはエラーが検出されたときはゼロ以外の終了値が返されます。
+
+構成ファイルが正しくない場合、次の例に示すように、問題は * WARNING * および * ERROR * として表示されます。構成エラーが見つかった場合は、インストールを続行する前に修正する必要があります。
+
+image::../media/rhel_node_configuration_file_output_with_errors.gif[この図には説明が付随しています。]

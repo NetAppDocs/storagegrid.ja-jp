@@ -1,0 +1,26 @@
+---
+permalink: ubuntu/adding-sites.html 
+sidebar: sidebar 
+keywords: how to create a site 
+summary: StorageGRID をインストールするときに、サイトを少なくとも 1 つ作成する必要があります。StorageGRID システムの信頼性を高め、ストレージ容量を増やすために、追加のサイトを作成することができます。 
+---
+= サイトを追加します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID をインストールするときに、サイトを少なくとも 1 つ作成する必要があります。StorageGRID システムの信頼性を高め、ストレージ容量を増やすために、追加のサイトを作成することができます。
+
+.手順
+. [ サイト ] ページで、 * サイト名 * を入力します。
+. サイトを追加するには、最後のサイトエントリの横にあるプラス記号をクリックし、新しい * サイト名 * テキストボックスに名前を入力します。
++
+グリッドトポロジに必要な数のサイトを追加します。サイトは最大 16 個まで追加できます。
+
++
+image::../media/3_gmi_installer_sites_page.gif[この図には説明が付随しています。]
+
+. 「 * 次へ * 」をクリックします。
+

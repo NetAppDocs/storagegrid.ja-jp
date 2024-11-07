@@ -1,0 +1,44 @@
+---
+permalink: maintain/viewing-current-status-of-all-services.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, service, status 
+summary: グリッドノード上で実行されているすべてのサービスの現在のステータスはいつでも表示できます。 
+---
+= すべてのサービスの現在のステータスを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+グリッドノード上で実行されているすべてのサービスの現在のステータスはいつでも表示できます。
+
+.開始する前に
+あなたはファイルを持ってい `Passwords.txt`ます。
+
+.手順
+. グリッドノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. グリッドノード上で実行されているすべてのサービスのステータスを表示します。 `storagegrid-status`
++
+たとえば、プライマリ管理ノードの出力には、 AMS 、 CMN 、および NMS の各サービスの現在のステータスが実行中と表示されます。この出力は、サービスのステータスが変わるとすぐに更新されます。
+
++
+image::../media/storagegrid_status_output.gif[storage-grid コマンドの出力のスクリーンショット]
+
+. コマンドラインに戻り、 * Ctrl * + * C * を押します。
+. 必要に応じて、グリッドノードで実行されているすべてのサービスに関する静的レポートを表示します。 `/usr/local/servermanager/reader.rb`
++
+このレポートには、継続的に更新されるレポートと同じ情報が含まれますが、サービスのステータスが変わっても更新されません。
+
+. コマンドシェルからログアウトします。 `exit`
+

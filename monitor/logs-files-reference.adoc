@@ -1,0 +1,232 @@
+---
+permalink: monitor/logs-files-reference.html 
+sidebar: sidebar 
+keywords: log, logs, log files 
+summary: StorageGRID には、イベント、診断メッセージ、およびエラー状態をキャプチャするために使用されるログが用意されています。テクニカルサポートにトラブルシューティングを依頼すると、ログファイルを収集して転送するように求められることがあります。 
+---
+= ログファイル参照
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID には、イベント、診断メッセージ、およびエラー状態をキャプチャするために使用されるログが用意されています。テクニカルサポートにトラブルシューティングを依頼すると、ログファイルを収集して転送するように求められることがあります。
+
+ログは次のように分類されます。
+
+* link:storagegrid-software-logs.html["StorageGRID ソフトウェアのログ"]
+* link:deployment-and-maintenance-logs.html["導入とメンテナンスのログ"]
+* link:about-bycast-log.html["bycast.log について"]
+
+
+
+NOTE: 各ログタイプの詳細情報は参考用です。これらのログは、テクニカルサポートが高度なトラブルシューティングに使用することを目的としています。監査ログやアプリケーションログファイルを使用して問題の履歴を再構築する高度な手法については、この手順では説明していません。
+
+
+
+== ログにアクセスします
+
+ログにアクセスするには、1つ以上のノードから単一のログファイルアーカイブとしてアクセスしますlink:collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集します"]。または、プライマリ管理ノードを使用できない場合や特定のノードに到達できない場合は、次の手順で各グリッドノードの個別のログファイルにアクセスできます。
+
+. 次のコマンドを入力します。 `ssh admin@grid_node_IP`
+. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+. 次のコマンドを入力してrootに切り替えます。 `su -`
+. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
+
+
+== syslogサーバへのログのエクスポート
+
+ログをsyslogサーバにエクスポートすると、次の機能が提供されます。
+
+* S3要求とSwift要求に加えて、Grid Manager要求とTenant Manager要求のリストを受信します。
+* 監査ログメソッドが原因でパフォーマンスに影響を与えることなく、エラーを返すS3要求の可視性が向上します。
+* 解析が容易なHTTPレイヤ要求およびエラーコードへのアクセス。
+* ロードバランサでトラフィック分類機能によってブロックされた要求の可視性が向上します。
+
+
+ログをエクスポートするには、を参照してくださいlink:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]。
+
+
+
+== ログファイルのカテゴリ
+
+StorageGRID ログファイルアーカイブには、カテゴリごとに説明されているログ、およびメトリックと debug コマンドの出力が含まれている追加ファイルが含まれています。
+
+[cols="1a,3a"]
+|===
+| アーカイブの場所 | 製品説明 
+
+
+| 監査  a| 
+通常のシステム動作中に生成される監査メッセージです。
+
+
+
+| base-os-logs  a| 
+StorageGRID イメージのバージョンなど、ベースとなるオペレーティングシステムの情報。
+
+
+
+| バンドル  a| 
+グローバル構成情報（バンドル）。
+
+
+
+| Cassandra  a| 
+Cassandra データベース情報と Reaper 修復ログ。
+
+
+
+| EC  a| 
+現在のノードに関するVCS情報と、プロファイルIDによるECグループ情報。
+
+
+
+| グリッド（ Grid ）  a| 
+一般的なグリッドログ（デバッグを含む(`bycast.log`）と `servermanager`ログ。
+
+
+
+| grid.json  a| 
+グリッド構成ファイルをすべてのノードで共有また、 `node.json`は現在のノードに固有です。
+
+
+
+| シュラウド  a| 
+ハイアベイラビリティグループの指標とログ。
+
+
+
+| インストール  a| 
+`Gdu-server`インストールログを確認します。
+
+
+
+| Lambda - アービトレータ  a| 
+S3 Select プロキシ要求に関連するログです。
+
+
+
+| lumberjack.log  a| 
+ログ収集に関連するデバッグメッセージ。
+
+
+
+| 指標  a| 
+Grafana 、 Jaeger 、ノードエクスポータ、および Prometheus のサービスログ。
+
+
+
+| 計算ミス  a| 
+Miscd アクセスログとエラーログ。
+
+
+
+| MySQL  a| 
+MariaDB データベースの設定と関連ログ。
+
+
+
+| ネット  a| 
+ネットワーク関連のスクリプトおよび Dyip サービスによって生成されるログ。
+
+
+
+| nginx  a| 
+ロードバランサとグリッドフェデレーションの設定ファイルとログ。Grid Manager と Tenant Manager のトラフィックログも含まれます。
+
+
+
+| nginx-gw と入力します  a| 
+* `access.log`：Grid ManagerおよびTenant Manager要求のログメッセージ。
++
+** これらのメッセージは、syslogを使用してエクスポートする場合にプレフィックスとして付加されます `mgmt:`。
+** これらのログ・メッセージの形式は次のとおりです。 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$request" "$http_host" "$http_user_agent" "$http_referer"`
+
+
+* `cgr-access.log.gz`：インバウンドのクロスグリッドレプリケーション要求。
++
+** これらのメッセージは、syslogを使用してエクスポートする場合にプレフィックスとして付加されます `cgr:`。
+** これらのログ・メッセージの形式は次のとおりです。 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
+
+
+* `endpoint-access.log.gz`：ロードバランサエンドポイントへのS3要求とSwift要求。
++
+** これらのメッセージは、syslogを使用してエクスポートする場合にプレフィックスとして付加されます `endpoint:`。
+** これらのログ・メッセージの形式は次のとおりです。 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
+
+
+* `nginx-gw-dns-check.log`：新しいDNSチェックアラートに関連します。
+
+
+
+
+| NTP  a| 
+NTP 構成ファイルとログ：
+
+
+
+ a| 
+孤立オブジェクト
+ a| 
+孤立したオブジェクトに関するログ。
+
+
+
+| OS  a| 
+ノードとグリッドの状態ファイル（サービスを含む `pid`）。
+
+
+
+| その他  a| 
+にあるログファイルは `/var/local/log`、他のフォルダに収集されません。
+
+
+
+| パフォーマンス  a| 
+CPU 、ネットワーク、ディスク I/O のパフォーマンス情報
+
+
+
+| prometheus-data  a| 
+ログ収集に Prometheus データが含まれている場合、現在の Prometheus 指標。
+
+
+
+| プロビジョニング  a| 
+グリッドのプロビジョニングプロセスに関連するログです。
+
+
+
+| ラフト  a| 
+プラットフォームサービスで使用される Raft クラスタのログ。
+
+
+
+| SSH  a| 
+SSHの設定およびサービスに関連するログ。
+
+
+
+| SNMP  a| 
+SNMP通知の送信に使用するSNMPエージェントの設定。
+
+
+
+| ソケット - データ  a| 
+ネットワークデバッグ用のソケットデータ。
+
+
+
+| system-commands.txt  a| 
+StorageGRID コンテナコマンドの出力。ネットワークやディスクの使用状況などのシステム情報が含まれます。
+
+
+
+| synchronize-recovery-package  a| 
+ADCサービスをホストするすべての管理ノードとストレージノードで最新のリカバリパッケージの整合性を維持することに関連します。
+
+|===

@@ -1,0 +1,134 @@
+---
+permalink: audit/mgau-management-audit-message.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, MGAU, Management audit message 
+summary: 管理カテゴリでは、管理 API に対するユーザ要求がログに記録されます。API に対する GET または HEAD 以外のすべての要求は、応答に加えて要求のユーザ名、 IP 、およびタイプをログに記録します。 
+---
+= MGAU ：管理監査メッセージ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+管理カテゴリでは、管理 API に対するユーザ要求がログに記録されます。有効なAPI URIに対するGET要求またはHEAD要求ではないすべてのHTTP要求で、ユーザ名、IP、および要求タイプを含む応答がAPIに対して記録されます。無効なAPI URI（/api/v3-authorizeなど）や有効なAPI URIへの無効な要求はログに記録されません。
+
+[cols="1a,1a,4a"]
+|===
+| コード | フィールド | 製品説明 
+
+
+ a| 
+MDIP
+ a| 
+宛先 IP アドレス
+ a| 
+サーバ（デスティネーション）の IP アドレス。
+
+
+
+ a| 
+MDNA
+ a| 
+ドメイン名
+ a| 
+ホストのドメイン名。
+
+
+
+ a| 
+MPAT
+ a| 
+要求パス
+ a| 
+要求のパス。
+
+
+
+ a| 
+MPQP
+ a| 
+要求クエリパラメータ
+ a| 
+要求のクエリパラメータ。
+
+
+
+ a| 
+MRBD の略
+ a| 
+リクエストの本文
+ a| 
+要求の本文の内容。応答の本文はデフォルトでログに記録されますが、要求の本文は応答の本文が空の特定のケースでログに記録されます。応答の本文には次の情報が含まれていないため、それぞれの POST メソッドの要求本文から取り込まれます。
+
+* ユーザ名とアカウント ID ： * POST authorize *
+* 新しいサブネット設定： * POST /grid/grid-networks/update *
+* 新しい NTP サーバ： * POST /grid/ntp-servers /update * に含まれています
+* 運用停止されたサーバ ID は、 * POST /grid/servers/decommission * に記載されています
+
+
+* 注： * 機密情報は、削除（ S3 アクセスキーなど）またはアスタリスクでマスク（パスワードなど）されます。
+
+
+
+ a| 
+検査
+ a| 
+要求メソッド
+ a| 
+HTTP 要求メソッド：
+
+* 投稿
+* PUT
+* 削除
+* パッチ
+
+
+
+
+ a| 
+MRSC
+ a| 
+応答コード
+ a| 
+応答コード。
+
+
+
+ a| 
+MRSP
+ a| 
+応答の本文
+ a| 
+デフォルトでは、応答の内容（応答の本文）がログに記録されます。
+
+* 注： * 機密情報は、削除（ S3 アクセスキーなど）またはアスタリスクでマスク（パスワードなど）されます。
+
+
+
+ a| 
+MSIP
+ a| 
+送信元 IP アドレス
+ a| 
+クライアント（送信元）の IP アドレス。
+
+
+
+ a| 
+MUUN
+ a| 
+ユーザのURN
+ a| 
+要求を送信したユーザの URN （ Uniform Resource Name ）。
+
+
+
+ a| 
+RSLT
+ a| 
+結果
+ a| 
+成功（ SUCS ）、またはバックエンドによって報告されたエラーが返されます。
+
+|===

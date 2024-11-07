@@ -1,0 +1,36 @@
+---
+permalink: tenant/deleting-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to delete tenant platform services endpoint 
+summary: 関連するプラットフォームサービスが不要になった場合は、エンドポイントを削除できます。 
+---
+= プラットフォームサービスエンドポイントを削除します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+関連するプラットフォームサービスが不要になった場合は、エンドポイントを削除できます。
+
+.開始する前に
+* を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+* が設定されたユーザグループに属しているlink:tenant-management-permissions.html["エンドポイントまたはRoot Access権限を管理します"]必要があります。
+
+
+.手順
+. ストレージ（ S3 ） * > * プラットフォームサービスのエンドポイント * を選択します。
++
+Platform services Endpoints ページが表示され、設定済みのプラットフォームサービスエンドポイントのリストが表示されます。
+
+. 削除する各エンドポイントのチェックボックスを選択します。
++
+
+NOTE: 使用中のプラットフォームサービスエンドポイントを削除すると、エンドポイントを使用するすべてのバケットに対して、関連するプラットフォームサービスが無効になります。完了していない要求はすべて破棄されます。新しい要求は、削除された URN を参照しないようにバケット設定を変更するまで、引き続き生成されます。StorageGRID はこれらの要求を回復不能なエラーとして報告します。
+
+. [ * アクション * > * エンドポイントの削除 * ] を選択します。
++
+確認メッセージが表示されます。
+
+. [ * エンドポイントの削除 * ] を選択します。
+

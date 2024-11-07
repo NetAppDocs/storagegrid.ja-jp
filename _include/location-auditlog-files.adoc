@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の保存先について"]です。

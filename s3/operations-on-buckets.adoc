@@ -1,0 +1,396 @@
+---
+permalink: s3/operations-on-buckets.html 
+sidebar: sidebar 
+keywords: bucket, buckets, operations on buckets 
+summary: StorageGRIDシステムでは、S3テナントアカウントごとに最大5、000個のバケットがサポートされます。 
+---
+= バケットの処理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRIDシステムでは、S3テナントアカウントごとに最大5、000個のバケットがサポートされます。
+
+各グリッドには、最大100,000個のバケットを含めることができます。
+
+5、000バケットをサポートするには、グリッド内の各ストレージノードに64GB以上のRAMが必要です。
+
+バケット名にはAWS US Standardリージョンの制限事項が適用されますが、S3仮想ホスト形式の要求をサポートするためにDNSの命名規則にも制限する必要があります。
+
+詳細については、次を参照してください。
+
+* https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html["Amazon Simple Storage Serviceユーザガイド：バケットのクォータ、制限事項"^]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名を設定"]
+
+
+ListObjects（GET Bucket）処理とListObjectVersions（GET Bucketオブジェクトバージョン）処理では、StorageGRIDlink:consistency-controls.html["整合性の値"]がサポートされます。
+
+最終アクセス時間の更新が個々のバケットで有効になっているか無効になっているかを確認することができます。を参照して link:get-bucket-last-access-time-request.html["GET Bucket last access time のように指定します"]
+
+次の表に、 StorageGRID での S3 REST API バケット処理の実装方法を示します。これらの処理を実行するには、アカウントに必要なアクセスクレデンシャルが付与されている必要があります。
+
+[cols="1a,3a"]
+|===
+| 操作 | インプリメンテーション 
+
+
+ a| 
+CreateBucket
+ a| 
+新しいバケットを作成します。バケットを作成すると、そのバケットの所有者になります。
+
+* バケット名は次のルールを満たす必要があります。
++
+** StorageGRID システム全体で（テナントアカウント内だけではなく）一意である必要があります。
+** DNS に準拠している必要があります。
+** 3文字以上63文字以下にする必要があります。
+** 1 つ以上のラベルを連続して指定できます。隣接するラベルはピリオドで区切ります。各ラベルの先頭と末尾の文字は小文字のアルファベットか数字にする必要があり、使用できる文字は小文字のアルファベット、数字、ハイフンのみです。
+** テキスト形式の IP アドレスのようにはできません。
+** 仮想ホスト形式の要求でピリオドを使用しないでください。ピリオドを使用すると、サーバワイルドカード証明書の検証で原因 の問題が発生します。
+
+
+* デフォルトではリージョン内にバケットが作成され `us-east-1`ますが、要求の本文のrequest要素を使用して別のリージョンを指定できます `LocationConstraint`。要素を使用する場合 `LocationConstraint`は、Grid Managerまたはグリッド管理APIを使用して定義されたリージョンの正確な名前を指定する必要があります。使用するリージョン名がわからない場合は、システム管理者にお問い合わせください。
++
+*注*：CreateBucket要求がStorageGRIDで定義されていないリージョンを使用すると、エラーが発生します。
+
+* 要求ヘッダーを指定して、S3オブジェクトロックを有効にしたバケットを作成できます `x-amz-bucket-object-lock-enabled`。を参照して link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
++
+バケットの作成時に S3 オブジェクトのロックを有効にする必要があります。バケットの作成後にS3オブジェクトロックを追加または無効にすることはできません。S3 オブジェクトロックにはバケットのバージョン管理が必要です。バケットの作成時に自動的に有効になります。
+
+
+
+
+
+ a| 
+DeleteBucket
+ a| 
+バケットを削除します。
+
+
+
+ a| 
+DeleteBucketCors
+ a| 
+バケットのCORS設定を削除します。
+
+
+
+ a| 
+DeleteBucketEncryption
+ a| 
+バケットからデフォルトの暗号化を削除します。既存の暗号化オブジェクトは暗号化されたままですが、バケットに追加された新しいオブジェクトは暗号化されません。
+
+
+
+ a| 
+DeleteBucketLifecycle
+ a| 
+バケットからライフサイクル設定を削除します。を参照して link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]
+
+
+
+ a| 
+DeleteBucketPolicy
+ a| 
+バケットに関連付けられているポリシーを削除します。
+
+
+
+ a| 
+DeleteBucketReplication
+ a| 
+バケットに関連付けられているレプリケーション設定を削除します。
+
+
+
+ a| 
+DeleteBucketTagging
+ a| 
+サブリソースを使用し `tagging`てバケットからすべてのタグを削除します。
+
+*注意*：このバケットにデフォルト以外のILMポリシータグが設定されている場合は、値が割り当てられたバケットタグがあります `NTAP-SG-ILM-BUCKET-TAG`。バケットタグがある場合は、DeleteBucketTagging要求を実行しない `NTAP-SG-ILM-BUCKET-TAG`でください。代わりに、タグとその割り当てられた値のみを指定してPutBucketTagging要求を発行し `NTAP-SG-ILM-BUCKET-TAG`、他のすべてのタグをバケットから削除します。バケットタグを変更または削除しないで `NTAP-SG-ILM-BUCKET-TAG`ください。
+
+
+
+ a| 
+GetBucketAcl
+ a| 
+バケットの所有者にバケットへのフルアクセスがあることを示す応答が返され、所有者のID、表示名、および権限が表示されます。
+
+
+
+ a| 
+GetBucketCors
+ a| 
+バケットの設定を返し `cors`ます。
+
+
+
+ a| 
+GetBucketEncryptionの略
+ a| 
+バケットのデフォルトの暗号化設定を返します。
+
+
+
+ a| 
+GetBucketLifecycleConfiguration
+
+（以前のGET Bucket lifecycle）
+ a| 
+バケットのライフサイクル設定を返します。を参照して link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]
+
+
+
+ a| 
+GetBucketLocation
+ a| 
+CreateBucket要求の要素を使用して設定されたリージョンを返します `LocationConstraint`。バケットのリージョンがの場合は、リージョンに対して空の文字列が `us-east-1`返されます。
+
+
+
+ a| 
+GetBucketNotificationConfigurationを参照してください
+
+（以前の名前のGET Bucket通知）
+ a| 
+バケットに関連付けられている通知設定を返します。
+
+
+
+ a| 
+GetBucketPolicy
+ a| 
+バケットに関連付けられているポリシーを返します。
+
+
+
+ a| 
+GetBucketReplicationの略
+ a| 
+バケットに関連付けられているレプリケーション設定を返します。
+
+
+
+ a| 
+GetBucketTagging
+ a| 
+サブリソースを使用し `tagging`てバケットのすべてのタグを返します。
+
+*注意*：このバケットにデフォルト以外のILMポリシータグが設定されている場合は、値が割り当てられたバケットタグがあります `NTAP-SG-ILM-BUCKET-TAG`。このタグを変更または削除しないでください。
+
+
+
+ a| 
+GetBucketVersioning
+ a| 
+この実装では、サブリソースを使用して `versioning`バケットのバージョン管理の状態を返します。
+
+* _blank_：バージョン管理が一度も有効になっていない（バケットは「バージョン管理されていない」）
+* 有効：バージョン管理が有効になっています
+* 中断：バージョン管理は以前有効になっていて、中断されています
+
+
+
+
+ a| 
+GetObjectLockConfigurationの略
+ a| 
+バケットのデフォルトの保持モードとデフォルトの保持期間（設定されている場合）を返します。
+
+を参照して link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+
+
+
+ a| 
+ヘッドバケット
+ a| 
+バケットが存在し、そのバケットにアクセスする権限があるかどうかを確認します。
+
+この処理から返される情報は次の
+
+* `x-ntap-sg-bucket-id`：バケットのUUID（UUID形式）。
+* `x-ntap-sg-trace-id`：関連付けられた要求の一意のトレースID。
+
+
+
+
+ a| 
+listObjectsおよびListObjectsV2
+
+（以前の名前はGET Bucket）
+ a| 
+バケット内のオブジェクトの一部またはすべて（最大1、000）を返します。オブジェクトのストレージクラスには、ストレージクラスオプションを使用してオブジェクトを取り込んだ場合でも、次の2つの値のいずれかが設定され `REDUCED_REDUNDANCY`ます。
+
+* `STANDARD`オブジェクトがストレージノードで構成されるストレージプールに格納されていることを示します。
+* `GLACIER`が表示されます。これは、クラウドストレージプールで指定された外部バケットにオブジェクトが移動されたことを示します。
+
+
+バケットに同じプレフィックスの削除済みキーが大量に含まれている場合は、キーを含まないキーが応答に含まれることがあります `CommonPrefixes`。
+
+
+
+ a| 
+ListObjectVersions
+
+（以前のGET Bucket Object versions）
+ a| 
+バケットに対する読み取りアクセスが許可されている場合、サブリソースを指定してこの処理を実行すると、 `versions`バケット内のオブジェクトのすべてのバージョンのメタデータがリストされます。
+
+
+
+ a| 
+PutBucketCorsの略
+ a| 
+クロスオリジン要求を処理できるように、バケットのCORS設定を設定します。Cross-Origin Resource Sharing （ CORS ）は、あるドメインのクライアント Web アプリケーションが別のドメインのリソースにアクセスできるようにするセキュリティ機能です。たとえば、という名前のS3バケットを使用してグラフィックを格納するとし `images`ます。バケットのCORS設定を設定すると `images`、そのバケット内の画像をWebサイトに表示できるように `+http://www.example.com+`なります。
+
+
+
+ a| 
+PutBucketEncryptionの略
+ a| 
+既存のバケットのデフォルトの暗号化状態を設定します。バケットレベルの暗号化が有効な場合は、バケットに追加されたすべての新しいオブジェクトが暗号化されます。 StorageGRID では、 StorageGRID で管理されるキーによるサーバ側の暗号化がサポートされます。サーバ側の暗号化設定ルールを指定する場合は、パラメータをに `AES256`設定し `SSEAlgorithm`、パラメータは使用しないで `KMSMasterKeyID`ください。
+
+オブジェクトのアップロード要求ですでに暗号化が指定されている場合（要求に要求ヘッダーが含まれている場合）は、バケットのデフォルトの暗号化設定は無視され `x-amz-server-side-encryption-*`ます。
+
+
+
+ a| 
+PutBucketLifecycleConfiguration
+
+（以前のPUT Bucket lifecycle）
+ a| 
+バケットの新しいライフサイクル設定を作成するか、既存のライフサイクル設定と置き換えます。StorageGRID では、 1 つのライフサイクル設定で最大 1 、 000 個のライフサイクルルールがサポートされます。各ルールには、次の XML 要素を含めることができます。
+
+* 有効期限（日数、日付、ExpiredObjectDeleteMarker）
+* NoncurrentVersionExpiration（NewerNoncurrentVersions、NoncurrentDays）
+* フィルタ（プレフィックス、タグ）
+* ステータス
+* ID
+
+
+StorageGRID では、次のアクションはサポートされません。
+
+* AbortIncompleteMultipartUpload
+* 移行
+
+
+を参照して link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]バケットライフサイクルのExpirationアクションとILMの配置手順の相互作用については、を参照してくださいlink:../ilm/how-ilm-operates-throughout-objects-life.html["オブジェクトのライフサイクル全体にわたる ILM の動作"]。
+
+* 注：バケットライフサイクル設定は S3 オブジェクトロックが有効なバケットで使用できますが、従来の準拠バケットではバケットライフサイクル設定がサポートされません。
+
+
+
+ a| 
+PutBucketNotificationConfigurationの略
+
+（以前の名前のPUT Bucket通知）
+ a| 
+要求の本文に含まれる通知設定XMLを使用してバケットの通知を設定します。実装に関する次の詳細事項に注意してください。
+
+* StorageGRIDでは、Amazon Simple Notification Service（Amazon SNS）またはKafkaトピックがデスティネーションとしてサポートされます。Simple Queue Service（SQS）またはAmazon Lambdaエンドポイントはサポートされていません。
+* 通知のデスティネーションは、 StorageGRID エンドポイントの URN として指定する必要があります。エンドポイントは、 Tenant Manager またはテナント管理 API を使用して作成できます。
++
+通知設定が機能するためには、エンドポイントが存在している必要があります。エンドポイントが存在しない場合は `400 Bad Request`、コードとともにエラーが返され `InvalidArgument`ます。
+
+* 次のイベントタイプに対して通知を設定することはできません。これらのイベントタイプは * サポートされていません。
++
+** `s3:ReducedRedundancyLostObject`
+** `s3:ObjectRestore:Completed`
+
+
+* StorageGRID から送信されるイベント通知は標準のJSON形式を使用しますが、次のリストに示すように、一部のキーが含まれず、他のキーには特定の値が使用されます。
++
+** * eventSource*
++
+`sgws:s3`
+
+** * awsRegion *
++
+含まれません
+
+** * x-amz-id-2 *
++
+含まれません
+
+** * arn *
++
+`urn:sgws:s3:::bucket_name`
+
+
+
+
+
+
+
+ a| 
+PutBucketPolicy
+ a| 
+バケットに関連付けられたポリシーを設定します。を参照して link:bucket-and-group-access-policies.html["バケットとグループのアクセスポリシーを使用"]
+
+
+
+ a| 
+PutBucketReplicationの略
+ a| 
+要求の本文に含まれるレプリケーション設定XMLを使用してバケットを設定しますlink:../tenant/understanding-cloudmirror-replication-service.html["StorageGRID CloudMirrorレプリケーション"]。CloudMirror レプリケーションについては、実装に関する次の詳細事項に注意してください。
+
+* StorageGRID では、 V1 のレプリケーション設定のみがサポートされます。これは、StorageGRIDがルールに要素を使用することをサポートして `Filter`おらず、オブジェクトバージョンの削除に関するV1の規則に従います。詳細については、を参照してください https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html["Amazon Simple Storage Serviceユーザガイド：レプリケーションの設定"^]。
+* バケットレプリケーションは、バージョン管理されているバケットでもバージョン管理されていないバケットでも設定でき
+* レプリケーション設定 XML の各ルールで異なるデスティネーションバケットを指定できます。1 つのソースバケットを複数のデスティネーションバケットにレプリケートできます。
+* デスティネーションバケットは、テナントマネージャまたはテナント管理 API で指定された StorageGRID エンドポイントの URN として指定する必要があります。を参照して link:../tenant/configuring-cloudmirror-replication.html["CloudMirror レプリケーションを設定します"]
++
+レプリケーション設定が機能するためには、エンドポイントが存在している必要があります。エンドポイントが存在しない場合、要求はとして失敗し `400 Bad Request`ます。次のエラーメッセージが表示されます。 `Unable to save the replication policy. The specified endpoint URN does not exist: _URN_.`
+
+* 設定XMLでを指定する必要はありません `Role`。この値は StorageGRID では使用されず、送信されても無視されます。
+* 設定XMLでストレージクラスを省略した場合、StorageGRIDではデフォルトでストレージクラスが使用され `STANDARD`ます。
+* ソースバケットからオブジェクトを削除する場合、またはソースバケット自体を削除する場合、クロスリージョンレプリケーションは次のように動作します。
++
+** レプリケートの前にオブジェクトまたはバケットを削除した場合、オブジェクトまたはバケットはレプリケートされず、通知も送信されません。
+** レプリケートのあとにオブジェクトまたはバケットを削除すると、 StorageGRID は、 V1 のクロスリージョンレプリケーションに対する Amazon S3 の通常の削除動作に従います。
+
+
+
+
+
+
+ a| 
+PutBucketTaggingの略
+ a| 
+サブリソースを使用して、 `tagging`バケットの一連のタグを追加または更新します。バケットタグを追加する場合は、次の制限事項に注意してください。
+
+* StorageGRID と Amazon S3 はどちらもバケットごとに最大 50 個のタグをサポートします。
+* バケットに関連付けられているタグには、一意のタグキーが必要です。タグキーには Unicode 文字を 128 文字まで使用できます。
+* タグ値には、 Unicode 文字を 256 文字以内で指定します。
+* キーと値では大文字と小文字が区別されます。
+
+
+*注意*：このバケットにデフォルト以外のILMポリシータグが設定されている場合は、値が割り当てられたバケットタグがあります `NTAP-SG-ILM-BUCKET-TAG`。すべてのPutBucketTagging要求で、バケットタグが割り当てられた値に含まれていることを確認し `NTAP-SG-ILM-BUCKET-TAG`てください。このタグを変更または削除しないでください。
+
+*注*：この処理を実行すると、バケットにすでに設定されている現在のタグが上書きされます。セットから既存のタグを省略すると、それらのタグはバケットから削除されます。
+
+
+
+ a| 
+PutBucketVersioning
+ a| 
+サブリソースを使用 `versioning`して、既存のバケットのバージョン管理状態を設定します。バージョン管理の状態は、次のいずれかの値に設定できます。
+
+* Enabled ：バケット内のオブジェクトに対してバージョン管理を有効にします。バケットに追加されるすべてのオブジェクトに、一意のバージョン ID が割り当てられます。
+* Suspended ：バケット内のオブジェクトに対してバージョン管理を無効にします。バケットに追加されたすべてのオブジェクトにバージョンIDが割り当てられ `null`ます。
+
+
+
+
+ a| 
+PutObjectLockConfiguration
+ a| 
+バケットのデフォルトの保持モードとデフォルトの保持期間を設定または削除します。
+
+デフォルトの保持期間を変更した場合、既存のオブジェクトバージョンの retain-until はそのまま残り、新しいデフォルトの保持期間を使用して再計算されることはありません。
+
+詳細については、を参照してくださいlink:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]。
+
+|===

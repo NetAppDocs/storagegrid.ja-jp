@@ -1,0 +1,94 @@
+---
+permalink: maintain/using-donotstart-file.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, donotstart, do not start, donotstart file, do not start file 
+summary: テクニカルサポートの指示の下でメンテナンスや設定の手順を実行している場合は、 Server Manager の起動時または再起動時にサービスが開始されないように、 DoNotStart ファイルを使用するよう求められることがあります。 
+---
+= DoNotStart ファイルを使用します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+テクニカルサポートの指示の下でメンテナンスや設定の手順を実行している場合は、 Server Manager の起動時または再起動時にサービスが開始されないように、 DoNotStart ファイルを使用するよう求められることがあります。
+
+
+CAUTION: DoNotStart ファイルは、テクニカルサポートから指示があった場合のみ追加または削除してください。
+
+サービスが開始されないようにするには、そのサービスのディレクトリに DoNotStart ファイルを配置します。Server Manager は起動時に DoNotStart ファイルを検索し、ファイルが存在する場合、サービス（およびそれに依存するサービス）は開始されません。DoNotStart ファイルを削除すると、停止されていたサービスは、 Server Manager が次回起動または再起動したときに開始されます。DoNotStartファイルが削除されても、サービスは自動的に開始されません。
+
+すべてのサービスを再開しないようにする最も効率的な方法は、 NTP サービスを開始しないようにすることです。すべてのサービスはNTPサービスに依存しており、NTPサービスが実行されていないと実行できません。
+
+
+
+== サービスの DoNotStart ファイルを追加します
+
+個別のサービスが開始しないようにするには、グリッドノードのそのサービスのディレクトリに DoNotStart ファイルを追加します。
+
+.開始する前に
+あなたはファイルを持ってい `Passwords.txt`ます。
+
+.手順
+. グリッドノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. DoNotStartファイルを追加します。 `touch /etc/sv/_service_/DoNotStart`
++
+ `service`は、開始できないようにするサービスの名前です。例えば、
+
++
+[listing]
+----
+touch /etc/sv/ldr/DoNotStart
+----
++
+DoNotStart ファイルが作成されます。ファイルの内容は不要です。
+
++
+Server Manager またはグリッドノードが再起動されたときに Server Manager は再起動しますが、サービスは再開されません。
+
+. コマンドシェルからログアウトします。 `exit`
+
+
+
+
+== サービスの DoNotStart ファイルを削除します
+
+サービスを開始できないようにする DoNotStart ファイルを削除するには、そのサービスを開始する必要があります。
+
+.開始する前に
+あなたはファイルを持ってい `Passwords.txt`ます。
+
+.手順
+. グリッドノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. serviceディレクトリからDoNotStartファイルを削除します。 `rm /etc/sv/_service_/DoNotStart`
++
+ここで、 `service`はサービスの名前です。例えば、
+
++
+[listing]
+----
+rm /etc/sv/ldr/DoNotStart
+----
+. サービスを開始します。 `service _servicename_ start`
+. コマンドシェルからログアウトします。 `exit`
+

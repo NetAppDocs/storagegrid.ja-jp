@@ -1,0 +1,172 @@
+---
+permalink: audit/system-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
+summary: システム監査カテゴリに属する監査メッセージは、監査システム自体、グリッドノードの状態、システム全体のタスクアクティビティ\（グリッドタスク\）、およびサービスバックアップ処理に関連するイベントに使用されます。 
+---
+= システム監査メッセージ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+システム監査カテゴリに属する監査メッセージは、監査システム自体、グリッドノードの状態、システム全体のタスクアクティビティ（グリッドタスク）、およびサービスバックアップ処理に関連するイベントに使用されます。
+
+[cols="1a,2a,1a"]
+|===
+| コード | メッセージのタイトルと概要 | を参照してください 
+
+
+ a| 
+ECMC
+ a| 
+Missing Erasure-Coded Data Fragment：イレイジャーコーディングされたデータフラグメントの欠落が検出されたことを示します。
+ a| 
+link:ecmc-missing-erasure-coded-data-fragment.html["ECMC：イレイジャーコーディングされたデータフラグメントの欠落"]
+
+
+
+ a| 
+ECOC
+ a| 
+Corrupt Erasure-Coded Data Fragment：イレイジャーコーディングデータフラグメントの破損が検出されたことを示します。
+ a| 
+link:ecoc-corrupt-erasure-coded-data-fragment.html["ECOC：イレイジャーコーディングされたデータフラグメントの破損"]
+
+
+
+ a| 
+ETAF
+ a| 
+Security Authentication Failed ： Transport Layer Security （ TLS ）を使用した接続試行が失敗しました。
+ a| 
+link:etaf-security-authentication-failed.html["ETAF ：セキュリティ認証に失敗しました"]
+
+
+
+ a| 
+GNRG
+ a| 
+GNDS Registration ：サービスが StorageGRID システムに自身に関する情報を更新または登録しました。
+ a| 
+link:gnrg-gnds-registration.html["GNRG ： GNDS 登録"]
+
+
+
+ a| 
+GNUR
+ a| 
+GNDS Unregistration ：サービスが StorageGRID システムから自身の登録を解除しました。
+ a| 
+link:gnur-gnds-unregistration.html["GNUR ： GNDS 登録解除"]
+
+
+
+ a| 
+GTED
+ a| 
+Grid Task Ended ： CMN サービスがグリッドタスクの処理を完了しました。
+ a| 
+link:gted-grid-task-ended.html["GTED ： Grid タスクが終了しました"]
+
+
+
+ a| 
+GTSt
+ a| 
+Grid Task Started ： CMN サービスがグリッドタスクの処理を開始しました。
+ a| 
+link:gtst-grid-task-started.html["GTSt ： Grid タスクが開始されました"]
+
+
+
+ a| 
+GTSU
+ a| 
+Grid Task Submitted ：グリッドタスクが CMN サービスに送信されました。
+ a| 
+link:gtsu-grid-task-submitted.html["GTSU ： Grid タスクが送信されました"]
+
+
+
+ a| 
+LLST
+ a| 
+Location Lost ：この監査メッセージは、場所が失われたときに生成されます。
+ a| 
+link:llst-location-lost.html["LLST ：ロケーションが失われました"]
+
+
+
+ a| 
+OLST
+ a| 
+Object Lost ：要求されたオブジェクトが StorageGRID システム内に見つかりません。
+ a| 
+link:olst-system-detected-lost-object.html["OLST: システムが損失オブジェクトを検出しました"]
+
+
+
+ a| 
+サッド
+ a| 
+Security Audit Disable ：監査メッセージのロギングがオフになりました。
+ a| 
+link:sadd-security-audit-disable.html["SADD ：セキュリティ監査無効"]
+
+
+
+ a| 
+Sade 社
+ a| 
+Security Audit Enable ：監査メッセージのロギングが再開されました。
+ a| 
+link:sade-security-audit-enable.html["Sade ：セキュリティ監査を有効にします"]
+
+
+
+ a| 
+SVRF
+ a| 
+Object Store Verify Fail ：コンテンツブロックが検証チェックに失敗しました。
+ a| 
+link:svrf-object-store-verify-fail.html["SVRF ：オブジェクトストアの検証に失敗しました"]
+
+
+
+ a| 
+SVRU の場合
+ a| 
+Object Store Verify Unknown ：オブジェクトストアで想定外のオブジェクトデータが検出されました。
+ a| 
+link:svru-object-store-verify-unknown.html["SVRU ：オブジェクトストア検証が不明です"]
+
+
+
+ a| 
+SYSD
+ a| 
+Node Stop ：シャットダウンが要求されました。
+ a| 
+link:sysd-node-stop.html["SYSD ：ノード停止"]
+
+
+
+ a| 
+SYST
+ a| 
+Node Stopping ：サービスが正常な停止を開始しました。
+ a| 
+link:syst-node-stopping.html["SYST ：ノードを停止しています"]
+
+
+
+ a| 
+SYSU
+ a| 
+Node Start ：サービスが開始されました。前回のシャットダウンのタイプがメッセージに示されます。
+ a| 
+link:sysu-node-start.html["SYSU ：ノードが開始されました"]
+
+|===

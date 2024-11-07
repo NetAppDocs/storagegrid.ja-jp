@@ -1,0 +1,16 @@
+---
+permalink: release-notes/index.html 
+sidebar: sidebar 
+keywords: release notes 
+summary: 解決済みの問題と既知の問題に関するリリース固有の情報を取得します。 
+---
+= リリースノート
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+解決済みの問題と既知の問題に関するリリース固有の情報を取得します。
+
+NetAppサポートサイトにログインして、 https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["PDF ファイルを表示またはダウンロードします"^]StorageGRID 11.9リリースノートを参照します。

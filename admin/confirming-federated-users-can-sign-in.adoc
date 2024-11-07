@@ -1,0 +1,68 @@
+---
+permalink: admin/confirming-federated-users-can-sign-in.html 
+sidebar: sidebar 
+keywords: sso configuration 
+summary: シングルサインオン \ （ SSO \ ）を有効にする前に、少なくとも 1 人のフェデレーテッドユーザが Grid Manager および既存のテナントアカウント用の Tenant Manager にサインインできることを確認しておく必要があります。 
+---
+= フェデレーテッドユーザがサインインできることを確認する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+シングルサインオン（ SSO ）を有効にする前に、少なくとも 1 人のフェデレーテッドユーザが既存のテナントアカウント用に Grid Manager および Tenant Manager にサインインできることを確認する必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:admin-group-permissions.html["特定のアクセス権限"]
+* アイデンティティフェデレーションがすでに設定されている。
+
+
+.手順
+. 既存のテナントアカウントがある場合は、テナントが独自のアイデンティティソースを使用していないことを確認します。
++
+
+TIP: SSO を有効にすると、 Tenant Manager で設定されたアイデンティティソースが Grid Manager で設定されたアイデンティティソースによって上書きされます。テナントのアイデンティティソースに属するユーザは、 Grid Manager アイデンティティソースのアカウントがないかぎり、サインインできなくなります。
+
++
+.. 各テナントアカウントの Tenant Manager にサインインします。
+.. アクセス管理 * > * アイデンティティフェデレーション * を選択します。
+.. [アイデンティティフェデレーションを有効にする]*チェックボックスが選択されていないことを確認します。
+.. 該当する場合は、このテナントアカウントに使用されている可能性のあるフェデレーテッドグループが不要になったことを確認し、チェックボックスをオフにして*[保存]*を選択します。
+
+
+. フェデレーテッドユーザが Grid Manager にアクセスできることを確認します。
++
+.. Grid Manager から * configuration * > * Access control * > * Admin groups * を選択します。
+.. Active Directory アイデンティティソースから少なくとも 1 つのフェデレーテッドグループがインポートされていて、そのグループに Root アクセス権限が割り当てられていることを確認します。
+.. サインアウトします。
+.. フェデレーテッドグループ内のユーザとして Grid Manager に再度サインインできることを確認します。
+
+
+. 既存のテナントアカウントがある場合は、次の手順を実行して、 Root アクセス権限を持つフェデレーテッドユーザがサインインできることを確認します。
++
+.. Grid Manager から * tenants * を選択します。
+.. テナントアカウントを選択し、 * Actions * > * Edit * を選択します。
+.. Enter details （詳細の入力）タブで、 * Continue （続行） * を選択します。
+.. [Use own identity source]*チェックボックスがオンになっている場合は、チェックボックスをオフにして*[Save]*を選択します。
++
+image::../media/sso_uses_own_identity_source_for_tenant.png[[Edit Tenant Account]>[Use own identity source]チェックボックスがオフになっている]
+
++
+Tenant ページが表示されます。
+
+.. テナントアカウントを選択し、 * サインイン * を選択して、ローカルの root ユーザとしてテナントアカウントにサインインします。
+.. Tenant Manager で、 * access management * > * Groups * を選択します。
+.. Grid Manager から少なくとも 1 つのフェデレーテッドグループにこのテナントに対する Root アクセス権限が割り当てられていることを確認します。
+.. サインアウトします。
+.. フェデレーテッドグループ内のユーザとしてテナントに再度サインインできることを確認します。
+
+
+
+
+.関連情報
+* link:requirements-for-sso.html["シングルサインオンの要件と考慮事項"]
+* link:managing-admin-groups.html["管理者グループを管理する"]
+* link:../tenant/index.html["テナントアカウントを使用する"]
+

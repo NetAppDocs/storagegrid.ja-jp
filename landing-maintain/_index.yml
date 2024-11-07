@@ -1,0 +1,35 @@
+---
+indexpage:
+  title: StorageGRIDシステムの保守
+  summary: メンテナンス手順を実行して、障害からリカバリしたり、StorageGRIDシステムを最新の状態に維持して効率的に実行したりできます。
+  keywords: maintain grid, recovery package
+  lead: メンテナンス手順を実行して、障害からリカバリしたり、StorageGRIDシステムを最新の状態に維持して効率的に実行したりできます。
+  tiles:
+  - title: 開始する
+    links:
+    - title: グリッドのメンテナンス
+      url: "../maintain/index.html"
+    - title: リカバリパッケージをダウンロード
+      url: "../maintain/downloading-recovery-package.html"
+  - title: ノードまたはサイトの運用を停止
+    links:
+    - title: 運用停止のタイプ
+      url: "../maintain/decommission-procedure.html"
+    - title: グリッドノードを削除する
+      url: "../maintain/grid-node-decommissioning.html"
+    - title: サイトの削除
+      url: "../maintain/considerations-for-removing-site.html"
+  - title: 追加のメンテナンス手順
+    links:
+    - title: グリッド、サイト、またはノードの名前変更
+      url: "../maintain/rename-grid-site-node-overview.html"
+    - title: ノードの手順
+      url: "../maintain/grid-node-procedures.html"
+    - title: ネットワーク手順
+      url: "../maintain/updating-subnets-for-grid-network.html"
+    - title: ホストとミドルウェアの手順
+      url: "../maintain/linux-migrating-grid-node-to-new-host.html"
+  - title: StorageGRIDアプライアンスのメンテナンス
+    links:
+    - title: StorageGRIDアプライアンスのドキュメント
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/

@@ -1,0 +1,45 @@
+---
+indexpage:
+  title: StorageGRIDシステムの監視とトラブルシューティング
+  summary: システムが起動したら、定期的にアクティビティを監視し、アラートをトラブルシューティングして解決する必要があります。外部syslogサーバの設定、SNMPによる監視、追加データの収集などが必要になる場合もあります。
+  keywords: monitor, troubleshoot
+  lead: システムが起動したら、定期的にアクティビティを監視し、アラートをトラブルシューティングして解決する必要があります。外部syslogサーバの設定、SNMPによる監視、追加データの収集などが必要になる場合もあります。
+  tiles:
+  - title: システムの監視
+    links:
+    - title: ダッシュボードの管理
+      url: "../monitor/viewing-dashboard.html"
+    - title: ノードの表示ページ
+      url: "../monitor/viewing-nodes-page.html"
+    - title: システムヘルスを監視する
+      url: "../monitor/monitoring-system-health.html"
+    - title: ストレージ容量を監視
+      url: "../monitor/monitoring-storage-capacity.html"
+  - title: アラートと通知の管理
+    links:
+    - title: アラートの管理
+      url: "../monitor/managing-alerts.html"
+    - title: カスタムアラートの作成
+      url: "../monitor/creating-custom-alert-rules.html"
+    - title: アラートEメールの管理
+      url: "../monitor/email-alert-notifications.html"
+    - title: SNMP による監視を使用する
+      url: "../monitor/using-snmp-monitoring.html"
+  - title: 監査メッセージおよびその他のログを使用する
+    links:
+    - title: 監査メッセージの設定
+      url: "../monitor/configure-audit-messages.html"
+    - title: 外部syslogサーバを使用する
+      url: "../monitor/considerations-for-external-syslog-server.html"
+    - title: 監査ログを確認します
+      url: "../audit/index.html"
+    - title: ログファイル参照
+      url: "../monitor/logs-files-reference.html"
+  - title: 診断とトラブルシューティング
+    links:
+    - title: サポート指標を確認
+      url: "../monitor/reviewing-support-metrics.html"
+    - title: 診断を実行します
+      url: "../monitor/running-diagnostics.html"
+    - title: 一般的な問題のトラブルシューティング
+      url: "../troubleshoot/index.html"

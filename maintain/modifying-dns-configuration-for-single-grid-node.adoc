@@ -1,0 +1,80 @@
+---
+permalink: maintain/modifying-dns-configuration-for-single-grid-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, dns, modify dns 
+summary: 導入環境全体でDNSをグローバルに設定する代わりに、スクリプトを実行してDNSをグリッドノードごとに設定することができます。 
+---
+= 単一のグリッドノードの DNS 設定を変更します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+導入環境全体でDNSをグローバルに設定する代わりに、スクリプトを実行してDNSをグリッドノードごとに設定することができます。
+
+一般に、 Grid Manager で * maintenance * > * Network * > * DNS servers * オプションを使用して DNS サーバを設定します。次のスクリプトは、グリッドノードごとに異なる DNS サーバを使用する必要がある場合にのみ使用します。
+
+.手順
+. プライマリ管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+.. SSH エージェントに SSH 秘密鍵を追加します。入力： `ssh-add`
+.. ファイルに記載されているSSHアクセスパスワードを入力し `Passwords.txt`ます。
+
+
+. [[log_in_to_node]]カスタムDNS設定で更新するノードにログインします。 `ssh _node_IP_address_`
+. DNSセットアップスクリプトを実行します。 `setup_resolv.rb.`
++
+スクリプトから、サポートされるコマンドの一覧が返されます。
+
++
+[listing]
+----
+Tool to modify external name servers
+
+available commands:
+  add search <domain>
+               add a specified domain to search list
+               e.g.> add search netapp.com
+  remove search <domain>
+               remove a specified domain from list
+               e.g.> remove search netapp.com
+  add nameserver <ip>
+               add a specified IP address to the name server list
+               e.g.> add nameserver 192.0.2.65
+  remove nameserver <ip>
+               remove a specified IP address from list
+               e.g.> remove nameserver 192.0.2.65
+  remove nameserver all
+               remove all nameservers from list
+  save         write configuration to disk and quit
+  abort        quit without saving changes
+  help         display this help message
+
+
+Current list of name servers:
+    192.0.2.64
+Name servers inherited from global DNS configuration:
+    192.0.2.126
+    192.0.2.127
+Current list of search entries:
+    netapp.com
+
+Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
+              [`remove nameserver <ip>|remove nameserver all|save|abort|help`]
+----
+. ネットワークにドメインネームサービスを提供するサーバのIPv4アドレスを追加します。 `add <nameserver IP_address>`
+. このコマンドを繰り返して `add nameserver`ネームサーバを追加します。
+. 他のコマンドについてはプロンプトが表示されたら、その指示に従います。
+. 変更を保存してアプリケーションを終了します。 `save`
+. [[close_cmd_shell]]サーバ上のコマンドシェルを閉じます。 `exit`
+. グリッドノードごとに、～の手順を繰り返します<<log_in_to_node,ノードにログインします>><<close_cmd_shell,コマンドシェルを閉じています>>。
+. 他のサーバにパスワードなしでアクセスする必要がなくなった場合は、 SSH エージェントから秘密鍵を削除します。入力： `ssh-add -D`
+

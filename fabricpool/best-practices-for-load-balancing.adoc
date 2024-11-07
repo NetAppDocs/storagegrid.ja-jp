@@ -1,0 +1,61 @@
+---
+permalink: fabricpool/best-practices-for-load-balancing.html 
+sidebar: sidebar 
+keywords: fabricPool, load balancer endpoint, load balancing, Layer 7, best practices, certificate, CA, certificate authority, tls, ssl 
+summary: StorageGRID をFabricPool クラウド階層として接続する前に、FabricPool でロードバランサを使用する際のベストプラクティスを確認してください。 
+---
+= FabricPool のロードバランシングのベストプラクティス
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID をFabricPool クラウド階層として接続する前に、FabricPool でロードバランサを使用する際のベストプラクティスを確認してください。
+
+StorageGRIDロードバランサとロードバランサ証明書に関する一般的な情報については、を参照してくださいlink:../admin/managing-load-balancing.html["ロードバランシングに関する考慮事項"]。
+
+
+
+== FabricPool に使用するロードバランサエンドポイントへのテナントアクセスのベストプラクティス
+
+特定のロードバランサエンドポイントを使用してバケットにアクセスできるテナントを制御できます。すべてのテナントを許可するか、一部のテナントを許可するか、または一部のテナントをブロックすることができます。FabricPool で使用する負荷分散エンドポイントを作成する場合は、*[すべてのテナントを許可する]*を選択します。ONTAP はStorageGRID バケットに格納されているデータを暗号化するため、この追加のセキュリティレイヤによって提供されるセキュリティはほとんどありません。
+
+
+
+== セキュリティ証明書のベストプラクティス
+
+FabricPool で使用するStorageGRID ロードバランサエンドポイントを作成するときは、ONTAP でStorageGRID を認証するためのセキュリティ証明書を指定します。
+
+ほとんどの場合、ONTAP とStorageGRID 間の接続では、Transport Layer Security（TLS）暗号化を使用する必要があります。TLS暗号化なしでのFabricPool の使用はサポートされていますが、推奨されませんStorageGRID ロードバランサエンドポイントのネットワークプロトコルを選択する場合は、*[HTTPS]*を選択します。次に、StorageGRID でONTAP を認証するためのセキュリティ証明書を指定します。
+
+ロードバランシングエンドポイントのサーバ証明書の詳細を確認するには、次の手順を実行します。
+
+* link:../admin/using-storagegrid-security-certificates.html["セキュリティ証明書を管理する"]
+* link:../admin/managing-load-balancing.html["ロードバランシングに関する考慮事項"]
+* link:../harden/hardening-guideline-for-server-certificates.html["サーバ証明書のセキュリティ強化ガイドライン"]
+
+
+
+
+=== ONTAP に証明書を追加します
+
+StorageGRID をFabricPool クラウド階層として追加する場合は、ルート証明書と下位の認証局（CA）証明書を含む同じ証明書をONTAP クラスタにインストールする必要があります。
+
+
+
+=== 証明書の有効期限の管理
+
+
+CAUTION: ONTAP とStorageGRID 間の接続の保護に使用されている証明書の有効期限が切れると、FabricPool は一時的に機能を停止し、ONTAP はStorageGRID に階層化されたデータに一時的にアクセスできなくなります。
+
+証明書の有効期限の問題を回避するには、次のベストプラクティスに従ってください。
+
+* 証明書の有効期限が近づいていることを警告するアラート（* Expiration of load balancer endpoint certificate *や* Expiration of global server certificate for S3 API *アラートなど）を注意深く監視します。
+* 証明書のStorageGRID バージョンとONTAP バージョンは常に同期しておいてください。ロードバランサエンドポイントに使用する証明書を交換または更新する場合は、クラウド階層用のONTAP で使用される同等の証明書を置き換えるか更新する必要があります。
+* 公開署名されたCA証明書を使用する。CAによって署名された証明書を使用する場合は、グリッド管理APIを使用して証明書のローテーションを自動化できます。これにより、有効期限が近い証明書を無停止で交換できます。
+* 自己署名StorageGRID 証明書を生成した証明書の有効期限が近づいている場合は、既存の証明書の有効期限が切れる前に、StorageGRID とONTAP の両方で証明書を手動で置き換える必要があります。自己署名証明書の有効期限が切れている場合は、アクセスが失われないように、ONTAP で証明書の検証をオフにします。
++
+手順については'を参照して https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_configure_a_new_StorageGRID_self-signed_server_certificate_on_an_existing_ONTAP_FabricPool_deployment["ネットアップナレッジベース：既存のONTAP FabricPool 環境に新しいStorageGRID 自己署名サーバ証明書を設定する方法"^]ください
+
+

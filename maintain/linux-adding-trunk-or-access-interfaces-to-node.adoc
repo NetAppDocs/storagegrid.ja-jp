@@ -1,0 +1,79 @@
+---
+permalink: maintain/linux-adding-trunk-or-access-interfaces-to-node.html 
+sidebar: sidebar 
+keywords: add extra interface to node, trunk interface, access interface 
+summary: Linux ノードをインストールしたあとで、そのノードにトランクインターフェイスまたはアクセスインターフェイスを追加できます。追加したインターフェイスは、 VLAN インターフェイスのページと HA グループのページに表示されます。 
+---
+= Linux ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Linux ノードをインストールしたあとで、そのノードにトランクインターフェイスまたはアクセスインターフェイスを追加できます。追加したインターフェイスは、 VLAN インターフェイスのページと HA グループのページに表示されます。
+
+.開始する前に
+* Linux プラットフォームへの StorageGRID のインストール手順を参照できるようにしておきます。
++
+** link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
+** link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
+
+
+* あなたはファイルを持ってい `Passwords.txt`ます。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+
+CAUTION: ソフトウェアのアップグレード、リカバリ手順 、または拡張手順 がアクティブなときは、ノードにインターフェイスを追加しないでください。
+
+.タスクの内容
+ノードのインストール後に Linux ノードに 1 つ以上のインターフェイスを追加するには、次の手順を実行します。たとえば、管理ノードまたはゲートウェイノードにトランクインターフェイスを追加して、 VLAN インターフェイスを使用して複数のアプリケーションまたはテナントに属するトラフィックを分離できます。または、ハイアベイラビリティ（ HA ）グループで使用するアクセスインターフェイスを追加することもできます。
+
+トランクインターフェイスを追加する場合は、 StorageGRID で VLAN インターフェイスを設定する必要があります。アクセスインターフェイスを追加する場合は、そのインターフェイスをHAグループに直接追加できます。VLANインターフェイスを設定する必要はありません。
+
+インターフェイスを追加するときは、ノードを一時的に使用できなくなります。この手順 は一度に 1 つのノードで実行する必要があります。
+
+.手順
+. ノードをホストしている Linux サーバにログインします。
+. vim や pico などのテキストエディタを使用して、ノード構成ファイルを編集します。
++
+`/etc/storagegrid/nodes/_node-name_.conf`
+
+. ファイルにエントリを追加して名前を指定し、必要に応じて、ノードに追加する各インターフェイスの概要 を指定します。次の形式を使用します。
++
+`INTERFACE_TARGET_nnnn=_value_`
+
++
+_nnnn_には、追加するエントリごとに一意の番号を指定します `INTERFACE_TARGET`。
+
++
+value _ には、ベアメタルホスト上の物理インターフェイスの名前を指定します。その後、必要に応じて、カンマを追加してインターフェイスの概要 を指定します。このインターフェイスは、 VLAN インターフェイスのページと HA グループのページに表示されます。
+
++
+例：
+
++
+`INTERFACE_TARGET_0001=ens256, Trunk`
+
++
+
+NOTE: 他のネットワークパラメータは指定しないでください。指定しないと、検証エラーが発生します。
+
+. 次のコマンドを実行して、ノード構成ファイルに対する変更を検証します。
++
+`sudo storagegrid node validate _node-name_`
+
++
+エラーや警告がある場合は、次の手順に進む前に対処してください。
+
+. 次のコマンドを実行して、ノードの設定を更新します。
++
+`sudo storagegrid node reload _node-name_`
+
+
+
+.終了後
+* 1つ以上のトランクインターフェイスを追加した場合は、に進み、link:../admin/configure-vlan-interfaces.html["VLAN インターフェイスを設定します"]新しい親インターフェイスごとに1つ以上のVLANインターフェイスを設定します。
+* アクセスインターフェイスを追加した場合は、に進み、link:../admin/configure-high-availability-group.html["ハイアベイラビリティグループを設定する"]新しいインターフェイスをHAグループに直接追加します。
+

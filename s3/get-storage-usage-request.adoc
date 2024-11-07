@@ -1,0 +1,75 @@
+---
+permalink: s3/get-storage-usage-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, GET storage usage request 
+summary: GET Storage Usage 要求を使用すると、アカウントで使用しているストレージの総容量とアカウントに関連付けられているバケットごとの使用容量を確認できます。 
+---
+= GET Storage Usage 要求の略
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+GET Storage Usage 要求を使用すると、アカウントで使用しているストレージの総容量とアカウントに関連付けられているバケットごとの使用容量を確認できます。
+
+アカウントとそのバケットで使用されているストレージ容量は、クエリパラメータを指定してListBuckets要求を変更することで取得できます `x-ntap-sg-usage`。バケットによるストレージの使用量は、システムで処理される PUT 要求や DELETE 要求とは別に追跡されます。特にシステムの負荷が高い場合などは、使用量の値が要求の処理に基づく想定値と同じになるまでに少し時間がかかることがあります。
+
+デフォルトでは、 StorageGRID は strong-global 整合性を使用して、使用状況の情報を取得します。strong-global整合性を達成できない場合、StorageGRID はstrong-site整合性で使用状況情報を取得しようとします。
+
+この処理を完了するには、s3：ListAllMyBuckets権限またはrootアカウントが必要です。
+
+
+
+== 要求例
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /?x-ntap-sg-usage HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== 応答例
+
+次の例は、 2 つのバケットに 4 つのオブジェクトと 12 バイトのデータが格納されたアカウントです。各バケットには、 2 つのオブジェクトと 6 バイトのデータが格納されています。
+
+[listing]
+----
+HTTP/1.1 200 OK
+Date: Sat, 29 Nov 2015 00:49:05 GMT
+Connection: KEEP-ALIVE
+Server: StorageGRID/10.2.0
+x-amz-request-id: 727237123
+Content-Length: 427
+Content-Type: application/xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<UsageResult xmlns="http://s3.storagegrid.com/doc/2015-02-01">
+<CalculationTime>2014-11-19T05:30:11.000000Z</CalculationTime>
+<ObjectCount>4</ObjectCount>
+<DataBytes>12</DataBytes>
+<Buckets>
+<Bucket>
+<Name>bucket1</Name>
+<ObjectCount>2</ObjectCount>
+<DataBytes>6</DataBytes>
+</Bucket>
+<Bucket>
+<Name>bucket2</Name>
+<ObjectCount>2</ObjectCount>
+<DataBytes>6</DataBytes>
+</Bucket>
+</Buckets>
+</UsageResult>
+----
+
+
+== バージョン管理
+
+応答では、格納されているすべてのオブジェクトバージョンがとの `DataBytes`値に加算され `ObjectCount`ます。削除マーカーは合計に追加されません `ObjectCount`。
+
+.関連情報
+link:consistency-controls.html["整合性の値"]

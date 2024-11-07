@@ -1,0 +1,83 @@
+---
+permalink: s3/post-object-restore.html 
+sidebar: sidebar 
+keywords: post, RestoreObject, object 
+summary: S3 RestoreObject要求を使用して、クラウドストレージプールに格納されているオブジェクトをリストアできます。 
+---
+= RestoreObject
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 RestoreObject要求を使用して、クラウドストレージプールに格納されているオブジェクトをリストアできます。
+
+
+
+== サポートされている要求タイプ
+
+StorageGRIDでは、オブジェクトのリストアでRestoreObject要求のみがサポートされます。リストアのタイプはサポートされません `SELECT`。SELECT要求は戻ります `XNotImplemented`。
+
+
+
+== バージョン管理
+
+必要に応じて、バージョン管理されたバケット内のオブジェクトの特定のバージョンをリストアするように指定します `versionId`。を指定しない場合、 `versionId`オブジェクトの最新バージョンがリストアされます。
+
+
+
+== クラウドストレージプールオブジェクトでのRestoreObjectの動作
+
+オブジェクトがに格納されている場合、link:../ilm/what-cloud-storage-pool-is.html["クラウドストレージプール"]RestoreObject要求の動作はオブジェクトの状態に基づいて次のようになります。詳細については、を参照してくださいlink:head-object.html["ヘッドオブジェクト"]。
+
+
+NOTE: オブジェクトがクラウドストレージプールに格納されていて、そのオブジェクトのコピーがグリッドに1つ以上存在する場合は、RestoreObject要求を実行してオブジェクトをリストアする必要はありません。代わりに、GetObject要求を使用してローカルコピーを直接取得できます。
+
+[cols="1a,2a"]
+|===
+| オブジェクトの状態 | RestoreObjectの動作 
+
+
+ a| 
+StorageGRID に取り込まれているがまだ ILM によって評価されていない、またはオブジェクトがクラウドストレージプールにない
+ a| 
+`403 Forbidden`、 `InvalidObjectState`
+
+
+
+ a| 
+クラウドストレージプール内にあるが、まだ読み出し不可能な状態に移行していない
+ a| 
+`200 OK`変更は行われません。
+
+*注*：オブジェクトが読み出し不可能な状態に移行されるまでは変更できません。 `expiry-date`
+
+
+
+ a| 
+オブジェクトを読み出し不可能な状態に移行した
+ a| 
+`202 Accepted`要求の本文に指定された日数だけ、オブジェクトの読み出し可能なコピーをクラウドストレージプールにリストアします。この期間が終了すると、オブジェクトは読み出し不可能な状態に戻ります。
+
+必要に応じて、request要素を使用し `Tier`てリストアジョブの完了にかかる時間を指定します(`Expedited`。 `Standard`または `Bulk`）指定しない場合は `Tier` `Standard`、階層が使用されます。
+
+*重要*：オブジェクトがS3 Glacier Deep Archiveに移行された場合、またはクラウドストレージプールがAzure BLOBストレージを使用している場合は、階層を使用してリストアできませ `Expedited`ん。次のエラーが返されます `403 Forbidden` `InvalidTier`。 `Retrieval option is not supported by this storage class`
+
+
+
+ a| 
+読み出し不可能な状態からリストア中である
+ a| 
+`409 Conflict`、 `RestoreAlreadyInProgress`
+
+
+
+ a| 
+クラウドストレージプールへのリストアが完了している
+ a| 
+`200 OK`
+
+*注：*オブジェクトが読み出し可能な状態にリストアされている場合は、RestoreObject要求をに新しい値を指定して再発行することで `Days`変更できます `expiry-date`。要求が実行された日時に基づいてリストア日が更新されます。
+
+|===

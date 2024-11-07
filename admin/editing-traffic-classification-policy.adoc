@@ -1,0 +1,52 @@
+---
+permalink: admin/editing-traffic-classification-policy.html 
+sidebar: sidebar 
+keywords: edit traffic classification policy 
+summary: トラフィック分類ポリシーを編集して、その名前または概要 を変更したり、ポリシーのルールや制限を作成、編集、削除したりできます。 
+---
+= トラフィック分類ポリシーを編集します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+トラフィック分類ポリシーを編集して、その名前または概要 を変更したり、ポリシーのルールや制限を作成、編集、削除したりできます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:admin-group-permissions.html["rootアクセス権限"]。
+
+
+.手順
+. * configuration * > * Network * > * traffic classification * を選択します。
++
+[Traffic Classification Policies]ページが表示され、既存のポリシーが表に表示されます。
+
+. [Actions]メニューまたは詳細ページを使用してポリシーを編集します。入力する内容については、を参照してくださいlink:../admin/creating-traffic-classification-policies.html["トラフィック分類ポリシーを作成します"]。
++
+[role="tabbed-block"]
+====
+.[Actions]メニュー
+--
+.. ポリシーのチェックボックスを選択します。
+.. [アクション]*>*[編集]*を選択します。
+
+
+--
+.詳細ページ
+--
+.. ポリシー名を選択します。
+.. ポリシー名の横にある*[編集]*ボタンを選択します。
+
+
+--
+====
+. [Enter policy name]手順で、必要に応じてポリシー名または概要 を編集し、*[Continue]*を選択します。
+. [一致ルールの追加]ステップで、必要に応じてルールを追加するか、既存のルールの*タイプ*と*一致値*を編集し、*続行*を選択します。
+. [制限の設定]ステップで、必要に応じて制限を追加、編集、または削除し、*[続行]*を選択します。
+. 更新されたポリシーを確認し、*[保存して続行]*を選択します。
++
+ポリシーに加えた変更が保存され、ネットワークトラフィックはトラフィック分類ポリシーに従って処理されるようになりました。トラフィックチャートを表示して、ポリシーが想定したトラフィック制限を適用していることを確認できます。
+
+

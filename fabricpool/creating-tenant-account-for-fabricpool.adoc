@@ -1,0 +1,106 @@
+---
+permalink: fabricpool/creating-tenant-account-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, tenant, SSO 
+summary: Grid Manager で FabricPool 用のテナントアカウントを作成する必要があります。 
+---
+= FabricPool のテナントアカウントを作成します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Grid Manager で FabricPool 用のテナントアカウントを作成する必要があります。
+
+テナントアカウントを使用すると、クライアントアプリケーションで StorageGRID に対してオブジェクトの格納や読み出しを行うことができます。各テナントアカウントには、専用のアカウント ID 、許可されたグループとユーザ、バケット、オブジェクトがあります。
+
+このタスクの詳細については、を参照してくださいlink:../admin/creating-tenant-account.html["テナントアカウントを作成する"]。FabricPoolセットアップウィザードを使用してこのタスクを実行するには、に進みますlink:use-fabricpool-setup-wizard-steps.html["FabricPool セットアップウィザードにアクセスして完了します"]。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+.手順
+. 「 * tenants * 」を選択します
+. 「 * Create * 」を選択します。
+. [Enter details]ステップで、次の情報を入力します。
++
+[cols="1a,3a"]
+|===
+| フィールド | 製品説明 
+
+
+ a| 
+名前
+ a| 
+テナントアカウントの名前。テナント名は一意である必要はありません。作成したテナントアカウントには、一意の数値アカウント ID が割り当てられます。
+
+
+
+ a| 
+概要 （オプション）
+ a| 
+テナントの特定に役立つ概要 。
+
+
+
+ a| 
+クライアントタイプ
+ a| 
+FabricPool の場合は* S3 *にする必要があります。
+
+
+
+ a| 
+ストレージクォータ（オプション）
+ a| 
+FabricPool の場合は、このフィールドを空白のままにします。
+
+|===
+. [アクセス許可の選択]ステップでは、次の手順
++
+.. [プラットフォームサービスを許可する]*を選択しないでください。
++
+FabricPool テナントでは、通常、CloudMirrorレプリケーションなどのプラットフォームサービスを使用する必要はありません。
+
+.. 必要に応じて、*[Use own identity source]*を選択します。
+.. [Allow S3 Select]*を選択しないでください。
++
+通常、FabricPool テナントではS3 Selectを使用する必要はありません。
+
+.. 必要に応じて、*[Use grid federation connection]*を選択して、テナントがアカウントのクローニングとグリッド間レプリケーションにを使用できるようにしlink:../admin/grid-federation-overview.html["グリッドフェデレーション接続"]ます。次に、使用するグリッドフェデレーション接続を選択します。
+
+
+. [Define root access]手順では、StorageGRIDシステムでが使用されているlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]か、link:../admin/configuring-sso.html["シングルサインオン（SSO）"]またはその両方に基づいて、テナントアカウントに対する最初のRootアクセス権限を割り当てるユーザを指定します。
++
+[cols="1a,2a"]
+|===
+| オプション | 手順 
+
+
+ a| 
+アイデンティティフェデレーションが有効になっていない場合
+ a| 
+ローカルrootユーザとしてテナントにサインインするときに使用するパスワードを指定します。
+
+
+
+ a| 
+アイデンティティフェデレーションが有効になっている場合
+ a| 
+.. テナントに対するRoot Access権限を割り当てる既存のフェデレーテッドグループを選択します。
+.. 必要に応じて、ローカルrootユーザとしてテナントにサインインする際に使用するパスワードを指定します。
+
+
+
+
+ a| 
+アイデンティティフェデレーションとシングルサインオン（SSO）の両方が有効になっている場合
+ a| 
+テナントに対するRoot Access権限を割り当てる既存のフェデレーテッドグループを選択します。ローカルユーザはサインインできません。
+
+|===
+. [ テナントの作成 ] を選択します。
+

@@ -1,0 +1,63 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, storage node 
+summary: ストレージノードを交換したら、 Grid Manager で Start Recovery を選択して、障害が発生したノードの代わりとして新しいノードを設定する必要があります。 
+---
+= Start Recovery を選択して、ストレージノードを設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージノードを交換したら、 Grid Manager で Start Recovery を選択して、障害が発生したノードの代わりとして新しいノードを設定する必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["Maintenance権限またはRoot Access権限"]。
+* プロビジョニングパスフレーズを用意します。
+* 交換用ノードの導入と設定を完了しておきます。
+* イレイジャーコーディングデータの修復ジョブの開始日を確認しておきます。
+* ストレージノードが過去15日以内に再構築されていないことを確認しておきます。
+
+
+.タスクの内容
+ストレージノードが Linux ホストにコンテナとしてインストールされている場合は、次のいずれかに該当する場合にのみこの手順を実行する必要があります。
+
+* フラグを使用し `--force`てノードをインポートするか、または `storagegrid node force-recovery _node-name_`
+* ノードの完全な再インストールを実行するか、 /var/local をリストアする必要がありました。
+
+
+.手順
+. Grid Manager から * maintenance * > * Tasks * > * Recovery * を選択します。
+. リカバリするグリッドノードを Pending Nodes リストで選択します。
++
+ノードに障害が発生するとリストに表示されますが、ノードを再インストールしてリカバリの準備ができるまでは選択できません。
+
+. プロビジョニングパスフレーズ * を入力します。
+. [ リカバリの開始 ] をクリックします。
++
+image::../media/4b_select_recovery_node.png[Maintenance > Recovery ページを示すスクリーンショット]
+
+. リカバリ中のグリッドノードテーブルで、リカバリの進行状況を監視します。
++
+
+NOTE: リカバリ手順 の実行中に [* リセット ] をクリックすると、新しいリカバリを開始できます。手順 をリセットするとノードが不確定な状態のままになることを示すダイアログボックスが表示されます。
+
++
+image::../media/recovery_reset_warning.gif[リカバリのリセットに関する警告を示すダイアログボックスのスクリーンショット]
+
++
+手順 をリセットしたあとにリカバリを再試行する場合は、次の手順でノードをインストール前の状態にリストアする必要があります。
+
++
+** * vmware * ：導入した仮想グリッドノードを削除します。その後、リカバリを再開する準備ができたら、ノードを再導入します。
+** * Linux *：Linuxホストで次のコマンドを実行してノードを再起動します。 `storagegrid node force-recovery _node-name_`
+
+
+. ストレージノードが「Waiting for Manual Steps」ステージになったら、に進みますlink:remounting-and-reformatting-storage-volumes-manual-steps.html["ストレージボリュームの再マウントと再フォーマット（手動手順）"]。
++
+image::../media/recovery_reset_button.gif[「 waiting for manual steps 」ステージのスクリーンショット]
+
+

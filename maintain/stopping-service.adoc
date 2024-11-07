@@ -1,0 +1,53 @@
+---
+permalink: maintain/stopping-service.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop service, service 
+summary: 一部のメンテナンス手順では、グリッドノード上の他のサービスを実行したまま、単一のサービスを停止する必要があります。個々のサービスの停止は、メンテナンス手順 から指示があった場合にのみ実行してください。 
+---
+= サービスを停止します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+一部のメンテナンス手順では、グリッドノード上の他のサービスを実行したまま、単一のサービスを停止する必要があります。個々のサービスの停止は、メンテナンス手順 から指示があった場合にのみ実行してください。
+
+.開始する前に
+あなたはファイルを持ってい `Passwords.txt`ます。
+
+.タスクの内容
+これらの手順を使用してサービスを「管理上停止」した場合、Server Managerはサービスを自動的に再開しません。サービスを手動で開始するか、 Server Manager を再起動する必要があります。
+
+ストレージノード上の LDR サービスを停止する必要がある場合は、アクティブな接続があると、サービスの停止に時間がかかることがあります。
+
+.手順
+. グリッドノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. 個 々 のサービスを停止します。 `service _servicename_ stop`
++
+例：
+
++
+[listing]
+----
+service ldr stop
+----
++
+
+NOTE: サービスの停止には最大 11 分かかる場合があります。
+
+. コマンドシェルからログアウトします。 `exit`
+
+
+.関連情報
+link:forcing-service-to-terminate.html["サービスを強制終了します"]

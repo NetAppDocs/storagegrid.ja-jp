@@ -1,0 +1,82 @@
+---
+permalink: maintain/monitoring-services-appliance-installation.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance 
+summary: StorageGRID アプライアンスインストーラでは、インストールが完了するまでステータスが提供されます。ソフトウェアのインストールが完了すると、アプライアンスがリブートされます。 
+---
+= サービスアプライアンスの設置を監視する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID アプライアンスインストーラでは、インストールが完了するまでステータスが提供されます。ソフトウェアのインストールが完了すると、アプライアンスがリブートされます。
+
+.手順
+. インストールの進行状況を監視するには、メニューバーの * インストールの監視 * をクリックします。
++
+Monitor Installation ページにインストールの進行状況が表示されます。
+
++
+image::../media/monitor_installation_services_appl.png[インストールの監視-サービスアプリケーション]
+
++
+青色のステータスバーは、現在進行中のタスクを示します。緑のステータスバーは、正常に完了したタスクを示します。
+
++
+
+NOTE: インストーラは、以前のインストールで完了したタスクが再実行されないようにします。インストールを再実行している場合、再実行する必要のないタスクはすべて緑色のステータスバーと「スキップ済み」のステータスで表示されます。
+
+. インストールの最初の 2 つのステージの進行状況を確認します。
++
+** *1.ストレージの構成 *
++
+インストーラが既存の設定をすべてドライブから消去し、ホストを設定します。
+
+** *2.OS * をインストールします
++
+インストーラが StorageGRID のベースとなるオペレーティングシステムイメージをプライマリ管理ノードからアプライアンスにコピーするか、ベースとなるオペレーティングシステムイメージをプライマリ管理ノードのインストールパッケージからインストールします。
+
+
+
+. 次のいずれかが実行されるまで、インストールの進行状況を監視します。
++
+** アプライアンスゲートウェイノードまたは非プライマリアプライアンス管理ノードの場合、 * Install StorageGRID * ステージが一時停止し、組み込みのコンソールにメッセージが表示されて、グリッドマネージャを使用して管理ノードでこのノードを承認するように求められます。
++
+image::../media/monitor_installation_install_sgws.gif[この図には説明が付随しています]
+
+** アプライアンスプライマリ管理ノードの場合、第 5 フェーズ（ Load StorageGRID Installer ）が表示されます。5 つ目のフェーズが 10 分以上たっても完了しない場合は、ページを手動で更新してください。
++
+image::../media/monitor_reinstallation_primary_admin.png[プライマリ管理ノード再インストールの第 5 フェーズのスクリーンショット]
+
+
+
+. リカバリするアプライアンスグリッドノードのタイプに対応するリカバリプロセスの次の手順に進みます。
++
+[cols="1a,2a"]
+|===
+| リカバリのタイプ | 参考文献 
+
+
+ a| 
+ゲートウェイノード
+ a| 
+link:selecting-start-recovery-to-configure-gateway-node.html["Start Recovery を選択して、ゲートウェイノードを設定します"]
+
+
+
+ a| 
+非プライマリ管理ノード
+ a| 
+link:selecting-start-recovery-to-configure-non-primary-admin-node.html["[ リカバリの開始 ] を選択して、非プライマリ管理ノードを設定します"]
+
+
+
+ a| 
+プライマリ管理ノード
+ a| 
+link:configuring-replacement-primary-admin-node.html["交換用プライマリ管理ノードを設定"]
+
+|===
+

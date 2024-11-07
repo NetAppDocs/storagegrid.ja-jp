@@ -1,0 +1,136 @@
+---
+permalink: tenant/configuring-event-notifications.html 
+sidebar: sidebar 
+keywords: how to configure event notifications, bucket notification 
+summary: バケットの通知を有効にするには、通知設定XMLを作成し、Tenant Managerを使用してそのXMLをバケットに適用します。 
+---
+= イベント通知の設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+バケットの通知を有効にするには、通知設定XMLを作成し、Tenant Managerを使用してそのXMLをバケットに適用します。
+
+.開始する前に
+* テナントアカウントのプラットフォームサービスがStorageGRID 管理者によって有効にされている。
+* 通知のソースとして機能するバケットを作成しておきます。
+* イベント通知のデスティネーションとして使用するエンドポイントがすでに存在し、URNが設定されている必要があります。
+* が設定されたユーザグループに属しているlink:tenant-management-permissions.html["すべてのバケットまたはRoot Access権限を管理します"]必要があります。これらの権限は、 Tenant Manager を使用してバケットを設定する際にグループポリシーまたはバケットポリシーの権限設定よりも優先されます。
+
+
+.タスクの内容
+イベント通知を設定するには、通知設定XMLをソースバケットに関連付けます。通知設定XMLにはS3の規則に従ってバケット通知を設定し、デスティネーションのKafkaまたはAmazon SNSトピックをエンドポイントのURNとして指定します。
+
+イベント通知とその設定方法の一般的な情報については、を参照して https://docs.aws.amazon.com/s3/["Amazonのドキュメント"^]ください。StorageGRIDでS3バケットの通知設定APIを実装する方法については、を参照してlink:../s3/index.html["S3 クライアントアプリケーションを実装するための手順"]ください。
+
+バケットのイベント通知を設定するときは、次の要件と特性に注意してください。
+
+* 有効な通知設定XMLを作成して適用する場合は、各デスティネーションのイベント通知エンドポイントのURNを使用する必要があります。
+* S3オブジェクトロックが有効なバケットでイベント通知を設定できますが、オブジェクトのS3オブジェクトロックメタデータ（Retain Until DateやLegal Holdステータスを含む）は通知メッセージに含まれません。
+* イベント通知を設定すると、ソースバケット内のオブジェクトで指定したイベントが発生するたびに通知が生成され、デスティネーションエンドポイントとして使用されているAmazon SNSまたはKafkaトピックに送信されます。
+* オブジェクトを含むあるバケットのイベント通知を有効にした場合、通知は通知設定の保存後に実行された処理に対してのみ送信されます。
+
+
+.手順
+. ソースバケットの通知を有効にします。
++
+** イベント通知を有効にするために必要な通知設定 XML を、 S3 通知 API で指定されている内容に従ってテキストエディタで作成します。
+** XML を設定するにあたっては、デスティネーショントピックとしてイベント通知エンドポイントの URN を使用します。
++
+[listing]
+----
+<NotificationConfiguration>
+  <TopicConfiguration>
+     <Id>Image-created</Id>
+     <Filter>
+        <S3Key>
+          <FilterRule>
+            <Name>prefix</Name>
+            <Value>images/</Value>
+          </FilterRule>
+        </S3Key>
+    </Filter>
+    <Topic>arn:aws:sns:us-east-1:050340950352:sgws-topic</Topic>
+    <Event>s3:ObjectCreated:*</Event>
+   </TopicConfiguration>
+ </NotificationConfiguration>
+----
+
+
+. Tenant Manager で、 * Storage （ S3 ） * > * Buckets * を選択します。
+. ソースバケットの名前を選択します。
++
+バケットの詳細ページが表示されます。
+
+. プラットフォームサービス *>* イベント通知 * を選択します。
+. [イベント通知を有効にする]*チェックボックスをオンにします。
+. 通知設定 XML をテキストボックスに貼り付け、 * 変更を保存 * を選択します。
++
+
+NOTE: StorageGRID 管理者がグリッドマネージャまたはグリッド管理 API を使用して各テナントアカウントのプラットフォームサービスを有効にしておく必要があります。設定 XML の保存時にエラーが発生した場合は、 StorageGRID 管理者にお問い合わせください。
+
+. イベント通知が正しく設定されていることを確認します。
++
+.. 設定 XML で設定した通知をトリガーする要件を満たす操作をソースバケット内のオブジェクトに対して実行します。
++
+この例では、プレフィックスが付いたオブジェクトが作成されるたびにイベント通知が送信され `images/`ます。
+
+.. デスティネーションのAmazon SNSまたはKafkaトピックに通知が配信されたことを確認します。
++
+たとえば、デスティネーショントピックがAmazon SNSでホストされている場合は、通知が配信されたときにEメールを送信するようにサービスを設定できます。
+
++
+[listing]
+----
+{
+   "Records":[
+      {
+         "eventVersion":"2.0",
+         "eventSource":"sgws:s3",
+         "eventTime":"2017-08-08T23:52:38Z",
+         "eventName":"ObjectCreated:Put",
+         "userIdentity":{
+            "principalId":"1111111111111111111"
+         },
+         "requestParameters":{
+            "sourceIPAddress":"193.51.100.20"
+         },
+         "responseElements":{
+            "x-amz-request-id":"122047343"
+         },
+         "s3":{
+            "s3SchemaVersion":"1.0",
+            "configurationId":"Image-created",
+            "bucket":{
+               "name":"test1",
+               "ownerIdentity":{
+                  "principalId":"1111111111111111111"
+               },
+               "arn":"arn:sgws:s3:::test1"
+            },
+            "object":{
+               "key":"images/cat.jpg",
+               "size":0,
+               "eTag":"d41d8cd98f00b204e9800998ecf8427e",
+               "sequencer":"14D90402421461C7"
+            }
+         }
+      }
+   ]
+}
+----
++
+デスティネーショントピックに通知が届いた場合は、 StorageGRID 通知のソースバケットが正しく設定されています。
+
+
+
+
+
+.関連情報
+link:understanding-notifications-for-buckets.html["バケットの通知について理解します"]
+
+link:../s3/index.html["S3 REST APIを使用する"]
+
+link:creating-platform-services-endpoint.html["プラットフォームサービスエンドポイントを作成します"]

@@ -1,0 +1,100 @@
+---
+permalink: maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
+summary: 障害が発生したストレージボリュームでストレージを再フォーマットして再マウントするスクリプトを実行し、システムが必要であると判断した場合にはストレージノードの Cassandra データベースを再構築する必要があります。 
+---
+= 障害ストレージボリュームをリカバリし、 Cassandra データベースを再構築します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+障害が発生したストレージボリュームでストレージを再フォーマットして再マウントするスクリプトを実行し、システムが必要であると判断した場合にはストレージノードの Cassandra データベースを再構築する必要があります。
+
+.開始する前に
+* あなたはファイルを持ってい `Passwords.txt`ます。
+* サーバ上のシステムドライブに損傷はありません。
+* 障害の原因 が特定され、必要に応じて交換用ストレージハードウェアがすでに入手されている。
+* 交換用ストレージの合計サイズは、元のストレージと同じです。
+* ストレージノードの運用停止処理が進行中でないこと、またはノードの手順 の運用停止処理が一時停止されていることを確認しておきます（ Grid Manager で、 * maintenance * > * Tasks * > * Decommission * を選択します）。
+* 拡張が進行中でないことを確認しておきます（ Grid Manager で、 * maintenance * > * Tasks * > * Expansion * を選択します。）
+* そうだな link:reviewing-warnings-about-storage-volume-recovery.html["ストレージボリュームのリカバリに関する警告を確認"]
+
+
+.手順
+. 必要に応じて、前述の手順で特定してアンマウントした障害ストレージボリュームに関連付けられた、障害が発生した物理または仮想ストレージを交換します。
++
+この手順ではボリュームを再マウントしないでください。ストレージは、あとの手順で再マウントしてに追加し `/etc/fstab`ます。
+
+. Grid Managerで、* nodes *>* Hardware *の順に選択し `*appliance Storage Node*`ます。ページの[RAID Appliance]セクションで、ストレージStorageGRID モードが正常であることを確認します。
+. 障害が発生したストレージノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+
+
+. テキストエディタ（viまたはvim）を使用してファイルから障害ボリュームを削除し `/etc/fstab`、ファイルを保存します。
++
+
+NOTE: ファイルで障害ボリュームをコメントアウトする `/etc/fstab`だけでは不十分です。リカバリプロセスでは、ファイル内のすべての行がマウントされたファイルシステムと一致することが検証されるため、 `fstab`ボリュームをから削除する必要があります `fstab`。
+
+. 障害ストレージボリュームを再フォーマットし、必要に応じて Cassandra データベースを再構築します。入力： `reformat_storage_block_devices.rb`
++
+** ストレージボリューム0がアンマウントされると、Cassandraサービスが停止していることを示すプロンプトとメッセージが表示されます。
+** 必要に応じて Cassandra データベースを再構築するよう求められます。
++
+*** 警告を確認します。いずれの状況も該当しない場合は、 Cassandra データベースを再構築します。「 * y * 」と入力します
+*** 複数のストレージノードがオフラインの場合、または別のストレージノードが 15 日以内に再構築されている場合は、「 * n * 」と入力します
++
+スクリプトは Cassandra を再構築せずに終了します。テクニカルサポートにお問い合わせください。
+
+
+
+** ストレージノード上の各rangedbドライブについて、のプロンプトが表示されたら `Reformat the rangedb drive _<name>_ (device _<major number>:<minor number>_)? [y/n]?`、次のいずれかの応答を入力します。
++
+*** * y * ：エラーが発生したドライブを再フォーマットします。これにより、ストレージボリュームが再フォーマットされ、再フォーマットされたストレージボリュームがファイルに追加され `/etc/fstab`ます。
+*** *n*ドライブにエラーがなく、ドライブを再フォーマットしない場合。
++
+
+NOTE: *n * を選択すると、スクリプトが終了します。ドライブをマウントするか（ドライブ上のデータを保持する必要があり、ドライブが誤ってアンマウントされた場合）、ドライブを取り外します。次に、コマンドをもう一度実行し `reformat_storage_block_devices.rb`ます。
+
++
+
+NOTE: 一部の StorageGRID リカバリ手順では、 Reaper を使用して Cassandra の修復を処理します。関連サービスまたは必要なサービスが開始されるとすぐに修理が自動的に行われます。スクリプトの出力に「reaper」または「cassandra repair」と記載されていることがあります。修復が失敗したことを示すエラーメッセージが表示された場合は、エラーメッセージに示されているコマンドを実行します。
+
++
+次の出力例では、ドライブを `/dev/sdf`再フォーマットする必要がありますが、Cassandraを再構築する必要はありませんでした。
+
++
+[listing]
+----
+root@DC1-S1:~ # reformat_storage_block_devices.rb
+Formatting devices that are not in use...
+Skipping in use device /dev/sdc
+Skipping in use device /dev/sdd
+Skipping in use device /dev/sde
+Reformat the rangedb drive /dev/sdf (device 8:64)? [Y/n]? y
+Successfully formatted /dev/sdf with UUID b951bfcb-4804-41ad-b490-805dfd8df16c
+All devices processed
+Running: /usr/local/ldr/setup_rangedb.sh 12368435
+Cassandra does not need rebuilding.
+Starting services.
+Informing storage services of new volume
+
+Reformatting done.  Now do manual steps to
+restore copies of data.
+----
+
+
+
+
+
+
+ストレージボリュームの再フォーマットと再マウントが完了し、必要なCassandra処理が完了したら、次のことを実行できますlink:../maintain/restoring-volume.html["Grid Managerを使用してオブジェクトデータをリストアする"]。

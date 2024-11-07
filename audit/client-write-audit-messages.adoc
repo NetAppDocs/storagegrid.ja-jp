@@ -1,0 +1,100 @@
+---
+permalink: audit/client-write-audit-messages.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
+summary: クライアント書き込み監査メッセージは、S3クライアントアプリケーションがオブジェクトを作成または変更する要求を行うと記録されます。 
+---
+= クライアント書き込み監査メッセージ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+クライアント書き込み監査メッセージは、S3クライアントアプリケーションがオブジェクトを作成または変更する要求を行うと記録されます。
+
+[cols="1a,3a,1a,1a"]
+|===
+| コード | 製品説明 | によって使用されます | を参照してください 
+
+
+ a| 
+OWR
+ a| 
+Object Overwrite ：あるオブジェクトを別のオブジェクトで上書きするトランザクションをログに記録します。
+ a| 
+S3およびSwiftクライアント
+ a| 
+link:ovwr-object-overwrite.html["OVWR ：オブジェクトを上書き"]
+
+
+
+ a| 
+SDEL
+ a| 
+S3 DELETE ：オブジェクトまたはバケットを削除するトランザクションの成功をログに記録します。
+
+* 注：トランザクションがサブリソースで動作している場合、監査メッセージには S3SR フィールドが含まれます。
+ a| 
+S3 クライアント
+ a| 
+link:sdel-s3-delete.html["SDEL ： S3 DELETE"]
+
+
+
+ a| 
+SPO
+ a| 
+S3 POST ：オブジェクトを AWS Glacier ストレージからクラウドストレージプールにリストアするトランザクションの成功をログに記録します。
+ a| 
+S3 クライアント
+ a| 
+link:spos-s3-post.html["SPO ： S3 POST"]
+
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT ：オブジェクトまたはバケットを新規に作成するトランザクションの成功をログに記録します。
+
+* 注：トランザクションがサブリソースで動作している場合、監査メッセージには S3SR フィールドが含まれます。
+ a| 
+S3 クライアント
+ a| 
+link:sput-s3-put.html["SPUT ： S3 PUT"]
+
+
+
+ a| 
+SUPD
+ a| 
+S3 Metadata Updated ：既存のオブジェクトまたはバケットのメタデータを更新するトランザクションの成功をログに記録します。
+ a| 
+S3 クライアント
+ a| 
+link:supd-s3-metadata-updated.html["SUPD ： S3 メタデータが更新されました"]
+
+
+
+ a| 
+WDEL
+ a| 
+Swift DELETE ：オブジェクトまたはコンテナを削除するトランザクションの成功をログに記録します。
+ a| 
+Swift クライアント
+ a| 
+link:wdel-swift-delete.html["WDEL ： Swift の削除"]
+
+
+
+ a| 
+WPUT
+ a| 
+Swift PUT ：オブジェクトまたはコンテナを新規に作成するトランザクションの成功をログに記録します。
+ a| 
+Swift クライアント
+ a| 
+link:wput-swift-put.html["WPUT：Swift PUT"]
+
+|===

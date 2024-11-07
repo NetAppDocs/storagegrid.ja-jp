@@ -1,0 +1,197 @@
+---
+permalink: admin/configure-autosupport-grid-manager.html 
+sidebar: sidebar 
+keywords: how to configure autosupport, what is autosupport-on-demand 
+summary: デフォルトでは、StorageGRID AutoSupport機能はStorageGRIDの初回インストール時に有効になっています。ただし、各アプライアンスでハードウェアAutoSupportを設定する必要があります。必要に応じて、AutoSupportの設定を変更できます。 
+---
+= AutoSupportの設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+デフォルトでは、StorageGRID AutoSupport機能はStorageGRIDの初回インストール時に有効になっています。ただし、各アプライアンスでハードウェアAutoSupportを設定する必要があります。必要に応じて、AutoSupportの設定を変更できます。
+
+StorageGRID AutoSupportの設定を変更する場合は、プライマリ管理ノードでのみ変更を行います。各アプライアンスで実行する必要があり<<autosupport-for-appliances,ハードウェアAutoSupportの設定>>ます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:admin-group-permissions.html["rootアクセス権限"]。
+* AutoSupportパッケージの送信にHTTPSを使用する場合は、プライマリ管理ノードへのアウトバウンドインターネットアクセスを、直接または（インバウンド接続は不要）で設定しておきますlink:configuring-admin-proxy-settings.html["プロキシサーバを使用する"]。
+* StorageGRID AutoSupportページでHTTPが選択されている場合は、AutoSupportパッケージをHTTPSとして転送する必要がありlink:configuring-admin-proxy-settings.html["プロキシサーバを設定しました"]ます。ネットアップのAutoSupportサーバはHTTPを使用して送信されたパッケージを拒否します。
+* AutoSupportパッケージのプロトコルとしてSMTPを使用する場合は、SMTPメールサーバを設定しておきます。
+
+
+.タスクの内容
+次のオプションを任意に組み合わせて、AutoSupportパッケージをテクニカルサポートに送信できます。
+
+* *毎週*：AutoSupportパッケージを週に1回自動的に送信します。デフォルト設定： Enabled （有効）。
+* * Event-triggered *：1時間ごと、または重大なシステムイベントが発生したときに、AutoSupportパッケージを自動的に送信します。デフォルト設定： Enabled （有効）。
+* *オンデマンド*：テクニカルサポートがStorageGRIDシステムにAutoSupportパッケージを自動的に送信するよう要求できるようにします。これは、問題をアクティブに使用している場合（HTTPS AutoSupport転送プロトコルが必要）に役立ちます。デフォルト設定： Disabled （無効）。
+* *User-triggered*: AutoSupportパッケージをいつでも手動で送信します。
+
+
+
+
+== [[specify-protocol-for-autosupport-packages]] AutoSupportパッケージのプロトコルを指定する
+
+AutoSupportパッケージの送信には、次のいずれかのプロトコルを使用できます。
+
+* * HTTPS * ：これはデフォルトで、新規インストールに推奨される設定です。このプロトコルはポート443を使用します。必要に応じて<<AutoSupport On Demand を有効にする,AutoSupport オンデマンド機能を有効にします>>、HTTPSを使用する必要があります。
+* * HTTP *：[HTTP]を選択した場合は、AutoSupportパッケージをHTTPSとして転送するようにプロキシサーバーを設定する必要があります。ネットアップのAutoSupportサーバはHTTPを使用して送信されたパッケージを拒否します。このプロトコルはポート80を使用します。
+* * SMTP *：AutoSupportパッケージをEメールで送信する場合は、このオプションを使用します。
+
+
+設定したプロトコルは、すべてのタイプのAutoSupportパッケージの送信に使用されます。
+
+.手順
+. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. AutoSupportパッケージの送信に使用するプロトコルを選択します。
+. [HTTPS]*を選択した場合は、テクニカルサポートサーバへの接続を保護するためにNetAppサポート証明書（TLS証明書）を使用するかどうかを選択します。
++
+** *証明書の確認*（デフォルト）：AutoSupportパッケージの送信が安全であることを確認します。ネットアップサポート証明書は、 StorageGRID ソフトウェアとともにすでにインストールされています。
+** * 証明書を検証しない * ：このオプションは、証明書に一時的な問題があるなど、証明書の検証を使用しない理由が十分な場合にのみ選択してください。
+
+
+. [ 保存（ Save ） ] を選択します。週次パッケージ、ユーザトリガーパッケージ、およびイベントトリガーパッケージはすべて、選択したプロトコルを使用して送信されます。
+
+
+
+
+== 週次AutoSupportを無効にする
+
+デフォルトでは、StorageGRIDシステムは週に1回テクニカルサポートにAutoSupportパッケージを送信するように設定されています。
+
+週次AutoSupportパッケージが送信されるタイミングを確認するには、* AutoSupport *>* Results *タブに移動します。[毎週のスケジュール（Weekly AutoSupport）]セクションで、*[次のスケジュール時間（Next Scheduled Time）]*の値を確認します。
+
+週次AutoSupportパッケージの自動送信はいつでも無効にすることができます。
+
+.手順
+. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. [毎週のAutoSupport を有効にする]*チェックボックスをオフにします。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+== イベントトリガー型AutoSupportの無効化
+
+デフォルトでは、StorageGRIDシステムはAutoSupportパッケージを1時間ごとにテクニカルサポートに送信するように設定されています。
+
+イベントトリガー型AutoSupportはいつでも無効にすることができます。
+
+.手順
+. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. [Enable Event-Triggered AutoSupport *]チェックボックスをオフにします。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+== AutoSupport On Demand を有効にする
+
+AutoSupport On Demand は、テクニカルサポートが問題解決に積極的に取り組んでいる場合に役立ちます。
+
+デフォルトでは、 AutoSupport On Demand は無効になっています。この機能を有効にすると、テクニカルサポートがStorageGRIDシステムからAutoSupportパッケージを自動的に送信するように要求できます。テクニカルサポートは、 AutoSupport On Demand クエリのポーリング間隔も設定できます。
+
+テクニカルサポートは、AutoSupport On Demandを有効または無効にできません。
+
+.手順
+. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. プロトコルの * HTTPS * を選択します。
+. [毎週のAutoSupport を有効にする]*チェックボックスをオンにします。
+. [Enable AutoSupport on Demand]*チェックボックスをオンにします。
+. [ 保存（ Save ） ] を選択します。
++
+AutoSupport On Demand は有効になっており、テクニカルサポートは AutoSupport On Demand 要求を StorageGRID に送信できます。
+
+
+
+
+
+== ソフトウェアアップデートのチェックを無効にします
+
+デフォルトでは、 StorageGRID はネットアップに連絡して、ご使用のシステムでソフトウェアの更新が利用可能かどうかを判断します。StorageGRID ホットフィックスまたは新しいバージョンが利用可能な場合は、 StorageGRID のアップグレードページに新しいバージョンが表示されます。
+
+必要に応じて、ソフトウェアアップデートのチェックを無効にすることもできます。たとえば、 WAN でアクセスできないシステムの場合は、ダウンロードエラーを回避するためにチェックを無効にする必要があります。
+
+.手順
+. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. [Check for software updates]*チェックボックスをオフにします。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+== AutoSupport デスティネーションを追加します
+
+AutoSupportを有効にすると、ヘルスパッケージとステータスパッケージがテクニカルサポートに送信されます。すべてのAutoSupportパッケージに対して、追加の送信先を1つ指定できます。
+
+AutoSupportパッケージの送信に使用するプロトコルを確認または変更するには、の手順を参照してください<<specify-protocol-for-autosupport-packages,AutoSupportパッケージのプロトコルの指定>>。
+
+
+NOTE: SMTPプロトコルを使用してAutoSupportパッケージを追加の送信先に送信することはできません。
+
+.手順
+. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. [Enable Additional AutoSupport Destination]*を選択します。
+. 次の情報を指定します。
++
+ホスト名:: 追加のAutoSupport 宛先サーバのサーバホスト名またはIPアドレス。
++
+--
+
+NOTE: 追加の送信先は 1 つだけ入力できます。
+
+--
+ポート:: 追加のAutoSupport 宛先サーバへの接続に使用するポート。デフォルトは、HTTPの場合はポート80、HTTPSの場合はポート443です。
+証明書の検証:: TLS証明書を使用して追加の送信先への接続を保護するかどうか。
++
+--
+** 証明書の検証を使用するには、*証明書の検証*を選択します。
+** 証明書の検証なしでAutoSupportパッケージを送信する場合は、[証明書を検証しない]*を選択します。
++
+このオプションは、証明書の検証を使用しない理由がある場合（証明書に一時的な問題がある場合など）にのみ選択してください。
+
+
+
+--
+
+
+. [Verify certificate]*を選択した場合は、次の手順を実行します。
++
+.. CA証明書の場所を参照します。
+.. CA証明書ファイルをアップロードします。
++
+CA証明書のメタデータが表示されます。
+
+
+
+. [ 保存（ Save ） ] を選択します。
++
+今後、毎週、イベントトリガー型、およびユーザトリガー型のすべてのAutoSupportパッケージが追加の送信先に送信されます。
+
+
+
+
+
+== [[autosupport-for-appliances]アプライアンスのAutoSupportの設定
+
+アプライアンスのAutoSupportではStorageGRIDハードウェアの問題が報告され、StorageGRID AutoSupportではStorageGRIDソフトウェアの問題が報告されます。ただし、SGF6112の場合、StorageGRID AutoSupportではハードウェアとソフトウェアの両方の問題が報告されます。SGF6112を除く各アプライアンスでAutoSupportを設定する必要があります。SGF6112は追加の設定は必要ありません。AutoSupportの実装方法は、サービスアプライアンスとストレージアプライアンスで異なります。
+
+SANtricityを使用して、各ストレージアプライアンスのAutoSupportを有効にします。SANtricity AutoSupport は、アプライアンスの初期セットアップ時またはアプライアンスの設置後に設定できます。
+
+* SG6000およびSG5700アプライアンスの場合は、 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["SANtricity システムマネージャでAutoSupport を設定します"^]
+
+
+でプロキシによるAutoSupport配信を設定した場合、EシリーズアプライアンスのAutoSupportパッケージをStorageGRID AutoSupportに含めることができますlink:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["SANtricityシステムマネージャ"]。
+
+StorageGRID AutoSupport では、DIMMやホストインターフェイスカード（HIC）などのハードウェアの問題は報告されません。ただし、一部のコンポーネント障害がトリガーされる可能性がありlink:../monitor/alerts-reference.html["ハードウェアアラート"]ます。ベースボード管理コントローラ（BMC）を搭載したStorageGRIDアプライアンスでは、ハードウェア障害を報告するようにEメールおよびSNMPトラップを設定できます。
+
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/setting-up-email-notifications-for-alerts.html["BMCアラートのEメール通知を設定する"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-snmp-settings-for-bmc.html["BMCのSNMP設定を行います"^]
+
+
+.関連情報
+https://mysupport.netapp.com/site/global/dashboard["NetAppサポート"^]

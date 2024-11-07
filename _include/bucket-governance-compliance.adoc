@@ -1,0 +1,30 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,2a"]
+|===
+| デフォルトの保持モード | 製品説明 
+
+
+ a| 
+ガバナンス
+ a| 
+* 権限を持つユーザ `s3:BypassGovernanceRetention`は、要求ヘッダーを使用して保持設定を省略でき `x-amz-bypass-governance-retention: true`ます。
+* これらのユーザは、retain-until-dateに達する前にオブジェクトバージョンを削除できます。
+* これらのユーザは、オブジェクトのretain-until-dateを増減、または削除できます。
+
+
+
+
+ a| 
+コンプライアンス
+ a| 
+* retain-until-dateに達するまで、オブジェクトを削除できません。
+* オブジェクトのretain-until-dateは増やすことはできますが、減らすことはできません。
+* オブジェクトのretain-until-dateは、その日付に達するまで削除できません。
+
+
+*注*：グリッド管理者が準拠モードの使用を許可する必要があります。
+
+|===

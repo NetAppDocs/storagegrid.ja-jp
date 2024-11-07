@@ -1,0 +1,92 @@
+---
+permalink: s3/operations-for-multipart-uploads.html 
+sidebar: sidebar 
+keywords: operations, multipart uploads, uploads, rest API 
+summary: このセクションでは、 StorageGRID でのマルチパートアップロードの処理のサポートについて説明します。 
+---
+= マルチパートアップロードの処理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このセクションでは、 StorageGRID でのマルチパートアップロードの処理のサポートについて説明します。
+
+マルチパートアップロードのすべての処理に、次の条件と注意事項が適用されます。
+
+* 1つのバケットに対して同時に実行するマルチパートアップロードの数が1、000を超えないようにしてください。そのバケットに対するListMultipartUploadsのクエリで不完全な結果が返されることがあります。
+* StorageGRID は、マルチパートに AWS のサイズ制限を適用します。S3 クライアントは次のガイドラインに従う必要があります。
++
+** マルチパートアップロードの各パートのサイズは 5MiB （ 5 、 242 、 880 バイト）と 5GiB （ 5 、 368 、 709 、 120 バイト）の間にする必要があります。
+** 最後の部分は 5MiB （ 5,242,880 バイト）より小さくできます。
+** 一般に、パーツサイズはできるだけ大きくする必要があります。たとえば、 100GiB オブジェクトの場合、 5GB のパートサイズを使用します。各パートは固有のオブジェクトとみなされるため、大きなパートサイズを使用するとStorageGRID メタデータのオーバーヘッドが削減されます。
+** 5GB 未満のオブジェクトでは、マルチパートではないアップロードの使用を検討してください。
+
+
+* ILMルールでBalancedまたはStrictが使用されている場合は、マルチパートオブジェクトの各パートの取り込み時にILMが評価され、マルチパートアップロードの完了時にオブジェクト全体に対してILMが評価されlink:../ilm/data-protection-options-for-ingest.html["取り込みオプション"]ます。これがオブジェクトとパートの配置にどのように影響するかに注意する必要があります。
++
+** S3マルチパートアップロードの実行中にILMが変更されると、マルチパートアップロードの完了時にオブジェクトの一部の部分が現在のILM要件を満たしていない可能性があります。正しく配置されていないパートはILMルールによる再評価の対象としてキューに登録され、あとで正しい場所に移動されます。
+** パートに対して ILM を評価する際、 StorageGRID はオブジェクトのサイズではなくパートのサイズでフィルタリングします。つまり、オブジェクト全体のILM要件を満たしていない場所にオブジェクトの一部を格納できます。たとえば、10GB以上のオブジェクトをすべてDC1に格納し、それより小さいオブジェクトをすべてDC2に格納するルールの場合、10パートのマルチパートアップロードの1GBの各パートは取り込み時にDC2に格納されます。ただし、オブジェクト全体に対してILMが評価されると、オブジェクトのすべての部分がDC1に移動されます。
+
+
+* マルチパートアップロードでは、すべての処理でStorageGRIDがサポートされlink:consistency-controls.html["整合性の値"]ます。
+* マルチパートアップロードを使用してオブジェクトを取り込んだ場合、はlink:../admin/what-object-segmentation-is.html["オブジェクトのセグメント化しきい値（1GiB）"]適用されません。
+* 必要に応じて、マルチパートアップロードでを使用できますlink:using-server-side-encryption.html["サーバ側の暗号化"]。SSE（StorageGRIDで管理されるキーによるサーバ側の暗号化）を使用するには、CreateMultipartUpload要求にのみ要求ヘッダーを含め `x-amz-server-side-encryption`ます。SSE-C（ユーザ指定のキーによるサーバ側の暗号化）を使用するには、CreateMultipartUpload要求と後続の各UploadPart要求に同じ3つの暗号化キー要求ヘッダーを指定します。
+
+
+[cols="2a,3a"]
+|===
+| 操作 | インプリメンテーション 
+
+
+ a| 
+AbortMultipartUpload
+ a| 
+Amazon S3 REST API のすべての動作が実装されています。予告なく変更される場合があります。
+
+
+
+ a| 
+CompleteMultipartUpload
+ a| 
+を参照し link:complete-multipart-upload.html["CompleteMultipartUpload"]
+
+
+
+ a| 
+CreateMultipartUpload
+
+（以前の名前はInitiate Multipart Upload）
+ a| 
+を参照し link:initiate-multipart-upload.html["CreateMultipartUpload"]
+
+
+
+ a| 
+ListMultipartUploads
+ a| 
+を参照し link:list-multipart-uploads.html["ListMultipartUploads"]
+
+
+
+ a| 
+ListParts
+ a| 
+Amazon S3 REST API のすべての動作が実装されています。予告なく変更される場合があります。
+
+
+
+ a| 
+パーツのアップロード
+ a| 
+を参照し link:upload-part.html["パーツのアップロード"]
+
+
+
+ a| 
+パーツコピーをアップロード
+ a| 
+を参照し link:upload-part-copy.html["パーツコピーをアップロード"]
+
+|===

@@ -1,0 +1,149 @@
+---
+permalink: monitor/access-snmp-mib.html 
+sidebar: sidebar 
+keywords: mib, snmp, monitoring 
+summary: MIBファイルには、グリッド内のノードの管理対象リソースとサービスのプロパティの定義と情報が含まれています。StorageGRID のオブジェクトと通知を定義するMIBファイルにアクセスできます。これらのファイルは、グリッドの監視に役立ちます。 
+---
+= MIBファイルにアクセスします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MIBファイルには、グリッド内のノードの管理対象リソースとサービスのプロパティの定義と情報が含まれています。StorageGRID のオブジェクトと通知を定義するMIBファイルにアクセスできます。これらのファイルは、グリッドの監視に役立ちます。
+
+SNMPおよびMIBファイルの詳細については、を参照してくださいlink:using-snmp-monitoring.html["SNMP による監視を使用する"]。
+
+
+
+== MIBファイルにアクセスします
+
+MIBファイルにアクセスする手順は、次のとおりです。
+
+.手順
+. * configuration * > * Monitoring * > * SNMP agent * を選択します。
+. [SNMP agent]ページで、ダウンロードするファイルを選択します。
++
+** * NETAPP-STORAGEGRID-MIB.txt *：すべての管理ノードでアクセス可能なアラートテーブルと通知（トラップ）を定義します。
+** * ES-NetApp-06-MIB.mib *：Eシリーズベースのアプライアンスのオブジェクトと通知を定義します。
+** * mib_1_10.zip *：BMCインターフェイスを使用するアプライアンスのオブジェクトと通知を定義します。
++
+[]
+====
+
+TIP: また、任意のStorageGRIDノードの次の場所にあるMIBファイルにアクセスすることもできます。 `/usr/share/snmp/mibs`
+
+====
+
+
+. MIBファイルからStorageGRID OIDを抽出するには、次の手順を実行します。
++
+.. StorageGRID MIBのルートのOIDを取得します。
++
+`root@user-adm1:~ # snmptranslate -On -IR storagegrid`
+
++
+結果： `.1.3.6.1.4.1.789.28669` (`28669`は常にStorageGRIDのOID）
+
+.. ツリー全体のStorageGRID OIDをgrepで指定します（を使用して `paste`行を結合）。
++
+`root@user-adm1:~ # snmptranslate -Tso | paste -d " " - - | grep 28669`
+
+
+
+
+
+
+TIP: この `snmptranslate`コマンドには、MIBの探索に役立つ多くのオプションがあります。このコマンドは、任意のStorageGRID ノードで使用できます。
+
+
+
+== MIBファイルの内容
+
+すべてのオブジェクトはStorageGRID OIDの下にあります。
+
+[cols="1a,1a,2a"]
+|===
+| オブジェクト名 | オブジェクトID（OID） | 製品説明 
+
+
+| .iso.org.dod.internet（英語）+private.enterprises。+ネットアップストレージグリッド | .1.3.6.1.4.1.789.28669  a| 
+NetApp StorageGRIDエンティティ用のMIBモジュール。
+
+|===
+
+
+== MIBオフシエクト
+
+[cols="1a,1a,2a"]
+|===
+| オブジェクト名 | オブジェクトID（OID） | 製品説明 
+
+
+| activeAlertCount | 1.3.6.1.4.1.+789.28669.1.3  a| 
+activeAlertTable内のアクティブなアラートの数。
+
+
+
+| activeAlertTableの略 | 1.3.6.1.4.1.+789.28669.1.4  a| 
+StorageGRID のアクティブなアラートのテーブル。
+
+
+
+| activeAlertId | 1.3.6.1.4.1.+789.28669.1.4.1.1  a| 
+アラートのID。現在アクティブなアラートのセット内でのみ一意です。
+
+
+
+| activeAlertNameの略 | 1.3.6.1.4.1.+789.28669.1.4.1.2  a| 
+アラートの名前。
+
+
+
+| activeAlertInstanceの略 | 1.3.6.1.4.1.+789.28669.1.4.1.3  a| 
+アラートを生成したエンティティの名前（通常はノード名）。
+
+
+
+| activeAlertSeverityの略 | 1.3.6.1.4.1.+789.28669.1.4.1.4  a| 
+アラートの重大度。
+
+
+
+| activeAlertStartTimeの略 | 1.3.6.1.4.1.+789.28669.1.4.1.5  a| 
+アラートがトリガーされた日時。
+
+|===
+
+
+== 通知タイプ（トラップ）
+
+すべての通知には、変数バインドとして次の変数が含まれます。
+
+* activeAlertId
+* activeAlertNameの略
+* activeAlertInstanceの略
+* activeAlertSeverityの略
+* activeAlertStartTimeの略
+
+
+[cols="1a,1a,2a"]
+|===
+| 通知のタイプ | オブジェクトID（OID） | 製品説明 
+
+
+| activeMinorAlertの略 | 1.3.6.1.4.1.+789.28669.0.6  a| 
+重大度がMinorのアラート
+
+
+
+| activeMajorAlertの略 | 1.3.6.1.4.1.+789.28669.0.7  a| 
+Major重大度のアラート
+
+
+
+| activeCriticalAlertの略 | 1.3.6.1.4.1.+789.28669.0.8  a| 
+重大度がCriticalのアラート
+
+|===

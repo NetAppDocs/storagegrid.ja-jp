@@ -1,0 +1,46 @@
+---
+permalink: maintain/pausing-and-resuming-decommission-process-for-storage-nodes.html 
+sidebar: sidebar 
+keywords: how to pause decommission 
+summary: 2 回目のメンテナンス手順 を実行する必要がある場合は、ストレージノードの運用停止手順 を特定の段階で一時停止できます。もう一方の手順 の運用停止が完了したら、運用停止手順を再開できます。 
+---
+= ストレージノードの運用停止プロセスを一時停止および再開します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+2 回目のメンテナンス手順 を実行する必要がある場合は、ストレージノードの運用停止手順 を特定の段階で一時停止できます。もう一方の手順 の運用停止が完了したら、運用停止手順を再開できます。
+
+
+NOTE: * Pause * ボタンは、 ILM 評価またはイレイジャーコーディングデータの運用停止ステージに達したときにのみ有効になります。ただし、 ILM 評価（データ移行）はバックグラウンドで継続して実行されます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["Maintenance権限またはRoot Access権限"]。
+
+
+.手順
+. [*maintenance] > [* Tasks] > [* Decommission] * を選択します。
++
+Decommission ページが表示されます。
+
+. [Decommission Nodes] を選択します。
++
+Decommission Nodes ページが表示されます。手順 の運用停止が次のいずれかの段階に達すると、 * 一時停止 * ボタンが有効になります。
+
++
+** ILM を評価中です
+** イレイジャーコーディングデータの運用停止
+
+
+. 手順 を一時停止するには、 * 一時停止 * を選択します。
++
+現在のステージが一時停止され、 * Resume * （続行）ボタンが有効になります。
+
++
+image::../media/decommission_nodes_procedure_paused.png[ノード手順 の運用停止が一時停止され]
+
+. もう一方のメンテナンス手順 が終了したら、 [* Resume （続行） ] を選択して運用停止を続行します。
+

@@ -1,0 +1,97 @@
+---
+permalink: monitor/monitoring-network-connections-and-performance.html 
+sidebar: sidebar 
+keywords: monitoring, monitoring network connections, network, network performance 
+summary: 効率的な運用には、ノードとサイト間のネットワークの整合性と帯域幅、および個 々 のグリッドノードによるリソース使用量が不可欠です。 
+---
+= ネットワークリソースとシステムリソースを監視します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+効率的な運用には、ノードとサイト間のネットワークの整合性と帯域幅、および個 々 のグリッドノードによるリソース使用量が不可欠です。
+
+
+
+== ネットワーク接続とパフォーマンスを監視します
+
+ネットワーク接続と帯域幅は、情報ライフサイクル管理（ ILM ）ポリシーでサイト間のレプリケートオブジェクトをコピーする場合や、サイト障害からの保護を提供するスキームを使用してイレイジャーコーディングオブジェクトを格納する場合に特に重要になります。サイト間のネットワークを使用できない場合、ネットワークレイテンシが高すぎる場合、またはネットワーク帯域幅が不十分な場合、一部の ILM ルールでオブジェクトが想定どおりに配置されない可能性があります。その結果、取り込みが失敗したり（ILMルールでStrict取り込みオプションが選択されている場合）、取り込みパフォーマンスの低下やILMバックログが発生する可能性があります。
+
+Grid Managerを使用して接続とネットワークのパフォーマンスを監視し、問題に迅速に対処できます。
+
+また、特定のテナント、バケット、サブネット、またはロードバランサエンドポイントに関連するトラフィックを監視できるようにすることを検討してくださいlink:../admin/managing-traffic-classification-policies.html["ネットワークトラフィック分類ポリシーの作成"]。必要に応じて、トラフィック制限ポリシーを設定できます。
+
+.手順
+. [* nodes （ノード） ] を選択します
++
+Nodes ページが表示されます。グリッド内の各ノードが表形式で表示されます。
+
++
+image::../media/nodes_menu.png[ノードメニュー]
+
+. グリッド名、特定のデータセンターサイト、またはグリッドノードを選択し、 * ネットワーク * タブを選択します。
++
+このネットワークトラフィックのグラフには、グリッド全体、データセンターサイト、またはノードのネットワークトラフィックの概要が表示されます。
+
++
+image::../media/nodes_page_network_traffic_graph.png[Nodes Page Network Traffic Graph の略]
+
++
+.. グリッドノードを選択した場合は、ページの「 * ネットワークインターフェイス * 」セクションまでスクロールします。
++
+image::../media/nodes_page_network_interfaces.png[Nodes ページネットワークインターフェイス]
+
+.. グリッドノードがある場合は、下にスクロールしてページの「 * ネットワーク通信 * 」セクションを確認します。
++
+受信および送信テーブルには、各ネットワークで送受信されたバイト数とパケット数、およびその他の受信および送信メトリックが表示されます。
+
++
+image::../media/nodes_page_network_communication.png[Nodes Page Network Comm の略]
+
+
+
+. トラフィック分類ポリシーに関連付けられたメトリックを使用して、ネットワークトラフィックを監視します。
++
+.. * configuration * > * Network * > * traffic classification * を選択します。
++
+[Traffic Classification Policies] ページが表示され、既存のポリシーがテーブルにリストされます。
+
++
+image::../media/traffic_classification_policies_main_screen_w_examples.png[グラフのトラフィックポリシーの例]
+
+.. ポリシーに関連付けられているネットワーク指標を示すグラフを表示するには、ポリシーの左側にあるオプションボタンを選択し、 [*Metrics] をクリックします。
+.. グラフを確認して、ポリシーに関連付けられているネットワークトラフィックを把握します。
++
+トラフィック分類ポリシーがネットワークトラフィックを制限するように設計されている場合は、トラフィックが制限される頻度を分析し、ポリシーがニーズを満たし続けるかどうかを判断します。時 々、link:../admin/managing-traffic-classification-policies.html["必要に応じて、各トラフィック分類ポリシーを調整します"]。
+
+
+
+
+
+.関連情報
+* link:viewing-network-tab.html["[ ネットワーク ] タブを表示します"]
+* link:monitoring-system-health.html#monitor-node-connection-states["ノードの接続状態を監視します"]
+
+
+
+
+== ノードレベルのリソースを監視
+
+個 々 のグリッドノードを監視して、リソースの使用量レベルを確認します。ノードが常に過負荷状態になっていると、効率的な処理に必要なノードの数が増えます。
+
+.手順
+. [* nodes * （ノード * ） ] ページでノードを選択します。
+. [*Hardware*] タブを選択して、 CPU 使用率とメモリ使用率のグラフを表示します。
++
+image::../media/nodes_page_hardware_tab_graphs.png[ノードページハードウェアタブ]
+
+. 別の期間を表示するには、グラフまたはグラフの上にあるコントロールのいずれかを選択します。1 時間、 1 日、 1 週間、または 1 カ月の期間の情報を表示できます。また、カスタムの間隔を設定して、日時の範囲を指定することもできます。
+. ノードがストレージアプライアンスまたはサービスアプライアンスでホストされている場合は、下にスクロールしてコンポーネントの表を表示します。すべてのコンポーネントのステータスが「Nominal（公称）」になっている必要があります。その他のステータスのコンポーネントを調査します。
+
+
+.関連情報
+* link:viewing-hardware-tab.html#view-information-about-appliance-storage-nodes["アプライアンスストレージノードに関する情報を表示します"]
+* link:viewing-hardware-tab.html#view-information-about-appliance-admin-nodes-and-gateway-nodes["アプライアンスの管理ノードとゲートウェイノードに関する情報を表示します"]
+

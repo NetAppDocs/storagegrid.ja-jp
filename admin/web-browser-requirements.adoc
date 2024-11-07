@@ -1,0 +1,60 @@
+---
+permalink: admin/web-browser-requirements.html 
+sidebar: sidebar 
+keywords: web browser requirements, supported browser, chrome, edge, firefox 
+summary: サポートされている Web ブラウザを使用する必要があります。 
+---
+= Web ブラウザの要件
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+サポートされている Web ブラウザを使用する必要があります。
+
+[cols="2a,2a"]
+|===
+| Webブラウザ | サポートされる最小バージョン 
+
+
+ a| 
+Google Chrome
+ a| 
+119
+
+
+
+ a| 
+Microsoft Edge
+ a| 
+119
+
+
+
+ a| 
+Mozilla Firefox
+ a| 
+119
+
+|===
+ブラウザウィンドウの幅を推奨される値に設定してください。
+
+[cols="3a,1a"]
+|===
+| ブラウザの幅 | ピクセル 
+
+
+ a| 
+最小
+ a| 
+一、〇 二四
+
+
+
+ a| 
+最適
+ a| 
+1280
+
+|===

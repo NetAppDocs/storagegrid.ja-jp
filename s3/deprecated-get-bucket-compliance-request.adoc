@@ -1,0 +1,95 @@
+---
+permalink: s3/deprecated-get-bucket-compliance-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated GET compliance requests 
+summary: GET Bucket compliance要求は廃止されました。ただし、既存のレガシー準拠バケットに対して現在有効な準拠設定を引き続き確認することができます。 
+---
+= 廃止予定：GET Bucket compliance要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+GET Bucket compliance要求は廃止されました。ただし、既存のレガシー準拠バケットに対して現在有効な準拠設定を引き続き確認することができます。
+
+[NOTE]
+====
+以前のバージョンの StorageGRID で提供されていた StorageGRID 準拠機能は廃止され、 S3 オブジェクトロックに置き換えられました。詳細については、次を参照してください。
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["ネットアップのナレッジベース： StorageGRID 11.5 でレガシー準拠バケットを管理する方法"^]
+
+
+====
+この処理を完了するには、s3：GetBucketCompliance権限またはrootアカウントが必要です。
+
+
+
+== 要求例
+
+次の要求例では、という名前のバケットの準拠設定を確認でき `mybucket`ます。
+
+[listing, subs="specialcharacters,quotes"]
+----
+GET /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----
+
+
+== 応答例
+
+応答XMLに、 `<SGCompliance>`バケットに有効な準拠設定が表示されます。次の応答例では、バケットの準拠設定が示されており、各オブジェクトはグリッドに取り込まれてから 1 年間（ 525 、 600 分）保持されます。このバケットには現在リーガルホールドはありません。各オブジェクトは 1 年後に自動的に削除されます。
+
+[listing, subs="specialcharacters,quotes"]
+----
+HTTP/1.1 200 OK
+Date: _date_
+Connection: _connection_
+Server: StorageGRID/11.1.0
+x-amz-request-id: _request ID_
+Content-Length: _length_
+Content-Type: application/xml
+
+<SGCompliance>
+  <RetentionPeriodMinutes>525600</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+[cols="1a,2a"]
+|===
+| 名前 | 製品説明 
+
+
+ a| 
+RetentionPeriodMinutes です
+ a| 
+このバケットに追加されたオブジェクトの保持期間を分で指定します。保持期間は、オブジェクトがグリッドに取り込まれたときからの期間です。
+
+
+
+ a| 
+LegalHold のようになります
+ a| 
+* True ：このバケットは、現在リーガルホールドの対象です。このバケット内のオブジェクトは、保持期間が過ぎても、リーガルホールドが解除されるまで削除できません。
+* False ：このバケットは、現在リーガルホールドの対象ではありません。このバケット内のオブジェクトは、保持期間が過ぎたら削除できます。
+
+
+
+
+ a| 
+自動削除
+ a| 
+* True ：このバケット内のオブジェクトは、バケットがリーガルホールドの対象である場合を除き、保持期間が過ぎると自動的に削除されます。
+* false ：このバケット内のオブジェクトは、保持期間が過ぎても自動的には削除されません。これらのオブジェクトを削除する必要がある場合は、手動で削除する必要があります。
+
+
+|===
+
+
+== エラー応答
+
+バケットが準拠バケットとして作成されていない場合、応答のHTTPステータスコードはになり、S3エラーコードはに `XNoSuchBucketCompliance`なります `404 Not Found`。

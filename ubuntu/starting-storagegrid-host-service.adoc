@@ -1,0 +1,42 @@
+---
+permalink: ubuntu/starting-storagegrid-host-service.html 
+sidebar: sidebar 
+keywords: how to start host service 
+summary: StorageGRID ノードを起動し、ホストのリブート後もノードが再起動されるようにするには、 StorageGRID ホストサービスを有効にして開始する必要があります。 
+---
+= StorageGRID ホストサービスを開始します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID ノードを起動し、ホストのリブート後もノードが再起動されるようにするには、 StorageGRID ホストサービスを有効にして開始する必要があります。
+
+.手順
+. 各ホストで次のコマンドを実行します。
++
+[listing]
+----
+sudo systemctl enable storagegrid
+sudo systemctl start storagegrid
+----
+. 次のコマンドを実行して、導入の進行状況を確認します。
++
+[listing]
+----
+sudo storagegrid node status node-name
+----
+. いずれかのノードのステータスが「Not Running」または「Stopped」になった場合は、次のコマンドを実行します。
++
+[listing]
+----
+sudo storagegrid node start node-name
+----
+. StorageGRID ホストサービスを以前に有効にして開始している場合（またはサービスを有効にして開始したかどうかがわからない場合）は、次のコマンドも実行します。
++
+[listing]
+----
+sudo systemctl reload-or-restart storagegrid
+----
+

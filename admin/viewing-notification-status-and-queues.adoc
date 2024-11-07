@@ -1,0 +1,20 @@
+---
+permalink: admin/viewing-notification-status-and-queues.html 
+sidebar: sidebar 
+keywords: NMS service, network management system, interface engine 
+summary: 管理ノードの Network Management System （ NMS ）サービスは、メールサーバに通知を送信します。NMS サービスの現在のステータスとその通知キューのサイズは、 Interface Engine ページで確認できます。 
+---
+= 通知のステータスとキューを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+管理ノードの Network Management System （ NMS ）サービスは、メールサーバに通知を送信します。NMS サービスの現在のステータスとその通知キューのサイズは、 Interface Engine ページで確認できます。
+
+Interface Engine ページにアクセスするには、 * support * > * Tools * > * Grid topology * を選択します。次に、*_site_*>*_Admin Node_*>* NMS *>* Interface Engine *を選択します。
+
+image::../media/email_notification_status_and_queues.gif[Interface Engine ページ]
+
+通知は E メール通知キューを通じて処理され、トリガーされた順にメールサーバに送信されます。通知の送信時に問題（ネットワーク接続エラーなど）が発生してメールサーバが使用できなくなった場合は、メールサーバへの再送信が 60 秒間試行されます。60 秒経ってもメールサーバに送信されなかった通知は通知キューから破棄され、キュー内の次の通知の送信が試行されます。

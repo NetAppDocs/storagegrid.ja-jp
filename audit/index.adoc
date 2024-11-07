@@ -1,0 +1,20 @@
+---
+permalink: audit/index.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, structure, content 
+summary: ここでは、 StorageGRID 監査メッセージおよび監査ログの構造と内容について説明します。この情報を使用して、システムアクティビティの監査証跡を判読し、分析できます。 
+---
+= 監査メッセージとログ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ここでは、 StorageGRID 監査メッセージおよび監査ログの構造と内容について説明します。この情報を使用して、システムアクティビティの監査証跡を判読し、分析できます。
+
+ここに記載する手順は、システムのアクティビティおよび使用状況のレポート生成を担当する管理者を対象としています。このようなレポートの生成には、 StorageGRID システムの監査メッセージの分析が必要となります。
+
+テキストログファイルを使用するには、管理ノード上に設定されている監査共有へのアクセスが必要です。
+
+監査メッセージレベルの設定および外部syslogサーバの使用については、を参照してくださいlink:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]。

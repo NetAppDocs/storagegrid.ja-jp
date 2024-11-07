@@ -1,0 +1,31 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,3a"]
+|===
+| 権限 | 選択した項目 
+
+
+ a| 
+プラットフォームサービスを許可します
+ a| 
+テナントでは、CloudMirrorなどのS3プラットフォームサービスを使用できます。を参照して link:../admin/manage-platform-services-for-tenants.html["S3 テナントアカウントのプラットフォームサービスを管理します"]
+
+
+
+ a| 
+独自のアイデンティティソースを使用する
+ a| 
+テナントでは、フェデレーテッドグループおよびフェデレーテッドユーザの独自のアイデンティティソースを設定および管理できます。このオプションは、StorageGRIDシステムにがある場合は無効になりlink:../admin/configuring-sso.html["SSOを設定しました"]ます。
+
+
+
+ a| 
+S3を許可するを選択します
+ a| 
+テナントは、オブジェクトデータのフィルタリングと読み出しを行うためのS3 SelectObjectContent API要求を問題 できます。を参照して link:../admin/manage-s3-select-for-tenant-accounts.html["テナントアカウント用の S3 Select を管理します"]
+
+*重要*：SelectObjectContent要求を実行すると、すべてのS3クライアントとすべてのテナントのロードバランサのパフォーマンスが低下する可能性があります。この機能は、必要な場合にのみ有効にし、信頼できるテナントに対してのみ有効にします。
+
+|===

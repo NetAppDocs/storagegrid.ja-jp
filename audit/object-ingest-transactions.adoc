@@ -1,0 +1,132 @@
+---
+permalink: audit/object-ingest-transactions.html 
+sidebar: sidebar 
+keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
+summary: 監査ログでクライアントの取り込みトランザクションを特定するには、S3 API固有の監査メッセージを検索します。 
+---
+= オブジェクトの取り込みトランザクション
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+監査ログでクライアントの取り込みトランザクションを特定するには、S3 API固有の監査メッセージを検索します。
+
+以下の表には、取り込みトランザクション中に生成されたすべての監査メッセージが含まれているわけではなく、取り込みトランザクションをトレースするために必要なメッセージのみが含まれています。
+
+
+
+== S3 の取り込み監査メッセージ
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| コード | 名前 | 製品説明 | トレース | を参照してください 
+
+
+ a| 
+SPUT
+ a| 
+S3 PUT トランザクション
+ a| 
+S3 PUT 取り込みトランザクションが正常に完了しました。
+ a| 
+CBID 、 S3BK 、 S3KY
+ a| 
+link:sput-s3-put.html["SPUT ： S3 PUT"]
+
+
+
+ a| 
+ORLM の場合
+ a| 
+オブジェクトルールを満たしました
+ a| 
+このオブジェクトが ILM ポリシーを満たしました。
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM ：オブジェクトルールが満たされています"]
+
+|===
+
+
+== Swift の取り込み監査メッセージ
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| コード | 名前 | 製品説明 | トレース | を参照してください 
+
+
+ a| 
+WPUT
+ a| 
+Swift PUT トランザクション
+ a| 
+Swift PUT 取り込みトランザクションが正常に完了しました。
+ a| 
+CBID 、 WCON 、 WOBJ
+ a| 
+link:wput-swift-put.html["WPUT：Swift PUT"]
+
+
+
+ a| 
+ORLM の場合
+ a| 
+オブジェクトルールを満たしました
+ a| 
+このオブジェクトが ILM ポリシーを満たしました。
+ a| 
+CBID
+ a| 
+link:orlm-object-rules-met.html["ORLM ：オブジェクトルールが満たされています"]
+
+|===
+
+
+== 例： S3 オブジェクトの取り込み
+
+以下の一連の監査メッセージは、 S3 クライアントがストレージノード（ LDR サービス）にオブジェクトを取り込んだときに生成され、監査ログに保存された監査メッセージの例です。
+
+この例では、アクティブなILMポリシーにMake 2 Copies ILMルールが含まれています。
+
+
+NOTE: 以下の例には、トランザクション中に生成されたすべての監査メッセージが含まれているわけではなく、S3 取り込みトランザクション（ SPUT ）に関連するメッセージだけが示されています。
+
+この例では、 S3 バケットは以前に作成済みであることを前提としています。
+
+
+
+=== SPUT ： S3 PUT
+
+SPUT メッセージは、特定のバケットにオブジェクトを作成する S3 PUT トランザクションが実行されたことを示します。
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):25771][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"][S3BK(CSTR):"example"][S3KY(CSTR):"testobject-0-3"][CBID\(UI64\):0x8EF52DF8025E63A8][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SPUT][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):14399932238768197038]]
+----
+
+
+=== ORLM ：オブジェクトルールが満たされています
+
+ORLM メッセージは、このオブジェクトが ILM ポリシーに準拠していることを示します。メッセージには、オブジェクトの CBID と適用された ILM ルールの名前が含まれています。
+
+レプリケートオブジェクトの場合、 LOCS フィールドにはオブジェクトの場所の LDR ノード ID とボリューム ID が記録されます。
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-07-17T21:18:31.230669[AUDT:[CBID\(UI64\):0x50C4F7AC2BC8EDF7][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):0][UUID(CSTR):"0B344E18-98ED-4F22-A6C8-A93ED68F8D3F"][LOCS(CSTR):"CLDI 12828634 2148730112, CLDI 12745543 2147552014"][RSLT(FC32):SUCS][AVER(UI32):10][ATYP\(FC32\):ORLM][ATIM(UI64):1563398230669][ATID(UI64):15494889725796157557][ANID(UI32):13100453][AMID(FC32):BCMS]]
+----
+イレイジャーコーディングオブジェクトの場合は、LOCSフィールドにイレイジャーコーディングプロファイルIDとイレイジャーコーディンググループIDが表示されます。
+
+[listing, subs="specialcharacters,quotes"]
+----
+2019-02-23T01:52:54.647537 [AUDT:[CBID(UI64):0xFA8ABE5B5001F7E2][RULE(CSTR):"EC_2_plus_1"][STAT(FC32):DONE][CSIZ(UI64):10000][UUID(CSTR):"E291E456-D11A-4701-8F51-D2F7CC9AFECA"][LOCS(CSTR):"CLEC 1 A471E45D-A400-47C7-86AC-12E77F229831"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1550929974537]\[ATYP\(FC32\):ORLM\][ANID(UI32):12355278][AMID(FC32):ILMX][ATID(UI64):4168559046473725560]]
+----
+Path フィールドには、使用される API に応じて、 S3 バケットとキーの情報または Swift コンテナとオブジェクトの情報が記録されます。
+
+[listing]
+----
+2019-09-15.txt:2018-01-24T13:52:54.131559 [AUDT:[CBID(UI64):0x82704DFA4C9674F4][RULE(CSTR):"Make 2 Copies"][STAT(FC32):DONE][CSIZ(UI64):3145729][UUID(CSTR):"8C1C9CAC-22BB-4880-9115-CE604F8CE687"][PATH(CSTR):"frisbee_Bucket1/GridDataTests151683676324774_1_1vf9d"][LOCS(CSTR):"CLDI 12525468, CLDI 12222978"][RSLT(FC32):SUCS][AVER(UI32):10][ATIM(UI64):1568555574559][ATYP(FC32):ORLM][ANID(UI32):12525468][AMID(FC32):OBDI][ATID(UI64):344833886538369336]]
+----

@@ -1,0 +1,30 @@
+---
+permalink: s3/delete-bucket-metadata-notification-configuration-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, DELETE Bucket metadata notification configuration request 
+summary: DELETE Bucket metadata notification configuration 要求では、設定 XML を削除することで、個々のバケットで検索統合サービスを無効化できます。 
+---
+= バケットのメタデータ通知設定を削除します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+DELETE Bucket metadata notification configuration 要求では、設定 XML を削除することで、個々のバケットで検索統合サービスを無効化できます。
+
+この処理を完了するには、バケットのs3：DeleteBucketMetadataNotification権限またはrootアカウントが必要です。
+
+
+
+== 要求例
+
+次の例は、バケットの検索統合サービスを無効にする方法を示しています。
+
+[listing, subs="specialcharacters,quotes"]
+----
+DELETE /test1?x-ntap-sg-metadata-notification HTTP/1.1
+Date: _date_
+Authorization: _authorization string_
+Host: _host_
+----

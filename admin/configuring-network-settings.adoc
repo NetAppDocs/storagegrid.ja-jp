@@ -1,0 +1,26 @@
+---
+permalink: admin/configuring-network-settings.html 
+sidebar: sidebar 
+keywords: network settings, vlan interface, traffic classification 
+summary: グリッドマネージャからさまざまなネットワーク設定を行い、 StorageGRID システムの動作を微調整できます。 
+---
+= ネットワークの設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+グリッドマネージャからさまざまなネットワーク設定を行い、 StorageGRID システムの動作を微調整できます。
+
+
+
+== VLAN インターフェイスを設定します
+
+セキュリティ、柔軟性、パフォーマンスを確保するために、トラフィックを分離して分割することができますlink:configure-vlan-interfaces.html["仮想LAN（VLAN）インターフェイスを作成します"]。各 VLAN インターフェイスは、管理ノードおよびゲートウェイノード上の 1 つ以上の親インターフェイスに関連付けられます。HA グループでは VLAN インターフェイスを使用し、ロードバランサエンドポイントではクライアントトラフィックと管理トラフィックをアプリケーションまたはテナントごとに分離できます。
+
+
+
+== トラフィック分類ポリシー
+
+を使用して、特定のバケット、テナント、クライアントサブネット、ロードバランサエンドポイントに関連するトラフィックなど、さまざまなタイプのネットワークトラフィックを識別して処理できますlink:managing-traffic-classification-policies.html["トラフィック分類ポリシー"]。これらのポリシーは、トラフィックの制限と監視に役立ちます。

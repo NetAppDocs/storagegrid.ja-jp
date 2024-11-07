@@ -1,0 +1,26 @@
+---
+permalink: tenant/deleting-group.html 
+sidebar: sidebar 
+keywords: how to delete tenant group 
+summary: システムからグループを削除できます。そのグループに属するユーザは、 Tenant Manager にサインインしたりテナントアカウントを使用したりすることはできなくなります。 
+---
+= グループの削除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+システムからグループを削除できます。そのグループに属するユーザは、 Tenant Manager にサインインしたりテナントアカウントを使用したりすることはできなくなります。
+
+.開始する前に
+* を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+* Root Access権限のあるユーザグループに属している必要があります。を参照して link:tenant-management-permissions.html["テナント管理権限"]
+
+
+.手順
+. * access management * > * Groups * を選択します。
+. 削除する各グループのチェックボックスをオンにします。
+. [ * アクション * > * グループの削除 * ] を選択します。
+. [グループの削除]*を選択します。
+

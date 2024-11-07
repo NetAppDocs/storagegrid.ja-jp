@@ -1,0 +1,94 @@
+---
+permalink: tenant/grid-federation-clone-keys-with-api.html 
+sidebar: sidebar 
+keywords: s3 access key, secret key id, account clone, tenant manager api 
+summary: テナントアカウントにUse grid federation connection権限が割り当てられている場合は、テナント管理APIを使用して、ソースグリッドのテナントからデスティネーショングリッドのテナントにS3アクセスキーを手動でクローニングできます。 
+---
+= APIを使用してS3アクセスキーをクローニングします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+テナントアカウントに* Use grid federation connection *権限がある場合は、テナント管理APIを使用して、ソースグリッドのテナントからデスティネーショングリッドのテナントにS3アクセスキーを手動でクローニングできます。
+
+.開始する前に
+* テナントアカウントには、* Use grid federation connection *権限が割り当てられています。
+* グリッドフェデレーション接続は*[接続ステータス]*が*[接続済み]*になっています。
+* を使用してテナントのソースグリッドでTenant Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* が設定されたユーザグループに属しているlink:tenant-management-permissions.html["自分のS3クレデンシャルまたはRoot Access権限を管理します"]必要があります。
+* ローカルユーザのアクセスキーをクローニングする場合、そのユーザは両方のグリッドにすでに存在しています。
++
+
+NOTE: フェデレーテッドユーザのS3アクセスキーをクローニングすると、ユーザとS3アクセスキーの両方がデスティネーションテナントに追加されます。
+
+
+
+
+
+== 自分のアクセスキーのクローンを作成します
+
+両方のグリッドで同じバケットにアクセスする必要がある場合は、独自のアクセスキーをクローニングできます。
+
+.手順
+. ソースグリッドでTenant Managerを使用してlink:creating-your-own-s3-access-keys.html["独自のアクセスキーを作成します"]、ファイルをダウンロードし `.csv`ます。
+. Tenant Managerの上部で、ヘルプアイコンを選択し、*[API documentation]*を選択します。
+. [* s3 *]セクションで、次のエンドポイントを選択します。
++
+`POST /org/users/current-user/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-current-user-replicate.png[自身のアクセスキーをレプリケートするためのPOSTエンドポイント]
+
+. [* 試してみてください * ] を選択します。
+. body *テキストボックスで、* AccessKey *および* secretAccessKey *のエントリ例を、ダウンロードした*。csv *ファイルの値に置き換えます。
++
+各文字列は必ず二重引用符で囲んでください。
+
++
+image::../media/grid-federation-clone-access-key.png[テナントマネージャAPI：アクセスキーをクローニングするための値を入力しています]
+
+. キーの有効期限が切れる場合は、*expires*の例のエントリを、ISO 8601形式の文字列（例：）で有効期限の日時に置き換えます `2024-02-28T22:46:33-08:00`。キーが期限切れにならない場合は、* expires *エントリの値として* null *を入力します（または* expires *行とその前のカンマを削除します）。
+. [* Execute] を選択します。
+. サーバ応答コードが「* 204 *」であることを確認します。これは、キーがデスティネーショングリッドに正常にクローニングされたことを示します。
+
+
+
+
+== 別のユーザのアクセスキーのクローンを作成します
+
+別のユーザが両方のグリッドで同じバケットにアクセスする必要がある場合は、そのユーザのアクセスキーをクローニングできます。
+
+.手順
+. ソースグリッドでTenant Managerを使用してlink:creating-another-users-s3-access-keys.html["他のユーザのS3アクセスキーを作成します"]、ファイルをダウンロードし `.csv`ます。
+. Tenant Managerの上部で、ヘルプアイコンを選択し、*[API documentation]*を選択します。
+. ユーザIDを取得します。この値は、他のユーザのアクセスキーのクローンを作成するときに必要になります。
++
+.. [Users]セクションで、次のエンドポイントを選択します。
++
+`GET /org/users`
+
+.. [* 試してみてください * ] を選択します。
+.. ユーザを検索するときに使用するパラメータを指定します。
+.. [* Execute] を選択します。
+.. 複製するキーを持つユーザーを検索し、* id *フィールドの番号をコピーします。
+
+
+. [* s3 *]セクションで、次のエンドポイントを選択します。
++
+`POST /org/users/{userId}/replicate-s3-access-key`
+
++
+image::../media/grid-federation-post-other-user.png[別のユーザのアクセスキーをレプリケートするためのエンドポイントをPOSTします]
+
+. [* 試してみてください * ] を選択します。
+. [*userid*]テキストボックスに、コピーしたユーザIDを貼り付けます。
+. * body *テキストボックスで、* example access key *および* secret access key *のサンプルエントリを、そのユーザの*。csv *ファイルの値に置き換えます。
++
+文字列は必ず二重引用符で囲んでください。
+
+. キーの有効期限が切れる場合は、*expires*の例のエントリを、ISO 8601形式の文字列（例：）で有効期限の日時に置き換えます `2023-02-28T22:46:33-08:00`。キーが期限切れにならない場合は、* expires *エントリの値として* null *を入力します（または* expires *行とその前のカンマを削除します）。
+. [* Execute] を選択します。
+. サーバ応答コードが「* 204 *」であることを確認します。これは、キーがデスティネーショングリッドに正常にクローニングされたことを示します。
+

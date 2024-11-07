@@ -1,0 +1,69 @@
+---
+indexpage:
+  title: StorageGRIDシステムの設定と管理
+  summary: 新しいStorageGRID システムで実行する必要がある設定タスクは、グリッドの使用方法によって異なります。少なくとも、システムアクセスのセットアップ、FabricPool
+    ウィザードとS3ウィザードの使用、ストレージとセキュリティのさまざまな設定の管理を行う必要があります。
+  keywords: configure, sign in, manage admin groups, manage admin users, use identity
+    federation, use ILM, create tenants, manage client connections, secure system,
+    harden system
+  lead: 新しいStorageGRID システムで実行する必要がある設定タスクは、グリッドの使用方法によって異なります。少なくとも、システムアクセスのセットアップ、FabricPool
+    ウィザードとS3ウィザードの使用、ストレージとセキュリティのさまざまな設定の管理を行う必要があります。
+  tiles:
+  - title: 開始する
+    links:
+    - title: Grid Manager にサインインします
+      url: "../admin/signing-in-to-grid-manager.html"
+    - title: AutoSupportの設定
+      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: グリッド管理 API を使用します
+      url: "../admin/using-grid-management-api.html"
+  - title: 管理者グループとユーザの管理
+    links:
+    - title: アイデンティティフェデレーションを使用する
+      url: "../admin/using-identity-federation.html"
+    - title: 管理者グループを管理する
+      url: "../admin/managing-admin-groups.html"
+    - title: 管理者グループの権限
+      url: "../admin/admin-group-permissions.html"
+    - title: シングルサインオンを設定します
+      url: "../admin/configuring-sso.html"
+  - title: グリッドフェデレーションを使用する
+    links:
+    - title: グリッドフェデレーションとは
+      url: "../admin/grid-federation-overview.html"
+    - title: クロスグリッドレプリケーションとCloudMirrorの比較
+      url: "../admin/grid-federation-compare-cgr-to-cloudmirror.html"
+    - title: グリッドフェデレーション接続を作成する
+      url: "../admin/grid-federation-create-connection.html"
+    - title: 許可されたテナントを管理する
+      url: "../admin/grid-federation-manage-tenants.html"
+  - title: クライアント接続とテナントの管理
+    links:
+    - title: S3エンドポイントのドメイン名を設定
+      url: "../admin/configuring-s3-api-endpoint-domain-names.html"
+    - title: S3セットアップウィザードを使用する
+      url: "../admin/use-s3-setup-wizard.html"
+    - title: FabricPool セットアップウィザードを使用する
+      url: "../fabricpool/use-fabricpool-setup-wizard.html"
+    - title: テナントの作成
+      url: "../admin/creating-tenant-account.html"
+  - title: 情報ライフサイクル管理（ILM）の使用
+    links:
+    - title: ILMライフサイクルの詳細
+      url: "../ilm/how-ilm-operates-throughout-objects-life.html"
+    - title: ILMルールを管理します。
+      url: "../ilm/what-ilm-rule-is.html"
+    - title: ILMポリシーを管理します。
+      url: "../ilm/creating-ilm-policy.html"
+    - title: ILMの例
+      url: "../ilm/example-1-ilm-rules-and-policy-for-object-storage.html"
+  - title: システムのセキュリティを確保
+    links:
+    - title: システムのセキュリティ強化が重要な理由
+      url: "../harden/index.html"
+    - title: 暗号化方法を確認する
+      url: "../admin/reviewing-storagegrid-encryption-methods.html"
+    - title: セキュリティ証明書を管理する
+      url: "../admin/using-storagegrid-security-certificates.html"
+    - title: TLSおよびSSHポリシーを管理します
+      url: "../admin/manage-tls-ssh-policy.html"

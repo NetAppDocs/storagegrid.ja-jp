@@ -1,0 +1,25 @@
+---
+permalink: monitor/viewing-ilm-tab.html 
+sidebar: sidebar 
+keywords: ilm tab 
+summary: '[ILM]タブには、情報ライフサイクル管理（ILM）処理に関する情報が表示されます。' 
+---
+= ILM タブを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+[ILM]タブには、情報ライフサイクル管理（ILM）処理に関する情報が表示されます。
+
+各ストレージノード、各サイト、およびグリッド全体に対して ILM タブが表示されます。各サイトおよびグリッドが対象である場合は、 ILM キューの状況の推移を示すグラフがこのタブに表示されます。グリッドが対象である場合は、 ILM によるすべてのオブジェクトのフルスキャンが完了するまでの推定時間も表示されます。
+
+ストレージノードが対象である場合は、ILM評価とイレイジャーコーディングオブジェクトのバックグラウンド検証の詳細が表示されます。
+
+image::../media/nodes_page_ilm_tab.png[ノードページの ILM タブ]
+
+.関連情報
+* link:monitoring-information-lifecycle-management.html["情報ライフサイクル管理を監視"]
+* link:../admin/index.html["StorageGRID の管理"]
+

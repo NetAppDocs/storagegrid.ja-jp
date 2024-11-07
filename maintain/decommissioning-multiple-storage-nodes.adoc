@@ -1,0 +1,21 @@
+---
+permalink: maintain/decommissioning-multiple-storage-nodes.html 
+sidebar: sidebar 
+keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
+summary: 複数のストレージノードを削除する必要がある場合は、運用停止処理を順次実行することも並列に実行することもできます。 
+---
+= 複数のストレージノードの運用を停止
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+複数のストレージノードを削除する必要がある場合は、運用停止処理を順次実行することも並列に実行することもできます。
+
+
+CAUTION: ソフトウェアベースのメタデータのみのノードを含むグリッド内のストレージノードの運用を停止する場合は注意が必要です。store_both_objectsとmetadataに設定されているすべてのノードの運用を停止すると、オブジェクトを格納する機能がグリッドから削除されます。メタデータ専用ストレージノードの詳細については、を参照してくださいlink:../primer/what-storage-node-is.html#types-of-storage-nodes["ストレージノードのタイプ"]。
+
+* 複数のストレージノードの運用を順次停止する場合は、最初のストレージノードの運用停止が完了するのを待ってから、次のストレージノードの運用停止を開始する必要があります。
+* 複数のストレージノードの運用を並列に停止する場合は、対象となるすべてのストレージノードで同時に運用停止タスクが処理されます。その結果、ファイルの永続的なコピーがすべて「読み取り専用」とマークされ、この機能が有効になっているグリッドでの削除が一時的に無効になる可能性があります。
+

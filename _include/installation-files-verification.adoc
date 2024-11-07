@@ -1,0 +1,55 @@
+= 
+:allow-uri-read: 
+
+
+. 検証パッケージからアーティファクトを抽出します。
++
+`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+
+. これらのアーチファクトが抽出されたことを確認します。
++
+** リーフ証明書： `Leaf-Cert.pem`
+** 証明書チェーン： `CA-Int-Cert.pem`
+** タイムスタンプ応答チェーン： `TS-Cert.pem`
+** チェックサムファイル： `sha256sum`
+** チェックサム署名： `sha256sum.sig`
+** タイムスタンプ応答ファイル： `sha256sum.sig.tsr`
+
+
+. チェーンを使用して、リーフ証明書が有効であることを確認します。
++
+*例*： `openssl verify -CAfile CA-Int-Cert.pem Leaf-Cert.pem`
+
++
+*予想される出力*： `Leaf-Cert.pem: OK`
+
+. リーフ証明書の期限が切れたためにSTEP_2_FAILEDが発生した場合は、ファイルを使用して `tsr`確認します。
++
+*例*： `openssl ts -CAfile CA-Int-Cert.pem -untrusted TS-Cert.pem -verify -data sha256sum.sig -in sha256sum.sig.tsr`
+
++
+*予想される出力には*： `Verification: OK`
+
+. リーフ証明書から公開鍵ファイルを作成します。
++
+*例*： `openssl x509 -pubkey -noout -in Leaf-Cert.pem > Leaf-Cert.pub`
+
++
+*予想される出力*：_NONE_
+
+. 公開鍵を使用してファイルを `sha256sum.sig`検証し `sha256sum`ます。
++
+*例*： `openssl dgst -sha256 -verify Leaf-Cert.pub -signature sha256sum.sig sha256sum`
+
++
+*予想される出力*： `Verified OK`
+
+. 新しく作成したチェックサムと比較してファイルの内容を確認し `sha256sum`ます。
++
+*例*： `sha256sum -c sha256sum`
+
++
+*予期される出力*:+ `_<filename>_: OK`
+`_<filename>_`は、ダウンロードしたアーカイブファイルの名前です。
+
+

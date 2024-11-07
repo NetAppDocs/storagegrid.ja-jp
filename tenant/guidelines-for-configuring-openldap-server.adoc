@@ -1,0 +1,37 @@
+---
+permalink: tenant/guidelines-for-configuring-openldap-server.html 
+sidebar: sidebar 
+keywords: how to configure open ldap 
+summary: アイデンティティフェデレーションに OpenLDAP サーバを使用する場合は、 OpenLDAP サーバで特定の設定が必要です。 
+---
+= OpenLDAP サーバの設定に関するガイドライン
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+アイデンティティフェデレーションに OpenLDAP サーバを使用する場合は、 OpenLDAP サーバで特定の設定が必要です。
+
+
+
+== memberof オーバーレイと refint オーバーレイ
+
+memberof オーバーレイと refint オーバーレイを有効にする必要があります。詳細については、 OpenLDAP Software Administrator's Guide _ のリバースグループメンバーシップのメンテナンス手順を参照してください。
+
+
+
+== インデックス作成
+
+次の OpenLDAP 属性とインデックスキーワードを設定する必要があります。
+
+[listing]
+----
+olcDbIndex: objectClass eq
+olcDbIndex: uid eq,pres,sub
+olcDbIndex: cn eq,pres,sub
+olcDbIndex: entryUUID eq
+----
+また、パフォーマンスを最適化するには、 Username のヘルプで説明されているフィールドにインデックスを設定してください。
+
+OpenLDAP ソフトウェア管理者ガイドのリバースグループメンバーシップのメンテナンスに関する情報を参照してください。

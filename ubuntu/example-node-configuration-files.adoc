@@ -1,0 +1,120 @@
+---
+permalink: ubuntu/example-node-configuration-files.html 
+sidebar: sidebar 
+keywords: example node configuration files 
+summary: ここでは、 StorageGRID システムで使用するノード構成ファイルを設定する際の参考として、すべてのタイプのグリッドノードのノード構成ファイルの例を示します。 
+---
+= ノード構成ファイルの例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ここでは、 StorageGRID システムで使用するノード構成ファイルを設定する際の参考として、すべてのタイプのグリッドノードのノード構成ファイルの例を示します。
+
+ほとんどのノードについては、 Grid Manager またはインストール API を使用してグリッドを設定するときに、管理ネットワークとクライアントネットワークのアドレス情報（ IP 、マスク、ゲートウェイなど）を追加できます。ただし、プライマリ管理ノードは例外です。グリッドの設定を行うためにプライマリ管理ノードの管理ネットワークの IP を参照する必要がある場合（グリッドネットワークがルーティングされていない場合など）は、プライマリ管理ノードのノード構成ファイルで管理ネットワーク接続を設定する必要があります。次の例を参照してください。
+
+
+NOTE: ここに示す例では、クライアントネットワークがデフォルトで無効になっていても、クライアントネットワークターゲットがベストプラクティスとして設定されています。
+
+
+
+== プライマリ管理ノードの例
+
+*ファイル名の例*： `/etc/storagegrid/nodes/dc1-adm1.conf`
+
+* ファイルの内容の例： *
+
+[listing]
+----
+NODE_TYPE = VM_Admin_Node
+ADMIN_ROLE = Primary
+TEMPORARY_PASSWORD_TYPE = Use custom password
+CUSTOM_TEMPORARY_PASSWORD = Passw0rd
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/dc1-adm1-var-local
+BLOCK_DEVICE_AUDIT_LOGS = /dev/mapper/dc1-adm1-audit-logs
+BLOCK_DEVICE_TABLES = /dev/mapper/dc1-adm1-tables
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+
+GRID_NETWORK_IP = 10.1.0.2
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+
+ADMIN_NETWORK_CONFIG = STATIC
+ADMIN_NETWORK_IP = 192.168.100.2
+ADMIN_NETWORK_MASK = 255.255.248.0
+ADMIN_NETWORK_GATEWAY = 192.168.100.1
+ADMIN_NETWORK_ESL = 192.168.100.0/21,172.16.0.0/21,172.17.0.0/21
+----
+
+
+== ストレージノードの例
+
+*ファイル名の例：* `/etc/storagegrid/nodes/dc1-sn1.conf`
+
+* ファイルの内容の例： *
+
+[listing]
+----
+NODE_TYPE = VM_Storage_Node
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/dc1-sn1-var-local
+BLOCK_DEVICE_RANGEDB_00 = /dev/mapper/dc1-sn1-rangedb-0
+BLOCK_DEVICE_RANGEDB_01 = /dev/mapper/dc1-sn1-rangedb-1
+BLOCK_DEVICE_RANGEDB_02 = /dev/mapper/dc1-sn1-rangedb-2
+BLOCK_DEVICE_RANGEDB_03 = /dev/mapper/dc1-sn1-rangedb-3
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+
+GRID_NETWORK_IP = 10.1.0.3
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+
+
+== ゲートウェイノードの例
+
+*ファイル名の例：* `/etc/storagegrid/nodes/dc1-gw1.conf`
+
+* ファイルの内容の例： *
+
+[listing]
+----
+NODE_TYPE = VM_API_Gateway
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/dc1-gw1-var-local
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+GRID_NETWORK_IP = 10.1.0.5
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----
+
+
+== 非プライマリ管理ノードの例
+
+*ファイル名の例：* `/etc/storagegrid/nodes/dc1-adm2.conf`
+
+* ファイルの内容の例： *
+
+[listing]
+----
+NODE_TYPE = VM_Admin_Node
+ADMIN_ROLE = Non-Primary
+ADMIN_IP = 10.1.0.2
+BLOCK_DEVICE_VAR_LOCAL = /dev/mapper/dc1-adm2-var-local
+BLOCK_DEVICE_AUDIT_LOGS = /dev/mapper/dc1-adm2-audit-logs
+BLOCK_DEVICE_TABLES = /dev/mapper/dc1-adm2-tables
+GRID_NETWORK_TARGET = bond0.1001
+ADMIN_NETWORK_TARGET = bond0.1002
+CLIENT_NETWORK_TARGET = bond0.1003
+
+GRID_NETWORK_IP = 10.1.0.6
+GRID_NETWORK_MASK = 255.255.255.0
+GRID_NETWORK_GATEWAY = 10.1.0.1
+----

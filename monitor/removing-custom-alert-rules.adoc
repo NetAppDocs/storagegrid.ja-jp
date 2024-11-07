@@ -1,0 +1,38 @@
+---
+permalink: monitor/removing-custom-alert-rules.html 
+sidebar: sidebar 
+keywords: how to disable alert rules, how to remove a custom alert rule 
+summary: 不要となったカスタムのアラートルールは削除できます。 
+---
+= カスタムのアラートルールを削除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+不要となったカスタムのアラートルールは削除できます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["アラートまたはRoot Access権限を管理します。"]。
+
+
+.手順
+. [* alerts] * > [* Rules] を選択します。
++
+[Alert Rules] ページが表示されます。
+
+. 削除するカスタムのアラートルールのラジオボタンを選択します。
++
+デフォルトのアラートルールは削除できません。
+
+. [ * カスタムルールを削除 * ] を選択します。
++
+確認のダイアログボックスが表示されます。
+
+. 「 * OK * 」を選択して、アラートルールを削除します。
++
+アラートのアクティブなインスタンスがあった場合、 10 分以内に解決されます。
+
+

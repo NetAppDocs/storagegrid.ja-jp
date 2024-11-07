@@ -1,0 +1,22 @@
+---
+permalink: monitor/creating-custom-monitoring-applications.html 
+sidebar: sidebar 
+keywords: custom monitoring, monitoring, dashboard 
+summary: グリッド管理 API から取得される StorageGRID 指標を使用して、カスタムの監視アプリケーションやダッシュボードを構築できます。 
+---
+= カスタムの監視アプリケーションを作成
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+グリッド管理 API から取得される StorageGRID 指標を使用して、カスタムの監視アプリケーションやダッシュボードを構築できます。
+
+グリッドマネージャの既存のページに表示されていない指標を監視する場合や、StorageGRID 用のカスタムダッシュボードを作成する場合は、グリッド管理APIを使用してStorageGRID 指標を照会できます。
+
+また、 Grafana などの外部監視ツールを使用して、 Prometheus 指標に直接アクセスすることもできます。外部ツールを使用するには、管理用クライアント証明書をアップロードまたは生成して、 StorageGRID でセキュリティを確保するためにツールを認証する必要があります。を参照してくださいlink:../admin/index.html["StorageGRID の管理手順"]。
+
+使用可能なすべての指標を含む指標 API 処理を表示するには、 Grid Manager に移動します。ページ上部のヘルプアイコンを選択し、* API documentation *>* metrics *を選択します。image:../media/help_api_docs_metrics.png["[Help][API documentation][Metrics]セクション"]
+
+カスタム監視アプリケーションの実装方法の詳細については、このドキュメントでは説明していません。

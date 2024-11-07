@@ -1,0 +1,107 @@
+---
+permalink: troubleshoot/troubleshoot-s3-put-object-size-too-large-alert.html 
+sidebar: sidebar 
+keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
+summary: S3 PUT Object size too largeアラートは、S3サイズの上限である5GiBを超えるマルチパートでないPutObject処理をテナントが試行するとトリガーされます。 
+---
+= S3 PUT Object size too largeアラートのトラブルシューティングを行う
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 PUT Object size too largeアラートは、S3サイズの上限である5GiBを超えるマルチパートでないPutObject処理をテナントが試行するとトリガーされます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+5GiBを超えるオブジェクトを使用しているテナントを確認して、通知できるようにします。
+
+.手順
+. [設定]*>*[監視]*>*[監査とsyslogサーバ]*に移動します。
+. クライアントからの書き込みがNormalの場合は、監査ログにアクセスします。
++
+.. 入力 `ssh admin@_primary_Admin_Node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+.. 入力 `cd /var/local/log`
++
+[NOTE]
+====
+link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の保存先について"]です。
+
+====
+.. 5GiBを超えるオブジェクトを使用しているテナントを特定します。
++
+... 入力 `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`
+... 結果内の各監査メッセージについて、フィールドを確認してテナントアカウントIDを確認し `S3AI`ます。メッセージ内の他のフィールドを使用して、クライアント、バケット、およびオブジェクトによって使用されていたIPアドレスを確認します。
++
+[cols="1a,2a"]
+|===
+| コード | 製品説明 
+
+
+| saip  a| 
+送信元IP
+
+
+
+| S3AI  a| 
+テナントID
+
+
+
+| S3BK  a| 
+バケット
+
+
+
+| S3KY  a| 
+オブジェクト
+
+
+
+| CSIZ  a| 
+サイズ（バイト）
+
+|===
++
+*監査ログ結果の例*
+
++
+[listing]
+----
+audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):1672943621106262][TIME(UI64):804317333][SAIP(IPAD):"10.96.99.127"][S3AI(CSTR):"93390849266154004343"][SACC(CSTR):"bhavna"][S3AK(CSTR):"06OX85M40Q90Y280B7YT"][SUSR(CSTR):"urn:sgws:identity::93390849266154004343:root"][SBAI(CSTR):"93390849266154004343"][SBAC(CSTR):"bhavna"][S3BK(CSTR):"test"][S3KY(CSTR):"large-object"][CBID(UI64):0x077EA25F3B36C69A][UUID(CSTR):"A80219A2-CD1E-466F-9094-B9C0FDE2FFA3"][CSIZ(UI64):6040000000][MTME(UI64):1672943621338958][AVER(UI32):10][ATIM(UI64):1672944425525999][ATYP(FC32):SPUT][ANID(UI32):12220829][AMID(FC32):S3RQ][ATID(UI64):4333283179807659119]]
+----
+
+
+
+
+. [Client Writes]が[Normal]でない場合は、アラートのテナントIDを使用してテナントを特定します。
++
+.. * support *>* Tools *>* Logs *に移動します。アラートでストレージノードのアプリケーションログを収集します。アラートの前後15分を指定します。
+.. ファイルを展開し、次の場所に移動し `bycast.log`ます。
++
+`/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`
+
+.. ログを検索し、フィールドで `method=PUT`クライアントを特定し `clientIP`ます。
++
+* bycast.logの例*
+
++
+[listing]
+----
+Jan  5 18:33:41 BHAVNAJ-DC1-S1-2-65 ADE: |12220829 1870864574 S3RQ %CEA 2023-01-05T18:33:41.208790| NOTICE   1404 af23cb66b7e3efa5 S3RQ: EVENT_PROCESS_CREATE - connection=1672943621106262 method=PUT name=</test/4MiB-0> auth=<V4> clientIP=<10.96.99.127>
+----
+
+
+. テナントに、PutObjectの最大サイズが5GiBであり、5GiBを超えるオブジェクトにマルチパートアップロードを使用するように伝えます。
+. アプリケーションが変更されている場合は、警告を1週間無視します。
+

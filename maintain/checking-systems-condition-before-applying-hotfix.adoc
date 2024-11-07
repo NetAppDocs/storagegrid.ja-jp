@@ -1,0 +1,33 @@
+---
+permalink: maintain/checking-systems-condition-before-applying-hotfix.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix 
+summary: システムにホットフィックスを適用する準備ができていることを確認する必要があります。 
+---
+= ホットフィックスを適用する前に、システムの状態を確認してください
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+システムにホットフィックスを適用する準備ができていることを確認する必要があります。
+
+. を使用してGrid Managerにサインインしlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+. 可能であれば、システムが正常に稼働し、すべてのグリッドノードがグリッドに接続されていることを確認します。
++
+接続されているノードの[Nodes]ページに緑のチェックマークが表示されますimage:../media/icon_alert_green_checkmark.png["緑色のチェックマークのアイコン"]。
+
+. 可能であれば、現在のアラートがないかを確認し、ある場合は解決します。
+. 手順 のアップグレード、リカバリ、拡張、運用停止など、他のメンテナンス手順が実行中でないことを確認します。
++
+アクティブなメンテナンス手順が完了してからホットフィックスを適用してください。
+
++
+別のメンテナンス手順 が実行されているときは、StorageGRID ホットフィックスを適用できません。たとえば、運用停止、拡張、またはリカバリ手順 の実行中はホットフィックスを適用できません。
+
++
+
+NOTE: ノードまたはサイトの場合はlink:pausing-and-resuming-decommission-process-for-storage-nodes.html["運用停止手順 が一時停止されています"]、ホットフィックスを安全に適用できます。また、 StorageGRID アップグレード手順 の最終段階でホットフィックスを適用できる場合があります。の手順を参照してくださいlink:../upgrade/index.html["StorageGRID ソフトウェアのアップグレード"]。
+
+

@@ -1,0 +1,75 @@
+---
+permalink: monitor/deployment-and-maintenance-logs.html 
+sidebar: sidebar 
+keywords: deployment, logs, Maintenance 
+summary: 導入とメンテナンスのログを問題のトラブルシューティングに使用できます。 
+---
+= 導入とメンテナンスのログ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+導入とメンテナンスのログを問題のトラブルシューティングに使用できます。
+
+[cols="1a,3a,1a"]
+|===
+| ファイル名 | 脚注 | にあります 
+
+
+| /var/local/log/install.log  a| 
+ソフトウェアのインストール時に作成されます。インストールイベントが記録されます。
+ a| 
+すべてのノード
+
+
+
+| /var/local/log/expansion-progress.log  a| 
+拡張処理中に作成されます。拡張イベントが記録されます。
+ a| 
+ストレージノード
+
+
+
+| /var/local/log/pa-move.log  a| 
+スクリプトの実行中に作成され `pa-move.sh`ます。
+ a| 
+プライマリ管理ノード
+
+
+
+| /var/local/log/pa-move-new（pa.log）  a| 
+スクリプトの実行中に作成され `pa-move.sh`ます。
+ a| 
+プライマリ管理ノード
+
+
+
+| /var/local/log/pa-move-old（pa.log）  a| 
+スクリプトの実行中に作成され `pa-move.sh`ます。
+ a| 
+プライマリ管理ノード
+
+
+
+| /var/local/log/gdu-server.log  a| 
+GDU サービスによって作成されます。プライマリ管理ノードによって管理されるプロビジョニングとメンテナンスの手順に関連するイベントが記録されます。
+ a| 
+プライマリ管理ノード
+
+
+
+| /var/local/log/send（admin_hw.log）  a| 
+インストール時に作成されます。プライマリ管理ノードとの通信に関連するデバッグ情報が記録されます。
+ a| 
+すべてのノード
+
+
+
+| /var/local/log/upgrade.log  a| 
+ソフトウェアのアップグレード中に作成されます。ソフトウェア更新イベントが記録されます。
+ a| 
+すべてのノード
+
+|===

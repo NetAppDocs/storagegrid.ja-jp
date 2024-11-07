@@ -1,0 +1,47 @@
+---
+permalink: audit/audit-messages-and-object-lifecycle.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
+summary: 監査メッセージは、オブジェクトの取り込み、読み出し、または削除が行われるたびに生成されます。監査ログでこれらのトランザクションを特定するには、S3 API固有の監査メッセージを検索します。 
+---
+= 監査メッセージはいつ生成されますか？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+監査メッセージは、オブジェクトの取り込み、読み出し、または削除が行われるたびに生成されます。監査ログでこれらのトランザクションを特定するには、S3 API固有の監査メッセージを検索します。
+
+監査メッセージは各プロトコルに固有な識別子によってリンクされます。
+
+[cols="1a,1a"]
+|===
+| プロトコル | コード 
+
+
+ a| 
+S3 処理をリンクしています
+ a| 
+S3BK（バケット）、S3KY（キー）、またはその両方
+
+
+
+ a| 
+Swift 処理をリンクしています
+ a| 
+WCON（コンテナ）、WOBJ（オブジェクト）、またはその両方
+
+
+
+ a| 
+内部処理をリンクしています
+ a| 
+CBID（オブジェクトの内部識別子）
+
+|===
+
+
+== 監査メッセージのタイミング
+
+グリッドノード間のタイミングの違い、オブジェクトサイズ、ネットワーク遅延などの要因により、各サービスによって生成される監査メッセージの順序はこのセクションに記載する例とは異なる場合があります。

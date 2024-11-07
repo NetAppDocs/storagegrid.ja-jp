@@ -1,0 +1,62 @@
+---
+permalink: monitor/viewing-overview-tab.html 
+sidebar: sidebar 
+keywords: overview tab 
+summary: 'Overview タブには " 各ノードに関する基本的な情報が表示されますまた、ノードに現在影響しているアラートも表示されます。' 
+---
+= 概要タブを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Overview タブには ' 各ノードに関する基本的な情報が表示されますまた、ノードに現在影響しているアラートも表示されます。
+
+すべてのノードの Overview （概要）タブが表示されます。
+
+
+
+== ノード情報
+
+[Overview]タブの[Node Information]セクションには、ノードに関する基本情報が表示されます。
+
+image::../media/nodes_page_overview_tab.png[[ ノード ] ページの [ 概要 ] タブ]
+
+ノードの概要情報には次のものがあります。
+
+* *表示名*（ノードの名前が変更された場合にのみ表示）：ノードの現在の表示名。この値を更新するには、の手順を使用しlink:../maintain/rename-grid-site-node-overview.html["グリッド、サイト、ノードの名前を変更します"]ます。
+* *システム名*：インストール時に入力したノードの名前。システム名は内部StorageGRID 処理に使用され、変更することはできません。
+* * Type *：ノードのタイプ（管理ノード、プライマリ管理ノード、ストレージノード、またはゲートウェイノード）。
+* * ID * ：ノードの一意の識別子。 UUID とも呼ばれます。
+* * 接続状態 * ： 3 つの状態のいずれか。最も重大な状態のアイコンが表示されます。
++
+** *不明*image:../media/icon_alarm_blue_unknown.png["青の疑問符アイコン"]：不明な理由が原因で、ノードがグリッドに接続されていないか、1つ以上のサービスが予期せず停止しています。たとえば、ノード間のネットワーク接続が失われた、電源がオフになっている、サービスが停止しているなどです。* Unable to communicate with node * アラートがトリガーされる場合もあります。他のアラートもアクティブになる可能性があります。この状況にはすぐに対処する必要があります。
++
+
+NOTE: 管理されたシャットダウン処理の実行中に、ノードが Unknown と表示されることがありますこのような場合、 Unknown 状態は無視してかまいません。
+
+** * Administratively Down *image:../media/icon_alarm_gray_administratively_down.png["グレーの疑問符アイコン"]：想定される理由により、ノードがグリッドに接続されていません。たとえば、ノードまたはノード上のサービスが正常にシャットダウンされた、ノードがリブート中である、ソフトウェアのアップグレード中であるなどの原因が考えられます。1 つ以上のアラートがアクティブになっている可能性もあります。
+** *接続済み*image:../media/icon_alert_green_checkmark.png["緑色のチェックマークのアイコン"]：ノードはグリッドに接続されています。
+
+
+* * Storage Used * ：ストレージノードのみ。
++
+** * Object data * ：ストレージノードで使用されているオブジェクトデータに使用可能な合計スペースの割合。
+** * Object metadata * ：ストレージノードで使用されているオブジェクトメタデータに使用可能な合計スペースの割合。
+
+
+* * ソフトウェアバージョン * ：ノードにインストールされている StorageGRID のバージョン。
+* * HA グループ * ：管理ノードとゲートウェイノードのみ。ノードのネットワークインターフェイスがハイアベイラビリティグループに含まれている場合、およびそのインターフェイスがプライマリインターフェイスかどうかが表示されます。
+* * ip addresses * ：ノードの IP アドレス。Show additional IP addresses * をクリックして、ノードの IPv4 および IPv6 アドレスとインターフェイスのマッピングを表示します。
+
+
+
+
+== アラート
+
+[Overview]タブの[Alerts]セクションには、が表示されますlink:monitoring-system-health.html#view-current-and-resolved-alerts["このノードに現在影響しているアラートで、サイレント化されていないアラート"]。アラート名を選択すると、その他の詳細と推奨される対処方法が表示されます。
+
+image::../media/nodes_page_alerts_table.png[ノードページアラートの表]
+
+のアラートも含まれlink:monitoring-system-health.html#monitor-node-connection-states["ノードの接続状態"]ます。

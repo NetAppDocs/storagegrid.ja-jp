@@ -1,0 +1,41 @@
+---
+section: network
+title: ネットワークのガイドライン
+entries:
+- title: StorageGRID ネットワーク
+  pdf-filename: StorageGRID ネットワークのガイドライン
+  url: "/network/index.html"
+- title: StorageGRID のネットワークタイプ
+  url: "/network/storagegrid-network-types.html"
+- title: ネットワークトポロジの例
+  entries:
+  - title: グリッドネットワークトポロジ
+    url: "/network/grid-network-topology.html"
+  - title: 管理ネットワークトポロジ
+    url: "/network/admin-network-topology.html"
+  - title: クライアントネットワークトポロジ
+    url: "/network/client-network-topology.html"
+  - title: 3 つのネットワークすべてのトポロジ
+    url: "/network/topology-for-all-three-networks.html"
+- title: ネットワーク要件
+  url: "/network/networking-requirements-and-guidelines.html"
+- title: ネットワーク固有の要件
+  url: "/network/network-specific-requirements.html"
+- title: 環境固有のネットワークに関する考慮事項
+  entries:
+  - title: Linux の導入
+    url: "/network/linux-deployments.html"
+  - title: プラットフォームサービスとクラウドストレージプール用のネットワークとポート
+    url: "/network/networking-and-ports-for-platform-services-and-cloud-storage-pools.html"
+  - title: アプライアンスノード
+    url: "/network/appliance-nodes.html"
+- title: ネットワークのインストールとプロビジョニング
+  url: "/network/network-installation-and-provisioning.html"
+- title: インストール後のガイドライン
+  url: "/network/post-installation-guidelines.html"
+- title: ネットワークポートのリファレンス
+  entries:
+  - title: 内部でのグリッドノードの通信
+    url: "/network/internal-grid-node-communications.html"
+  - title: 外部との通信
+    url: "/network/external-communications.html"

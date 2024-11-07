@@ -1,0 +1,136 @@
+---
+section: monitor
+title: StorageGRID システムを監視します
+entries:
+- title: タスクの監視
+  pdf-filename: StorageGRID システムを監視します
+  url: "/monitor/index.html"
+- title: ダッシュボードの表示と管理
+  url: "/monitor/viewing-dashboard.html"
+- title: Nodes ページを表示します
+  entries:
+  - title: "[Nodes]ページの内容"
+    pdf-filename: Nodes ページを表示します
+    url: "/monitor/viewing-nodes-page.html"
+  - title: 概要タブを表示します
+    url: "/monitor/viewing-overview-tab.html"
+  - title: "[ ハードウェア ] タブを表示します"
+    url: "/monitor/viewing-hardware-tab.html"
+  - title: "[ ネットワーク ] タブを表示します"
+    url: "/monitor/viewing-network-tab.html"
+  - title: Storage （ストレージ）タブを表示します
+    url: "/monitor/viewing-storage-tab.html"
+  - title: "[ オブジェクト ] タブを表示します"
+    url: "/monitor/viewing-objects-tab.html"
+  - title: ILM タブを表示します
+    url: "/monitor/viewing-ilm-tab.html"
+  - title: "[タスク]タブの使用"
+    url: "/monitor/using-task-tab-to-reboot-grid-node.html"
+  - title: "[Load balancer]タブを表示します"
+    url: "/monitor/viewing-load-balancer-tab.html"
+  - title: プラットフォームサービスタブを表示します
+    url: "/monitor/viewing-platform-services-tab.html"
+  - title: "[Manage Drives]タブを表示"
+    url: "/monitor/viewing-manage-drives-tab.html"
+  - title: SANtricityタブを表示（Eシリーズのみ）
+    url: "/monitor/viewing-santricity-system-manager-tab.html"
+- title: 定期的に監視する情報
+  entries:
+  - title: 何をいつ監視するか
+    url: "/monitor/information-you-should-monitor-regularly.html"
+  - title: システムヘルスを監視する
+    url: "/monitor/monitoring-system-health.html"
+  - title: ストレージ容量を監視
+    url: "/monitor/monitoring-storage-capacity.html"
+  - title: 情報ライフサイクル管理を監視
+    url: "/monitor/monitoring-information-lifecycle-management.html"
+  - title: ネットワークリソースとシステムリソースを監視します
+    url: "/monitor/monitoring-network-connections-and-performance.html"
+  - title: テナントのアクティビティを監視する
+    url: "/monitor/monitoring-tenant-activity.html"
+  - title: S3クライアント処理を監視する
+    url: "/monitor/monitoring-object-ingest-and-retrieval-rates.html"
+  - title: ロードバランシング処理を監視する
+    url: "/monitor/monitoring-load-balancing-operations.html"
+  - title: グリッドフェデレーション接続を監視する
+    url: "/monitor/grid-federation-monitor-connections.html"
+- title: アラートの管理
+  entries:
+  - title: アラートシステム
+    url: "/monitor/managing-alerts.html"
+  - title: アラートルールを表示します
+    url: "/monitor/view-alert-rules.html"
+  - title: カスタムのアラートルールを作成
+    url: "/monitor/creating-custom-alert-rules.html"
+  - title: アラートルールを編集
+    url: "/monitor/editing-alert-rules.html"
+  - title: アラートルールを無効化
+    url: "/monitor/disabling-alert-rules.html"
+  - title: カスタムのアラートルールを削除
+    url: "/monitor/removing-custom-alert-rules.html"
+  - title: アラート通知を管理します
+    entries:
+    - title: SNMP 通知を設定する
+      url: "/monitor/snmp-alert-notifications.html"
+    - title: E メール通知を設定
+      url: "/monitor/email-alert-notifications.html"
+    - title: アラート通知をサイレント化する
+      url: "/monitor/silencing-alert-notifications.html"
+  - title: アラート一覧
+    url: "/monitor/alerts-reference.html"
+  - title: よく使用される Prometheus 指標
+    url: "/monitor/commonly-used-prometheus-metrics.html"
+- title: ログファイル参照
+  entries:
+  - title: ログファイルへのアクセス
+    pdf-filename: ログファイル参照
+    url: "/monitor/logs-files-reference.html"
+  - title: StorageGRID ソフトウェアのログ
+    url: "/monitor/storagegrid-software-logs.html"
+  - title: 導入とメンテナンスのログ
+    url: "/monitor/deployment-and-maintenance-logs.html"
+  - title: bycast.log について
+    url: "/monitor/about-bycast-log.html"
+- title: 監査メッセージとログの送信先の設定
+  entries:
+  - title: 外部 syslog サーバに関する考慮事項
+    url: "/monitor/considerations-for-external-syslog-server.html"
+  - title: 監査メッセージと外部syslogサーバの設定
+    url: "/monitor/configure-audit-messages.html"
+- title: SNMP による監視を使用する
+  entries:
+  - title: SNMPによる監視
+    pdf-filename: SNMP による監視を使用する
+    url: "/monitor/using-snmp-monitoring.html"
+  - title: SNMP エージェントを設定します
+    url: "/monitor/configuring-snmp-agent.html"
+  - title: SNMP エージェントを更新します
+    url: "/monitor/updating-snmp-agent.html"
+  - title: MIBファイルにアクセスします
+    url: "/monitor/access-snmp-mib.html"
+- title: 追加の StorageGRID データを収集します
+  entries:
+  - title: チャートとグラフを使用します
+    url: "/monitor/using-charts-and-reports.html"
+  - title: テキストレポートを使用する
+    url: "/monitor/types-of-text-reports.html"
+  - title: PUT / GET パフォーマンスを監視
+    url: "/monitor/monitoring-put-and-get-performance.html"
+  - title: オブジェクト検証処理を監視する
+    url: "/monitor/monitoring-object-verification-operations.html"
+  - title: イベントを監視する
+    url: "/monitor/monitoring-events.html"
+  - title: 監査メッセージを確認します
+    url: "/monitor/reviewing-audit-messages.html"
+  - title: ログファイルとシステムデータを収集
+    url: "/monitor/collecting-log-files-and-system-data.html"
+  - title: AutoSupportパッケージを手動でトリガーする
+    url: "/monitor/manually-triggering-autosupport-message.html"
+  - title: グリッドトポロジツリーを表示します
+    url: "/monitor/viewing-grid-topology-tree.html"
+  - title: サポート指標を確認
+    url: "/monitor/reviewing-support-metrics.html"
+  - title: 診断を実行します
+    url: "/monitor/running-diagnostics.html"
+  - title: カスタムの監視アプリケーションを作成
+    url: "/monitor/creating-custom-monitoring-applications.html"

@@ -1,0 +1,46 @@
+---
+permalink: monitor/index.html 
+sidebar: sidebar 
+keywords: monitor StorageGRID 
+summary: StorageGRIDシステムを定期的に監視して、想定どおりに動作していることを確認してください。 
+---
+= StorageGRID システムを監視する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRIDシステムを定期的に監視して、想定どおりに動作していることを確認してください。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+
+NOTE: Grid Managerに表示されるストレージ値の単位を変更するには、Grid Managerの右上にあるユーザドロップダウンを選択し、*[ユーザ設定]*を選択します。
+
+.タスクの内容
+ここでは、次の手順について説明します。
+
+* link:viewing-dashboard.html["ダッシュボードを表示および管理します"]
+* link:viewing-nodes-page.html["Nodes ページを表示します"]
+* link:information-you-should-monitor-regularly.html["システムの次の側面を定期的に監視します。"]
++
+** link:monitoring-system-health.html["システムヘルス"]
+** link:monitoring-storage-capacity.html["ストレージ容量"]
+** link:monitoring-information-lifecycle-management.html["情報ライフサイクル管理"]
+** link:monitoring-network-connections-and-performance.html["ネットワークおよびシステムリソース"]
+** link:monitoring-tenant-activity.html["テナントのアクティビティ"]
+** link:monitoring-load-balancing-operations.html["ロードバランシング操作"]
+** link:grid-federation-monitor-connections.html["グリッドフェデレーション接続"]
+
+
+* link:managing-alerts.html["アラートの管理"]
+* link:logs-files-reference.html["ログファイルの表示"]
+* link:configure-audit-messages.html["監査メッセージとログの送信先を設定します"]
+* link:considerations-for-external-syslog-server.html["外部 syslog サーバを使用します"]監査情報を収集するには
+* link:using-snmp-monitoring.html["SNMPを使用した監視"]
+* link:using-charts-and-reports.html["追加のStorageGRIDデータを取得する"]（指標や診断を含む）
+

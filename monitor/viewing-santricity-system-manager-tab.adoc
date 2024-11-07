@@ -1,0 +1,47 @@
+---
+permalink: monitor/viewing-santricity-system-manager-tab.html 
+sidebar: sidebar 
+keywords: SANtricity System Manager tab, hardware diagnostics 
+summary: SANtricity の System Manager タブから、ストレージアプライアンスの管理ポートを設定したり接続したりしなくても、 SANtricity の System Manager にアクセスできます。このタブでは、ハードウェア診断と環境情報、およびドライブに関連する問題を確認できます。 
+---
+= SANtricityの[System Manager]タブの表示（Eシリーズのみ）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+SANtricity の System Manager タブから、ストレージアプライアンスの管理ポートを設定したり接続したりしなくても、 SANtricity の System Manager にアクセスできます。このタブでは、ハードウェア診断と環境情報、およびドライブに関連する問題を確認できます。
+
+
+CAUTION: グリッドマネージャから SANtricity システムマネージャにアクセスする手順は、通常、アプライアンスのハードウェアを監視し、 E シリーズ AutoSupport を設定することだけを目的としています。ファームウェアのアップグレードなど、SANtricity System Managerの多くの機能や操作は、StorageGRID アプライアンスの監視には適用されません。問題を回避するために、必ずアプライアンスのハードウェアメンテナンス手順に従ってください。SANtricityファームウェアをアップグレードするには、ストレージアプライアンスのを参照してください https://docs.netapp.com/us-en/storagegrid-appliances/landing-maintain-hdwr/index.html["メンテナンス設定手順"^]。
+
+
+NOTE: SANtricity の[System Manager]タブは、Eシリーズハードウェアを使用するストレージアプライアンスノードに対してのみ表示されます。
+
+SANtricity システムマネージャを使用すると、次の操作を実行できます。
+
+* ストレージアレイレベルのパフォーマンス、I/Oレイテンシ、ストレージコントローラのCPU利用率、スループットなどのパフォーマンスデータを表示します。
+* ハードウェアコンポーネントのステータスを確認します。
+* 診断データの表示、EシリーズAutoSupport の設定など、サポート機能を実行する。
++
+
+NOTE: SANtricity System Managerを使用してEシリーズAutoSupportのプロキシを設定する方法については、を参照してくださいlink:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["StorageGRID経由でEシリーズAutoSupportパッケージを送信"]。
+
+
+
+グリッドマネージャからSANtricity System Managerにアクセスするには、が必要ですlink:../admin/admin-group-permissions.html["ストレージアプライアンス管理者またはRoot Access権限"]。
+
+
+NOTE: Grid Manager を使用して SANtricity System Manager にアクセスするには、 SANtricity ファームウェア 8.70 以降が必要です。
+
+このタブには、 SANtricity システムマネージャのホームページが表示されます。
+
+image::../media/nodes_page_santricity_tab.png[ノードページの SANtricity タブ]
+
+
+NOTE: SANtricity System Manager のリンクを使用すると、 SANtricity System Manager を新しいブラウザウィンドウで開いて確認しやすくなります。
+
+ストレージアレイレベルのパフォーマンスと使用容量の詳細を確認するには、各グラフにカーソルを合わせます。
+
+SANtricityの[System Manager]タブからアクセスできる情報の表示の詳細については、を参照してください https://docs.netapp.com/us-en/e-series-family/index.html["NetApp E シリーズおよび SANtricity に関するドキュメント"^]。

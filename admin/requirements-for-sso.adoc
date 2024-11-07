@@ -1,0 +1,95 @@
+---
+permalink: admin/requirements-for-sso.html 
+sidebar: sidebar 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+summary: StorageGRID システムでシングルサインオンを有効にする前に、要件と考慮事項を確認してください。 
+---
+= シングルサインオンの要件と考慮事項
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID システムでシングルサインオン（SSO）を有効にする前に、要件と考慮事項を確認してください。
+
+
+
+== アイデンティティプロバイダの要件
+
+StorageGRID では、次の SSO アイデンティティプロバイダ（ IdP ）をサポートしています。
+
+* Active Directory フェデレーションサービス（ AD FS ）
+* Azure Active Directory （ Azure AD ）
+* PingFederate
+
+
+SSO アイデンティティプロバイダを設定する前に、 StorageGRID システムのアイデンティティフェデレーションを設定する必要があります。アイデンティティフェデレーションに使用する LDAP サービスのタイプによって、実装できる SSO のタイプが制御されます。
+
+[cols="1a,1a"]
+|===
+| LDAP サービスタイプが設定されました | SSO アイデンティティプロバイダのオプション 
+
+
+ a| 
+Active Directory
+ a| 
+* Active Directory
+* Azure
+* PingFederate
+
+
+
+
+ a| 
+Azure
+ a| 
+Azure
+
+|===
+
+
+=== AD FS の要件
+
+次のいずれかのバージョンの AD FS を使用できます。
+
+* Windows Server 2022 AD FS
+* Windows Server 2019 AD FS
+* Windows Server 2016 AD FS
+
+
+
+NOTE: Windows Server 2016では、以上を使用している必要があります https://support.microsoft.com/en-us/help/3201845/cumulative-update-for-windows-10-version-1607-and-windows-server-2016["KB3201845 の更新プログラム"^]。
+
+
+
+=== その他の要件
+
+* Transport Layer Security （ TLS ） 1.2 または 1.3
+* Microsoft .NET Framework バージョン 3.5.1 以降
+
+
+
+
+=== Azureに関する考慮事項
+
+SSOタイプとしてAzureを使用し、ユーザがsAMAccountNameをプレフィックスとして使用しないユーザプリンシパル名を持っている場合、StorageGRID がLDAPサーバとの接続を失うと、ログインの問題が発生する可能性があります。ユーザがサインインできるようにするには、LDAPサーバへの接続を復元する必要があります。
+
+
+
+== サーバ証明書の要件
+
+デフォルトでは、 StorageGRID は各管理ノード上の管理インターフェイス証明書を使用して、 Grid Manager 、テナントマネージャ、グリッド管理 API 、およびテナント管理 API へのアクセスを保護します。StorageGRID 用の証明書利用者信頼（ AD FS ）、エンタープライズアプリケーション（ Azure ）、またはサービスプロバイダ接続（ PingFederate ）を設定するときは、 StorageGRID 要求の署名証明書としてサーバ証明書を使用します。
+
+まだlink:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["管理インターフェイス用のカスタム証明書を設定しました"]実行していない場合は、今実行する必要があります。インストールしたカスタムサーバ証明書はすべての管理ノードで使用され、すべての StorageGRID 証明書利用者信頼、エンタープライズアプリケーション、または SP 接続で使用できます。
+
+
+NOTE: 管理ノードのデフォルトサーバ証明書を証明書利用者信頼、エンタープライズアプリケーション、または SP 接続で使用することは推奨されません。ノードに障害が発生した場合にそのノードをリカバリすると、新しいデフォルトサーバ証明書が生成されます。リカバリしたノードにサインインするには、証明書利用者信頼、エンタープライズアプリケーション、または SP 接続を新しい証明書で更新する必要があります。
+
+管理ノードのサーバ証明書にアクセスするには、ノードのコマンドシェルにログインしてディレクトリに移動 `/var/local/mgmt-api`します。カスタムサーバ証明書の名前はです `custom-server.crt`。ノードのデフォルトのサーバ証明書の名前はです `server.crt`。
+
+
+
+== ポートの要件
+
+シングルサインオン（ SSO ）は、制限された Grid Manager ポートまたは Tenant Manager ポートでは使用できません。ユーザをシングルサインオンで認証する場合は、デフォルトの HTTPS ポート（ 443 ）を使用する必要があります。を参照して link:controlling-access-through-firewalls.html["外部ファイアウォールでアクセスを制御します"]

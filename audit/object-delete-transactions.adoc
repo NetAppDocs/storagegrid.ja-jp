@@ -1,0 +1,78 @@
+---
+permalink: audit/object-delete-transactions.html 
+sidebar: sidebar 
+keywords: object delete transaction, S3 delete, SDEL, WDEL 
+summary: 監査ログでオブジェクトの削除トランザクションを特定するには、S3 API固有の監査メッセージを検索します。 
+---
+= オブジェクトの削除トランザクション
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+監査ログでオブジェクトの削除トランザクションを特定するには、S3 API固有の監査メッセージを検索します。
+
+以下の表には、削除トランザクション中に生成されたすべての監査メッセージが含まれているわけではなく、削除トランザクションをトレースするために必要なメッセージのみが含まれています。
+
+
+
+== S3 の削除監査メッセージ
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| コード | 名前 | 製品説明 | トレース | を参照してください 
+
+
+ a| 
+SDEL
+ a| 
+S3 削除
+ a| 
+バケットからのオブジェクトの削除が要求されました。
+ a| 
+CBID 、 S3KY
+ a| 
+link:sdel-s3-delete.html["SDEL ： S3 DELETE"]
+
+|===
+
+
+== Swift の削除監査メッセージ
+
+[cols="1a,1a,2a,1a,2a"]
+|===
+| コード | 名前 | 製品説明 | トレース | を参照してください 
+
+
+ a| 
+WDEL
+ a| 
+Swift の削除
+ a| 
+コンテナまたはコンテナからのオブジェクトの削除が要求されました。
+ a| 
+CBID 、 WOBJ
+ a| 
+link:wdel-swift-delete.html["WDEL ： Swift の削除"]
+
+|===
+
+
+== 例： S3 オブジェクトの削除
+
+S3 クライアントがストレージノード（ LDR サービス）からオブジェクトを削除すると、監査メッセージが生成されて監査ログに保存されます。
+
+
+NOTE: 以下の例には、削除トランザクション中に生成されたすべての監査メッセージが含まれているわけではなく、S3 の削除トランザクション（ SDEL ）に関連するメッセージだけが示されています。
+
+
+
+=== SDEL ： S3 削除
+
+オブジェクトの削除は、クライアントがLDRサービスにDeleteObject要求を送信した時点で開始されます。メッセージには、オブジェクトの削除元のバケットと、オブジェクトの識別に使用される S3 キーが含まれています。
+
+[listing, subs="specialcharacters,quotes"]
+----
+2017-07-17T21:17:58.959669[AUDT:[RSLT(FC32):SUCS][TIME(UI64):14316][SAIP(IPAD):"10.96.112.29"][S3AI(CSTR):"70899244468554783528"][SACC(CSTR):"test"][S3AK(CSTR):"SGKHyalRU_5cLflqajtaFmxJn946lAWRJfBF33gAOg=="][SUSR(CSTR):"urn:sgws:identity::70899244468554783528:root"][SBAI(CSTR):"70899244468554783528"][SBAC(CSTR):"test"]\[S3BK\(CSTR\):"example"\]\[S3KY\(CSTR\):"testobject-0-7"\][CBID\(UI64\):0x339F21C5A6964D89][CSIZ(UI64):30720][AVER(UI32):10][ATIM(UI64):150032627859669][ATYP\(FC32\):SDEL][ANID(UI32):12086324][AMID(FC32):S3RQ][ATID(UI64):4727861330952970593]]
+----

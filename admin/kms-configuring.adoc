@@ -1,0 +1,21 @@
+---
+permalink: admin/kms-configuring.html 
+sidebar: sidebar 
+keywords: configure kms, key management server, kmip, Key Management Interoperability Protocol 
+summary: キー管理サーバ\（KMS\）はサードパーティ製の外部システムで、Key Management Interoperability Protocol（KMIP\）を使用して、関連するStorageGRIDサイトのStorageGRIDアプライアンスノードに暗号化キーを提供します。 
+---
+= キー管理サーバ（ KMS ）とは何ですか？
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+キー管理サーバ（ KMS ）は、関連する StorageGRID サイトの StorageGRID アプライアンスノードに Key Management Interoperability Protocol （ KMIP ）を使用して暗号化キーを提供する外部のサードパーティシステムです。
+
+StorageGRIDでは、特定のキー管理サーバのみがサポートされます。サポートされている製品とバージョンのリストについては、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^]ください。
+
+インストール時にノード暗号化 * 設定が有効になっている StorageGRID アプライアンスノードのノード暗号化キーを管理するには、 1 つ以上のキー管理サーバを使用します。これらのアプライアンスノードでキー管理サーバを使用すると、アプライアンスをデータセンターから削除した場合でも、データを保護できます。アプライアンスボリュームが暗号化されると、ノードがKMSと通信できないかぎり、アプライアンスのデータにアクセスすることはできません。
+
+
+CAUTION: StorageGRID では、アプライアンスノードの暗号化と復号化に使用する外部キーは作成も管理もされません。外部キー管理サーバを使用して StorageGRID データを保護する場合は、そのサーバの設定方法を理解し、暗号化キーの管理方法を理解しておく必要があります。キー管理タスクの実行については、この手順では説明していません。サポートが必要な場合は、キー管理サーバのドキュメントを参照するか、テクニカルサポートにお問い合わせください。

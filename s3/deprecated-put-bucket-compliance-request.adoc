@@ -1,0 +1,111 @@
+---
+permalink: s3/deprecated-put-bucket-compliance-request.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, PUT deprecated compliance requests 
+summary: PUT Bucket compliance要求は廃止されました。ただし、この要求を引き続き使用して、既存のレガシー準拠バケットの準拠設定を変更できます。 
+---
+= 廃止予定：PUT Bucket compliance要求
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+PUT Bucket compliance要求は廃止されました。ただし、この要求を引き続き使用して、既存のレガシー準拠バケットの準拠設定を変更できます。たとえば、既存のバケットをリーガルホールドの対象にしたり、バケットの保持期間を長くしたりできます。
+
+[NOTE]
+====
+以前のバージョンの StorageGRID で提供されていた StorageGRID 準拠機能は廃止され、 S3 オブジェクトロックに置き換えられました。詳細については、次を参照してください。
+
+* link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["ネットアップのナレッジベース： StorageGRID 11.5 でレガシー準拠バケットを管理する方法"^]
+
+
+====
+この処理を完了するには、s3：PutBucketCompliance権限またはrootアカウントが必要です。
+
+PUT Bucket compliance 要求を発行する際は、準拠設定のすべてのフィールドに値を指定する必要があります。
+
+
+
+== 要求例
+
+次の要求例では、という名前のバケットの準拠設定を変更し `mybucket`ます。この例では、のオブジェクト `mybucket`がグリッドに取り込まれてから1年ではなく2年間（1、051、200分）保持されます。このバケットにリーガルホールドはありません。各オブジェクトは 2 年後に自動的に削除されます。
+
+[listing, subs="specialcharacters,quotes"]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Date: _date_
+Authorization: _authorization name_
+Host: _host_
+Content-Length: 152
+
+<SGCompliance>
+  <RetentionPeriodMinutes>1051200</RetentionPeriodMinutes>
+  <LegalHold>false</LegalHold>
+  <AutoDelete>true</AutoDelete>
+</SGCompliance>
+----
+[cols="1a,2a"]
+|===
+| 名前 | 製品説明 
+
+
+ a| 
+RetentionPeriodMinutes です
+ a| 
+このバケットに追加されたオブジェクトの保持期間を分で指定します。保持期間は、オブジェクトがグリッドに取り込まれたときからの期間です。
+
+*重要* RetentionPeriodMinutesに新しい値を指定する場合は、バケットの現在の保持期間以上の値を指定する必要があります。バケットの保持期間の設定後は、その値を減らすことはできず、増やすことしかできません。
+
+
+
+ a| 
+LegalHold のようになります
+ a| 
+* True ：このバケットは、現在リーガルホールドの対象です。このバケット内のオブジェクトは、保持期間が過ぎても、リーガルホールドが解除されるまで削除できません。
+* False ：このバケットは、現在リーガルホールドの対象ではありません。このバケット内のオブジェクトは、保持期間が過ぎたら削除できます。
+
+
+
+
+ a| 
+自動削除
+ a| 
+* True ：このバケット内のオブジェクトは、バケットがリーガルホールドの対象である場合を除き、保持期間が過ぎると自動的に削除されます。
+* false ：このバケット内のオブジェクトは、保持期間が過ぎても自動的には削除されません。これらのオブジェクトを削除する必要がある場合は、手動で削除する必要があります。
+
+
+|===
+
+
+== 準拠設定の整合性
+
+PUT Bucket compliance 要求によって S3 バケットの準拠設定を更新すると、 StorageGRID は、グリッド全体のバケットのメタデータを更新しようとします。デフォルトでは、StorageGRIDは* strong-global *整合性を使用して、バケットのメタデータを含むすべてのデータセンターサイトとストレージノードで、変更された準拠設定のリードアフターライト整合性を保証します。
+
+データセンターサイトまたはサイトの複数のストレージノードが利用できないために、StorageGRIDが* strong-global *整合性を達成できない場合、応答のHTTPステータスコードは次のようになります。 `503 Service Unavailable.`
+
+この応答を受け取った場合は、必要なストレージサービスをできるだけ早く利用可能にするために、グリッド管理者に問い合わせる必要があります。グリッド管理者が各サイトで十分な数のストレージノードを利用可能にできない場合、テクニカルサポートから* strong-site *整合性を強制的に適用して、失敗した要求を再試行するよう指示されることがあります。
+
+
+CAUTION: テクニカルサポートから指示され、このレベルを使用した場合の潜在的な影響を理解している場合を除き、PUT bucket complianceで* strong-site *整合性を強制的に実行しないでください。
+
+整合性を* strong-site *に減らすと、StorageGRIDは、サイト内のクライアント要求についてのみ、更新された準拠設定のリードアフターライト整合性を保証します。そのため、すべてのサイトおよびストレージノードが利用可能になるまでの間、 StorageGRID システムにはこのバケットに対して複数の異なる設定が一時的に存在することになる場合があります。整合性のない設定を使用すると、予期せぬ望ましくない動作が生じる可能性がありますたとえば、バケットをリーガルホールドの対象にする場合に、より低い整合性を強制的に適用すると、一部のデータセンターサイトでバケットの以前の準拠設定（リーガルホールドのオフ）が引き続き有効になることがあります。したがって、リーガルホールドの対象と思われるオブジェクトは、保持期間が経過すると、ユーザによって削除される場合と、 AutoDelete によって削除される場合があります。
+
+強制的に* strong-site *整合性を使用するには、次のようにPUT Bucket compliance要求を再発行し、HTTP要求ヘッダーを含めます `Consistency-Control`。
+
+[listing]
+----
+PUT /mybucket/?x-ntap-sg-compliance HTTP/1.1
+Consistency-Control: strong-site
+----
+
+
+== エラー応答
+
+* バケットが準拠バケットとして作成されていない場合、応答のHTTPステータスコードはになります `404 Not Found`。
+* 要求がバケットの現在の保持期間よりも短い場合 `RetentionPeriodMinutes`、HTTPステータスコードはになります `400 Bad Request`。
+
+
+.関連情報
+link:deprecated-put-bucket-request-modifications-for-compliance.html["廃止：準拠のための PUT Bucket 要求の変更"]

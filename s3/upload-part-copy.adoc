@@ -1,0 +1,53 @@
+---
+permalink: s3/upload-part-copy.html 
+sidebar: sidebar 
+keywords: UploadPart, UploadPartCopy, multipart uploads, uploads, 
+summary: UploadPartCopy操作は、データソースとして既存のオブジェクトからデータをコピーすることによって、オブジェクトの一部をアップロードします。 
+---
+= パーツコピーをアップロード
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+UploadPartCopy操作は、データソースとして既存のオブジェクトからデータをコピーすることによって、オブジェクトの一部をアップロードします。
+
+UploadPartCopy処理は、Amazon S3 REST APIのすべての動作で実装されます。予告なく変更される場合があります。
+
+この要求は、StorageGRIDシステム内でで指定されたオブジェクトデータの読み取りと書き込みを行い `x-amz-copy-source-range`ます。
+
+次の要求ヘッダーがサポートされています。
+
+* `x-amz-copy-source-if-match`
+* `x-amz-copy-source-if-none-match`
+* `x-amz-copy-source-if-unmodified-since`
+* `x-amz-copy-source-if-modified-since`
+
+
+
+
+== サーバ側の暗号化を行うための要求ヘッダー
+
+CreateMultipartUpload要求にSSE-C暗号化を指定した場合は、各UploadPartCopy要求に次の要求ヘッダーも含める必要があります。
+
+* `x-amz-server-side-encryption-customer-algorithm`:指定します `AES256`。
+* `x-amz-server-side-encryption-customer-key`：CreateMultipartUpload要求で指定したものと同じ暗号化キーを指定します。
+* `x-amz-server-side-encryption-customer-key-MD5`：CreateMultipartUpload要求で指定したMD5ダイジェストと同じMD5ダイジェストを指定します。
+
+
+ソースオブジェクトがユーザ指定のキー（SSE-C）を使用して暗号化されている場合は、オブジェクトを復号化してコピーできるように、UploadPartCopy要求に次の3つのヘッダーを含める必要があります。
+
+* `x-amz-copy-source​-server-side​-encryption​-customer-algorithm`:指定します `AES256`。
+* `x-amz-copy-source​-server-side-encryption-customer-key`：ソースオブジェクトの作成時に指定した暗号化キーを指定します。
+* `x-amz-copy-source​-server-side-encryption-customer-key-MD5`:ソースオブジェクトの作成時に指定したMD5ダイジェストを指定します。
+
+
+
+CAUTION: 指定した暗号化キーが格納されることはありません。暗号化キーを紛失すると、対応するオブジェクトが失われます。ユーザ指定のキーを使用してオブジェクトデータを保護する前に、の考慮事項を確認してくださいlink:using-server-side-encryption.html["サーバ側の暗号化を使用します"]。
+
+
+
+== バージョン管理
+
+マルチパートアップロードは、アップロードの開始、アップロードのリストの表示、パートのアップロード、アップロードしたパートのアセンブル、およびアップロードの完了の個別の処理に分けられます。CompleteMultipartUpload処理が実行されると、オブジェクトが作成されます（該当する場合はバージョン管理されます）。

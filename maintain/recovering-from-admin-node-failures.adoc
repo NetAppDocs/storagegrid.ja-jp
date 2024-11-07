@@ -1,0 +1,23 @@
+---
+permalink: maintain/recovering-from-admin-node-failures.html 
+sidebar: sidebar 
+keywords: recover, admin node failure, workflow 
+summary: 管理ノードのリカバリプロセスは、プライマリ管理ノードと非プライマリ管理ノードで異なります。 
+---
+= プライマリまたは非プライマリ管理ノードのリカバリ
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+管理ノードのリカバリプロセスは、プライマリ管理ノードと非プライマリ管理ノードで異なります。
+
+プライマリまたは非プライマリ管理ノードのおおまかなリカバリ手順は同じですが、詳細は異なります。
+
+リカバリ対象の管理ノードの正しいリカバリ手順 に必ず従ってください。手順の概要は同じように見えますが、詳細な手順は異なります。
+
+.選択肢
+* link:recovering-from-primary-admin-node-failures.html["プライマリ管理ノードの障害からリカバリします"]
+* link:recovering-from-non-primary-admin-node-failures.html["非プライマリ管理ノードの障害からリカバリします"]
+

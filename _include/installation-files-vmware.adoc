@@ -1,0 +1,98 @@
+= 
+:allow-uri-read: 
+
+
+[cols="1a,1a"]
+|===
+| パスとファイル名 | 製品説明 
+
+
+| ./vsphere/README （ ./vsphere/README  a| 
+StorageGRID ダウンロードファイルに含まれているすべてのファイルについて説明するテキストファイル。
+
+
+
+| ./vsphere/NLF000000.txt にアクセスします  a| 
+製品サポートのない無償ライセンス。
+
+
+
+| ./vsphere/NetApp-SG-version-sha.vmdk  a| 
+グリッドノード仮想マシンを作成するためのテンプレートとして使用される仮想マシンディスクファイル。
+
+
+
+| ./vsphere/vsphere-primary-admin.ovf ./vsphere-primary-admin.mf  a| 
+(`.mf`プライマリ管理ノードを導入するためのOpen Virtualization Formatテンプレートファイル）(`.ovf`とマニフェストファイル
+
+
+
+| ./vsphere/vsphere-non-primary-admin.ovf ./vsphere/vsphere-non-primary-admin.mf  a| 
+テンプレートファイル(`.ovf`）とマニフェストファイル(`.mf`）。非プライマリ管理ノードを導入するためのものです。
+
+
+
+| ./vsphere/vsphere-gateway.ovf ./vsphere/vsphere-gateway.mf  a| 
+テンプレートファイル(`.ovf`）とマニフェストファイル(`.mf`）を使用してゲートウェイノードを導入します。
+
+
+
+| ./vsphere/vsphere-storage.OVF ./vsphere/vsphere-storage.mf  a| 
+(`.mf`仮想マシンベースのストレージノードを導入するためのテンプレートファイル(`.ovf`とマニフェストファイル）
+
+
+
+| 導入スクリプトツール | 製品説明 
+
+
+| ./vsphere/deploy-vsphere-ovftool.sh にアクセスします  a| 
+仮想グリッドノードの導入を自動化するための Bash シェルスクリプト。
+
+
+
+| ./vsphere/deploy-vsphere-ovftool-sample.ini にアクセスします  a| 
+スクリプトで使用する構成ファイルの例 `deploy-vsphere-ovftool.sh`。
+
+
+
+| ./vsphere/configure-storagegrid.py にアクセスします  a| 
+StorageGRID システムの設定を自動化するための Python スクリプト。
+
+
+
+| ./vsphere/configure-sga.py にアクセスします  a| 
+StorageGRID アプライアンスの設定を自動化するための Python スクリプト。
+
+
+
+| ./vsphere/storagegrid-ssoauth.py にアクセスします  a| 
+シングルサインオン（SSO）が有効な場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。このスクリプトは、Pingフェデレーション統合にも使用できます。
+
+
+
+| ./vsphere/configure -storagegrid-sample.json という形式で実行します  a| 
+スクリプトで使用する構成ファイルの例 `configure-storagegrid.py`。
+
+
+
+| ./vsphere/configure -storagegrid-bank.json （ページ構成  a| 
+スクリプトで使用する空の構成ファイル `configure-storagegrid.py`。
+
+
+
+| ./vsphere/storagegrid-ssoauth-azure.pyを参照してください  a| 
+Active DirectoryまたはPingフェデレーションを使用してシングルサインオン（SSO）が有効になっている場合にグリッド管理APIにサインインするために使用できるPythonスクリプトの例。
+
+
+
+| ./vsphere/storagegrid-ssoauth-azure.js  a| 
+関連するPythonスクリプトによって呼び出され、AzureとのSSO対話を実行するヘルパースクリプト `storagegrid-ssoauth-azure.py`。
+
+
+
+| ./vsphere/extra/api-schemas  a| 
+StorageGRID の API スキーマ
+
+*注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
+
+|===

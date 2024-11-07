@@ -1,0 +1,49 @@
+---
+permalink: maintain/replacing-gateway-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace gateway node, replacing gateway node 
+summary: 障害が発生したゲートウェイノードを同じ物理または仮想ハードウェアで実行されているゲートウェイノードと交換することも、 VMware または Linux ホストで実行されているゲートウェイノードをサービスアプライアンスでホストされているゲートウェイノードと交換することもできます。 
+---
+= ゲートウェイノードの交換
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+障害が発生したゲートウェイノードを同じ物理または仮想ハードウェアで実行されているゲートウェイノードと交換することも、 VMware または Linux ホストで実行されているゲートウェイノードをサービスアプライアンスでホストされているゲートウェイノードと交換することもできます。
+
+ノードの交換用手順 を確認する必要があるのは、交換用ノードで使用するプラットフォームによって異なります。（すべてのノードタイプに適した）ノードの交換手順 が完了すると、手順 からゲートウェイノードのリカバリに関する次の手順が表示されます。
+
+[cols="1a,2a"]
+|===
+| 交換用プラットフォーム | 手順 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["VMware ノードを交換"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Linux ノードを交換"]
+
+
+
+ a| 
+サービスアプライアンス
+ a| 
+link:replacing-failed-node-with-services-appliance.html["サービスアプライアンスを交換します"]
+
+
+
+ a| 
+OpenStack
+ a| 
+リカバリ処理を対象とした OpenStack 用の仮想マシンディスクファイルおよびスクリプトは、現在は提供されていません。OpenStack 環境で実行されているノードのリカバリが必要な場合は、使用している Linux オペレーティングシステム用のファイルをダウンロードしてください。次に、の手順に従いますlink:all-node-types-replacing-linux-node.html["Linuxノードの交換"]。
+
+|===

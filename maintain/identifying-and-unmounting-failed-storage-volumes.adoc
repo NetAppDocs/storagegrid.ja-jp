@@ -1,0 +1,109 @@
+---
+permalink: maintain/identifying-and-unmounting-failed-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
+summary: ストレージボリュームに障害が発生したストレージノードをリカバリする場合は、障害ボリュームを特定し、アンマウントする必要があります。障害ストレージボリュームのみがリカバリ手順 で再フォーマットされることを確認する必要があります。 
+---
+= 障害ストレージボリュームを特定してアンマウントします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージボリュームに障害が発生したストレージノードをリカバリする場合は、障害ボリュームを特定し、アンマウントする必要があります。障害ストレージボリュームのみがリカバリ手順 で再フォーマットされることを確認する必要があります。
+
+.開始する前に
+Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+
+.タスクの内容
+障害が発生したストレージボリュームはできるだけ早くリカバリする必要があります。
+
+まず最初に、接続解除されたボリューム、アンマウントが必要なボリューム、または I/O エラーが発生しているボリュームを検出します。障害ボリュームがランダムに破損したファイルシステムを含んでいる状態で接続されている場合は、ディスクの未使用部分または未割り当て部分の破損をシステムが検出できないことがあります。
+
+
+NOTE: ディスクの追加や再接続、ノードの停止、ノードの開始、リブートなど、ボリュームをリカバリするための手動手順を実行する前に、この手順 を完了しておく必要があります。そうしないと、スクリプトの実行時に `reformat_storage_block_devices.rb`ファイルシステムエラーが発生し、スクリプトがハングしたり失敗したりする可能性があります。
+
+
+NOTE: コマンドを実行する前に、ハードウェアを修理してディスクを適切に接続して `reboot`ください。
+
+
+CAUTION: 障害ストレージボリュームは慎重に特定してください。この情報を使用して、再フォーマットが必要なボリュームを確認します。ボリュームの再フォーマット後は、ボリューム上のデータをリカバリできません。
+
+障害ストレージボリュームを正しくリカバリするには、障害ストレージボリュームのデバイス名とそのボリューム ID の両方を把握しておく必要があります。
+
+インストール時に、各ストレージデバイスにはファイルシステムの Universal Unique Identifier （ UUID ）が割り当てられ、その UUID を使用してストレージノードの rangedb ディレクトリにマウントされます。ファイルシステムUUIDとrangedbディレクトリは、ファイルに記載されて `/etc/fstab`います。デバイス名、 rangedb ディレクトリ、およびマウントされたボリュームのサイズは、 Grid Manager に表示されます。
+
+次の例では、ボリュームサイズが4TBのデバイス `/dev/sdc`が、ファイル内の/`etc/fstab`デバイス名を使用して `/dev/disk/by-uuid/822b0547-3b2b-472e-ad5e-e1cf1809faba`にマウントされてい `/var/local/rangedb/0`ます。
+
+image::../media/mounting_storage_devices.gif[ボリュームサイズの例]
+
+.手順
+. 次の手順を実行して、障害ストレージボリュームとそのデバイス名を記録します。
++
+.. サポート * > * ツール * > * グリッドトポロジ * を選択します。
+.. サイト * > * 障害ストレージノード * > * LDR * > * Storage * > * Overview * > * Main * を選択し、アラームのあるオブジェクトストアを検索します。
++
+image::../media/ldr_storage_object_stores.gif[オブジェクトストアセクション]
+
+.. サイト * > * failed Storage Node * > * SSM * > * Resources * > * Overview * > * Main * を選択します。前の手順で特定した各障害ストレージボリュームのマウントポイントとボリュームサイズを確認します。
++
+オブジェクトストアには、 16 進表記の番号が付けられています。たとえば、 0000 は最初のボリューム、 000F は 16 番目のボリュームです。この例では、IDが0000のオブジェクトストアは、デバイス名がsdcでサイズが107GBのに対応して `/var/local/rangedb/0`います。
+
++
+image::../media/ssm_storage_volumes.gif[オブジェクトストアとマウントポイントを示す例]
+
+
+
+. 障害が発生したストレージノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. 次のスクリプトを実行して、障害ストレージボリュームをアンマウントします。
++
+`sn-unmount-volume object_store_ID`
+
++
+ `object_store_ID`は、障害ストレージボリュームのIDです。たとえば、IDが0000のオブジェクトストアのコマンドでと指定します `0`。
+
+. プロンプトが表示されたら、* y *を押して、ストレージボリューム0に応じてCassandraサービスを停止します。
++
+
+NOTE: Cassandraサービスがすでに停止している場合は、プロンプトは表示されません。Cassandra サービスは、ボリューム 0 に対してのみ停止します。
+
++
+[listing]
+----
+root@Storage-180:~/var/local/tmp/storage~ # sn-unmount-volume 0
+Services depending on storage volume 0 (cassandra) aren't down.
+Services depending on storage volume 0 must be stopped before running this script.
+Stop services that require storage volume 0 [y/N]? y
+Shutting down services that require storage volume 0.
+Services requiring storage volume 0 stopped.
+Unmounting /var/local/rangedb/0
+/var/local/rangedb/0 is unmounted.
+----
++
+数秒後にボリュームがアンマウントされます。プロセスの各ステップを示すメッセージが表示されます。最後のメッセージは、ボリュームがアンマウントされたことを示しています。
+
+. ボリュームがビジー状態であるためにアンマウントに失敗した場合は、オプションを使用して強制的にアンマウントできます `--use-umountof`。
++
+
+NOTE: オプションを使用して強制的にアンマウントする `--use-umountof`と、ボリュームを使用しているプロセスやサービスが予期せずに動作したり、クラッシュしたりする可能性があります。
+
++
+[listing]
+----
+root@Storage-180:~ # sn-unmount-volume --use-umountof /var/local/rangedb/2
+Unmounting /var/local/rangedb/2 using umountof
+/var/local/rangedb/2 is unmounted.
+Informing LDR service of changes to storage volumes
+----
+

@@ -1,0 +1,224 @@
+---
+permalink: admin/creating-sp-connection-ping.html 
+sidebar: sidebar 
+keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
+summary: PingFederate を使用して、システム内の管理ノードごとにサービスプロバイダ（ SP ）接続を作成します。この処理を高速化するために、 StorageGRID から SAML メタデータをインポートします。 
+---
+= PingFederate でサービスプロバイダ（ SP ）接続を作成します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+PingFederate を使用して、システム内の管理ノードごとにサービスプロバイダ（ SP ）接続を作成します。処理時間を短縮するために、 StorageGRID から SAML メタデータをインポートします。
+
+.開始する前に
+* StorageGRID にシングルサインオンを設定し、 SSO タイプとして「 Ping federate * 」を選択しました。
+* * Grid Manager のシングルサインオンページでサンドボックスモード * が選択されています。を参照して link:../admin/using-sandbox-mode.html["サンドボックスモードを使用する"]
+* システム内の管理ノードごとに * SP 接続 ID * を用意しておきます。これらの値は、 StorageGRID のシングルサインオンページの管理ノード詳細テーブルにあります。
+* システムの管理ノードごとに * SAML メタデータ * をダウンロードしておきます。
+* PingFederate サーバーで SP 接続を作成した経験があります。
+* PingFederateサーバ用のがありhttps://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["管理者向けリファレンスガイド"^]ます。PingFederate ドキュメントでは、詳細な手順と説明を説明しています。
+* PingFederateサーバ用のがありlink:admin-group-permissions.html["管理者権限"]ます。
+
+
+.タスクの内容
+ここでは、 StorageGRID の SSO プロバイダとして PingFederate Server バージョン 10.3 を設定する方法を簡単に説明します。別のバージョンの PingFederate を使用している場合は、これらの指示を適用する必要があります。ご使用のリリースの詳細な手順については、 PingFederate Server のマニュアルを参照してください。
+
+
+
+== PingFederate の前提条件を完了します
+
+StorageGRID に使用する SP 接続を作成する前に、 PingFederate で前提条件のタスクを完了する必要があります。SP 接続を設定するときは、これらの前提条件の情報を使用します。
+
+
+
+=== データストアの作成[[data-store]
+
+まだ作成していない場合は、 PingFederate を AD FS LDAP サーバーに接続するデータストアを作成します。StorageGRIDで使用した値を使用しlink:../admin/using-identity-federation.html["アイデンティティフェデレーションの設定"]ます。
+
+* * タイプ * ：ディレクトリ（ LDAP ）
+* * LDAP タイプ * ： Active Directory
+* * バイナリ属性名 *: 「 LDAP バイナリ属性」タブに * objectGUID * を正確に入力します。
+
+
+
+
+=== パスワードクレデンシャルバリデータの作成[[password-dvalidator]]
+
+パスワード認証情報バリデータをまだ作成していない場合は、作成します。
+
+* * 「 * 」と入力します。 LDAP ユーザ名パスワード資格情報検証ツール
+* * データストア *: 作成したデータストアを選択します。
+* * 検索ベース * ： LDAP から情報を入力します（例： DC=SAML 、 DC=sgws ）。
+* * 検索フィルタ * ： sAMAccountName = $ ｛ userName ｝
+* * スコープ * ：サブツリー
+
+
+
+
+=== IdPアダプタインスタンス[アダプタインスタンス]を作成します
+
+IdP アダプタのインスタンスをまだ作成していない場合は作成します。
+
+.手順
+. 「 * 認証 * > * 統合 * > * IdP アダプタ * 」に移動します。
+. [ 新規インスタンスの作成（ Create New Instance ） ] を選択します
+. [ タイプ ] タブで、 [* HTML フォーム IdP アダプタ * ] を選択します。
+. [IdP アダプタ ] タブで、 [ 資格情報検証ツール ] に新しい行を追加する *] を選択します。
+. 作成したを選択し<<password-validator,パスワードクレデンシャルバリデータ>>ます。
+. [ アダプタの属性 ] タブで、 *pseudonym * の *username* 属性を選択します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+=== 署名証明書の作成またはインポート[signing-certificate]
+
+署名証明書を作成またはインポートしていない場合は、作成します。
+
+.手順
+. 「 * Security * > * Signing & Decryption keys & Certificates * 」に移動します。
+. 署名証明書を作成またはインポートします。
+
+
+
+
+== PingFederate で SP 接続を作成します
+
+PingFederate で SP 接続を作成すると、管理ノード用に StorageGRID からダウンロードした SAML メタデータがインポートされます。メタデータファイルには、必要な値の多くが含まれています。
+
+
+TIP: ユーザが任意のノードに対して安全にサインインおよびサインアウトできるように、 StorageGRID システム内の管理ノードごとに SP 接続を作成する必要があります。次の手順に従って、最初の SP 接続を作成します。次に、に進み、<<追加の SP 接続を作成します>>必要な追加の接続を作成します。
+
+
+
+=== SP 接続タイプを選択します
+
+.手順
+. [ * アプリケーション * > * 統合 * > * SP 接続 * ] に移動します。
+. [ 接続の作成 *] を選択します。
+. 「 * この接続にテンプレートを使用しない * 」を選択します。
+. ブラウザ SSO プロファイル * および * SAML 2.0 * をプロトコルとして選択します。
+
+
+
+
+=== SP メタデータをインポートします
+
+.手順
+. メタデータのインポートタブで、 * ファイル * を選択します。
+. 管理ノードの StorageGRID シングルサインオンページからダウンロードした SAML メタデータファイルを選択します。
+. [Metadata Summary]と[General Info]タブに表示される情報を確認します。
++
+パートナーのエンティティ ID と接続名は、 StorageGRID SP 接続 ID に設定されています。（例： 10.96.105.200-DC1-ADM1-105-200 ）。ベース URL は、 StorageGRID 管理ノードの IP です。
+
+. 「 * 次へ * 」を選択します。
+
+
+
+
+=== IdP ブラウザの SSO を設定する
+
+.手順
+. ブラウザ SSO タブで、 * ブラウザ SSO の設定 * を選択します。
+. SAML プロファイルタブで、 * SP が開始した SSO * 、 * SP - 初期 SLO * 、 * IdP が開始した SSO * 、および * IdP によって開始された SLO * オプションを選択します。
+. 「 * 次へ * 」を選択します。
+. [Assertion Lifetime （アサーションの有効期間） ] タブで、変更を行いません。
+. [ アサーションの作成 ] タブで、 [ * アサーションの作成の設定 * ] を選択します。
++
+.. [ID マッピング ] タブで、 [* 標準 * ] を選択します。
+.. [ 属性契約（ Attribute Contract ） ] タブで、属性契約として * sama_subject * を使用し、インポートされた名前形式を指定しません。
+
+
+. [Extend the Contract]で、*[Delete]*を選択して、使用されていないを削除し `urn:oid`ます。
+
+
+
+
+=== アダプタインスタンスをマッピングします
+
+.手順
+. [Authentication Source Mapping] タブで、 [* Map New Adapter Instance] を選択します。
+. [Adapter instance]タブで、作成したを選択し<<adapter-instance,アダプタインスタンス>>ます。
+. [ マッピング方法 ] タブで、 [ データストアから追加属性を取得する *] を選択します。
+. [ 属性ソースとユーザールックアップ ] タブで、 [ 属性ソースの追加 ] を選択します。
+. [Data Store]タブで、説明を入力し、追加したを選択します<<data-store,データストア>>。
+. LDAP ディレクトリ検索タブで、次の手順を実行します。
++
+** 「 * ベース DN * 」を入力します。この DN は、 LDAP サーバの StorageGRID で入力した値と完全に一致している必要があります。
+** 検索範囲（ Search Scope ）で、 * サブツリー * （ * Subtree * ）を選択します。
+** [ルートオブジェクトクラス]で、*objectGUID*または*userPrincipalName*のいずれかの属性を検索して追加します。
+
+
+. [LDAP Binary Attribute Encoding Types] タブで、 *objectGUID * 属性として *Base64 * を選択します。
+. LDAP Filter タブで、 * sAMAccountName = $ ｛ userName ｝ * と入力します。
+. [Attribute Contract Fulfillment]タブで、[Source]ドロップダウンから*[LDAP（attribute）]*を選択し、[Value]ドロップダウンから* objectGUID *または* userPrincipalName *を選択します。
+. 属性ソースを確認して保存します。
+. Failsave Attribute Source タブで、 * Abort the SSO Transaction * を選択します。
+. 概要を確認し、「 * Done * 」を選択します。
+. 「 Done （完了）」を選択します。
+
+
+
+
+=== プロトコルを設定します
+
+.手順
+. * SP Connection * > * Browser SSO * > * Protocol Settings * タブで、 * Configure Protocol Settings * を選択します。
+. [アサーションコンシューマサービスURL]タブで、StorageGRID SAMLメタデータからインポートされたデフォルト値を受け入れます（バインドの場合は* POST *、エンドポイントURLの場合は* `/api/saml-response`）。
+. [SLOサービスURLs]タブで、StorageGRID SAMLメタデータ（バインドの場合は* redirect*、エンドポイントURLの場合は* redirect*）からインポートされたデフォルト値を受け入れます `/api/saml-logout`。
+. [Allowable SAML Bindings]タブで、[*artifact*]および[*SOAP*]を選択解除します。必要なのは、 * POST * および * redirect * のみです。
+. [Signature Policy]タブで、[* Require Authn Requests to be Signed]チェックボックスと[* Always Sign Assertion]チェックボックスをオンのままにします。
+. ［ 暗号化ポリシー ］ タブで、 ［ * なし * ］ を選択します。
+. 概要を確認し、「 * Done * 」を選択してプロトコル設定を保存します。
+. 概要を確認し、「完了」を選択して、ブラウザ SSO 設定を保存します。
+
+
+
+
+=== クレデンシャルを設定
+
+.手順
+. ［ SP 接続 ］ タブで ' ［ * 資格情報 * ］ を選択します
+. 資格情報タブで、 * 資格情報の設定 * を選択します。
+. 作成またはインポートしたを選択し<<signing-certificate,署名証明書>>ます。
+. 「 * 次へ * 」を選択して、「 * 署名検証設定の管理 * 」に移動します。
++
+.. [ 信頼モデル ] タブで、 [*Unanchored] を選択します。
+.. [Signature Verification Certificate] タブで、 StorageGRID SAML メタデータからインポートした署名証明書情報を確認します。
+
+
+. 概要画面を確認し、 ［ * 保存 * ］ を選択して SP 接続を保存します。
+
+
+
+
+=== 追加の SP 接続を作成します
+
+最初の SP 接続をコピーして、グリッド内の管理ノードごとに必要な SP 接続を作成できます。コピーごとに新しいメタデータをアップロードします。
+
+
+NOTE: 異なる管理ノードの SP 接続では、パートナーのエンティティ ID 、ベース URL 、接続 ID 、接続名、署名の検証を除き、同じ設定を使用します。 と SLO 応答 URL 。
+
+.手順
+. * Action * > * Copy * を選択して、追加の管理ノードごとに最初の SP 接続のコピーを作成します。
+. コピーの接続 ID と接続名を入力し、 * 保存 * を選択します。
+. 管理ノードに対応するメタデータファイルを選択します。
++
+.. 「 * アクション * > * メタデータで更新 * 」を選択します。
+.. 「 * ファイルを選択」を選択し、メタデータをアップロードします。
+.. 「 * 次へ * 」を選択します。
+.. [ 保存（ Save ） ] を選択します。
+
+
+. 未使用の属性によるエラーを解決します。
++
+.. 新しい接続を選択します。
+.. ブラウザ SSO の設定 > アサーションの作成の設定 > 属性契約 * を選択します。
+.. urn ： Oid * のエントリを削除します。
+.. [ 保存（ Save ） ] を選択します。
+
+
+

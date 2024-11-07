@@ -1,0 +1,59 @@
+---
+section: vmware
+title: VMwareへのStorageGRIDのインストール
+entries:
+- title: クイックスタート
+  pdf-filename: VMwareへのStorageGRIDのインストール
+  url: "/vmware/index.html"
+- title: VMwareへのインストールの計画と準備
+  entries:
+  - title: 必要な情報と資料
+    url: "/vmware/required-materials.html"
+  - title: StorageGRID インストールファイルをダウンロードして展開します
+    url: "/vmware/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: インストールファイルを手動で検証する
+    url: "/vmware/download-files-verify.html"
+  - title: ソフトウェア要件
+    url: "/vmware/software-requirements.html"
+  - title: CPUオヨビRAMノヨウケン
+    url: "/vmware/cpu-and-ram-requirements.html"
+  - title: ストレージとパフォーマンスの要件
+    url: "/vmware/storage-and-performance-requirements.html"
+- title: インストールの自動化（ VMware ）
+  url: "/vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
+- title: 仮想マシングリッドノードの導入（ VMware ）
+  entries:
+  - title: 導入環境に関する情報を収集します
+    url: "/vmware/collecting-information-about-your-deployment-environment.html"
+  - title: グリッドノードによるプライマリ管理ノードの検出
+    url: "/vmware/how-grid-nodes-discover-primary-admin-node.html"
+  - title: StorageGRID ノードを仮想マシンとして導入
+    url: "/vmware/deploying-storagegrid-node-as-virtual-machine.html"
+- title: グリッドの設定とインストールの完了（ VMware ）
+  entries:
+  - title: Grid Manager に移動します
+    url: "/vmware/navigating-to-grid-manager.html"
+  - title: ライセンス情報を指定します
+    url: "/vmware/specifying-storagegrid-license-information.html"
+  - title: サイトを追加します
+    url: "/vmware/adding-sites.html"
+  - title: Grid ネットワークサブネットを指定してください
+    url: "/vmware/specifying-grid-network-subnets.html"
+  - title: 保留中のグリッドノードを承認します
+    url: "/vmware/approving-pending-grid-nodes.html"
+  - title: NTPサーバ情報の指定
+    url: "/vmware/specifying-network-time-protocol-server-information.html"
+  - title: DNSサーバ情報の指定
+    url: "/vmware/specifying-domain-name-system-server-information.html"
+  - title: システムパスワードを指定します
+    url: "/vmware/specifying-storagegrid-system-passwords.html"
+  - title: 設定を確認し、インストールを完了します
+    url: "/vmware/reviewing-your-configuration-and-completing-installation.html"
+  - title: インストール後のガイドライン
+    url: "/vmware/post-installation-guidelines.html"
+- title: インストールREST API
+  url: "/vmware/overview-of-installation-rest-api.html"
+- title: 次の手順
+  url: "/vmware/where-to-go-next.html"
+- title: インストールに関する問題のトラブルシューティング
+  url: "/vmware/troubleshooting-installation-issues.html"

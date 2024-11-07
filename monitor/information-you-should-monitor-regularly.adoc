@@ -1,0 +1,83 @@
+---
+permalink: monitor/information-you-should-monitor-regularly.html 
+sidebar: sidebar 
+keywords: when to monitor, what to monitor 
+summary: エラーが発生したりグリッドの一部が使用できなくなったりしてもStorageGRID システムは引き続き動作しますが、潜在的な問題がグリッドの効率や可用性に影響する前に監視して対処する必要があります。 
+---
+= 何をいつ監視するか
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+エラーが発生したりグリッドの一部が使用できなくなったりしてもStorageGRID システムは引き続き動作しますが、潜在的な問題がグリッドの効率や可用性に影響する前に監視して対処する必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+.タスクの監視について
+ビジーシステムでは大量の情報が生成されます。次のリストは、継続的に監視する必要がある最も重要な情報に関するガイダンスを示しています。
+
+[cols="1a,1a"]
+|===
+| 監視対象 | 頻度 
+
+
+ a| 
+link:monitoring-system-health.html["システムヘルスステータス"]
+ a| 
+毎日
+
+
+
+ a| 
+の消費率link:monitoring-storage-capacity.html["ストレージノードのオブジェクトとメタデータの容量"]
+ a| 
+毎週
+
+
+
+ a| 
+link:monitoring-information-lifecycle-management.html["情報ライフサイクル管理のオペレーション"]
+ a| 
+毎週
+
+
+
+ a| 
+link:monitoring-network-connections-and-performance.html["ネットワークおよびシステムリソース"]
+ a| 
+毎週
+
+
+
+ a| 
+link:monitoring-tenant-activity.html["テナントのアクティビティ"]
+ a| 
+毎週
+
+
+
+ a| 
+link:monitoring-object-ingest-and-retrieval-rates.html["S3クライアント処理"]
+ a| 
+毎週
+
+
+
+ a| 
+link:monitoring-load-balancing-operations.html["ロードバランシング操作"]
+ a| 
+初期設定後と設定の変更後
+
+
+
+ a| 
+link:grid-federation-monitor-connections.html["グリッドフェデレーション接続"]
+ a| 
+毎週
+
+|===

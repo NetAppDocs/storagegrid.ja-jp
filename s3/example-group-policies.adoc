@@ -1,0 +1,108 @@
+---
+permalink: s3/example-group-policies.html 
+sidebar: sidebar 
+keywords: group policy examples 
+summary: このセクションの例を使用して、グループのStorageGRID アクセスポリシーを作成します。 
+---
+= グループポリシーの例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このセクションの例を使用して、グループのStorageGRID アクセスポリシーを作成します。
+
+グループポリシーは、そのポリシーが関連付けられたグループに対するアクセス権限を指定します。ポリシーには暗黙的な要素が含まれていない `Principal`ため、要素はありません。グループポリシーは Tenant Manager または API を使用して設定します。
+
+
+
+== 例： Tenant Manager を使用してグループポリシーを設定します
+
+Tenant Managerでグループを追加または編集するときに、グループポリシーを選択して、このグループのメンバーに付与するS3アクセス権限を決定できます。を参照して link:../tenant/creating-groups-for-s3-tenant.html["S3 テナント用のグループを作成します"]
+
+* * No S3 Access * ：デフォルトオプション。バケットポリシーでアクセスが許可されていないかぎり、このグループのユーザはS3リソースにアクセスできません。このオプションを選択すると、デフォルトでは root ユーザにのみ S3 リソースへのアクセスが許可されます。
+* * 読み取り専用アクセス * ：このグループのユーザには、 S3 リソースへの読み取り専用アクセスが許可されます。たとえば、オブジェクトをリストして、オブジェクトデータ、メタデータ、タグを読み取ることができます。このオプションを選択すると、テキストボックスに読み取り専用グループポリシーの JSON 文字列が表示されます。この文字列は編集できません。
+* * フルアクセス * ：このグループのユーザには、バケットを含む S3 リソースへのフルアクセスが許可されます。このオプションを選択すると、テキストボックスにフルアクセスグループポリシーの JSON 文字列が表示されます。この文字列は編集できません。
+* *ランサムウェアの軽減*：このサンプルポリシーは、このテナントのすべてのバケットを環境 します。このグループのユーザは共通の操作を実行できますが、オブジェクトのバージョン管理が有効になっているバケットからオブジェクトを完全に削除することはできません。
++
+Manage All Buckets権限を持つTenant Managerユーザは、このグループポリシーよりも優先できます。[すべてのバケットを管理]権限を信頼できるユーザに制限し、可能な場合は多要素認証（MFA）を使用します。
+
+* * カスタム * ：グループ内のユーザーには、テキストボックスで指定した権限が付与されます。
+
+
+
+
+== 例：グループにすべてのバケットへのフルアクセスを許可する
+
+この例では、バケットポリシーで明示的に拒否されている場合を除き、グループのすべてのメンバーにテナントアカウントが所有するすべてのバケットへのフルアクセスが許可されます。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Action": "s3:*",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::*"
+    }
+  ]
+}
+----
+
+
+== 例：グループにすべてのバケットへの読み取り専用アクセスを許可する
+
+この例では、バケットポリシーで明示的に拒否されている場合を除き、グループのすべてのメンバーに S3 リソースへの読み取り専用アクセスが許可されます。たとえば、オブジェクトをリストして、オブジェクトデータ、メタデータ、タグを読み取ることができます。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Sid": "AllowGroupReadOnlyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:ListBucket",
+        "s3:ListBucketVersions",
+        "s3:GetObject",
+        "s3:GetObjectTagging",
+        "s3:GetObjectVersion",
+        "s3:GetObjectVersionTagging"
+      ],
+      "Resource": "arn:aws:s3:::*"
+    }
+  ]
+}
+----
+
+
+== 例：グループメンバーにバケット内の「フォルダ」へのフルアクセスのみを許可する
+
+この例では、指定したバケット内の特定のフォルダ（キープレフィックス）のリストおよびアクセスのみがグループのメンバーに許可されます。これらのフォルダのプライバシー設定を決めるときは、他のグループポリシーやバケットポリシーのアクセス権限を考慮する必要があります。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Sid": "AllowListBucketOfASpecificUserPrefix",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::department-bucket",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": "${aws:username}/*"
+        }
+      }
+    },
+    {
+      "Sid": "AllowUserSpecificActionsOnlyInTheSpecificUserPrefix",
+      "Effect": "Allow",
+      "Action": "s3:*Object",
+      "Resource": "arn:aws:s3:::department-bucket/${aws:username}/*"
+    }
+  ]
+}
+----

@@ -1,0 +1,65 @@
+---
+permalink: expand/configuring-expanded-storagegrid-system.html 
+sidebar: sidebar 
+keywords: expansion, configuration 
+summary: 拡張が完了したら、統合と設定のための追加の手順を実行する必要があります。 
+---
+= 拡張後の設定手順
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+拡張が完了したら、統合と設定のための追加の手順を実行する必要があります。
+
+.タスクの内容
+拡張で追加するグリッドノードまたはサイトに応じて、以下の設定タスクを実行する必要があります。システムのインストールおよび管理時に選択したオプション、および拡張時に追加したノードとサイトの設定方法によっては、一部のタスクはオプションです。
+
+.手順
+. サイトを追加した場合：
++
+** link:../ilm/creating-storage-pool.html["ストレージプールを作成します"]（サイト）と、新しいストレージノード用に選択した各ストレージグレード。
+** ILMポリシーが新しい要件を満たしていることを確認します。ルールの変更が必要な場合、link:../ilm/access-create-ilm-rule-wizard.html["新しいルールを作成します"]およびlink:../ilm/creating-ilm-policy.html["ILMポリシーを更新します"]。ルールがすでに正しい場合は、link:../ilm/creating-ilm-policy.html#activate-ilm-policy["新しいポリシーをアクティブ化します"]StorageGRIDで新しいノードが使用されるようにルールを変更する必要はありません。
+** そのサイトからネットワークタイムプロトコル（NTP）サーバにアクセスできることを確認します。を参照して link:../maintain/configuring-ntp-servers.html["NTPサーバを管理します。"]
++
+
+CAUTION: 各サイトの少なくとも 2 つのノードが、少なくとも 4 つの外部 NTP ソースにアクセスできることを確認します。NTP ソースにアクセスできるノードがサイトに 1 つしかないと、そのノードがダウンした場合にタイミングの問題が生じます。また、各サイトで 2 つのノードをプライマリ NTP ソースとして指定することにより、サイトがグリッドの他の部分から分離されても、正確なタイミングが保証されます。
+
+
+
+. 既存のサイトにストレージノードを追加した場合は、次の手順を実行します。
++
+** link:../ilm/viewing-storage-pool-details.html["ストレージプールの詳細を表示します"]追加した各ノードが想定されるストレージプールに含まれ、想定されるILMルールで使用されていることを確認するため。
+** ILMポリシーが新しい要件を満たしていることを確認します。ルールの変更が必要な場合、link:../ilm/access-create-ilm-rule-wizard.html["新しいルールを作成します"]およびlink:../ilm/creating-ilm-policy.html["ILMポリシーを更新します"]。ルールがすでに正しい場合は、link:../ilm/creating-ilm-policy.html#activate-ilm-policy["新しいポリシーをアクティブ化します"]StorageGRIDで新しいノードが使用されるようにルールを変更する必要はありません。
+** link:verifying-storage-node-is-active.html["ストレージノードがアクティブであることを確認します"]オブジェクトを取り込むことができます。
+** 推奨される数のストレージノードを追加できなかった場合は、イレイジャーコーディングデータをリバランシングします。を参照して link:rebalancing-erasure-coded-data-after-adding-storage-nodes.html["ストレージノードの追加後にイレイジャーコーディングデータをリバランシングします"]
+
+
+. ゲートウェイノードを追加した場合：
++
+** クライアント接続にハイアベイラビリティ（ HA ）グループが使用される場合は、必要に応じてゲートウェイノードを HA グループに追加します。既存の HA グループのリストを確認して新しいノードを追加するには、 * configuration * > * Network * > * High Availability groups * を選択します。を参照して link:../admin/configure-high-availability-group.html["ハイアベイラビリティグループを設定する"]
+
+
+. 管理ノードを追加した場合の手順は次のとおりです。
++
+.. StorageGRID システムでシングルサインオン（ SSO ）が有効になっている場合は、新しい管理ノードの証明書利用者信頼を作成します。この証明書利用者信頼を作成するまで、ノードにサインインすることはできません。を参照して link:../admin/configuring-sso.html["シングルサインオンを設定します"]
+.. 管理ノードでロードバランササービスを使用する場合は、必要に応じて新しい管理ノードをHAグループに追加します。既存の HA グループのリストを確認して新しいノードを追加するには、 * configuration * > * Network * > * High Availability groups * を選択します。を参照して link:../admin/configure-high-availability-group.html["ハイアベイラビリティグループを設定する"]
+.. 必要に応じて、管理ノードデータベースをプライマリ管理ノードから拡張管理ノードにコピーします。これは、各管理ノードで属性と監査の情報の整合性を維持する場合に行います。を参照して link:copying-admin-node-database.html["管理ノードデータベースをコピーします"]
+.. 必要に応じて、 Prometheus データベースをプライマリ管理ノードから拡張管理ノードにコピーします。これは、各管理ノードで指標の履歴の整合性を維持する場合に行います。を参照して link:copying-prometheus-metrics.html["Prometheus 指標をコピーする"]
+.. 必要に応じて、既存の監査ログをプライマリ管理ノードから拡張管理ノードにコピーします。これは、各管理ノードでログの履歴情報の整合性を維持する場合に行います。を参照して link:copying-audit-logs.html["監査ログをコピーする"]
+
+
+. 拡張ノードが信頼されていないクライアントネットワークで追加されたかどうかを確認したり、ノードのクライアントネットワークが信頼されていないか信頼されているかを変更するには、* configuration *>* Security *>* Firewall control *に移動します。
++
+拡張ノードのクライアントネットワークが信頼されていない場合は、ロードバランサエンドポイントを使用してクライアントネットワークのノードへの接続を確立する必要があります。およびを参照してくださいlink:../admin/configuring-load-balancer-endpoints.html["ロードバランサエンドポイントを設定する"]link:../admin/manage-firewall-controls.html["ファイアウォールコントロールを管理します"]。
+
+. DNSを設定します。
++
+DNS 設定をグリッドノードごとに個別に指定していた場合は、新しいノード用のノード単位のカスタム DNS 設定を追加する必要があります。を参照して link:../maintain/modifying-dns-configuration-for-single-grid-node.html["単一のグリッドノードの DNS 設定を変更します"]
+
+
+
+適切に動作するように、2つまたは3つのDNSサーバを指定します。3つ以上を指定すると、一部のプラットフォームではOSに制限があるため、3つだけが使用される可能性があります。ルーティングが制限されている環境では、個 々 のノード（通常はサイトのすべてのノード）で、最大3つのDNSサーバの異なるセットを使用できますlink:../maintain/modifying-dns-configuration-for-single-grid-node.html["DNSサーバリストをカスタマイズします"]。
+
+可能であれば、各サイトがローカルにアクセスできるDNSサーバを使用して、孤立したサイトが外部の宛先のFQDNを解決できるようにします。

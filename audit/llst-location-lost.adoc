@@ -1,0 +1,99 @@
+---
+permalink: audit/llst-location-lost.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, LLST, Location Lost 
+summary: このメッセージは、オブジェクトコピー（レプリケートまたはイレイジャーコーディング\）の場所が見つからない場合に生成されます。 
+---
+= LLST ：ロケーションが失われました
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このメッセージは、オブジェクトコピー（レプリケートまたはイレイジャーコーディング）の場所が見つからない場合に生成されます。
+
+[cols="1a,1a,4a"]
+|===
+| コード | フィールド | 製品説明 
+
+
+ a| 
+CBIL
+ a| 
+CBID
+ a| 
+影響を受ける CBID 。
+
+
+
+ a| 
+ECPR
+ a| 
+イレイジャーコーディングプロファイル
+ a| 
+イレイジャーコーディングされたオブジェクトデータ用。使用されているイレイジャーコーディングプロファイルのID。
+
+
+
+ a| 
+LTYP
+ a| 
+保管場所タイプ
+ a| 
+CLDI （ Online ）：レプリケートされたオブジェクトデータ用
+
+CLEC （ Online ）：イレイジャーコーディングされたオブジェクトデータ用
+
+CLNL （ Nearline ）：アーカイブされたレプリケートオブジェクトデータ用
+
+
+
+ a| 
+NOID
+ a| 
+ソースノード ID
+ a| 
+場所が失われたノード ID 。
+
+
+
+ a| 
+PCLD
+ a| 
+レプリケートオブジェクトへのパス
+ a| 
+損失オブジェクトデータのディスクの場所への完全なパス。LTYP の値が CLDI （つまりレプリケートオブジェクトの場合）の場合にのみ返されます。
+
+形式は次のとおりです。 `/var/local/rangedb/2/p/13/13/00oJs6X%{h{U)SeUFxE@`
+
+
+
+ a| 
+RSLT
+ a| 
+結果
+ a| 
+常に NONE 。RSLT は必須のメッセージフィールドですが、このメッセージには該当しません。このメッセージがフィルタリングされないように、 SUCS ではなく NONE が使用されます。
+
+
+
+ a| 
+TsRC
+ a| 
+トリガ元
+ a| 
+USER ：ユーザがトリガーしました
+
+SYST ：システムがトリガーされました
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique ID の略
+ a| 
+StorageGRID システムでの該当オブジェクトの識別子。
+
+|===

@@ -1,0 +1,67 @@
+---
+permalink: fabricpool/creating-traffic-classification-policy-for-fabricpool.html 
+sidebar: sidebar 
+keywords: fabricPool, traffic classification, traffic policy, QoS, quality of service 
+summary: 必要に応じて、 StorageGRID トラフィック分類ポリシーを設計して、 FabricPool ワークロードのサービス品質を最適化できます。 
+---
+= FabricPool のトラフィック分類ポリシーを作成します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+必要に応じて、 StorageGRID トラフィック分類ポリシーを設計して、 FabricPool ワークロードのサービス品質を最適化できます。
+
+このタスクの詳細については、を参照してくださいlink:../admin/managing-traffic-classification-policies.html["トラフィック分類ポリシーを管理します"]。FabricPoolセットアップウィザードを使用してこのタスクを実行するには、に進みますlink:use-fabricpool-setup-wizard-steps.html["FabricPool セットアップウィザードにアクセスして完了します"]。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["rootアクセス権限"]。
+
+
+.タスクの内容
+FabricPool のトラフィック分類ポリシーを作成する場合のベストプラクティスは、次のようにワークロードによって異なります。
+
+* FabricPool のプライマリワークロードのデータをStorageGRID に階層化する場合は、FabricPool ワークロードの帯域幅がほとんどになるようにする必要があります。トラフィック分類ポリシーを作成して、他のすべてのワークロードを制限できます。
++
+
+NOTE: 一般に、 FabricPool の読み取り処理は、書き込み処理よりも優先順位を付けることが重要です。
+
++
+たとえば、他の S3 クライアントがこの StorageGRID システムを使用している場合は、トラフィック分類ポリシーを作成する必要があります。他のバケット、テナント、 IP サブネット、またはロードバランサエンドポイントのネットワークトラフィックを制限できます。
+
+* 通常、FabricPoolワークロードにQoS制限を課すことはなく、他のワークロードだけを制限します。
+* 他のワークロードに適用される制限には、ワークロードの動作を考慮する必要があります。また、グリッドのサイジングと機能、および想定される利用率に応じて、制限が適用されます。
+
+
+.手順
+. * configuration * > * Network * > * traffic classification * を選択します。
+. 「 * Create * 」を選択します。
+. ポリシーの名前と概要 （オプション）を入力し、* Continue *を選択します。
+. [一致ルールの追加]ステップで、少なくとも1つのルールを追加します。
++
+.. [ルールの追加]*を選択します
+.. [Type]で、*[Load balancer endpoint]*を選択し、FabricPool 用に作成したロードバランサエンドポイントを選択します。
++
+FabricPool テナントアカウントまたはバケットを選択することもできます。
+
+.. このトラフィックポリシーで他のエンドポイントのトラフィックを制限する場合は、* Inverse Match *を選択します。
+
+
+. 必要に応じて、1つ以上の制限を追加して、ルールに一致するネットワークトラフィックを制御します。
++
+
+NOTE: StorageGRID では、制限を追加しなくても指標が収集されるため、トラフィックの傾向を把握できます。
+
++
+.. [制限の追加]*を選択します。
+.. 制限するトラフィックのタイプと適用する制限を選択します。
+
+
+. 「 * Continue * 」を選択します。
+. トラフィック分類ポリシーを読んで確認します。前へ*ボタンを使用して前に戻り、必要に応じて変更を行います。ポリシーに問題がなければ、*[保存して続行]*を選択します。
+
+
+.終わったら
+link:../admin/viewing-network-traffic-metrics.html["ネットワークトラフィックの指標を表示します"]ポリシーが想定どおりのトラフィック制限を適用していることを確認します。

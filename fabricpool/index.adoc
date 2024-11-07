@@ -1,0 +1,92 @@
+---
+permalink: fabricpool/index.html 
+sidebar: sidebar 
+keywords: how to configure storagegrid for fabricpool, using fabricpool with storagegrid, 
+summary: NetApp ONTAP ソフトウェアを使用している場合は、NetApp FabricPool を使用して、アクセス頻度の低いデータをNetApp StorageGRID オブジェクトストレージシステムに階層化できます。 
+---
+= StorageGRID for FabricPool を設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+NetApp ONTAP ソフトウェアを使用している場合は、NetApp FabricPool を使用して、アクセス頻度の低いデータをNetApp StorageGRID オブジェクトストレージシステムに階層化できます。
+
+次の手順に従って、次の操作を行います
+
+* FabricPool ワークロード用にStorageGRID を設定する際の考慮事項とベストプラクティスを紹介します。
+* FabricPool で使用するStorageGRID オブジェクトストレージシステムの設定方法について説明します。
+* StorageGRID をFabricPool クラウド階層として接続するときに、ONTAP に必要な値を指定する方法について説明します。
+
+
+
+
+== StorageGRID for FabricPool を設定するためのクイックスタート
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]設定を計画する
+[role="quick-margin-list"]
+* アクセス頻度の低い ONTAP データを StorageGRID に階層化するときに使用する FabricPool ボリューム階層化ポリシーを決定します。
+* ストレージ容量とパフォーマンスのニーズを満たす StorageGRID システムを計画して設置します。
+* StorageGRIDシステムソフトウェア（およびを含む）について理解しますlink:../primer/exploring-grid-manager.html["Grid Manager"]link:../primer/exploring-tenant-manager.html["テナントマネージャ"]。
+* link:best-practices-for-high-availability-groups.html["HAグループ"]、link:best-practices-for-load-balancing.html["ロードバランシング"]、link:best-practices-ilm.html["ILM"]、のFabricPoolのベストプラクティスを確認しますlink:other-best-practices-for-storagegrid-and-fabricpool.html["もっと"]。
+* ONTAP およびFabricPool の使用と設定に関する詳細については、次のリソースを参照してください。
++
+https://www.netapp.com/pdf.html?item=/media/17239-tr4598pdf.pdf["TR-4598：『FabricPool Best Practices in ONTAP 』"^]
+
++
+https://docs.netapp.com/us-en/ontap/fabricpool/index.html["FabricPoolのONTAPドキュメント"^]
+
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"]前提条件となるタスクの実行
+[role="quick-margin-para"]
+link:information-needed-to-attach-storagegrid-as-cloud-tier.html["StorageGRID をクラウド階層として接続するために必要な情報"]次の情報を含むを入手します。
+
+[role="quick-margin-list"]
+* IPアドレス
+* ドメイン名
+* SSL証明書
+
+
+[role="quick-margin-para"]
+必要に応じて、とを設定しlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]link:../admin/configuring-sso.html["シングルサインオン"]ます。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]StorageGRIDの設定
+[role="quick-margin-para"]
+StorageGRID を使用して、ONTAP がグリッドに接続するために必要な値を取得します。
+
+[role="quick-margin-para"]
+すべての項目を設定するには、を使用することlink:use-fabricpool-setup-wizard.html["FabricPool セットアップウィザード"]を推奨しますが、必要に応じて各エンティティを手動で設定することもできます。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4つ"]ONTAPとDNSの設定
+[role="quick-margin-para"]
+ONTAP Toを使用するlink:configure-ontap.html["クラウド階層を追加します"]と、StorageGRID値が使用されます。次にlink:configure-dns-server.html["DNSエントリを設定します"]、使用するドメイン名にIPアドレスを関連付けます。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["5 つ"]監視と管理
+[role="quick-margin-para"]
+システムが起動して稼働したら、ONTAP とStorageGRID で継続的なタスクを実行して、FabricPool データの階層化を長期的に管理および監視します。
+
+
+
+== FabricPool とは
+
+FabricPool は、ハイパフォーマンスのフラッシュアグリゲートを高パフォーマンス階層として、オブジェクトストアをクラウド階層として使用する ONTAP ハイブリッドストレージ解決策 です。FabricPool 対応アグリゲートを使用すると、パフォーマンス、効率、保護を犠牲にすることなくストレージコストを削減できます。
+
+FabricPool は、クラウド階層（StorageGRID などの外部オブジェクトストア）をローカル階層（ONTAP ストレージアグリゲート）に関連付けて、ディスクの複合コレクションを作成します。FabricPool 内のボリュームは、アクティブ（ホット）データをハイパフォーマンスストレージ（ローカル階層）に保持し、非アクティブ（コールド）データを外部のオブジェクトストア（クラウド階層）に階層化することで、階層化のメリットを活用できます。
+
+アーキテクチャを変更する必要はなく、データとアプリケーションの環境を中央の ONTAP ストレージシステムから引き続き管理できます。
+
+
+
+== StorageGRID とは
+
+NetApp StorageGRID は、ファイルストレージやブロックストレージなどの他のストレージアーキテクチャとは対照的に、データをオブジェクトとして管理するストレージアーキテクチャです。オブジェクトは単一のコンテナ（バケットなど）内に保持され、他のディレクトリ内のディレクトリ内のファイルとしてネストされることはありません。一般にオブジェクトストレージはファイルストレージやブロックストレージよりもパフォーマンスは低くなりますが、拡張性は大幅に向上します。StorageGRID バケットは、ペタバイト規模のデータと数十億個のオブジェクトを保持できます。
+
+
+
+== StorageGRID を FabricPool クラウド階層として使用する理由
+
+FabricPool では、ONTAP データを複数のオブジェクトストレージプロバイダ（StorageGRID など）に階層化できます。サポートされる 1 秒あたりの最大入出力処理数（ IOPS ）をバケットレベルまたはコンテナレベルで設定する可能性があるパブリッククラウドとは異なり、 StorageGRID のパフォーマンスはシステム内のノード数に応じて拡張されます。StorageGRID を FabricPool クラウド階層として使用すると、コールドデータをプライベートクラウド内に保持することで、最高のパフォーマンスと完全なデータ管理を実現できます。
+
+また、 StorageGRID をクラウド階層として使用する場合は、 FabricPool ライセンスは必要ありません。

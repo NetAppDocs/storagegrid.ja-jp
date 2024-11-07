@@ -1,0 +1,69 @@
+---
+permalink: expand/copying-prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, copy metrics, Admin Node expansion 
+summary: 新しい管理ノードを追加したら、 Prometheus で管理されている指標の履歴を必要に応じてプライマリ管理ノードから新しい管理ノードにコピーできます。指標をコピーすると、管理ノード間で指標の履歴の整合性が確保されます。 
+---
+= Prometheus 指標をコピーする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+新しい管理ノードを追加したら、 Prometheus で管理されている指標の履歴を必要に応じてプライマリ管理ノードから新しい管理ノードにコピーできます。指標をコピーすると、管理ノード間で指標の履歴の整合性が確保されます。
+
+.開始する前に
+* 新しい管理ノードがインストールされて実行されている必要があります。
+* あなたはファイルを持ってい `Passwords.txt`ます。
+* プロビジョニングパスフレーズを用意します。
+
+
+.タスクの内容
+管理ノードを追加すると、ソフトウェアのインストールプロセスによって新しい Prometheus データベースが作成されます。Prometheus データベースをプライマリ管理ノード（ _source Admin Node_） から新しい管理ノードにコピーすることで、ノード間で指標の履歴の整合性を維持できます。
+
+
+NOTE: Prometheus データベースのコピーには 1 時間以上かかる場合があります。ソース管理ノードでサービスが停止している間は、グリッドマネージャの一部の機能が使用できなくなります。
+
+.手順
+. ソース管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
+. ソース管理ノードからPrometheusサービスを停止します。 `service prometheus stop`
+. 新しい管理ノードで次の手順を実行します。
++
+.. 新しい管理ノードにログインします。
++
+... 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+... ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+... 次のコマンドを入力してrootに切り替えます。 `su -`
+... ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
+.. Prometheusサービスを停止します。 `service prometheus stop`
+.. SSH エージェントに SSH 秘密鍵を追加します。入力：``ssh-add``
+.. ファイルに記載されているSSHアクセスパスワードを入力し `Passwords.txt`ます。
+.. ソース管理ノードのPrometheusデータベースを新しい管理ノードにコピーします。 `/usr/local/prometheus/bin/prometheus-clone-db.sh _Source_Admin_Node_IP_`
+.. プロンプトが表示されたら、 * Enter * を押して、新しい管理ノード上の新しい Prometheus データベースを破棄することを確認します。
++
+元の Prometheus データベースとその履歴データが新しい管理ノードにコピーされます。コピー処理が完了すると、新しい管理ノードがスクリプトによって起動されます。次のステータスが表示されます。
+
++
+`Database cloned, starting services`
+
+.. 他のサーバにパスワードなしでアクセスする必要がなくなった場合は、 SSH エージェントから秘密鍵を削除します。入力：
++
+`ssh-add -D`
+
+
+
+. ソース管理ノードで Prometheus サービスを再起動します。
++
+`service prometheus start`
+
+

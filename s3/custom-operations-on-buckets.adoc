@@ -1,0 +1,98 @@
+---
+permalink: s3/custom-operations-on-buckets.html 
+sidebar: sidebar 
+keywords: operations, buckets, custom, storagegrid bucket operations 
+summary: StorageGRIDシステムでは、S3 REST APIに追加されるカスタム処理をサポートしています。 
+---
+= StorageGRIDのカスタム処理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRIDシステムでは、S3 REST APIに追加されるカスタム処理をサポートしています。
+
+次の表に、StorageGRIDでサポートされるカスタム処理を示します。
+
+[cols="1a,2a"]
+|===
+| 操作 | 製品説明 
+
+
+ a| 
+link:get-bucket-consistency-request.html["GET Bucket consistency"]
+ a| 
+特定のバケットに適用されている整合性を返します。
+
+
+
+ a| 
+link:put-bucket-consistency-request.html["PUT Bucket consistency"]
+ a| 
+特定のバケットに適用する整合性を設定します。
+
+
+
+ a| 
+link:get-bucket-last-access-time-request.html["GET Bucket last access time のように指定します"]
+ a| 
+特定のバケットで最終アクセス時間の更新が有効になっているか無効になっているかを返します。
+
+
+
+ a| 
+link:put-bucket-last-access-time-request.html["PUT Bucket last access time のように指定します"]
+ a| 
+特定のバケットの最終アクセス時間の更新を有効または無効にできます。
+
+
+
+ a| 
+link:delete-bucket-metadata-notification-configuration-request.html["バケットのメタデータ通知設定を削除します"]
+ a| 
+特定のバケットに関連付けられているメタデータ通知設定 XML を削除します。
+
+
+
+ a| 
+link:get-bucket-metadata-notification-configuration-request.html["GET Bucket metadata notification configuration のコマンドです"]
+ a| 
+特定のバケットに関連付けられているメタデータ通知設定 XML を返します。
+
+
+
+ a| 
+link:put-bucket-metadata-notification-configuration-request.html["PUT Bucket metadata notification configuration のコマンドです"]
+ a| 
+バケットのメタデータ通知サービスを設定します。
+
+
+
+ a| 
+link:get-storage-usage-request.html["GET Storage Usage の略"]
+ a| 
+アカウントおよびアカウントに関連付けられている各バケットで使用されているストレージの総容量が表示されます。
+
+
+
+ a| 
+link:deprecated-put-bucket-request-modifications-for-compliance.html["廃止予定：準拠設定を使用してCreateBucket"]
+ a| 
+廃止およびサポート終了：準拠を有効にした新しいバケットを作成できなくなりました。
+
+
+
+ a| 
+link:deprecated-get-bucket-compliance-request.html["廃止予定：バケット準拠を取得します"]
+ a| 
+廃止されましたがサポートされています：既存の古い準拠バケットに対して現在有効な準拠設定を返します。
+
+
+
+ a| 
+link:deprecated-put-bucket-compliance-request.html["廃止予定：PUT Bucket compliance"]
+ a| 
+廃止されましたがサポートされています：既存の古い準拠バケットの準拠設定を変更できます。
+
+|===

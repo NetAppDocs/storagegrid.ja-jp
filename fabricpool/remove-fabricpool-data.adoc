@@ -1,0 +1,53 @@
+---
+permalink: fabricpool/remove-fabricpool-data.html 
+sidebar: sidebar 
+keywords: fabricPool, ontap, remove data from storagegrid 
+summary: StorageGRIDに現在保存されているFabricPoolデータを削除する必要がある場合は、次の手順を実行します。 
+---
+= StorageGRIDからFabricPoolデータを削除します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRIDに現在格納されているFabricPoolデータを削除する必要がある場合は、ONTAPを使用してFabricPoolボリュームのすべてのデータを取得し、高パフォーマンス階層に昇格する必要があります。
+
+.開始する前に
+* の手順と考慮事項を確認しておき https://docs.netapp.com/us-en/ontap/fabricpool/promote-data-performance-tier-task.html["高パフォーマンス階層にデータを昇格"^]ます。
+* ONTAP 9.8以降を使用している。
+* を使用しているlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* が搭載されたFabricPoolテナントアカウントのStorageGRIDユーザグループに属している必要がありlink:../tenant/tenant-management-permissions.html["すべてのバケットまたはRoot Access権限を管理します"]ます。
+
+
+.タスクの内容
+ここでは、StorageGRIDからFabricPoolにデータを戻す方法について説明します。この手順は、ONTAPとStorageGRIDのテナントマネージャを使用して実行します。
+
+.手順
+. ONTAPから、コマンドを実行し `volume modify`ます。
++
+新しい階層化を停止するにはに `none`設定し `tiering-policy`、以前に階層化されたすべてのデータをStorageGRIDに戻すにはに `promote`設定 `cloud-retrieval-policy`します。
+
++
+を参照してください https://docs.netapp.com/us-en/ontap/fabricpool/promote-all-data-performance-tier-task.html["FabricPoolボリュームのすべてのデータを高パフォーマンス階層に昇格"^]
+
+. 処理が完了するまで待ちます。
++
+コマンドにオプションを https://docs.netapp.com/us-en/ontap/fabricpool/check-status-performance-tier-promotion-task.html["高パフォーマンス階層への昇格のステータスを確認します"^]指定して `tiering`使用できます `volume object-store`。
+
+. 昇格処理が完了したら、FabricPoolテナントアカウントのStorageGRIDテナントマネージャにサインインします。
+. ダッシュボードで* View Buckets *を選択するか、* storage（S3）*>* Buckets *を選択します。
+. FabricPoolバケットが空になったことを確認します。
+. バケットが空の場合は、link:../tenant/deleting-s3-bucket.html["バケットを削除します"]
+
+
+.終了後
+バケットを削除すると、FabricPoolからStorageGRIDへの階層化を続行できなくなります。ただし、ローカル階層は引き続きStorageGRIDクラウド階層に接続されているため、ONTAP System Managerからバケットにアクセスできないことを示すエラーメッセージが返されます。
+
+これらのエラーメッセージが表示されないようにするには、次のいずれかを実行します。
+
+* FabricPoolミラーを使用して、別のクラウド階層をアグリゲートに接続します。
+* FabricPoolアグリゲートからFabricPool以外のアグリゲートにデータを移動してから、使用されていないアグリゲートを削除します。
+
+
+手順については、を参照して https://docs.netapp.com/us-en/ontap/fabricpool/index.html["FabricPoolのONTAPドキュメント"^]ください。

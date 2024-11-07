@@ -1,0 +1,206 @@
+---
+permalink: s3/index.html 
+sidebar: sidebar 
+keywords: about s3, s3 rest api, s3 overview 
+summary: StorageGRID は、 Representational State Transfer （ REST ）の Web サービスのセットとして実装される Simple Storage Service （ S3\） をサポートします。 
+---
+= S3 REST APIでサポートされるバージョンと更新
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID は、 Representational State Transfer （ REST ）の Web サービスのセットとして実装される Simple Storage Service （ S3 ）をサポートします。
+
+S3 REST APIのサポートにより、S3 Webサービス用に開発されたサービス指向アプリケーションを、StorageGRID システムを使用するオンプレミスのオブジェクトストレージに接続できます。クライアントアプリケーションで現在S3 REST API呼び出しを使用している場合は、変更を最小限に抑える必要があります。
+
+
+
+== サポートされるバージョン
+
+StorageGRID でサポートしている S3 および HTTP のバージョンは次のとおりです。
+
+[cols="1a,1a"]
+|===
+| 項目 | バージョン 
+
+
+ a| 
+S3 API仕様
+ a| 
+http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Amazon Web Services （ AWS ）ドキュメント：「 Amazon Simple Storage Service API Reference"^]
+
+
+
+ a| 
+HTTP
+ a| 
+1.1
+
+HTTP の詳細については、 HTTP/1.1 （ RFC 7230~7235 ）を参照してください。
+
+https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616 ：『 Hypertext Transfer Protocol （ HTTP/1.1 ）』"^]
+
+* 注： StorageGRID は、 HTTP/1.1 パイプラインをサポートしません。
+
+|===
+
+
+== S3 REST APIのサポートが更新されました
+
+[cols="1a,4a"]
+|===
+| リリース | コメント 
+
+
+ a| 
+11.9
+ a| 
+* 次の要求およびサポートされるヘッダーについて、事前に計算されたSHA-256チェックサム値のサポートが追加されました。この機能を使用して、アップロードされたオブジェクトの整合性を検証できます。
++
+** CompleteMultipartUpload： `x-amz-checksum-sha256`
+** CreateMultipartUpload： `x-amz-checksum-algorithm`
+** GetObject： `x-amz-checksum-mode`
+** HeadObject： `x-amz-checksum-mode`
+** ListParts
+** PutObject： `x-amz-checksum-sha256`
+** アップロードパーツ： `x-amz-checksum-sha256`
+
+
+* グリッド管理者がテナントレベルの保持期間と準拠設定を制御できるようになりました。これらの設定はS3オブジェクトロックの設定に影響します。
++
+** バケットのデフォルトの保持モードとオブジェクトの保持モード：GovernanceまたはCompliance（グリッド管理者が許可している場合）。
+** バケットのデフォルトの保持期間およびオブジェクトのRetain Until Date：グリッド管理者が設定した最大保持期間の許容値以下にする必要があります。
+
+
+* コンテンツエンコーディングとストリーミング `x-amz-content-sha256`値のサポートが改善されました `aws-chunked`。制限事項：
++
+** 存在する場合は `chunk-signature`オプションで、検証されていません。
+** 存在する場合、 `x-amz-trailer`コンテンツは無視されます。
+
+
+
+
+
+
+ a| 
+11.8
+ a| 
+で使用されている名前に一致するようにS3処理の名前が更新されました http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html["Amazon Web Services （ AWS ）ドキュメント：「 Amazon Simple Storage Service API Reference"^]。
+
+
+
+ a| 
+11.7
+ a| 
+* を追加link:quick-reference-support-for-aws-apis.html["クイックリファレンス：サポートされるS3 API要求"]。
+* S3オブジェクトロックでのガバナンスモードの使用のサポートが追加されました。
+* GET Object要求とHEAD Object要求のStorageGRID固有の応答ヘッダーのサポートが追加されました `x-ntap-sg-cgr-replication-status`。このヘッダーは、グリッド間レプリケーションのオブジェクトのレプリケーションステータスを示します。
+* SelectObjectContent要求でParquetオブジェクトがサポートされるようになりました。
+
+
+
+
+ a| 
+11.6
+ a| 
+* GET Object要求とHEAD Object要求でrequestパラメータを使用できるようになりました `partNumber`。
+* S3 オブジェクトロックのデフォルト保持モードとデフォルトの保持期間がバケットレベルでサポートされるようになりました。
+* オブジェクトに許可される保持期間の範囲を設定するポリシー条件キーのサポートが追加されました `s3:object-lock-remaining-retention-days`。
+* 単一のPUT Object処理のmaximum_recommended_sizeを5GiB（5、368、709、120バイト）に変更しました。5GB より大きいオブジェクトがある場合は、マルチパートアップロードを使用してください。
+
+
+
+
+ a| 
+11.5
+ a| 
+* バケットの暗号化の管理のサポートが追加されました。
+* S3 オブジェクトのロックと廃止された従来の準拠要求のサポートを追加しました。
+* バージョン管理されたバケットでの DELETE Multiple Objects の使用のサポートが追加されました。
+*  `Content-MD5`要求ヘッダーが正しくサポートされるようになりました。
+
+
+
+
+ a| 
+11.4
+ a| 
+* DELETE Bucket tagging 、 GET Bucket tagging 、 PUT Bucket tagging のサポートが追加されました。コスト割り当てタグはサポートされていません。
+* StorageGRID 11.4 で作成されたバケットでは、オブジェクトキー名がパフォーマンスのベストプラクティスに適合するように制限する必要はなくなりました。
+* イベントタイプでのバケット通知のサポートが追加されました `s3:ObjectRestore:Post`。
+* マルチパートの AWS サイズの上限が適用されるようになりました。マルチパートアップロードの各パートのサイズは 5MiB から 5GiB の間にする必要があります。最後の部分は 5MiB より小さくすることができます。
+* TLS 1.3のサポートが追加されました
+
+
+
+
+ a| 
+11.3
+ a| 
+* ユーザ指定のキーによるオブジェクトデータのサーバ側暗号化（ SSE-C ）がサポートされるようになりました。
+* DELETE Bucket lifecycle、GET Bucket lifecycle、PUT Bucket lifecycleの各処理（Expirationアクションのみ）と応答ヘッダーのサポートが追加されました `x-amz-expiration`。
+* PUT Object 、 PUT Object - Copy 、 Multipart Upload が更新されて、取り込み時に同期配置を使用する ILM ルールの影響を受けるようになりました。
+* TLS 1.1 暗号はサポートされなくなりました。
+
+
+
+
+ a| 
+11.2
+ a| 
+クラウドストレージプールで POST Object restore を使用できるようになりました。グループポリシーとバケットポリシーの ARN 、ポリシー条件キー、およびポリシー変数で AWS 構文を使用できるようになりました。StorageGRID 構文を使用する既存のグループポリシーとバケットポリシーは引き続きサポートされます。
+
+* 注：カスタム StorageGRID 機能で使用される ARN やその他の構成 JSON / XML での使用に変更はありませんでした。
+
+
+
+ a| 
+11.1
+ a| 
+Cross-Origin Resource Sharing（CORS）、グリッドノードへのS3クライアント接続でのHTTP、バケットでの準拠設定のサポートが追加されました。
+
+
+
+ a| 
+11.0
+ a| 
+バケットでのプラットフォームサービス（ CloudMirror レプリケーション、通知、および Elasticsearch 検索統合）の設定がサポートされるようになりました。また、バケットに対するオブジェクトタギングの場所の制約と「available」の整合性がサポートされるようになりました。
+
+
+
+ a| 
+10.4
+ a| 
+ILM スキャンのバージョン管理、エンドポイントドメインの名前ページの更新、ポリシーの条件と変数、ポリシーの例、および PutOverwriteObject 権限の変更のサポートが追加されました。
+
+
+
+ a| 
+10.3
+ a| 
+バージョン管理のサポートが追加されました。
+
+
+
+ a| 
+10.2
+ a| 
+グループとバケットのアクセスポリシー、およびマルチパートコピー（ Upload Part - Copy ）のサポートが追加されました。
+
+
+
+ a| 
+10.1
+ a| 
+マルチパートアップロード、仮想ホスト形式の要求、および v4 認証のサポートが追加されました。
+
+
+
+ a| 
+10.0
+ a| 
+StorageGRID システムで S3 REST API のサポートが初めて導入されました。現在サポートされているバージョンの _Simple Storage Service API Reference_is 2006-03-01 。
+
+|===

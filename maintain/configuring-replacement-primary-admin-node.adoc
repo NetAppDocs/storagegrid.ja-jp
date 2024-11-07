@@ -1,0 +1,60 @@
+---
+permalink: maintain/configuring-replacement-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
+summary: 交換用ノードは、 StorageGRID システムのプライマリ管理ノードとして設定する必要があります。 
+---
+= 交換用プライマリ管理ノードを設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+交換用ノードは、 StorageGRID システムのプライマリ管理ノードとして設定する必要があります。
+
+.開始する前に
+* 仮想マシンでホストされているプライマリ管理ノードについて、仮想マシンを導入し、電源をオンにして初期化しておきます。
+* サービスアプライアンスでホストされるプライマリ管理ノードの場合は、アプライアンスを交換し、ソフトウェアをインストールしておく必要があります。を参照してください https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["使用しているアプライアンスのインストール手順"^]。
+* リカバリパッケージファイルの最新のバックアップを確認しておき(`sgws-recovery-package-_id-revision_.zip`ます）。
+* プロビジョニングパスフレーズを用意します。
+
+
+.手順
+. Webブラウザを開き、に移動します `\https://primary_admin_node_ip`。
+. 必要に応じて一時インストーラパスワードを管理します。
++
+** いずれかの方法ですでにパスワードが設定されている場合は、パスワードを入力して続行します。
++
+*** ユーザが以前にインストーラにアクセスしているときにパスワードを設定した
+*** ベアメタルシステムの場合、パスワードは次の場所にあるノード構成ファイルから自動的にインポートされます。 `/etc/storagegrid/nodes/_<node_name>_.conf`
+*** VMの場合、OVFプロパティからSSH /コンソールパスワードが自動的にインポートされました。
+
+
+** パスワードが設定されていない場合は、必要に応じてStorageGRIDインストーラを保護するためのパスワードを設定します。
+
+
+. [*Recover a failed primary Admin Node] をクリックします。
++
+image::../media/install_or_recover_primary_admin_node.png[プライマリ管理ノードをインストールまたはリカバリする]
+
+. リカバリパッケージの最新のバックアップをアップロードします。
++
+.. [* 参照 ] をクリックします。
+.. StorageGRID システムに対応した最新のリカバリパッケージファイルを探し、 * Open * をクリックします。
+
+
+. プロビジョニングパスフレーズを入力します。
+. [ リカバリの開始 ] をクリックします。
++
+リカバリプロセスが開始されます。必要なサービスが開始されるまでの数分間、 Grid Manager を使用できなくなることがあります。リカバリが完了すると、サインインページが表示されます。
+
+. StorageGRID システムでシングルサインオン（ SSO ）が有効になっており、リカバリした管理ノードの証明書利用者信頼がデフォルトの管理インターフェイス証明書を使用するように設定されている場合は、ノードの証明書利用者信頼を Active Directory フェデレーションサービス（ AD FS ）で更新（削除および再作成）します。管理ノードのリカバリプロセス中に生成された新しいデフォルトサーバ証明書を使用します。
++
+
+NOTE: 証明書利用者信頼を設定するには、を参照してくださいlink:../admin/configuring-sso.html["シングルサインオンを設定します"]。デフォルトのサーバ証明書にアクセスするには、管理ノードのコマンドシェルにログインします。ディレクトリに移動し `/var/local/mgmt-api`、ファイルを選択し `server.crt`ます。
+
+
+
+
+CAUTION: プライマリ管理ノードをリカバリしたら、link:assess-hotfix-requirement-during-primary-admin-node-recovery.html["ホットフィックスの適用が必要かどうかを判断する"]を実行します。

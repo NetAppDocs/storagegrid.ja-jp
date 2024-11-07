@@ -1,0 +1,58 @@
+---
+permalink: troubleshoot/resetting-lost-and-missing-object-counts.html 
+sidebar: sidebar 
+keywords: how to reset lost object count, how to reset missing object count 
+summary: StorageGRID システムを調査し、記録されたすべての損失オブジェクトが完全に失われていること、または誤ったアラームであることを確認できたら、 Lost Objects 属性の値を 0 にリセットできます。 
+---
+= 損失オブジェクトと欠落オブジェクトのカウントをリセットします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID システムを調査し、記録されたすべての損失オブジェクトが完全に失われていること、または誤ったアラームであることを確認できたら、 Lost Objects 属性の値を 0 にリセットできます。
+
+.開始する前に
+* Grid Managerにサインインする必要がありますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+.タスクの内容
+Lost Objects カウンタは次のどちらかのページからリセットできます。
+
+* * サポート * > * ツール * > * グリッドトポロジ * > * _ サイト _ * > * _ ストレージノード _ * > * LDR * > * データストア * > * 概要 * > * メイン *
+* * サポート * > * ツール * > * グリッドトポロジ * > * _ サイト _ * > * _ ストレージノード _ * > * DDS * > * データストア * > * 概要 * > * メイン *
+
+
+これらの手順は、 *ldr*>*Data Store* ページからカウンタをリセットする方法を示しています。
+
+.手順
+. サポート * > * ツール * > * グリッドトポロジ * を選択します。
+. 警告または LOST アラームが発生しているストレージノードについて、「 * _Site_* > * _ ストレージノード _ * > * LDR * > * Data Store * > * Configuration * 」を選択します。
+. 「 * Lost Objects Count * をリセット」を選択します。
++
+image::../media/reset_ldr_lost_object_count.gif[LDR Reset Lost Object 数のスクリーンショット]
+
+. [ 変更の適用 *] をクリックします。
++
+Lost Objects 属性が 0 にリセットされ、 * Objects lost * アラートと LOST アラームが解除されます。これには数分かかることがあります。
+
+. 必要に応じて、損失オブジェクトを特定するプロセスで増分された可能性がある、その他の関連属性の値をリセットできます。
++
+.. [*_Site_*>*_Storage Node_*>*ldr*>*erasure Coding*>*Configuration*] を選択します。
+.. 「 Reset Reads Failure Count 」と「 Reset Corrupt Copies Detected Count 」を選択します。
+.. [ 変更の適用 *] をクリックします。
+.. [* _ サイト _ * > * _ ストレージ・ノード _ * > * LDR * > * Verification * > * Configuration * ] を選択します。
+.. 「 Reset Missing Objects Count 」（不足オブジェクト数のリセット）および「 Reset Corrupt Objects Count 」（破損オブジェクト数のリセット）を選択します
+.. 隔離されたオブジェクトが不要であることが確実な場合は、*[Delete Quarantined Objects]*を選択します。
++
+隔離されたオブジェクトは、バックグラウンド検証で破損したレプリケートオブジェクトコピーが確認されると作成されます。ほとんどの場合、 StorageGRID は破損したオブジェクトを自動的に置き換え、隔離されたオブジェクトを削除しても安全です。ただし、 * Objects lost * アラートがトリガーされた場合や、 LOST アラームがトリガーされた場合は、テクニカルサポートが隔離されたオブジェクトにアクセスすることを推奨します。
+
+.. [ 変更の適用 *] をクリックします。
+
+
++
+[ 変更の適用（ Apply Changes ） ] をクリックした後、属性がリセットされるまでに少し時間がかかる場合があります。
+
+

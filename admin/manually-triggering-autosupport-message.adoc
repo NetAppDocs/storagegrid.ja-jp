@@ -1,0 +1,31 @@
+---
+permalink: admin/manually-triggering-autosupport-message.html 
+sidebar: sidebar 
+keywords: autosupport, how to send asup message 
+summary: テクニカルサポートによるStorageGRIDシステムの問題のトラブルシューティングを支援するために、送信するAutoSupportパッケージを手動でトリガーできます。 
+---
+= AutoSupportパッケージを手動でトリガーする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+テクニカルサポートによるStorageGRIDシステムの問題のトラブルシューティングを支援するために、送信するAutoSupportパッケージを手動でトリガーできます。
+
+.開始する前に
+* Grid Managerにサインインする必要がありますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* Root Access権限またはその他のグリッド設定権限が必要です。
+
+
+.手順
+. [ * support * > * Tools * > * AutoSupport * ] を選択します。
+. [アクション]タブで、*[ユーザートリガー型AutoSupportの送信]*を選択します。
++
+StorageGRIDはAutoSupportパッケージをNetApp Support Siteに送信しようとします。試行に成功した場合は、 [ 結果（ Results ） ] タブの [ 最新結果（ Recent Result ） ] * 値と [ 前回成功した時間（ Last Successful Time ） ] * 値が更新されます。問題がある場合は、「*最新の結果*」の値が「失敗」に更新され、StorageGRIDはAutoSupportパッケージを再送信しません。
+
++
+
+TIP: ユーザトリガー型AutoSupportパッケージを送信したら、1分後にブラウザのAutoSupportページを更新して最新の結果にアクセスしてください。
+
+

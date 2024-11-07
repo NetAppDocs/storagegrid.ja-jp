@@ -1,0 +1,318 @@
+---
+permalink: admin/use-api-if-sso-is-enabled-adfs.html 
+sidebar: sidebar 
+keywords: how to access storagegrid API if SSO is enabled with ADFS 
+summary: シングルサインオン（ SSO ）を設定して有効にし、 SSO プロバイダとして Active Directory を使用する場合は、グリッド管理 API またはテナント管理 API で有効な認証トークンを取得するための一連の API 要求を問題 する必要があります。 
+---
+= シングルサインオンが有効な場合（ Active Directory ）は API を使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Active DirectoryをSSOプロバイダとして使用している場合link:../admin/configuring-sso.html["シングルサインオン（ SSO ）の設定と有効化"]は、一連のAPI要求を実行して、グリッド管理APIまたはテナント管理APIで有効な認証トークンを取得する必要があります。
+
+
+
+== シングルサインオンが有効な場合は、 API にサインインします
+
+ここで説明する手順は、 Active Directory を SSO アイデンティティプロバイダとして使用する場合に該当します。
+
+.開始する前に
+* StorageGRID ユーザグループに属するフェデレーテッドユーザの SSO ユーザ名とパスワードが必要です。
+* テナント管理 API にアクセスする場合は、テナントアカウント ID を確認しておきます。
+
+
+.タスクの内容
+認証トークンを取得するには、次のいずれかの例を使用します。
+
+*  `storagegrid-ssoauth.py`Pythonスクリプト。Red Hat Enterprise Linuxの場合は `./debs`StorageGRIDのインストールファイルディレクトリ（UbuntuまたはDebianの場合は、VMwareの場合 `./vsphere`は）にあり(`./rpms`ます。
+* cURL 要求のワークフローの例。
++
+cURL ワークフローは、実行に時間がかかりすぎるとタイムアウトする場合があります。「」というエラーが表示される場合があり `A valid SubjectConfirmation was not found on this Response`ます。
+
++
+
+NOTE: cURL ワークフローの例では、パスワードが他のユーザに表示されないように保護されていません。
+
+
+
+URLエンコードに問題がある場合は、次のエラーが表示されることがあります。 `Unsupported SAML version`
+
+.手順
+. 認証トークンを取得するには、次のいずれかの方法を選択します。
++
+** Pythonスクリプトを使用し `storagegrid-ssoauth.py`ます。手順2に進みます。
+** curl 要求を使用します。手順3に進みます。
+
+
+. スクリプトを使用する `storagegrid-ssoauth.py`場合は、スクリプトをPythonインタープリタに渡してスクリプトを実行します。
++
+プロンプトが表示されたら、次の引数の値を入力します。
+
++
+** SSO 方式。ADFS または ADFS と入力します。
+** SSOユーザ名
+** StorageGRID がインストールされているドメイン
+** StorageGRID のアドレス
+** テナント管理 API にアクセスする場合は、テナントアカウント ID 。
++
+image::../media/sso_auth_python_script_adfs.png[AD FS 用 SSO 認証スクリプト]
+
++
+StorageGRID 認証トークンが出力に表示されます。SSO を使用していない場合の API の使用方法と同様に、トークンを他の要求に使用できるようになりました。
+
+
+
+. cURL 要求を使用する場合は、次の手順 を使用します。
++
+.. サインインに必要な変数を宣言します。
++
+[source, bash]
+----
+export SAMLUSER='my-sso-username'
+export SAMLPASSWORD='my-password'
+export SAMLDOMAIN='my-domain'
+export TENANTACCOUNTID='12345'
+export STORAGEGRID_ADDRESS='storagegrid.example.com'
+export AD_FS_ADDRESS='adfs.example.com'
+----
++
+
+NOTE: グリッド管理APIにアクセスするには、として0を使用し `TENANTACCOUNTID`ます。
+
+.. 署名済みの認証URLを受信するには、にPOST要求を実行し `/api/v3/authorize-saml`、応答からJSONエンコードを削除します。
++
+次の例は、の署名付き認証URLに対するPOST要求を示してい `TENANTACCOUNTID`ます。結果はに渡され `python -m json.tool`、JSONエンコードが削除されます。
+
++
+[source, bash]
+----
+curl -X POST "https://$STORAGEGRID_ADDRESS/api/v3/authorize-saml" \
+  -H "accept: application/json" -H  "Content-Type: application/json" \
+  --data "{\"accountId\": \"$TENANTACCOUNTID\"}" | python -m json.tool
+----
++
+この例の応答には、 URL エンコードされた署名済み URL が含まれていますが、 JSON エンコードされたレイヤは含まれていません。
+
++
+[listing]
+----
+{
+    "apiVersion": "3.0",
+    "data": "https://adfs.example.com/adfs/ls/?SAMLRequest=fZHLbsIwEEV%2FJTuv7...sSl%2BfQ33cvfwA%3D&RelayState=12345",
+    "responseTime": "2018-11-06T16:30:23.355Z",
+    "status": "success"
+}
+----
+.. 後続のコマンドで使用できるように、応答からを保存し `SAMLRequest`ます。
++
+[source, bash]
+----
+export SAMLREQUEST='fZHLbsIwEEV%2FJTuv7...sSl%2BfQ33cvfwA%3D'
+----
+.. AD FS からクライアント要求 ID を含む完全な URL を取得します。
++
+1 つは、前の応答の URL を使用してログインフォームを要求する方法です。
+
++
+[source, bash]
+----
+curl "https://$AD_FS_ADDRESS/adfs/ls/?SAMLRequest=$SAMLREQUEST&RelayState=$TENANTACCOUNTID" | grep 'form method="post" id="loginForm"'
+----
++
+応答にはクライアント要求 ID が含まれています。
+
++
+[listing]
+----
+<form method="post" id="loginForm" autocomplete="off" novalidate="novalidate" onKeyPress="if (event && event.keyCode == 13) Login.submitLoginRequest();" action="/adfs/ls/?
+SAMLRequest=fZHRToMwFIZfhb...UJikvo77sXPw%3D%3D&RelayState=12345&client-request-id=00000000-0000-0000-ee02-0080000000de" >
+----
+.. 応答からクライアント要求 ID を保存します。
++
+[source, bash]
+----
+export SAMLREQUESTID='00000000-0000-0000-ee02-0080000000de'
+----
+.. 前の応答のフォームアクションにクレデンシャルを送信します。
++
+[source, bash]
+----
+curl -X POST "https://$AD_FS_ADDRESS/adfs/ls/?SAMLRequest=$SAMLREQUEST&RelayState=$TENANTACCOUNTID&client-request-id=$SAMLREQUESTID" \
+--data "UserName=$SAMLUSER@$SAMLDOMAIN&Password=$SAMLPASSWORD&AuthMethod=FormsAuthentication" --include
+----
++
+AD FS からヘッダーに追加情報 が含まれた 302 リダイレクトが返されます。
+
++
+
+NOTE: SSO システムで多要素認証（ MFA ）が有効になっている場合、フォームポストには 2 つ目のパスワードまたはその他のクレデンシャルも含まれます。
+
++
+[listing]
+----
+HTTP/1.1 302 Found
+Content-Length: 0
+Content-Type: text/html; charset=utf-8
+Location: https://adfs.example.com/adfs/ls/?SAMLRequest=fZHRToMwFIZfhb...UJikvo77sXPw%3D%3D&RelayState=12345&client-request-id=00000000-0000-0000-ee02-0080000000de
+Set-Cookie: MSISAuth=AAEAADAvsHpXk6ApV...pmP0aEiNtJvWY=; path=/adfs; HttpOnly; Secure
+Date: Tue, 06 Nov 2018 16:55:05 GMT
+----
+.. 応答からクッキーを保存し `MSISAuth`ます。
++
+[source, bash]
+----
+export MSISAuth='AAEAADAvsHpXk6ApV...pmP0aEiNtJvWY='
+----
+.. 認証 POST からクッキーを使用して、指定した場所に GET 要求を送信します。
++
+[source, bash]
+----
+curl "https://$AD_FS_ADDRESS/adfs/ls/?SAMLRequest=$SAMLREQUEST&RelayState=$TENANTACCOUNTID&client-request-id=$SAMLREQUESTID" \
+--cookie "MSISAuth=$MSISAuth" --include
+----
++
+応答ヘッダーには、あとでログアウトに使用する AD FS セッション情報が含まれます。応答の本文には、非表示のフォームフィールドに SAMLResponse が含まれています。
+
++
+[listing]
+----
+HTTP/1.1 200 OK
+Cache-Control: no-cache,no-store
+Pragma: no-cache
+Content-Length: 5665
+Content-Type: text/html; charset=utf-8
+Expires: -1
+Server: Microsoft-HTTPAPI/2.0
+P3P: ADFS doesn't have P3P policy, please contact your site's admin for more details
+Set-Cookie: SamlSession=a3dpbnRlcnMtUHJpbWFyeS1BZG1pbi0xNzgmRmFsc2Umcng4NnJDZmFKVXFxVWx3bkl1MnFuUSUzZCUzZCYmJiYmXzE3MjAyZTA5LThmMDgtNDRkZC04Yzg5LTQ3NDUxYzA3ZjkzYw==; path=/adfs; HttpOnly; Secure
+Set-Cookie: MSISAuthenticated=MTEvNy8yMDE4IDQ6MzI6NTkgUE0=; path=/adfs; HttpOnly; Secure
+Set-Cookie: MSISLoopDetectionCookie=MjAxOC0xMS0wNzoxNjozMjo1OVpcMQ==; path=/adfs; HttpOnly; Secure
+Date: Wed, 07 Nov 2018 16:32:59 GMT
+
+<form method="POST" name="hiddenform" action="https://storagegrid.example.com:443/api/saml-response">
+  <input type="hidden" name="SAMLResponse" value="PHNhbWxwOlJlc3BvbnN...1scDpSZXNwb25zZT4=" /><input type="hidden" name="RelayState" value="12345" />
+----
+.. 非表示フィールドからを保存し `SAMLResponse`ます。
++
+[source, bash]
+----
+export SAMLResponse='PHNhbWxwOlJlc3BvbnN...1scDpSZXNwb25zZT4='
+----
+.. 保存したを使用して `SAMLResponse`、StorageGRID認証トークンを生成するStorageGRID要求を行い``/api/saml-response``ます。
++
+で `RelayState`、テナントアカウントIDを使用するか、グリッド管理APIにサインインする場合は0を使用します。
+
++
+[source, bash]
+----
+curl -X POST "https://$STORAGEGRID_ADDRESS:443/api/saml-response" \
+  -H "accept: application/json" \
+  --data-urlencode "SAMLResponse=$SAMLResponse" \
+  --data-urlencode "RelayState=$TENANTACCOUNTID" \
+  | python -m json.tool
+----
++
+応答には認証トークンが含まれています。
+
++
+[listing]
+----
+{
+    "apiVersion": "3.0",
+    "data": "56eb07bf-21f6-40b7-af0b-5c6cacfb25e7",
+    "responseTime": "2018-11-07T21:32:53.486Z",
+    "status": "success"
+}
+----
+.. 応答に認証トークンをとして保存し `MYTOKEN`ます。
++
+[source, bash]
+----
+export MYTOKEN="56eb07bf-21f6-40b7-af0b-5c6cacfb25e7"
+----
++
+SSOが使用されていない場合のAPIの使用方法と同様に、を他の要求に使用できるようになりまし `MYTOKEN`た。
+
+
+
+
+
+
+
+== シングルサインオンが有効な場合は、 API からサインアウトします
+
+シングルサインオン（ SSO ）が有効になっている場合は、グリッド管理 API またはテナント管理 API からサインアウトするための一連の API 要求を問題 で処理する必要があります。ここで説明する手順は、 Active Directory を SSO アイデンティティプロバイダとして使用する場合に該当します
+
+.タスクの内容
+必要に応じて、組織のシングルログアウトページからログアウトすることで、StorageGRID APIからサインアウトできます。または、 StorageGRID からシングルログアウト（ SLO ）を実行することもできます。この場合、有効な StorageGRID ベアラトークンが必要です。
+
+.手順
+. 署名されたログアウト要求を生成するには、「cookie "sso=true」をSLO APIに渡します。
++
+[source, bash]
+----
+curl -k -X DELETE "https://$STORAGEGRID_ADDRESS/api/v3/authorize" \
+-H "accept: application/json" \
+-H "Authorization: Bearer $MYTOKEN" \
+--cookie "sso=true" \
+| python -m json.tool
+----
++
+ログアウト URL が返されます。
+
++
+[listing]
+----
+{
+    "apiVersion": "3.0",
+    "data": "https://adfs.example.com/adfs/ls/?SAMLRequest=fZDNboMwEIRfhZ...HcQ%3D%3D",
+    "responseTime": "2018-11-20T22:20:30.839Z",
+    "status": "success"
+}
+----
+. ログアウト URL を保存します。
++
+[source, bash]
+----
+export LOGOUT_REQUEST='https://adfs.example.com/adfs/ls/?SAMLRequest=fZDNboMwEIRfhZ...HcQ%3D%3D'
+----
+. 要求をログアウト URL に送信し、 SLO を実行して StorageGRID にリダイレクトします。
++
+[source, bash]
+----
+curl --include "$LOGOUT_REQUEST"
+----
++
+302 応答が返されます。リダイレクト先は API のみのログアウトには適用されません。
+
++
+[listing]
+----
+HTTP/1.1 302 Found
+Location: https://$STORAGEGRID_ADDRESS:443/api/saml-logout?SAMLResponse=fVLLasMwEPwVo7ss%...%23rsa-sha256
+Set-Cookie: MSISSignoutProtocol=U2FtbA==; expires=Tue, 20 Nov 2018 22:35:03 GMT; path=/adfs; HttpOnly; Secure
+----
+. StorageGRID Bearer トークンを削除します。
++
+StorageGRID Bearer トークンを削除すると、 SSO を使用しない場合と同じように動作します。「cookie "sso=true"」が指定されていない場合、ユーザはSSO状態に影響を与えずにStorageGRIDからログアウトされます。
+
++
+[source, bash]
+----
+curl -X DELETE "https://$STORAGEGRID_ADDRESS/api/v3/authorize" \
+-H "accept: application/json" \
+-H "Authorization: Bearer $MYTOKEN" \
+--include
+----
++
+ユーザがサインアウトされたことを示す応答が `204 No Content`返されます。
+
++
+[listing]
+----
+HTTP/1.1 204 No Content
+----
+

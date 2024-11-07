@@ -1,0 +1,176 @@
+---
+permalink: s3/create-s3-lifecycle-configuration.html 
+sidebar: sidebar 
+keywords: s3 lifecycle, object deletion, bucket 
+summary: S3 ライフサイクル設定を作成して、特定のオブジェクトが StorageGRID システムから削除されるタイミングを制御できます。 
+---
+= S3 ライフサイクル設定を作成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3 ライフサイクル設定を作成して、特定のオブジェクトが StorageGRID システムから削除されるタイミングを制御できます。
+
+このセクションの簡単な例では、 S3 ライフサイクル設定で特定のオブジェクトが特定の S3 バケットから削除（期限切れ）されるタイミングを制御する方法を示します。このセクションの例は、説明のみを目的としています。S3ライフサイクル設定の作成の詳細については、を参照してください https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon Simple Storage Serviceユーザガイド：オブジェクトのライフサイクル管理"^]。StorageGRID では、 Expiration アクションのみがサポートされ、移行アクションはサポートされません。
+
+
+
+== ライフサイクル構成とは
+
+ライフサイクル設定は、特定の S3 バケット内のオブジェクトに適用される一連のルールです。各ルールは、影響を受けるオブジェクトと、それらのオブジェクトの有効期限（特定の日付または日数後）を指定します。
+
+StorageGRID では、 1 つのライフサイクル設定で最大 1 、 000 個のライフサイクルルールがサポートされます。各ルールには、次の XML 要素を含めることができます。
+
+* Expiration ：指定した日付に達した場合、またはオブジェクトが取り込まれたときから指定した日数に達した場合にオブジェクトを削除します。
+* NoncurrentVersionExpiration ：指定した日数に達したオブジェクトを削除します。これは、オブジェクトが最新でなくなったときからです。
+* フィルタ（プレフィックス、タグ）
+* ステータス
+* ID
+
+
+各オブジェクトは、S3バケットライフサイクルまたはILMポリシーの保持設定に従います。S3バケットライフサイクルが設定されている場合は、バケットライフサイクルフィルタに一致するオブジェクトのILMポリシーがライフサイクル有効期限のアクションで上書きされます。バケットライフサイクルフィルタに一致しないオブジェクトには、ILMポリシーの保持設定が使用されます。オブジェクトがバケットライフサイクルフィルタに一致し、有効期限の操作が明示的に指定されていない場合、ILMポリシーの保持設定は使用されず、オブジェクトのバージョンが無期限に保持されることが暗黙的に示されます。を参照して link:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html["S3バケットライフサイクルとILMポリシーの優先度の例"]
+
+そのため、 ILM ルールの配置手順がオブジェクトに引き続き適用されていても、オブジェクトがグリッドから削除されることがあります。あるいは、 ILM 配置手順がすべて終了したあとも、オブジェクトがグリッドに保持される場合があります。詳細については、を参照してください link:../ilm/how-ilm-operates-throughout-objects-life.html["オブジェクトのライフサイクル全体にわたる ILM の動作"]。
+
+
+NOTE: バケットライフサイクル設定は S3 オブジェクトロックが有効になっているバケットで使用できますが、従来の準拠バケットではバケットライフサイクル設定がサポートされません。
+
+StorageGRID では、次のバケット処理を使用してライフサイクル設定を管理できます。
+
+* DeleteBucketLifecycle
+* GetBucketLifecycleConfiguration
+* PutBucketLifecycleConfiguration
+
+
+
+
+== ライフサイクル構成を作成します
+
+ライフサイクル設定を作成するための最初の手順として、 1 つ以上のルールを含む JSON ファイルを作成します。たとえば、この JSON ファイルには次の 3 つのルールが含まれています。
+
+. ルール1は、プレフィックス/に一致し、 `key2`値がの `tag2`オブジェクトにのみ適用され `category1`ます。パラメータは `Expiration`、フィルタに一致するオブジェクトが2020年8月22日の午前0時に期限切れになるように指定します。
+. ルール2は、プレフィックスが/に一致するオブジェクトにのみ適用され `category2`ます。パラメータは `Expiration`、フィルタに一致するオブジェクトが、取り込まれてから100日後に期限切れになるように指定します。
++
+
+CAUTION: 日数を指定するルールは、オブジェクトが取り込まれた時点を基準とした相対的なルールです。現在の日付が取り込み日と日数を超えている場合は、ライフサイクル設定の適用後すぐに一部のオブジェクトがバケットから削除される可能性があります。
+
+. ルール3は、プレフィックスが/に一致するオブジェクトにのみ適用され `category3`ます。 `Expiration`パラメータは、一致するオブジェクトの最新でないバージョンが最新でなくなってから50日後に期限切れになるように指定します。
+
+
+[listing]
+----
+{
+	"Rules": [
+        {
+		    "ID": "rule1",
+			"Filter": {
+                "And": {
+                    "Prefix": "category1/",
+                    "Tags": [
+                        {
+                            "Key": "key2",
+							"Value": "tag2"
+                        }
+                    ]
+                }
+            },
+			"Expiration": {
+                "Date": "2020-08-22T00:00:00Z"
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "rule2",
+			"Filter": {
+                "Prefix": "category2/"
+            },
+			"Expiration": {
+                "Days": 100
+            },
+            "Status": "Enabled"
+        },
+		{
+            "ID": "rule3",
+			"Filter": {
+                "Prefix": "category3/"
+            },
+			"NoncurrentVersionExpiration": {
+                "NoncurrentDays": 50
+            },
+            "Status": "Enabled"
+        }
+    ]
+}
+----
+
+
+== バケットにライフサイクル設定を適用
+
+ライフサイクル設定ファイルを作成したら、PutBucketLifecycleConfiguration要求を発行してバケットに適用します。
+
+この要求は、サンプルファイルのライフサイクル設定をという名前のバケット内のオブジェクトに適用し `testbucket`ます。
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> put-bucket-lifecycle-configuration
+--bucket testbucket --lifecycle-configuration file://bktjson.json
+----
+ライフサイクル設定がバケットに正常に適用されたことを確認するには、GetBucketLifecycleConfiguration要求を問題します。例：
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> get-bucket-lifecycle-configuration
+ --bucket testbucket
+----
+成功応答には、適用したライフサイクル設定が表示されます。
+
+
+
+== バケットライフサイクルの有効期限が環境 オブジェクトであることを検証します
+
+PutObject、HeadObject、またはGetObjectのいずれか環境の要求を発行するときに、ライフサイクル設定の有効期限ルールが特定のオブジェクトであるかどうかを確認できます。ルールが適用される場合は、オブジェクトの有効期限と一致した有効期限ルールを示すパラメータが応答に含まれ `Expiration`ます。
+
+
+NOTE: バケットライフサイクルはILMよりも優先されるため、 `expiry-date`オブジェクトが実際に削除される日付が表示されます。詳細については、を参照してください link:../ilm/how-object-retention-is-determined.html["オブジェクト保持期間の決定方法"]。
+
+たとえば、次のPutObject要求は2020年6月22日に発行され、バケットにオブジェクトを配置したとし `testbucket`ます。
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> put-object
+--bucket testbucket --key obj2test2 --body bktjson.json
+----
+成功の応答は、オブジェクトの有効期限が 100 日（ 2020 年 10 月 1 日）に切れ、ライフサイクル設定のルール 2 に一致したことを示します。
+
+[listing, subs="specialcharacters,quotes"]
+----
+{
+      *"Expiration": "expiry-date=\"Thu, 01 Oct 2020 09:07:49 GMT\", rule-id=\"rule2\"",
+      "ETag": "\"9762f8a803bc34f5340579d4446076f7\""
+}
+----
+たとえば、次のHeadObject要求を使用して、testbucketバケット内の同じオブジェクトのメタデータを取得しました。
+
+[listing]
+----
+aws s3api --endpoint-url <StorageGRID endpoint> head-object
+--bucket testbucket --key obj2test2
+----
+成功の応答にはオブジェクトのメタデータが含まれ、オブジェクトが 100 日で期限切れになり、ルール 2 に一致したことが示されます。
+
+[listing, subs="specialcharacters,quotes"]
+----
+{
+      "AcceptRanges": "bytes",
+      *"Expiration": "expiry-date=\"Thu, 01 Oct 2020 09:07:48 GMT\", rule-id=\"rule2\"",
+      "LastModified": "2020-06-23T09:07:48+00:00",
+      "ContentLength": 921,
+      "ETag": "\"9762f8a803bc34f5340579d4446076f7\""
+      "ContentType": "binary/octet-stream",
+      "Metadata": {}
+}
+----
+
+NOTE: バージョン管理が有効なバケットの場合 `x-amz-expiration`、応答ヘッダーはオブジェクトの現在のバージョンにのみ適用されます。

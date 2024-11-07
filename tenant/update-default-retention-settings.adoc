@@ -1,0 +1,69 @@
+---
+permalink: tenant/update-default-retention-settings.html 
+sidebar: sidebar 
+keywords: update default retention for s3 object lock bucket, default retention mode, default retention period, compliance, governance 
+summary: バケットの作成時にS3 Object Lockを有効にした場合は、バケットを編集してデフォルトの保持設定を変更できます。デフォルトの保持を有効（または無効）にしたり、デフォルトの保持モードと保持期間を設定したりできます。 
+---
+= S3オブジェクトロックのデフォルトの保持期間を更新します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+バケットの作成時にS3 Object Lockを有効にした場合は、バケットを編集してデフォルトの保持設定を変更できます。デフォルトの保持を有効（または無効）にしたり、デフォルトの保持モードと保持期間を設定したりできます。
+
+.開始する前に
+* を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+* が設定されたユーザグループに属しているlink:tenant-management-permissions.html["すべてのバケットまたはRoot Access権限を管理します"]必要があります。これらの権限は、グループまたはバケットポリシーの権限の設定よりも優先されます。
+* S3オブジェクトロックはStorageGRID システムに対してグローバルに有効になり、バケットの作成時に有効にしました。を参照して link:using-s3-object-lock.html["S3オブジェクトロックを使用してオブジェクトを保持します"]
+
+
+.手順
+. ダッシュボードで* View Buckets *を選択するか、* storage（S3）*>* Buckets *を選択します。
+. 表からバケット名を選択します。
++
+バケットの詳細ページが表示されます。
+
+. [Bucket options]タブで、[S3 Object Lock]*アコーディオンを選択します。
+. 必要に応じて、このバケットの*デフォルトの保持*を有効または無効にします。
++
+この設定の変更は、バケットにすでに含まれているオブジェクトや、保持期間が独自に設定されている可能性のあるオブジェクトには適用されません。
+
+. default retention *が有効になっている場合は、バケットの* default retention mode *を指定します。
++
+[cols="1a,2a"]
+|===
+| デフォルトの保持モード | 製品説明 
+
+
+ a| 
+ガバナンス
+ a| 
+** 権限を持つユーザ `s3:BypassGovernanceRetention`は、要求ヘッダーを使用して保持設定を省略でき `x-amz-bypass-governance-retention: true`ます。
+** これらのユーザは、retain-until-dateに達する前にオブジェクトバージョンを削除できます。
+** これらのユーザは、オブジェクトのretain-until-dateを増減、または削除できます。
+
+
+
+
+ a| 
+コンプライアンス
+ a| 
+** retain-until-dateに達するまで、オブジェクトを削除できません。
+** オブジェクトのretain-until-dateは増やすことはできますが、減らすことはできません。
+** オブジェクトのretain-until-dateは、その日付に達するまで削除できません。
+
+
+*注*：グリッド管理者が準拠モードの使用を許可する必要があります。
+
+|===
+. default retention *が有効になっている場合は、バケットの* default retention period *を指定します。
++
+Default retention period *は、このバケットに追加された新しいオブジェクトを取り込んだ時点から保持する期間です。グリッド管理者が設定したテナントの最大保持期間以下の値を指定します。
+
++
+A_maximum_retention periodは、グリッド管理者がテナントを作成するときに設定されます。指定できる値は1~100年です。_default_retention periodを設定する場合、最大保持期間に設定された値を超えることはできません。必要に応じて、最大保持期間を増減するようにグリッド管理者に依頼します。
+
+. 「変更を保存」を選択します。
+

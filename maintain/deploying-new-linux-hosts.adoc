@@ -1,0 +1,44 @@
+---
+permalink: maintain/deploying-new-linux-hosts.html 
+sidebar: sidebar 
+keywords: storagegrid, deploy linux host, new host, new linux host 
+summary: いくつかの例外を除き、最初のインストールプロセス時と同じ方法で新しいホストを準備します。 
+---
+= 新しい Linux ホストを導入する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+いくつかの例外を除き、最初のインストールプロセス時と同じ方法で新しいホストを準備します。
+
+新規または再インストールした物理/仮想Linuxホストを導入するには、手順 に従って、使用しているLinuxオペレーティングシステムに対応したStorageGRID のインストール手順に記載されたホストを準備します。
+
+* link:../rhel/installing-linux.html["Linuxのインストール（Red Hat Enterprise Linux）"]
+* link:../ubuntu/installing-linux.html["Linuxのインストール（UbuntuまたはDebian）"]
+
+
+この手順 には、次のタスクが含まれています。
+
+. Linux をインストールします。
+. ホストネットワークを設定する。
+. ホストストレージを設定する。
+. コンテナエンジンを取り付ける。
+. StorageGRID ホストサービスをインストールする。
++
+
+CAUTION: インストール手順の「StorageGRIDホストサービスのインストール」タスクが完了したら停止します。「グリッドノードの導入」タスクを開始しないでください。
+
+
+
+これらの手順を実行する際は、次の重要なガイドラインに注意してください。
+
+* 元のホストと同じホストインターフェイス名を使用してください。
+* 共有ストレージを使用してStorageGRID ノードをサポートする場合、または障害ノードから一部またはすべてのドライブまたはSSDを交換用ノードに移動した場合は、元のホストと同じストレージマッピングを再確立する必要があります。たとえば、インストール手順の推奨に従ってでWWIDとエイリアスを使用していた場合 `/etc/multipath.conf`は、交換用ホストのでも同じエイリアスとWWIDのペアを使用して `/etc/multipath.conf`ください。
+* StorageGRID ノードがNetApp ONTAP システムから割り当てられたストレージを使用している場合は、ボリュームでFabricPool 階層化ポリシーが有効になっていないことを確認してください。StorageGRIDノードで使用するボリュームでFabricPool階層化を無効にすると、トラブルシューティングとストレージの処理が簡単になります。
++
+
+CAUTION: FabricPoolを使用して、StorageGRIDに関連するデータをStorageGRID自体に階層化しないでください。StorageGRIDデータをStorageGRIDに階層化すると、トラブルシューティングや運用が複雑になります。
+
+

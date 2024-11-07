@@ -1,0 +1,35 @@
+---
+permalink: admin/disabling-single-sign-on.html 
+sidebar: sidebar 
+keywords: disable sso, disable single sign on 
+summary: この機能が不要になった場合は、シングルサインオン \ （ SSO \ ）を無効にできます。アイデンティティフェデレーションを無効にする場合は、事前にシングルサインオンを無効にする必要があります。 
+---
+= シングルサインオンを無効にします
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+不要になった場合はシングルサインオン（ SSO ）を無効にすることができます。アイデンティティフェデレーションを無効にする場合は、事前にシングルサインオンを無効にする必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:admin-group-permissions.html["特定のアクセス権限"]
+
+
+.手順
+. [ * 設定 * > * アクセス制御 * > * シングルサインオン * ] を選択します。
++
+[Single Sign-On] ページが表示されます。
+
+. [* Disabled * （無効 * ） ] オプションを選択します。
+. [ 保存（ Save ） ] を選択します。
++
+ローカルユーザがサインインできるようになったことを示す警告メッセージが表示されます。
+
+. 「* OK *」を選択します。
++
+次回 StorageGRID にサインインすると、 StorageGRID のサインインページが表示され、ローカルユーザまたはフェデレーテッド StorageGRID ユーザのユーザ名とパスワードを入力する必要があります。
+
+

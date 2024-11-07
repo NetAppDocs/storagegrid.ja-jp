@@ -1,0 +1,191 @@
+---
+permalink: s3/operations-on-objects.html 
+sidebar: sidebar 
+keywords: bucket, buckets, operations on buckets 
+summary: このセクションでは、 StorageGRID システムでオブジェクトの S3 REST API 処理を実装する方法について説明します。 
+---
+= オブジェクトの処理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このセクションでは、 StorageGRID システムでオブジェクトの S3 REST API 処理を実装する方法について説明します。
+
+すべてのオブジェクトの処理に次の条件が適用されます。
+
+* StorageGRIDはlink:consistency-controls.html["整合性の値"]、次の例外を除き、オブジェクトに対するすべての処理でサポートされます。
++
+** GetObjectAcl
+** `OPTIONS /`
+** PutObjectLegalHold
+** PutObjectRetention
+** SelectObjectContent の順に選択します
+
+
+* 同じキーに書き込む 2 つのクライアントなど、競合するクライアント要求は、「 latest-wins 」ベースで解決されます。「 latest-wins 」評価は、 S3 クライアントが処理を開始するタイミングではなく、 StorageGRID システムが特定の要求を完了したタイミングで行われます。
+* StorageGRID バケット内のオブジェクトは、匿名ユーザまたは別のアカウントが作成したオブジェクトも含めて、すべてバケット所有者によって所有されます。
+* Swiftを使用してStorageGRID システムに取り込まれたデータオブジェクトにS3を使用してアクセスすることはできません。
+
+
+次の表に、 StorageGRID での S3 REST API オブジェクト処理の実装方法を示します。
+
+[cols="1a,2a"]
+|===
+| 操作 | インプリメンテーション 
+
+
+ a| 
+deleteObject
+ a| 
+多要素認証（MFA）と応答ヘッダー `x-amz-mfa`はサポートされていません。
+
+DeleteObject要求を処理すると、StorageGRIDはすべての格納場所からオブジェクトのすべてのコピーをただちに削除しようとします。成功すると、 StorageGRID はただちにクライアントに応答を返します。30秒以内にすべてのコピーを削除できない場合（場所が一時的に使用できない場合など）、StorageGRID は削除対象のコピーをキューに登録し、クライアントに成功を通知します。
+
+バージョン管理:: 特定のバージョンを削除するには、リクエスタがバケットの所有者であり、サブリソースを使用する必要があり `versionId`ます。このサブリソースを使用すると、バージョンが完全に削除されます。が削除マーカーに対応している場合は `versionId`、に設定された応答ヘッダー `x-amz-delete-marker`が返されます `true`。
++
+--
+* バージョン管理が有効になっているバケットでサブリソースを使用せずにオブジェクトを削除すると、 `versionId`削除マーカーが生成されます。削除マーカーのが `versionId`応答ヘッダーを使用して返され `x-amz-version-id`、 `x-amz-delete-marker`応答ヘッダーがに設定されて返されます `true`。
+* バージョン管理が中断されているバケットでサブリソースを使用せずにオブジェクトを削除すると、 `versionId`既存の「null」バージョンまたは「null」削除マーカーが完全に削除され、新しい「null」削除マーカーが生成されます。 `x-amz-delete-marker`応答ヘッダーがに設定されて返され `true`ます。
++
+* 注 * ：特定の場合、 1 つのオブジェクトに複数の削除マーカーが存在することがあります。
+
+
+
+--
+
+
+ガバナンスモードでオブジェクトバージョンを削除する方法については、を参照してくださいlink:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]。
+
+
+
+ a| 
+オブジェクトの削除
+
+（以前の名前はDELETE Multiple Objects）
+ a| 
+多要素認証（MFA）と応答ヘッダー `x-amz-mfa`はサポートされていません。
+
+同じ要求メッセージで複数のオブジェクトを削除できます。
+
+ガバナンスモードでオブジェクトバージョンを削除する方法については、を参照してくださいlink:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]。
+
+
+
+ a| 
+DeleteObjectTagging
+ a| 
+サブリソースを使用して、 `tagging`オブジェクトからすべてのタグを削除します。
+
+バージョン管理:: 要求にクエリパラメータが指定されていない場合、 `versionId`バージョン管理されたバケット内のオブジェクトの最新バージョンからすべてのタグが削除されます。オブジェクトの現在のバージョンが削除マーカーの場合は、「MethodNotAllowed」ステータスが返され、 `x-amz-delete-marker`応答ヘッダーがに設定され `true`ます。
+
+
+
+
+ a| 
+GetObject
+ a| 
+link:get-object.html["GetObject"]
+
+
+
+ a| 
+GetObjectAcl
+ a| 
+アカウントに必要なアクセスクレデンシャルがある場合、オブジェクトの所有者にオブジェクトに対するフルアクセスがあることを示す応答が返され、所有者の ID 、表示名、および権限が表示されます。
+
+
+
+ a| 
+GetObjectLegalHold
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+
+
+
+ a| 
+GetObjectRetention
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+
+
+
+ a| 
+GetObjectTagging
+ a| 
+サブリソースを使用して、 `tagging`オブジェクトのすべてのタグを返します。
+
+バージョン管理:: 要求にクエリパラメータが指定されていない場合、 `versionId`バージョン管理されたバケット内のオブジェクトの最新バージョンのすべてのタグが返されます。オブジェクトの現在のバージョンが削除マーカーの場合は、「MethodNotAllowed」ステータスが返され、 `x-amz-delete-marker`応答ヘッダーがに設定され `true`ます。
+
+
+
+
+ a| 
+ヘッドオブジェクト
+ a| 
+link:head-object.html["ヘッドオブジェクト"]
+
+
+
+ a| 
+RestoreObject
+ a| 
+link:post-object-restore.html["RestoreObject"]
+
+
+
+ a| 
+PutObject
+ a| 
+link:put-object.html["PutObject"]
+
+
+
+ a| 
+CopyObject
+
+（以前の名前はPUT Object - Copy）
+ a| 
+link:put-object-copy.html["CopyObject"]
+
+
+
+ a| 
+PutObjectLegalHold
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+
+
+
+ a| 
+PutObjectRetention
+ a| 
+link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+
+
+
+ a| 
+PutObjectTagging
+ a| 
+サブリソースを使用して、 `tagging`既存のオブジェクトに一連のタグを追加します。
+
+オブジェクトタグの制限:: タグは、新しいオブジェクトをアップロードするときに追加することも、既存のオブジェクトに追加することもできます。StorageGRID と Amazon S3 はどちらも、オブジェクトごとに最大 10 個のタグをサポートします。オブジェクトに関連付けられたタグには、一意のタグキーが必要です。タグキーには Unicode 文字を 128 文字まで、タグ値には Unicode 文字を 256 文字まで使用できます。キーと値では大文字と小文字が区別されます。
+タグの更新と取り込み動作:: PutObjectTaggingを使用してオブジェクトのタグを更新した場合、StorageGRIDはオブジェクトを再取り込みしません。これは、一致する ILM ルールで指定されている取り込み動作が使用されないことを意味します。更新によって発生したオブジェクト配置の変更は、通常のバックグラウンド ILM プロセスで ILM が再評価されるときに実施されます。
++
+--
+つまり、ILMルールの取り込み動作にStrictオプションが使用されている場合、必要なオブジェクト配置を実行できない場合（新たに必要な場所が使用できない場合など）は処理されません。更新されたオブジェクトは、必要な配置を実行可能になるまで現在の配置が維持されます。
+
+--
+競合の解決:: 同じキーに書き込む 2 つのクライアントなど、競合するクライアント要求は、「 latest-wins 」ベースで解決されます。「 latest-wins 」評価は、 S3 クライアントが処理を開始するタイミングではなく、 StorageGRID システムが特定の要求を完了したタイミングで行われます。
+バージョン管理:: 要求にクエリパラメータが指定されていない場合は `versionId`、バージョン管理されたバケット内のオブジェクトの最新バージョンにタグが追加されます。オブジェクトの現在のバージョンが削除マーカーの場合は、「MethodNotAllowed」ステータスが返され、 `x-amz-delete-marker`応答ヘッダーがに設定され `true`ます。
+
+
+
+
+ a| 
+SelectObjectContent の順に選択します
+ a| 
+link:select-object-content.html["SelectObjectContent の順に選択します"]
+
+|===

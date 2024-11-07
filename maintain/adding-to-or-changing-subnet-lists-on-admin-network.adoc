@@ -1,0 +1,140 @@
+---
+permalink: maintain/adding-to-or-changing-subnet-lists-on-admin-network.html 
+sidebar: sidebar 
+keywords: storagegrid, subnet list, admin network 
+summary: ノードの管理ネットワークサブネットリストで、サブネットの追加、削除、または変更を行うことができます。 
+---
+= 管理ネットワークのサブネットリストに対する追加または変更
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ノードの管理ネットワークサブネットリストで、サブネットの追加、削除、または変更を行うことができます。
+
+.開始する前に
+* あなたはファイルを持ってい `Passwords.txt`ます。
+
+
+管理ネットワークサブネットリストで、すべてのノードに対してサブネットの追加、削除、または変更を行うことができます。
+
+.手順
+. プライマリ管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. 次のコマンドを入力して、IP変更ツールを起動します。 `change-ip`
+. プロンプトでプロビジョニングパスフレーズを入力します。
++
+メインメニューが表示されます。
+
++
+image::../media/change_ip_tool_main_menu.png[IP 変更ツールの開始画面のスクリーンショット]
+
+. 必要に応じて、処理を実行するネットワークまたはノードを制限します。次のいずれかを選択します。
++
+** 操作を実行する特定のノードでフィルターを適用する場合は、 * 1 * を選択して、編集するノードを選択します。次のいずれかのオプションを選択します。
++
+*** * 1 * ：シングルノード（名前で選択）
+*** * 2 * ：シングルノード（サイトで選択したあとに名前で選択）
+*** * 3 * ：シングルノード（現在の IP で選択）
+*** * 4 * ：サイト内のすべてのノード
+*** * 5 * ：グリッド内のすべてのノード
+*** * 0 * ：戻ります
+
+
+** 「すべて」を選択したままにします。選択が完了すると、メインメニュー画面が表示されます。[ 選択したノード ] フィールドに新しい選択内容が反映され、選択したすべての操作がこの項目に対してのみ実行されます。
+
+
+. メインメニューで、管理ネットワークのサブネットを編集するオプションを選択します（オプション * 3 * ）。
+. 次のいずれかを選択します。
++
+--
+** サブネットを追加するには、次のコマンドを入力します。 `add CIDR`
+** サブネットを削除するには、次のコマンドを入力します。 `del CIDR`
+** 次のコマンドを入力して、サブネットのリストを設定します。 `set CIDR`
+
+
+--
++
+--
+
+NOTE: すべてのコマンドで、次の形式で複数のアドレスを入力できます。 `add CIDR, CIDR`
+
+例： `add 172.14.0.0/16, 172.15.0.0/16, 172.16.0.0/16`
+
+
+TIP: 「上矢印」を使用して以前に入力した値を現在の入力プロンプトに呼び出し、必要に応じて編集することで、入力に必要な量を減らすことができます。
+
+次の入力例では、管理ネットワークサブネットリストにサブネットを追加しています。
+
+image::../media/change_ip_tool_aesl_sample_input.gif[IP ツール aesl の例を変更します]
+
+--
+. 準備ができたら、「 * q * 」と入力してメインメニュー画面に戻ります。変更内容は、クリアまたは適用されるまで保持されます。
++
+
+NOTE: 手順2で「すべて」のノード選択モードを選択した場合は、* Enter *（* q *なし）を押して、リストの次のノードに移動します。
+
+. 次のいずれかを選択します。
++
+** オプション * 5 * を選択すると、変更された項目のみを表示するために分離された出力に編集内容が表示されます。次の出力例に示すように、変更は緑（追加）または赤（削除）で強調表示されます。
++
+image::../media/change_ip_tool_aesl_sample_output.png[説明が付随するスクリーンショット]
+
+** オプション * 6 * を選択すると、設定全体を表示する出力に編集内容が表示されます。変更は、緑（追加）または赤（削除）で強調表示されます。* 注：一部のターミナルエミュレータでは、取り消し線の形式で追加と削除が表示される場合があります。
++
+サブネットリストを変更しようとすると、次のメッセージが表示されます。
+
++
+[listing]
+----
+CAUTION: The Admin Network subnet list on the node might contain /32 subnets derived from automatically applied routes that aren't persistent. Host routes (/32 subnets) are applied automatically if the IP addresses provided for external services such as NTP or DNS aren't reachable using default StorageGRID routing, but are reachable using a different interface and gateway. Making and applying changes to the subnet list will make all automatically applied subnets persistent. If you don't want that to happen, delete the unwanted subnets before applying changes. If you know that all /32 subnets in the list were added intentionally, you can ignore this caution.
+----
++
+NTP および DNS サーバのサブネットをネットワークに明確に割り当てなかった場合、 StorageGRID は接続のホストルート（ /32 ）を自動的に作成します。たとえば、 DNS サーバまたは NTP サーバへのアウトバウンド接続に /16 または /24 ルートを使用する場合は、自動的に作成された /32 ルートを削除し、必要なルートを追加する必要があります。自動で作成されたホストルートを削除しなかった場合は、サブネットリストに変更を適用したあともそのルートが保持されます。
+
+
+
++
+
+NOTE: これらの自動検出されたホストルートは使用できますが、通常は、接続を確保するために DNS ルートと NTP ルートを手動で設定する必要があります。
+
+. オプション * 7 * を選択して、すべての段階的な変更を検証します。
++
+この検証により、重複するサブネットを使用するなど、グリッドネットワーク、管理ネットワーク、クライアントネットワークのルールが確実に実行されます。
+
+. 必要に応じて、オプション * 8 を選択してステージングされたすべての変更を保存し、後で戻って変更を続行します。
++
+このオプションを使用すると、適用されていない変更を失うことなく、 IP 変更ツールを終了してあとで再起動できます。
+
+. 次のいずれかを実行します。
++
+** 新しいネットワーク設定を保存または適用せずにすべての変更をクリアする場合は、オプション * 9 * を選択します。
+** 変更を適用し、新しいネットワーク設定をプロビジョニングする準備ができたら、オプション * 10 を選択します。プロビジョニング中に更新が適用されると、次の出力例に示すようにステータスが出力に表示されます。
++
+[listing]
+----
+Generating new grid networking description file...
+
+Running provisioning...
+
+Updating grid network configuration on Name
+----
+
+
+. Grid Manager から新しいリカバリパッケージをダウンロードします。
++
+.. [* maintenance * （メンテナンス） ] > [* System * （システム * ） ] > [* Recovery packツケ （リカバリパッケージ * ）
+.. プロビジョニングパスフレーズを入力します。
+
+
+

@@ -1,0 +1,55 @@
+---
+permalink: audit/ecoc-corrupt-erasure-coded-data-fragment.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
+summary: この監査メッセージは、イレイジャーコーディングされたデータフラグメントの破損がシステムで検出されたことを示します。 
+---
+= ECOC：イレイジャーコーディングされたデータフラグメントの破損
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+この監査メッセージは、イレイジャーコーディングされたデータフラグメントの破損がシステムで検出されたことを示します。
+
+[cols="1a,1a,4a"]
+|===
+| コード | フィールド | 製品説明 
+
+
+ a| 
+Vcco
+ a| 
+VCS ID を入力します
+ a| 
+破損したチャンクが含まれている VCS の名前。
+
+
+
+ a| 
+VLID
+ a| 
+ボリュームID
+ a| 
+破損したイレイジャーコーディングフラグメントが含まれている RangeDB ボリューム。
+
+
+
+ a| 
+CCID
+ a| 
+チャンク ID
+ a| 
+破損したイレイジャーコーディングフラグメントの識別子。
+
+
+
+ a| 
+RSLT
+ a| 
+結果
+ a| 
+このフィールドの値は「 NONE 」です。RSLT は必須のメッセージフィールドですが、このメッセージには該当しません。このメッセージがフィルタリングされないように、「 UCS 」ではなく「 none 」が使用されます。
+
+|===

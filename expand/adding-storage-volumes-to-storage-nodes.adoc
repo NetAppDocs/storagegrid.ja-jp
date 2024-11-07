@@ -1,0 +1,50 @@
+---
+permalink: expand/adding-storage-volumes-to-storage-nodes.html 
+sidebar: sidebar 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+summary: ストレージボリュームを 16 個以下にすることでストレージノードのストレージ容量を拡張できます。ILM のレプリケートコピーまたはイレイジャーコーディングコピーの要件を満たすために、複数のストレージノードへのストレージボリュームの追加が必要になる場合があります。 
+---
+= ストレージノードにストレージボリュームを追加
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージボリュームを 16 個以下にすることでストレージノードのストレージ容量を拡張できます。ILM のレプリケートコピーまたはイレイジャーコーディングコピーの要件を満たすために、複数のストレージノードへのストレージボリュームの追加が必要になる場合があります。
+
+.開始する前に
+ストレージボリュームを追加する前に、を参照しlink:guidelines-for-adding-object-capacity.html["オブジェクト容量を追加する場合のガイドラインを次に示します"]て、ILMポリシーの要件を満たすためにボリュームを追加する場所を確認しておく必要があります。
+
+
+NOTE: この手順はソフトウェアベースのストレージノードにのみ該当します。拡張シェルフを設置してSG6060またはSG6160にストレージボリュームを追加する方法については、または https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/adding-expansion-shelf-to-deployed-sg6160.html["導入したSG6160に拡張シェルフを追加"^]を参照してください https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/adding-expansion-shelf-to-deployed-sg6060.html["導入したSG6060に拡張シェルフを追加"^]。他のアプライアンスストレージノードは拡張できません。
+
+.タスクの内容
+ストレージノードの基盤となるストレージは、複数のストレージボリュームに分割されます。ストレージボリュームは、 StorageGRID システムでフォーマットされてオブジェクトの格納用にマウントされたブロックベースのストレージデバイスです。各ストレージノードでサポートされるストレージボリュームは、 Grid Manager では _ オブジェクトストア _ と呼ばれ、最大 16 個です。
+
+
+NOTE: オブジェクトメタデータは常にオブジェクトストア 0 に格納されます。
+
+各オブジェクトストアは、 ID に対応するボリュームにマウントされます。たとえば、IDが0000のオブジェクトストアはマウントポイントに対応して `/var/local/rangedb/0`います。
+
+新しいストレージボリュームを追加する前に、 Grid Manager を使用して、各ストレージノードの現在のオブジェクトストアと対応するマウントポイントを表示します。この情報は、ストレージボリュームを追加するときに役立ちます。
+
+.手順
+. ノード * > * _site * > * _ ストレージ・ノード _ * > * ストレージ * を選択します。
+. 下にスクロールして、各ボリュームとオブジェクトストアに使用可能なストレージ容量を表示します。
++
+アプライアンスストレージノードの場合、各ディスクのWorldwide Nameは、SANtricity OS（アプライアンスのストレージコントローラに接続されている管理ソフトウェア）で標準のボリュームプロパティとして表示されるボリュームのWorld-Wide Identifier（WWID）と同じです。
+
++
+ボリュームマウントポイントに関連するディスクの読み取りと書き込みの統計情報を解釈できるように、 Disk Devices テーブルの * Name * 列に表示される名前の最初の部分（つまり、 _sdc_sd_,_sde_ ）が Volumes テーブルの * Device * 列に表示される値と一致していることを確認します。
+
++
+image::../media/nodes_page_storage_tables_vol_expansion.png[Nodes ページストレージテーブル]
+
+. プラットフォームに応じた手順に従って、ストレージノードに新しいストレージボリュームを追加します。
++
+** link:vmware-adding-storage-volumes-to-storage-node.html["VMware ：ストレージノードにストレージボリュームを追加"]
+** link:linux-adding-direct-attached-or-san-volumes-to-storage-node.html["Linux ：ストレージノードに直接接続型ボリュームまたは SAN ボリュームを追加"]
+
+
+

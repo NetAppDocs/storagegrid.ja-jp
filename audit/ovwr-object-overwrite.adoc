@@ -1,0 +1,93 @@
+---
+permalink: audit/ovwr-object-overwrite.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, OVWR, Object Overwrite 
+summary: このメッセージは、外部（クライアントが要求した）処理によって、あるオブジェクトが別のオブジェクトで上書きされた場合に生成されます。 
+---
+= OVWR ：オブジェクトを上書き
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+このメッセージは、外部（クライアントが要求した）処理によって、あるオブジェクトが別のオブジェクトで上書きされた場合に生成されます。
+
+[cols="1a,1a,4a"]
+|===
+| コード | フィールド | 製品説明 
+
+
+ a| 
+CBID
+ a| 
+Content Block Identifier （新規）
+ a| 
+新しいオブジェクトの CBID 。
+
+
+
+ a| 
+CSIZ
+ a| 
+前のオブジェクトサイズ
+ a| 
+上書きされるオブジェクトのサイズ（バイト単位）。
+
+
+
+ a| 
+OCBD
+ a| 
+コンテンツブロック識別子（前のもの）
+ a| 
+既存のオブジェクトの CBID 。
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique ID （新規）
+ a| 
+StorageGRID システム内での新しいオブジェクトの識別子。
+
+
+
+ a| 
+OUID
+ a| 
+Universally Unique ID （旧）
+ a| 
+StorageGRID システム内での以前のオブジェクトの識別子。
+
+
+
+ a| 
+パス
+ a| 
+S3オブジェクトパス
+ a| 
+前のオブジェクトと新しいオブジェクトの両方に使用されるS3オブジェクトのパス
+
+
+
+ a| 
+RSLT
+ a| 
+結果コード
+ a| 
+Object Overwrite トランザクションの結果。常に次の結果になります。
+
+SUCS ：成功しました
+
+
+
+ a| 
+SgRP
+ a| 
+サイト（グループ）
+ a| 
+上書きされたオブジェクトがある場合は指定したサイトで削除されています。このサイトは、上書きされたオブジェクトが取り込まれたサイトではありません。
+
+|===

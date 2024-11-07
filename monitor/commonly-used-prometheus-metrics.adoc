@@ -1,0 +1,158 @@
+---
+permalink: monitor/commonly-used-prometheus-metrics.html 
+sidebar: sidebar 
+keywords: prometheus, Prometheus metrics, metrics 
+summary: デフォルトのアラートルールの条件を詳しく理解したり、カスタムのアラートルールの条件を作成したりするには、ここに示すPrometheus指標のよく使用されるリストを参照してください。 
+---
+= よく使用される Prometheus 指標
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+デフォルトのアラートルールの条件を詳しく理解したり、カスタムのアラートルールの条件を作成したりするには、ここに示すPrometheus指標のよく使用されるリストを参照してください。
+
+あなたもできます<<obtain-all-metrics,すべての指標の完全なリストを取得します>>。
+
+Prometheusクエリの構文の詳細については、を参照してください https://prometheus.io/docs/prometheus/latest/querying/basics/["Prometheusを照会しています"^]。
+
+
+
+== Prometheus指標とは
+
+Prometheus指標は時系列の測定値です。管理ノードのPrometheusサービスは、すべてのノード上のサービスからこれらの指標を収集します。指標は、 Prometheus データ用にリザーブされたスペースがフルになるまで各管理ノードに保存されます。ボリュームの容量が上限に達すると、 `/var/local/mysql_ibdata/`最も古い指標から順に削除されます。
+
+
+
+== Prometheus指標はどこで使用されますか？
+
+Prometheusで収集された指標は、Grid Managerのいくつかの場所で使用されます。
+
+* * Nodes ページ * ： Nodes ページで使用できるタブのグラフとチャートでは、 Grafana 視覚化ツールを使用して、 Prometheus で収集された時系列の指標を表示します。Grafana はグラフ形式とチャート形式で時系列のデータを表示し、 Prometheus はバックエンドのデータソースとして機能します。
++
+image::../media/nodes_page_network_traffic_graph.png[Prometheus のグラフ]
+
+* * アラート * ： Prometheus 指標を使用するアラートルールの条件が true と評価されると、特定の重大度レベルでアラートがトリガーされます。
+* * グリッド管理 API * ： Prometheus 指標をカスタムのアラートルールまたは外部の自動化ツールで使用して、 StorageGRID システムを監視できます。Prometheus 指標の完全なリストは、グリッド管理 API から入手できます。（Grid Managerの上部でヘルプアイコンを選択し、* API documentation *>* metrics *を選択します）。使用可能な指標の数は1、000を超えますが、StorageGRID の最も重要な処理を監視するために必要な指標は比較的少数です。
++
+
+NOTE: 名前に _private_ が含まれる指標は内部専用です。 StorageGRID のリリースごとに予告なく変更されることがあります。
+
+* support *>* Tools *>* Diagnostics *ページと* support *>* Tools *>* Metrics *ページ：これらのページは主にテクニカルサポートが使用することを目的としており、Prometheus指標の値を使用するいくつかのツールとチャートを提供します。
++
+
+NOTE: [Metrics] ページの一部の機能やメニュー項目は意図的に機能しないため、変更される場合があります。
+
+
+
+
+
+== 最も一般的な指標のリスト
+
+次に、よく使用されるPrometheus指標を示します。
+
+
+NOTE: 名前に_private_が含まれる指標は内部使用のみを目的としており、StorageGRID のリリース間で予告なく変更される場合があります。
+
+alertmanager_notifications_failed_total:: 失敗したアラート通知の総数。
+Node_filesystem_avail_bytes です:: root以外のユーザが使用できるファイルシステムスペースの量（バイト）。
+node_memory_MemAvailable_bytes:: Memory information （メモリ情報）フィールド MemAvailable_bytes 。
+Node_network_carrier:: のキャリア値 `/sys/class/net/_iface_`。
+Node_network_receate_errs_total:: ネットワークデバイスの統計 `receive_errs`情報。
+Node_network_transmit_errs_total:: ネットワークデバイスの統計 `transmit_errs`情報。
+storagegrid_administrative_down:: 想定内の理由でノードがグリッドに接続されていません。たとえば、ノードまたはノード上のサービスが正常にシャットダウンされた、ノードがリブート中である、ソフトウェアのアップグレード中であるなどの原因が考えられます。
+storagegrid_apply_compute_controller_hardware_status:: アプライアンスのコンピューティングコントローラハードウェアのステータス。
+storagegrid_apply_failed_disks を指定します:: アプライアンス内のストレージコントローラの場合、最適な状態でないドライブの数。
+storagegrid_apply_storage_controller_hardware_status:: アプライアンス内のストレージコントローラハードウェアの全体的なステータス。
+storagegrid_content_bbuckets_or_containers:: このストレージノードによって認識されている S3 バケットと Swift コンテナの総数。
+storagegrid_content_objects を参照してください:: このストレージノードによって認識されている S3 および Swift データオブジェクトの総数。S3経由でシステムと通信するクライアントアプリケーションで作成されたデータオブジェクトに対してのみ有効です。
+storagegrid_content_objects_lost:: StorageGRID システムに存在しないことが検出されたオブジェクトの合計数。損失の原因 を特定し、リカバリが可能かどうかを確認する必要があります。
++
+--
+link:../troubleshoot/troubleshooting-lost-and-missing-object-data.html["失われたオブジェクトデータと欠落しているオブジェクトデータのトラブルシューティング"]
+
+--
+storagegrid_http_session_ining_attempted 」というメッセージが表示されます:: ストレージノードに対して試行された HTTP セッションの総数。
+storagegrid_http_session_ining_currently established:: ストレージノード上で現在アクティブな（開いている） HTTP セッションの数。
+storagegrid_http_session_ining_failed:: 不正な形式の HTTP 要求または処理中のエラーが原因で、正常に完了しなかった HTTP セッションの総数。
+storagegrid_http_session_ining_successful:: 正常に完了した HTTP セッションの総数。
+storagegrid_ilm_Awaiting _background_objects:: スキャンによる ILM に評価を待機しているこのノード上のオブジェクトの合計数です。
+storagegrid_ilm_Awaiting _client_evaluation_objects_per_second:: このノードで ILM ポリシーに照らしてオブジェクトが評価されている現在の速度です。
+storagegrid_ilm_Awaiting _client_objects:: クライアント処理（取り込みなど）の ILM に評価を待機しているこのノード上のオブジェクトの合計数です。
+storagegrid_ilm_Awaiting _total_objects:: ILM 評価を待っているオブジェクトの合計数です。
+storagegrid_ilm_scan_objects_per_second:: このノードが所有するオブジェクトが ILM 用にスキャンされてキューに登録される速度です。
+storagegrid_ilm_scan_periodEstimated _ minutes （ StorageGRID _ ILM _ スキャン期間 _ 推定 _ 分）:: このノードで ILM のフルスキャンが完了するまでの推定時間です。
++
+--
+* 注： * フルスキャンは、このノードが所有するすべてのオブジェクトに ILM が適用されたことを保証するものではありません。
+
+--
+storagegrid_load-balancer _endpoint_cert_expiry_time:: エポックからのロードバランサエンドポイント証明書の有効期限（秒数）。
+storagegrid_meta_query_average _latency _milliseconds:: このサービスを使用してメタデータストアに対してクエリを実行するのに必要な平均時間。
+storagegrid_network_received_bytes:: インストール後に受信したデータの総容量。
+storagegrid_network_transmitted _bytes:: インストール後に送信されたデータの総容量。
+storagegrid_node_name:: 使用可能な CPU 時間のうち、このサービスが現在使用している割合。サービスのビジー状態を示します。使用可能な CPU 時間は、サーバの CPU 数によって異なります。
+storagegrid_ntp_Chosen_time_source_offset_milliseconds:: 選択した時間ソースによって提供される体系的な時間オフセット。オフセットは、時間ソースに到達するまでの遅延が、時間ソースが NTP クライアントに到達するために必要な時間と等しくない場合に適用されます。
+storagegrid_ntp_locked:: ノードがネットワークタイムプロトコル（NTP）サーバにロックされていません。
+storagegrid_s3_data_transfers_bytes_ingested:: 属性の前回リセット後に S3 クライアントからこのストレージノードに取り込まれたデータの総容量。
+storagegrid_s3_data_transfers_bytes_retrieved:: 属性の前回リセット後に S3 クライアントがこのストレージノードから読み出したデータの総容量。
+storagegrid_s3_operations_failed:: 失敗した S3 処理（ HTTP ステータスコード 4xx と 5xx ）の総数。 S3 の認証エラーが原因のものは除きます。
+storagegrid_s3_operations_successful:: 成功した S3 処理（ HTTP ステータスコード 2xx ）の総数。
+storagegrid_s3_operations_unauthorized:: 認証エラーが原因で失敗した S3 処理の総数。
+storagegrid_servercertificate_management_interface_cert_expiry_days のように指定します:: 管理インターフェイス証明書が期限切れになるまでの日数。
+storagegrid_servercertificate_storage_api_endpoints_cert_expiry_days のように指定します:: オブジェクトストレージ API 証明書が期限切れになるまでの日数。
+storagegrid_service_cpu_seconds で指定します:: インストール後にこのサービスが CPU を使用した時間の累計。
+storagegrid_service_memory_usage_bytes:: このサービスが現在使用しているメモリ（ RAM ）の容量。この値は、 Linux の top ユーティリティで RES として表示される値と同じです。
+storagegrid_service_network_received_bytes:: インストール後にこのサービスが受信したデータの総容量。
+storagegrid_service_network_transmitted バイト数:: このサービスから送信されたデータの総容量。
+storagegrid_service_restarts:: サービスが再起動された回数。
+storagegrid_service_runtime_seconds:: インストール後にサービスが実行されていた合計時間。
+storagegrid_service_uptime</1> を指定します:: 前回のサービス再起動以降にサービスが実行されていた時間の合計。
+storagegrid_storage_state_current:: ストレージサービスの現在の状態。属性値は次のとおりです。
++
+--
+* 10 = オフライン
+* 15 = メンテナンス
+* 20 = 読み取り専用
+* 30 = オンライン
+
+
+--
+storagegrid_storage_status のように指定します:: ストレージサービスの現在のステータス。属性値は次のとおりです。
++
+--
+* 0 = エラーなし
+* 10 = 移行中
+* 20 = 空きスペースが不足しています
+* 30 = ボリュームを使用できません
+* 40= エラー
+
+
+--
+storagegrid_storage_utilization_data_bytes:: ストレージノード上のレプリケートオブジェクトデータとイレイジャーコーディングオブジェクトデータの推定合計サイズ。
+storagegrid_storage_utilization_meta_allowed_bytes:: オブジェクトメタデータに使用できる各ストレージノードのボリューム 0 上の合計スペース。この値は、ノードでメタデータ用にリザーブされている実際のスペースよりも常に小さくなります。これは、重要なデータベース処理（コンパクションや修復など）や将来のハードウェアおよびソフトウェアのアップグレードに必要なリザーブスペースの一部が必要なためです。オブジェクトメタデータ用の許可スペースは、オブジェクトの全体的な容量を制御します。
+storagegrid_storage_utilization_metadata_bytes:: ストレージボリューム 0 上のオブジェクトメタデータのバイト数。
+storagegrid_storage_utilization_total_space_bytes:: すべてのオブジェクトストアに割り当てられているストレージスペースの総容量。
+storagegrid_storage_utilization_usable_space_bytes:: オブジェクトストレージスペースの残り容量。ストレージノード上のすべてのオブジェクトストアの使用可能スペースを合計して算出されます。
+storagegrid_swify_data_transfers _bytes_取り込み 済み:: 属性の前回リセット以降にこのストレージノードに取り込まれたデータの総容量。
+storagegrid_wift_data_transfers _byts_retrieved:: 属性の前回リセット後に Swift クライアントがこのストレージノードから読み出したデータの総容量。
+storagegrid_swift_operations_failed 」というエラーが発生しました:: 失敗した Swift 処理（ HTTP ステータスコード 4xx と 5xx ）の総数。 Swift の認証エラーが原因のものは除きます。
+storagegrid_swift_operations_successful:: 成功した Swift 処理（ HTTP ステータスコード 2xx ）の総数。
+storagegrid_swift_operations_unauthorized:: 認証エラーが原因で失敗した Swift 処理（ HTTP ステータスコード 401 、 403 、 405 ）の総数。
+storagegrid_stenantUsagedata_bytes:: テナントのすべてのオブジェクトの論理サイズ。
+storagegrid_stenantUsageobject_count:: テナントのオブジェクトの数。
+storagegrid_tenant_dusation_QUOTA_bytes:: テナントのオブジェクトに使用できる論理スペースの最大容量。クォータ指標を指定しない場合、使用可能なスペースは無制限です。
+
+
+
+
+== すべての指標のリストを取得します
+
+[[objective-all-metrics]]すべての指標のリストを取得するには、グリッド管理APIを使用します。
+
+. Grid Managerの上部でヘルプアイコンを選択し、*[API documentation]*を選択します。
+. 指標 * 処理を探します。
+. 操作を実行し `GET /grid/metric-names`ます。
+. 結果をダウンロードします。
+

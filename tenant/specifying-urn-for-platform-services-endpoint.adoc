@@ -1,0 +1,166 @@
+---
+permalink: tenant/specifying-urn-for-platform-services-endpoint.html 
+sidebar: sidebar 
+keywords: how to specify platform services urn 
+summary: プラットフォームサービスエンドポイントを作成するときは、 Unique Resource Name （ URN ）を指定する必要があります。プラットフォームサービスの設定XMLを作成するときは、URNを使用してエンドポイントを参照します。各エンドポイントの URN は一意である必要があります。 
+---
+= プラットフォームサービスのエンドポイントの URN を指定してください
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プラットフォームサービスエンドポイントを作成するときは、 Unique Resource Name （ URN ）を指定する必要があります。プラットフォームサービスの設定XMLを作成するときは、URNを使用してエンドポイントを参照します。各エンドポイントの URN は一意である必要があります。
+
+プラットフォームサービスエンドポイントは、作成時に StorageGRID で検証されます。プラットフォームサービスエンドポイントを作成する前に、エンドポイントで指定されたリソースが存在し、アクセス可能であることを確認してください。
+
+
+
+== URN 要素
+
+プラットフォームサービスエンドポイントのURNは、次のようにまたは `urn:mysite`で始まる必要があります `arn:aws`。
+
+* サービスがAmazon Web Services（AWS）でホストされている場合は、 `arn:aws`
+* サービスがGoogle Cloud Platform（GCP）でホストされている場合は、 `arn:aws`
+* サービスがローカルでホストされている場合は、 `urn:mysite`
+
+
+たとえば、StorageGRIDでホストされるCloudMirrorエンドポイントのURNを指定する場合、URNはで始まることがあります `urn:sgws`。
+
+URN の次の要素では、次のようにプラットフォームサービスのタイプを指定します。
+
+[cols="2a,1a"]
+|===
+| サービス | タイプ 
+
+
+ a| 
+CloudMirror レプリケーション
+ a| 
+`s3`
+
+
+
+ a| 
+通知
+ a| 
+`sns`または `kafka`
+
+
+
+ a| 
+検索統合
+ a| 
+`es`
+
+|===
+たとえば、StorageGRIDでホストされるCloudMirrorエンドポイントのURNを引き続き指定するには、GETに `urn:sgws:s3`を追加します `s3`。
+
+URN の最後の要素は、デスティネーション URI の特定のターゲットリソースを識別します。
+
+[cols="1a,2a"]
+|===
+| サービス | 特定のリソース 
+
+
+ a| 
+CloudMirror レプリケーション
+ a| 
+`bucket-name`
+
+
+
+ a| 
+通知
+ a| 
+`sns-topic-name`または `kafka-topic-name`
+
+
+
+ a| 
+検索統合
+ a| 
+`domain-name/index-name/type-name`
+
+* 注： Elasticsearch クラスタが * NOT * である場合、インデックスを自動的に作成するように設定されているため、エンドポイントを作成する前にインデックスを手動で作成する必要があります。
+
+|===
+
+
+== AWS と GCP でホストされるサービスの URN
+
+AWS と GCP のエンティティの場合、完全な URN は有効な AWS ARN です。例：
+
+* CloudMirror レプリケーション：
++
+[listing]
+----
+arn:aws:s3:::bucket-name
+----
+* 通知：
++
+[listing]
+----
+arn:aws:sns:region:account-id:topic-name
+----
+* 検索統合：
++
+[listing]
+----
+arn:aws:es:region:account-id:domain/domain-name/index-name/type-name
+----
++
+
+NOTE: AWSの検索統合エンドポイントの場合は、次に示すようにリテラル文字列をに `domain-name`含める必要があります `domain/`。
+
+
+
+
+
+== ローカルでホストされるサービスの URN
+
+クラウド サービス ではなくローカルでホストされるサービスを使用する場合は、 URN の 3 番目と最後の必須要素が含まれていて、有効かつ一意な URN が作成されるのであれば、どのような方法で URN を指定してもかまいません。となっている要素はオプションで空白にすることも、リソースを識別して一意な URN の作成に役立つ任意の情報を指定することもできます。例：
+
+* CloudMirror レプリケーション：
++
+[listing]
+----
+urn:mysite:s3:optional:optional:bucket-name
+----
++
+StorageGRIDでホストされるCloudMirrorエンドポイントの場合は、次の文字で始まる有効なURNを指定でき `urn:sgws`ます。
+
++
+[listing]
+----
+urn:sgws:s3:optional:optional:bucket-name
+----
+* 通知：
++
+Amazon Simple Notification Serviceエンドポイントを指定します。
+
++
+[listing]
+----
+urn:mysite:sns:optional:optional:sns-topic-name
+----
++
+Kafkaエンドポイントを指定します。
+
++
+[listing]
+----
+urn:mysite:kafka:optional:optional:kafka-topic-name
+----
+* 検索統合：
++
+[listing]
+----
+urn:mysite:es:optional:optional:domain-name/index-name/type-name
+----
++
+
+NOTE: ローカルでホストされる検索統合エンドポイントの場合、 `domain-name`エンドポイントのURNが一意であるかぎり、要素には任意の文字列を指定できます。
+
+

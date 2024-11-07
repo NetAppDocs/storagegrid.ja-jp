@@ -1,0 +1,25 @@
+---
+permalink: upgrade/changes-to-tenant-management-api.html 
+sidebar: sidebar 
+keywords: tenant management api, api, api version, swagger, rest api 
+summary: StorageGRID 11.9では、バージョン4のテナント管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。 
+---
+= テナント管理 API に変更が加えられました
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID 11.9では、バージョン4のテナント管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。
+
+
+NOTE: 廃止されたバージョンのテナント管理APIはStorageGRID 11.9で引き続き使用できますが、これらのバージョンのAPIのサポートはStorageGRIDの今後のリリースで削除される予定です。StorageGRID 11.9にアップグレードしたあと、APIを使用して廃止されたAPIを非アクティブ化できます `PUT /grid/config/management`。
+
+詳細については、を参照してくださいlink:../tenant/understanding-tenant-management-api.html["テナント管理 API について理解する"]。
+
+
+
+== バケット容量制限用の新しいAPI
+
+APIでGET / PUT処理を使用すると、バケットのストレージ容量の制限を取得および設定できます `/org/containers/{bucketName}/quota-object-bytes`。

@@ -1,0 +1,62 @@
+---
+permalink: maintain/selecting-node-recovery-procedure.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, procedure 
+summary: 障害が発生したノードのタイプに適したリカバリ手順 を選択する必要があります。 
+---
+= ノードリカバリ手順 を選択します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+障害が発生したノードのタイプに適したリカバリ手順 を選択する必要があります。
+
+[cols="1a,2a"]
+|===
+| Grid ノード | Recovery 手順 の略 
+
+
+ a| 
+複数のストレージノード
+ a| 
+テクニカルサポートにお問い合わせください。複数のストレージノードで障害が発生した場合は、データ損失につながる可能性のあるデータベースの不整合を防ぐために、テクニカルサポートがリカバリを支援する必要があります。サイトリカバリ手順 が必要な場合があります。
+
+link:how-site-recovery-is-performed-by-technical-support.html["テクニカルサポートによるサイトのリカバリ方法"]
+
+
+
+ a| 
+単一のストレージノード
+ a| 
+ストレージノードのリカバリ手順 は、障害のタイプと期間によって異なります。
+
+link:recovering-from-storage-node-failures.html["ストレージノードの障害からリカバリします"]
+
+
+
+ a| 
+管理ノード
+ a| 
+管理ノードの手順 は、プライマリ管理ノードと非プライマリ管理ノードのどちらをリカバリする必要があるかによって異なります。
+
+link:recovering-from-admin-node-failures.html["管理ノードの障害からリカバリ"]
+
+
+
+ a| 
+ゲートウェイノード
+ a| 
+link:replacing-gateway-node.html["ゲートウェイノードの障害からリカバリします"]
+
+
+
+ a| 
+アーカイブノード
+ a| 
+https://docs.netapp.com/us-en/storagegrid-118/maintain/recovering-from-archive-node-failures.html["アーカイブノードの障害からのリカバリ（StorageGRID 11.8ドキュメントサイト）"^]
+
+|===
+
+NOTE: 複数のグリッドノードをホストしているサーバで障害が発生した場合、ノードは任意の順序でリカバリできます。ただし、障害サーバがプライマリ管理ノードをホストしている場合は、最初にそのノードをリカバリする必要があります。プライマリ管理ノードを最初にリカバリすると、プライマリ管理ノードへの接続を待機するために他のノードのリカバリが停止するのを防ぐことができます。

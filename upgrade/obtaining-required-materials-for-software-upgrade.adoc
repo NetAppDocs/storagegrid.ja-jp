@@ -1,0 +1,67 @@
+---
+permalink: upgrade/obtaining-required-materials-for-software-upgrade.html 
+sidebar: sidebar 
+keywords: upgrade, requirements, rhel, red hat, linux, ubuntu, debian 
+summary: ソフトウェアのアップグレードを開始する前に、必要な情報や情報をすべて入手しておきます。 
+---
+= ソフトウェアのアップグレードに必要なファイル、機器、機器を揃えます
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ソフトウェアのアップグレードを開始する前に、必要な情報や情報をすべて入手しておきます。
+
+[cols="1a,3a"]
+|===
+| 項目 | 脚注 
+
+
+ a| 
+サービスラップトップ
+ a| 
+サービスラップトップには次のものが必要です。
+
+* ネットワークポート
+* SSH クライアント（ PuTTY など）
+
+
+
+
+ a| 
+link:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]
+ a| 
+通常、ブラウザサポートは StorageGRID リリースごとに変更されます。ブラウザが新しい StorageGRID バージョンに対応していることを確認します。
+
+
+
+ a| 
+プロビジョニングパスフレーズ
+ a| 
+このパスフレーズは、 StorageGRID システムが最初にインストールされるときに作成されて文書化されます。プロビジョニングパスフレーズはファイルに含まれていません `Passwords.txt`。
+
+
+
+ a| 
+Linux RPMまたはDEBアーカイブ
+ a| 
+Linuxホストにノードが導入されている場合は、アップグレードを開始する前に実行する必要がありますlink:linux-installing-rpm-or-deb-package-on-all-hosts.html["RPMパッケージまたはDEBパッケージをすべてのホストにダウンロードしてインストールします"]。
+
+お使いのオペレーティングシステムがStorageGRIDのカーネルバージョンの最小要件を満たしていることを確認します。
+
+* link:../rhel/installing-linux.html["Red Hat Enterprise LinuxホストへのStorageGRIDのインストール"]
+* link:../ubuntu/installing-linux.html["UbuntuホストまたはDebianホストへのStorageGRIDのインストール"]
+
+
+
+
+ a| 
+StorageGRID のドキュメント
+ a| 
+* link:../release-notes/index.html["リリースノート"]StorageGRID 11.9の場合（サインインが必要）。アップグレードを開始する前に、このドキュメントに記載されている情報をよくお読みください。
+* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["StorageGRID ソフトウェアアップグレード解決ガイド"^]アップグレード先のメジャーバージョン（サインインが必要）
+* その他（ https://docs.netapp.com/us-en/storagegrid-family/index.html["StorageGRID のドキュメント"^]必要に応じて）。
+
+
+|===

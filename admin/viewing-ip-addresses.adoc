@@ -1,0 +1,31 @@
+---
+permalink: admin/viewing-ip-addresses.html 
+sidebar: sidebar 
+keywords: ip address, view ip addresses for nodes, what is node ip address 
+summary: StorageGRID システムの各グリッドノードの IP アドレスを表示できます。その後、このIPアドレスを使用してコマンドラインでグリッドノードにログインし、さまざまなメンテナンス手順を実行できます。 
+---
+= IP アドレスを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID システムの各グリッドノードの IP アドレスを表示できます。その後、このIPアドレスを使用してコマンドラインでグリッドノードにログインし、さまざまなメンテナンス手順を実行できます。
+
+.開始する前に
+Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+
+.タスクの内容
+IPアドレスの変更については、を参照してくださいlink:../maintain/configuring-ip-addresses.html["IP アドレスを設定する"]。
+
+.手順
+. ノード * > * _grid node_* > * Overview * を選択します。
+. [IP Addresses] のタイトルの右側にある [*Show More*] を選択します。
++
+このグリッドノードの IP アドレスがテーブルに表示されます。
+
++
+image::../media/nodes_page_overview_tab_extended.png[Nodes ページの IP アドレス]
+
+

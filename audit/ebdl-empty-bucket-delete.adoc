@@ -1,0 +1,64 @@
+---
+permalink: audit/ebdl-empty-bucket-delete.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
+summary: すべてのオブジェクトを削除中のバケット内のオブジェクトがILMスキャナによって削除されました（空のバケット処理を実行中）。 
+---
+= EBDL：空のバケット削除
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+すべてのオブジェクトを削除中のバケット内のオブジェクトがILMスキャナによって削除されました（空のバケット処理を実行中）。
+
+[cols="1a,1a,4a"]
+|===
+| コード | フィールド | 製品説明 
+
+
+ a| 
+CSIZ
+ a| 
+オブジェクトサイズ
+ a| 
+オブジェクトのサイズ（バイト）。
+
+
+
+ a| 
+パス
+ a| 
+S3バケット/キー
+ a| 
+S3バケット名とS3キー名。
+
+
+
+ a| 
+SEGC
+ a| 
+コンテナUUID
+ a| 
+セグメント化されたオブジェクトのコンテナのUUID。この値は、オブジェクトがセグメント化されている場合にのみ使用できます。
+
+
+
+ a| 
+UUID
+ a| 
+Universally Unique Identifier の略
+ a| 
+StorageGRID システム内でのオブジェクトの識別子。
+
+
+
+ a| 
+RSLT
+ a| 
+削除処理の結果
+ a| 
+イベント、プロセス、またはトランザクションの結果。該当しないメッセージの場合は、誤ってフィルタリングされないように SUCS ではなく NONE が使用されます。
+
+|===

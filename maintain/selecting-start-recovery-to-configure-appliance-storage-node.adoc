@@ -1,0 +1,53 @@
+---
+permalink: maintain/selecting-start-recovery-to-configure-appliance-storage-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance storage node 
+summary: '障害が発生したノードの代わりとしてアプライアンスストレージノードを設定するには、 Grid Manager で [Start Recovery] を選択する必要があります。' 
+---
+= Start Recovery を選択して、アプライアンスストレージノードを設定します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+障害が発生したノードの代わりとしてアプライアンスストレージノードを設定するには、 Grid Manager で [Start Recovery] を選択する必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["Maintenance権限またはRoot Access権限"]。
+* プロビジョニングパスフレーズを用意します。
+* リカバリ用アプライアンスストレージノードを導入しておきます。
+* イレイジャーコーディングデータの修復ジョブの開始日を確認しておきます。
+* ストレージノードが過去15日以内に再構築されていないことを確認しておきます。
+
+
+.手順
+. Grid Manager から * maintenance * > * Tasks * > * Recovery * を選択します。
+. リカバリするグリッドノードを Pending Nodes リストで選択します。
++
+ノードに障害が発生するとリストに表示されますが、ノードを再インストールしてリカバリの準備ができるまでは選択できません。
+
+. プロビジョニングパスフレーズ * を入力します。
+. [ リカバリの開始 ] をクリックします。
++
+image::../media/4b_select_recovery_node.png[Maintenance > Recovery ページを示すスクリーンショット]
+
+. リカバリ中のグリッドノードテーブルで、リカバリの進行状況を監視します。
++
+グリッドノードが「Waiting for Manual Steps」ステージに達したら、次のトピックに進み、アプライアンスストレージボリュームを手動で再マウントして再フォーマットします。
+
++
+image::../media/recovery_reset_button.gif[「 waiting for manual steps 」ステージのスクリーンショット]
+
++
+
+NOTE: リカバリ中の任意の時点で、 [* リセット ] をクリックして新しいリカバリを開始できます。手順 をリセットするとノードが不確定な状態のままになることを示すダイアログボックスが表示されます。
+
++
+image::../media/recovery_reset_warning.gif[リカバリのリセットに関する警告を示すダイアログボックスのスクリーンショット]
+
++
+手順をリセットしたあとにリカバリを再試行する場合は、ノードでを実行して、アプライアンスノードをインストール前の状態にリストアする必要があります `sgareinstall`。
+
+

@@ -1,0 +1,49 @@
+---
+indexpage:
+  title: グリッドを展開する
+  summary: システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。
+  keywords: expand grid, add volume, add node, add site
+  lead: システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。
+  tiles:
+  - title: 開始する
+    links:
+    - title: カクチヨウタイフ
+      url: "../expand/index.html"
+    - title: ガイドライン：オブジェクト容量の追加
+      url: "../expand/guidelines-for-adding-object-capacity.html"
+    - title: ガイドライン：メタデータ容量の追加
+      url: "../expand/adding-metadata-capacity.html"
+    - title: ガイドライン：冗長性または新機能の追加
+      url: "../expand/adding-grid-nodes-to-add-capabilities.html"
+    - title: ガイドライン：サイトの追加
+      url: "../expand/adding-new-site.html"
+    - title: 必要なデータや機器を揃えます
+      url: "../expand/gather-required-materials.html"
+  - title: ストレージボリュームを追加します
+    links:
+    - title: ストレージノードにストレージボリュームを追加
+      url: "../expand/adding-storage-volumes-to-storage-nodes.html"
+    - title: VMware ：ストレージノードにストレージボリュームを追加
+      url: "../expand/vmware-adding-storage-volumes-to-storage-node.html"
+    - title: Linux ：ストレージノードに直接接続型ボリュームまたは SAN ボリュームを追加
+      url: "../expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html"
+  - title: Grid ノードまたはサイトを追加
+    links:
+    - title: 既存のサイトにグリッドノードを追加する
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: 新しいサイトを追加します
+      url: "../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html"
+    - title: Grid ネットワークのサブネットを更新します
+      url: "../expand/updating-subnets-for-grid-network.html"
+    - title: 新しいグリッドノードの導入
+      url: "../expand/deploying-new-grid-nodes.html"
+    - title: 拡張を実行
+      url: "../expand/performing-expansion.html"
+  - title: 設定とトラブルシューティング
+    links:
+    - title: 設定手順
+      url: "../expand/configuring-expanded-storagegrid-system.html"
+    - title: ストレージノードの追加後にイレイジャーコーディングデータをリバランシングします
+      url: "../expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html"
+    - title: トラブルシューティング:ログファイルの収集
+      url: "../expand/contacting-technical-support.html"

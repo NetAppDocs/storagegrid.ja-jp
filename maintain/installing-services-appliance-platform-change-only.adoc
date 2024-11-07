@@ -1,0 +1,29 @@
+---
+permalink: maintain/installing-services-appliance-platform-change-only.html 
+sidebar: sidebar 
+keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
+summary: 交換用ノードにサービスアプライアンスを使用してVMwareまたはLinuxホストでホストされていた障害グリッドノードをリカバリする場合は、最初に障害ノードと同じノード名（システム名）を使用して新しいアプライアンスハードウェアを設置する必要があります。 
+---
+= サービスアプライアンスのインストール（プラットフォーム変更のみ）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+交換用ノードにサービスアプライアンスを使用してVMwareまたはLinuxホストでホストされていた障害グリッドノードをリカバリする場合は、最初に障害ノードと同じノード名（システム名）を使用して新しいアプライアンスハードウェアを設置する必要があります。
+
+.開始する前に
+障害ノードに関する次の情報を確認しておきます。
+
+* * ノード名 * ：障害が発生したノードと同じノード名を使用してサービスアプライアンスをインストールする必要があります。ノード名はホスト名（システム名）です。
+* * IP アドレス * ：障害が発生したノードと同じ IP アドレスをサービスアプライアンスに割り当てることができます。これは推奨されるオプションであり、各ネットワークで新しい未使用の IP アドレスを選択することもできます。
+
+
+.タスクの内容
+この手順 は、 VMware または Linux でホストされていた障害ノードをサービスアプライアンスでホストされているノードと交換してリカバリする場合にのみ実行してください。
+
+.手順
+. 新しいサービスアプライアンスの設置手順に従います。を参照してください https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["ハードウェア設置のクイックスタート"^]
+. ノード名の入力を求められたら、障害ノードのノード名を使用します。
+

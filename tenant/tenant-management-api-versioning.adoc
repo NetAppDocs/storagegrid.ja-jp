@@ -1,0 +1,101 @@
+---
+permalink: tenant/tenant-management-api-versioning.html 
+sidebar: sidebar 
+keywords: tenant management api version 
+summary: テナント管理 API では、バージョン管理機能を使用して無停止アップグレードがサポートされます。 
+---
+= テナント管理 API のバージョン管理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+テナント管理 API では、バージョン管理機能を使用して無停止アップグレードがサポートされます。
+
+たとえば、このリクエストURLはAPIのバージョン4を指定します。
+
+`https://_hostname_or_ip_address_/api/v4/authorize`
+
+APIのメジャーバージョンは、古いバージョンと互換性がない_変更を行うと更新されます。APIのマイナーバージョンは、_が古いバージョンと互換性がある_に変更されると更新されます。互換性のある変更には、新しいエンドポイントやプロパティの追加などがあります。
+
+次の例は、変更のタイプに基づいて API バージョンがどのように更新されるかを示しています。
+
+[cols="1a,1a,1a"]
+|===
+| API に対する変更のタイプ | 古いバージョン | 新しいバージョン 
+
+
+ a| 
+旧バージョンと互換性があります
+ a| 
+2.1
+ a| 
+2.2
+
+
+
+ a| 
+旧バージョンとの互換性がありません
+ a| 
+2.1
+ a| 
+3.0
+
+
+
+ a| 
+3.0
+ a| 
+4.0
+
+|===
+StorageGRIDソフトウェアを初めてインストールすると、最新バージョンのAPIのみが有効になります。ただし、 StorageGRID の新機能リリースにアップグレードした場合、少なくとも StorageGRID の機能リリース 1 つ分の間は、古い API バージョンにも引き続きアクセスできます。
+
+
+NOTE: サポートされるバージョンを設定できます。詳細については、Swagger APIドキュメントの* config *セクションを参照してくださいlink:../admin/using-grid-management-api.html["Grid 管理 API"]。すべてのAPIクライアントを新しいバージョンを使用するように更新したら、古いバージョンのサポートを無効にする必要があります。
+
+古い要求は、次の方法で廃止とマークされます。
+
+* 応答ヘッダーが「 Deprecated ： true 」となる。
+* JSON 応答の本文に「 deprecated ： true 」が追加される
+* 廃止の警告が nms.log に追加される。例：
++
+[listing]
+----
+Received call to deprecated v2 API at POST "/api/v2/authorize"
+----
+
+
+
+
+== 現在のリリースでサポートされている API のバージョンを確認します
+
+API要求を使用して `GET /versions`、サポートされているAPIのメジャーバージョンのリストを返します。この要求は、Swagger APIドキュメントの* config *セクションにあります。
+
+[listing]
+----
+GET https://{{IP-Address}}/api/versions
+{
+  "responseTime": "2023-06-27T22:13:50.750Z",
+  "status": "success",
+  "apiVersion": "4.0",
+  "data": [
+    2,
+    3,
+    4
+  ]
+}
+----
+
+
+== 要求の API バージョンを指定します
+
+APIのバージョンは(`/api/v4`、パスパラメータを使用して指定できます）またはヘッダー(`Api-Version: 4`を指定できます。両方の値を指定した場合は、ヘッダー値がパス値よりも優先されます。
+
+[listing]
+----
+curl https://[IP-Address]/api/v4/grid/accounts
+
+curl -H "Api-Version: 4" https://[IP-Address]/api/grid/accounts
+----

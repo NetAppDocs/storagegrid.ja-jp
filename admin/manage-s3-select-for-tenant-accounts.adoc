@@ -1,0 +1,76 @@
+---
+permalink: admin/manage-s3-select-for-tenant-accounts.html 
+sidebar: sidebar 
+keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
+summary: 特定の S3 テナントが、個々のオブジェクトに対する S3 Select から問題 SelectObjectContent 要求を使用できるようにすることができます。 
+---
+= テナントアカウント用の S3 Select を管理します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+特定の S3 テナントが、個々のオブジェクトに対する S3 Select から問題 SelectObjectContent 要求を使用できるようにすることができます。
+
+S3 Select を使用すると、データベースや関連リソースを導入せずに大量のデータを効率的に検索できます。また、データ取得のコストとレイテンシも削減されます。
+
+
+
+== S3 Select とは何ですか。
+
+S3 Select では、 S3 クライアントが SelectObjectContent 要求を使用して、オブジェクトから必要なデータのみをフィルタリングして読み出すことができます。S3 Select の StorageGRID 実装には、 S3 Select のコマンドと機能の一部が含まれています。
+
+
+
+== S3 Select を使用する際の考慮事項と要件
+
+
+
+=== グリッド管理の要件
+
+グリッド管理者は、テナントにS3 Select機能を許可する必要があります。またはの場合に*[Allow S3 Select]*を選択しますlink:creating-tenant-account.html["テナントを作成します"]link:editing-tenant-account.html["テナントの編集"]。
+
+
+
+=== オブジェクト形式の要件
+
+照会するオブジェクトは、次のいずれかの形式である必要があります。
+
+* * CSV *。そのまま使用することも、GZIPやbzip2のアーカイブに圧縮して使用することもできます。
+* *寄木細工*。寄木細工オブジェクトの追加要件：
++
+** S3 Selectでは、GZIPまたはSnappyを使用したカラムナ圧縮のみがサポートされます。S3 Selectでは、寄木細工オブジェクトのオブジェクト全体の圧縮はサポートされません。
+** S3 Selectは寄木細工の出力をサポートしていません。出力形式はCSVまたはJSONで指定する必要があります。
+** 圧縮されていない行グループの最大サイズは512MBです。
+** オブジェクトのスキーマで指定されているデータ型を使用する必要があります。
+** interval、json、list、time、またはUUID論理型は使用できません。
+
+
+
+
+
+
+=== エンドポイントの要件
+
+SelectObjectContent要求はに送信する必要がありますlink:configuring-load-balancer-endpoints.html["StorageGRID ロードバランサエンドポイント"]。
+
+エンドポイントで使用する管理ノードとゲートウェイノードは、次のいずれかである必要があります。
+
+* サービスアプライアンスノード
+* VMwareベースのソフトウェアノード
+* cgroup v2が有効なカーネルを実行しているベアメタルノード
+
+
+
+
+=== 一般的な考慮事項
+
+クエリをストレージノードに直接送信することはできません。
+
+
+CAUTION: SelectObjectContent 要求を使用すると、すべての S3 クライアントおよびすべてのテナントのロードバランサのパフォーマンスを低下させることができます。この機能は、必要な場合にのみ有効にし、信頼できるテナントに対してのみ有効にします。
+
+を参照してくださいlink:../s3/use-s3-select.html["S3 Select の使用手順"]。
+
+S3 Selectの処理の推移を確認するにはlink:../monitor/reviewing-support-metrics.html["Grafana チャート"]、Grid Managerで* support *>* Tools *>* Metrics *を選択します。

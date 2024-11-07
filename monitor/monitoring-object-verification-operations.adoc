@@ -1,0 +1,70 @@
+---
+permalink: monitor/monitoring-object-verification-operations.html 
+sidebar: sidebar 
+keywords: object, verification 
+summary: StorageGRID システムは、ストレージノード上のオブジェクトデータの整合性を検証して、オブジェクトの破損や欠落の有無を確認します。 
+---
+= オブジェクト検証処理を監視する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID システムは、ストレージノード上のオブジェクトデータの整合性を検証して、オブジェクトの破損や欠落の有無を確認します。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["Maintenance権限またはRoot Access権限"]。
+
+
+.タスクの内容
+2つがlink:../troubleshoot/verifying-object-integrity.html["検証プロセス"]連携してデータの整合性を確保します。
+
+* * バックグラウンド検証 * は、オブジェクトデータの正確性を継続的にチェックするために自動的に実行されます。
++
+バックグラウンド検証では、すべてのストレージノードが自動的かつ継続的にチェックされて、レプリケートオブジェクトデータとイレイジャーコーディングオブジェクトデータのコピーが破損していないかどうかが確認されます。問題が見つかった場合、 StorageGRID システムは、システム内の別の場所に格納されているコピーから、破損したオブジェクトデータを自動的に置き換えます。バックグラウンド検証は、クラウドストレージプール内のオブジェクトに対しては実行されません。
+
++
+
+NOTE: 自動的に修正できない破損オブジェクトが検出されると、* Unidentified corrupt object detected *アラートがトリガーされます。
+
+* * オブジェクトの存在チェック * は、オブジェクトデータの有無（正確性ではなく）をより迅速に確認するためにユーザによってトリガーされます。
++
+オブジェクトの存在チェックでは、オブジェクトとイレイジャーコーディングフラグメントの想定されるレプリケートコピーがすべてストレージノードに存在するかどうかが検証されます。オブジェクトの存在チェックは、ストレージデバイスの整合性を検証する手段を提供します。特に、最新のハードウェア問題 がデータの整合性に影響を与える可能性がある場合に役立ちます。
+
+
+
+バックグラウンド検証の結果を定期的に確認し、オブジェクトの存在をチェックする必要があります。オブジェクトデータの破損や欠落が見つかった場合は、すぐに調べてルート原因 を特定します。
+
+.手順
+. バックグラウンド検証の結果を確認します。
++
+.. ノード * > * _ ストレージノード _ * > * オブジェクト * を選択します。
+.. 検証結果を確認します。
++
+*** レプリケートされたオブジェクトデータの検証を確認するには、 Verification セクションの属性を確認します。
++
+image::../media/nodes_storage_node_object_verification.png[Nodes > Storage Node > Object > Verification の順に選択します]
+
+*** イレイジャーコーディングフラグメントの検証を確認するには、「 * _ ストレージノード _ * > * ILM * 」を選択し、イレイジャーコーディングの検証セクションの属性を確認します。
++
+image::../media/nodes_storage_node_ilm_ec_verification.png[Nodes > ストレージノード > ILM > EC Verification の略]
+
++
+属性名の横にある疑問符を選択するimage:../media/icon_nms_question.png["疑問符"]と、ヘルプテキストが表示されます。
+
+
+
+
+
+. オブジェクト存在チェックジョブの結果を確認します。
++
+.. [* maintenance * （メンテナンス * ） ] > [* Object existence check * （オブジェクトの存在確認 * ） ] > [* Job history * （ジョブ
+.. Missing object copies Detected 列をスキャンします。100個以上のオブジェクトコピーが欠落しているジョブがあり、* Objects lost *アラートがトリガーされている場合は、テクニカルサポートに連絡してください。
++
+image::../media/oec_job_history.png[オブジェクトの存在チェックジョブ履歴]
+
+
+
+

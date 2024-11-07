@@ -1,0 +1,36 @@
+---
+permalink: ilm/resolving-consistency-errors-when-updating-bucket-s3-object-lock-configuration.html 
+sidebar: sidebar 
+keywords: consistency error, s3 object lock and consistency 
+summary: データセンターサイトまたはサイトの複数のストレージノードが使用できなくなった場合は、 S3 テナントユーザが S3 オブジェクトロックまたは従来の準拠設定に変更を適用できるよう支援する必要があります。 
+---
+= S3 オブジェクトロックまたは従来の準拠設定の更新時に発生する整合性の問題を解決する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+データセンターサイトまたはサイトの複数のストレージノードが使用できなくなった場合は、 S3 テナントユーザが S3 オブジェクトロックまたは従来の準拠設定に変更を適用できるよう支援する必要があります。
+
+S3 オブジェクトロック（または従来の準拠）が有効になっているバケットを使用するテナントユーザは、特定の設定を変更できます。たとえば、 S3 オブジェクトロックを使用するテナントユーザがオブジェクトのバージョンをリーガルホールドの対象にする必要がある場合があります。
+
+テナントユーザが S3 バケットまたはオブジェクトバージョンの設定を更新すると、 StorageGRID はグリッド全体ですぐにバケットまたはオブジェクトメタデータを更新します。データセンターサイトまたは複数のストレージノードを使用できないためにメタデータを更新できない場合は、次のエラーが返されます。
+
+[listing]
+----
+503: Service Unavailable
+Unable to update compliance settings because the settings can't be consistently applied on enough storage services. Contact your grid administrator for assistance.
+----
+このエラーを解決するには、次の手順を実行します。
+
+. できるだけ早く、すべてのストレージノードまたはサイトを利用できる状態に戻します。
+. 各サイトで十分な数のストレージノードを利用可能にできない場合は、テクニカルサポートに問い合わせて、ノードをリカバリし、変更がグリッド全体に一貫して適用されるようにしてください。
+. 基盤となる問題 が解決されたら、テナントユーザに設定の変更を再試行するよう通知してください。
+
+
+.関連情報
+* link:../tenant/index.html["テナントアカウントを使用する"]
+* link:../s3/index.html["S3 REST APIを使用する"]
+* link:../maintain/index.html["リカバリとメンテナンス"]
+

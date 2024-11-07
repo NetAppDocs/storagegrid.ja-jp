@@ -1,0 +1,46 @@
+---
+permalink: audit/ecmc-missing-erasure-coded-data-fragment.html 
+sidebar: sidebar 
+keywords: storagegrid, audit, message, ECMC, Missing Erasure-Coded Data Fragment 
+summary: この監査メッセージは、イレイジャーコーディングされたデータフラグメントの欠落がシステムで検出されたことを示します。 
+---
+= ECMC：イレイジャーコーディングされたデータフラグメントの欠落
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+この監査メッセージは、イレイジャーコーディングされたデータフラグメントの欠落がシステムで検出されたことを示します。
+
+[cols="1a,1a,4a"]
+|===
+| コード | フィールド | 製品説明 
+
+
+ a| 
+VCMC
+ a| 
+VCS ID を入力します
+ a| 
+欠落しているチャンクが含まれている VCS の名前。
+
+
+
+ a| 
+MCID
+ a| 
+チャンク ID
+ a| 
+欠落しているイレイジャーコーディングフラグメントの識別子。
+
+
+
+ a| 
+RSLT
+ a| 
+結果
+ a| 
+このフィールドの値は「 NONE 」です。RSLT は必須のメッセージフィールドですが、このメッセージには該当しません。このメッセージがフィルタリングされないように、「 UCS 」ではなく「 none 」が使用されます。
+
+|===

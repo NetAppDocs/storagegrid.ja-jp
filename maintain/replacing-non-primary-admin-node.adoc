@@ -1,0 +1,51 @@
+---
+permalink: maintain/replacing-non-primary-admin-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, replace non-primary admin node, replacing non-primary admin node, non-primary admin node 
+summary: 非プライマリ管理ノードをリカバリするには、まず物理または仮想ハードウェアの交換が必要です。 
+---
+= 非プライマリ管理ノードを交換します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+非プライマリ管理ノードをリカバリするには、まず物理または仮想ハードウェアの交換が必要です。
+
+障害が発生した非プライマリ管理ノードを同じプラットフォームで実行されている非プライマリ管理ノードと交換することも、 VMware または Linux ホストで実行されている非プライマリ管理ノードをサービスアプライアンスでホストされている非プライマリ管理ノードと交換することもできます。
+
+ノードに対して選択した交換用プラットフォームに一致する手順 を使用します。（すべてのノードタイプに適した）ノード交換手順 を完了すると、非プライマリ管理ノードのリカバリに関する次の手順がその手順 から指示されます。
+
+[cols="1a,2a"]
+|===
+| 交換用プラットフォーム | 手順 
+
+
+ a| 
+VMware
+ a| 
+link:all-node-types-replacing-vmware-node.html["VMware ノードを交換"]
+
+
+
+ a| 
+Linux
+ a| 
+link:all-node-types-replacing-linux-node.html["Linux ノードを交換"]
+
+
+
+ a| 
+サービスアプライアンス
+ a| 
+link:replacing-failed-node-with-services-appliance.html["サービスアプライアンスを交換します"]
+
+
+
+ a| 
+OpenStack
+ a| 
+リカバリ処理を対象とした OpenStack 用の仮想マシンディスクファイルおよびスクリプトは、現在は提供されていません。OpenStack 環境で実行されているノードのリカバリが必要な場合は、使用している Linux オペレーティングシステム用のファイルをダウンロードしてください。次に、の手順に従いますlink:all-node-types-replacing-linux-node.html["Linuxノードの交換"]。
+
+|===

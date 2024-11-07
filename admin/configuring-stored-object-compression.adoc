@@ -1,0 +1,46 @@
+---
+permalink: admin/configuring-stored-object-compression.html 
+sidebar: sidebar 
+keywords: object compression, compress stored objects 
+summary: オブジェクトの圧縮を有効にすると、StorageGRID に格納されているオブジェクトのサイズを縮小して、オブジェクトによるストレージ消費量を削減できます。 
+---
+= 格納オブジェクトを圧縮します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+オブジェクトの圧縮を有効にすると、StorageGRID に格納されているオブジェクトのサイズを縮小して、オブジェクトによるストレージ消費量を削減できます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:admin-group-permissions.html["特定のアクセス権限"]
+
+
+.タスクの内容
+デフォルトでは、オブジェクトの圧縮は無効になっています。圧縮を有効にすると、StorageGRID はロスレス圧縮を使用して各オブジェクトを保存時に圧縮しようとします。
+
+
+NOTE: この設定を変更すると、新しい設定が適用されるまで約 1 分かかります。設定した値は、パフォーマンスと拡張用にキャッシュされます。
+
+オブジェクトの圧縮を有効にする前に、次の点に注意してください。
+
+* 格納されているデータが圧縮可能であることがわかっている場合を除き、*[Compress stored objects]*を選択しないでください。
+* StorageGRID にオブジェクトを保存するアプリケーションは、オブジェクトを圧縮してから保存することがあります。クライアントアプリケーションがすでにオブジェクトを圧縮してからStorageGRID に保存している場合は、このオプションを選択してもオブジェクトのサイズがさらに縮小されることはありません。
+* StorageGRID でNetApp FabricPool を使用している場合は、[Compress Stored Objects]*を選択しないでください。
+* [Compress stored objects]*を選択した場合は、返されるバイト数の範囲を指定するGetObject処理をS3クライアントアプリケーションで実行しないようにしてください。これらの「範囲読み取り」処理は効率的ではありません。StorageGRIDでは、要求されたバイトにアクセスするためにオブジェクトの圧縮を実質的に解除する必要があるためです。非常に大きなオブジェクトから小さい範囲のバイト数を要求するGetObject処理は特に非効率的です。たとえば、50GBの圧縮オブジェクトから10MBの範囲を読み取る処理は非効率的です。
++
+圧縮オブジェクトから範囲を読み取ると、クライアント要求がタイムアウトする可能性があります。
+
++
+
+NOTE: オブジェクトを圧縮する必要があり、クライアントアプリケーションが範囲読み取りを使用する必要がある場合は、アプリケーションの読み取りタイムアウトを増やしてください。
+
+
+
+.手順
+. * configuration *>* System *>* Storage settings *>* Object compression *を選択します。
+. [Compress stored objects]*チェックボックスを選択します。
+. [ 保存（ Save ） ] を選択します。
+

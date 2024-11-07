@@ -1,0 +1,52 @@
+---
+permalink: primer/hybrid-clouds-with-storagegrid.html 
+sidebar: sidebar 
+keywords: hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
+summary: ポリシーベースのデータ管理を実装してクラウドストレージプールにオブジェクトを格納し、StorageGRID プラットフォームサービスを活用し、NetApp FabricPool を使用してONTAP からStorageGRID にデータを階層化することで、ハイブリッドクラウド構成でStorageGRID を使用します。 
+---
+= StorageGRID を使用したハイブリッドクラウド
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ポリシーベースのデータ管理を実装してクラウドストレージプールにオブジェクトを格納し、StorageGRID プラットフォームサービスを活用し、NetApp FabricPool を使用してONTAP からStorageGRID にデータを階層化することで、ハイブリッドクラウド構成でStorageGRID を使用します。
+
+
+
+== クラウドストレージプール
+
+クラウドストレージプールを使用すると、 StorageGRID システムの外部にオブジェクトを格納できます。たとえば、アクセス頻度の低いオブジェクトを低コストのクラウドストレージ（Amazon S3 Glacier、S3 Glacier Deep Archive、Google Cloud、Microsoft Azure BLOBストレージのアーカイブアクセス層など）に移動できます。また、 StorageGRID オブジェクトのクラウドバックアップを保持しておくことで、ストレージボリュームやストレージノードの障害によって失われたデータをリカバリすることができます。
+
+ディスクストレージやテープストレージなど、サードパーティパートナーのストレージもサポートされています。
+
+
+NOTE: クラウドストレージプールターゲットからオブジェクトを読み出すレイテンシが増加しているため、 FabricPool でクラウドストレージプールを使用することはサポートされていません。
+
+
+
+== S3 プラットフォームサービス
+
+S3 プラットフォームサービスでは、リモートサービスをオブジェクトレプリケーション、イベント通知、または検索統合のエンドポイントとして使用できます。プラットフォームサービスはグリッドの ILM ルールとは独立して動作し、個々の S3 バケットで有効化されます。サポートされるサービスは次のとおりです。
+
+* CloudMirror レプリケーションサービスでは、指定したオブジェクトが Amazon S3 または別の StorageGRID システムにあるターゲット S3 バケットに自動的にミラーリングされます。
+* イベント通知サービスは、指定した操作に関するメッセージを、Simple Notification Service（Amazon SNS）イベントの受信をサポートする外部のエンドポイントに送信します。
+* 検索統合サービスでは、サードパーティのツールでメタデータの検索、可視化、分析を行うために、外部の Elasticsearch サービスにオブジェクトメタデータが送信されます。
+
+
+たとえば、 CloudMirror レプリケーションを使用して特定の顧客レコードを Amazon S3 にミラーリングし、 AWS サービスを利用してデータを分析することができます。
+
+
+
+== FabricPool を使用したONTAP データ階層化
+
+FabricPool を使用してデータを StorageGRID に階層化することで、 ONTAP ストレージのコストを削減できます。FabricPool を使用すると、オンプレミスまたはオフプレミスの低コストのオブジェクトストレージ階層へデータを自動で階層化できます。
+
+手動階層化ソリューションとは異なり、FabricPoolはデータの階層化を自動化してストレージコストを削減することで、総所有コストを削減します。StorageGRID を含むパブリッククラウドとプライベートクラウドに階層化することで、クラウドエコノミクスのメリットを実現します。
+
+.関連情報
+* link:../ilm/what-cloud-storage-pool-is.html["クラウドストレージプールとは"]
+* link:../tenant/what-platform-services-are.html["プラットフォームサービスを管理します"]
+* link:../fabricpool/index.html["StorageGRID for FabricPool を設定します"]
+

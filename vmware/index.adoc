@@ -1,0 +1,49 @@
+---
+permalink: vmware/index.html 
+sidebar: sidebar 
+keywords: vmware 
+summary: VMware StorageGRIDノードをインストールする手順の概要は、次のとおりです。 
+---
+= クイックスタートガイド：VMwareへのStorageGRIDのインストール
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+VMware StorageGRIDノードをインストールする手順の概要は、次のとおりです。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]準備
+[role="quick-margin-list"]
+* 詳細はこちらをご覧ください link:../primer/storagegrid-architecture-and-network-topology.html["StorageGRID のアーキテクチャとネットワークトポロジ"]。
+* の詳細については、をlink:../network/index.html["StorageGRID ネットワーク"]参照してください。
+* を集めて準備しますlink:required-materials.html["必要な情報と資料"]。
+* をインストールして設定しlink:software-requirements.html["VMware vSphereハイパーバイザー、vCenter、およびESXホスト"]ます。
+* 必要なを準備しますlink:cpu-and-ram-requirements.html["CPUおよびRAM"]。
+* を提供しlink:storage-and-performance-requirements.html["ストレージとパフォーマンスの要件"]ます。
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"]導入
+[role="quick-margin-para"]
+グリッドノードを導入する。導入したグリッドノードは、 StorageGRID システムの一部として作成され、 1 つ以上のネットワークに接続されます。
+
+[role="quick-margin-list"]
+* 手順1で準備したサーバで、VMware vSphere Web Client、.vmdkファイル、および一連の.ovfファイルテンプレートを使用しますlink:collecting-information-about-your-deployment-environment.html["ソフトウェアベースのノードを仮想マシン（VM）として導入"]。
+* StorageGRIDアプライアンスノードを導入するには、に従って https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["ハードウェア設置のクイックスタート"^]ください。
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]構成
+[role="quick-margin-para"]
+すべてのノードを導入したら、Grid Managerを使用してにlink:navigating-to-grid-manager.html["グリッドを設定し、インストールを完了する"]移動します。
+
+
+
+== インストールを自動化します
+
+時間を節約し、整合性を確保するために、グリッドノードの導入と設定、およびStorageGRIDシステムの設定を自動化できます。
+
+* link:automating-grid-node-deployment-in-vmware-vsphere.html#automate-grid-node-deployment["VMware vSphereを使用してグリッドノードの導入を自動化"]です。
+* インストールアーカイブに付属のPython設定スクリプトを使用して、グリッドノードを導入したあとにlink:automating-grid-node-deployment-in-vmware-vsphere.html#automate-the-configuration-of-storagegrid["StorageGRIDシステムの設定を自動化"]実行します。
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["アプライアンスグリッドノードのインストールと設定を自動化する"^]
+* StorageGRID環境の高度な開発者は、を使用してグリッドノードのインストールを自動化しますlink:overview-of-installation-rest-api.html["インストールREST API"]。
+

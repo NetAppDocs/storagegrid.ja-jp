@@ -1,0 +1,1371 @@
+---
+permalink: s3/bucket-and-group-access-policies.html 
+sidebar: sidebar 
+keywords: bucket access policies, group access policies 
+summary:  
+---
+= バケットとグループのアクセスポリシーを使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID では、 Amazon Web Services （ AWS ）ポリシー言語を使用して、 S3 テナントによるバケットおよびバケット内のオブジェクトへのアクセスを制御できます。StorageGRID システムには、 S3 REST API ポリシー言語のサブセットが実装されています。S3 API のアクセスポリシーは JSON 形式で記述されます。
+
+
+
+== アクセスポリシーの概要
+
+StorageGRID では 2 種類のアクセスポリシーがサポートされています。
+
+* *バケットポリシー*。S3 APIのGetBucketPolicy、PutBucketPolicy、DeleteBucketPolicyの各処理、またはTenant Managerまたはテナント管理APIを使用して管理されます。バケットポリシーはバケットに関連付けられ、バケットとそのオブジェクトへのバケット所有者アカウントやその他のアカウントのユーザによるアクセスを制御するために使用されます。バケットポリシー環境 は 1 つのバケットのみで、場合によっては複数のグループに分かれています。
+* * グループポリシー * 。 Tenant Manager またはテナント管理 API を使用して設定します。グループポリシーはアカウントのグループに関連付けられ、そのアカウントが所有する特定のリソースにそのグループがアクセスできるように設定されます。グループポリシー環境 は 1 つのグループに限定され、場合によっては複数のバケットに適用されます。
+
+
+
+NOTE: グループポリシーとバケットポリシーの優先度に違いはありません。
+
+StorageGRID のバケットとグループのポリシーは、 Amazon が定義している特定の文法に従って記述されます。各ポリシーは一連のステートメントからなり、各ステートメントは次の要素で構成されます。
+
+* ステートメント ID （ SID ）（オプション）
+* 効果
+* プリンシパル / NotPrincipal
+* リソース / メモリソース
+* アクション / NotAction
+* Condition （オプション）
+
+
+次の構造を使用して、権限を指定するポリシーステートメントが構築されます。 <Effect> を付与して、 <Condition> に該当する場合に <Principal> に <Resource> に対する <Action> の実行を許可または拒否します。
+
+各ポリシー要素は、特定の機能に使用されます。
+
+[cols="1a,2a"]
+|===
+| 要素 | 製品説明 
+
+
+ a| 
+SID
+ a| 
+Sid 要素はオプションです。SID は、ユーザの概要 としてのみ使用されます。StorageGRID システムに格納はされますが、システムで解釈されません。
+
+
+
+ a| 
+効果
+ a| 
+Effect 要素では、指定した処理を許可するか拒否するかを指定します。Action 要素でサポートされるキーワードを使用して、バケットやオブジェクトで許可（または拒否）する処理を指定する必要があります。
+
+
+
+ a| 
+プリンシパル / NotPrincipal
+ a| 
+ユーザ、グループ、およびアカウントに特定のリソースへのアクセスと特定の操作の実行を許可できます。要求に S3 の署名が含まれていない場合は、ワイルドカード文字（ * ）をプリンシパルとして指定することで匿名アクセスが許可されます。デフォルトでは、アカウントが所有するリソースへのアクセスは root アカウントにのみ許可されます。
+
+Principal 要素を指定する必要があるのはバケットポリシーだけです。グループポリシーの場合は、ポリシーが関連付けられたグループが暗黙的にプリンシパルになります。
+
+
+
+ a| 
+リソース / メモリソース
+ a| 
+Resource 要素では、バケットとオブジェクトを指定します。Amazon リソースネーム（ ARN ）を使用してリソースを指定し、バケットやオブジェクトに対する権限を許可または拒否することができます。
+
+
+
+ a| 
+アクション / NotAction
+ a| 
+権限は Action 要素と Effect 要素の 2 つで構成されます。グループがリソースを要求すると、リソースへのアクセスが許可または拒否されます。権限を明示的に割り当てていないかぎりアクセスは拒否されますが、明示的な拒否を使用して別のポリシーで付与された権限を上書きすることもできます。
+
+
+
+ a| 
+条件
+ a| 
+Condition 要素はオプションです。条件を使用すると、ポリシーを適用する条件を示す式を作成できます。
+
+|===
+Action 要素では、ワイルドカード文字（ * ）を使用してすべての処理または処理のサブセットを指定できます。たとえば、次の Action の値は、 s3 ： GetObject 、 s3 ： PutObject 、 s3 ： DeleteObject などの権限に一致します。
+
+[listing]
+----
+s3:*Object
+----
+Resource 要素では、ワイルドカード文字（ \ * ）および（？）を使用できます。アスタリスク（ * ）は 0 文字以上の文字に一致し、疑問符（ ? ）は 0 文字以上の文字に一致します。 任意の 1 文字に一致します。
+
+Principal要素では、匿名アクセスを設定してすべてのユーザに権限を付与する場合を除き、ワイルドカード文字はサポートされません。たとえば、 Principal の値としてワイルドカード（ * ）を設定します。
+
+[listing]
+----
+"Principal":"*"
+----
+[listing]
+----
+"Principal":{"AWS":"*"}
+----
+次の例では、 Effect 、 Principal 、 Action 、および Resource の各要素を使用して記述します。この例は、完全なバケットポリシーのステートメントで、「allow」という効果を使用して、Principals、adminグループ、およびfinanceグループ `federated-group/finance`に、というバケット `mybucket`に対してActionを実行する権限 `s3:ListBucket`、およびそのバケット内のすべてのオブジェクトに対してActionを `s3:GetObject`付与して `federated-group/admin`います。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::27233906934684427525:federated-group/admin",
+          "arn:aws:iam::27233906934684427525:federated-group/finance"
+        ]
+      },
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::mybucket",
+        "arn:aws:s3:::mybucket/*"
+      ]
+    }
+  ]
+}
+----
+バケットポリシーのサイズの上限は 20 、 480 バイトで、グループポリシーのサイズの上限は 5 、 120 バイトです。
+
+
+
+== ポリシーノセイコウセイ
+
+デフォルトでは、グループポリシーに対するすべての更新の整合性レベルは結果整合性です。グループポリシーの整合性が取れた場合、ポリシーキャッシュのために変更が有効になるまでにさらに15分かかることがあります。デフォルトでは、バケットポリシーに対する更新の整合性は非常に高くなります。
+
+バケットポリシーの更新の整合性保証は必要に応じて変更できます。たとえば、サイトが停止しているときにバケットポリシーを変更できるようにすることができます。
+
+この場合は、PutBucketPolicy要求でヘッダーを設定する `Consistency-Control`か、PUT Bucket consistency要求を使用します。バケットポリシーの整合性が確保されると、ポリシーキャッシュのために変更が有効になるまでにさらに8秒かかることがあります。
+
+
+NOTE: 一時的な状況を回避するために整合性の値を別の値に設定する場合は、完了後にバケットレベルの設定を元の値に戻してください。そうしないと、以降のすべてのバケット要求で変更後の設定が使用されます。
+
+
+
+== ポリシーステートメントでは ARN を使用します
+
+ポリシーステートメントでは、 Principal 要素と Resource 要素で ARN を使用します。
+
+* S3 リソースの ARN の指定には次の構文を使用します。
++
+[listing]
+----
+arn:aws:s3:::bucket-name
+arn:aws:s3:::bucket-name/object_key
+----
+* アイデンティティリソースの ARN （ユーザおよびグループ）の指定には次の構文を使用します。
++
+[listing]
+----
+arn:aws:iam::account_id:root
+arn:aws:iam::account_id:user/user_name
+arn:aws:iam::account_id:group/group_name
+arn:aws:iam::account_id:federated-user/user_name
+arn:aws:iam::account_id:federated-group/group_name
+----
+
+
+その他の考慮事項：
+
+* オブジェクトキーの一部にワイルドカードとしてアスタリスク（ * ）を使用すると、 0 文字以上の文字に一致します。
+* オブジェクトキーで指定できる国際文字は、 JSON UTF-8 形式または JSON \u エスケープシーケンスを使用してエンコードする必要があります。パーセントエンコーディングはサポートされていません。
++
+https://www.ietf.org/rfc/rfc2141.txt["RFC 2141 の URN 構文"^]
+
++
+PutBucketPolicy処理のHTTP要求の本文は、charset=UTF-8でエンコードする必要があります。
+
+
+
+
+
+== ポリシー内のリソースを指定します
+
+ポリシーステートメントでは、 Resource 要素を使用して、権限を許可または拒否するバケットやオブジェクトを指定できます。
+
+* Resource 要素はポリシーの各ステートメントに必要です。ポリシーでは、リソースは要素で指定されます。または、 `NotResource`除外する場合は要素でも指定され `Resource`ます。
+* リソースは S3 リソースの ARN で指定します。例：
++
+[listing]
+----
+"Resource": "arn:aws:s3:::mybucket/*"
+----
+* オブジェクトキーの内部でポリシー変数を使用することもできます。例：
++
+[listing]
+----
+"Resource": "arn:aws:s3:::mybucket/home/${aws:username}/*"
+----
+* グループポリシーの作成時は、まだ存在しないバケットもリソースの値で指定することができます。
+
+
+
+
+== ポリシーでプリンシパルを指定します
+
+ポリシーステートメントでリソースへのアクセスを許可または拒否するユーザ、グループ、またはテナントアカウントを指定するには、 Principal 要素を使用します。
+
+* バケットポリシーの各ポリシーステートメントには、 Principal 要素を含める必要があります。グループはプリンシパルとみなされるため、グループポリシーのポリシーステートメントではPrincipal要素は必要ありません。
+* ポリシーでは、「Principal」要素または「NotPrincipal」要素（除外の場合）でプリンシパルを指定します。
+* ID または ARN を使用してアカウントベースのアイデンティティを指定する必要があります。
++
+[listing]
+----
+"Principal": { "AWS": "account_id"}
+"Principal": { "AWS": "identity_arn" }
+----
+* 次の例では、テナントアカウント ID 27233906934684427525 を使用しています。この場合、 root アカウントとそのすべてのユーザが含まれます。
++
+[listing]
+----
+ "Principal": { "AWS": "27233906934684427525" }
+----
+* root アカウントのみを指定する場合は次のようになります。
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::27233906934684427525:root" }
+----
+* 特定のフェデレーテッドユーザ（「 Alex 」）を指定する場合は次のようになります。
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::27233906934684427525:federated-user/Alex" }
+----
+* 特定のフェデレーテッドグループ（「 Managers 」）のみを指定する場合は次のようになります。
++
+[listing]
+----
+"Principal": { "AWS": "arn:aws:iam::27233906934684427525:federated-group/Managers"  }
+----
+* 匿名プリンシパルを指定する場合は次のようになります。
++
+[listing]
+----
+"Principal": "*"
+----
+* あいまいさを排除するために、ユーザ名の代わりに UUID を使用できます。
++
+[listing]
+----
+arn:aws:iam::27233906934684427525:user-uuid/de305d54-75b4-431b-adb2-eb6b9e546013
+----
++
+たとえば、Alexが組織を離れ、ユーザ名が削除されたとし `Alex`ます。新しいAlexが組織に参加し、同じユーザー名が割り当てられている場合 `Alex`、新しいユーザーは元のユーザーに付与された権限を意図せず継承する可能性があります。
+
+* バケットポリシーの作成時は、まだ存在しないグループ / ユーザの名前もプリンシパルの値で指定することができます。
+
+
+
+
+== ポリシーで権限を指定します
+
+ポリシーでは、 Action 要素を使用してリソースに対する権限を許可または拒否します。ポリシーには、「 Action 」要素で示される一連の権限、または除外する「 NotAction 」要素で指定できる一連の権限があります。それぞれが特定の S3 REST API 処理に対応しています。
+
+次の表に、バケットに適用される権限とオブジェクトに適用される権限を示します。
+
+
+NOTE: Amazon S3では、PutBucketReplicationとDeleteBucketReplicationの両方のアクションにs3：PutReplicationConfiguration権限が使用されるようになりました。StorageGRID では、元の Amazon S3 仕様に一致する個別の権限が各アクションに使用されます。
+
+
+NOTE: DELETEは、PUTを使用して既存の値を上書きした場合に実行されます。
+
+
+
+=== バケットに適用される権限
+
+[cols="2a,2a,1a"]
+|===
+| 権限 | S3 REST API の処理 | StorageGRID のカスタム 
+
+
+ a| 
+S3 ： CreateBucket を指定します
+ a| 
+CreateBucket
+ a| 
+はい。
+
+*注*：グループポリシーでのみ使用します。
+
+
+
+ a| 
+S3 ： DeleteBucket
+ a| 
+DeleteBucket
+ a| 
+
+
+
+ a| 
+S3 ： DeleteBucketMetadataNotification
+ a| 
+バケットのメタデータ通知設定を削除します
+ a| 
+はい
+
+
+
+ a| 
+S3 ： DeleteBucketPolicy
+ a| 
+DeleteBucketPolicy
+ a| 
+
+
+
+ a| 
+S3 ： DeleteReplicationConfiguration
+ a| 
+DeleteBucketReplication
+ a| 
+○（PUTとDELETEに別 々 の権限を設定）
+
+
+
+ a| 
+S3 ： GetBucketAcl
+ a| 
+GetBucketAcl
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketCompliance
+ a| 
+GET Bucket compliance（廃止）
+ a| 
+はい
+
+
+
+ a| 
+S3 ： GetBucketConsistency
+ a| 
+GET Bucket consistency
+ a| 
+はい
+
+
+
+ a| 
+S3 ： GetBucketCORS
+ a| 
+GetBucketCors
+ a| 
+
+
+
+ a| 
+S3 ： GetEncryptionConfiguration
+ a| 
+GetBucketEncryptionの略
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketLastAccessTime
+ a| 
+GET Bucket last access time のように指定します
+ a| 
+はい
+
+
+
+ a| 
+S3 ： GetBucketLocation
+ a| 
+GetBucketLocation
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketMetadataNotification
+ a| 
+GET Bucket metadata notification configuration のコマンドです
+ a| 
+はい
+
+
+
+ a| 
+S3 ： GetBucketNotification
+ a| 
+GetBucketNotificationConfigurationを参照してください
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketObjectLockConfiguration
+ a| 
+GetObjectLockConfigurationの略
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketPolicy
+ a| 
+GetBucketPolicy
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketTagging
+ a| 
+GetBucketTagging
+ a| 
+
+
+
+ a| 
+S3 ： GetBucketVersioning
+ a| 
+GetBucketVersioning
+ a| 
+
+
+
+ a| 
+S3 ： GetLifecycleConfiguration
+ a| 
+GetBucketLifecycleConfiguration
+ a| 
+
+
+
+ a| 
+S3 ： GetReplicationConfiguration
+ a| 
+GetBucketReplicationの略
+ a| 
+
+
+
+ a| 
+S3 ： ListAllMyBuckets
+ a| 
+* ListBuckets
+* GET Storage Usage の略
+
+ a| 
+○（GET Storage Usage）。
+
+*注*：グループポリシーでのみ使用します。
+
+
+
+ a| 
+S3 ： ListBucket
+ a| 
+* ListObjects
+* ヘッドバケット
+* RestoreObject
+
+ a| 
+
+
+
+ a| 
+S3 ： ListBucketMultipartUploads
+ a| 
+* ListMultipartUploads
+* RestoreObject
+
+ a| 
+
+
+
+ a| 
+S3 ： ListBucketVersions
+ a| 
+GET Bucket versions （バケットバージョンの取得
+ a| 
+
+
+
+ a| 
+S3 ： PutBucketCompliance
+ a| 
+PUT Bucket compliance（廃止）
+ a| 
+はい
+
+
+
+ a| 
+S3 ： PutBucketConsistency
+ a| 
+PUT Bucket consistency
+ a| 
+はい
+
+
+
+ a| 
+S3 ： PutBucketCORS
+ a| 
+* DeleteBucketCors†
+* PutBucketCorsの略
+
+ a| 
+
+
+
+ a| 
+S3 ： PutEncryptionConfiguration
+ a| 
+* DeleteBucketEncryption
+* PutBucketEncryptionの略
+
+ a| 
+
+
+
+ a| 
+S3 ： PutBucketLastAccessTime
+ a| 
+PUT Bucket last access time のように指定します
+ a| 
+はい
+
+
+
+ a| 
+S3 ： PutBucketMetadataNotification
+ a| 
+PUT Bucket metadata notification configuration のコマンドです
+ a| 
+はい
+
+
+
+ a| 
+S3 ： PutBucketNotification
+ a| 
+PutBucketNotificationConfigurationの略
+ a| 
+
+
+
+ a| 
+S3 ： PutBucketObjectLockConfiguration
+ a| 
+* 要求ヘッダーが指定されたCreateBucket `x-amz-bucket-object-lock-enabled: true`（s3：CreateBucket権限も必要）
+* PutObjectLockConfiguration
+
+ a| 
+
+
+
+ a| 
+S3 ： PutBucketPolicy
+ a| 
+PutBucketPolicy
+ a| 
+
+
+
+ a| 
+S3 ： PutBucketTagging
+ a| 
+* DeleteBucketTagging†
+* PutBucketTaggingの略
+
+ a| 
+
+
+
+ a| 
+S3 ： PutBucketVersioning
+ a| 
+PutBucketVersioning
+ a| 
+
+
+
+ a| 
+S3 ： PutLifecycleConfiguration
+ a| 
+* DeleteBucketLifecycle†
+* PutBucketLifecycleConfiguration
+
+ a| 
+
+
+
+ a| 
+S3 ： PutReplicationConfiguration
+ a| 
+PutBucketReplicationの略
+ a| 
+○（PUTとDELETEに別 々 の権限を設定）
+
+|===
+
+
+=== オブジェクトに適用される権限
+
+[cols="2a,2a,1a"]
+|===
+| 権限 | S3 REST API の処理 | StorageGRID のカスタム 
+
+
+ a| 
+S3 ： AbortMultipartUpload
+ a| 
+* AbortMultipartUpload
+* RestoreObject
+
+ a| 
+
+
+
+ a| 
+S3：Bypassガバナー 保持
+ a| 
+* deleteObject
+* オブジェクトの削除
+* PutObjectRetention
+
+ a| 
+
+
+
+ a| 
+S3 ： DeleteObject
+ a| 
+* deleteObject
+* オブジェクトの削除
+* RestoreObject
+
+ a| 
+
+
+
+ a| 
+S3 ： DeleteObjectTagging
+ a| 
+DeleteObjectTagging
+ a| 
+
+
+
+ a| 
+S3 ： DeleteObjectVersionTagging
+ a| 
+DeleteObjectTagging（オブジェクトの特定のバージョン）
+ a| 
+
+
+
+ a| 
+S3 ： DeleteObjectVersion
+ a| 
+deleteObject（オブジェクトの特定のバージョン）
+ a| 
+
+
+
+ a| 
+S3 ： GetObject
+ a| 
+* GetObject
+* ヘッドオブジェクト
+* RestoreObject
+* SelectObjectContent の順に選択します
+
+ a| 
+
+
+
+ a| 
+S3 ： GetObjectAcl
+ a| 
+GetObjectAcl
+ a| 
+
+
+
+ a| 
+S3 ： GetObjectLegalHold
+ a| 
+GetObjectLegalHold
+ a| 
+
+
+
+ a| 
+S3 ： GetObjectRetention
+ a| 
+GetObjectRetention
+ a| 
+
+
+
+ a| 
+S3 ： GetObjectTagging
+ a| 
+GetObjectTagging
+ a| 
+
+
+
+ a| 
+S3 ： GetObjectVersionTagging
+ a| 
+GetObjectTagging（オブジェクトの特定のバージョン）
+ a| 
+
+
+
+ a| 
+S3：GetObjectVersion
+ a| 
+GetObject（オブジェクトの特定のバージョン）
+ a| 
+
+
+
+ a| 
+S3 ： ListMultipartUploadParts
+ a| 
+ListParts、RestoreObject
+ a| 
+
+
+
+ a| 
+S3 ： PutObject
+ a| 
+* PutObject
+* CopyObject
+* RestoreObject
+* CreateMultipartUpload
+* CompleteMultipartUpload
+* パーツのアップロード
+* パーツコピーをアップロード
+
+ a| 
+
+
+
+ a| 
+S3 ： PutObjectLegalHold
+ a| 
+PutObjectLegalHold
+ a| 
+
+
+
+ a| 
+S3 ： PutObjectRetention
+ a| 
+PutObjectRetention
+ a| 
+
+
+
+ a| 
+S3 ： PutObjectTagging
+ a| 
+PutObjectTagging
+ a| 
+
+
+
+ a| 
+S3 ： PutObjectVersionTagging
+ a| 
+PutObjectTagging（オブジェクトの特定のバージョン）
+ a| 
+
+
+
+ a| 
+S3 ： PutOverwriteObject
+ a| 
+* PutObject
+* CopyObject
+* PutObjectTagging
+* DeleteObjectTagging
+* CompleteMultipartUpload
+
+ a| 
+はい
+
+
+
+ a| 
+S3 ： RestoreObject
+ a| 
+RestoreObject
+ a| 
+
+|===
+
+
+== PutOverwriteObject 権限を使用します
+
+s3 ： PutOverwriteObject 権限は、オブジェクトの作成または更新を行う環境 処理のカスタムの StorageGRID 権限です。この権限の設定により、オブジェクトのデータ、ユーザ定義メタデータ、または S3 オブジェクトのタグをクライアントが上書きできるかどうかが決まります。
+
+この権限で可能な設定は次のとおりです。
+
+* * allow * ：クライアントはオブジェクトを上書きできます。これがデフォルト設定です。
+* *Deny*:クライアントはオブジェクトを上書きできません。PutOverwriteObject 権限が Deny に設定されている場合の動作は次のとおりです。
++
+** 同じパスで既存のオブジェクトが見つかった場合は、次の手順を実行します。
++
+*** オブジェクトのデータ、ユーザ定義メタデータ、またはS3オブジェクトのタグを上書きすることはできません。
+*** 実行中の取り込み処理はすべてキャンセルされ、エラーが返されます。
+*** S3のバージョン管理が有効になっている場合は、Denyに設定すると、PutObjectTagging処理またはDeleteObjectTagging処理によってオブジェクトとその最新でないバージョンのTagSetが変更されなくなります。
+
+
+** 既存のオブジェクトが見つからない場合は、この権限の設定は影響しません。
+
+
+* この権限がない場合、 Allow が設定されたものと同じ結果になります。
+
+
+
+NOTE: 現在のS3ポリシーで上書きが許可されていて、PutOverwriteObject権限がDenyに設定されている場合、オブジェクトのデータ、ユーザ定義メタデータ、またはオブジェクトのタグをクライアントが上書きすることはできません。また、*[Prevent client modification]*チェックボックスが選択されている場合（* configuration *>* Security settings *>* Network and objects *）、この設定はPutOverwriteObject権限の設定よりも優先されます。
+
+
+
+== ポリシーの条件を指定します
+
+条件は、ポリシーが有効になるタイミングを定義します。条件は演算子とキーと値のペアで構成されます。
+
+条件はキーと値のペアを使用して評価されます。Condition 要素には複数の条件を指定でき、各条件には複数のキーと値のペアを含めることができます。条件ブロックの形式は次のとおりです。
+
+[listing, subs="specialcharacters,quotes"]
+----
+Condition: {
+     _condition_type_: {
+          _condition_key_: _condition_values_
+----
+次の例では、 IpAddress 条件で SourceIp 条件キーを使用しています。
+
+[listing]
+----
+"Condition": {
+    "IpAddress": {
+      "aws:SourceIp": "54.240.143.0/24"
+		...
+},
+		...
+----
+
+
+=== サポートされる条件演算子は次の
+
+条件演算子は次のように分類されます。
+
+* 文字列
+* 数値
+* ブーリアン
+* IPアドレス
+* Null チェック
+
+
+[cols="1a,2a"]
+|===
+| 条件演算子 | 製品説明 
+
+
+ a| 
+StringEquals
+ a| 
+キーを文字列値と比較し、完全一致であるかを確認します（大文字と小文字の区別あり）。
+
+
+
+ a| 
+StringNotEquals
+ a| 
+キーを文字列値と比較し、不一致であるかを確認します（大文字と小文字の区別あり）。
+
+
+
+ a| 
+StringEqualsIgnoreCase
+ a| 
+キーを文字列値と比較し、完全一致であるかを確認します（大文字と小文字の区別なし）。
+
+
+
+ a| 
+StringNotEqualsIgnoreCase
+ a| 
+キーを文字列値と比較し、不一致であるかを確認します（大文字と小文字の区別なし）。
+
+
+
+ a| 
+StringLike
+ a| 
+キーを文字列値と比較し、完全一致であるかを確認します（大文字と小文字の区別あり）。ワイルドカード文字「*」と「?」を使用できます。
+
+
+
+ a| 
+StringNotLike
+ a| 
+キーを文字列値と比較し、不一致であるかを確認します（大文字と小文字の区別あり）。ワイルドカード文字「*」と「?」を使用できます。
+
+
+
+ a| 
+NumericEquals （数値機器）
+ a| 
+キーを数値と比較し、完全一致であるかを確認します。
+
+
+
+ a| 
+NumericNotEquals
+ a| 
+キーを数値と比較し、不一致であるかを確認します。
+
+
+
+ a| 
+NumericGreaterThan
+ a| 
+キーを数値と比較し、「より大きい」の一致であるかどうかを確認します。
+
+
+
+ a| 
+NumericGreaterThanEquals
+ a| 
+キーを数値と比較し、「以上」の一致であるかどうかを確認します。
+
+
+
+ a| 
+NumericLessThan
+ a| 
+キーを数値と比較し、「より小さい」一致であるかを確認します。
+
+
+
+ a| 
+NumericLessThanEquals
+ a| 
+キーを数値と比較し、「小なり」の一致であるかを確認します。
+
+
+
+ a| 
+ブール値
+ a| 
+キーをブール値と比較し、「trueまたはfalse」の一致であるかを確認します。
+
+
+
+ a| 
+IP アドレス
+ a| 
+キーを IP アドレスまたは IP アドレスの範囲と比較します。
+
+
+
+ a| 
+NotIpAddress
+ a| 
+キーを IP アドレスまたは IP アドレスの範囲と比較し、不一致であるかを確認します。
+
+
+
+ a| 
+ヌル
+ a| 
+現在の要求コンテキストに条件キーが存在するかどうかを確認します。
+
+|===
+
+
+=== サポートされている条件キー
+
+[cols="1a,1a,2a"]
+|===
+| Conditionキー | アクション | 製品説明 
+
+
+ a| 
+AWS ： sourceIP
+ a| 
+IP 演算子
+ a| 
+要求の送信元の IP アドレスと比較します。バケットまたはオブジェクトの処理に使用できます。
+
+* 注： S3 要求が管理ノードおよびゲートウェイノード上のロードバランササービスを介して送信された場合は、ロードバランササービスのアップストリームの IP アドレスと比較します。
+
+* 注 * ：サードパーティ製の非透過型ロードバランサを使用する場合は、そのロードバランサの IP アドレスと比較します。ヘッダーの有効性を確認できないため、すべての `X-Forwarded-For`ヘッダーは無視されます。
+
+
+
+ a| 
+AWS ：ユーザ名
+ a| 
+リソース / ID
+ a| 
+要求の送信者のユーザ名と比較します。バケットまたはオブジェクトの処理に使用できます。
+
+
+
+ a| 
+S3 ：デリミタ
+ a| 
+S3 ： ListBucket と
+
+S3 ： ListBucketVersions 権限
+ a| 
+ListObjects要求またはListObjectVersions要求で指定されたdelimiterパラメータと比較します。
+
+
+
+ a| 
+S3：ExistingObjectTag /<tag-key>
+ a| 
+S3 ： DeleteObjectTagging
+
+S3 ： DeleteObjectVersionTagging
+
+S3 ： GetObject
+
+S3 ： GetObjectAcl
+
+3：GetObjectTagging
+
+S3：GetObjectVersion
+
+S3：GetObjectVersionAcl
+
+S3 ： GetObjectVersionTagging
+
+S3：PutObjectAcl
+
+S3 ： PutObjectTagging
+
+S3：PutObjectVersionAcl
+
+S3 ： PutObjectVersionTagging
+ a| 
+既存のオブジェクトに特定のタグキーと値が必要になります。
+
+
+
+ a| 
+S3 ： max-keys
+ a| 
+S3 ： ListBucket と
+
+S3 ： ListBucketVersions 権限
+ a| 
+ListObjects要求またはListObjectVersions要求で指定されたmax-keysパラメータと比較します。
+
+
+
+ a| 
+S3 ： object-lock-remaining-retention-days
+ a| 
+S3 ： PutObject
+ a| 
+要求ヘッダーで指定されたretain-until-dateと比較される `x-amz-object-lock-retain-until-date`か、バケットのデフォルト保持期間から計算され、次の要求でこれらの値が許容範囲内であることが確認されます。
+
+* PutObject
+* CopyObject
+* CreateMultipartUpload
+
+
+
+
+ a| 
+S3 ： object-lock-remaining-retention-days
+ a| 
+S3 ： PutObjectRetention
+ a| 
+は、PutObjectRetention要求で指定されたretain-until-dateと比較して、許容範囲内であることを確認します。
+
+
+
+ a| 
+S3 ：プレフィックス
+ a| 
+S3 ： ListBucket と
+
+S3 ： ListBucketVersions 権限
+ a| 
+ListObjects要求またはListObjectVersions要求で指定されたprefixパラメータと比較します。
+
+
+
+ a| 
+S3：RequestObjectTag /<tag-key>
+ a| 
+S3 ： PutObject
+
+S3 ： PutObjectTagging
+
+S3 ： PutObjectVersionTagging
+ a| 
+オブジェクト要求にタグ付けが含まれている場合は、特定のタグキーと値が必要になります。
+
+|===
+
+
+== ポリシーで変数を指定します
+
+ポリシーで変数を使用すると、該当するポリシーの情報を設定できます。ポリシー変数は、要素内および要素内の文字列比較で `Condition`使用できます `Resource`。
+
+この例では、変数は `${aws:username}`Resource要素の一部です。
+
+[listing]
+----
+"Resource": "arn:aws:s3:::bucket-name/home/${aws:username}/*"
+----
+この例では、変数は `${aws:username}`ConditionブロックのCondition値の一部です。
+
+[listing]
+----
+"Condition": {
+    "StringLike": {
+      "s3:prefix": "${aws:username}/*"
+		...
+},
+		...
+----
+[cols="1a,2a"]
+|===
+| 変数 | 製品説明 
+
+
+ a| 
+`${aws:SourceIp}`
+ a| 
+SourceIp キーを指定の変数として使用します。
+
+
+
+ a| 
+`${aws:username}`
+ a| 
+username キーを指定の変数として使用します。
+
+
+
+ a| 
+`${s3:prefix}`
+ a| 
+サービス固有のプレフィックスキーを指定の変数として使用します。
+
+
+
+ a| 
+`${s3:max-keys}`
+ a| 
+サービス固有の max-keys キーを指定の変数として使用します。
+
+
+
+ a| 
+`${*}`
+ a| 
+特殊文字です。文字をリテラル * 文字として使用します。
+
+
+
+ a| 
+`${?}`
+ a| 
+特殊文字です。文字をリテラル?文字として使用します。
+
+
+
+ a| 
+`${$}`
+ a| 
+特殊文字です。文字「 $ 」をリテラル文字として使用します。
+
+|===
+
+
+== 特別な処理を必要とするポリシーを作成します
+
+ポリシーで付与される権限によって、アカウントの root ユーザがロックアウトされるなど、セキュリティや継続的な運用に支障が生じることがあります。StorageGRID の S3 REST API の実装では、ポリシーの検証時の制限は Amazon よりも厳しくありませんが、評価時は同等の制限が適用されます。
+
+[cols="2a,1a,2a,2a"]
+|===
+| ポリシーの説明 | ポリシータイプ | Amazon の動作 | StorageGRID の動作 
+
+
+ a| 
+自身に対し、 root アカウントに対するすべての権限を拒否する
+ a| 
+バケット
+ a| 
+有効で適用されるが、 S3 バケットのすべてのポリシー処理に対する権限は引き続き root ユーザアカウントに付与される
+ a| 
+同じ
+
+
+
+ a| 
+自身に対しユーザ / グループに対するすべての権限を拒否する
+ a| 
+グループ
+ a| 
+有効で適用されます
+ a| 
+同じ
+
+
+
+ a| 
+外部アカウントグループに対し任意の権限を許可します
+ a| 
+バケット
+ a| 
+無効なプリンシパルです
+ a| 
+有効だが、 S3 バケットのすべてのポリシー処理に対する権限をポリシーで許可すると 405 Method Not Allowed エラーが返されます
+
+
+
+ a| 
+外部アカウントの root またはユーザに任意の権限を許可します
+ a| 
+バケット
+ a| 
+有効だが、 S3 バケットのすべてのポリシー処理に対する権限をポリシーで許可すると 405 Method Not Allowed エラーが返されます
+ a| 
+同じ
+
+
+
+ a| 
+すべてのユーザにすべての処理に対する権限を許可します
+ a| 
+バケット
+ a| 
+有効だが、外部アカウントの root およびユーザについては、 S3 バケットのすべてのポリシー処理に対する権限で 405 Method Not Allowed エラーが返されます
+ a| 
+同じ
+
+
+
+ a| 
+すべてのユーザに対してすべての処理に対する権限を拒否する
+ a| 
+バケット
+ a| 
+有効で適用されるが、 S3 バケットのすべてのポリシー処理に対する権限は引き続き root ユーザアカウントに付与される
+ a| 
+同じ
+
+
+
+ a| 
+プリンシパルとして新規のユーザまたはグループを指定します
+ a| 
+バケット
+ a| 
+無効なプリンシパルです
+ a| 
+有効
+
+
+
+ a| 
+リソースとして新規の S3 バケットを指定する必要があります
+ a| 
+グループ
+ a| 
+有効
+ a| 
+同じ
+
+
+
+ a| 
+プリンシパルとしてローカルグループを指定します
+ a| 
+バケット
+ a| 
+無効なプリンシパルです
+ a| 
+有効
+
+
+
+ a| 
+ポリシーは、オブジェクトをPUTするための非所有者アカウント（匿名アカウントを含む）権限を付与します。
+ a| 
+バケット
+ a| 
+有効。オブジェクトは作成者アカウントによって所有され、バケットポリシーは適用されません。作成者アカウントは、オブジェクトの ACL を使用してオブジェクトにアクセス権限を付与する必要があります。
+ a| 
+有効。オブジェクトはバケット所有者アカウントによって所有され、バケットポリシーが適用される。
+
+|===
+
+
+== Write-Once-Read-Many （ WORM ）による保護
+
+データ、ユーザ定義オブジェクトのメタデータ、 S3 オブジェクトのタグを保護するために、 Write-Once-Read-Many （ WORM ）バケットを作成することができます。新しいオブジェクトの作成を許可し、既存のコンテンツの上書きや削除を防止するように WORM バケットを設定します。ここで説明するいずれかの方法を使用します。
+
+上書きを常に拒否するには、次の操作を実行します。
+
+* Grid Managerで、* configuration *>* Security *>* Security settings *>* Network and objects *の順に選択し、* Prevent client modification *チェックボックスを選択します。
+* 次のルールと S3 ポリシーを適用します。
++
+** S3 ポリシーに PutOverwriteObject DENY 処理を追加します。
+** S3 ポリシーに DeleteObject DENY 処理を追加します。
+** S3ポリシーにPutObject Allow処理を追加します。
+
+
+
+
+
+NOTE: S3ポリシーでDeleteObjectをDENYに設定しても、「zero copies after 30 days」などのルールが存在する場合はILMによってオブジェクトが削除されます。
+
+
+NOTE: これらのルールとポリシーがすべて適用されても、同時書き込みからは保護されません（状況Aを参照）。保護の対象になるのはシーケンシャルな上書きです（状況 B を参照）。
+
+* 状況 A * ：同時書き込み（保護対象外）
+
+[listing]
+----
+/mybucket/important.doc
+PUT#1 ---> OK
+PUT#2 -------> OK
+----
+* 状況 B * ：シーケンシャルな上書き（保護対象）
+
+[listing]
+----
+/mybucket/important.doc
+PUT#1 -------> PUT#2 ---X (denied)
+----
+.関連情報
+* link:how-storagegrid-ilm-rules-manage-objects.html["StorageGRID の ILM ルールによるオブジェクトの管理"]
+* link:example-bucket-policies.html["バケットポリシーの例"]
+* link:example-group-policies.html["グループポリシーの例"]
+* link:../ilm/index.html["ILM を使用してオブジェクトを管理する"]
+* link:../tenant/index.html["テナントアカウントを使用する"]
+

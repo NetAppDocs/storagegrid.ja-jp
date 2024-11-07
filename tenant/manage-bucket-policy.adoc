@@ -1,0 +1,37 @@
+---
+permalink: tenant/manage-bucket-policy.html 
+sidebar: sidebar 
+keywords: how to create S3 tenant groups, federated group, local group 
+summary: S3バケットとそのバケット内のオブジェクトに対するユーザアクセスを制御できます。 
+---
+= バケットポリシーの管理
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+S3バケットとそのバケット内のオブジェクトに対するユーザアクセスを制御できます。
+
+.開始する前に
+* を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+* が設定されたユーザグループに属しているlink:tenant-management-permissions.html["rootアクセス権限"]必要があります。View All Buckets権限とManage All Buckets権限では、表示のみが許可されます。
+* 必要な数のストレージノードとサイトが使用可能であることを確認しておきます。どのサイトでも複数のストレージノードを使用できない場合やサイトを使用できない場合は、それらの設定を変更できない可能性があります。
+
+
+.手順
+. [Buckets]*を選択し、管理するバケットを選択します。
+. バケットの詳細ページで、* Bucket access *>* Bucket policy *を選択します。
+. 次のいずれかを実行します。
++
+** [ポリシーを有効にする]*チェックボックスを選択して、バケットポリシーを入力します。次に、有効なJSON形式の文字列を入力します。
++
+各バケットポリシーのサイズ制限は20、480バイトです。
+
+** 文字列を編集して既存のポリシーを変更します。
+** [ポリシーを有効にする]*の選択を解除してポリシーを無効にします。
+
+
+
+
+言語の構文や例など、バケットポリシーの詳細については、を参照してくださいlink:../s3/example-bucket-policies.html["バケットポリシーの例"]。

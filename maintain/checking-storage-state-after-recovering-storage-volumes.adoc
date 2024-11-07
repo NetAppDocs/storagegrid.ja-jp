@@ -1,0 +1,35 @@
+---
+permalink: maintain/checking-storage-state-after-recovering-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, storage volume recovery, storage state, storage volume 
+summary: ストレージボリュームをリカバリしたら、ストレージノードに必要とされる状態が「 Online 」に設定されていることを確認し、ストレージノードサーバが再起動するたびにオンライン状態になるようにする必要があります。 
+---
+= ストレージボリュームのリカバリ後にストレージの状態を確認します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージボリュームをリカバリしたら、ストレージノードに必要とされる状態が「 Online 」に設定されていることを確認し、ストレージノードサーバが再起動するたびにオンライン状態になるようにする必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* ストレージノードがリカバリされ、データリカバリが完了している必要があります。
+
+
+.手順
+. サポート * > * ツール * > * グリッドトポロジ * を選択します。
+. リカバリされたストレージノードの値 * > * LDR * > * Storage * > * Storage State - Desired * および * Storage State - Current * の値を確認します。
++
+両方の属性の値が Online である必要があります。
+
+. Storage State --Desired が Read-Only に設定されている場合は、次の手順を実行します。
++
+.. [* 構成 *] タブをクリックします。
+.. [* Storage State] -- [Desired *] ( 保存状態 -- 希望する *)] ドロップダウンリストから [*Online] ( オンライン ) を選択します。
+.. [ 変更の適用 *] をクリックします。
+.. [* 概要 *] タブをクリックし、 [ ストレージ状態 --Desired * および * ストレージ状態 --current* ] の値が [ オンライン ] に更新されていることを確認します。
+
+
+

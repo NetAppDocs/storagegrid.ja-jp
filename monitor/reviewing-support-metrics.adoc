@@ -1,0 +1,50 @@
+---
+permalink: monitor/reviewing-support-metrics.html 
+sidebar: sidebar 
+keywords: how to view support metrics, how to review support metrics 
+summary: 問題 のトラブルシューティングでは、テクニカルサポートと協力して StorageGRID システムの詳細な指標とグラフを確認することができます。 
+---
+= サポート指標を確認
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+問題 のトラブルシューティングでは、テクニカルサポートと協力して StorageGRID システムの詳細な指標とグラフを確認することができます。
+
+.開始する前に
+* Grid Managerにサインインする必要がありますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
+
+
+.タスクの内容
+Metrics ページでは、 Prometheus と Grafana のユーザインターフェイスにアクセスできます。Prometheus は指標を収集するオープンソースソフトウェアです。Grafana は指標を視覚化するオープンソースソフトウェアです。
+
+
+NOTE: Metrics ページで使用可能なツールは、テクニカルサポートが使用することを目的としています。これらのツールの一部の機能およびメニュー項目は意図的に機能しないため、変更される場合があります。のリストを参照してくださいlink:commonly-used-prometheus-metrics.html["よく使用される Prometheus 指標"]。
+
+.手順
+. テクニカルサポートの指示に従って、 * support * > * Tools * > * Metrics * を選択します。
++
+ここでは、 [Metrics] ページの例を示します。
+
++
+image::../media/metrics_page.png[メトリクスページ]
+
+. StorageGRID 指標の現在の値を照会し、一定期間の値のグラフを表示するには、 Prometheus セクション内のリンクをクリックします。
++
+Prometheus インターフェイスが表示されます。このインターフェイスでは、使用可能な StorageGRID 指標に対してクエリを実行したり、 StorageGRID 指標の推移をグラフ化したりできます。
+
++
+
+NOTE: 名前に _private_ が含まれる指標は内部専用です。 StorageGRID のリリースごとに予告なく変更されることがあります。
+
+. 時間の経過に伴う StorageGRID 指標のグラフを含む構築済みのダッシュボードにアクセスするには、 Grafana セクションのリンクをクリックします。
++
+選択したリンクに対応した Grafana インターフェイスが表示されます。
+
++
+image::../media/metrics_page_grafana.png[指標ページ Grafana]
+
+

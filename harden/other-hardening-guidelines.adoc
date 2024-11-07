@@ -1,0 +1,70 @@
+---
+permalink: harden/other-hardening-guidelines.html 
+sidebar: sidebar 
+keywords: Hardening guidelines, security 
+summary: StorageGRID ネットワークおよびノードに対する強化ガイドラインに加えて、 StorageGRID システムの他の領域に対する強化ガイドラインに従う必要があります。 
+---
+= その他のセキュリティ強化に関するガイドライン
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID ネットワークおよびノードに対する強化ガイドラインに加えて、 StorageGRID システムの他の領域に対する強化ガイドラインに従う必要があります。
+
+
+
+== 一時インストールパスワード
+
+インストール中にStorageGRIDシステムを保護するには、StorageGRIDインストールUIまたはインストールAPIの一時インストーラパスワードページでパスワードを設定します。このパスワードを設定すると、ユーザインターフェイス、インストールAPI、スクリプトなど、StorageGRIDをインストールするすべての方法に適用され `configure-storagegrid.py`ます。
+
+詳細については、以下を参照してください。
+
+* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
+* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
+* link:../vmware/index.html["VMwareへのStorageGRIDのインストール"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["StorageGRIDアプライアンスの設置"^]
+
+
+
+
+== ログと監査メッセージ
+
+StorageGRID ログおよび監査メッセージ出力は必ず安全な方法で保護してください。StorageGRID のログと監査メッセージは、サポートやシステム可用性の観点から非常に重要な情報を提供します。また、 StorageGRID のログおよび監査メッセージの出力に含まれる情報や詳細情報は、一般に機密性が高いため、
+
+セキュリティイベントを外部 syslog サーバに送信するように StorageGRID を設定します。syslog エクスポートを使用する場合は、トランスポートプロトコルに対して TLS と RELP/TLS を選択します。
+
+StorageGRIDログの詳細については、を参照してくださいlink:../monitor/logs-files-reference.html["ログファイル参照"]。StorageGRID監査メッセージの詳細については、を参照してくださいlink:../audit/audit-messages-main.html["監査メッセージ"]。
+
+
+
+== NetApp AutoSupport
+
+StorageGRIDのAutoSupport機能を使用すると、システムの健全性をプロアクティブに監視し、NetApp Support Site、組織内のサポートチーム、またはサポートパートナーにパッケージを自動的に送信できます。デフォルトでは、StorageGRIDを初めて設定すると、NetAppへのAutoSupportパッケージの送信が有効になります。
+
+AutoSupport機能は無効にできます。ただし、 StorageGRID システムで問題 に障害が発生した場合には、 AutoSupport を使用して迅速に問題を識別し解決できるため、ネットアップではこの機能を有効にすることを推奨してい
+
+AutoSupportでは、転送プロトコルとしてHTTPS、HTTP、およびSMTPがサポートされます。AutoSupportパッケージは機密性が高いため、NetAppはAutoSupportパッケージをNetAppに送信するためのデフォルトの転送プロトコルとしてHTTPSを使用することを強く推奨します。
+
+
+
+== Cross-Origin Resource Sharing（CORS）
+
+S3バケットとバケット内のオブジェクトに他のドメインにあるWebアプリケーションからアクセスできるようにするには、そのバケットにCross-Origin Resource Sharing（CORS）を設定します。一般的に、CORSは必要でない限り有効にしないでください。CORS が必要な場合は、信頼できるオリジンに制限します。
+
+の手順を参照してくださいlink:../tenant/configuring-cross-origin-resource-sharing-cors.html["Cross-Origin Resource Sharing（CORS）の設定"]。
+
+
+
+== 外部セキュリティデバイス
+
+完全なセキュリティ強化解決策 は、 StorageGRID 以外のセキュリティメカニズムに対応する必要があります。StorageGRID へのアクセスをフィルタリングおよび制限するために追加のインフラデバイスを使用すると、厳格なセキュリティ体制を確立し、維持するための効果的な方法となります。これらの外部セキュリティデバイスには、ファイアウォール、 Intrusion Prevention System （ IPS ；侵入防御システム）、およびその他のセキュリティデバイスが含まれます。
+
+信頼されないクライアントトラフィックには、サードパーティのロードバランサを使用することを推奨します。サードパーティ製のロードバランシングにより、攻撃に対する制御性が向上し、追加の保護レイヤが提供されます。
+
+
+
+== ランサムウェアの軽減
+
+の推奨事項に従って、ランサムウェア攻撃からオブジェクトデータを保護し https://www.netapp.com/media/69498-tr-4921.pdf["StorageGRID によるランサムウェア対策"^]ましょう。

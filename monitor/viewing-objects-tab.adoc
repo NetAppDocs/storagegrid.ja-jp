@@ -1,0 +1,18 @@
+---
+permalink: monitor/viewing-objects-tab.html 
+sidebar: sidebar 
+keywords: objects tab 
+summary: '[Objects]タブには、S3の取り込み速度と読み出し速度に関する情報が表示されます。' 
+---
+= [ オブジェクト ] タブを表示します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+[オブジェクト]タブには、に関する情報が表示されますlink:../s3/index.html["S3の取り込み速度と読み出し速度"]。
+
+各ストレージノード、各サイト、およびグリッド全体のオブジェクトタブが表示されます。ストレージノードが対象である場合は、オブジェクト数や、メタデータクエリやバックグラウンド検証に関する情報も表示されます。
+
+image::../media/nodes_page_objects_tab.png[[ ノード ] ページの [ オブジェクト ] タブ]

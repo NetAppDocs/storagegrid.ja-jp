@@ -1,0 +1,242 @@
+---
+permalink: maintain/remounting-and-reformatting-appliance-storage-volumes.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, appliance storage volume, appliance volume, remount appliance storage volume, remount volume, remounting appliance storage volume, remounting volume, reformat appliance storage volume, reformat volume, reformatting appliance storage volume, reformatting volume 
+summary: 2 つのスクリプトを手動で実行して、保持されているストレージボリュームを再マウントし、障害ストレージボリュームを再フォーマットする必要があります。最初のスクリプトは、 StorageGRID ストレージボリュームとして適切にフォーマットされているボリュームを再マウントします。2 番目のスクリプトは、マウントされていないボリュームを再フォーマットし、必要に応じて Cassandra データベースを再構築して、サービスを開始します。 
+---
+= アプライアンスストレージボリュームの再マウントと再フォーマット（手動手順）
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+2 つのスクリプトを手動で実行して、保持されているストレージボリュームを再マウントし、障害ストレージボリュームを再フォーマットする必要があります。最初のスクリプトは、 StorageGRID ストレージボリュームとして適切にフォーマットされているボリュームを再マウントします。2 番目のスクリプトは、マウントされていないボリュームを再フォーマットし、必要に応じて Cassandra データベースを再構築して、サービスを開始します。
+
+.開始する前に
+* 障害が発生したストレージボリュームのうち、必要と判断した場合はハードウェアを交換しておく必要があります。
++
+スクリプトを実行 `sn-remount-volumes`すると、障害ストレージボリュームを追加で特定できる場合があります。
+
+* ストレージノードの運用停止処理が進行中でないこと、またはノードの手順 の運用停止処理が一時停止されていることを確認しておきます（ Grid Manager で、 * maintenance * > * Tasks * > * Decommission * を選択します）。
+* 拡張が進行中でないことを確認しておきます（ Grid Manager で、 * maintenance * > * Tasks * > * Expansion * を選択します。）
+
+
+
+CAUTION: 複数のストレージノードがオフラインの場合、またはこのグリッド内のストレージノードが過去 15 日以内に再構築されている場合は、テクニカルサポートにお問い合わせください。スクリプトを実行しない `sn-recovery-postinstall.sh`でください。15 日以内に複数のストレージノードで Cassandra を再構築すると、データが失われることがあります。
+
+.タスクの内容
+この手順 を完了するには、次の作業を行います。
+
+* リカバリされたストレージノードにログインします。
+* スクリプトを実行し `sn-remount-volumes`て、適切にフォーマットされたストレージボリュームを再マウントします。このスクリプトを実行すると、次の処理が行われます。
++
+** 各ストレージボリュームをマウントしてアンマウントし、 XFS ジャーナルをリプレイします。
+** XFS ファイルの整合性チェックを実行します。
+** ファイルシステムに整合性がある場合は、ストレージボリュームが適切にフォーマットされた StorageGRID ストレージボリュームであるかどうかを確認します。
+** ストレージボリュームが適切にフォーマットされている場合は、ストレージボリュームを再マウントします。ボリューム上の既存のデータはそのまま維持されます。
+
+
+* スクリプトの出力を確認し、問題を解決します。
+* スクリプトを実行し `sn-recovery-postinstall.sh`ます。このスクリプトを実行すると、次の処理が実行されます。
++
+
+CAUTION: リカバリ中に（手順4）を実行して障害ストレージボリュームを再フォーマットし、オブジェクトメタデータをリストアする前にストレージノードをリブートしないでください `sn-recovery-postinstall.sh`。完了前にストレージノードをリブート `sn-recovery-postinstall.sh`すると、サービスが開始しようとするときにエラーが発生し、StorageGRIDアプライアンスノードがメンテナンスモードを終了します。
+
++
+** スクリプトでマウントできなかったストレージボリューム、または適切にフォーマットされていないストレージボリュームを再フォーマットし `sn-remount-volumes`ます。
++
+
+NOTE: ストレージボリュームを再フォーマットすると、そのボリューム上のデータはすべて失われます。複数のオブジェクトコピーを格納するように ILM ルールが設定されている場合は、グリッド内の他の場所からオブジェクトデータをリストアするために追加の手順 を実行する必要があります。
+
+** 必要に応じて、ノードの Cassandra データベースを再構築します。
+** ストレージノードのサービスを開始します。
+
+
+
+
+.手順
+. リカバリしたストレージノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_grid_node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. 最初のスクリプトを実行し、適切にフォーマットされたストレージボリュームを再マウントします。
++
+
+NOTE: すべてのストレージボリュームが新規でフォーマットが必要な場合、またはすべてのストレージボリュームで障害が発生した場合は、この手順を省略して 2 つ目のスクリプトを実行し、マウントされていないストレージボリュームをすべて再フォーマットします。
+
++
+.. スクリプトを実行します。 `sn-remount-volumes`
++
+データが格納されたストレージボリュームでこのスクリプトを実行すると、数時間かかることがあります。
+
+.. スクリプトの実行時に、出力と回答 のプロンプトを確認します。
++
+
+NOTE: 必要に応じて、コマンドを使用してスクリプトのログファイルの内容を監視でき `tail -f`(`/var/local/log/sn-remount-volumes.log`ます）。ログファイルには、コマンドラインの出力よりも詳細な情報が含まれています。
+
++
+[listing]
+----
+root@SG:~ # sn-remount-volumes
+The configured LDR noid is 12632740
+
+====== Device /dev/sdb ======
+Mount and unmount device /dev/sdb and checking file system consistency:
+The device is consistent.
+Check rangedb structure on device /dev/sdb:
+Mount device /dev/sdb to /tmp/sdb-654321 with rangedb mount options
+This device has all rangedb directories.
+Found LDR node id 12632740, volume number 0 in the volID file
+Attempting to remount /dev/sdb
+Device /dev/sdb remounted successfully
+
+====== Device /dev/sdc ======
+Mount and unmount device /dev/sdc and checking file system consistency:
+Error: File system consistency check retry failed on device /dev/sdc.
+You can see the diagnosis information in the /var/local/log/sn-remount-volumes.log.
+
+This volume could be new or damaged. If you run sn-recovery-postinstall.sh, this volume and any data on this volume will be deleted. If you only had two copies of object data, you will temporarily have only a single copy.
+StorageGRID will attempt to restore data redundancy by making additional replicated copies or EC fragments, according to the rules in the active ILM policies.
+
+Don't continue to the next step if you believe that the data remaining on this volume can't be rebuilt from elsewhere in the grid (for example, if your ILM policy uses a rule that makes only one copy or if volumes have failed on multiple nodes). Instead, contact support to determine how to recover your data.
+
+====== Device /dev/sdd ======
+Mount and unmount device /dev/sdd and checking file system consistency:
+Failed to mount device /dev/sdd
+This device could be an uninitialized disk or has corrupted superblock.
+File system check might take a long time. Do you want to continue? (y or n) [y/N]? y
+
+Error: File system consistency check retry failed on device /dev/sdd.
+You can see the diagnosis information in the /var/local/log/sn-remount-volumes.log.
+
+This volume could be new or damaged. If you run sn-recovery-postinstall.sh, this volume and any data on this volume will be deleted. If you only had two copies of object data, you will temporarily have only a single copy.
+StorageGRID will attempt to restore data redundancy by making additional replicated copies or EC fragments, according to the rules in the active ILM policies.
+
+Don't continue to the next step if you believe that the data remaining on this volume can't be rebuilt from elsewhere in the grid (for example, if your ILM policy uses a rule that makes only one copy or if volumes have failed on multiple nodes). Instead, contact support to determine how to recover your data.
+
+====== Device /dev/sde ======
+Mount and unmount device /dev/sde and checking file system consistency:
+The device is consistent.
+Check rangedb structure on device /dev/sde:
+Mount device /dev/sde to /tmp/sde-654321 with rangedb mount options
+This device has all rangedb directories.
+Found LDR node id 12000078, volume number 9 in the volID file
+Error: This volume does not belong to this node. Fix the attached volume and re-run this script.
+----
++
+この出力例では、 1 つのストレージボリュームが正常に再マウントされ、 3 つのストレージボリュームでエラーが発生しています。
+
++
+*** `/dev/sdb`XFSファイルシステムの整合性チェックに合格し、ボリューム構造が有効であったため、正常に再マウントされました。スクリプトによって再マウントされたデバイスのデータは保持されています。
+*** `/dev/sdc`ストレージボリュームが新規または破損しているため、XFSファイルシステムの整合性チェックに失敗しました。
+*** `/dev/sdd`ディスクが初期化されていないか、ディスクのスーパーブロックが破損しているため、マウントできませんでした。スクリプトがストレージボリュームをマウントできない場合は、ファイルシステムの整合性チェックを実行するかどうかを確認するメッセージが表示されます。
++
+**** ストレージ・ボリュームが新しいディスクに接続されている場合は、回答 * N * をプロンプトに表示します。新しいディスク上のファイルシステムをチェックする必要はありません。
+**** ストレージ・ボリュームが既存のディスクに接続されている場合は、回答 * Y * がプロンプトに表示されます。ファイルシステムのチェックの結果を使用して、破損の原因を特定できます。結果はログファイルに保存され `/var/local/log/sn-remount-volumes.log`ます。
+
+
+*** `/dev/sde`XFSファイルシステムの整合性チェックに合格し、ボリューム構造が有効でしたが、ファイル内のLDRノードID `volID`がこのストレージノードのID（上部に表示）と一致しませんでした `configured LDR noid`。このメッセージは、このボリュームが別のストレージノードに属していることを示しています。
+
+
+
+
+. スクリプトの出力を確認し、問題を解決します。
++
+
+CAUTION: ストレージボリュームが XFS ファイルシステムの整合性チェックに合格できなかった場合、またはストレージボリュームをマウントできなかった場合は、出力のエラーメッセージをよく確認してください。これらのボリュームでスクリプトを実行した場合の影響を理解しておく必要があります `sn-recovery-postinstall.sh`。
+
++
+.. 想定しているすべてのボリュームのエントリが結果に含まれていることを確認します。ボリュームが表示されない場合は、スクリプトを再実行します。
+.. マウントされたすべてのデバイスのメッセージを確認します。ストレージボリュームがこのストレージノードに属していないことを示すエラーがないことを確認します。
++
+この例では、 /dev/sde の出力に、次のエラーメッセージが含まれています。
+
++
+[listing]
+----
+Error: This volume does not belong to this node. Fix the attached volume and re-run this script.
+----
++
+
+CAUTION: あるストレージボリュームが別のストレージノードに属していると報告される場合は、テクニカルサポートにお問い合わせください。スクリプトを実行すると `sn-recovery-postinstall.sh`ストレージボリュームが再フォーマットされ、データが失われる可能性があります。
+
+.. マウントできなかったストレージデバイスがある場合は、デバイス名をメモし、デバイスを修理または交換します。
++
+
+NOTE: マウントできなかったストレージデバイスはすべて修理または交換する必要があります。
+
++
+デバイス名を使用してボリュームIDを検索します。このIDは、スクリプトを実行してオブジェクトデータをボリュームにリストアする際に必要になります `repair-data`（次の手順）。
+
+.. マウントできないデバイスをすべて修復または交換したら、スクリプトをもう一度実行して、 `sn-remount-volumes`再マウント可能なすべてのストレージボリュームが再マウントされたことを確認します。
++
+
+CAUTION: ストレージボリュームをマウントできない場合、またはストレージボリュームが適切にフォーマットされていない場合に次の手順に進むと、ボリュームとそのボリューム上のデータが削除されます。オブジェクトデータのコピーが 2 つあった場合、次の手順 （オブジェクトデータのリストア）が完了するまでコピーは 1 つだけになります。
+
+
+
++
+
+CAUTION: 障害ストレージボリュームに残っているデータをグリッド内の他の場所から再構築できないと考えられる場合は、スクリプトを実行しないでください（ILMポリシーでコピーを1つだけ作成するルールが使用されている場合や、複数のノードでボリュームで障害が発生した場合 `sn-recovery-postinstall.sh`など）。代わりに、テクニカルサポートに問い合わせてデータのリカバリ方法を確認してください。
+
+. スクリプトを実行し `sn-recovery-postinstall.sh`ます。 `sn-recovery-postinstall.sh`
++
+このスクリプトは、マウントできなかったストレージボリューム、または適切にフォーマットされていないストレージボリュームを再フォーマットし、必要に応じてノードの Cassandra データベースを再構築して、ストレージノードのサービスを開始します。
+
++
+次の点に注意してください。
+
++
+** スクリプトの実行には数時間かかることがあります。
+** 一般に、スクリプトの実行中は、 SSH セッションは単独で行う必要があります。
+** SSHセッションがアクティブな間は、*Ctrl+C*を押さないでください。
+** このスクリプトは、ネットワークの中断が発生して SSH セッションが終了した場合にバックグラウンドで実行されますが、進行状況はリカバリページで確認できます。
+** ストレージノードで RSM サービスを使用している場合は、ノードサービスの再起動時にスクリプトが 5 分間停止しているように見えることがあります。この 5 分間の遅延は、 RSM サービスが初めて起動するときに発生します。
++
+
+NOTE: RSM サービスは、 ADC サービスが含まれるストレージノードにあります。
+
+
+
++
+
+NOTE: 一部の StorageGRID リカバリ手順では、 Reaper を使用して Cassandra の修復を処理します。関連サービスまたは必要なサービスが開始されるとすぐに修理が自動的に行われます。スクリプトの出力に「reaper」または「cassandra repair」と記載されていることがあります。修復が失敗したことを示すエラーメッセージが表示された場合は、エラーメッセージに示されているコマンドを実行します。
+
+. スクリプトの実行中に `sn-recovery-postinstall.sh`、Grid Managerの[Recovery]ページを監視します。
++
+[Recovery]ページの[Progress]バーと[Stage]列には、スクリプトのステータスの概要が表示され `sn-recovery-postinstall.sh`ます。
+
++
+image::../media/recovering_cassandra.png[グリッド管理インターフェイスにおけるリカバリの進行状況を示すスクリーンショット]
+
+. スクリプトでノードのサービスが開始されたら、 `sn-recovery-postinstall.sh`スクリプトでフォーマットされたストレージボリュームにオブジェクトデータをリストアできます。
++
+Grid Managerのボリュームリストアプロセスを使用するかどうかを確認するメッセージが表示されます。
+
++
+** ほとんどの場合、あなたはすべきですlink:../maintain/restoring-volume.html["Grid Managerを使用してオブジェクトデータをリストアする"]。と入力 `y`してGrid Managerを使用します。
+** まれに、テクニカルサポートから指示があった場合や、交換用ノードのオブジェクトストレージに使用できるボリュームの数が元のノードよりも少ないことがわかった場合など、スクリプトを使用 `repair-data`する必要があります。link:restoring-object-data-to-storage-volume-for-appliance.html["オブジェクトデータを手動でリストアします"]これらのケースのいずれかが当てはまる場合は、回答してください `n`。
++
+[NOTE]
+====
+Grid Managerのボリュームリストアプロセスを使用する（オブジェクトデータを手動でリストアする）場合 `n`は、次の手順を実行します。
+
+*** Grid Managerを使用してオブジェクトデータをリストアすることはできません。
+*** 手動リストアジョブの進捗状況は、Grid Managerを使用して監視できます。
+
+
+====
++
+選択が完了すると、スクリプトが完了し、オブジェクトデータをリカバリする次の手順が表示されます。これらの手順を確認したら、いずれかのキーを押してコマンドラインに戻ります。
+
+
+
+

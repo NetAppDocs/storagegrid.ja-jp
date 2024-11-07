@@ -1,0 +1,43 @@
+---
+permalink: s3/deprecated-bucket-requests-for-legacy-compliance.html 
+sidebar: sidebar 
+keywords: S3 REST API, S3 operations, deprecated bucket requests 
+summary: 従来の準拠機能で作成されたバケットの管理には、 StorageGRID S3 REST API の使用が必要になる場合があります。 
+---
+= 従来の準拠のためのバケット要求が廃止されました
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+従来の準拠機能で作成されたバケットの管理には、 StorageGRID S3 REST API の使用が必要になる場合があります。
+
+
+
+== コンプライアンス機能は廃止されました
+
+以前のバージョンの StorageGRID で提供されていた StorageGRID 準拠機能は廃止され、 S3 オブジェクトロックに置き換えられました。
+
+グローバル準拠設定を有効にしている場合は、 StorageGRID 11.6 でグローバル S3 オブジェクトロック設定が有効になっています。準拠を有効にした新しいバケットは作成できなくなりました。ただし、必要に応じて、 StorageGRID S3 REST API を使用して、従来の準拠バケットを管理できます。
+
+* link:use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+* link:../ilm/index.html["ILM を使用してオブジェクトを管理する"]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["ネットアップのナレッジベース： StorageGRID 11.5 でレガシー準拠バケットを管理する方法"^]
+
+
+廃止された準拠要求：
+
+* link:../s3/deprecated-put-bucket-request-modifications-for-compliance.html["DEPRECATED - PUT Bucket request modifications for compliance"]
++
+SGCompliance XML 要素は廃止されました。これまでは、この StorageGRID カスタム要素を PUT Bucket 要求のオプションの XML 要求の本文に含めて準拠バケットを作成できました。
+
+* link:../s3/deprecated-get-bucket-compliance-request.html["廃止されました。GET Bucket compliance"]
++
+GET Bucket compliance要求は廃止されました。ただし、既存のレガシー準拠バケットに対して現在有効な準拠設定を引き続き確認することができます。
+
+* link:../s3/deprecated-put-bucket-compliance-request.html["廃止されました。PUT Bucket compliance"]
++
+PUT Bucket compliance要求は廃止されました。ただし、この要求を引き続き使用して、既存のレガシー準拠バケットの準拠設定を変更できます。たとえば、既存のバケットをリーガルホールドの対象にしたり、バケットの保持期間を長くしたりできます。
+
+

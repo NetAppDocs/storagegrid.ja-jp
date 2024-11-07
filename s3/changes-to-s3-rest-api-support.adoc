@@ -1,0 +1,142 @@
+---
+permalink: s3/changes-to-s3-rest-api-support.html 
+sidebar: sidebar 
+keywords: s3 rest api support changes 
+summary: StorageGRID システムでの S3 REST API のサポートに関する変更点に注意する必要があります。 
+---
+= S3 REST API のサポートに関する変更点
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID システムでの S3 REST API のサポートに関する変更点に注意する必要があります。
+
+[cols="1a,4a"]
+|===
+| リリース | コメント 
+
+
+ a| 
+11.8
+ a| 
+* 期限切れのオブジェクト削除マーカーを削除するPutBucketLifecycleConfiguration操作のサポートが追加されました `ExpiredObjectDeleteMarker`。
+* ポリシー条件キーのサポートが追加されました `s3:ExistingObjectTag/<tag-key>`。これにより、既存のオブジェクトに特定のタグキーと値が必要になります。
+* ポリシー条件キーのサポートが追加されました `s3:RequestObjectTag/<tag-key>`。このキーでは、オブジェクト要求にタグが含まれる場合に特定のタグとキー値を指定する必要があります。
+
+
+
+
+ a| 
+11.7
+ a| 
+* S3オブジェクトロックでのガバナンスモードの使用のサポートが追加されました。
+* GetObject要求とHeadObject要求のStorageGRID固有の応答ヘッダーのサポートが追加されました `x-ntap-sg-cgr-replication-status`。このヘッダーは、グリッド間レプリケーションのオブジェクトのレプリケーションステータスを示します。
+* SelectObjectContent要求でParquetオブジェクトがサポートされるようになりました。
+
+
+
+
+ a| 
+11.6
+ a| 
+* GetObject要求とHeadObject要求でrequestパラメータを使用できるようになりました `partNumber`。
+* S3 オブジェクトロックのデフォルト保持モードとデフォルトの保持期間がバケットレベルでサポートされるようになりました。
+* オブジェクトに許可される保持期間の範囲を設定するポリシー条件キーのサポートが追加されました `s3:object-lock-remaining-retention-days`。
+* 単一のPutObject処理のmaximum_recommended_sizeを5GiB（5、368、709、120バイト）に変更しました。5GB より大きいオブジェクトがある場合は、マルチパートアップロードを使用してください。
+
+
+
+
+ a| 
+11.5
+ a| 
+* バケットの暗号化の管理のサポートが追加されました。
+* S3 オブジェクトのロックと廃止された従来の準拠要求のサポートを追加しました。
+* バージョン管理されたバケットでDeleteObjectsを使用できるようになりました。
+*  `Content-MD5`要求ヘッダーが正しくサポートされるようになりました。
+
+
+
+
+ a| 
+11.4
+ a| 
+* DeleteBucketTagging、GetBucketTagging、およびPutBucketTaggingのサポートが追加されました。コスト割り当てタグはサポートされていません。
+* StorageGRID 11.4 で作成されたバケットでは、オブジェクトキー名がパフォーマンスのベストプラクティスに適合するように制限する必要はなくなりました。
+* イベントタイプでのバケット通知のサポートが追加されました `s3:ObjectRestore:Post`。
+* マルチパートの AWS サイズの上限が適用されるようになりました。マルチパートアップロードの各パートのサイズは 5MiB から 5GiB の間にする必要があります。最後の部分は 5MiB より小さくすることができます。
+* TLS 1.3のサポートが追加されました
+
+
+
+
+ a| 
+11.3
+ a| 
+* ユーザ指定のキーによるオブジェクトデータのサーバ側暗号化（ SSE-C ）がサポートされるようになりました。
+* DeleteBucketLifecycle、GetBucketLifecycleConfiguration、PutBucketLifecycleConfigurationの各操作（Expirationアクションのみ）と応答ヘッダーのサポートが追加されました `x-amz-expiration`。
+* PutObject、CopyObject、およびMultipartUploadが更新され、取り込み時に同期配置を使用するILMルールの影響が説明されました。
+* TLS 1.1 暗号はサポートされなくなりました。
+
+
+
+
+ a| 
+11.2
+ a| 
+RestoreObjectをクラウドストレージプールで使用できるようになりました。グループポリシーとバケットポリシーの ARN 、ポリシー条件キー、およびポリシー変数で AWS 構文を使用できるようになりました。StorageGRID 構文を使用する既存のグループポリシーとバケットポリシーは引き続きサポートされます。
+
+* 注：カスタム StorageGRID 機能で使用される ARN やその他の構成 JSON / XML での使用に変更はありませんでした。
+
+
+
+ a| 
+11.1
+ a| 
+Cross-Origin Resource Sharing（CORS）、グリッドノードへのS3クライアント接続でのHTTP、バケットでの準拠設定のサポートが追加されました。
+
+
+
+ a| 
+11.0
+ a| 
+バケットでのプラットフォームサービス（ CloudMirror レプリケーション、通知、および Elasticsearch 検索統合）の設定がサポートされるようになりました。また、バケットに対するオブジェクトタギングの場所の制約と「available」の整合性がサポートされるようになりました。
+
+
+
+ a| 
+10.4
+ a| 
+ILM スキャンのバージョン管理、エンドポイントドメインの名前ページの更新、ポリシーの条件と変数、ポリシーの例、および PutOverwriteObject 権限の変更のサポートが追加されました。
+
+
+
+ a| 
+10.3
+ a| 
+バージョン管理のサポートが追加されました。
+
+
+
+ a| 
+10.2
+ a| 
+グループとバケットのアクセスポリシー、およびマルチパートコピー（UploadPartCopy）のサポートが追加されました。
+
+
+
+ a| 
+10.1
+ a| 
+マルチパートアップロード、仮想ホスト形式の要求、および v4 認証のサポートが追加されました。
+
+
+
+ a| 
+10.0
+ a| 
+StorageGRID システムで S3 REST API のサポートが初めて導入されました。現在サポートされているバージョンの _Simple Storage Service API Reference_is 2006-03-01 。
+
+|===

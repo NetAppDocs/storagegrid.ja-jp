@@ -1,0 +1,204 @@
+---
+permalink: admin/grid-federation-retry-failed-replication.html 
+sidebar: sidebar 
+keywords: grid federation, troubleshoot 
+summary: Cross-grid replication permanent failureアラートを解決したら、他のグリッドへのレプリケートに失敗したオブジェクトまたは削除マーカーがないかどうかを確認する必要があります。その後、これらのオブジェクトを再取り込みするか、グリッド管理APIを使用してレプリケーションを再試行できます。 
+---
+= 失敗したレプリケーション処理を特定して再試行します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Cross-grid replication permanent failure *アラートを解決したら、他のグリッドへのレプリケートに失敗したオブジェクトまたは削除マーカーがないかどうかを確認する必要があります。その後、これらのオブジェクトを再取り込みするか、グリッド管理APIを使用してレプリケーションを再試行できます。
+
+Cross-grid replication permanent failure *アラートは、ユーザの介入が必要な理由で2つのグリッド上のバケット間でテナントオブジェクトをレプリケートできないことを示しています。このアラートの主な原因は、ソースまたはデスティネーションのバケットが変更されたことです。詳細については、を参照してください link:grid-federation-troubleshoot.html["グリッドフェデレーションエラーをトラブルシューティングする"]。
+
+
+
+== レプリケートに失敗したオブジェクトがないかどうかを確認します
+
+他のグリッドにレプリケートされていないオブジェクトまたは削除マーカーがないかどうかを確認するには、監査ログでメッセージを検索しlink:../audit/cgrr-cross-grid-replication-request.html["CGRR（クロスグリッドレプリケーション要求）"]ます。このメッセージは、StorageGRID がオブジェクト、マルチパートオブジェクト、または削除マーカーをデスティネーションバケットにレプリケートできなかった場合にログに追加されます。
+
+を使用すると、結果を読みやすい形式に変換できますlink:../audit/using-audit-explain-tool.html["audit-explainツール"]。
+
+.開始する前に
+* Root Access 権限が割り当てられている。
+* あなたはファイルを持ってい `Passwords.txt`ます。
+* プライマリ管理ノードのIPアドレスを確認しておきます。
+
+
+.手順
+. プライマリ管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+
+
+. audit.logでCGRRメッセージを検索し、audit-explainツールを使用して結果をフォーマットします。
++
+たとえば、このコマンドは過去30分間のすべてのCGRRメッセージをgrepし、audit-explainツールを使用します。
+
++
+`# awk -vdate=$(date -d "30 minutes ago" '+%Y-%m-%dT%H:%M:%S') '$1$2 >= date { print }' audit.log | grep CGRR | audit-explain`
+
++
+このコマンドの結果は次の例のようになります。この例には、6つのCGRRメッセージのエントリがあります。この例では、オブジェクトをレプリケートできなかったため、すべてのグリッド間レプリケーション要求で一般的なエラーが返されています。最初の3つのエラーは「オブジェクトのレプリケート」処理に関するもので、最後の3つのエラーは「マーカーのレプリケート」処理に関するものです。
+
++
+[listing]
+----
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-0" version:QjRBNDIzODAtNjQ3My0xMUVELTg2QjEtODJBMjAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate object" bucket:bucket123 object:"audit-3" version:QjRDOTRCOUMtNjQ3My0xMUVELTkzM0YtOTg1MTAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-1" version:NUQ0OEYxMDAtNjQ3NC0xMUVELTg2NjMtOTY5NzAwQkI3NEM4 error:general error
+CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:447896B6-6F9C-4FB2-95EA-AEBF93A774E9 operation:"replicate delete marker" bucket:bucket123 object:"audit-5" version:NUQ1ODUwQkUtNjQ3NC0xMUVELTg1NTItRDkwNzAwQkI3NEM4 error:general error
+----
++
+各エントリには、次の情報が含まれています。
+
++
+[cols="1a,2a"]
+|===
+| フィールド | 製品説明 
+
+
+| CGRRクロスグリッドレプリケーション要求  a| 
+要求の名前
+
+
+
+| テナント  a| 
+テナントのアカウントID
+
+
+
+| 接続  a| 
+グリッドフェデレーション接続のID
+
+
+
+| 操作  a| 
+試行されたレプリケーション操作のタイプ。
+
+** オブジェクトをレプリケートします
+** 削除マーカーを複製します
+** マルチパートオブジェクトをレプリケートします
+
+
+
+
+| バケット  a| 
+バケット名
+
+
+
+| オブジェクト  a| 
+オブジェクト名
+
+
+
+| バージョン  a| 
+オブジェクトのバージョンID
+
+
+
+| エラー  a| 
+エラーのタイプ。グリッド間レプリケーションに失敗した場合は、「General error」というエラーが表示されます。
+
+|===
+
+
+
+
+== 失敗したレプリケーションを再試行します
+
+デスティネーションバケットにレプリケートされなかったオブジェクトのリストを生成して削除マーカーを削除し、根本的な問題を解決したら、次のいずれかの方法でレプリケーションを再試行できます。
+
+* 各オブジェクトをソースバケットに再度取り込みます。
+* の説明に従って、グリッド管理プライベートAPIを使用します。
+
+
+.手順
+. Grid Managerの上部でヘルプアイコンを選択し、*[API documentation]*を選択します。
+. [Go to private API documentation]*を選択します。
++
+
+NOTE: 「プライベート」とマークされたStorageGRID APIエンドポイントは、予告なく変更される場合があります。StorageGRID プライベートエンドポイントは、要求の API バージョンも無視します。
+
+. [cross-grid-replication-advanced]*セクションで、次のエンドポイントを選択します。
++
+`POST /private/cross-grid-replication-retry-failed`
+
+. [* 試してみてください * ] を選択します。
+. body *テキストボックスで、* versionId *のサンプルエントリを、失敗したグリッド間レプリケーション要求に対応するaudit.logのバージョンIDに置き換えます。
++
+文字列は必ず二重引用符で囲んでください。
+
+. [* Execute] を選択します。
+. サーバ応答コードが「* 204 *」であることを確認します。これは、オブジェクトまたは削除マーカーが他のグリッドへのクロスグリッドレプリケーションのために保留中としてマークされていることを示します。
++
+
+NOTE: Pendingは、クロスグリッドレプリケーション要求が処理のために内部キューに追加されたことを示します。
+
+
+
+
+
+== レプリケーションの再試行を監視します
+
+レプリケーションの再試行処理を監視して、処理が完了していることを確認する必要があります。
+
+
+TIP: オブジェクトまたは削除マーカーが他のグリッドにレプリケートされるまでに数時間以上かかることがあります。
+
+再試行処理は、次の2つの方法で監視できます。
+
+* S3またはlink:../s3/get-object.html["GetObject"]要求を使用link:../s3/head-object.html["ヘッドオブジェクト"]応答には、次のいずれかの値を持つStorageGRID固有の応答ヘッダーが含まれ `x-ntap-sg-cgr-replication-status`ます。
++
+[cols="1a,2a"]
+|===
+| グリッド | レプリケーションのステータス 
+
+
+ a| 
+ソース
+ a| 
+** *完了*:レプリケーションは成功しました。
+** * pending*：オブジェクトはまだレプリケートされていません。
+** *failure*:レプリケーションが永続的なエラーで失敗しました。ユーザーはエラーを解決する必要があります。
+
+
+
+
+ a| 
+デスティネーション
+ a| 
+*replica*:オブジェクトはソースグリッドからレプリケートされました。
+
+|===
+* の説明に従って、グリッド管理プライベートAPIを使用します。
+
+
+.手順
+. プライベートAPIドキュメントの* cross-grid-replication-advanced *セクションで、次のエンドポイントを選択します。
++
+`GET /private/cross-grid-replication-object-status/{id}`
+
+. [* 試してみてください * ] を選択します。
+. [Parameter]セクションに、要求で使用したバージョンIDを入力し `cross-grid-replication-retry-failed`ます。
+. [* Execute] を選択します。
+. サーバ応答コードが*200*であることを確認します。
+. レプリケーションステータスを確認します。次のいずれかになります。
++
+** * pending*：オブジェクトはまだレプリケートされていません。
+** *完了*:レプリケーションは成功しました。
+** *failed*:レプリケーションは永続的なエラーで失敗しました。ユーザーはエラーを解決する必要があります。
+
+
+

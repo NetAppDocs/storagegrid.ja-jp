@@ -1,0 +1,33 @@
+---
+permalink: fabricpool/configure-dns-server.html 
+sidebar: sidebar 
+keywords: dns, vip, virtual ip, fqdn, server name 
+summary: ハイアベイラビリティグループ、ロードバランサエンドポイント、およびS3ドメイン名を設定したら、DNSにStorageGRID に必要なエントリが含まれていることを確認する必要があります。 
+---
+= DNSサーバの設定
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ハイアベイラビリティグループ、ロードバランサエンドポイント、およびS3エンドポイントのドメイン名を設定したら、DNSにStorageGRID に必要なエントリが含まれていることを確認する必要があります。セキュリティ証明書の名前ごと、および使用するIPアドレスごとに、DNSエントリを含める必要があります。
+
+を参照して link:../admin/managing-load-balancing.html["ロードバランシングに関する考慮事項"]
+
+
+
+== StorageGRID サーバ名のDNSエントリ
+
+StorageGRID サーバ名（完全修飾ドメイン名）を使用する各StorageGRID IPアドレスに関連付けるDNSエントリを追加します。DNSに入力するIPアドレスは、ロードバランシングノードのHAグループを使用しているかどうかによって異なります。
+
+* HAグループを設定している場合、ONTAP はそのHAグループの仮想IPアドレスに接続します。
+* HAグループを使用しない場合は、ONTAP からゲートウェイノードまたは管理ノードのIPアドレスを使用してStorageGRID ロードバランササービスに接続できます。
+* サーバ名が複数のIPアドレスに解決されると、ONTAP はすべてのIPアドレス（最大16個のIPアドレス）を使用してクライアント接続を確立します。接続が確立されると、ラウンドロビン方式でIPアドレスが取得されます。
+
+
+
+
+== 仮想ホスト形式の要求のDNSエントリ
+
+を定義し、仮想ホスト形式の要求を使用する場合link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名"]は、必要なすべてのS3エンドポイントのドメイン名（ワイルドカード名を含む）にDNSエントリを追加します。

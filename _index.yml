@@ -1,0 +1,107 @@
+---
+indexpage:
+  title: StorageGRID 11.9ドキュメント
+  summary: NetApp StorageGRID は、ソフトウェアで定義されるオブジェクトストレージスイートで、パブリック、プライベート、ハイブリッドのマルチクラウド環境での幅広いユースケースに対応します。StorageGRID
+    はAmazon S3 APIをネイティブでサポートし、自動化されたライフサイクル管理などの業界をリードする革新的なテクノロジを提供して、非構造化データを長期にわたってコスト効率よく格納、保護、保持します。
+  keywords: storagegrid documentation
+  lead: NetApp StorageGRID は、ソフトウェアで定義されるオブジェクトストレージスイートで、パブリック、プライベート、ハイブリッドのマルチクラウド環境での幅広いユースケースに対応します。StorageGRID
+    はAmazon S3 APIをネイティブでサポートし、自動化されたライフサイクル管理などの業界をリードする革新的なテクノロジを提供して、非構造化データを長期にわたってコスト効率よく格納、保護、保持します。
+  tiles:
+  - title: 開始する
+    links:
+    - title: リリースノート
+      url: "/release-notes/index.html"
+    - title: 新機能
+      url: "/upgrade/whats-new.html"
+    - title: StorageGRID の詳細をご覧ください
+      url: "/primer/index.html"
+    - title: ネットワークのガイドライン
+      url: "/network/index.html"
+    - title: StorageGRID クイックスタート
+      url: "/primer/quick-start.html"
+  - title: インストール、アップグレード、ホットフィックス
+    links:
+    - title: StorageGRIDアプライアンスのインストール
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
+    - title: Red Hat Enterprise LinuxへのStorageGRIDのインストール
+      url: "/rhel/index.html"
+    - title: UbuntuまたはDebianへのStorageGRIDのインストール
+      url: "/ubuntu/index.html"
+    - title: VMwareへのStorageGRIDのインストール
+      url: "/vmware/index.html"
+    - title: 新しいStorageGRIDバージョンにアップグレード
+      url: "/upgrade/index.html"
+    - title: ホットフィックスを適用する
+      url: "/maintain/storagegrid-hotfix-procedure.html"
+  - title: グリッドを設定します
+    links:
+    - title: StorageGRID の管理
+      url: "/admin/index.html"
+    - title: ILM を使用してオブジェクトを管理する
+      url: "/ilm/index.html"
+    - title: システムの保護対策
+      url: "/harden/index.html"
+    - title: StorageGRID for FabricPool を設定します
+      url: "/fabricpool/index.html"
+  - title: オブジェクトを管理します
+    links:
+    - title: テナントアカウントを使用する
+      url: "/tenant/index.html"
+    - title: S3 REST APIを使用する
+      url: "/s3/index.html"
+    - title: Swift REST APIの使用（サポート終了）
+      url: "/swift/index.html"
+  - title: 監視とトラブルシューティング
+    links:
+    - title: グリッドの監視
+      url: "/monitor/index.html"
+    - title: グリッドのトラブルシューティング
+      url: "/troubleshoot/index.html"
+    - title: 監査ログを確認します
+      url: "/audit/index.html"
+  - title: グリッドの拡張と保守
+    links:
+    - title: ボリューム、ノード、サイトの追加
+      url: "/expand/index.html"
+    - title: グリッドのメンテナンス
+      url: "/maintain/index.html"
+    - title: ノードをリカバリまたは交換
+      url: "/maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: StorageGRIDアプライアンスのメンテナンス
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html
+  - title: 追加の手順
+    links:
+    - title: StorageGRID を有効にします
+      url: https://docs.netapp.com/us-en/storagegrid-enable/index.html
+    - title: StorageGRID ビデオライブラリ
+      url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7nh2wGRA65iulXhtXwLiqrY
+    - title: ネットアップラーニングサービス
+      url: https://www.netapp.com/support-and-training/netapp-university/
+    - title: BlueXPを使用したStorageGRIDの管理
+      url: https://docs.netapp.com/us-en/bluexp-storagegrid/index.html
+  - title: その他のリソース
+    links:
+    - title: StorageGRID のサポートページ
+      url: https://mysupport.netapp.com/site/products/all/details/5d9f1107e01d9c0001ee50f6/guideme-tab
+    - title: NetApp Interoperability Matrix Tool（IMT）
+      url: https://imt.netapp.com/matrix/#welcome
+    - title: StorageGRID ナレッジベース
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID
+    - title: ネットアップのブログ
+      url: https://netapp.com/blog/
+    - title: NetAppコミュニティ
+      url: https://community.netapp.com/
+  - title: その他のバージョン
+    links:
+    - title: StorageGRID 11.8ドキュメント
+      url: https://docs.netapp.com/us-en/storagegrid-118/index.html
+    - title: StorageGRID 11.7ドキュメント
+      url: https://docs.netapp.com/us-en/storagegrid-117/index.html
+    - title: StorageGRID 11.6ドキュメント
+      url: https://docs.netapp.com/us-en/storagegrid-116/index.html
+    - title: StorageGRID 11.5ドキュメント
+      url: https://docs.netapp.com/us-en/storagegrid-115/index.html
+    - title: StorageGRID 11.4ドキュメント
+      url: https://docs.netapp.com/sgws-114/index.jsp
+    - title: StorageGRID 11.3ドキュメント
+      url: https://docs.netapp.com/sgws-113/index.jsp

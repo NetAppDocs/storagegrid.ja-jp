@@ -1,0 +1,61 @@
+---
+indexpage:
+  title: StorageGRIDのインストール、アップグレード、ホットフィックス
+  summary: StorageGRID システムは、ハードウェアベースとソフトウェアベースの個 々 のノードで構成されます。最初に各アプライアンスノードのハードウェアを設置し、LinuxまたはVMwareホストをそれぞれ設定します。その後、各アプライアンスまたはソフトウェアホストにStorageGRIDソフトウェアをインストールし、ノードをグリッドに接続します。
+  keywords: install, upgrade, hotfix
+  lead: StorageGRID システムは、ハードウェアベースとソフトウェアベースの個 々 のノードで構成されます。最初に各アプライアンスノードのハードウェアを設置し、LinuxまたはVMwareホストをそれぞれ設定します。その後、各アプライアンスまたはソフトウェアホストにStorageGRIDソフトウェアをインストールし、ノードをグリッドに接続します。
+  tiles:
+  - title: クイックスタート
+    links:
+    - title: アプライアンスハードウェア
+      url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/index.html"
+    - title: Ubuntu または Debian
+      url: "../ubuntu/index.html"
+    - title: VMware
+      url: "../vmware/index.html"
+  - title: 資料の準備
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/required-materials.html"
+    - title: Ubuntu または Debian
+      url: "../ubuntu/required-materials.html"
+    - title: VMware
+      url: "../vmware/required-materials.html"
+  - title: インストールの自動化
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/automating-installation.html"
+    - title: Ubuntu または Debian
+      url: "../ubuntu/automating-installation.html"
+    - title: VMware
+      url: "../vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
+  - title: ノードの導入
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/creating-node-configuration-files.html"
+    - title: Ubuntu または Debian
+      url: "../ubuntu/creating-node-configuration-files.html"
+    - title: VMware
+      url: "../vmware/collecting-information-about-your-deployment-environment.html"
+  - title: ノードのインストールの完了
+    links:
+    - title: Red Hat Enterprise Linux
+      url: "../rhel/navigating-to-grid-manager.html"
+    - title: Ubuntu または Debian
+      url: "../ubuntu/navigating-to-grid-manager.html"
+    - title: VMware
+      url: "../vmware/navigating-to-grid-manager.html"
+  - title: アップグレードまたはホットフィックス
+    links:
+    - title: 新機能
+      url: "../upgrade/whats-new.html"
+    - title: 完了までの推定時間
+      url: "../upgrade/estimating-time-to-complete-upgrade.html"
+    - title: アップグレード中にシステムが受ける影響
+      url: "../upgrade/how-your-system-is-affected-during-upgrade.html"
+    - title: アップグレードのクイックスタート
+      url: "../upgrade/upgrade-workflow.html"
+    - title: ホットフィックスを適用する
+      url: "../maintain/storagegrid-hotfix-procedure.html"

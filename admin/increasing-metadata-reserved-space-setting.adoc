@@ -1,0 +1,94 @@
+---
+permalink: admin/increasing-metadata-reserved-space-setting.html 
+sidebar: sidebar 
+keywords: increase metadata reserved space setting 
+summary: ストレージノードがRAMおよび使用可能スペースに関する特定の要件を満たしている場合は、Metadata Reserved Spaceシステム設定を増やすことができます。 
+---
+= Metadata Reserved Space 設定の増加
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+ストレージノードがRAMおよび使用可能スペースに関する特定の要件を満たしている場合は、Metadata Reserved Spaceシステム設定を増やすことができます。
+
+.必要なもの
+* Grid Managerにサインインしておきますlink:web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:admin-group-permissions.html["Root Access権限またはGrid Topology Page Configuration権限およびOther Grid Configuration権限"]。
+
+
+
+NOTE: Gridトポロジページは廃止され、今後のリリースで削除される予定です。
+
+.タスクの内容
+システム全体のMetadata Reserved Space設定を手動で8TBに増やすことができます。
+
+次の両方に該当する場合にのみ、「 Metadata Reserved Space 」設定の値を増やすことができます。
+
+* システムの任意のサイトのストレージノードには、それぞれ 128GB 以上の RAM が搭載されています。
+* システムの任意のサイトのストレージノードには、ストレージボリューム 0 上に十分な利用可能スペースがあります。
+
+
+この設定を大きくすると、すべてのストレージノードのストレージボリューム 0 でオブジェクトストレージに使用できるスペースが同時に減少することに注意してください。そのため、想定されるオブジェクトメタデータの要件に基づいて、 Metadata Reserved Space を 8TB 未満の値に設定することを推奨します。
+
+
+NOTE: 一般的には、より低い値ではなく、より高い値を使用することをお勧めします。Metadata Reserved Space 設定が大きすぎる場合は、あとで設定を縮小できます。一方、値をあとで大きくした場合は、オブジェクトデータを移動してスペースを解放しなければならないことがあります。
+
+Metadata Reserved Spaceの設定が特定のストレージノードでオブジェクトメタデータストレージに使用できるスペースに与える影響の詳細については、を参照してくださいlink:managing-object-metadata-storage.html["オブジェクトメタデータストレージを管理する"]。
+
+.手順
+. 現在の Metadata Reserved Space 設定を確認します。
++
+.. * 設定 * > * システム * > * ストレージ・オプション * を選択します。
+.. [Storage Watermarks]セクションで、* Metadata Reserved Space *の値を確認します。
+
+
+. この値を増やすには、各ストレージノードのストレージボリューム 0 に十分な利用可能スペースがあることを確認してください。
++
+.. [* nodes （ノード） ] を選択します
+.. グリッドの最初のストレージノードを選択します。
+.. Storage （ストレージ）タブを選択します。
+.. Volumes セクションで、 * /var/local/rangedb/0 * エントリを探します。
+.. 使用可能な値が、使用する新しい値と現在の Metadata Reserved Space 値の差以上であることを確認します。
++
+たとえば、 Metadata Reserved Space 設定が現在 4TB の場合に、 6TB に拡張するには、使用可能な値を 2TB 以上にする必要があります。
+
+.. すべてのストレージノードに対して上記の手順を繰り返します。
++
+*** 1 つ以上のストレージノードに十分な利用可能スペースがない場合は、 Metadata Reserved Space の値を増やすことはできません。この手順は続行しないでください。
+*** 各ストレージノードのボリューム 0 に十分な利用可能スペースがある場合は、次の手順に進みます。
+
+
+
+
+. 各ストレージノードに 128GB 以上の RAM があることを確認してください。
++
+.. [* nodes （ノード） ] を選択します
+.. グリッドの最初のストレージノードを選択します。
+.. [* ハードウェア * ] タブを選択します。
+.. メモリ使用状況グラフにカーソルを合わせます。合計メモリ * が 128 GB 以上であることを確認します。
+.. すべてのストレージノードに対して上記の手順を繰り返します。
++
+*** 1 つ以上のストレージノードに使用可能な合計メモリが十分にない場合は、 Metadata Reserved Space の値を増やすことはできません。この手順は続行しないでください。
+*** 各ストレージノードの合計メモリが 128GB 以上の場合は、次の手順に進みます。
+
+
+
+
+. Metadata Reserved Space 設定を更新します。
++
+.. * 設定 * > * システム * > * ストレージ・オプション * を選択します。
+.. [ 構成 ] タブを選択します。
+.. [Storage Watermarks]セクションで、*[Metadata Reserved Space]*を選択します。
+.. 新しい値を入力します。
++
+たとえば、サポートされている最大値である 8TB を入力するには、「 * 8000000000000 * （ 8 、 0 が 12 個）」と入力します。
+
++
+image::../media/metadata_reserved_space.png[Metadata Reserved Space]
+
+.. 「 * 変更を適用する * 」を選択します。
+
+
+

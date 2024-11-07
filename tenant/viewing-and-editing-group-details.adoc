@@ -1,0 +1,62 @@
+---
+permalink: tenant/viewing-and-editing-group-details.html 
+sidebar: sidebar 
+keywords: how to view and edit group 
+summary: グループの詳細を表示すると、グループの表示名、権限、ポリシー、およびグループに属するユーザを変更できます。 
+---
+= グループの詳細を表示および編集します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+グループの詳細を表示する際に、グループの表示名、権限、ポリシー、およびグループに属するユーザを変更することができます。
+
+.開始する前に
+* を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+* Root Access権限のあるユーザグループに属している必要があります。
+
+
+.手順
+. * access management * > * Groups * を選択します。
+. 詳細を表示または編集するグループの名前を選択します。
++
+または、 * Actions * > * View group details * を選択します。
+
++
+グループの詳細ページが表示されます。次の例は、 S3 グループの詳細ページを表示します。
+
++
+image::../media/tenant_group_details.png[グループの詳細を表示します]
+
+. 必要に応じてグループ設定を変更します。
++
+
+TIP: 変更内容を確実に保存するには、各セクションで変更を行った後に「変更を保存」を選択します。変更を保存すると、ページの右上に確認メッセージが表示されます。
+
++
+.. 必要に応じて、表示名または編集アイコンを選択しimage:../media/icon_edit_tm.png["編集アイコン"]て表示名を更新します。
++
+グループの一意の名前は変更できません。フェデレーテッドグループの表示名は編集できません。
+
+.. 必要に応じて、権限を更新します。
+.. グループポリシーの場合は、S3テナントに適した変更を行います。
++
+*** S3 テナントのグループを編集する場合は、必要に応じて別の S3 グループポリシーを選択します。カスタムの S3 ポリシーを選択した場合は、 JSON 文字列を必要に応じて更新します。
+*** Swiftテナントのグループを編集する場合は、必要に応じて* Swift Administrator *チェックボックスをオンまたはオフにします。
++
+Swift Administrator 権限の詳細については、 Swift テナント用のグループを作成する手順を参照してください。
+
+
+
+.. 必要に応じて、ユーザを追加または削除します。
+
+
+. 変更したセクションごとに「変更を保存」を選択したことを確認します。
+
+
+.関連情報
+* link:creating-groups-for-s3-tenant.html["S3 テナント用のグループを作成します"]
+* link:creating-groups-for-swift-tenant.html["Swift テナント用のグループを作成します"]
+

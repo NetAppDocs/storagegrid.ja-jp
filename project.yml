@@ -1,0 +1,378 @@
+---
+settings:
+  name: StorageGRID 11.9
+  search: storagegrid-enable,storagegrid,storagegrid-appliances
+  internal:
+    pdf_enabled: true
+    termcheck_enabled: false
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+    hide_language_selector: true
+  langs: ja-jp,us-en,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: StorageGRID 11.9ドキュメント
+    url: "/index.html"
+  - title: StorageGRIDアプライアンス
+    url: "/storagegrid-hardware.html"
+  - title: リリースノート
+    url: "/release-notes/index.html"
+  - title: 開始する
+    url: "/landing-get-started/index.html"
+    entries:
+    - section: primer
+    - section: network
+    - title: クイックスタート
+      url: "/primer/quick-start.html"
+  - title: インストール、アップグレード、ホットフィックス
+    url: "/landing-install-upgrade/index.html"
+    entries:
+    - title: アプライアンスのインストール
+      url: "/storagegrid-hardware.html"
+    - section: rhel
+    - section: ubuntu
+    - section: vmware
+    - section: upgrade
+    - title: StorageGRIDホットフィックスの適用
+      entries:
+      - title: Hotfix 手順 の略
+        url: "/maintain/storagegrid-hotfix-procedure.html"
+      - title: ホットフィックス適用時のシステムへの影響
+        url: "/maintain/how-your-system-is-affected-when-you-apply-hotfix.html"
+      - title: ホットフィックスに必要な項目を用意します
+        url: "/maintain/obtaining-required-materials-for-hotfix.html"
+      - title: ホットフィックスファイルをダウンロードします
+        url: "/maintain/downloading-hotfix-file.html"
+      - title: ホットフィックスを適用する前に、システムの状態を確認してください
+        url: "/maintain/checking-systems-condition-before-applying-hotfix.html"
+      - title: ホットフィックスを適用する
+        url: "/maintain/applying-hotfix.html"
+  - title: 構成と管理
+    url: "/landing-configure-manage/index.html"
+    entries:
+    - section: admin
+    - section: ilm
+    - section: harden
+    - section: fabricpool
+  - title: StorageGRID を使用します
+    url: "/landing-use/index.html"
+    entries:
+    - section: tenant
+    - section: s3
+    - section: swift
+  - title: 監視とトラブルシューティング
+    url: "/landing-monitor-troubleshoot/index.html"
+    entries:
+    - section: monitor
+    - section: troubleshoot
+    - section: audit
+  - section: expand
+  - title: グリッドのメンテナンス
+    url: "/landing-maintain/index.html"
+    entries:
+    - title: グリッドのメンテナンス
+      url: "/maintain/index.html"
+    - title: リカバリパッケージをダウンロード
+      url: "/maintain/downloading-recovery-package.html"
+    - title: ノードまたはサイトの運用を停止
+      entries:
+      - title: ノードまたはサイトの運用を停止
+        url: "/maintain/decommission-procedure.html"
+      - title: ノードの運用停止
+        entries:
+        - title: グリッドノードの運用停止
+          url: "/maintain/grid-node-decommissioning.html"
+        - title: 管理ノードまたはゲートウェイノードに関する考慮事項
+          url: "/maintain/considerations-for-decommissioning-admin-or-gateway-nodes.html"
+        - title: ストレージノードに関する考慮事項
+          entries:
+          - title: 一般的な考慮事項
+            url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
+          - title: ADCクォーラム
+            url: "/maintain/understanding-adc-service-quorum.html"
+          - title: ILM ポリシーとストレージ構成を確認します
+            url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
+          - title: ストレージノードを統合します
+            url: "/maintain/consolidating-storage-nodes.html"
+          - title: 複数のストレージノードの運用を停止
+            url: "/maintain/decommissioning-multiple-storage-nodes.html"
+        - title: データ修復ジョブを確認します
+          url: "/maintain/checking-data-repair-jobs.html"
+        - title: 必要なデータや機器を揃えます
+          url: "/maintain/gathering-required-materials-node-decom.html"
+        - title: "[Decommission Nodes] ページにアクセスします"
+          url: "/maintain/accessing-decommission-nodes-page.html"
+        - title: 切断されているグリッドノードの運用を停止
+          url: "/maintain/decommissioning-disconnected-grid-nodes.html"
+        - title: 接続されているグリッドノードの運用を停止
+          url: "/maintain/decommissioning-connected-grid-nodes.html"
+        - title: ストレージノードの運用停止プロセスを一時停止および再開します
+          url: "/maintain/pausing-and-resuming-decommission-process-for-storage-nodes.html"
+      - title: 運用停止サイト
+        entries:
+        - title: サイトの削除に関する考慮事項
+          url: "/maintain/considerations-for-removing-site.html"
+        - title: 必要なデータや機器を揃えます
+          url: "/maintain/gathering-required-materials-site-decom.html"
+        - title: サイトの選択
+          url: "/maintain/step-1-select-site.html"
+        - title: 詳細を表示
+          url: "/maintain/step-2-view-details.html"
+        - title: ILMポリシーを改訂
+          url: "/maintain/step-3-revise-ilm-policy.html"
+        - title: ILM参照の削除
+          url: "/maintain/step-4-remove-ilm-references.html"
+        - title: ノードの競合を解決する（運用停止を開始する）
+          url: "/maintain/step-5-resolve-node-conflicts.html"
+        - title: 運用停止の監視
+          url: "/maintain/step-6-monitor-decommission.html"
+    - title: グリッド、サイト、またはノードの名前変更
+      entries:
+      - title: 名前変更手順の使用
+        url: "/maintain/rename-grid-site-node-overview.html"
+      - title: 表示名を追加または更新します
+        url: "/maintain/rename-grid-site-node.html"
+    - title: ノードの手順
+      entries:
+      - title: ノードのメンテナンス手順
+        pdf-filename: ノードの手順
+        url: "/maintain/grid-node-procedures.html"
+      - title: Server Managerの手順
+        entries:
+        - title: Server Manager のステータスとバージョンを表示します
+          url: "/maintain/viewing-server-manager-status-and-version.html"
+        - title: すべてのサービスの現在のステータスを表示します
+          url: "/maintain/viewing-current-status-of-all-services.html"
+        - title: Server Manager およびすべてのサービスを開始します
+          url: "/maintain/starting-server-manager-and-all-services.html"
+        - title: Server Manager とすべてのサービスを再起動します
+          url: "/maintain/restarting-server-manager-and-all-services.html"
+        - title: Server Manager およびすべてのサービスを停止します
+          url: "/maintain/stopping-server-manager-and-all-services.html"
+        - title: サービスの現在のステータスを表示します
+          url: "/maintain/viewing-current-status-of-service.html"
+        - title: サービスを停止します
+          url: "/maintain/stopping-service.html"
+        - title: サービスを強制終了します
+          url: "/maintain/forcing-service-to-terminate.html"
+        - title: サービスを開始または再開します
+          url: "/maintain/starting-or-restarting-service.html"
+        - title: DoNotStart ファイルを使用します
+          url: "/maintain/using-donotstart-file.html"
+        - title: Server Manager のトラブルシューティングを行います
+          url: "/maintain/accessing-server-manager-log-file.html"
+      - title: リブート、シャットダウン、および電源の手順
+        entries:
+        - title: ローリングリブートの実行
+          url: "/maintain/rolling-reboot-procedure.html"
+        - title: "[Tasks]タブからのノードのリブート"
+          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
+        - title: コマンドシェルからノードをリブート
+          url: "/maintain/rebooting-grid-node-from-command-shell.html"
+        - title: ノードをシャットダウン
+          url: "/maintain/shutting-down-grid-node.html"
+        - title: ホストの電源をオフにします
+          url: "/maintain/powering-down-host.html"
+        - title: すべてのノードの電源をオフにしてオンにする
+          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
+      - title: ポートの再マッピング手順
+        entries:
+        - title: ポートの再マッピングを削除
+          url: "/maintain/removing-port-remaps.html"
+        - title: ベアメタルホストでのポートの再マッピングを削除します
+          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
+    - title: ネットワーク手順
+      entries:
+      - title: Grid ネットワークのサブネットを更新します
+        url: "/maintain/updating-subnets-for-grid-network.html"
+      - title: IP アドレスを設定する
+        entries:
+        - title: IPアドレスのガイドライン
+          url: "/maintain/configuring-ip-addresses.html"
+        - title: ノードのネットワーク設定の変更
+          url: "/maintain/changing-nodes-network-configuration.html"
+        - title: 管理ネットワークのサブネットリストに対する追加または変更
+          url: "/maintain/adding-to-or-changing-subnet-lists-on-admin-network.html"
+        - title: グリッドネットワークのサブネットリストに対する追加または変更
+          url: "/maintain/adding-to-or-changing-subnet-lists-on-grid-network.html"
+        - title: グリッド内のすべてのノードの IP アドレスを変更します
+          url: "/maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html"
+      - title: 既存のノードにインターフェイスを追加
+        entries:
+        - title: Linux：管理インターフェイスまたはクライアントインターフェイスの追加
+          url: "/maintain/linux-adding-interfaces-to-existing-node.html"
+        - title: Linux：トランクインターフェイスまたはアクセスインターフェイスの追加
+          url: "/maintain/linux-adding-trunk-or-access-interfaces-to-node.html"
+        - title: VMware：トランクインターフェイスまたはアクセスインターフェイスの追加
+          url: "/maintain/vmware-adding-trunk-or-access-interfaces-to-node.html"
+      - title: DNSサーバの設定
+        url: "/maintain/configuring-dns-servers.html"
+      - title: 単一のグリッドノードの DNS 設定を変更します
+        url: "/maintain/modifying-dns-configuration-for-single-grid-node.html"
+      - title: NTPサーバを管理します。
+        url: "/maintain/configuring-ntp-servers.html"
+      - title: 分離されているノードのネットワーク接続をリストア
+        url: "/maintain/restoring-network-connectivity-for-isolated-nodes.html"
+    - title: ホストとミドルウェアの手順
+      entries:
+      - title: Linux ：グリッドノードを新しいホストに移行します
+        url: "/maintain/linux-migrating-grid-node-to-new-host.html"
+      - title: VMware ：仮想マシンを自動再起動用に設定します
+        url: "/maintain/vmware-configuring-virtual-machine-for-automatic-restart.html"
+  - title: ノードをリカバリまたは交換
+    url: "/landing-recover/index.html"
+    entries:
+    - title: グリッドノードのリカバリに関する警告と考慮事項
+      url: "/maintain/warnings-and-considerations-for-grid-node-recovery.html"
+    - title: グリッドノードのリカバリに必要な項目を収集します
+      url: "/maintain/gathering-required-materials-for-grid-node-recovery.html"
+    - title: ノードリカバリ手順 を選択します
+      url: "/maintain/selecting-node-recovery-procedure.html"
+    - title: ストレージノードの障害からリカバリします
+      entries:
+      - title: ストレージノードのリカバリ
+        url: "/maintain/recovering-from-storage-node-failures.html"
+      - title: アプライアンスストレージノードをリカバリします
+        entries:
+        - title: アプライアンスストレージノードのリカバリに関する警告
+          pdf-filename: アプライアンスストレージノードをリカバリします
+          url: "/maintain/recovering-storagegrid-appliance-storage-node.html"
+        - title: 再インストールのためのアプライアンスストレージノードの準備
+          url: "/maintain/preparing-appliance-storage-node-for-reinstallation.html"
+        - title: StorageGRID アプライアンスのインストールを開始します
+          url: "/maintain/starting-storagegrid-appliance-installation.html"
+        - title: StorageGRID アプライアンスの設置を監視する
+          url: "/maintain/monitoring-storagegrid-appliance-installation-sn.html"
+        - title: Start Recovery を選択して、アプライアンスストレージノードを設定します
+          url: "/maintain/selecting-start-recovery-to-configure-appliance-storage-node.html"
+        - title: アプライアンスストレージボリュームの再マウントと再フォーマット（手動手順）
+          url: "/maintain/remounting-and-reformatting-appliance-storage-volumes.html"
+        - title: アプライアンスのストレージボリュームにオブジェクトデータをリストアします
+          url: "/maintain/restoring-object-data-to-storage-volume-for-appliance.html"
+        - title: アプライアンスストレージノードのリカバリ後にストレージの状態を確認します
+          url: "/maintain/checking-storage-state-after-recovering-sga.html"
+      - title: システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします
+        entries:
+        - title: リカハリタスク
+          pdf-filename: システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします
+          url: "/maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html"
+        - title: ストレージボリュームのリカバリに関する警告
+          url: "/maintain/reviewing-warnings-about-storage-volume-recovery.html"
+        - title: 障害ストレージボリュームを特定してアンマウントします
+          url: "/maintain/identifying-and-unmounting-failed-storage-volumes.html"
+        - title: 障害ストレージボリュームをリカバリし、 Cassandra データベースを再構築します
+          url: "/maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html"
+        - title: システムドライブに損傷がない場合は、オブジェクトデータをストレージボリュームにリストアします
+          url: "/maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html"
+        - title: ストレージボリュームのリカバリ後にストレージの状態を確認します
+          url: "/maintain/checking-storage-state-after-recovering-storage-volumes.html"
+      - title: システムドライブ障害からリカバリします
+        entries:
+        - title: ストレージノードのシステムドライブのリカバリに関する警告
+          url: "/maintain/reviewing-warnings-for-system-drive-recovery.html"
+        - title: ストレージノードを交換します
+          url: "/maintain/replacing-storage-node.html"
+        - title: Start Recovery を選択して、ストレージノードを設定します
+          url: "/maintain/selecting-start-recovery-to-configure-storage-node.html"
+        - title: ストレージボリュームの再マウントと再フォーマット（手動手順）
+          url: "/maintain/remounting-and-reformatting-storage-volumes-manual-steps.html"
+        - title: オブジェクトデータをストレージボリュームにリストアする（システムドライブの障害）
+          url: "/maintain/restoring-object-data-to-storage-volume.html"
+        - title: ストレージノードシステムドライブのリカバリ後にストレージの状態を確認します
+          url: "/maintain/checking-storage-state-after-recovering-storage-node-system-drive.html"
+      - title: Grid Managerを使用してオブジェクトデータをリストアする
+        url: "/maintain/restoring-volume.html"
+      - title: repair-dataジョブを監視します
+        url: "/maintain/monitor-repairs.html"
+    - title: 管理ノードの障害からリカバリ
+      entries:
+      - title: プライマリまたは非プライマリ管理ノード
+        pdf-filename: 管理ノードの障害からリカバリ
+        url: "/maintain/recovering-from-admin-node-failures.html"
+      - title: プライマリ管理ノードの障害からリカバリします
+        entries:
+        - title: プライマリ管理ノードのリカバリ
+          pdf-filename: プライマリ管理ノードの障害からリカバリします
+          url: "/maintain/recovering-from-primary-admin-node-failures.html"
+        - title: 障害が発生したプライマリ管理ノードから監査ログをコピーする
+          url: "/maintain/copying-audit-logs-from-failed-primary-admin-node.html"
+        - title: プライマリ管理ノードを交換
+          url: "/maintain/replacing-primary-admin-node.html"
+        - title: 交換用プライマリ管理ノードを設定
+          url: "/maintain/configuring-replacement-primary-admin-node.html"
+        - title: プライマリ管理ノードのホットフィックスの要件を確認
+          url: "/maintain/assess-hotfix-requirement-during-primary-admin-node-recovery.html"
+        - title: リカバリされたプライマリ管理ノードで監査ログをリストアする
+          url: "/maintain/restoring-audit-log-on-recovered-primary-admin-node.html"
+        - title: プライマリ管理ノードをリカバリする際に管理ノードデータベースをリストアする
+          url: "/maintain/restoring-admin-node-database-primary-admin-node.html"
+        - title: プライマリ管理ノードをリカバリする際の Prometheus 指標のリストア
+          url: "/maintain/restoring-prometheus-metrics-primary-admin-node.html"
+      - title: 非プライマリ管理ノードの障害からリカバリします
+        entries:
+        - title: 非プライマリ管理ノードのリカバリ
+          pdf-filename: 非プライマリ管理ノードの障害からリカバリします
+          url: "/maintain/recovering-from-non-primary-admin-node-failures.html"
+        - title: 障害が発生した非プライマリ管理ノードから監査ログをコピーする
+          url: "/maintain/copying-audit-logs-from-failed-non-primary-admin-node.html"
+        - title: 非プライマリ管理ノードを交換します
+          url: "/maintain/replacing-non-primary-admin-node.html"
+        - title: "[ リカバリの開始 ] を選択して、非プライマリ管理ノードを設定します"
+          url: "/maintain/selecting-start-recovery-to-configure-non-primary-admin-node.html"
+        - title: リカバリ済み非プライマリ管理ノードで監査ログをリストアする
+          url: "/maintain/restoring-audit-log-on-recovered-non-primary-admin-node.html"
+        - title: 非プライマリ管理ノードをリカバリする際に管理ノードデータベースをリストアする
+          url: "/maintain/restoring-admin-node-database-non-primary-admin-node.html"
+        - title: 非プライマリ管理ノードをリカバリする際に Prometheus 指標をリストアする
+          url: "/maintain/restoring-prometheus-metrics-non-primary-admin-node.html"
+    - title: ゲートウェイノードの障害からリカバリします
+      entries:
+      - title: ゲートウェイノードの交換
+        url: "/maintain/replacing-gateway-node.html"
+      - title: Start Recovery を選択して、ゲートウェイノードを設定します
+        url: "/maintain/selecting-start-recovery-to-configure-gateway-node.html"
+    - title: アーカイブノードの障害からリカバリします
+      entries:
+      - title: アーカイブノードの障害からリカバリします
+        pdf-filename: アーカイブノードの障害からリカバリします
+        url: "/maintain/recovering-from-archive-node-failures.html"
+    - title: Linuxノードの交換
+      entries:
+      - title: Linuxノオトノコウカン
+        pdf-filename: Linuxノードの交換（すべてのグリッドノードタイプ）
+        url: "/maintain/all-node-types-replacing-linux-node.html"
+      - title: 新しい Linux ホストを導入する
+        url: "/maintain/deploying-new-linux-hosts.html"
+      - title: グリッドノードをホストにリストアします
+        url: "/maintain/restoring-existing-nodes.html"
+      - title: 次の手順：必要に応じて追加のリカバリ手順を実行します
+        url: "/maintain/whats-next-performing-additional-recovery-steps-if-required.html"
+    - title: VMwareノードの交換
+      url: "/maintain/all-node-types-replacing-vmware-node.html"
+    - title: 障害が発生したノードをサービスアプライアンスと交換します
+      entries:
+      - title: コウカンノガイドライン
+        pdf-filename: 障害が発生したノードをサービスアプライアンスと交換します
+        url: "/maintain/replacing-failed-node-with-services-appliance.html"
+      - title: サービスアプライアンスのインストール（プラットフォーム変更のみ）
+        url: "/maintain/installing-services-appliance-platform-change-only.html"
+      - title: 再インストールのためのアプライアンスの準備（プラットフォームの交換のみ）
+        url: "/maintain/preparing-appliance-for-reinstallation-platform-replacement-only.html"
+      - title: サービスアプライアンスでソフトウェアのインストールを開始します
+        url: "/maintain/starting-software-installation-on-services-appliance-recovery.html"
+      - title: サービスアプライアンスの設置を監視する
+        url: "/maintain/monitoring-services-appliance-installation.html"
+    - title: テクニカルサポートによるサイトのリカバリ方法
+      url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
+  - title: StorageGRID を有効にします
+    url: "/storagegrid-enable.html"
+  - title: StorageGRIDとBlueXP
+    url: "/storagegrid-bluexp.html"
+  - title: その他のバージョン
+    url: "/earlier-versions.html"
+  - title: 法的通知
+    url: "/legal-notices.html"
+product-family:
+  name: StorageGRID documentation
+  repo: storagegrid-family

@@ -20,6 +20,5 @@ summary: 他のバージョンのNetApp StorageGRIDソフトウェアのドキ�
 * https://docs.netapp.com/us-en/storagegrid-117/index.html["StorageGRID 11.7ドキュメント"^]
 * https://docs.netapp.com/us-en/storagegrid-116/index.html["StorageGRID 11.6ドキュメント"^]
 * https://docs.netapp.com/us-en/storagegrid-115/index.html["StorageGRID 11.5ドキュメント"^]
-* https://docs.netapp.com/sgws-114/index.jsp["StorageGRID 11.4ドキュメントセンター"^]
-* https://docs.netapp.com/sgws-113/index.jsp["StorageGRID 11.3ドキュメントセンター"^]
+* https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374["StorageGRID 11.4ドキュメントセンター"^]
 

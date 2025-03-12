@@ -1,6 +1,6 @@
 ---
 settings:
-  name: StorageGRID 11.9
+  name: StorageGRID
   search: storagegrid-enable,storagegrid,storagegrid-appliances
   internal:
     pdf_enabled: true
@@ -9,10 +9,21 @@ settings:
     pdf_enabled: true
     harmony_enabled: false
     hide_language_selector: false
+  versions:
+  - version-number: '11.9'
+    url: "/storagegrid"
+  - version-number: '11.8'
+    url: "/storagegrid-118"
+  - version-number: '11.7'
+    url: "/storagegrid-117"
+  - version-number: '11.6'
+    url: "/storagegrid-116"
+  - version-number: '11.5'
+    url: "/storagegrid-115"
   langs: ja-jp,us-en,de-de,es-es,fr-fr,it-it,pt-br,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 11.9ドキュメント
+  - title: StorageGRID 11.9のドキュメント
     url: "/index.html"
   - title: StorageGRIDアプライアンス
     url: "/storagegrid-hardware.html"
@@ -369,8 +380,6 @@ sidebar:
     url: "/storagegrid-enable.html"
   - title: StorageGRIDとBlueXP
     url: "/storagegrid-bluexp.html"
-  - title: その他のバージョン
-    url: "/earlier-versions.html"
   - title: 法的通知
     url: "/legal-notices.html"
 product-family:

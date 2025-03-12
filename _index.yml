@@ -91,15 +91,7 @@ indexpage:
       url: https://netapp.com/blog/
     - title: NetAppコミュニティ
       url: https://community.netapp.com/
-  - title: その他のバージョン
+  - title: レガシーバージョン
     links:
-    - title: StorageGRID 11.8ドキュメント
-      url: https://docs.netapp.com/us-en/storagegrid-118/index.html
-    - title: StorageGRID 11.7ドキュメント
-      url: https://docs.netapp.com/us-en/storagegrid-117/index.html
-    - title: StorageGRID 11.6ドキュメント
-      url: https://docs.netapp.com/us-en/storagegrid-116/index.html
-    - title: StorageGRID 11.5ドキュメント
-      url: https://docs.netapp.com/us-en/storagegrid-115/index.html
     - title: StorageGRID 11.4ドキュメント
       url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374

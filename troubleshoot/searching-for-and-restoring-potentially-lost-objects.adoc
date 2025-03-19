@@ -35,13 +35,43 @@ CAUTION: この手順 のサポートについては、テクニカルサポー�
 ... ファイルに記載されているパスワードを入力し `Passwords.txt`ます。rootとしてログインすると、プロンプトがからに `#`変わります `$`。
 
 
-.. 監査ログが保存されているディレクトリに移動します。 `cd /var/local/log/`
+.. [[substep-1b]]監査ログが格納されているディレクトリに移動します。
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の保存先について"]です。
+--
+監査ログディレクトリおよび該当するノードは、監査デスティネーションの設定によって異なります。
 
-====
+[cols="1a,2a"]
+|===
+| オプション | デスティネーション 
+
+
+ a| 
+ローカルノード（デフォルト）
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+管理ノード/ローカルノード
+ a| 
+*** 管理ノード（プライマリおよび非プライマリ）： `/var/local/audit/export/audit.log`
+*** All nodes（すべてのノード）： `/var/local/log/localaudit.log`通常、このモードではファイルが空か欠落しています。
+
+
+
+
+ a| 
+外部 syslog サーバ
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+監査先の設定に応じて、次のように入力します。 `cd /var/local/log`または `/var/local/audit/export/`
+
+詳細については、を参照して link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の送信先を選択します"]ください。
+
+--
 .. grepを使用してを抽出しlink:../audit/object-ingest-transactions.html["損失の可能性があるオブジェクトに関連付けられている監査メッセージ"]、出力ファイルに送信します。入力： `grep uuid-value audit_file_name > output_file_name`
 +
 例：
@@ -49,7 +79,7 @@ link:../monitor/configure-audit-messages.html#select-audit-information-destinati
 +
 [listing]
 ----
-Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_lost_object.txt
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > /var/local/tmp/messages_about_lost_object.txt
 ----
 .. grep を使用して、この出力ファイルから Location Lost （ LLST ）監査メッセージを抽出します。入力： `grep LLST output_file_name`
 +
@@ -58,7 +88,7 @@ Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_lo
 +
 [listing]
 ----
-Admin: # grep LLST messages_about_lost_objects.txt
+Admin: # grep LLST /var/local/tmp/messages_about_lost_objects.txt
 ----
 +
 次の例は、LLST監査メッセージの例を示しています。
@@ -66,12 +96,11 @@ Admin: # grep LLST messages_about_lost_objects.txt
 +
 [listing]
 ----
-[AUDT:\[NOID\(UI32\):12448208\][CBIL(UI64):0x38186FE53E3C49A5]
+[AUDT:[NOID(UI32):12448208][CBIL(UI64):0x38186FE53E3C49A5]
 [UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"][LTYP(FC32):CLDI]
-[PCLD\(CSTR\):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%\#3tN6"\]
-[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):
-1581535134379225][ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM]
-[ATID(UI64):7086871083190743409]]
+[PCLD(CSTR):"/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA#3tN6"]
+[TSRC(FC32):SYST][RSLT(FC32):NONE][AVER(UI32):10][ATIM(UI64):1581535134379225]
+[ATYP(FC32):LLST][ANID(UI32):12448208][AMID(FC32):CLSM][ATID(UI64):7086871083190743409]]
 ----
 .. LLST メッセージで PCLD フィールドと NOID フィールドを検索します。
 +
@@ -180,7 +209,7 @@ Renamed '/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%#3tN6' to '/var/local/range
 ... ファイルに記載されているパスワードを入力し `Passwords.txt`ます。rootとしてログインすると、プロンプトがからに `#`変わります `$`。
 
 
-.. 監査ログが保存されているディレクトリに移動します。 `cd /var/local/log/`
+.. 監査ログが格納されているディレクトリに移動します。を参照してください<<substep-1b,手順1.b>>。
 .. grep を使用して、オブジェクトに関連付けられている監査メッセージを出力ファイルに抽出します。入力： `grep uuid-value audit_file_name > output_file_name`
 +
 例：
@@ -188,7 +217,7 @@ Renamed '/var/local/rangedb/1/p/17/11/00rH0%DkRs&LgA%#3tN6' to '/var/local/range
 +
 [listing]
 ----
-Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_restored_object.txt
+Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > /var/local/tmp/messages_about_restored_object.txt
 ----
 .. grep を使用して、この出力ファイルから Object Rules Met （ ORLM ）監査メッセージを抽出します。入力： `grep ORLM output_file_name`
 +
@@ -197,7 +226,7 @@ Admin: # grep 926026C4-00A4-449B-AC72-BCCA72DD1311 audit.log > messages_about_re
 +
 [listing]
 ----
-Admin: # grep ORLM messages_about_restored_object.txt
+Admin: # grep ORLM /var/local/tmp/messages_about_restored_object.txt
 ----
 +
 次の例は、ORLM監査メッセージの例を示しています。

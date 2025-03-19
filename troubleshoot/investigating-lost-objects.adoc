@@ -44,20 +44,50 @@ image::../media/nodes_storage_nodes_objects_page_lost_object.png[Nodes ストレ
 ... ファイルに記載されているパスワードを入力し `Passwords.txt`ます。rootとしてログインすると、プロンプトがからに `#`変わります `$`。
 
 
-.. 監査ログが格納されているディレクトリに移動します。入力： `cd /var/local/log/`
+.. 監査ログが格納されているディレクトリに移動します。
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の保存先について"]です。
+--
+監査ログディレクトリおよび該当するノードは、監査デスティネーションの設定によって異なります。
 
-====
+[cols="1a,2a"]
+|===
+| オプション | デスティネーション 
+
+
+ a| 
+ローカルノード（デフォルト）
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+管理ノード/ローカルノード
+ a| 
+*** 管理ノード（プライマリおよび非プライマリ）： `/var/local/audit/export/audit.log`
+*** All nodes（すべてのノード）： `/var/local/log/localaudit.log`通常、このモードではファイルが空か欠落しています。
+
+
+
+
+ a| 
+外部 syslog サーバ
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+監査先の設定に応じて、次のように入力します。 `cd /var/local/log`または `/var/local/audit/export/`
+
+詳細については、を参照して link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の送信先を選択します"]ください。
+
+--
 .. grep を使用して Object Lost （ OLST ）監査メッセージを抽出します。入力： `grep OLST audit_file_name`
 .. メッセージに含まれている UUID の値をメモします。
 +
 [listing]
 ----
->Admin: # grep OLST audit.log
-2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):926026C4-00A4-449B-AC72-BCCA72DD1311]
+Admin: # grep OLST audit.log
+2020-02-12T19:18:54.780426 [AUDT:[CBID(UI64):0x38186FE53E3C49A5][UUID(CSTR):"926026C4-00A4-449B-AC72-BCCA72DD1311"]
 [PATH(CSTR):"source/cats"][NOID(UI32):12288733][VOLI(UI64):3222345986][RSLT(FC32):NONE][AVER(UI32):10]
 [ATIM(UI64):1581535134780426][ATYP(FC32):OLST][ANID(UI32):12448208][AMID(FC32):ILMX][ATID(UI64):7729403978647354233]]
 ----

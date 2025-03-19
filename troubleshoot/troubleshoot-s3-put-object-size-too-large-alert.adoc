@@ -31,13 +31,43 @@ S3 PUT Object size too largeアラートは、S3サイズの上限である5GiB�
 +
 rootとしてログインすると、プロンプトがからに `#`変わります `$`。
 
-.. 入力 `cd /var/local/log`
+.. 監査ログが格納されているディレクトリに移動します。
 +
-[NOTE]
-====
-link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の保存先について"]です。
+--
+監査ログディレクトリおよび該当するノードは、監査デスティネーションの設定によって異なります。
 
-====
+[cols="1a,2a"]
+|===
+| オプション | デスティネーション 
+
+
+ a| 
+ローカルノード（デフォルト）
+ a| 
+`/var/local/log/localaudit.log`
+
+
+
+ a| 
+管理ノード/ローカルノード
+ a| 
+*** 管理ノード（プライマリおよび非プライマリ）： `/var/local/audit/export/audit.log`
+*** All nodes（すべてのノード）： `/var/local/log/localaudit.log`通常、このモードではファイルが空か欠落しています。
+
+
+
+
+ a| 
+外部 syslog サーバ
+ a| 
+`/var/local/log/localaudit.log`
+
+|===
+監査先の設定に応じて、次のように入力します。 `cd /var/local/log`または `/var/local/audit/export/`
+
+詳細については、を参照して link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の送信先を選択します"]ください。
+
+--
 .. 5GiBを超えるオブジェクトを使用しているテナントを特定します。
 +
 ... 入力 `zgrep SPUT * | egrep "CSIZ\(UI64\):([5-9]|[1-9][0-9]+)[0-9]{9}"`

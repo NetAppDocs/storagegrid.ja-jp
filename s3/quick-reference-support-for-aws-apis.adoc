@@ -847,6 +847,7 @@ StorageGRIDは、この要求のすべてに加えて、次の追加ヘッダー
 * `Content-Disposition`
 * `Content-Encoding`
 * `Content-Language`
+* `Expires`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`

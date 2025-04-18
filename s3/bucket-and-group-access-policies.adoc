@@ -996,6 +996,13 @@ NotIpAddress
  a| 
 現在の要求コンテキストに条件キーが存在するかどうかを確認します。
 
+
+
+ a| 
+ifExists
+ a| 
+Null条件以外の条件演算子に追加され、その条件キーがないかどうかを確認します。Conditionキーが存在しない場合はtrueを返します。
+
 |===
 
 
@@ -1082,6 +1089,24 @@ ListObjects要求またはListObjectVersions要求で指定されたmax-keysパ�
 
 
  a| 
+S3：オブジェクトロックモード
+ a| 
+S3 ： PutObject
+ a| 
+は、PutObject、CopyObject、およびCreateMultipartUpload要求の要求ヘッダーから展開されたと比較し `object-lock-mode`ます。
+
+
+
+ a| 
+S3：オブジェクトロックモード
+ a| 
+S3 ： PutObjectRetention
+ a| 
+は、PutObjectRetention要求のXML本文から展開されたと比較し `object-lock-mode`ます。
+
+
+
+ a| 
 S3 ： object-lock-remaining-retention-days
  a| 
 S3 ： PutObject
@@ -1125,6 +1150,15 @@ S3 ： PutObjectTagging
 S3 ： PutObjectVersionTagging
  a| 
 オブジェクト要求にタグ付けが含まれている場合は、特定のタグキーと値が必要になります。
+
+
+
+ a| 
+S3：x-amz-server-side-encryption-customer-algorithm
+ a| 
+S3 ： PutObject
+ a| 
+は、PutObject、CopyObject、CreateMultipartUpload、UploadPart、UploadPartCopy、およびCompleteMultipartUpload要求の要求ヘッダーから展開されたまたはと `copy-source-sse-customer-algorithm`比較します。 `sse-customer-algorithm`
 
 |===
 

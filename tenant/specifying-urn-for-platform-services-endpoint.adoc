@@ -45,7 +45,7 @@ CloudMirror レプリケーション
  a| 
 通知
  a| 
-`sns`または `kafka`
+`sns`、 `kafka`、または `webhook`
 
 
 
@@ -57,7 +57,9 @@ CloudMirror レプリケーション
 |===
 たとえば、StorageGRIDでホストされるCloudMirrorエンドポイントのURNを引き続き指定するには、GETに `urn:sgws:s3`を追加します `s3`。
 
-URN の最後の要素は、デスティネーション URI の特定のターゲットリソースを識別します。
+ほとんどのエンドポイントでは、URNの最後の要素はデスティネーションURIで特定のターゲットリソースを識別します（例：） `sns-topic-name`。
+
+Webhookエンドポイントの場合、ターゲットリソースは宛先URI自体です。
 
 [cols="1a,2a"]
 |===
@@ -75,6 +77,8 @@ CloudMirror レプリケーション
 通知
  a| 
 `sns-topic-name`または `kafka-topic-name`
+
+*注：* Webhookエンドポイントの場合、エンドポイントのURNが一意である限り、URNの最後の要素は任意の文字列にすることができます。
 
 
 
@@ -152,6 +156,14 @@ Kafkaエンドポイントを指定します。
 [listing]
 ----
 urn:mysite:kafka:optional:optional:kafka-topic-name
+----
++
+Webhookエンドポイントを指定します。
+
++
+[listing]
+----
+urn:mysite:webhook:optional:optional:webhook-name
 ----
 * 検索統合：
 +

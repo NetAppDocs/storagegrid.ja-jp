@@ -41,7 +41,7 @@ SSOが有効
  a| 
 アクセスしていたすべての管理ノードからサインアウトされます。StorageGRID のサインインページが表示されます。*Grid Manager* は、 [Recent Accounts] * ドロップダウンにデフォルトとして表示され、 [*Account ID*] フィールドには 0 と表示されます。
 
-*注：* SSOが有効でTenant Managerにもサインインしている場合は、にもサインインする必要がありますlink:../tenant/signing-out-of-tenant-manager.html["テナントアカウントからサインアウトします"]link:configuring-sso.html["SSOからサインアウトします"]。
+*注：* SSOが有効でTenant Managerにもサインインしている場合は、にもサインインする必要がありますlink:../tenant/signing-out-of-tenant-manager.html["テナントアカウントからサインアウトします"]link:how-sso-works.html["SSOからサインアウトします"]。
 
 |===
 

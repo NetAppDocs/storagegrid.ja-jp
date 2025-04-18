@@ -131,7 +131,7 @@ Updating grid network configuration on Name
 ----
 
 
-. Grid Manager から新しいリカバリパッケージをダウンロードします。
+. Grid Managerから新しいリカバリパッケージをダウンロードします。
 +
 .. [* maintenance * （メンテナンス） ] > [* System * （システム * ） ] > [* Recovery packツケ （リカバリパッケージ * ）
 .. プロビジョニングパスフレーズを入力します。

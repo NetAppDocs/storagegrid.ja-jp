@@ -32,7 +32,7 @@ TIP: プラットフォームサービスの使用は、 StorageGRID 管理者�
 
 == プラットフォームサービスの設定方法
 
-プラットフォームサービスは、またはを使用して設定した外部エンドポイントと通信しlink:configuring-platform-services-endpoints.html["テナントマネージャ"]link:understanding-tenant-management-api.html["テナント管理 API"]ます。各エンドポイントは外部のデスティネーション（StorageGRID S3バケット、Amazon Web Servicesバケット、Amazon SNSトピック、ローカルやAWSなどでホストされるElasticsearchクラスタなど）です。
+プラットフォームサービスは、またはを使用して設定した外部エンドポイントと通信しlink:configuring-platform-services-endpoints.html["テナントマネージャ"]link:understanding-tenant-management-api.html["テナント管理 API"]ます。各エンドポイントは外部のデスティネーション（StorageGRID S3バケット、Amazon Web Servicesバケット、Amazon SNSトピック、Webhookエンドポイント、ローカルやAWSなどでホストされるElasticsearchクラスタなど）です。
 
 外部エンドポイントを作成したら、バケットにXML設定を追加してプラットフォームサービスを有効にできます。XML 設定は、バケットが処理を実行するオブジェクト、実行する処理、およびサービスに使用するエンドポイントを特定します。
 

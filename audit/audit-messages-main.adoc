@@ -22,4 +22,4 @@ summary: システムから返される監査メッセージの詳細につい�
 2014-07-17T03:50:47.484627
 \[AUDT:[RSLT(FC32):VRGN][AVER(UI32):10][ATIM(UI64):1405569047484627][*ATYP\(FC32\):SYSU*][ANID(UI32):11627225][AMID(FC32):ARNI][ATID(UI64):9445736326500603516]]
 ----
-監査メッセージレベルの設定、ログの送信先の変更、および監査情報への外部syslogサーバの使用については、を参照してください。link:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]
+監査メッセージレベルの設定、ログの送信先の変更、および監査情報への外部syslogサーバの使用については、を参照してください。link:../monitor/configure-audit-messages.html["監査メッセージと外部syslogサーバの設定"]

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: disable sso, disable single sign on 
 summary: この機能が不要になった場合は、シングルサインオン \ （ SSO \ ）を無効にできます。アイデンティティフェデレーションを無効にする場合は、事前にシングルサインオンを無効にする必要があります。 
 ---
-= シングルサインオンを無効にします
+= SSOを無効にする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

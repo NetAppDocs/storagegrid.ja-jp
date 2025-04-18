@@ -74,7 +74,7 @@ StorageGRIDで使用できる整合性の値の概要を次に示します。
 
 
 
-NOTE: 整合性値を選択する前に、link:../s3/consistency-controls.html["概要of Consistencyの全文を読む"]を参照してください。デフォルト値を変更する前に、利点と制限事項を理解しておく必要があります。
+NOTE: 整合性値を選択する前に、link:../s3/consistency.html["概要of Consistencyの全文を読む"]を参照してください。デフォルト値を変更する前に、利点と制限事項を理解しておく必要があります。
 
 
 

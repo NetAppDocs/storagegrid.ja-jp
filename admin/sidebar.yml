@@ -61,23 +61,23 @@ entries:
     url: "/admin/managing-users.html"
   - title: シングルサインオン（ SSO ）を使用
     entries:
-    - title: シングルサインオンを設定します
-      url: "/admin/configuring-sso.html"
-    - title: シングルサインオンの要件
+    - title: SSOの仕組み
+      url: "/admin/how-sso-works.html"
+    - title: SSOの要件
       url: "/admin/requirements-for-sso.html"
     - title: フェデレーテッドユーザがサインインできることを確認する
       url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: サンドボックスモードを使用する
-      url: "/admin/using-sandbox-mode.html"
+    - title: SSOの設定
+      url: "/admin/configure-sso.html"
     - title: AD FS に証明書利用者信頼を作成します
       url: "/admin/creating-relying-party-trusts-in-ad-fs.html"
-    - title: Azure でエンタープライズアプリケーションを作成
-      url: "/admin/creating-enterprise-application-azure.html"
+    - title: Entra IDでのエンタープライズアプリケーションの作成
+      url: "/admin/creating-enterprise-application-entra-id.html"
     - title: PingFederate で SP 接続を作成します
       url: "/admin/creating-sp-connection-ping.html"
-    - title: シングルサインオンを無効にします
+    - title: SSOを無効にする
       url: "/admin/disabling-single-sign-on.html"
-    - title: 1 つの管理ノードのシングルサインオンを一時的に無効にしてから再度有効にする
+    - title: 1つの管理ノードのSSOを一時的に無効にしてから再度有効にする
       url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
 - title: グリッドフェデレーションを使用する
   entries:

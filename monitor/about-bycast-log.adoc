@@ -15,7 +15,7 @@ summary: '/var/local/log/bycast.log ファイルは、 StorageGRID ソフトウ�
 
 ファイル `/var/local/log/bycast-err.log`はのサブセットです `bycast.log`。ERROR と CRITICAL の重大度のメッセージが含まれています。
 
-必要に応じて、監査ログのデスティネーションを変更したり、監査情報を外部 syslog サーバに送信したりできます。外部 syslog サーバが設定されても、監査レコードのローカルログは引き続き生成および格納されます。を参照して link:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]
+必要に応じて、監査ログのデスティネーションを変更したり、監査情報を外部 syslog サーバに送信したりできます。外部 syslog サーバが設定されても、監査レコードのローカルログは引き続き生成および格納されます。を参照して link:../monitor/configure-audit-messages.html["監査メッセージと外部syslogサーバの設定"]
 
 
 
@@ -32,7 +32,7 @@ summary: '/var/local/log/bycast.log ファイルは、 StorageGRID ソフトウ�
 
 NOTE: 圧縮されたログファイルは、ファイルが圧縮された同じ場所に解凍しないでください。ファイルを同じ場所で解凍すると、ログローテーションスクリプトの妨げになることがあります。
 
-必要に応じて、監査ログのデスティネーションを変更したり、監査情報を外部 syslog サーバに送信したりできます。外部 syslog サーバが設定されても、監査レコードのローカルログは引き続き生成および格納されます。を参照して link:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]
+必要に応じて、監査ログのデスティネーションを変更したり、監査情報を外部 syslog サーバに送信したりできます。外部 syslog サーバが設定されても、監査レコードのローカルログは引き続き生成および格納されます。を参照して link:../monitor/configure-audit-messages.html["監査メッセージと外部syslogサーバの設定"]
 
 .関連情報
 link:collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集"]

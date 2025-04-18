@@ -11,7 +11,7 @@ summary: S3バケットのイベント通知を有効にすると、指定した
 
 
 [role="lead"]
-S3バケットのイベント通知を有効にすると、指定したイベントに関する通知をStorageGRIDからデスティネーションKafkaクラスタまたはAmazon Simple Notification Serviceに送信できます。
+S3バケットのイベント通知を有効にすると、指定したイベントに関する通知をStorageGRIDからデスティネーションKafkaクラスタ、Webhookエンドポイント、またはAmazon Simple Notification Serviceに送信できます。
 
 たとえば、バケットに追加された各オブジェクトについてアラートが管理者に送信されるように設定できます。この場合、オブジェクトは重大なシステムイベントに関連付けられているログファイルです。
 

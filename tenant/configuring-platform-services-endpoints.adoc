@@ -37,7 +37,7 @@ StorageGRID は、 S3 バケットを表すレプリケーションエンドポ�
 
 == 通知用のエンドポイント
 
-StorageGRIDは、Amazon SNSおよびKafkaエンドポイントをサポートしています。Simple Queue Service（SQS）またはAWS Lambdaエンドポイントはサポートされていません。
+StorageGRIDは、Amazon SNS、Kafka、およびWebhookエンドポイントをサポートしています。Simple Queue Service（SQS）エンドポイントとAWS Lambdaエンドポイントはサポートされていません。
 
 Kafkaエンドポイントでは、相互TLSはサポートされていません。その結果、Kafkaブローカー設定でをに設定し `required`た場合 `ssl.client.auth`、Kafkaエンドポイント設定の問題が発生する可能性があります。
 

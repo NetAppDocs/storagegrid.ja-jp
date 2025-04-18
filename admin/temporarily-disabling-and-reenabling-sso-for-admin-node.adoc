@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: signing in when sso is down, single sign on failure 
 summary: シングルサインオン \ （ SSO \ ）システムが停止すると、 Grid Manager にサインインできない可能性があります。この場合は、 1 つの管理ノードに対して SSO を一時的に無効にしてから再度有効にすることができます。SSO を無効にしてから再度有効にするには、ノードのコマンドシェルにアクセスする必要があります。 
 ---
-= 1 つの管理ノードのシングルサインオンを一時的に無効にしてから再度有効にする
+= 1つの管理ノードのSSOを一時的に無効にしてから再度有効にする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

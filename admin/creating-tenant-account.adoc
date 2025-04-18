@@ -13,7 +13,7 @@ summary: StorageGRID システム内のストレージへのアクセスを制�
 [role="lead"]
 StorageGRID システム内のストレージへのアクセスを制御するために、少なくとも 1 つのテナントアカウントを作成する必要があります。
 
-テナントアカウントを作成する手順は、とが設定されているかどうか、およびlink:configuring-sso.html["シングルサインオン"]テナントアカウントの作成に使用するGrid ManagerアカウントがRootアクセス権限を持つ管理者グループに属しているかどうかによって異なりますlink:using-identity-federation.html["アイデンティティフェデレーション"]。
+テナントアカウントを作成する手順は、とが設定されているかどうか、およびlink:how-sso-works.html["シングルサインオン"]テナントアカウントの作成に使用するGrid ManagerアカウントがRootアクセス権限を持つ管理者グループに属しているかどうかによって異なりますlink:using-identity-federation.html["アイデンティティフェデレーション"]。
 
 .開始する前に
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
@@ -118,7 +118,7 @@ NOTE: これらの権限の一部には追加の要件があります。詳細�
  a| 
 独自のアイデンティティソースを使用する
  a| 
-テナントでは、フェデレーテッドグループおよびフェデレーテッドユーザの独自のアイデンティティソースを設定および管理できます。このオプションは、StorageGRIDシステムにがある場合は無効になりlink:../admin/configuring-sso.html["SSOを設定しました"]ます。
+テナントでは、フェデレーテッドグループおよびフェデレーテッドユーザの独自のアイデンティティソースを設定および管理できます。このオプションは、StorageGRIDシステムにがある場合は無効になりlink:../admin/how-sso-works.html["SSOを設定しました"]ます。
 
 
 

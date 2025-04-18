@@ -38,7 +38,7 @@ Diagnostics （診断）ページでは、グリッドの現在の状態に対�
 Diagnostics （診断）ページが表示され、診断チェックごとの結果がリストされます。結果は重大度（ [ 注意 ] 、 [ 注意 ] 、 [ 標準 ] ）でソートされます。それぞれの重大度の中で、結果はアルファベット順にソートされます。
 
 +
-この例では、すべての診断のステータスは Normal です。
+この例では、1つの診断がAttentionステータスになり、3つの診断がNormalステータスになります。
 
 +
 image::../media/support_diagnostics_page.png[Support Diagnostics ページ]
@@ -55,18 +55,18 @@ image::../media/support_diagnostics_page.png[Support Diagnostics ページ]
 
 NOTE: これらのしきい値は変更できません。
 
-** * ステータス値 * ： StorageGRID システム全体の診断ステータスと値を示すテーブル。この例では、 StorageGRID システム内のすべてのノードの現在の CPU 利用率が表示されています。すべてのノードの値が警告と警告のしきい値を下回っているため、診断の全体的なステータスは「正常」です。
-
-
+** *ステータスの値*：StorageGRIDシステム全体の診断のステータスと値を示すグラフと表（表はスクリーンショットには表示されていません）。この例では、 StorageGRID システム内のすべてのノードの現在の CPU 利用率が表示されています。すべてのノードの値が警告と警告のしきい値を下回っているため、診断の全体的なステータスは「正常」です。
 +
-image::../media/support_diagnostics_cpu_utilization.png[CPU 使用率の診断をサポートします]
+image::../media/support_diagnostics_cpu_utilization.png[診断ステータス値の例]
 
-. * オプション * ：この診断に関連した Grafana チャートを表示するには、 * Grafana dashboard dashboard * リンクをクリックします。
+
+
+. *オプション*：この診断に関連するGrafanaグラフを表示するには、* Grafanaダッシュボード*を選択します。
 +
 このリンクは、すべての診断で表示されるわけではありません。
 
 +
-関連する Grafana ダッシュボードが表示されます。この例では、このノードの CPU 利用率とノードの他の Grafana チャートを示すノードダッシュボードが表示されます。
+関連する Grafana ダッシュボードが表示されます。この例では、ノードダッシュボードが表示され、このノードのCPU利用率の推移と、そのノードの他のGrafanaグラフが表示されます。
 
 +
 

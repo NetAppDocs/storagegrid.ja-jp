@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: StorageGRID 11.9ドキュメント
+  title: StorageGRID 12.0ドキュメント
   summary: NetApp StorageGRID は、ソフトウェアで定義されるオブジェクトストレージスイートで、パブリック、プライベート、ハイブリッドのマルチクラウド環境での幅広いユースケースに対応します。StorageGRID
     はAmazon S3 APIをネイティブでサポートし、自動化されたライフサイクル管理などの業界をリードする革新的なテクノロジを提供して、非構造化データを長期にわたってコスト効率よく格納、保護、保持します。
   keywords: storagegrid documentation

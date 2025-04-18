@@ -1,38 +1,38 @@
 ---
-permalink: admin/creating-enterprise-application-azure.html 
+permalink: admin/creating-enterprise-application-entra-id.html 
 sidebar: sidebar 
-keywords: enterprise application, azure ad, single sign on, sso 
-summary: Azure AD を使用して、システム内の管理ノードごとにエンタープライズアプリケーションを作成します。 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: Entra IDは、システム内の管理ノードごとにエンタープライズアプリケーションを作成する場合に使用します。 
 ---
-= Azure AD でエンタープライズアプリケーションを作成
+= Entra IDでのエンタープライズアプリケーションの作成
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Azure AD を使用して、システム内の管理ノードごとにエンタープライズアプリケーションを作成します。
+Entra IDは、システム内の管理ノードごとにエンタープライズアプリケーションを作成する場合に使用します。
 
 .開始する前に
-* StorageGRID 用のシングルサインオンの設定を開始し、 SSO タイプとして「 * Azure* 」を選択しました。
-* * Grid Manager のシングルサインオンページでサンドボックスモード * が選択されています。を参照して link:../admin/using-sandbox-mode.html["サンドボックスモードを使用する"]
-* システム内の管理ノードごとに * Enterprise アプリケーション名 * を用意しておきます。これらの値は、 StorageGRID のシングルサインオンページの管理ノードの詳細テーブルからコピーできます。
+* StorageGRIDのシングルサインオンの設定を開始し、SSOタイプとして*エントラID *を選択しました。
+* Grid Managerにありますlink:../admin/configure-sso.html#enter-sandbox-mode["サンドボックスモードに入りました"]。
+* システム内の管理ノードごとに * Enterprise アプリケーション名 * を用意しておきます。これらの値は、[Configure SSO]ページの[Admin Node details]テーブルからコピーできます。
 +
 
 NOTE: StorageGRID システムで管理ノードごとにエンタープライズアプリケーションを作成する必要があります。管理ノードごとにエンタープライズアプリケーションを用意することで、ユーザはどの管理ノードに対しても安全にサインイン / サインアウトすることができます。
 
-* Azure Active Directory でエンタープライズアプリケーションを作成した経験がある。
+* Entra IDでエンタープライズアプリケーションを作成した経験があります。
 * アクティブなサブスクリプションを持つ Azure アカウントが必要です。
-* Azure アカウントに、グローバル管理者、クラウドアプリケーション管理者、アプリケーション管理者、サービスプリンシパルの所有者のいずれかのロールが割り当てられている。
+* Entra IDアカウントには、グローバル管理者、クラウドアプリケーション管理者、アプリケーション管理者、またはサービスプリンシパルの所有者のいずれかのロールが割り当てられている必要があります。
 
 
 
 
-== Azure AD にアクセスします
+== アクセスエントラID
 
 .手順
 . にログインし https://portal.azure.com["Azure ポータル"^]ます。
-. に移動します https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["Azure Active Directory の略"^]。
+. に移動します https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade["エントラID"^]。
 . を選択します https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview/menuId/["エンタープライズアプリケーション"^]。
 
 
@@ -40,23 +40,23 @@ NOTE: StorageGRID システムで管理ノードごとにエンタープライ�
 
 == エンタープライズアプリケーションを作成し、 StorageGRID SSO 設定を保存します
 
-AzureのSSO設定をStorageGRID に保存するには、Azureを使用して管理ノードごとにエンタープライズアプリケーションを作成する必要があります。フェデレーションメタデータの URL を Azure からコピーし、 StorageGRID のシングルサインオンページの対応する * フェデレーションメタデータの URL * フィールドに貼り付けます。
+StorageGRIDでエントラIDのSSO設定を保存するには、エントラIDを使用して各管理ノード用のエンタープライズアプリケーションを作成する必要があります。エントラIDからフェデレーションメタデータURLをコピーし、SSOの設定ページの対応する*フェデレーションメタデータURL *フィールドに貼り付けます。
 
 .手順
 . 管理ノードごとに次の手順を繰り返します。
 +
-.. Azure Enterprise アプリケーションペインで、 * 新規アプリケーション * を選択します。
+.. Entra ID Enterpriseアプリケーションペインで、*新規アプリケーション*を選択します。
 .. 「 * 独自のアプリケーションを作成する * 」を選択します。
-.. 名前には、 StorageGRID のシングルサインオンページの管理ノード詳細テーブルからコピーした * エンタープライズアプリケーション名 * を入力します。
+.. [Configure SSO]ページの管理ノードの詳細テーブルからコピーした*エンタープライズアプリケーション名*を入力します。
 .. ギャラリー ( ギャラリー以外 ) で見つからない他のアプリケーションを統合 * ラジオボタンを選択したままにします。
 .. 「 * Create * 」を選択します。
 .. 2 の * Get started * リンクを選択します。シングルサインオン * ボックスを設定するか、左マージンの * シングルサインオン * リンクを選択します。
 .. [* SAML * ] ボックスを選択します。
 .. 「 * アプリフェデレーションメタデータ URL * 」をコピーします。この URL は「 * ステップ 3 SAML 署名証明書 * 」にあります。
-.. StorageGRID シングルサインオンページに移動し、使用した * エンタープライズアプリケーション名 * に対応する * フェデレーションメタデータ URL* フィールドに URL を貼り付けます。
+.. SSOの設定ページに移動し、使用した*エンタープライズアプリケーション名*に対応する*フェデレーションメタデータURL *フィールドにURLを貼り付けます。
 
 
-. 各管理ノードのフェデレーションメタデータ URL を貼り付け、 SSO 設定に必要なその他の変更をすべて行ったら、 StorageGRID のシングルサインオンページで「 * 保存」を選択します。
+. 各管理ノードにフェデレーションメタデータURLを貼り付け、SSO設定に必要なその他の変更をすべて加えたら、[Configure SSO]ページで*[Save]*を選択します。
 
 
 
@@ -71,7 +71,7 @@ SSO 設定を保存したら、 StorageGRID システム内の管理ノードご
 .. 管理ノードから StorageGRID にサインインします。
 .. [ * 設定 * > * アクセス制御 * > * シングルサインオン * ] を選択します。
 .. ボタンを選択して、その管理ノードの SAML メタデータをダウンロードします。
-.. Azure AD にアップロードするファイルを保存します。
+.. Entra IDにアップロードするファイルを保存します。
 
 
 
@@ -80,7 +80,7 @@ SSO 設定を保存したら、 StorageGRID システム内の管理ノードご
 
 == SAML メタデータを各エンタープライズアプリケーションにアップロードする
 
-StorageGRID 管理ノードごとに SAML メタデータファイルをダウンロードしたら、 Azure AD で次の手順を実行します。
+StorageGRID管理ノードごとにSAMLメタデータファイルをダウンロードしたら、[Entra ID]で次の手順を実行します。
 
 .手順
 . Azure ポータルに戻ります。
@@ -98,5 +98,5 @@ NOTE: 以前にリストに追加したアプリケーションを表示する�
 .. ファイルがロードされたら、「 * 保存」を選択し、「 * X * 」を選択してパネルを閉じます。SAML を使用してシングルサインオンを設定するページに戻ります。
 
 
-. 各アプリケーションをテストするには、の手順に従いlink:../admin/using-sandbox-mode.html["サンドボックスモードを使用する"]ます。
+. link:../admin/configure-sso.html#test-sso["各アプリケーションをテストする"]です。
 

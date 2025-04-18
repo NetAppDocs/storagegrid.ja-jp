@@ -3,18 +3,18 @@
 
 
 .開始する前に
-* Grid Managerにサインインする必要がありますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
-* Root Access権限またはその他のグリッド設定権限が必要です。
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* Root Access 権限またはその他の Grid 設定権限が必要です。
 
 
 .手順
 . [ * support * > * Tools * > * AutoSupport * ] を選択します。
 . [アクション]タブで、*[ユーザートリガー型AutoSupportの送信]*を選択します。
 +
-StorageGRIDはAutoSupportパッケージをNetApp Support Siteに送信しようとします。試行に成功した場合は、 [ 結果（ Results ） ] タブの [ 最新結果（ Recent Result ） ] * 値と [ 前回成功した時間（ Last Successful Time ） ] * 値が更新されます。問題がある場合は、「*最新の結果*」の値が「失敗」に更新され、StorageGRIDはAutoSupportパッケージを再送信しません。
+StorageGRIDはAutoSupportパッケージをNetApp Support Siteに送信しようとします。試行に成功した場合は、 [ 結果（ Results ） ] タブの [ 最新結果（ Recent Result ） ] * 値と [ 前回成功した時間（ Last Successful Time ） ] * 値が更新されます。問題がある場合は、[最新の結果]の値が[失敗]に更新され、StorageGRIDはAutoSupportパッケージを再度送信しようとしません。
 
-+
-
-TIP: ユーザトリガー型AutoSupportパッケージを送信したら、1分後にブラウザのAutoSupportページを更新して最新の結果にアクセスしてください。
+. 1分後にブラウザのAutoSupportページを更新し、最新の結果にアクセスします。
 
 
+
+TIP: また、NetAppサポートサイトに送信することもできますlink:../monitor/collecting-log-files-and-system-data.html["より広範なログファイルとシステムデータを収集"]。

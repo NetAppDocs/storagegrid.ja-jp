@@ -99,7 +99,7 @@ SSHを使用してノードにアクセスするときにプロンプトを表�
 
 
  a| 
-`Passwords.txt`リカバリパッケージのファイル
+`Passwords.txt`リカバリパッケージ内のファイル
  a| 
 表示形式 `Server Name`
  a| 

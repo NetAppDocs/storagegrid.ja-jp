@@ -25,7 +25,7 @@ StorageGRIDシステムでは、S3テナントアカウントごとに最大5、
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名を設定"]
 
 
-ListObjects（GET Bucket）処理とListObjectVersions（GET Bucketオブジェクトバージョン）処理では、StorageGRIDlink:consistency-controls.html["整合性の値"]がサポートされます。
+ListObjects（GET Bucket）処理とListObjectVersions（GET Bucketオブジェクトバージョン）処理では、StorageGRIDlink:consistency.html["整合性の値"]がサポートされます。
 
 最終アクセス時間の更新が個々のバケットで有効になっているか無効になっているかを確認することができます。を参照して link:get-bucket-last-access-time-request.html["GET Bucket last access time のように指定します"]
 
@@ -290,7 +290,7 @@ PutBucketNotificationConfigurationの略
  a| 
 要求の本文に含まれる通知設定XMLを使用してバケットの通知を設定します。実装に関する次の詳細事項に注意してください。
 
-* StorageGRIDでは、Amazon Simple Notification Service（Amazon SNS）またはKafkaトピックがデスティネーションとしてサポートされます。Simple Queue Service（SQS）またはAmazon Lambdaエンドポイントはサポートされていません。
+* StorageGRIDは、Amazon Simple Notification Service（Amazon SNS）トピック、Kafkaトピック、またはWebhookエンドポイントをデスティネーションとしてサポートしています。Simple Queue Service（SQS）またはAWS Lambdaエンドポイントはサポートされていません。
 * 通知のデスティネーションは、 StorageGRID エンドポイントの URN として指定する必要があります。エンドポイントは、 Tenant Manager またはテナント管理 API を使用して作成できます。
 +
 通知設定が機能するためには、エンドポイントが存在している必要があります。エンドポイントが存在しない場合は `400 Bad Request`、コードとともにエラーが返され `InvalidArgument`ます。

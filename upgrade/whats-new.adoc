@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: このリリースの StorageGRID には、次の機能が導入されています。 
+keywords: what is new in StorageGRID 12.0 
+summary: このリリースのStorageGRID では、次の機能変更が導入されています。 
 ---
-= StorageGRID 11.9の新機能
+= StorageGRID 12.0の新機能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,131 +15,11 @@ summary: このリリースの StorageGRID には、次の機能が導入され�
 
 
 
-== 拡張性
+== S3オブジェクトロックを使用したグリッド間レプリケーション
 
+S3オブジェクトロックが有効なバケット間のグリッド間レプリケーションを設定できます。を参照してください link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["S3オブジェクトロックを使用したグリッド間レプリケーション"]。
 
-
-=== データ専用ストレージノード
-
-よりきめ細かな拡張を可能にするために、をインストールできるようになりlink:../primer/what-storage-node-is.html#types-of-storage-nodes["データ専用ストレージノード"]ました。メタデータ処理が重要でない場合は、インフラをコスト効率よく最適化できます。この柔軟性により、さまざまなワークロードや増加パターンに対応できます。
-
-
-
-== クラウドストレージプールの機能拡張
-
-
-
-=== IAMのあらゆる場所での役割
-
-StorageGRIDでは、を使用した短期クレデンシャルがサポートされるlink:../ilm/creating-cloud-storage-pool.html["IAMがAmazon S3内のどこにいてもクラウドストレージプールに対応"]
-
-S3バケットへのアクセスに長期のクレデンシャルを使用すると、クレデンシャルが漏えいした場合にセキュリティリスクが発生します。短期間のクレデンシャルの有効期間は限られているため、不正アクセスのリスクが軽減されます。
-
-
-
-=== S3オブジェクトロックバケット
-
-お前ならできるlink:../ilm/creating-cloud-storage-pool.html["Amazon S3エンドポイントを使用したクラウドストレージプールの設定"]S3オブジェクトロックは、オブジェクトの偶発的な削除や故意の削除を防止するのに役立ちます。StorageGRIDからAmazon S3にデータを階層化する場合は、両方のシステムでオブジェクトロックを有効にすると、データのライフサイクル全体にわたるデータ保護が強化されます。
-
-
-
-== マルチテナンシー
-
-
-
-=== バケット制限
-
-を使用するlink:../tenant/creating-s3-bucket.html["S3ハケツトノセイケンノセツテイ"]と、テナントによる容量の独占を防ぐことができます。さらに、制御されていない成長は、予期しないコストにつながる可能性があります。制限を定義することで、テナントストレージのコストをより正確に見積もることができます。
-
-
-
-=== テナントあたり5、000バケット
-
-拡張性を強化するために、StorageGRIDは最大でをサポートするようになりましlink:../s3/operations-on-buckets.html["テナントあたり5、000 S3バケット"]た。各グリッドには、最大100,000個のバケットを含めることができます。
-
-5、000バケットをサポートするには、グリッド内の各ストレージノードに64GB以上のRAMが必要です。
-
-
-
-== S3オブジェクトロックの強化
-
-テナントごとの構成機能により、柔軟性とデータセキュリティの適切なバランスを実現できます。テナントごとに保持設定を構成して、次の処理を実行できるようになりました。
-
-* コンプライアンスモードを許可または禁止する
-* 最大保持期間を設定する
-
-
-参照先：
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["S3 オブジェクトロックでオブジェクトを管理します"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["グリッド管理者によるオブジェクト保持期間の制御方法"]
-* link:../admin/creating-tenant-account.html["テナントアカウントを作成する"]
-
-
-
-
-== S3との互換性
-
-
-
-=== x-amz-checksum-SHA256チェックサム
-
-* S3 REST APIで、link：../s3/operations-on-objects.html checksum]がサポートされるようになりました[`x-amz-checksum-sha256`。
-* StorageGRIDでは、PUT、GET、HEADの各処理でSHA-256チェックサムがサポートされるようになりました。これらのチェックサムにより、データの整合性が向上します。
-
-
-
-
-=== S3プロトコルのサポートに対する変更
-
-* Amazon S3のマウントポイントのサポートが追加されました。これにより、アプリケーションはローカルファイルシステムのようにS3バケットに直接接続できます。StorageGRIDは、より多くのアプリケーションやユースケースで使用できるようになりました。
-* マウントポイントのサポートを追加する一環として、StorageGRID 11.9にはが含まれていlink:../s3/index.html#updates-to-rest-api-support["S3プロトコルのサポートに関するその他の変更点"]ます。
-
-
-
-
-== メンテナンスとサポート性
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"]レガシーアプライアンスのハードウェア障害ケースが自動的に作成されるようになりました。
-
-
-
-=== ノード拡張のクローニング処理
-
-ノードクローンのユーザビリティが拡張され、大容量のストレージノードがサポートされるようになりました。
-
-
-
-=== ILMによる期限切れ削除マーカーの処理の改善
-
-期間が日数のILM取り込み時間ルールでは、期限切れのオブジェクト削除マーカーも削除されるようになりました。削除マーカーは、日数が経過し、現在の削除メーカーが期限切れになった場合にのみ削除されます(最新でないバージョンはありません)。
-
-link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 バージョン管理オブジェクトの削除方法"]およびを参照してくださいlink:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["ILMポリシーよりも優先するバケットライフサイクルの例"]。
-
-
-
-=== ノードの運用停止機能の向上
-
-StorageGRID次世代ハードウェアへのスムーズで効率的な移行を実現するために、がlink:../maintain/grid-node-decommissioning.html["ノードの運用停止"]改善されました。
-
-
-
-=== ロードバランサエンドポイントのsyslog
-
-ロードバランサエンドポイントのアクセスログには、HTTPステータスコードなどのトラブルシューティング情報が記録されています。StorageGRIDがサポートするlink:../monitor/configure-audit-messages.html["外部syslogサーバへのこれらのログのエクスポート"]ようになりましたこの機能拡張により、より効率的なログ管理と、既存の監視およびアラートシステムとの統合が可能になります。
-
-
-
-=== メンテナンスとサポートに関するその他の機能拡張
-
-* 指標UIの更新
-* オペレーティングシステムの新しい認定
-* 新しいサードパーティコンポーネントのサポート
-
+NetAppでは、この機能をStorageGRID 12.0のソースバケットとデスティネーションバケットの間でのみ使用することを推奨しています。ただし、この機能は、S3オブジェクトロックが無効なStorageGRID 11.9ソースバケットと、S3オブジェクトロックが有効なStorageGRID 12.0デスティネーションバケットの間でサポートされます。
 
 
 
@@ -147,15 +27,29 @@ StorageGRID次世代ハードウェアへのスムーズで効率的な移行を
 
 
 
-=== SSHアクセスキーのローテーション
+=== ディスク上の暗号化されたパスワードのセキュリティ強化
 
-グリッド管理者ができるようになりましたlink:../admin/change-ssh-access-passwords.html["SSHキーの更新とローテーション"]。SSHキーをローテーションする機能は、セキュリティのベストプラクティスであり、プロアクティブな防御メカニズムです。
+SHA512パスワードハッシュのハッシュラウンド数が大幅に増加したなど、パスワードセキュリティが向上しました。
 
 
 
-=== ルートログインのアラート
+== S3バケット
 
-不明なエンティティがrootとしてGrid Managerにサインインした場合、link:../monitor/alerts-reference.html["アラートがトリガーされた"]ルートSSHログインの監視は、インフラストラクチャを保護するためのプロアクティブなステップです。
+
+
+=== 分岐バケット
+
+S3バケットを使用できるようになりましlink:../tenant/manage-branch-bucket-html["ブランチバケットの作成"]た。ブランチバケットは、特定の時点で存在していたS3バケットオブジェクトへのアクセスを提供します。ブランチバケットはバックアップと同じではありません。
+
+
+
+== ユーザインターフェイス
+
+
+
+=== ダークテーマ
+
+ダークテーマとシステムテーマの設定は、Grid ManagerとTenant Managerの[User]メニューで使用できます。
 
 
 
@@ -163,12 +57,6 @@ StorageGRID次世代ハードウェアへのスムーズで効率的な移行を
 
 
 
-=== イレイジャーコーディングプロファイルページを移動
+=== リージョンの機能拡張の設定
 
-イレイジャーコーディングプロファイルページが* configuration *>* System *>* Erasure coding *に表示されます。以前は[ILM]メニューにありました。
-
-
-
-=== 検索機能の強化
-
-では、link:../primer/exploring-grid-manager.html#search-field["Grid Managerの検索フィールド"]一般的な略語やページ内の特定の設定の名前を検索してページを検索できるようになりました。ノード、ユーザ、テナントアカウントなど、その他のタイプの項目も検索できます。
+Grid Managerの[Regions]ページに*[Default region]*タブが追加されました。このタブを使用して、S3バケットに定義されているデフォルトのリージョンを変更できます。link:../ilm/configuring-regions-optional-and-s3-only.html["詳細"]です。

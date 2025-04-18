@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . [Client Writes]が[Normal]でない場合は、アラートのテナントIDを使用してテナントを特定します。
 +
-.. * support *>* Tools *>* Logs *に移動します。アラートでストレージノードのアプリケーションログを収集します。アラートの前後15分を指定します。
+.. * support *>* Tools *>* Logs *に移動します。アラートでストレージノードのアプリケーションログを収集します。アラートの前後15分を指定します。を参照してください link:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集"]。
 .. ファイルを展開し、次の場所に移動し `bycast.log`ます。
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

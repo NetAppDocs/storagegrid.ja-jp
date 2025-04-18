@@ -44,7 +44,7 @@ link:supd-s3-metadata-updated.html["SUPD ： S3 メタデータが更新され�
 
 === SUPD ： S3 メタデータの更新
 
-S3クライアントが、(`x-amz-meta-\*`S3オブジェクト（S3KY）に対して、指定されたメタデータを更新する要求（SUPD）を実行します。この例では、要求ヘッダーは監査プロトコルヘッダー (**configuration**>** Monitoring**>** Audit および syslog server**) として設定されているため、 HTRH フィールドに含まれています。を参照して link:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]
+S3クライアントが、(`x-amz-meta-\*`S3オブジェクト（S3KY）に対して、指定されたメタデータを更新する要求（SUPD）を実行します。この例では、要求ヘッダーは監査プロトコルヘッダー (**configuration**>** Monitoring**>** Audit および syslog server**) として設定されているため、 HTRH フィールドに含まれています。を参照して link:../monitor/configure-audit-messages.html["監査メッセージと外部syslogサーバの設定"]
 
 [listing]
 ----

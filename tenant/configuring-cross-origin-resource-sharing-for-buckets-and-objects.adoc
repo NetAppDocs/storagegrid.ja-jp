@@ -1,10 +1,10 @@
 ---
-permalink: tenant/configuring-cross-origin-resource-sharing-cors.html 
+permalink: tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html 
 sidebar: sidebar 
 keywords: how to configure cross-origin resource sharing, cors 
 summary: S3バケットとバケット内のオブジェクトに他のドメインにあるWebアプリケーションからアクセスできるようにするには、そのバケットにCross-Origin Resource Sharing \（CORS\）を設定します。 
 ---
-= Cross-Origin Resource Sharing （ CORS ）の設定
+= バケットとオブジェクトに対するStorageGRID CORSの設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -85,3 +85,6 @@ CORS設定XMLの詳細については、を参照してください http://docs.
 . [Enable CORS]チェックボックスをオフにします。
 . 「変更を保存」を選択します。
 
+
+.関連情報
+link:enable-cross-origin-resource-sharing-for-management-interface.html["管理インターフェイスのStorageGRID CORSを有効にする"]

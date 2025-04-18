@@ -1,10 +1,10 @@
 ---
-permalink: s3/consistency-controls.html 
+permalink: s3/consistency.html 
 sidebar: sidebar 
 keywords: consistency, consistency control, consistency values 
 summary: 整合性では、オブジェクトの可用性と、異なるストレージノードおよびサイト間でのオブジェクトの整合性のバランスが維持されます。アプリケーションの必要に応じて整合性を変更できます。 
 ---
-= 整合性の値
+= 整合性
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,15 +13,15 @@ summary: 整合性では、オブジェクトの可用性と、異なるスト�
 [role="lead"]
 整合性では、オブジェクトの可用性と、異なるストレージノードおよびサイト間でのオブジェクトの整合性のバランスが維持されます。アプリケーションの必要に応じて整合性を変更できます。
 
-StorageGRID では、デフォルトで、新しく作成したオブジェクトのリードアフターライト整合性が保証されます。正常に完了した PUT に続く GET では、新しく書き込まれたデータを読み取ることができます。既存のオブジェクトの上書き、メタデータの更新、および削除の整合性レベルは、結果整合性です。上書きは通常、数秒から数分で反映されますが、最大で 15 日かかることがあります。
+StorageGRID では、デフォルトで、新しく作成したオブジェクトのリードアフターライト整合性が保証されます。正常に完了した PUT に続く GET では、新しく書き込まれたデータを読み取ることができます。既存のオブジェクトの上書き、メタデータの更新、および削除の整合性レベルは、結果整合性です。
 
 別の整合性でオブジェクトの処理を実行する場合は、次の操作を実行できます。
 
-* の整合性を指定し<<bucket-consistency-control,各バケット>>ます。
+* の整合性を指定し<<bucket-consistency,各バケット>>ます。
 * の整合性を指定し<<api-operation-consistency-control,各API処理>>ます。
 * 次のいずれかのタスクを実行して、グリッド全体のデフォルトの整合性を変更します。
 +
-** Grid Managerで、*[設定]*>*[システム]*>*[ストレージ設定]*>*[デフォルトの整合性]*の順に選択します。
+** Grid Managerで、*[設定]*>*[システム]*>*[ストレージ設定]*>*[デフォルトのバケット整合性]*の順に選択します。
 ** です。
 +
 
@@ -79,7 +79,7 @@ NOTE: PutObject処理とGetObject処理では、同じ整合性を使用する�
 
 
 
-== [[Bucket-consistency-control]]バケットの整合性を指定する
+== [[bucket-consistency]]バケットの整合性を指定します。
 
 バケットに整合性を設定するには、StorageGRID要求を使用しlink:put-bucket-consistency-request.html["PUT Bucket consistency"]ます。または、Tenant Managerから実行することもできますlink:../tenant/manage-bucket-consistency.html#change-bucket-consistency["バケットの整合性を変更する"]。
 
@@ -92,7 +92,7 @@ NOTE: PutObject処理とGetObject処理では、同じ整合性を使用する�
 
 
 
-== [[how-consistency-controls-and-ilm-rules-interact]]整合性とILMルールの相互作用によるデータ保護への影響
+== [[how-consistency-and-ilm-rules-interact]]整合性とILMルールの相互作用によるデータ保護への影響
 
 選択した整合性とILMルールは、どちらもオブジェクトの保護方法に影響します。これらの設定は対話的に操作できます。
 

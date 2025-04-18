@@ -1,0 +1,53 @@
+---
+permalink: maintain/convert-to-data-only-node.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, stop services, power down host, power off host 
+summary: パフォーマンスを向上させるには、低速の非ADCストレージノードをデータ専用ストレージノードに変換します。 
+---
+= ストレージノードをデータ専用ノードに変換する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+パフォーマンスを向上させるには、低速の非ADCストレージノードをデータ専用ストレージノードに変換します。
+
+ストレージノードのパフォーマンス特性が異なる場合は、データ専用のストレージノードを使用するのが理にかなっています。たとえば、パフォーマンスを潜在的に向上させるために、データ専用で大容量の回転式ディスクストレージノードと、メタデータ専用のハイパフォーマンスストレージノードを組み合わせることができます。
+
+また、Cassandraから低RAMのノードを削除することで、メタデータ容量を増やすことができます。これにより、ノードあたりのメタデータ容量の上限が引き上げられます。を参照してください link:../admin/managing-object-metadata-storage.html["オブジェクトメタデータストレージを管理する"]。
+
+データ専用ノードをインストールする場合は、グリッドに次のものが含まれている必要があります。
+
+* グリッドごとに最低2つの統合ストレージノードまたはデータ専用ストレージノード
+* サイトごとに少なくとも1つの統合ストレージノードまたはデータ専用ストレージノード
+* サイトごとに最低3つの統合ストレージノードまたはメタデータのみのストレージノード
+
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:admin-group-permissions.html["Maintenance権限またはRoot Access権限"]。
+* 変換するストレージノードにADCサービスが含まれていないか、別のノードが必要です。link:../maintain/move-adc-service.html["ADCサービスが移動されました"]
+* ストレージノードはメタデータ専用ノードでもデータ専用ノードでもありません。
+* サイトの他のノードには、変換するストレージノードから移行するメタデータを格納できるだけの十分なメタデータスペースがある。
+
+
+.タスクの内容
+この手順は、ADCサービスを含まない1つ以上の組み合わせた、またはメタデータのみのストレージノードをデータ専用ノードに変換する場合に使用します。ストレージノードが同じサイトにある必要があります。
+
+この手順では、ストレージノードの変換に加えて、ノードからCassandraの運用を停止します。すべてのメタデータは、統合ストレージノードまたはメタデータのみのストレージノードに移行されます。移行する必要があるメタデータの量によっては、この手順がノードごとに完了するまでに数日かかることがあります。
+
+
+TIP: 一般に、ノードあたりのメタデータ使用量が1TB未満の場合は、一度に最大10個のノードを変換できます。ノードあたりのメタデータ使用量が1TBを超える場合は、1つの手順で最大5ノードに変換します。
+
+.手順
+. 変換する非ADCストレージノードのノードIDを記録します。
+. Grid Managerの上部でヘルプアイコンを選択し、*[API documentation]*を選択します。
+. [Go to private API documentation]*を選択します。
+. 処理を選択します `POST /private/convert-to-data-only-node/start`。詳細については、を参照してください link:../admin/using-grid-management-api.html#issue-api-requests["問題 API 要求"] 。
++
+手順の実行中に各ノードがリブートします。
+
+. を使用して手順を監視できます `GET /private/convert-to-data-only-node`。エラーが発生した場合は、を選択し `POST /private/convert-to-data-only-node/retry`て手順を再試行します。
+. link:../maintain/downloading-recovery-package.html["リカバリパッケージをダウンロードする"]この手順が完了したら、
+

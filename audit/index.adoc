@@ -17,4 +17,4 @@ summary: ここでは、 StorageGRID 監査メッセージおよび監査ログ�
 
 テキストログファイルを使用するには、管理ノード上に設定されている監査共有へのアクセスが必要です。
 
-監査メッセージレベルの設定および外部syslogサーバの使用については、を参照してくださいlink:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]。
+監査メッセージレベルの設定および外部syslogサーバの使用については、を参照してくださいlink:../monitor/configure-audit-messages.html["監査メッセージと外部syslogサーバの設定"]。

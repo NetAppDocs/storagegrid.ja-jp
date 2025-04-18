@@ -73,7 +73,7 @@ FabricPool テナントでは、通常、CloudMirrorレプリケーションな�
 .. 必要に応じて、*[Use grid federation connection]*を選択して、テナントがアカウントのクローニングとグリッド間レプリケーションにを使用できるようにしlink:../admin/grid-federation-overview.html["グリッドフェデレーション接続"]ます。次に、使用するグリッドフェデレーション接続を選択します。
 
 
-. [Define root access]手順では、StorageGRIDシステムでが使用されているlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]か、link:../admin/configuring-sso.html["シングルサインオン（SSO）"]またはその両方に基づいて、テナントアカウントに対する最初のRootアクセス権限を割り当てるユーザを指定します。
+. [Define root access]手順では、StorageGRIDシステムでが使用されているlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]か、link:../admin/how-sso-works.html["シングルサインオン（SSO）"]またはその両方に基づいて、テナントアカウントに対する最初のRootアクセス権限を割り当てるユーザを指定します。
 +
 [cols="1a,2a"]
 |===

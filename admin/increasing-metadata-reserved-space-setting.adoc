@@ -40,8 +40,8 @@ Metadata Reserved Spaceの設定が特定のストレージノードでオブジ
 .手順
 . 現在の Metadata Reserved Space 設定を確認します。
 +
-.. * 設定 * > * システム * > * ストレージ・オプション * を選択します。
-.. [Storage Watermarks]セクションで、* Metadata Reserved Space *の値を確認します。
+.. [設定]*>*[システム]*>*[ストレージ設定]*を選択します。
+.. 「Metadata Reserved Space」*の値をメモします。
 
 
 . この値を増やすには、各ストレージノードのストレージボリューム 0 に十分な利用可能スペースがあることを確認してください。
@@ -78,17 +78,13 @@ Metadata Reserved Spaceの設定が特定のストレージノードでオブジ
 
 . Metadata Reserved Space 設定を更新します。
 +
-.. * 設定 * > * システム * > * ストレージ・オプション * を選択します。
-.. [ 構成 ] タブを選択します。
-.. [Storage Watermarks]セクションで、*[Metadata Reserved Space]*を選択します。
+.. [設定]*>*[システム]*>*[ストレージ設定]*を選択します。
+.. [Metadata Reserved Space]*を選択します。
 .. 新しい値を入力します。
 +
 たとえば、サポートされている最大値である 8TB を入力するには、「 * 8000000000000 * （ 8 、 0 が 12 個）」と入力します。
 
-+
-image::../media/metadata_reserved_space.png[Metadata Reserved Space]
-
-.. 「 * 変更を適用する * 」を選択します。
+.. [ 保存（ Save ） ] を選択します。
 
 
 

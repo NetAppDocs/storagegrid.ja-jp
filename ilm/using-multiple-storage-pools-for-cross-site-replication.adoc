@@ -20,7 +20,7 @@ StorageGRID 環境に複数のサイトが含まれている場合は、レプ�
 
 
 
-CAUTION: StorageGRID環境でサイト障害からの保護を設定する場合は、およびの影響も考慮する必要がありますlink:data-protection-options-for-ingest.html["取り込みオプション"]link:../s3/consistency.html["一貫性"]。
+CAUTION: StorageGRID環境でサイト障害からの保護を設定する場合は、およびの影響も考慮する必要がありますlink:data-protection-options-for-ingest.html["取り込みオプション"]link:../s3/consistency-controls.html["一貫性"]。
 
 
 

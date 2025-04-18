@@ -347,7 +347,7 @@ S3アプリケーションが外部ロードバランサへの接続に使用す
 +
 テナント名は一意である必要はありません。作成したテナントアカウントには、一意の数値アカウント ID が割り当てられます。
 
-. StorageGRIDシステムで使用するlink:using-identity-federation.html["アイデンティティフェデレーション"]か、またはlink:how-sso-works.html["シングルサインオン（SSO）"]その両方に基づいて、テナントアカウントのルートアクセスを定義します。
+. StorageGRIDシステムで使用するlink:using-identity-federation.html["アイデンティティフェデレーション"]か、またはlink:configuring-sso.html["シングルサインオン（SSO）"]その両方に基づいて、テナントアカウントのルートアクセスを定義します。
 +
 [cols="1a,2a"]
 |===

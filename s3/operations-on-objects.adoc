@@ -15,7 +15,7 @@ summary: このセクションでは、 StorageGRID システムでオブジェ�
 
 すべてのオブジェクトの処理に次の条件が適用されます。
 
-* StorageGRIDはlink:consistency.html["整合性の値"]、次の例外を除き、オブジェクトに対するすべての処理でサポートされます。
+* StorageGRIDはlink:consistency-controls.html["整合性の値"]、次の例外を除き、オブジェクトに対するすべての処理でサポートされます。
 +
 ** GetObjectAcl
 ** `OPTIONS /`

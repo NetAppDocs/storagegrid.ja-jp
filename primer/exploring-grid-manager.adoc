@@ -75,6 +75,8 @@ image::../media/grid_manager_dashboard_and_menu.png[Grid Manager のダッシュ
 
 ノードのホームページには、グリッド全体の複数の指標の合計が表示されます。特定のサイトまたはノードの情報を表示するには、サイトまたはノードを選択します。
 
+image::../media/nodes_page.png[Nodes ページメイン]
+
 
 
 == テナントページ
@@ -82,6 +84,8 @@ image::../media/grid_manager_dashboard_and_menu.png[Grid Manager のダッシュ
 ではlink:../admin/managing-tenants.html["テナントページ"]、StorageGRIDシステムに対してを実行できますlink:../tenant/index.html["ストレージテナントアカウントを作成および監視する"]。オブジェクトの格納と読み出しを実行できるユーザを指定し、どの機能を利用可能とするかを指定するには、少なくとも 1 つのテナントアカウントを作成する必要があります。
 
 テナントページには、使用されているストレージの容量やオブジェクトの数など、各テナントの使用状況の詳細も表示されます。テナントの作成時にクォータを設定すると、そのクォータのうちどれくらいが使用されているかを確認できます。
+
+image::../media/tenants_page.png[[Tenants Menu and Page]]
 
 
 
@@ -141,7 +145,7 @@ image::../media/grid_manager_dashboard_and_menu.png[Grid Manager のダッシュ
 * テナントアカウント情報をクローニングし、2つのStorageGRIDシステム間でオブジェクトデータをレプリケートするために使用しますlink:../admin/grid-federation-overview.html["グリッドフェデレーション"]。
 * 必要に応じて、オプションを有効にしますlink:../admin/configuring-stored-object-compression.html["格納オブジェクトを圧縮します"]。
 * link:../ilm/managing-objects-with-s3-object-lock.html["S3オブジェクトロックの管理"]
-* ストレージ設定について（やなど）link:../admin/what-object-segmentation-is.html["オブジェクトのセグメント化"]link:../admin/what-storage-volume-watermarks-are.html["ストレージボリュームのウォーターマーク"]
+* やなどのストレージオプションについてlink:../admin/what-object-segmentation-is.html["オブジェクトのセグメント化"]link:../admin/what-storage-volume-watermarks-are.html["ストレージボリュームのウォーターマーク"]
 * link:../ilm/manage-erasure-coding-profiles.html["イレイジャーコーディングプロファイルの管理"]です。
 
 
@@ -165,7 +169,7 @@ image::../media/grid_manager_dashboard_and_menu.png[Grid Manager のダッシュ
 * link:../admin/managing-users.html["管理者ユーザの管理"]
 * またはの変更link:../admin/changing-provisioning-passphrase.html["プロビジョニングパスフレーズ"]link:../admin/change-node-console-password.html["ノードコンソールのパスワード"]
 * link:../admin/using-identity-federation.html["アイデンティティフェデレーションを使用する"]
-* link:../admin/how-sso-works.html["SSOの設定"]
+* link:../admin/configuring-sso.html["SSOの設定"]
 
 
 

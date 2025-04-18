@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0では、バージョン4のグリッド管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。 
+summary: StorageGRID 11.9では、バージョン4のグリッド管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。 
 ---
 = Grid 管理 API に対する変更
 :allow-uri-read: 
@@ -11,21 +11,42 @@ summary: StorageGRID 12.0では、バージョン4のグリッド管理APIが使
 
 
 [role="lead"]
-StorageGRID 12.0では、バージョン4のグリッド管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。
+StorageGRID 11.9では、バージョン4のグリッド管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。
 
 
-NOTE: StorageGRID 12.0では、廃止されたバージョンの管理APIを引き続き使用できますが、これらのバージョンのAPIのサポートはStorageGRIDの今後のリリースで削除される予定です。StorageGRID 12.0にアップグレードしたあと、APIを使用して廃止されたAPIを非アクティブ化できます `PUT /grid/config/management`。
+NOTE: StorageGRID 11.9では、廃止されたバージョンの管理APIを引き続き使用できますが、これらのバージョンのAPIのサポートはStorageGRIDの今後のリリースで削除される予定です。StorageGRID 11.9にアップグレードしたあと、APIを使用して廃止されたAPIを非アクティブ化できます `PUT /grid/config/management`。
 
 詳細については、を参照してくださいlink:../admin/using-grid-management-api.html["グリッド管理 API を使用します"]。
 
 
 
-== ADC移動用の新しいプライベートエンドポイント
+== グローバルS3オブジェクトロックを有効にしたあとの準拠設定の確認
 
-次のプライベートエンドポイントが追加され、同じサイトのあるストレージノードから別のストレージノードにを使用できるようになりましlink:../maintain/move-adc-service.html["ADCサービスの移動"]た。
+S3オブジェクトロックのグローバル設定を有効にしたら、既存のテナントの準拠設定を確認します。この設定を有効にすると、S3オブジェクトロックのテナント単位の設定は、テナント作成時のStorageGRIDリリースによって異なります。
 
-`/private/move-adc`
 
-`/private/move-adc/start`
 
-`/private/move-adc/retry`
+== 従来のmgmt-api要求の削除
+
+これらの古い要求は削除されました。
+
+`/grid/server-types`
+
+`/grid/ntp-roles`
+
+
+
+== APIニタイスルヘンコウテン `GET /private/storage-usage`
+
+* 新しいプロパティが `usageCacheDuration`応答の本文に追加されました。このプロパティは、使用状況ルックアップキャッシュが有効である期間（秒単位）を指定します。この値は、テナントストレージクォータおよびバケットの容量制限に照らして使用量を確認する場合に適用されます。
+* この `GET /api/v4/private/storage-usage`動作は、スキーマからのネストと一致するように修正されました。
+* これらの変更は、プライベートAPIにのみ適用されます。
+
+
+
+
+== APIニタイスルヘンコウテン `GET cross-grid-replication`
+
+*/org/containers/：name/cross-grid-replication * get APIでは(`rootAccess`、Root access）権限は不要になりました。ただし、Manage All Buckets権限(`manageAllContainers`またはView All Buckets(`viewAllContainers`権限のあるユーザグループに属している必要があります。
+
+*/org/containers/：name/cross-grid-replication * PUT APIは変更されず、引き続きrootアクセス(`rootAccess`権限が必要です。

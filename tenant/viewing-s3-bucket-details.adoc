@@ -68,7 +68,7 @@ S3 オブジェクトのロック:: バケットでS3オブジェクトロック
 . 特定のバケットの詳細を表示するには、テーブルでバケット名を選択します。
 +
 .. Webページの上部にある概要情報を表示して、バケットの詳細（リージョンやオブジェクト数など）を確認します。
-.. 容量制限の使用状況とオブジェクト数制限の使用状況を示すバーを確認します。使用率が100%または100%に近い場合は、制限値を増やすか、一部のオブジェクトを削除することを検討してください。
+.. 容量制限の使用状況バーを表示します。使用率が100%または100%に近い場合は、制限値を増やすか、一部のオブジェクトを削除することを検討してください。
 .. 必要に応じて、*[Delete objects in bucket]*および*[Delete bucket]*を選択します。
 +
 [CAUTION]
@@ -88,7 +88,6 @@ S3 オブジェクトのロック:: バケットでS3オブジェクトロック
 **** link:manage-bucket-consistency.html["バケットの整合性の管理"]
 **** link:enabling-or-disabling-last-access-time-updates.html["最終アクセス時間の更新"]
 **** link:../tenant/creating-s3-bucket.html#capacity-limit["容量制限"]
-**** link:../tenant/creating-s3-bucket.html#object-count-limit["オブジェクト数の制限"]
 **** link:changing-bucket-versioning.html["オブジェクトのバージョン管理"]
 **** link:using-s3-object-lock.html["S3 オブジェクトのロック"]
 **** link:update-default-retention-settings.html["デフォルトのバケット保持"]
@@ -98,11 +97,10 @@ S3 オブジェクトのロック:: バケットでS3オブジェクトロック
 *** *プラットフォームサービス*：link:considerations-for-platform-services.html["プラットフォームサービスを管理します"]（テナントで許可されている場合）
 *** *バケットアクセス*：オプション設定を表示または変更します。特定のアクセス権限が必要です。
 +
-**** 他のドメインにあるWebアプリケーションからバケットとバケット内のオブジェクトにアクセスできるようにを設定しますlink:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["バケットとオブジェクトのCORS"]。
+**** 他のドメインにあるWebアプリケーションからバケットとバケット内のオブジェクトにアクセスできるようにを設定しますlink:configuring-cross-origin-resource-sharing-cors.html["Cross-Origin Resource Sharing （ CORS ）"]。
 **** link:../tenant/manage-bucket-policy.html["ユーザアクセスの制御"]（S3バケットとそのバケット内のオブジェクト）。
 
 
-*** *ブランチ*:バケットのブランチバケットのリストを表示します。link:../tenant/manage-branch-buckets.html["新しいブランチバケットを作成するか、ブランチバケットを管理します。"]です。
 
 
 

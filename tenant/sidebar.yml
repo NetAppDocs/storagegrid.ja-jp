@@ -70,8 +70,6 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: バケットの詳細を表示します
     url: "/tenant/viewing-s3-bucket-details.html"
-  - title: ブランチバケットの管理
-    url: "/tenant/manage-branch-buckets.html"
   - title: バケットへのILMポリシータグの適用
     url: "/tenant/ilm-policy-tags.html"
   - title: バケットポリシーの管理
@@ -86,10 +84,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: S3オブジェクトロックのデフォルトの保持期間を更新します
     url: "/tenant/update-default-retention-settings.html"
-  - title: バケットとオブジェクトのCORSの設定
-    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
-  - title: 管理インターフェイスのCORSを有効にする
-    url: "/tenant/enable-cross-origin-resource-sharing-for-management-interface.html"
+  - title: Cross-Origin Resource Sharing （ CORS ）の設定
+    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
   - title: バケット内のオブジェクトを削除する
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: バケットを削除します

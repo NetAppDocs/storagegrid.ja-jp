@@ -14,7 +14,7 @@ summary: StorageGRID のログを問題のトラブルシューティングに�
 StorageGRID のログを問題のトラブルシューティングに使用できます。
 
 
-NOTE: ログを外部syslogサーバに送信したり、監査情報の送信先（や `nms.log`など）を変更したりする場合は `bycast.log`、を参照してくださいlink:../monitor/configure-audit-messages.html#["監査メッセージと外部syslogサーバの設定"]。
+NOTE: ログを外部syslogサーバに送信したり、監査情報の送信先（や `nms.log`など）を変更したりする場合は `bycast.log`、を参照してくださいlink:../monitor/configure-audit-messages.html#["監査メッセージとログの送信先を設定します"]。
 
 
 

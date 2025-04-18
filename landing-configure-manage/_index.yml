@@ -26,7 +26,7 @@ indexpage:
     - title: 管理者グループの権限
       url: "../admin/admin-group-permissions.html"
     - title: シングルサインオンを設定します
-      url: "../admin/how-sso-works.html"
+      url: "../admin/configuring-sso.html"
   - title: グリッドフェデレーションを使用する
     links:
     - title: グリッドフェデレーションとは

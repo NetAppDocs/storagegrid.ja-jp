@@ -23,7 +23,7 @@ LinuxホストにStorageGRIDノードが導入されている場合はlink:linux
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]リカバリパッケージをダウンロード
 [role="quick-margin-para"]
-アップグレードを開始する前に、現在のリカバリパッケージをダウンロードします。
+アップグレードを開始する前に、最新のリカバリパッケージをダウンロードしてください。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4つ"]アップグレードの事前確認を実行
 [role="quick-margin-para"]

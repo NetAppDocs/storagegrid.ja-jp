@@ -23,7 +23,7 @@ settings:
   langs: ja-jp,us-en,de-de,es-es,fr-fr,it-it,pt-br,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 12.0ドキュメント
+  - title: StorageGRID 11.9のドキュメント
     url: "/index.html"
   - title: StorageGRIDアプライアンス
     url: "/storagegrid-hardware.html"
@@ -102,10 +102,6 @@ sidebar:
             url: "/maintain/considerations-for-decommissioning-storage-nodes.html"
           - title: ADCクォーラム
             url: "/maintain/understanding-adc-service-quorum.html"
-          - title: ADCサービスの移動
-            url: "/maintain/move-adc-service.html"
-          - title: データ専用ノードに変換
-            url: "/maintain/convert-to-data-only-node.html"
           - title: ILM ポリシーとストレージ構成を確認します
             url: "/maintain/reviewing-ilm-policy-and-storage-configuration.html"
           - title: ストレージノードを統合します

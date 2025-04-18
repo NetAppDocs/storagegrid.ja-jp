@@ -365,7 +365,7 @@ FabricPool で使用する新しいテナントとバケットを作成するか
 .新しいテナントとバケット
 --
 . 新しいテナントとバケットを作成するには、*[Tenant name]*を入力します。たとえば、 `FabricPool tenant`です。
-. StorageGRIDシステムで使用するlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]か、またはlink:../admin/how-sso-works.html["シングルサインオン（SSO）"]その両方に基づいて、テナントアカウントのルートアクセスを定義します。
+. StorageGRIDシステムで使用するlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]か、またはlink:../admin/configuring-sso.html["シングルサインオン（SSO）"]その両方に基づいて、テナントアカウントのルートアクセスを定義します。
 +
 [cols="1a,3a"]
 |===

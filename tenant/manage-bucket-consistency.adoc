@@ -76,7 +76,7 @@ NOTE: バケットのバージョン管理、S3オブジェクトロック、お
 次のバケット設定では整合性が強くなく、変更の可用性も高くなります。これらの設定の変更が反映されるまでに時間がかかることがあります。
 
 * link:considerations-for-platform-services.html["プラットフォームサービスの設定：通知、レプリケーション、検索の統合"]
-* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["バケットとオブジェクトに対するStorageGRID CORSの設定"]
+* link:configuring-cross-origin-resource-sharing-cors.html["CORS設定"]
 * <<change-bucket-consistency,バケットの整合性を変更>>
 
 

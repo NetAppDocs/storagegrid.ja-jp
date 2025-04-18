@@ -1,10 +1,10 @@
 ---
 permalink: admin/requirements-for-sso.html 
 sidebar: sidebar 
-keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
 summary: StorageGRID システムでシングルサインオンを有効にする前に、要件と考慮事項を確認してください。 
 ---
-= SSOの要件と考慮事項
+= シングルサインオンの要件と考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ StorageGRID システムでシングルサインオン（SSO）を有効にす�
 StorageGRID では、次の SSO アイデンティティプロバイダ（ IdP ）をサポートしています。
 
 * Active Directory フェデレーションサービス（ AD FS ）
-* エントラID
+* Azure Active Directory （ Azure AD ）
 * PingFederate
 
 
@@ -35,16 +35,16 @@ SSO アイデンティティプロバイダを設定する前に、 StorageGRID 
 Active Directory
  a| 
 * Active Directory
-* エントラID
+* Azure
 * PingFederate
 
 
 
 
  a| 
-エントラID
+Azure
  a| 
-エントラID
+Azure
 
 |===
 

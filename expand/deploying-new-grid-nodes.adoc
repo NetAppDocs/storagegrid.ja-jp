@@ -145,6 +145,9 @@ IP を手動で入力します
 
 . StorageGRID アプライアンスインストーラのホームページで、「インストールの開始」を選択します。
 +
+image::../media/appliance_installer_home_start_installation_enabled.gif[この図には説明が付随しています。]
+
++
 現在の状態が「Installation is in progress」に変わり、[Monitor Installation]ページが表示されます。
 
 . 拡張に複数のアプライアンスノードが含まれている場合は、アプライアンスごとに上記の手順を繰り返します。
@@ -155,6 +158,9 @@ NOTE: 一度に複数のアプライアンスストレージノードを導入�
 . モニタのインストールページに手動でアクセスする必要がある場合は、メニューバーから * モニタのインストール * を選択します。
 +
 Monitor Installation ページにインストールの進行状況が表示されます。
+
++
+image::../media/monitor_installation_configure_storage.gif[この図には説明が付随しています。]
 
 +
 青色のステータスバーは、現在進行中のタスクを示します。緑のステータスバーは、正常に完了したタスクを示します。
@@ -185,5 +191,8 @@ NOTE: インストーラは、以前のインストールで完了したタス�
 +
 
 NOTE: この拡張で追加したすべてのノードが承認できる状態になるまでは、 Grid Manager でノードを承認しないでください。
+
++
+image::../media/monitor_installation_install_sgws.gif[この図には説明が付随しています。]
 
 

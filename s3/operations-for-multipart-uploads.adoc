@@ -30,10 +30,9 @@ summary: このセクションでは、 StorageGRID でのマルチパートア�
 ** パートに対して ILM を評価する際、 StorageGRID はオブジェクトのサイズではなくパートのサイズでフィルタリングします。つまり、オブジェクト全体のILM要件を満たしていない場所にオブジェクトの一部を格納できます。たとえば、10GB以上のオブジェクトをすべてDC1に格納し、それより小さいオブジェクトをすべてDC2に格納するルールの場合、10パートのマルチパートアップロードの1GBの各パートは取り込み時にDC2に格納されます。ただし、オブジェクト全体に対してILMが評価されると、オブジェクトのすべての部分がDC1に移動されます。
 
 
-* マルチパートアップロードでは、すべての処理でStorageGRIDがサポートされlink:consistency.html["整合性の値"]ます。
+* マルチパートアップロードでは、すべての処理でStorageGRIDがサポートされlink:consistency-controls.html["整合性の値"]ます。
 * マルチパートアップロードを使用してオブジェクトを取り込んだ場合、はlink:../admin/what-object-segmentation-is.html["オブジェクトのセグメント化しきい値（1GiB）"]適用されません。
 * 必要に応じて、マルチパートアップロードでを使用できますlink:using-server-side-encryption.html["サーバ側の暗号化"]。SSE（StorageGRIDで管理されるキーによるサーバ側の暗号化）を使用するには、CreateMultipartUpload要求にのみ要求ヘッダーを含め `x-amz-server-side-encryption`ます。SSE-C（ユーザ指定のキーによるサーバ側の暗号化）を使用するには、CreateMultipartUpload要求と後続の各UploadPart要求に同じ3つの暗号化キー要求ヘッダーを指定します。
-* マルチパートアップロードされたオブジェクトは、ベースバケットのタイムスタンプの前に取り込みが開始された場合、アップロードがいつ完了したかに関係なく、に含まれlink:../tenant/manage-branch-buckets.html["分岐バケット"]ます。
 
 
 [cols="2a,3a"]

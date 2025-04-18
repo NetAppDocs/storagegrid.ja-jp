@@ -30,7 +30,6 @@ StorageGRID AutoSupportの設定を変更する場合は、プライマリ管理
 * * Event-triggered *：1時間ごと、または重大なシステムイベントが発生したときに、AutoSupportパッケージを自動的に送信します。デフォルト設定： Enabled （有効）。
 * *オンデマンド*：テクニカルサポートがStorageGRIDシステムにAutoSupportパッケージを自動的に送信するよう要求できるようにします。これは、問題をアクティブに使用している場合（HTTPS AutoSupport転送プロトコルが必要）に役立ちます。デフォルト設定： Disabled （無効）。
 * *User-triggered*: AutoSupportパッケージをいつでも手動で送信します。
-* *ログ収集*:link:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを手動で収集してAutoSupportパッケージを送信する"]。
 
 
 

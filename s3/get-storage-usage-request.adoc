@@ -72,4 +72,4 @@ Content-Type: application/xml
 応答では、格納されているすべてのオブジェクトバージョンがとの `DataBytes`値に加算され `ObjectCount`ます。削除マーカーは合計に追加されません `ObjectCount`。
 
 .関連情報
-link:consistency.html["整合性"]
+link:consistency-controls.html["整合性の値"]

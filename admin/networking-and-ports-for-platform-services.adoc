@@ -20,10 +20,6 @@ S3 テナントにプラットフォームサービスの使用を許可する�
 * ローカルでホストされる Elasticsearch クラスタ
 * Amazon Simple Notification Serviceメッセージの受信をサポートするローカルアプリケーション
 * ローカルでホストされるKafkaクラスタ
-* HTTP POST通知要求をサポートする外部またはローカルでホストされるWebhookエンドポイント。
-+
-このエンドポイントは、さまざまなWebサーバー、フレームワーク、またはFluentdなどのData Processingツールでホストできます。
-
 * StorageGRID の同じインスタンス上または別のインスタンス上の、ローカルにホストされる S3 バケット
 * Amazon Web Services 上のエンドポイントなどの外部エンドポイント。
 

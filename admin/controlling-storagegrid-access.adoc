@@ -32,16 +32,16 @@ NOTE: 別の LDAP v3 サービスを使用する場合は、テクニカルサ�
 
 == シングルサインオンを有効にします
 
-StorageGRID システムでは、 Security Assertion Markup Language 2.0 （ SAML 2.0 ）標準を使用したシングルサインオン（ SSO ）がサポートされます。管理が完了したらlink:how-sso-works.html["SSOを設定して有効にします"]、Grid Manager、Tenant Manager、グリッド管理API、またはテナント管理APIにアクセスするすべてのユーザを外部のアイデンティティプロバイダによって認証する必要があります。ローカルユーザはStorageGRID にサインインできません。
+StorageGRID システムでは、 Security Assertion Markup Language 2.0 （ SAML 2.0 ）標準を使用したシングルサインオン（ SSO ）がサポートされます。管理が完了したらlink:configuring-sso.html["SSOを設定して有効にします"]、Grid Manager、Tenant Manager、グリッド管理API、またはテナント管理APIにアクセスするすべてのユーザを外部のアイデンティティプロバイダによって認証する必要があります。ローカルユーザはStorageGRID にサインインできません。
 
 
 
 == プロビジョニングパスフレーズを変更します
 
-プロビジョニングパスフレーズは、インストールやメンテナンスの多くの手順、およびStorageGRIDリカバリパッケージのダウンロードで必要になります。また、 StorageGRID システムのグリッドトポロジ情報と暗号化キーのバックアップをダウンロードする際にもパスフレーズが必要です。必要に応じて実行できますlink:changing-provisioning-passphrase.html["パスフレーズを変更します"]。
+プロビジョニングパスフレーズは、多くのインストールやメンテナンスの手順、および StorageGRID リカバリパッケージのダウンロードで必要になります。また、 StorageGRID システムのグリッドトポロジ情報と暗号化キーのバックアップをダウンロードする際にもパスフレーズが必要です。必要に応じて実行できますlink:changing-provisioning-passphrase.html["パスフレーズを変更します"]。
 
 
 
 == ノードのコンソールパスワードを変更します
 
-グリッド内の各ノードにはノードコンソールのパスワードが設定されています。このパスワードは、SSHを使用してノードに「admin」としてログインするか、VM /物理コンソール接続の場合はrootユーザとしてログインする必要があります。必要に応じて、ノードごとに実行できますlink:change-node-console-password.html["ノードのコンソールパスワードを変更します"]。
+グリッド内の各ノードには一意のノードコンソールパスワードが設定されます。このパスワードは、SSHを使用してノードに「admin」としてログインするか、VM /物理コンソール接続の場合はrootユーザとしてログインする必要があります。必要に応じて、ノードごとに実行できますlink:change-node-console-password.html["ノードのコンソールパスワードを変更します"]。

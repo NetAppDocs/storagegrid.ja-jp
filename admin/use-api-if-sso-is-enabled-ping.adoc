@@ -11,7 +11,7 @@ summary: シングルサインオン（ SSO ）を設定して有効にし、か
 
 
 [role="lead"]
-を使用しており、SSOプロバイダとしてPingFederateを使用している場合link:../admin/how-sso-works.html["シングルサインオン（ SSO ）の設定と有効化"]は、一連のAPI要求を実行して、グリッド管理APIまたはテナント管理APIに有効な認証トークンを取得する必要があります。
+を使用しており、SSOプロバイダとしてPingFederateを使用している場合link:../admin/configuring-sso.html["シングルサインオン（ SSO ）の設定と有効化"]は、一連のAPI要求を実行して、グリッド管理APIまたはテナント管理APIに有効な認証トークンを取得する必要があります。
 
 
 

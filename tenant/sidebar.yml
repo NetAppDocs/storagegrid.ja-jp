@@ -39,14 +39,12 @@ entries:
     entries:
     - title: S3グループを作成
       url: "/tenant/creating-groups-for-s3-tenant.html"
-    - title: Swiftグループを作成する
-      url: "/tenant/creating-groups-for-swift-tenant.html"
     - title: テナント管理権限
       url: "/tenant/tenant-management-permissions.html"
     - title: グループの管理
       url: "/tenant/manage-groups.html"
-  - title: ローカルユーザを管理します
-    url: "/tenant/managing-local-users.html"
+  - title: ユーザの管理
+    url: "/tenant/manage-users.html"
 - title: S3 アクセスキーを管理します
   entries:
   - title: テナントアクセスキー
@@ -70,6 +68,10 @@ entries:
     url: "/tenant/creating-s3-bucket.html"
   - title: バケットの詳細を表示します
     url: "/tenant/viewing-s3-bucket-details.html"
+  - title: ブランチバケットとは
+    url: "/tenant/what-is-branch-bucket.html"
+  - title: ブランチバケットを管理する
+    url: "/tenant/manage-branch-buckets.html"
   - title: バケットへのILMポリシータグの適用
     url: "/tenant/ilm-policy-tags.html"
   - title: バケットポリシーの管理
@@ -84,8 +86,8 @@ entries:
     url: "/tenant/using-s3-object-lock.html"
   - title: S3オブジェクトロックのデフォルトの保持期間を更新します
     url: "/tenant/update-default-retention-settings.html"
-  - title: Cross-Origin Resource Sharing （ CORS ）の設定
-    url: "/tenant/configuring-cross-origin-resource-sharing-cors.html"
+  - title: バケットとオブジェクトの CORS を構成する
+    url: "/tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html"
   - title: バケット内のオブジェクトを削除する
     url: "/tenant/deleting-s3-bucket-objects.html"
   - title: バケットを削除します

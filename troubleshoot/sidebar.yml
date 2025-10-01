@@ -20,12 +20,8 @@ entries:
     - title: オブジェクトを読み出す方法
       pdf-filename: 失われたオブジェクトデータと欠落しているオブジェクトデータのトラブルシューティング
       url: "/troubleshoot/troubleshooting-lost-and-missing-object-data.html"
-    - title: 損失オブジェクトを調査する
-      url: "/troubleshoot/investigating-lost-objects.html"
-    - title: 失われた可能性があるオブジェクトを検索してリストアします
-      url: "/troubleshoot/searching-for-and-restoring-potentially-lost-objects.html"
-    - title: 損失オブジェクトと欠落オブジェクトのカウントをリセットします
-      url: "/troubleshoot/resetting-lost-and-missing-object-counts.html"
+    - title: 紛失した可能性のある物品を調査する
+      url: "/troubleshoot/investigating-potentially-lost-objects.html"
   - title: Low object data storage アラートのトラブルシューティングを行います
     url: "/troubleshoot/troubleshooting-low-object-data-storage-alert.html"
   - title: 読み取り専用のローウォーターマーク上書きアラートのトラブルシューティング
@@ -40,3 +36,5 @@ entries:
   url: "/troubleshoot/troubleshooting-network-hardware-and-platform-issues.html"
 - title: 外部 syslog サーバのトラブルシューティングを行います
   url: "/troubleshoot/troubleshooting-syslog-server.html"
+- title: ロードバランサのキャッシュのトラブルシューティング
+  url: "/troubleshoot/troubleshooting-load-balancer-caching.html"

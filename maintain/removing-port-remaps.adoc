@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove port remap, removing port remap, port remap 
 summary: ロードバランササービスのエンドポイントを設定する場合、ポートの再マッピングのマッピング先ポートとしてすでに設定されているポートを使用するには、まず既存のポートの再マッピングを削除する必要があります。そうしないと、エンドポイントが有効になりません。ノードのすべてのポートの再マッピングを削除するには、再マッピングされたポートが競合している各管理ノードおよびゲートウェイノードでスクリプトを実行する必要があります。 
 ---
-= ポートの再マッピングを削除
+= StorageGRIDアプライアンスのポート再マップを削除します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -25,6 +25,7 @@ NOTE: ポートの再マッピングでクライアントアクセスが可能�
 NOTE: この手順 は、ベアメタルホスト上のコンテナとして導入した StorageGRID システムでは機能しません。の手順を参照してくださいlink:removing-port-remaps-on-bare-metal-hosts.html["ベアメタルホストでのポートの再マッピングの削除"]。
 
 .手順
+. デフォルトでは外部 SSH アクセスはブロックされます。必要に応じて、link:../admin/manage-external-ssh-access.html["一時的にアクセスを許可する"] 。
 . ノードにログインします。
 +
 .. 次のコマンドを入力します。 `ssh -p 8022 admin@node_IP`
@@ -43,4 +44,5 @@ rootとしてログインすると、プロンプトがからに `#`変わりま
 . ノードをリブートします。 `reboot`
 . コマンドシェルからログアウトします。 `exit`
 . 再マッピングされたポートが競合している管理ノードおよびゲートウェイノードごとに上記の手順を繰り返します。
+. 外部SSHアクセスを許可している場合は、link:../admin/manage-external-ssh-access.html["アクセスをブロックする"]ポートの再マップの削除が完了したら。
 

@@ -1,0 +1,22 @@
+---
+permalink: monitor/using-task-tab.html 
+sidebar: sidebar 
+keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
+summary: 'すべてのノードに対して [タスク] タブが表示されます。このタブを使用して、ノードの名前を変更したり、ノードを再起動したり、アプライアンス ノードをメンテナンス モードにしたりできます。ストレージ ノードの場合、ストレージの状態を設定できます。' 
+---
+= [タスク]タブの使用
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+すべてのノードに対して [タスク] タブが表示されます。このタブを使用して、ノードの名前を変更したり、ノードを再起動したり、アプライアンス ノードをメンテナンス モードにしたりできます。ストレージ ノードの場合、ストレージの状態を設定できます。
+
+このタブの各オプションの完全な要件と手順については、次を参照してください。
+
+* link:../maintain/rename-grid-site-node-overview.html["グリッド、サイト、ノードの名前を変更します"]
+* link:../maintain/rebooting-grid-node-from-grid-manager.html["グリッドノードをリブートします"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["アプライアンスをメンテナンスモードにします"^]
+* ストレージ ノードに直接接続されたボリュームまたは SAN ボリュームを追加した後、またはストレージ ノードを回復した後、ストレージ ノードのストレージ状態を確認または設定します。これらの手順は、これらのタスクを説明するトピックに記載されています。
+

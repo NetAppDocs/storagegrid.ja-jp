@@ -22,19 +22,16 @@ SNMPおよびMIBファイルの詳細については、を参照してくださ�
 MIBファイルにアクセスする手順は、次のとおりです。
 
 .手順
-. * configuration * > * Monitoring * > * SNMP agent * を選択します。
+. *構成* > *監視* > *SNMP エージェント* を選択します。
 . [SNMP agent]ページで、ダウンロードするファイルを選択します。
 +
 ** * NETAPP-STORAGEGRID-MIB.txt *：すべての管理ノードでアクセス可能なアラートテーブルと通知（トラップ）を定義します。
 ** * ES-NetApp-06-MIB.mib *：Eシリーズベースのアプライアンスのオブジェクトと通知を定義します。
 ** * mib_1_10.zip *：BMCインターフェイスを使用するアプライアンスのオブジェクトと通知を定義します。
 +
-[]
-====
 
 TIP: また、任意のStorageGRIDノードの次の場所にあるMIBファイルにアクセスすることもできます。 `/usr/share/snmp/mibs`
 
-====
 
 
 . MIBファイルからStorageGRID OIDを抽出するには、次の手順を実行します。
@@ -50,12 +47,13 @@ TIP: また、任意のStorageGRIDノードの次の場所にあるMIBファイ�
 +
 `root@user-adm1:~ # snmptranslate -Tso | paste -d " " - - | grep 28669`
 
-
-
-
-
++
 
 TIP: この `snmptranslate`コマンドには、MIBの探索に役立つ多くのオプションがあります。このコマンドは、任意のStorageGRID ノードで使用できます。
+
+
+
+
 
 
 
@@ -76,74 +74,95 @@ NetApp StorageGRIDエンティティ用のMIBモジュール。
 
 == MIBオフシエクト
 
-[cols="1a,1a,2a"]
+[cols="1a,1a,1a,1a,1a,2a"]
 |===
-| オブジェクト名 | オブジェクトID（OID） | 製品説明 
+| オブジェクト名 | オブジェクトID（OID） | タイプ | アクセス | MIBモジュール | 製品説明 
 
 
 | activeAlertCount | 1.3.6.1.4.1.+789.28669.1.3  a| 
+整数32
+ a| 
+read-only
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 activeAlertTable内のアクティブなアラートの数。
 
 
 
 | activeAlertTableの略 | 1.3.6.1.4.1.+789.28669.1.4  a| 
+ActiveAlertEntryのシーケンス
+ a| 
+アクセス不可
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 StorageGRID のアクティブなアラートのテーブル。
 
 
 
+| アクティブアラートエントリ | .1.3.6.1.4.1.  + 789.28669.1.4.1  a| 
+順序
+ a| 
+アクセス不可
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
+アラート ID でインデックス付けされた単一のStorageGRIDアラート。
+
+
+
 | activeAlertId | 1.3.6.1.4.1.+789.28669.1.4.1.1  a| 
+オクテット文字列
+ a| 
+read-only
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 アラートのID。現在アクティブなアラートのセット内でのみ一意です。
 
 
 
 | activeAlertNameの略 | 1.3.6.1.4.1.+789.28669.1.4.1.2  a| 
+オクテット文字列
+ a| 
+read-only
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 アラートの名前。
 
 
 
 | activeAlertInstanceの略 | 1.3.6.1.4.1.+789.28669.1.4.1.3  a| 
+オクテット文字列
+ a| 
+read-only
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 アラートを生成したエンティティの名前（通常はノード名）。
 
 
 
 | activeAlertSeverityの略 | 1.3.6.1.4.1.+789.28669.1.4.1.4  a| 
+オクテット文字列
+ a| 
+read-only
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
 アラートの重大度。
 
 
 
 | activeAlertStartTimeの略 | 1.3.6.1.4.1.+789.28669.1.4.1.5  a| 
-アラートがトリガーされた日時。
-
-|===
-
-
-== 通知タイプ（トラップ）
-
-すべての通知には、変数バインドとして次の変数が含まれます。
-
-* activeAlertId
-* activeAlertNameの略
-* activeAlertInstanceの略
-* activeAlertSeverityの略
-* activeAlertStartTimeの略
-
-
-[cols="1a,1a,2a"]
-|===
-| 通知のタイプ | オブジェクトID（OID） | 製品説明 
-
-
-| activeMinorAlertの略 | 1.3.6.1.4.1.+789.28669.0.6  a| 
-重大度がMinorのアラート
-
-
-
-| activeMajorAlertの略 | 1.3.6.1.4.1.+789.28669.0.7  a| 
-Major重大度のアラート
-
-
-
-| activeCriticalAlertの略 | 1.3.6.1.4.1.+789.28669.0.8  a| 
-重大度がCriticalのアラート
+日時
+ a| 
+read-only
+ a| 
+NETAPP-STORAGEGRID-MIB
+ a| 
+アラートがトリガーされた時刻。
 
 |===

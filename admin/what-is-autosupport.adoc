@@ -13,14 +13,14 @@ summary: AutoSupport機能を使用すると、StorageGRIDからNetAppテクニ�
 [role="lead"]
 AutoSupport機能を使用すると、StorageGRIDからNetAppテクニカルサポートに健全性パッケージとステータスパッケージを送信できます。
 
-AutoSupportを使用すると、問題の特定と解決にかかる時間を大幅に短縮できます。また、システムのストレージニーズを監視し、新しいノードやサイトを追加する必要があるかどうかを判断するための支援も行います。必要に応じて、AutoSupportパッケージを1つの追加の送信先に送信するように設定できます。
+AutoSupportを使用すると、問題をより早く解決できます。テクニカル サポートでは、システムのストレージのニーズを監視し、新しいノードまたはサイトを追加する必要があるかどうかを判断するのに役立ちます。オプションで、 AutoSupport はパッケージを 1 つの追加の送信先に送信できます。
 
 StorageGRIDには、次の2種類のAutoSupportがあります。
 
 * * StorageGRID AutoSupport *はStorageGRIDソフトウェアの問題を報告します。StorageGRIDの初回インストール時にデフォルトで有効になっています。必要に応じてできますlink:configure-autosupport-grid-manager.html["デフォルトのAutoSupport設定の変更"]。
 +
 
-NOTE: StorageGRID AutoSupportが有効になっていない場合は、グリッドマネージャのダッシュボードにメッセージが表示されます。このメッセージには、 AutoSupport 設定ページへのリンクが含まれています。メッセージを閉じても、 AutoSupport が無効なままであっても、ブラウザキャッシュがクリアされるまでは再度表示されません。
+NOTE: StorageGRID AutoSupportが有効になっていない場合、Grid Manager ダッシュボードにメッセージが表示されます。メッセージには、 AutoSupport構成ページへのリンクが含まれています。メッセージを閉じると、 AutoSupport が無効のままであっても、ブラウザのキャッシュがクリアされるまでメッセージは再び表示されません。
 
 * *アプライアンス・ハードウェアAutoSupport *はStorageGRIDアプライアンスの問題を報告します。そうしなければならないlink:configure-autosupport-grid-manager.html#autosupport-for-appliances["各アプライアンスでのハードウェアAutoSupportの設定"]
 

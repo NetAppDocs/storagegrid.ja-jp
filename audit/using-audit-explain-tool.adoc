@@ -48,7 +48,7 @@ SPUT S3 PUT object bucket1/part3.txt tenant:92484777680322627870  cbid:5373D7383
 `audit-explain audit.log 2019-08-12.txt.gz 2019-08-13.txt.gz`
 
 +
-`audit-explain /var/local/log/*`
+`audit-explain /var/local/audit/export/*`
 
 * パイプからの入力を受け入れます。これにより、コマンドまたはその他の方法を使用して入力をフィルタリングおよび前処理 `grep`できます。例：
 +
@@ -84,9 +84,9 @@ rootとしてログインすると、プロンプトがからに `#`変わりま
 
 
 
-. 次のコマンドを入力します。 `/var/local/log/audit.log`は、分析するファイルの名前と場所を示します。
+. 次のコマンドを入力します。 `/var/local/audit/export/audit.log`分析するファイルの名前と場所を表します。
 +
-`$ audit-explain /var/local/log/audit.log`
+`$ audit-explain /var/local/audit/export/audit.log`
 
 +
 この `audit-explain`ツールは、指定されたファイル内のすべてのメッセージの判読可能な解釈を出力します。

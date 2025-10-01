@@ -33,7 +33,7 @@ VMware vSphere Web Client を使用して、最初に障害グリッドノード
 . 障害グリッドノードがストレージノードである場合は、データストレージに使用されている仮想ハードディスクが破損していないかどうかを確認し、リカバリされたグリッドノードへの再接続に備えて保持しておきます。
 . 仮想マシンの電源をオフにします。
 . 仮想マシンを削除するには、 * Actions * > * All vCenter Actions * > * Delete from Disk * を選択します。
-. 新しい仮想マシンを交換用ノードとして導入し、 1 つ以上の StorageGRID ネットワークに接続します。手順については'を参照してくださいlink:../vmware/deploying-storagegrid-node-as-virtual-machine.html["仮想マシンとしてのStorageGRID ノードの導入"]
+. 交換ノードとなる新しい仮想マシンを展開し、1 つ以上のStorageGRIDネットワークに接続します。手順については、link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["仮想マシンとしてのStorageGRID ノードの導入"] 。
 +
 ノードを導入する際には、必要に応じてノードポートを再マッピングしたり、 CPU やメモリの設定を増やしたりできます。
 

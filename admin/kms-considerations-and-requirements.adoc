@@ -35,7 +35,7 @@ http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html["Key Managem
 
 アプライアンスノードと設定された KMS の間の通信には、セキュアな TLS 接続が使用されます。StorageGRIDでは、KMSがサポートする内容と使用している内容に基づいて、KMSまたはKMSクラスタへのKMIP接続を確立する際に、TLS 1.2またはTLS 1.3のいずれかのプロトコルをサポートできますlink:manage-tls-ssh-policy.html["TLSおよびSSHポリシー"]。
 
-StorageGRIDは、接続時にプロトコルと暗号（TLS 1.2）または暗号スイート（TLS 1.3）をKMSとネゴシエートします。使用可能なプロトコルバージョンと暗号/暗号スイートを確認するには、グリッドのアクティブなTLSおよびSSHポリシー（*設定*>*セキュリティ**セキュリティ設定*）のセクションを参照してください `tlsOutbound`。
+StorageGRID は、接続時に KMS とプロトコルと暗号 (TLS 1.2) または暗号スイート (TLS 1.3) をネゴシエートします。利用可能なプロトコルバージョンと暗号/暗号スイートを確認するには、 `tlsOutbound`グリッドのアクティブな TLS および SSH ポリシーのセクション (* [構成] > [セキュリティ] [セキュリティ設定])。
 
 
 

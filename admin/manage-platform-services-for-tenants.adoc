@@ -15,6 +15,8 @@ summary: プラットフォームサービスには、 CloudMirror レプリケ�
 
 S3 テナントアカウントでプラットフォームサービスを有効にする場合は、テナントがそのサービスの使用に必要な外部リソースにアクセスできるようにグリッドを設定する必要があります。
 
+プラットフォームサービスはサポートされていませんlink:../tenant/what-is-branch-bucket.html["ブランチバケット"]。
+
 
 
 == CloudMirror レプリケーション
@@ -23,17 +25,16 @@ StorageGRID CloudMirrorレプリケーションサービスは、StorageGRIDバ�
 
 たとえば、 CloudMirror レプリケーションを使用して特定の顧客レコードを Amazon S3 にミラーリングし、 AWS サービスを利用してデータを分析することができます。
 
+CloudMirrorレプリケーションには、クロスグリッドレプリケーション機能と重要な類似点と相違点がいくつかあります。詳細については、を参照してくださいlink:../admin/grid-federation-compare-cgr-to-cloudmirror.html["グリッド間レプリケーションとCloudMirrorレプリケーションを比較してください"]。
 
-NOTE: CloudMirrorレプリケーションには、クロスグリッドレプリケーション機能と重要な類似点と相違点がいくつかあります。詳細については、を参照してくださいlink:../admin/grid-federation-compare-cgr-to-cloudmirror.html["グリッド間レプリケーションとCloudMirrorレプリケーションを比較してください"]。
 
-
-NOTE: ソースバケットで S3 オブジェクトのロックが有効になっている場合、 CloudMirror レプリケーションはサポートされません。
+NOTE: ソースバケットで S3 オブジェクトロックが有効になっている場合、CloudMirror レプリケーションはサポートされません。
 
 
 
 == 通知
 
-バケット単位のイベント通知は、オブジェクトに対して実行された特定の処理に関する通知を、指定された外部のKafkaクラスタまたはAmazon Simple Notification Serviceに送信するために使用します。
+バケットごとのイベント通知は、オブジェクトに対して実行された特定のアクションに関する通知を、指定された外部 Kafka クラスター、Webhook エンドポイント、または Amazon Simple Notification Service に送信するために使用されます。
 
 たとえば、バケットに追加された各オブジェクトについてアラートが管理者に送信されるように設定できます。この場合、オブジェクトは重大なシステムイベントに関連付けられているログファイルです。
 

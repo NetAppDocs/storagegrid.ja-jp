@@ -63,7 +63,7 @@ NOTE: バケットの整合性を変更した場合、変更後に取り込ま�
 * link:deleting-s3-bucket-objects.html["バックグラウンドでの空のバケット削除"]
 * link:enabling-or-disabling-last-access-time-updates.html["最終アクセス時間"]
 * link:../s3/create-s3-lifecycle-configuration.html["バケットライフサイクル"]
-* link:../s3/bucket-and-group-access-policies.html["バケットポリシー"]
+* link:../s3/use-access-policies.html["バケットポリシー"]
 * link:../s3/operations-on-buckets.html["バケットのタグ付け"]
 * link:changing-bucket-versioning.html["バケットのバージョン管理"]
 * link:using-s3-object-lock.html["S3 オブジェクトのロック"]
@@ -76,7 +76,7 @@ NOTE: バケットのバージョン管理、S3オブジェクトロック、お
 次のバケット設定では整合性が強くなく、変更の可用性も高くなります。これらの設定の変更が反映されるまでに時間がかかることがあります。
 
 * link:considerations-for-platform-services.html["プラットフォームサービスの設定：通知、レプリケーション、検索の統合"]
-* link:configuring-cross-origin-resource-sharing-cors.html["CORS設定"]
+* link:configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["バケットとオブジェクトのStorageGRID CORSを構成する"]
 * <<change-bucket-consistency,バケットの整合性を変更>>
 
 

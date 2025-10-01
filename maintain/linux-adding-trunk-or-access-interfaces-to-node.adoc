@@ -14,12 +14,7 @@ summary: Linux ノードをインストールしたあとで、そのノード�
 Linux ノードをインストールしたあとで、そのノードにトランクインターフェイスまたはアクセスインターフェイスを追加できます。追加したインターフェイスは、 VLAN インターフェイスのページと HA グループのページに表示されます。
 
 .開始する前に
-* Linux プラットフォームへの StorageGRID のインストール手順を参照できるようにしておきます。
-+
-** link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-** link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-
-
+* あなたは、link:../swnodes/index.html["StorageGRIDのインストール手順"] Linux プラットフォーム上で。
 * あなたはファイルを持ってい `Passwords.txt`ます。
 * そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
 

@@ -170,7 +170,7 @@ StorageGRID ロードバランササービスを使用するには、* StorageGR
  a| 
 ロードバランシングに使用する StorageGRID ポート。最初に作成するエンドポイントのデフォルトは10433ですが、未使用の外部ポートを入力できます。80または443を入力すると、ゲートウェイノードでのみエンドポイントが設定されます。これらのポートは管理ノードで予約されているためです。
 
-*注：*他のグリッドサービスで使用されるポートは許可されません。を参照してくださいlink:../network/network-port-reference.html["ネットワークポートのリファレンス"]。
+*注意:* 他のグリッド サービスで使用されるポートは許可されません。見るlink:../network/internal-grid-node-communications.html#storagegrid-internal-ports["StorageGRID の内部ポート"] 。
 
 
 
@@ -347,7 +347,7 @@ S3アプリケーションが外部ロードバランサへの接続に使用す
 +
 テナント名は一意である必要はありません。作成したテナントアカウントには、一意の数値アカウント ID が割り当てられます。
 
-. StorageGRIDシステムで使用するlink:using-identity-federation.html["アイデンティティフェデレーション"]か、またはlink:configuring-sso.html["シングルサインオン（SSO）"]その両方に基づいて、テナントアカウントのルートアクセスを定義します。
+. StorageGRIDシステムが使用するかどうかに基づいて、テナントアカウントのルートアクセスを定義します。link:using-identity-federation.html["アイデンティティフェデレーション"] 、link:how-sso-works.html["シングルサインオン（SSO）"] 、またはその両方。
 +
 [cols="1a,2a"]
 |===

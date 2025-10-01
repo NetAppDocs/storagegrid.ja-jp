@@ -25,7 +25,7 @@ Grid Manager のサインインページにアクセスするには、サポー�
 
 === SSOを使用します
 
-の場合、サインイン手順は少し異なりlink:configuring-sso.html["シングルサインオン（SSO）が設定されている"]ます。
+サインインの手順は、以下の場合、若干異なります。link:how-sso-works.html["シングルサインオン（SSO）が設定されている"] 。
 
 
 
@@ -70,9 +70,6 @@ NOTE: SSOは制限されたGrid Managerポートでは使用できません。�
 --
 .. Grid Manager のユーザ名とパスワードを入力します。
 .. 「サインイン」を選択します。
-+
-image::../media/sign_in_grid_manager_no_sso.png[サインインページ]
-
 
 
 --
@@ -81,23 +78,16 @@ image::../media/sign_in_grid_manager_no_sso.png[サインインページ]
 ** StorageGRID がSSOを使用しており、このブラウザで初めてURLにアクセスした場合は、次の手順を実行します。
 +
 ... 「サインイン」を選択します。[Account]フィールドに0を入力したままにしておくことができます。
+... 組織の SSO サインイン ページで標準の SSO 資格情報を入力します。
 +
-image::../media/sso_sign_in_first_time.png[SSO が有効でクッキーがない場合は、サインイン画面にサインインします]
+たとえば、 StorageGRIDが SSO を使用しており、以前に Grid Manager またはテナント アカウントにアクセスしたことがある場合は、次のようになります。
 
-... 組織の SSO サインインページで標準の SSO クレデンシャルを入力します。例：
 +
-image::../media/sso_organization_page.gif[組織の SSO サインインページの例]
+.... 0 *（Grid ManagerのアカウントID）を入力するか、最近のアカウントのリストに表示されている場合は* Grid Manager *を選択します。
+.... 「サインイン」を選択します。
+.... 組織の SSO サインインページで通常使用している SSO クレデンシャルを使用してサインインします。
 
 
-
-** StorageGRID でSSOを使用しており、Grid Managerまたはテナントアカウントに以前にアクセスしたことがある場合は、次の手順を実行します。
-+
-... 0 *（Grid ManagerのアカウントID）を入力するか、最近のアカウントのリストに表示されている場合は* Grid Manager *を選択します。
-+
-image::../media/sign_in_grid_manager_sso.png[SSO が有効になっている場合は、最近のアカウントリストから Grid Manager を選択する]
-
-... 「サインイン」を選択します。
-... 組織の SSO サインインページで通常使用している SSO クレデンシャルを使用してサインインします。
 
 
 
@@ -107,8 +97,6 @@ image::../media/sign_in_grid_manager_sso.png[SSO が有効になっている場�
 
 
 サインインすると、ダッシュボードを含むGrid Managerのホームページが表示されます。提供される情報については、を参照してくださいlink:../monitor/viewing-dashboard.html["ダッシュボードを表示および管理します"]。
-
-image::../media/grid_manager_dashboard.png[ダッシュボード]
 
 
 

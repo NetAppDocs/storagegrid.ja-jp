@@ -13,7 +13,7 @@ summary: アラート発生時に StorageGRID から SNMP 通知を送信する�
 [role="lead"]
 アラート発生時に StorageGRID から SNMP 通知を送信するには、 StorageGRID SNMP エージェントを有効にし、 1 つ以上のトラップ送信先を設定する必要があります。
 
-Grid Manager またはグリッド管理 API の SNMP エンドポイントで * configuration * > * Monitoring * > * SNMP エージェント * オプションを使用して、 StorageGRID SNMP エージェントを有効にして設定できます。SNMP エージェントは、 3 つのバージョンの SNMP プロトコルをすべてサポートします。
+グリッド マネージャの *構成* > *監視* > *SNMP エージェント* オプションまたはグリッド管理 API の SNMP エンドポイントを使用して、 StorageGRID SNMP エージェントを有効にして構成できます。  SNMP エージェントは、SNMP プロトコルの 3 つのバージョンすべてをサポートします。
 
 SNMPエージェントの設定方法については、を参照してくださいlink:using-snmp-monitoring.html["SNMP による監視を使用する"]。
 

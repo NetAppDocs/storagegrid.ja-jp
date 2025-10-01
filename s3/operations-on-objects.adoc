@@ -15,7 +15,7 @@ summary: このセクションでは、 StorageGRID システムでオブジェ�
 
 すべてのオブジェクトの処理に次の条件が適用されます。
 
-* StorageGRIDはlink:consistency-controls.html["整合性の値"]、次の例外を除き、オブジェクトに対するすべての処理でサポートされます。
+* StorageGRIDlink:consistency.html["整合性の値"]次の例外を除き、オブジェクトに対するすべての操作でサポートされます。
 +
 ** GetObjectAcl
 ** `OPTIONS /`
@@ -26,7 +26,6 @@ summary: このセクションでは、 StorageGRID システムでオブジェ�
 
 * 同じキーに書き込む 2 つのクライアントなど、競合するクライアント要求は、「 latest-wins 」ベースで解決されます。「 latest-wins 」評価は、 S3 クライアントが処理を開始するタイミングではなく、 StorageGRID システムが特定の要求を完了したタイミングで行われます。
 * StorageGRID バケット内のオブジェクトは、匿名ユーザまたは別のアカウントが作成したオブジェクトも含めて、すべてバケット所有者によって所有されます。
-* Swiftを使用してStorageGRID システムに取り込まれたデータオブジェクトにS3を使用してアクセスすることはできません。
 
 
 次の表に、 StorageGRID での S3 REST API オブジェクト処理の実装方法を示します。

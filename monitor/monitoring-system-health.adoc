@@ -117,11 +117,10 @@ image:../media/icon_alert_green_checkmark.png["緑色のチェックマークの
 
 *解決済みのアラート*：解決済みのアラートの履歴を検索して表示できます。
 
-必要に応じて、次のビデオを視聴しました。 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["ビデオ:アラートの概要"^]
+オプションとして、ビデオを視聴しました:
 
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[ビデオ:アラートの概要]
-
+.アラートの概要
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 次の表に、Grid Managerに表示される現在のアラートと解決済みのアラートの情報を示します。
 
 [cols="1a,3a"]

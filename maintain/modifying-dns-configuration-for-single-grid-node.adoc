@@ -13,9 +13,10 @@ summary: 導入環境全体でDNSをグローバルに設定する代わりに�
 [role="lead"]
 導入環境全体でDNSをグローバルに設定する代わりに、スクリプトを実行してDNSをグリッドノードごとに設定することができます。
 
-一般に、 Grid Manager で * maintenance * > * Network * > * DNS servers * オプションを使用して DNS サーバを設定します。次のスクリプトは、グリッドノードごとに異なる DNS サーバを使用する必要がある場合にのみ使用します。
+通常、DNS サーバーを構成するには、グリッド マネージャーの *メンテナンス* > *ネットワーク* > *DNS サーバー* オプションを使用する必要があります。異なるグリッド ノードに異なる DNS サーバーを使用する必要がある場合のみ、次のスクリプトを使用してください。
 
 .手順
+. デフォルトでは外部 SSH アクセスはブロックされます。必要に応じて、link:../admin/manage-external-ssh-access.html["一時的にアクセスを許可する"] 。
 . プライマリ管理ノードにログインします。
 +
 .. 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
@@ -77,4 +78,5 @@ Enter command [`add search <domain>|remove search <domain>|add nameserver <ip>`]
 . [[close_cmd_shell]]サーバ上のコマンドシェルを閉じます。 `exit`
 . グリッドノードごとに、～の手順を繰り返します<<log_in_to_node,ノードにログインします>><<close_cmd_shell,コマンドシェルを閉じています>>。
 . 他のサーバにパスワードなしでアクセスする必要がなくなった場合は、 SSH エージェントから秘密鍵を削除します。入力： `ssh-add -D`
+. 外部SSHアクセスを許可している場合は、link:../admin/manage-external-ssh-access.html["アクセスをブロックする"] DNS 構成の変更が完了したら。
 

@@ -24,7 +24,7 @@ Grid Managerを使用して接続とネットワークのパフォーマンス�
 また、特定のテナント、バケット、サブネット、またはロードバランサエンドポイントに関連するトラフィックを監視できるようにすることを検討してくださいlink:../admin/managing-traffic-classification-policies.html["ネットワークトラフィック分類ポリシーの作成"]。必要に応じて、トラフィック制限ポリシーを設定できます。
 
 .手順
-. [* nodes （ノード） ] を選択します
+. *ノード*を選択します。
 +
 Nodes ページが表示されます。グリッド内の各ノードが表形式で表示されます。
 
@@ -54,7 +54,7 @@ image::../media/nodes_page_network_communication.png[Nodes Page Network Comm の
 
 . トラフィック分類ポリシーに関連付けられたメトリックを使用して、ネットワークトラフィックを監視します。
 +
-.. * configuration * > * Network * > * traffic classification * を選択します。
+.. *構成* > *ネットワーク* > *トラフィック分類*を選択します。
 +
 [Traffic Classification Policies] ページが表示され、既存のポリシーがテーブルにリストされます。
 
@@ -82,7 +82,7 @@ image::../media/traffic_classification_policies_main_screen_w_examples.png[グ�
 個 々 のグリッドノードを監視して、リソースの使用量レベルを確認します。ノードが常に過負荷状態になっていると、効率的な処理に必要なノードの数が増えます。
 
 .手順
-. [* nodes * （ノード * ） ] ページでノードを選択します。
+. *ノード* ページからノードを選択します。
 . [*Hardware*] タブを選択して、 CPU 使用率とメモリ使用率のグラフを表示します。
 +
 image::../media/nodes_page_hardware_tab_graphs.png[ノードページハードウェアタブ]

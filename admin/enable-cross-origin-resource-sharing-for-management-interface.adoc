@@ -1,0 +1,42 @@
+---
+permalink: admin/enable-cross-origin-resource-sharing-for-management-interface.html 
+sidebar: sidebar 
+keywords: how to configure cross-origin resource sharing, cors, management, api, domain 
+summary: 'StorageGRID内のデータを別のドメインの管理 API を使用してアクセスできるようにする場合は、 StorageGRIDへの管理 API リクエストに対してクロスオリジン リソース共有 (CORS) を有効にすることができます。' 
+---
+= 管理インターフェースでStorageGRID CORSを有効にする
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+グリッド管理者は、別のドメインの管理 API を使用してStorageGRID内のデータにアクセスできるようにする場合、 StorageGRIDへの管理 API 要求に対してクロスオリジン リソース共有 (CORS) を有効にすることができます。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そのlink:../tenant/tenant-management-permissions.html["rootアクセス権限"]すべての CORS 構成リクエストへのアクセスを提供します。
+
+
+.タスクの内容
+CORS は、あるドメイン内のクライアント Web アプリケーションが別のドメイン内のリソースにアクセスできるようにするセキュリティ メカニズムです。例えば、ドメイン内のStorageGRIDの監視ダッシュボードを構築したいとします。 `\http://www.example.com` 。  StorageGRIDでCORSを有効にすると、 `\http://www.example.com` 「グリッドマネージャ」では、 StorageGRIDドメインは、 `\http://www.example.com` 。
+
+管理API（mgmt-api）リクエスト `application/json`または `multipart/formdata`リクエスト `Content-Type`CORS ではサポートされています。
+
+.手順
+. Grid Manager で、*構成* > *ネットワーク* > *管理インターフェイスの CORS 設定* に移動します。
+. *Grid Manager*、*Tenant Manager*、または両方のオプションを選択します。
++
+** *グリッド マネージャー*: クロスドメイン グリッド管理 API リクエストに対して CORS を有効にします。
+** *テナント マネージャー*: クロスドメイン テナント管理 API リクエストに対して CORS を有効にします。
+
+
+. *ドメイン* フィールドに他のドメインの URL を入力します。
++
+StorageGRIDで複数のドメインの CORS を有効にする場合は、「別のドメインを追加」を選択します。
+
+. [ 保存（ Save ） ] を選択します。
+
+
+.関連情報
+link:../tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["バケットとオブジェクトのStorageGRID CORSを構成する"]

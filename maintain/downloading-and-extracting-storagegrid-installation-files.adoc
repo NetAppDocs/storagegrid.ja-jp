@@ -41,7 +41,7 @@ Windowsを実行している場合は、ファイルを使用し `.zip`ます。
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -62,9 +62,12 @@ VMware
 +
 各プラットフォームの手順に記載されているパスは、アーカイブファイルによってインストールされた最上位ディレクトリに対する相対パスです。
 
-. をリカバリする場合はlink:../rhel/index.html["Red Hat Enterprise Linuxシステム"]、適切なファイルを選択します。
-
-
+. 回復中の場合link:../swnodes/index.html["ソフトウェアベースのノード"]適切なファイルを選択します。
++
+[role="tabbed-block"]
+====
+.RHEL
+--
 [cols="1a,1a"]
 |===
 | パスとファイル名 | 製品説明 
@@ -139,9 +142,9 @@ StorageGRID の API スキーマ
 *注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
 
 |===
-. をリカバリする場合はlink:../ubuntu/index.html["Ubuntu または Debian システム"]、適切なファイルを選択します。
-
-
+--
+.Ubuntu または Debian
+--
 [cols="1a,1a"]
 |===
 | パスとファイル名 | 製品説明 
@@ -221,9 +224,9 @@ StorageGRID の API スキーマ
 *注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
 
 |===
-. をリカバリする場合はlink:../vmware/index.html["VMware システム"]、適切なファイルを選択します。
-
-
+--
+.VMware
+--
 [cols="1a,1a"]
 |===
 | パスとファイル名 | 製品説明 
@@ -318,8 +321,15 @@ StorageGRID の API スキーマ
 *注*：アップグレードを実行する前に、これらのスキーマを使用して、アップグレード互換性テスト用の非本番環境のStorageGRID 環境がない場合、StorageGRID 管理APIを使用するように記述したコードが新しいStorageGRID リリースと互換性があることを確認できます。
 
 |===
+--
+====
+
+
 . StorageGRID アプライアンスベースのシステムをリカバリする場合は、該当するファイルを選択してください。
 
+
+
+NOTE: アプライアンスのインストールでは、ネットワーク トラフィックを回避する必要がある場合にのみこれらのファイルが必要です。アプライアンスは、リカバリ手順を実行する管理ノードから必要なファイルをダウンロードできます。
 
 [cols="1a,1a"]
 |===
@@ -336,5 +346,3 @@ StorageGRID の API スキーマ
 images-version-SHA.deb`。
 
 |===
-
-NOTE: アプライアンスのインストールの場合、これらのファイルが必要になるのは、ネットワークトラフィックを回避する必要がある場合だけです。アプライアンスは、プライマリ管理ノードから必要なファイルをダウンロードできます。

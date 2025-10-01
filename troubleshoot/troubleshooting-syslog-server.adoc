@@ -16,7 +16,7 @@ summary: 次の表に、を使用した外部syslogサーバに関するエラ�
 外部syslogサーバへの監査情報の送信の詳細については、次の項を参照してください。
 
 * link:../monitor/considerations-for-external-syslog-server.html["外部syslogサーバを使用する場合の考慮事項"]
-* link:../monitor/configure-audit-messages.html["監査メッセージと外部syslogサーバの設定"]
+* link:../monitor/configure-log-management.html["ログ管理と外部Syslogサーバーを構成する"]
 
 
 [cols="1a,3a"]

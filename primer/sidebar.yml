@@ -20,8 +20,6 @@ entries:
     url: "/primer/what-storage-node-is.html"
   - title: ゲートウェイノードとは
     url: "/primer/what-gateway-node-is.html"
-  - title: アーカイブノードとは
-    url: "/primer/what-archive-node-is.html"
 - title: StorageGRID によるデータの管理方法
   entries:
   - title: オブジェクトとは何ですか

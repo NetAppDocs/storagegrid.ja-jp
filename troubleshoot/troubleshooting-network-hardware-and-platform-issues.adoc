@@ -85,6 +85,7 @@ TLS handshake failed
 MTU 設定の違いから、 eth0 ネットワークの一部がジャンボフレーム用に設定されているが、すべてではないことがわかります。MTU サイズが 1000 を超えると、原因 のネットワークパフォーマンスの問題が発生する可能性があります。
 
 .手順
+. デフォルトでは外部 SSH アクセスはブロックされます。必要に応じて、link:../admin/manage-external-ssh-access.html["一時的にアクセスを許可する"] 。
 . すべてのノードの eth0 についての MTU 設定を表示します。
 +
 ** Grid Manager に用意されているクエリを使用する。
@@ -148,6 +149,7 @@ MTU を適用するネットワーク。次のネットワークタイプを 1 �
 |===
 
 
+. 外部SSHアクセスを許可している場合は、link:../admin/manage-external-ssh-access.html["アクセスをブロックする"]タスクが完了したら。
 
 
 
@@ -257,12 +259,12 @@ LinuxホストでホストされているStorageGRIDノードのネットワー�
 
 === MAC アドレスのクローニング
 
-ネットワークの問題は、 MAC アドレスのクローニングを使用して解決できる場合があります。仮想ホストを使用している場合は、各ネットワークの MAC アドレスクローニングキーの値をノード構成ファイルで「 true 」に設定します。この設定により、 StorageGRID コンテナの MAC アドレスがホストの MAC アドレスを使用するようになります。ノード構成ファイルを作成するには、またはの手順を参照してくださいlink:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linux"]link:../ubuntu/creating-node-configuration-files.html["Ubuntu または Debian"]。
+場合によっては、MAC アドレスの複製を使用することでネットワークの問題を解決できます。仮想ホストを使用している場合は、ノード構成ファイルで各ネットワークの MAC アドレス複製キーの値を「true」に設定します。この設定により、 StorageGRIDコンテナの MAC アドレスはホストの MAC アドレスを使用するようになります。指示を参照してくださいlink:../swnodes/creating-node-configuration-files.html["ノード構成ファイルを作成する"]。
 
 
 NOTE: Linux ホスト OS で使用する個別の仮想ネットワークインターフェイスを作成します。Linux ホスト OS 原因 と StorageGRID コンテナに同じネットワークインターフェイスを使用すると、ハイパーバイザーでプロミスキャスモードが有効になっていない場合、ホスト OS が到達不能になることがあります。
 
-MACクローニングのイネーブル化の詳細については、またはの手順を参照してくださいlink:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"]link:../ubuntu/configuring-host-network.html["Ubuntu または Debian"]。
+詳細については、link:../swnodes/configuring-host-network.html["MACクローニングを有効にする"] 。
 
 
 
@@ -270,7 +272,7 @@ MACクローニングのイネーブル化の詳細については、または�
 
 MACアドレスクローニングを使用せず、ハイパーバイザーによって割り当てられたMACアドレス以外のMACアドレスのデータをすべてのインターフェイスで送受信できるようにする場合は、 [Promiscuous Mode]、[MAC Address Changes]、および[Forged Transmits]で、仮想スイッチおよびポートグループレベルのセキュリティプロパティが[Accept]に設定されていることを確認します。仮想スイッチに設定された値は、ポートグループレベルの値によって上書きできるため、両方のレベルで設定が同じであることを確認してください。
 
-プロミスキャスモードの使用方法の詳細については、またはの手順を参照してくださいlink:../rhel/configuring-host-network.html["Red Hat Enterprise Linux"]link:../ubuntu/configuring-host-network.html["Ubuntu または Debian"]。
+プロミスキャスモードの使用に関する詳細は、link:../swnodes/configuring-host-network.html["ホストネットワークを構成する方法"] 。
 
 
 
@@ -327,7 +329,7 @@ Linux ホストに StorageGRID ノードをインストールしていて、 IPv
 .タスクの内容
 グリッドノードに割り当てられているIPv6アドレスを表示するには、次の手順を実行します。
 
-. nodes *を選択し、ノードを選択します。
+. *ノード*を選択し、ノードを選択します。
 . [概要]タブの*[IPアドレス]*の横にある*[追加のIPアドレスを表示]*を選択します。
 
 

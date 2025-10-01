@@ -21,7 +21,7 @@ S3 PUT Object size too largeアラートは、S3サイズの上限である5GiB�
 5GiBを超えるオブジェクトを使用しているテナントを確認して、通知できるようにします。
 
 .手順
-. [設定]*>*[監視]*>*[監査とsyslogサーバ]*に移動します。
+. *構成* > *監視* > *監査および syslog サーバー* に移動します。
 . クライアントからの書き込みがNormalの場合は、監査ログにアクセスします。
 +
 .. 入力 `ssh admin@_primary_Admin_Node_IP_`
@@ -51,7 +51,7 @@ rootとしてログインすると、プロンプトがからに `#`変わりま
  a| 
 管理ノード/ローカルノード
  a| 
-*** 管理ノード（プライマリおよび非プライマリ）： `/var/local/audit/export/audit.log`
+*** 管理ノード (プライマリおよび非プライマリ): `/var/local/audit/export/audit.log`
 *** All nodes（すべてのノード）： `/var/local/log/localaudit.log`通常、このモードではファイルが空か欠落しています。
 
 
@@ -65,7 +65,7 @@ rootとしてログインすると、プロンプトがからに `#`変わりま
 |===
 監査先の設定に応じて、次のように入力します。 `cd /var/local/log`または `/var/local/audit/export/`
 
-詳細については、を参照して link:../monitor/configure-audit-messages.html#select-audit-information-destinations["監査情報の送信先を選択します"]ください。
+詳細については、link:../monitor/configure-log-management.html#select-log-location["ログの場所を選択"] 。
 
 --
 .. 5GiBを超えるオブジェクトを使用しているテナントを特定します。
@@ -116,7 +116,7 @@ audit.log:2023-01-05T18:47:05.525999 [AUDT:[RSLT(FC32):SUCS][CNID(UI64):16729436
 
 . [Client Writes]が[Normal]でない場合は、アラートのテナントIDを使用してテナントを特定します。
 +
-.. * support *>* Tools *>* Logs *に移動します。アラートでストレージノードのアプリケーションログを収集します。アラートの前後15分を指定します。
+.. *サポート* > *ツール* > *ログ収集* に移動します。アラート内のストレージ ノードのアプリケーション ログを収集します。アラートの前後 15 分を指定します。。 link:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集"] 。
 .. ファイルを展開し、次の場所に移動し `bycast.log`ます。
 +
 `/GID<grid_id>_<time_stamp>/<site_node>/<time_stamp>/grid/bycast.log`

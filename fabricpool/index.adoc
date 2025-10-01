@@ -50,7 +50,7 @@ link:information-needed-to-attach-storagegrid-as-cloud-tier.html["StorageGRID �
 
 
 [role="quick-margin-para"]
-必要に応じて、とを設定しlink:../admin/using-identity-federation.html["アイデンティティフェデレーション"]link:../admin/configuring-sso.html["シングルサインオン"]ます。
+オプションで設定link:../admin/using-identity-federation.html["アイデンティティフェデレーション"]そしてlink:../admin/how-sso-works.html["シングルサインオン"]。
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]StorageGRIDの設定
 [role="quick-margin-para"]

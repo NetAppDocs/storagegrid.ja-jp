@@ -13,4 +13,4 @@ summary: 解決済みの問題と既知の問題に関するリリース固有�
 [role="lead"]
 解決済みの問題と既知の問題に関するリリース固有の情報を取得します。
 
-NetAppサポートサイトにログインして、 https://library.netapp.com/ecm/ecm_download_file/ECMLP3330064["PDF ファイルを表示またはダウンロードします"^]StorageGRID 11.9リリースノートを参照します。
+NetAppサポートサイトにログインして https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["PDF ファイルを表示またはダウンロードします"^]StorageGRID 12.0 リリース ノートが含まれています。

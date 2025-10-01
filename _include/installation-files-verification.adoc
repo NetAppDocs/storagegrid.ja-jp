@@ -4,7 +4,7 @@
 
 . 検証パッケージからアーティファクトを抽出します。
 +
-`tar -xf StorageGRID_11.9.0_Code_Signature_Verification_Package.tar.gz`
+`tar -xf StorageGRID_12.0.0_Code_Signature_Verification_Package.tar.gz`
 
 . これらのアーチファクトが抽出されたことを確認します。
 +

@@ -33,14 +33,7 @@ ILMルールとポリシーを設計、実装するには慎重な計画が必�
 
 詳細については、次のビデオをご覧ください。
 
-* https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["ビデオ：ILMルールの概要"^]です。
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[ビデオ：ILMルールの概要]
-
-* https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10["ビデオ：ILMポリシーの概要"^]
-+
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e768d4da-da88-413c-bbaa-b1ff00874d10]
-image::../media/video-screenshot-ilm-policies-118.png[ビデオ：ILMポリシーの概要]
-
-
+.ILMルールの概要
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
+.ILMポリシーの概要
+video::e768d4da-da88-413c-bbaa-b1ff00874d10[panopto]

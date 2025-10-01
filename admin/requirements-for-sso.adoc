@@ -1,10 +1,10 @@
 ---
 permalink: admin/requirements-for-sso.html 
 sidebar: sidebar 
-keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, azure ad, ad fs 
+keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
 summary: StorageGRID システムでシングルサインオンを有効にする前に、要件と考慮事項を確認してください。 
 ---
-= シングルサインオンの要件と考慮事項
+= SSO の要件と考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -20,7 +20,7 @@ StorageGRID システムでシングルサインオン（SSO）を有効にす�
 StorageGRID では、次の SSO アイデンティティプロバイダ（ IdP ）をサポートしています。
 
 * Active Directory フェデレーションサービス（ AD FS ）
-* Azure Active Directory （ Azure AD ）
+* Microsoft Entra ID
 * PingFederate
 
 
@@ -35,16 +35,16 @@ SSO アイデンティティプロバイダを設定する前に、 StorageGRID 
 Active Directory
  a| 
 * Active Directory
-* Azure
+* エントラID
 * PingFederate
 
 
 
 
  a| 
-Azure
+エントラID
  a| 
-Azure
+エントラID
 
 |===
 
@@ -71,15 +71,15 @@ NOTE: Windows Server 2016では、以上を使用している必要がありま�
 
 
 
-=== Azureに関する考慮事項
+=== Entra IDに関する考慮事項
 
-SSOタイプとしてAzureを使用し、ユーザがsAMAccountNameをプレフィックスとして使用しないユーザプリンシパル名を持っている場合、StorageGRID がLDAPサーバとの接続を失うと、ログインの問題が発生する可能性があります。ユーザがサインインできるようにするには、LDAPサーバへの接続を復元する必要があります。
+SSO タイプとして Entra ID を使用し、ユーザーのユーザー プリンシパル名にプレフィックスとして sAMAccountName が使用されていない場合、 StorageGRID がLDAP サーバーとの接続を失うとログインの問題が発生する可能性があります。ユーザーがサインインできるようにするには、LDAP サーバーへの接続を復元する必要があります。
 
 
 
 == サーバ証明書の要件
 
-デフォルトでは、 StorageGRID は各管理ノード上の管理インターフェイス証明書を使用して、 Grid Manager 、テナントマネージャ、グリッド管理 API 、およびテナント管理 API へのアクセスを保護します。StorageGRID 用の証明書利用者信頼（ AD FS ）、エンタープライズアプリケーション（ Azure ）、またはサービスプロバイダ接続（ PingFederate ）を設定するときは、 StorageGRID 要求の署名証明書としてサーバ証明書を使用します。
+デフォルトでは、 StorageGRID は各管理ノードで管理インターフェイス証明書を使用して、グリッド マネージャ、テナント マネージャ、グリッド管理 API、およびテナント管理 API へのアクセスを保護します。  StorageGRIDに対して証明書利用者信頼 (AD FS)、エンタープライズ アプリケーション (Entra ID)、またはサービス プロバイダー接続 (PingFederate) を構成する場合は、サーバー証明書をStorageGRID要求の署名証明書として使用します。
 
 まだlink:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["管理インターフェイス用のカスタム証明書を設定しました"]実行していない場合は、今実行する必要があります。インストールしたカスタムサーバ証明書はすべての管理ノードで使用され、すべての StorageGRID 証明書利用者信頼、エンタープライズアプリケーション、または SP 接続で使用できます。
 

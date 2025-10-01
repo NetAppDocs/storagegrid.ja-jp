@@ -39,8 +39,8 @@ NOTE: Grid Managerに表示されるストレージ値の単位を変更する�
 
 * link:managing-alerts.html["アラートの管理"]
 * link:logs-files-reference.html["ログファイルの表示"]
-* link:configure-audit-messages.html["監査メッセージとログの送信先を設定します"]
+* link:configure-log-management.html["ログ管理と外部Syslogサーバーを構成する"]
 * link:considerations-for-external-syslog-server.html["外部 syslog サーバを使用します"]監査情報を収集するには
 * link:using-snmp-monitoring.html["SNMPを使用した監視"]
-* link:using-charts-and-reports.html["追加のStorageGRIDデータを取得する"]（指標や診断を含む）
+* link:manage-io-prioritization.html["I/Oの優先順位を変更する"]I/O操作の相対的な優先順位を変更する
 

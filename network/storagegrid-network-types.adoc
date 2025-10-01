@@ -91,13 +91,7 @@ eth1
 eth2
 
 |===
-仮想ポートまたは物理ポートのノードネットワークインターフェイスへのマッピングの詳細については、インストール手順を参照してください。
-
-.ソフトウェアベースのノード
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-* link:../vmware/index.html["VMwareへのStorageGRIDのインストール"]
-
+仮想ポートまたは物理ポートをノードネットワークインターフェースにマッピングする方法の詳細については、以下を参照してください。link:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"] 。
 
 .アプライアンスノード
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/hardware-description-sg6100.html["SG6160ストレージアプライアンス"^]

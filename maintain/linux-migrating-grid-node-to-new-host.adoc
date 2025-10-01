@@ -16,12 +16,7 @@ summary: ホストのメンテナンスを実行するために、グリッド�
 たとえば、ノードを移行してOSのパッチ適用を実行し、リブートすることができます。
 
 .開始する前に
-* 移行のサポートを含めるようにStorageGRID の導入を計画している。
-+
-** link:../rhel/node-container-migration-requirements.html["Red Hat Enterprise Linuxでのノードコンテナ移行の要件"]
-** link:../ubuntu/node-container-migration-requirements.html["UbuntuまたはDebianでのノードコンテナ移行の要件"]
-
-
+* 移行サポートを含めるようにStorageGRID の展開を計画しました。見るlink:../swnodes/node-container-migration-requirements.html["ノードコンテナの移行要件"] 。
 * ターゲットホストはStorageGRID で使用する準備が完了しています。
 * 共有ストレージは、すべてのノード単位のストレージボリュームに使用されます
 * ネットワークインターフェイスの名前は、ホスト間で一貫しています。
@@ -132,12 +127,7 @@ Checking for duplication of unique values... PASSED
 ----
 . 検証エラーが発生した場合は、移行したノードを開始する前に対処してください。
 +
-トラブルシューティングの情報については、使用している Linux オペレーティングシステムでの StorageGRID のインストール手順を参照してください。
-
-+
-** link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-** link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-
+トラブルシューティング情報については、 StorageGRIDlink:../swnodes/index.html["インストール手順"] Linux オペレーティング システム用。
 
 
 

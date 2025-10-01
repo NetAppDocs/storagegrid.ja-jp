@@ -1,43 +1,8 @@
 ---
 permalink: ubuntu/understanding-apparmor-profile-installation.html 
-sidebar: sidebar 
-keywords: how to install AppArmor profile 
-summary: 自社で導入した Ubuntu 環境を運用し、 AppArmor の必須のアクセス制御システムを使用している場合、ベースシステムにインストールするパッケージに関連付けられた AppArmor プロファイルが、 StorageGRID と一緒にインストールされた対応するパッケージによってブロックされる可能性があります。 
+redirect: storagegrid/swnodes/understanding-apparmor-profile-installation.html 
 ---
-= AppArmor プロファイルのインストールを理解する
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
-
-
-[role="lead"]
-自社で導入した Ubuntu 環境を運用し、 AppArmor の必須のアクセス制御システムを使用している場合、ベースシステムにインストールするパッケージに関連付けられた AppArmor プロファイルが、 StorageGRID と一緒にインストールされた対応するパッケージによってブロックされる可能性があります。
-
-デフォルトでは、 AppArmor プロファイルは、ベースのオペレーティングシステムにインストールするパッケージに対してインストールされます。StorageGRID システムコンテナからこれらのパッケージを実行すると、 AppArmor プロファイルがブロックされます。DHCP 、 MySQL 、 NTP 、 tcdump のベースパッケージが AppArmor と競合するほか、これら以外のベースパッケージも競合する可能性があります。
-
-AppArmor プロファイルの対処方法としては、次の 2 つの選択肢があります。
-
-* ベースシステムにインストールされたパッケージのうち、 StorageGRID システムコンテナに含まれるパッケージと重複するパッケージのプロファイルを個々に無効にする。各プロファイルを無効にすると、 StorageGRID ログファイルに AppArmor が有効であることを示すエントリが表示されます。
-+
-次のコマンドを使用します。
-
-+
-[listing]
-----
-sudo ln -s /etc/apparmor.d/<profile.name> /etc/apparmor.d/disable/
-sudo apparmor_parser -R /etc/apparmor.d/<profile.name>
-----
-+
-* 例： *
-
-+
-[listing]
-----
-sudo ln -s /etc/apparmor.d/bin.ping /etc/apparmor.d/disable/
-sudo apparmor_parser -R /etc/apparmor.d/bin.ping
-----
-* AppArmor 全体を無効にする。Ubuntu 9.10以降の場合は、Ubuntuオンラインコミュニティの手順に従ってください。 https://help.ubuntu.com/community/AppArmor#Disable_AppArmor_framework["AppArmor を無効にします"^]新しいバージョンのUbuntuでは、AppArmorを完全に無効にできない場合があります。
-+
-AppArmorを無効にすると、StorageGRIDログファイルにAppArmorが有効であることを示すエントリは表示されません。
 
 

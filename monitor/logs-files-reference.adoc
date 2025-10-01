@@ -27,8 +27,9 @@ NOTE: 各ログタイプの詳細情報は参考用です。これらのログ�
 
 == ログにアクセスします
 
-ログにアクセスするには、1つ以上のノードから単一のログファイルアーカイブとしてアクセスしますlink:collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集します"]。または、プライマリ管理ノードを使用できない場合や特定のノードに到達できない場合は、次の手順で各グリッドノードの個別のログファイルにアクセスできます。
+ログにアクセスするには、link:collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集します"] 1 つ以上のノードから単一のログ ファイル アーカイブとして保存します。または、次のようにして各グリッド ノードの個別のログ ファイルにアクセスすることもできます。
 
+.手順
 . 次のコマンドを入力します。 `ssh admin@grid_node_IP`
 . ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
 . 次のコマンドを入力してrootに切り替えます。 `su -`
@@ -41,13 +42,13 @@ NOTE: 各ログタイプの詳細情報は参考用です。これらのログ�
 
 ログをsyslogサーバにエクスポートすると、次の機能が提供されます。
 
-* S3要求とSwift要求に加えて、Grid Manager要求とTenant Manager要求のリストを受信します。
+* S3 リクエストに加えて、すべての Grid Manager および Tenant Manager リクエストのリストを受け取ります。
 * 監査ログメソッドが原因でパフォーマンスに影響を与えることなく、エラーを返すS3要求の可視性が向上します。
 * 解析が容易なHTTPレイヤ要求およびエラーコードへのアクセス。
 * ロードバランサでトラフィック分類機能によってブロックされた要求の可視性が向上します。
 
 
-ログをエクスポートするには、を参照してくださいlink:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"]。
+ログをエクスポートするには、link:../monitor/configure-log-management.html["ログ管理と外部Syslogサーバーを構成する"] 。
 
 
 
@@ -72,6 +73,11 @@ StorageGRID イメージのバージョンなど、ベースとなるオペレ�
 
 | バンドル  a| 
 グローバル構成情報（バンドル）。
+
+
+
+| キャッシュサービス  a| 
+サービス ログをキャッシュします (ゲートウェイ ノードのみ)。
 
 
 
@@ -107,6 +113,11 @@ Cassandra データベース情報と Reaper 修復ログ。
 
 | Lambda - アービトレータ  a| 
 S3 Select プロキシ要求に関連するログです。
+
+
+
+| リークされた  a| 
+leakd サービスからのログ。
 
 
 
@@ -153,7 +164,7 @@ MariaDB データベースの設定と関連ログ。
 ** これらのログ・メッセージの形式は次のとおりです。 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
 
 
-* `endpoint-access.log.gz`：ロードバランサエンドポイントへのS3要求とSwift要求。
+* `endpoint-access.log.gz`: ロードバランサーエンドポイントへの S3 リクエスト。
 +
 ** これらのメッセージは、syslogを使用してエクスポートする場合にプレフィックスとして付加されます `endpoint:`。
 ** これらのログ・メッセージの形式は次のとおりです。 `[$time_iso8601] $remote_addr $status $bytes_sent $request_length $request_time "$endpointId" "$upstream_addr" "$request" "$http_host"`
@@ -227,6 +238,6 @@ StorageGRID コンテナコマンドの出力。ネットワークやディス�
 
 
 | synchronize-recovery-package  a| 
-ADCサービスをホストするすべての管理ノードとストレージノードで最新のリカバリパッケージの整合性を維持することに関連します。
+ADC サービスをホストするすべての管理ノードとストレージ ノード間で最新のリカバリ パッケージの一貫性を維持することに関連します。
 
 |===

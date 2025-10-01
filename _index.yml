@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: StorageGRID 11.9ソフトウェアドキュメント
+  title: StorageGRID 12.0 ソフトウェアドキュメント
   summary: NetApp StorageGRID は、ソフトウェアで定義されるオブジェクトストレージスイートで、パブリック、プライベート、ハイブリッドのマルチクラウド環境での幅広いユースケースに対応します。StorageGRID
     はAmazon S3 APIをネイティブでサポートし、自動化されたライフサイクル管理などの業界をリードする革新的なテクノロジを提供して、非構造化データを長期にわたってコスト効率よく格納、保護、保持します。
   keywords: storagegrid documentation
@@ -23,12 +23,8 @@ indexpage:
     links:
     - title: StorageGRIDアプライアンスのインストール
       url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
-    - title: Red Hat Enterprise LinuxへのStorageGRIDのインストール
-      url: "/rhel/index.html"
-    - title: UbuntuまたはDebianへのStorageGRIDのインストール
-      url: "/ubuntu/index.html"
-    - title: VMwareへのStorageGRIDのインストール
-      url: "/vmware/index.html"
+    - title: ソフトウェアベースのノードにStorageGRIDをインストールする
+      url: "/swnodes/index.html"
     - title: 新しいStorageGRIDバージョンにアップグレード
       url: "/upgrade/index.html"
     - title: ホットフィックスを適用する
@@ -71,7 +67,7 @@ indexpage:
       url: https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html
   - title: 追加の手順
     links:
-    - title: StorageGRID を有効にします
+    - title: StorageGRIDソリューションとリソース
       url: https://docs.netapp.com/us-en/storagegrid-enable/index.html
     - title: StorageGRID ビデオライブラリ
       url: https://www.youtube.com/playlist?list=PLdXI3bZJEw7nh2wGRA65iulXhtXwLiqrY
@@ -91,7 +87,3 @@ indexpage:
       url: https://netapp.com/blog/
     - title: NetAppコミュニティ
       url: https://community.netapp.com/
-  - title: レガシーバージョン
-    links:
-    - title: StorageGRID 11.4ドキュメント
-      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=63374

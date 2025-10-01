@@ -1,0 +1,74 @@
+---
+permalink: admin/use-api-if-sso-is-enabled-entra-id.html 
+sidebar: sidebar 
+keywords: how to access storagegrid API if SSO is enabled with Entra ID 
+summary: 'シングル サインオン (SSO) を構成して有効にし、Entra ID を SSO プロバイダーとして使用する場合は、2 つのサンプル スクリプトを使用して、グリッド管理 API またはテナント管理 API に有効な認証トークンを取得できます。' 
+---
+= シングル サインオンが有効になっている場合は API を使用します (Entra ID)
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+もしあなたがlink:../admin/how-sso-works.html["シングルサインオン（ SSO ）の設定と有効化"]Entra ID を SSO プロバイダーとして使用する場合、2 つのサンプル スクリプトを使用して、グリッド管理 API またはテナント管理 API に有効な認証トークンを取得できます。
+
+
+
+== Entra IDシングルサインオンが有効になっている場合は、APIにSign in。
+
+これらの手順は、Entra IDをSSO IDプロバイダーとして使用している場合に適用されます。
+
+.開始する前に
+* StorageGRID ユーザグループに属するフェデレーテッドユーザの SSO E メールアドレスとパスワードが必要です。
+* テナント管理 API にアクセスする場合は、テナントアカウント ID を確認しておきます。
+
+
+.タスクの内容
+認証トークンを取得するには、次のサンプルスクリプトを使用します。
+
+*  `storagegrid-ssoauth-azure.py`Pythonスクリプト
+*  `storagegrid-ssoauth-azure.js`Node.jsスクリプト
+
+
+両方のスクリプトはStorageGRIDインストールファイルディレクトリにあります。(`./rpms` RHELの場合、 `./debs` UbuntuまたはDebianの場合、 `./vsphere` VMware の場合)。
+
+Entra IDとのAPI統合を独自に作成するには、 `storagegrid-ssoauth-azure.py`スクリプト。  Python スクリプトは、 StorageGRIDに 2 つのリクエストを直接送信します (最初に SAMLRequest を取得し、後で認証トークンを取得します)。また、Node.js スクリプトを呼び出して Entra ID と対話し、SSO 操作を実行します。
+
+SSO 操作は一連の API リクエストを使用して実行できますが、実行するのは簡単ではありません。  Puppeteer Node.js モジュールは、Entra ID SSO インターフェースをスクレイピングするために使用されます。
+
+URLエンコードに問題がある場合は、次のエラーが表示されることがあります。 `Unsupported SAML version`
+
+.手順
+. 必要な依存関係を次のようにインストールします。
++
+.. Node.jsをインストールします（を参照 https://nodejs.org/en/download/["https://nodejs.org/en/download/"^]）。
+.. 必要な Node.js モジュール（ puppeteer および jsdom ）を取り付けます。
++
+`npm install -g <module>`
+
+
+
+. Python スクリプトを Python インタープリタに渡して、スクリプトを実行します。
++
+次に、Python スクリプトは対応する Node.js スクリプトを呼び出して、Entra ID SSO のやり取りを実行します。
+
+. プロンプトが表示されたら、次の引数の値を入力します（または、パラメータを使用して渡します）。
++
+** Entra ID へのサインインに使用する SSO メールアドレス
+** StorageGRID のアドレス
+** テナント管理 API にアクセスする場合は、テナントアカウント ID
+
+
+. プロンプトが表示されたらパスワードを入力し、要求された場合は Entra ID に MFA 認証を提供できるように準備してください。
++
+image::../media/sso_api_password_mfa.png[パスワードと MFA の入力を求められます]
+
++
+
+NOTE: このスクリプトでは、 MFA が Microsoft Authenticator を使用して実行されていることを前提として他の形式のMFAをサポートするようにスクリプトを変更する必要がある場合があります（テキストメッセージで受信したコードの入力など）。
+
++
+StorageGRID 認証トークンが出力に表示されます。SSO を使用していない場合の API の使用方法と同様に、トークンを他の要求に使用できるようになりました。
+
+

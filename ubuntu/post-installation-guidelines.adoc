@@ -1,26 +1,8 @@
 ---
 permalink: ubuntu/post-installation-guidelines.html 
-sidebar: sidebar 
-keywords: after installation guidelines ubuntu or debian 
-summary: グリッドノードの導入と設定が完了したら、 DHCP アドレスおよびネットワーク設定の変更について、次のガイドラインに従ってください。 
+redirect: storagegrid/swnodes/post-installation-guidelines.html 
 ---
-= インストール後のガイドライン
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-グリッドノードの導入と設定が完了したら、 DHCP アドレスおよびネットワーク設定の変更について、次のガイドラインに従ってください。
-
-* DHCP を使用して IP アドレスを割り当てた場合は、使用しているネットワーク上の各 IP アドレスに対して DHCP 予約を設定します。
-+
-DHCP は導入フェーズでのみ設定できます。設定中にDHCPを設定することはできません。
-
-+
-
-NOTE: グリッドネットワーク設定がDHCPによって変更されるとノードがリブートします。DHCPの変更が複数のノードに同時に影響すると、システムが停止する可能性があります。
-
-* グリッドノードの IP アドレス、サブネットマスク、およびデフォルトゲートウェイを変更する場合は、 IP 変更手順を使用する必要があります。を参照して link:../maintain/configuring-ip-addresses.html["IP アドレスを設定する"]
-* ルーティングやゲートウェイの変更など、ネットワーク設定を変更すると、プライマリ管理ノードおよびその他のグリッドノードへのクライアント接続が失われる可能性があります。適用されるネットワークの変更によっては、これらの接続の再確立が必要になる場合があります。
 

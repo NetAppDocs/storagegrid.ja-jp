@@ -21,7 +21,7 @@ summary: サイトの運用を停止できるかどうかを判断するには�
 
 
 .手順
-. [*maintenance] > [* Tasks] > [* Decommission] * を選択します。
+. *メンテナンス* > *タスク* > *廃止*を選択します。
 . [Decommission Site] を選択します。
 +
 Decommission Site ウィザードの Step 1 （ Select Site ）が表示されます。この手順には、 StorageGRID システムのサイトのアルファベット順に記載されています。

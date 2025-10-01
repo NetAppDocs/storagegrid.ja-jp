@@ -18,15 +18,14 @@ summary: アラートルールは、特定のアラートをトリガーする�
 .開始する前に
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
 * あなたはを持っていますlink:../admin/admin-group-permissions.html["アラートまたはRoot Access権限を管理します。"]。
-* 必要に応じて、次のビデオを視聴しました。 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1["ビデオ:アラートの概要"^]
+* オプションとして、ビデオを視聴しました:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2eea81c5-8323-417f-b0a0-b1ff008506c1]
-image::../media/video-screenshot-alert-overview-118.png[ビデオ:アラートの概要]
-
+.アラートの概要
+video::2eea81c5-8323-417f-b0a0-b1ff008506c1[panopto]
 
 
 .手順
-. [* alerts] * > [* Rules] を選択します。
+. *アラート* > *ルール*を選択します。
 +
 [Alert Rules] ページが表示されます。
 

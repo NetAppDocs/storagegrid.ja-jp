@@ -30,6 +30,7 @@ StorageGRID AutoSupportの設定を変更する場合は、プライマリ管理
 * * Event-triggered *：1時間ごと、または重大なシステムイベントが発生したときに、AutoSupportパッケージを自動的に送信します。デフォルト設定： Enabled （有効）。
 * *オンデマンド*：テクニカルサポートがStorageGRIDシステムにAutoSupportパッケージを自動的に送信するよう要求できるようにします。これは、問題をアクティブに使用している場合（HTTPS AutoSupport転送プロトコルが必要）に役立ちます。デフォルト設定： Disabled （無効）。
 * *User-triggered*: AutoSupportパッケージをいつでも手動で送信します。
+* *ログ収集*:link:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを手動で収集し、 AutoSupportパッケージを送信します"] 。
 
 
 
@@ -46,7 +47,7 @@ AutoSupportパッケージの送信には、次のいずれかのプロトコル
 設定したプロトコルは、すべてのタイプのAutoSupportパッケージの送信に使用されます。
 
 .手順
-. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. *サポート* > *ツール* > * AutoSupport* > *設定* を選択します。
 . AutoSupportパッケージの送信に使用するプロトコルを選択します。
 . [HTTPS]*を選択した場合は、テクニカルサポートサーバへの接続を保護するためにNetAppサポート証明書（TLS証明書）を使用するかどうかを選択します。
 +
@@ -68,7 +69,7 @@ AutoSupportパッケージの送信には、次のいずれかのプロトコル
 週次AutoSupportパッケージの自動送信はいつでも無効にすることができます。
 
 .手順
-. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. *サポート* > *ツール* > * AutoSupport* > *設定* を選択します。
 . [毎週のAutoSupport を有効にする]*チェックボックスをオフにします。
 . [ 保存（ Save ） ] を選択します。
 
@@ -82,7 +83,7 @@ AutoSupportパッケージの送信には、次のいずれかのプロトコル
 イベントトリガー型AutoSupportはいつでも無効にすることができます。
 
 .手順
-. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. *サポート* > *ツール* > * AutoSupport* > *設定* を選択します。
 . [Enable Event-Triggered AutoSupport *]チェックボックスをオフにします。
 . [ 保存（ Save ） ] を選択します。
 
@@ -98,7 +99,7 @@ AutoSupport On Demand は、テクニカルサポートが問題解決に積極�
 テクニカルサポートは、AutoSupport On Demandを有効または無効にできません。
 
 .手順
-. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. *サポート* > *ツール* > * AutoSupport* > *設定* を選択します。
 . プロトコルの * HTTPS * を選択します。
 . [毎週のAutoSupport を有効にする]*チェックボックスをオンにします。
 . [Enable AutoSupport on Demand]*チェックボックスをオンにします。
@@ -117,7 +118,7 @@ AutoSupport On Demand は有効になっており、テクニカルサポート�
 必要に応じて、ソフトウェアアップデートのチェックを無効にすることもできます。たとえば、 WAN でアクセスできないシステムの場合は、ダウンロードエラーを回避するためにチェックを無効にする必要があります。
 
 .手順
-. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. *サポート* > *ツール* > * AutoSupport* > *設定* を選択します。
 . [Check for software updates]*チェックボックスをオフにします。
 . [ 保存（ Save ） ] を選択します。
 
@@ -134,7 +135,7 @@ AutoSupportパッケージの送信に使用するプロトコルを確認また
 NOTE: SMTPプロトコルを使用してAutoSupportパッケージを追加の送信先に送信することはできません。
 
 .手順
-. * support *>* Tools *>* AutoSupport *>* Settings *を選択します。
+. *サポート* > *ツール* > * AutoSupport* > *設定* を選択します。
 . [Enable Additional AutoSupport Destination]*を選択します。
 . 次の情報を指定します。
 +

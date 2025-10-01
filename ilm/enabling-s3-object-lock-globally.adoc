@@ -29,7 +29,7 @@ S3オブジェクトロックのグローバル設定を有効にしたら、既
 NOTE: グローバル準拠設定は廃止されました。以前のバージョンのStorageGRID を使用してこの設定を有効にした場合、S3オブジェクトロック設定は自動的に有効になります。既存の準拠バケットの設定は引き続きStorageGRID を使用して管理できますが、新しい準拠バケットを作成することはできません。詳細については、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["ネットアップのナレッジベース： StorageGRID 11.5 でレガシー準拠バケットを管理する方法"^]。
 
 .手順
-. 設定 * > * System * > * S3 Object Lock * を選択します。
+. *構成* > *システム* > *S3 オブジェクト ロック* を選択します。
 +
 S3 Object Lock Settings （ S3 オブジェクトロック設定）ページが表示されます。
 

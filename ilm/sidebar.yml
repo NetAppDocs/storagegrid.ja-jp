@@ -73,7 +73,7 @@ entries:
     url: "/ilm/troubleshooting-cloud-storage-pools.html"
 - title: イレイジャーコーディングプロファイルの管理
   url: "/ilm/manage-erasure-coding-profiles.html"
-- title: リージョンを設定（オプション、 S3 のみ）
+- title: S3リージョンを設定する
   url: "/ilm/configuring-regions-optional-and-s3-only.html"
 - title: ILM ルールを作成する
   entries:

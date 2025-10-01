@@ -37,7 +37,7 @@ image::../media/grid-federation-account-clone-workflow.png[アカウントクロ
 
 .手順
 . 両方のグリッドに同じアイデンティティソースを設定します。を参照して link:using-identity-federation.html["アイデンティティフェデレーションを使用する"]
-. 両方のグリッドに同じSSO IDプロバイダ（IdP）を設定します。を参照して link:configuring-sso.html["シングルサインオンを設定します"]
+. 両方のグリッドに同じ SSO ID プロバイダー (IdP) を構成します。見るlink:how-sso-works.html["シングルサインオンを設定します"] 。
 . link:managing-admin-groups.html["同じ管理者グループを作成します"]両方のグリッドで同じフェデレーテッドグループをインポートする。
 +
 テナントを作成するときに、このグループを選択して、ソースとデスティネーションの両方のテナントアカウントに対する初期のRootアクセス権限を割り当てます。

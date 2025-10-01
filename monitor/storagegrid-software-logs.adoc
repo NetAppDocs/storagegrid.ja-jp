@@ -14,7 +14,7 @@ summary: StorageGRID のログを問題のトラブルシューティングに�
 StorageGRID のログを問題のトラブルシューティングに使用できます。
 
 
-NOTE: ログを外部syslogサーバに送信したり、監査情報の送信先（や `nms.log`など）を変更したりする場合は `bycast.log`、を参照してくださいlink:../monitor/configure-audit-messages.html#["監査メッセージとログの送信先を設定します"]。
+NOTE: ログを外部のSyslogサーバーに送信したり、監査情報の送信先を変更したりする場合は、 `bycast.log`そして `nms.log`、 見るlink:../monitor/configure-log-management.html["ログ管理を構成する"]。
 
 
 
@@ -26,14 +26,14 @@ NOTE: ログを外部syslogサーバに送信したり、監査情報の送信�
 
 
 | /var/local/log/bycast.log  a| 
-プライマリ StorageGRID トラブルシューティングファイル。サポート * > * ツール * > * グリッドトポロジ * を選択します。次に、 [*_Site_*>*_Node_*>*SSM*>*Events] を選択します。
+主要なStorageGRIDトラブルシューティング ファイル。
  a| 
 すべてのノード
 
 
 
 | /var/local/log/bycast-err.log  a| 
-のサブセットが含まれ `bycast.log`ます（重大度がERRORおよびCRITICALのメッセージ）。クリティカルなメッセージはシステムにも表示されます。サポート * > * ツール * > * グリッドトポロジ * を選択します。次に、 [*_Site_*>*_Node_*>*SSM*>*Events] を選択します。
+のサブセットが含まれています `bycast.log`(重大度が ERROR および CRITICAL のメッセージ)。  CRITICAL メッセージもシステムに表示されます。
  a| 
 すべてのノード
 
@@ -188,6 +188,13 @@ ADC サービスを実行しているストレージノード
 | /var/local/log/ams.errlog  a| 
  a| 
 管理ノード
+
+
+
+| /var/local/log/cache-svc.log + /var/local/log/cache-svc.errlog  a| 
+サービスのログをキャッシュします。
+ a| 
+ゲートウェイノード
 
 
 

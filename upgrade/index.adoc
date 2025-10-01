@@ -16,12 +16,16 @@ summary: 以下の手順に従って、 StorageGRID システムを新しいリ�
 アップグレードを実行すると、StorageGRIDシステム内のすべてのノードがアップグレードされます。
 
 
+CAUTION: 緊急にストレージを拡張して容量を増やす必要がある場合（ストレージがほぼいっぱいの場合）は、アップグレードを開始しないでください。アップグレード手順を適時に完了してください。回復が必要な場合は、テクニカル サポートにお問い合わせください。
 
-== 開始する前に
 
-以下のトピックを参照して、StorageGRID 11.9の新機能と機能拡張について確認し、廃止または削除された機能がないかどうかを確認し、StorageGRID APIに対する変更点を確認してください。
 
-* link:whats-new.html["StorageGRID 11.9の新機能"]
+== アップグレードする前に
+
+これらのトピックを確認して、 StorageGRID 12.0 の新機能と拡張機能について学習し、廃止または削除された機能があるかどうかを確認し、 StorageGRID API の変更点を確認してください。
+
+* link:how-your-system-is-affected-during-upgrade.html["アップグレード中にシステムが受ける影響"]
+* link:whats-new.html["StorageGRID 12.0の新機能"]
 * link:removed-or-deprecated-features.html["削除または廃止された機能"]
 * link:changes-to-grid-management-api.html["Grid 管理 API に対する変更"]
 * link:changes-to-tenant-management-api.html["テナント管理 API に変更が加えられました"]

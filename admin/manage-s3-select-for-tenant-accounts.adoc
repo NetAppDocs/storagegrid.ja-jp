@@ -73,4 +73,4 @@ CAUTION: SelectObjectContent 要求を使用すると、すべての S3 クラ�
 
 を参照してくださいlink:../s3/use-s3-select.html["S3 Select の使用手順"]。
 
-S3 Selectの処理の推移を確認するにはlink:../monitor/reviewing-support-metrics.html["Grafana チャート"]、Grid Managerで* support *>* Tools *>* Metrics *を選択します。
+表示するにはlink:../monitor/reviewing-support-metrics.html["Grafana チャート"]S3 Select の操作を時間経過と共に表示するには、グリッド マネージャーで *サポート* > *ツール* > *メトリクス* を選択します。

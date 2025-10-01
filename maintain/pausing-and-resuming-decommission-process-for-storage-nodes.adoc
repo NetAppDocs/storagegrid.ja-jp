@@ -22,7 +22,7 @@ NOTE: * Pause * ボタンは、 ILM 評価またはイレイジャーコーデ�
 
 
 .手順
-. [*maintenance] > [* Tasks] > [* Decommission] * を選択します。
+. *メンテナンス* > *タスク* > *廃止*を選択します。
 +
 Decommission ページが表示されます。
 

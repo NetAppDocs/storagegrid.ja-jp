@@ -37,12 +37,12 @@ S3コンソールを使用すると処理に時間がかかりすぎる場合（
 .開始する前に
 * を使用してTenant Managerにサインインしておきlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
 * オブジェクトを管理する場合は、Root Access権限のあるユーザグループに属している必要があります。または、Use S3 Console Tab権限とView All Buckets権限またはManage All Buckets権限のいずれかのユーザグループに属している必要があります。を参照して link:tenant-management-permissions.html["テナント管理権限"]
-* S3グループまたはバケットポリシーがユーザに設定されている。を参照して link:../s3/bucket-and-group-access-policies.html["バケットとグループのアクセスポリシーを使用"]
+* ユーザーに対して S3 グループまたはバケット ポリシーが設定されています。見るlink:../s3/use-access-policies.html["バケットとグループのアクセスポリシーを使用"] 。
 * ユーザのアクセスキー ID とシークレットアクセスキーを確認しておきます。必要に応じて、この情報を含むファイルが作成され `.csv`ます。を参照してくださいlink:creating-your-own-s3-access-keys.html["アクセスキーの作成手順"]。
 
 
 .手順
-. storage *>* Buckets *>*_bucket name_*を選択します。
+. *ストレージ* > *バケット* > *_バケット名_* を選択します。
 . [S3][Console]タブを選択します。
 . アクセスキーIDとシークレットアクセスキーをフィールドに貼り付けます。それ以外の場合は、*アクセスキーのアップロード*を選択してファイルを選択し `.csv`ます。
 . 「サインイン」を選択します。

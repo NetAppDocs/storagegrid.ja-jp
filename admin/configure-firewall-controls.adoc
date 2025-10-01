@@ -38,7 +38,7 @@ StorageGRID には、各ノードに内部ファイアウォールがありま�
 == ファイアウォールコントロールにアクセスします
 
 .手順
-. * configuration *>* Security *>* Firewall control *を選択します。
+. *構成* > *セキュリティ* > *ファイアウォール制御*を選択します。
 +
 このページの3つのタブについては、をlink:../admin/manage-firewall-controls.html["ファイアウォールコントロールを管理します"]参照してください。
 

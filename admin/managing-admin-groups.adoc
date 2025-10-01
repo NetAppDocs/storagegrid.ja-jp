@@ -30,7 +30,7 @@ summary: 管理者グループを作成して、 1 人以上の管理者ユー�
 === ウィザードにアクセスします
 
 .手順
-. * configuration * > * Access control * > * Admin groups * を選択します。
+. *構成* > *アクセス制御* > *管理者グループ*を選択します。
 . 「 * グループを作成 * 」を選択します。
 
 
@@ -62,7 +62,7 @@ summary: 管理者グループを作成して、 1 人以上の管理者ユー�
 . [ フェデレーショングループ ] を選択します。
 . インポートするグループの名前を、設定されているアイデンティティソースに表示されているとおりに入力します。
 +
-** Active Directory および Azure の場合は、 sAMAccountName を使用します。
+** Active Directory および Microsoft Entra ID の場合は、sAMAccountName を使用します。
 ** OpenLDAP の場合は、 CN （共通名）を使用します。
 ** 別の LDAP を使用する場合は、 LDAP サーバに適切な一意の名前を使用します。
 

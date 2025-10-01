@@ -25,7 +25,7 @@ summary: すべてのグリッドフェデレーション接続に関する基�
 [Grid Federation]ページには、すべてのグリッドフェデレーション接続と、グリッドフェデレーション接続の使用が許可されているすべてのテナントアカウントに関する基本的な情報が表示されます。
 
 .手順
-. [設定]*>*[システム]*>*[グリッドフェデレーション]*を選択します。
+. *構成* > *システム* > *グリッド フェデレーション* を選択します。
 +
 [Grid Federation]ページが表示されます。
 
@@ -107,7 +107,7 @@ image::../media/grid-federation-certificates-tab.png[grid-federation-certificate
 Grafanaの[Cross-Grid Replication]ダッシュボードを使用して、グリッドでのクロスグリッドレプリケーション処理に関するPrometheus指標を表示できます。
 
 .手順
-. Grid Managerで、* support *>* Tools *>* Metrics *を選択します。
+. グリッド マネージャーから、[サポート] > [ツール] > [メトリック] を選択します。
 +
 
 NOTE: Metrics ページで使用可能なツールは、テクニカルサポートが使用することを目的としています。これらのツールの一部の機能およびメニュー項目は意図的に機能しないため、変更される場合があります。のリストを参照してくださいlink:../monitor/commonly-used-prometheus-metrics.html["よく使用される Prometheus 指標"]。

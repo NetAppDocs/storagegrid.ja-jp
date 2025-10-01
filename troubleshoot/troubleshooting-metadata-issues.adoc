@@ -48,7 +48,7 @@ CAUTION: オブジェクトメタデータが使用可能なメタデータス�
 CAUTION: ボリューム 0 のサイズが Metadata Reserved Space ストレージオプションより小さい場合（非本番環境など）は、「 Low metadata storage * 」アラートが正確に計算されないことがあります。
 
 .手順
-. [ * alerts * > * current * ] を選択します。
+. *アラート* > *現在*を選択します。
 . アラートの表で、必要に応じて「 * Low metadata storage * 」アラートグループを展開し、表示する特定のアラートを選択します。
 . アラートダイアログボックスで詳細を確認します。
 . Major または Critical の * Low metadata storage * アラートがトリガーされた場合は、すぐに拡張を実行してストレージノードを追加します。

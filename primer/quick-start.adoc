@@ -45,14 +45,12 @@ StorageGRID システムは、ハードウェアベースとソフトウェア�
 
 [role="quick-margin-list"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["アプライアンスハードウェアを設置"^]
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-* link:../vmware/index.html["VMwareへのStorageGRIDのインストール"]
+* link:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]サインインしてシステムの健全性を確認
 [role="quick-margin-para"]
-プライマリ管理ノードをインストールしたらすぐに、Grid Managerにサインインできます。そこから、新しいシステムの全般的な健常性の確認、AutoSupport とアラートEメールの有効化、S3エンドポイントのドメイン名の設定を行うことができます。
+グリッドのインストールが完了したら、グリッド マネージャーにサインインできます。そこから、新しいシステムの全体的な健全性を確認したり、 AutoSupportとアラートメールを有効にしたり、S3 エンドポイントのドメイン名を設定したりできます。
 
 [role="quick-margin-para"]
 詳細はこちら：

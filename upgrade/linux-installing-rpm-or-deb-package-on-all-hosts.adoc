@@ -36,8 +36,8 @@ StorageGRID ソフトウェアのバージョンの形式は、 11._x.y_. です
 ** 最新リリースのアップグレードアーカイブ（VMware、SG1000、またはSG100プライマリ管理ノード*のセクションにあるファイル）。このファイルはアップグレードを実行するまでは必要ありませんが、今すぐダウンロードすると時間を節約できます。
 ** または `.zip`形式のRPMまたはDEBアーカイブ `.tgz`。サービスラップトップでWindowsを実行している場合は、ファイルを選択し `.zip`ます。
 +
-*** Red Hat Enterprise Linux++
-`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip`
+*** RHEL +
+`StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` +
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz`
 *** UbuntuまたはDebian++
 `StorageGRID-Webscale-_version_-DEB-_uniqueID_.zip`
@@ -57,6 +57,12 @@ StorageGRID ソフトウェアのバージョンの形式は、 11._x.y_. です
 
 
 
+. Linux ノードではコード署名の検証は手動で行われます。必要に応じて、インストール アーカイブを検証します。
++
+.. StorageGRIDコード署名検証パッケージをダウンロードします。このパッケージのファイル名はの形式を使用し `StorageGRID_<version-number>_Code_Signature_Verification_Package.tar.gz`ます。 `<version-number>`はStorageGRIDソフトウェアのバージョンです。
+.. 手順に従ってくださいlink:../swnodes/download-files-verify.html["インストールファイルを手動で検証する"]。
+
+
 
 
 
@@ -69,12 +75,7 @@ StorageGRID ソフトウェアをアップグレードする前に、次の手�
 . インストールファイルから RPM パッケージまたは DEB パッケージを展開します。
 . すべての Linux ホストに RPM パッケージまたは DEB パッケージをインストールします。
 +
-インストール手順のStorageGRID ホストサービスのインストール手順を参照してください。
-
-+
-** link:../rhel/installing-storagegrid-webscale-host-service.html["Red Hat Enterprise Linux：StorageGRIDホストサービスのインストール"]
-** link:../ubuntu/installing-storagegrid-webscale-host-services.html["UbuntuまたはDebian：StorageGRID ホストサービスをインストールします"]
-
+Linux用のStorageGRIDホストサービスのインストール手順については、link:../swnodes/installing-storagegrid-webscale-host-services.html["StorageGRID ホストサービスをインストールする"] 。
 
 +
 新しいパッケージは追加のパッケージとしてインストールされます。
@@ -93,7 +94,7 @@ Linuxホストのスペースを解放するには、不要になった以前の
 
 [role="tabbed-block"]
 ====
-.Red Hat
+.RHEL
 --
 . インストールされているStorageGRIDパッケージのリストを取得します。 `dnf list | grep -i storagegrid`
 +

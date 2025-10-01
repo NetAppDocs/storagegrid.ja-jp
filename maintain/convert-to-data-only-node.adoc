@@ -1,0 +1,57 @@
+---
+permalink: maintain/convert-to-data-only-node.html 
+sidebar: sidebar 
+keywords: storagegrid, convert node, data-only node 
+summary: パフォーマンスを向上させるには、低速の非 ADC ストレージ ノードをデータ専用のストレージ ノードに変換できます。 
+---
+= ストレージノードをデータ専用ノードに変換する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+パフォーマンスを向上させるには、低速の非 ADC ストレージ ノードをデータ専用のストレージ ノードに変換できます。
+
+ストレージノードのパフォーマンス特性が異なる場合は、データ専用のストレージノードを使用するのが理にかなっています。たとえば、パフォーマンスを潜在的に向上させるために、データ専用で大容量の回転式ディスクストレージノードと、メタデータ専用のハイパフォーマンスストレージノードを組み合わせることができます。
+
+さらに、Cassandra から RAM の少ないノードを削除することで、ノードごとのメタデータ容量制限が増加し、メタデータ容量を増やすことができます。。 link:../admin/managing-object-metadata-storage.html["オブジェクトメタデータストレージを管理する"] 。
+
+データのみのノードを変換する場合、グリッドにはサイトごとに少なくとも 3 つの結合されたストレージ ノードまたはメタデータのみのストレージ ノードが含まれている必要があります。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* あなたはを持っていますlink:../admin/admin-group-permissions.html["Maintenance権限またはRoot Access権限"]。
+* 変換したいストレージノードにADCサービスが含まれていないか、link:../maintain/move-adc-service.html["ADCサービスを移動しました"]別のノードへ。
+* ストレージ ノードは、メタデータのみのノードでもデータのみのノードでもありません。
+* 変換したいストレージノードにADCサービスが含まれていないか、link:../maintain/move-adc-service.html["ADCサービスを移動しました"]別のノードへ。
+* サイト内の他のノードに十分なメタデータスペースがある（またはlink:../expand/index.html["グリッドを拡張しました"]) を追加して、変換するストレージ ノードから移行されるメタデータを収容します。
++
+[CAUTION]
+====
+** 同じサイト上の他のノードに移行するメタデータが、link:../admin/managing-object-metadata-storage.html["メタデータ予約領域"] 、グリッドが不安定になります。
+** 変換を開始すると、グリッドを拡張できなくなります。
+
+
+====
+
+
+.タスクの内容
+この手順を使用して、ADC サービスが含まれていない 1 つ以上の結合ストレージ ノードをデータ専用ノードに変換します。
+
+この手順では、ストレージ ノードの変換に加えて、ノードから Cassandra を廃止します。すべてのメタデータは、結合されたストレージ ノードまたはメタデータのみのストレージ ノードに移行されます。移行する必要があるメタデータの量に応じて、この手順が完了するまでにノードごとに最大数日かかる場合があります。
+
+
+TIP: 通常、ノードあたりのメタデータ使用量が 1 TB 未満の場合、一度に最大 10 個のノードを変換できます。ノードあたりのメタデータ使用量が 1 TB を超える場合は、代わりに手順ごとに最大 5 つのノードを変換します。
+
+.手順
+. 変換する ADC 以外のストレージ ノードのノード ID を記録します。
+. Grid Managerの上部でヘルプアイコンを選択し、*[API documentation]*を選択します。
+. [Go to private API documentation]*を選択します。
+. 選択してください `POST /private/convert-to-data-only-node/start`手術。参照link:../admin/using-grid-management-api.html#issue-api-requests["問題 API 要求"]詳細についてはこちらをご覧ください。
++
+手順の実行中に各ノードが再起動します。
+
+. 使用できます `GET /private/convert-to-data-only-node`手順を監視します。エラーが発生した場合は、 `POST /private/convert-to-data-only-node/retry`手順を再試行します。
+. link:../maintain/downloading-recovery-package.html["リカバリパッケージをダウンロードする"]この手順を完了した後。
+

@@ -1,40 +1,8 @@
 ---
 permalink: ubuntu/configuring-docker-storage-volume.html 
-sidebar: sidebar 
-keywords: how to configure Docker storage volume 
-summary: Docker をインストールする前に、 Docker ストレージボリュームをフォーマットして /var/lib/docker にマウントする必要があります。 
+redirect: storagegrid/swnodes/configuring-docker-storage-volume.html 
 ---
-= コンテナエンジンのストレージボリュームを設定します
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
-
-
-[role="lead"]
-コンテナエンジン（ Docker または Podman ）をインストールする前に、ストレージボリュームをフォーマットしてマウントする必要があります。
-
-
-NOTE: ソフトウェアのみの環境のコンテナエンジンとしてのDockerのサポートは廃止されました。Dockerは、今後のリリースで別のコンテナエンジンに置き換えられる予定です。
-
-.タスクの内容
-Dockerストレージボリュームにローカルストレージを使用する予定で、を含むホストパーティションに十分なスペースがある場合は、以下の手順を省略できます `/var/lib`。
-
-.手順
-. Docker ストレージボリュームにファイルシステムを作成します。
-+
-[listing]
-----
-sudo mkfs.ext4 docker-storage-volume-device
-----
-. Docker ストレージボリュームをマウントします。
-+
-[listing]
-----
-sudo mkdir -p /var/lib/docker
-sudo mount docker-storage-volume-device /var/lib/docker
-----
-. /etc/fstab に docker -storage-volume-device のエントリを追加します。
-+
-これにより、ホストのリブート後にストレージボリュームが自動的に再マウントされます。
 
 

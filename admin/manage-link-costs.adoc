@@ -68,11 +68,11 @@ WAN リンクで接続されたデータセンター。
 
 .開始する前に
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
-* あなたはを持っていますlink:admin-group-permissions.html["Gridトポロジページの設定権限"]。
+* あなたはlink:admin-group-permissions.html["その他のグリッド構成権限"]。
 
 
 .手順
-. * support *>* other *>* Link cost *を選択します。
+. *サポート* > *その他* > *リンク コスト* を選択します。
 +
 image::../media/configuring_link_costs.png[リンクコスト]
 

@@ -25,7 +25,7 @@ CAUTION: データ損失を回避するために、FabricPoolクラウド階層�
 * を確認しておきますlink:best-practices-ilm.html["FabricPool データでILMを使用するためのベストプラクティス"]。
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
 * あなたはを持っていますlink:../admin/admin-group-permissions.html["ILMまたはRoot Access権限"]。
-* 以前のバージョンのStorageGRIDからStorageGRID 11.9にアップグレードした場合は、使用するストレージプールが設定されています。一般に、データの格納に使用するStorageGRIDサイトごとにストレージプールを作成する必要があります。
+* StorageGRIDバージョン 11.7 より前のバージョンからStorageGRID 12.0 にアップグレードした場合は、使用するストレージ プールが構成されています。一般的に、データの保存に使用するStorageGRIDサイトごとにストレージ プールを作成する必要があります。  (バージョン 11.7 以降では、サイトごとにストレージ プールが自動的に作成されます。)
 +
 
 NOTE: この前提条件は、StorageGRID 11.7または11.8を最初にインストールした場合は適用されません。これらのバージョンのいずれかを最初にインストールすると、サイトごとにストレージプールが自動的に作成されます。

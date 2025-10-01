@@ -1,0 +1,28 @@
+= 
+:allow-uri-read: 
+
+
+* * all *：すべてのノードがオブジェクトメタデータをただちに受信しないと要求が失敗します。
+* *強力なグローバル*: すべてのサイトにわたるすべてのクライアント要求の書き込み後の読み取り一貫性を保証します。クォーラム セマンティクスが構成されている場合、次の動作が適用されます。
++
+** グリッドに 3 つ以上のサイトがある場合、クライアント要求に対するサイト障害許容度を許可します。  2 サイト グリッドではサイト障害の許容度はありません。
+** 1 つのサイトがダウンすると、次の S3 操作は成功しません。
++
+*** DeleteBucketEncryption
+*** PutBucketBranch
+*** PutBucketEncryptionの略
+*** PutBucketVersioning
+*** PutObjectLegalHold
+*** PutObjectLockConfiguration
+*** PutObjectRetention
+
+
+
+
++
+必要であれば、 https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["強力なグローバル整合性を実現するStorageGRID Quorumセマンティクスを構成する"^] 。
+
+* * strong-site *：オブジェクトメタデータがサイト内の他のノードにただちに分散されます。1 つのサイト内のすべてのクライアント要求について、リードアフターライト整合性が保証されます。
+* * Read-after-new-write *：新規オブジェクトにはリードアフターライト整合性を提供し、オブジェクトの更新には結果整合性を提供します。高可用性が確保され、データ保護が保証されます。ほとんどの場合に推奨されます。
+* * available *：新しいオブジェクトとオブジェクトの更新の両方について、結果整合性を提供します。S3バケットの場合は、必要な場合にのみ使用します（読み取り頻度の低いログ値を含むバケットや、存在しないキーに対するHEAD処理やGET処理など）。S3 FabricPool バケットではサポートされません。
+

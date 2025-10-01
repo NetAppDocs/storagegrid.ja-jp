@@ -12,10 +12,10 @@ Oracle Directory Server を使用する LDAP サーバーの値を設定する�
 
 . [* その他 *] を選択した場合は、 [LDAP 属性 ] セクションのフィールドに入力します。それ以外の場合は、次の手順に進みます。
 +
-** * User Unique Name * ： LDAP ユーザの一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `uid`OpenLDAPの場合と同じ `sAMAccountName`です。Oracle Directory Serverを設定する場合は、と入力します `uid`。
-** * User UUID * ： LDAP ユーザの永続的な一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `entryUUID`OpenLDAPの場合と同じ `objectGUID`です。Oracle Directory Serverを設定する場合は、と入力します `nsuniqueid`。指定した属性の各ユーザの値は、 16 バイトまたは文字列形式の 32 桁の 16 進数である必要があります。ハイフンは無視されます。
-** * Group Unique Name * ： LDAP グループの一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `cn`OpenLDAPの場合と同じ `sAMAccountName`です。Oracle Directory Serverを設定する場合は、と入力します `cn`。
-** * グループ UUID * ： LDAP グループの永続的な一意な ID が含まれている属性の名前。この属性は、Active Directoryおよび `entryUUID`OpenLDAPの場合と同じ `objectGUID`です。Oracle Directory Serverを設定する場合は、と入力します `nsuniqueid`。指定した属性の各グループの値は、 16 バイトまたは文字列形式の 32 桁の 16 進数である必要があります。ハイフンは無視されます。
+** *ユーザーの一意の名前*: LDAP ユーザーの一意の識別子を含む属性の名前。この属性は、 `sAMAccountName` Active Directoryおよび `uid`OpenLDAP 用。  Oracle Directory Serverを構成する場合は、次のように入力します。 `uid` 。
+** *ユーザー UUID*: LDAP ユーザーの永続的な一意の識別子を含む属性の名前。この属性は、 `objectGUID` Active Directoryおよび `entryUUID`OpenLDAP 用。 Oracle Directory Serverを構成する場合は、次のように入力します。 `nsuniqueid` 。指定された属性の各ユーザーの値は、16 バイト形式または文字列形式の 32 桁の 16 進数である必要があります。ハイフンは無視されます。
+** *グループの一意の名前*: LDAP グループの一意の識別子を含む属性の名前。この属性は、 `sAMAccountName` Active Directoryおよび `cn`OpenLDAP 用。  Oracle Directory Serverを構成する場合は、次のように入力します。 `cn` 。
+** *グループ UUID*: LDAP グループの永続的な一意の識別子を含む属性の名前。この属性は、 `objectGUID` Active Directoryおよび `entryUUID`OpenLDAP 用。 Oracle Directory Serverを構成する場合は、次のように入力します。 `nsuniqueid` 。指定された属性の各グループの値は、16 バイト形式または文字列形式の 32 桁の 16 進数である必要があります。ハイフンは無視されます。
 
 
 . すべての LDAP サービスタイプについて、 LDAP サーバの設定セクションに必要な LDAP サーバおよびネットワーク接続情報を入力します。
@@ -39,7 +39,7 @@ Active Directory の場合は、ダウンレベルログオン名またはユー
 *** `cn`
 *** `memberOf`または `isMemberOf`
 *** * Active Directory *： `objectSid`、 `primaryGroupID`、 `userAccountControl`、および `userPrincipalName`
-*** * Azure *： `accountEnabled`および `userPrincipalName`
+*** *エントラID*: `accountEnabled`そして `userPrincipalName`
 
 
 ** * Password * ：ユーザ名に関連付けられたパスワード。
@@ -65,8 +65,8 @@ StorageGRID がサービスアカウントにバインドできない場合に�
 次のいずれかのパターンを入力します。
 
 +
-*** * UserPrincipalNameパターン（Active DirectoryおよびAzure）*： `[USERNAME]@_example_.com`
-*** *下位レベルのログオン名パターン（Active DirectoryおよびAzure）*： `_example_\[USERNAME]`
+*** *UserPrincipalName パターン (AD および Entra ID)*: `[USERNAME]@_example_.com`
+*** *ダウンレベル ログオン名パターン (AD および Entra ID)*: `_example_\[USERNAME]`
 *** *識別名パターン*： `CN=[USERNAME],CN=Users,DC=_example_,DC=com`
 +
 記載されているとおりに * [username] * を含めます。
@@ -77,12 +77,12 @@ StorageGRID がサービスアカウントにバインドできない場合に�
 
 . Transport Layer Security （ TLS ）セクションで、セキュリティ設定を選択します。
 +
-** * STARTTLS を使用 * ： STARTTLS を使用して LDAP サーバとの通信を保護します。Active Directory 、 OpenLDAP 、またはその他のオプションですが、 Azure ではこのオプションはサポートされていません。
-** * LDAPS を使用 * ： LDAPS （ LDAP over SSL ）オプションでは、 TLS を使用して LDAP サーバへの接続を確立します。Azure ではこのオプションを選択する必要があります。
-** * TLS を使用しないでください * ： StorageGRID システムと LDAP サーバの間のネットワークトラフィックは保護されません。このオプションは Azure ではサポートされていません。
+** *STARTTLS を使用する*: STARTTLS を使用して、LDAP サーバーとの通信を保護します。これは、Active Directory、OpenLDAP、またはその他の場合に推奨されるオプションですが、このオプションは Microsoft Entra ID ではサポートされていません。
+** *LDAPS を使用する*: LDAPS (LDAP over SSL) オプションは、TLS を使用して LDAP サーバーへの接続を確立します。  Microsoft Entra ID の場合はこのオプションを選択する必要があります。
+** *TLS を使用しない*: StorageGRIDシステムと LDAP サーバー間のネットワーク トラフィックは保護されません。このオプションは Microsoft Entra ID ではサポートされていません。
 +
 
-NOTE: Active Directory サーバで LDAP 署名が適用される場合、 [TLS を使用しない ] オプションの使用はサポートされていません。STARTTLS または LDAPS を使用する必要があります。
+NOTE: Active Directory サーバーが LDAP 署名を強制している場合、「TLS を使用しない」オプションの使用はサポートされません。  STARTTLS または LDAPS を使用する必要があります。
 
 
 
@@ -105,7 +105,7 @@ NOTE: Active Directory サーバで LDAP 署名が適用される場合、 [TLS 
 
 .手順
 . [ 接続のテスト * ] を選択します。
-. バインドユーザ名の形式を指定しなかった場合は、次の手順を実行します。
+. バインドユーザー名の形式を指定しなかった場合:
 +
 ** 接続設定が有効な場合は、「Test connection successful」というメッセージが表示されます。[ 保存（ Save ） ] を選択して、構成を保存します。
 ** 接続設定が無効な場合は、「test connection could not be established」というメッセージが表示されます。[ 閉じる（ Close ） ] を選択します。その後、問題を解決して接続を再度テストします。

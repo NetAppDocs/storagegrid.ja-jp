@@ -14,7 +14,7 @@ summary: グリッドのメンテナンスタスクには、ノードまたは�
 グリッドのメンテナンスタスクには、ノードまたはサイトの運用停止、グリッド、ノードまたはサイトの名前変更、ネットワークのメンテナンスが含まれます。ホストとミドルウェアの手順やグリッドノードの手順を実行することもできます。
 
 
-NOTE: ここで説明する「Linux」とは、Red Hat®Enterprise Linux®、Ubuntu®、またはDebian®環境を指します。サポートされているバージョンの一覧については、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^]ください。
+NOTE: これらの手順では、「Linux」は Red Hat® Enterprise Linux® (RHEL)、Ubuntu®、または Debian® のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^] 。
 
 
 

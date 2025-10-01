@@ -51,9 +51,7 @@ StorageGRID システムのネットワークを設定するには、イーサ�
 
 
 .ソフトウェアベースのノードをインストール
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-* link:../vmware/index.html["VMwareへのStorageGRIDのインストール"]
+* link:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"]
 
 
 .StorageGRID ソフトウェアを設定および管理する

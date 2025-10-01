@@ -9,44 +9,22 @@ indexpage:
     links:
     - title: アプライアンスハードウェア
       url: https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/index.html"
-    - title: Ubuntu または Debian
-      url: "../ubuntu/index.html"
-    - title: VMware
-      url: "../vmware/index.html"
-  - title: 資料の準備
+    - title: ソフトウェアベースのノード
+      url: "../swnodes/index.html"
+  - title: ソフトウェアベースのノード
     links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/required-materials.html"
-    - title: Ubuntu または Debian
-      url: "../ubuntu/required-materials.html"
-    - title: VMware
-      url: "../vmware/required-materials.html"
-  - title: インストールの自動化
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/automating-installation.html"
-    - title: Ubuntu または Debian
-      url: "../ubuntu/automating-installation.html"
-    - title: VMware
-      url: "../vmware/automating-grid-node-deployment-in-vmware-vsphere.html"
-  - title: ノードの導入
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/creating-node-configuration-files.html"
-    - title: Ubuntu または Debian
-      url: "../ubuntu/creating-node-configuration-files.html"
-    - title: VMware
-      url: "../vmware/collecting-information-about-your-deployment-environment.html"
-  - title: ノードのインストールの完了
-    links:
-    - title: Red Hat Enterprise Linux
-      url: "../rhel/navigating-to-grid-manager.html"
-    - title: Ubuntu または Debian
-      url: "../ubuntu/navigating-to-grid-manager.html"
-    - title: VMware
-      url: "../vmware/navigating-to-grid-manager.html"
+    - title: 資料の準備
+      url: "../swnodes/required-materials.html"
+    - title: Linuxのインストールを自動化する
+      url: "../swnodes/automating-installation-linux.html"
+    - title: VMwareのインストールを自動化する
+      url: "../swnodes/automating-grid-node-deployment-in-vmware-vsphere.html"
+    - title: Linuxを展開する
+      url: "../swnodes/creating-node-configuration-files.html"
+    - title: VMware を導入する
+      url: "../swnodes/collecting-information-about-your-deployment-environment.html"
+    - title: 完全なソフトウェアベースのノードインストール
+      url: "../swnodes/navigating-to-grid-manager.html"
   - title: アップグレードまたはホットフィックス
     links:
     - title: 新機能

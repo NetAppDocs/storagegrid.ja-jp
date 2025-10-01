@@ -1,0 +1,34 @@
+---
+permalink: admin/manage-external-ssh-access.html 
+sidebar: sidebar 
+keywords: security, external, ssh, access 
+summary: 外部 SSH アクセスをブロックまたは許可することで SSH 保護を管理します。 
+---
+= 外部SSHアクセスを管理する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+外部アクセスをブロックまたは許可することで、グリッドへの受信トラフィックの SSH アクセスを管理します。  SSH 外部アクセスを管理しても、グリッド内のノード間のトラフィックには影響しません。
+
+.開始する前に
+* Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
+* そうだな link:admin-group-permissions.html["rootアクセス権限"]
+
+
+.タスクの内容
+システムのセキュリティを強化するために、外部からの SSH アクセスはデフォルトでブロックされます。トラブルシューティングなど、着信 SSH アクセスを必要とするタスクを実行する必要がある場合は、一時的に外部アクセスを許可します。タスクが完了したら、外部からのアクセスをブロックします。
+
+.手順
+. *構成* > *セキュリティ* > *セキュリティ設定*を選択します。
+. *SSHをブロック*タブを選択します。
+. 外部 SSH アクセスを管理するには、*受信 SSH アクセスをブロック* オプションを使用します。
++
+.. アクセスをブロックするにはチェックボックスを選択します（デフォルト）。
+.. アクセスを許可するにはチェックボックスをオフにします。
+
+
+. [ 保存（ Save ） ] を選択します。
+

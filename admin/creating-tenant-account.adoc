@@ -13,7 +13,7 @@ summary: StorageGRID システム内のストレージへのアクセスを制�
 [role="lead"]
 StorageGRID システム内のストレージへのアクセスを制御するために、少なくとも 1 つのテナントアカウントを作成する必要があります。
 
-テナントアカウントを作成する手順は、とが設定されているかどうか、およびlink:configuring-sso.html["シングルサインオン"]テナントアカウントの作成に使用するGrid ManagerアカウントがRootアクセス権限を持つ管理者グループに属しているかどうかによって異なりますlink:using-identity-federation.html["アイデンティティフェデレーション"]。
+テナントアカウントを作成する手順は、link:using-identity-federation.html["アイデンティティフェデレーション"]そしてlink:how-sso-works.html["シングルサインオン"]が構成されているかどうか、およびテナント アカウントの作成に使用する Grid Manager アカウントが、ルート アクセス権限を持つ管理者グループに属しているかどうかを確認します。
 
 .開始する前に
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
@@ -42,7 +42,7 @@ TIP: テナントを作成する前にこの管理者グループが両方のグ
 == ウィザードにアクセスします
 
 .手順
-. 「 * tenants * 」を選択します
+. *テナント*を選択します。
 . 「 * Create * 」を選択します。
 
 
@@ -77,9 +77,7 @@ TIP: テナントを作成する前にこの管理者グループが両方のグ
  a| 
 クライアントタイプ
  a| 
-このテナントで使用するクライアントプロトコルのタイプ（* S3 *または* Swift *）。
-
-*注*：Swiftクライアントアプリケーションのサポートは廃止され、今後のリリースで削除される予定です。
+は* S3 *にする必要があります。
 
 
 
@@ -118,7 +116,7 @@ NOTE: これらの権限の一部には追加の要件があります。詳細�
  a| 
 独自のアイデンティティソースを使用する
  a| 
-テナントでは、フェデレーテッドグループおよびフェデレーテッドユーザの独自のアイデンティティソースを設定および管理できます。このオプションは、StorageGRIDシステムにがある場合は無効になりlink:../admin/configuring-sso.html["SSOを設定しました"]ます。
+テナントは、フェデレーション グループおよびユーザーに対して独自の ID ソースを構成および管理できます。このオプションは、link:../admin/how-sso-works.html["SSOを設定しました"] StorageGRIDシステム用。
 
 
 
@@ -290,7 +288,7 @@ Tenant Manager の URL の形式は次のとおりです。
  a| 
 ポート443
  a| 
-* Grid Manager で * tenants * を選択し、テナント名の右側にある * Sign In * を選択します。
+* グリッド マネージャーから [*テナント*] を選択し、テナント名の右側にある [*Sign in*] を選択します。
 * Web ブラウザにテナントの URL を入力します。
 +
 `https://_FQDN_or_Admin_Node_IP_/?accountId=_20-digit-account-id_/`
@@ -307,7 +305,7 @@ Tenant Manager の URL の形式は次のとおりです。
  a| 
 制限されたポート
  a| 
-* Grid Manager から * tenants * を選択し、 * Restricted * を選択します。
+* グリッド マネージャーから、[*テナント*] を選択し、[*制限*] を選択します。
 * Web ブラウザにテナントの URL を入力します。
 +
 `https://_FQDN_or_Admin_Node_IP:port_/?accountId=_20-digit-account-id_`

@@ -33,11 +33,7 @@ summary: 障害グリッドノードを新しいLinuxホストにリストアす
 
 次に、 StorageGRID の再起動に進む前に、グリッド構成ファイルを検証し、予想されるネットワークまたはストレージの問題を解決する必要があります。ノードの構成ファイルを再作成する場合は、リカバリするノードに使用されていたのと同じ名前を交換用ノードに使用する必要があります。
 
-ノードのボリュームの場所の詳細については、インストール手順を参照してください `/var/local`。
-
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-
+参照link:../swnodes/index.html["Linuxのインストール手順"]場所の詳細については、 `/var/local`ノードのボリューム。
 
 .手順
 . リカバリしたホストのコマンドラインで、現在設定されているすべてのStorageGRIDノードを一覧表示します。``sudo storagegrid node list``
@@ -76,10 +72,7 @@ NOTE: フラグを指定してインポートされたノードが `--force`グ�
 
 
 
-. ボリュームがないグリッドノードの `/var/local`場合は、ノードの構成ファイルを再作成してホストにリストアします。手順については、次を参照してください。
-+
-** link:../rhel/creating-node-configuration-files.html["Red Hat Enterprise Linuxのノード構成ファイルの作成"]
-** link:../ubuntu/creating-node-configuration-files.html["UbuntuまたはDebianのノード構成ファイルを作成します"]
+. グリッドノードに `/var/local`ボリュームの場合は、ノードの構成ファイルを再作成してホストに復元します。手順については、link:../swnodes/creating-node-configuration-files.html["ノード構成ファイルを作成"] 。
 +
 
 NOTE: ノードの構成ファイルを再作成する場合は、リカバリするノードに使用されていたのと同じ名前を交換用ノードに使用する必要があります。Linux 環境の場合は、構成ファイルの名前にノード名が含まれていることを確認します。可能な場合は、同じネットワークインターフェイス、ブロックデバイスマッピング、および IP アドレスを使用してください。これにより、リカバリ時にノードにコピーしなければならないデータ量を最小限に抑えることができるため、リカバリにかかる時間を大幅に（場合によっては、数週間から数分に）短縮できます。
@@ -87,8 +80,6 @@ NOTE: ノードの構成ファイルを再作成する場合は、リカバリ�
 +
 
 NOTE: ノードの構成ファイルを再作成するときに、で始まる構成変数の値として新しいブロックデバイス（StorageGRIDノードで以前に使用していなかったデバイス）を使用する場合 `BLOCK_DEVICE_`は、のガイドラインに従ってください<<fix-block-errors,ブロックデバイスが見つからないエラーを修正します>>。
-
-
 
 . リカバリしたホストで次のコマンドを実行して、すべての StorageGRID ノードを一覧表示します。
 +
@@ -145,17 +136,9 @@ ERROR: <node-name>: BLOCK_DEVICE_PURPOSE = <path-name>
 
 見つからないブロックデバイススペシャルファイルをリストアまたは再作成できない場合は、適切なサイズとストレージカテゴリの新しいブロックデバイスを割り当て、ノード構成ファイルを編集して、新しいブロックデバイススペシャルファイルを参照するようにの値を変更します `BLOCK_DEVICE_PURPOSE`。
 
-Linuxオペレーティングシステムに対応した表を使用して、適切なサイズとストレージカテゴリを決定します。
+Linux オペレーティング システムの表を使用して、適切なサイズとストレージ カテゴリを決定します。見るlink:../swnodes/storage-and-performance-requirements.html["ストレージとパフォーマンスの要件"] 。
 
-* link:../rhel/storage-and-performance-requirements.html["Red Hat Enterprise Linuxのストレージとパフォーマンスの要件"]
-* link:../ubuntu/storage-and-performance-requirements.html["UbuntuまたはDebianのストレージとパフォーマンスの要件"]
-
-
-ブロックデバイスの交換に進む前に、ホストストレージの設定に関する推奨事項を確認してください。
-
-* link:../rhel/configuring-host-storage.html["Red Hat Enterprise Linux用のホストストレージの設定"]
-* link:../ubuntu/configuring-host-storage.html["UbuntuまたはDebian用のホストストレージを設定します"]
-
+推奨事項を確認するlink:../swnodes/configuring-host-storage.html["ホストストレージの構成"]ブロック デバイスの交換に進む前に。
 
 
 NOTE: 障害が発生したホストで元のブロックデバイスが失われたために、で始まる構成ファイルの変数に新しいブロックストレージデバイスを指定する必要がある場合は `BLOCK_DEVICE_`、リカバリ手順を実行する前に新しいブロックデバイスがフォーマットされていないことを確認してください。共有ストレージを使用していて新しいボリュームを作成済みの場合、新しいブロックデバイスはアンフォーマットされます。状況がわからない場合は、新しいブロックストレージデバイスのスペシャルファイルに対して次のコマンドを実行します。

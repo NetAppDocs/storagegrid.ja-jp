@@ -31,7 +31,7 @@ image::../media/certificate_error.png[証明書エラーの例]
 外部 Prometheus 統合にクライアント証明書を使用している場合、証明書のエラーは、 StorageGRID 管理インターフェイス証明書またはクライアント証明書が原因で発生することがあります。クライアント証明書の有効期限が近づくと、 ［ 証明書 ］ ページ * アラートで設定されたクライアント証明書の有効期限がトリガーされます。
 
 .手順
-期限切れの証明書に関するアラート通知を受け取った場合は、証明書の詳細にアクセスしてください。次に* configuration *>* Security *>* Certificates *を選択します。link:../admin/using-storagegrid-security-certificates.html#access-security-certificates["適切な証明書タブを選択します"]
+期限切れの証明書に関するアラート通知を受け取った場合は、証明書の詳細にアクセスします。  *構成* > *セキュリティ* > *証明書*を選択し、link:../admin/using-storagegrid-security-certificates.html#access-security-certificates["適切な証明書タブを選択します"] 。
 
 . 証明書の有効期間を確認します。+一部のWebブラウザおよびS3クライアントでは、有効期間が398日を超える証明書が受け入れられません。
 . 証明書の有効期限が切れているか、まもなく期限切れになる場合は、新しい証明書をアップロードまたは生成します。
@@ -46,7 +46,7 @@ image::../media/certificate_error.png[証明書エラーの例]
 ** ドメイン名を使用して StorageGRID に接続しようとしている場合は、次の手順を実行します。
 +
 ... 接続エラーをバイパスして Grid Manager にアクセスするために、ドメイン名ではなく管理ノードの IP アドレスを入力します。
-... Grid Managerで、* configuration *>* Security *>* Certificates *を選択し、link:../admin/using-storagegrid-security-certificates.html#access-security-certificates["適切な証明書タブを選択します"]新しいカスタム証明書をインストールするか、デフォルトの証明書で続行します。
+... グリッドマネージャから*構成* > *セキュリティ* > *証明書*を選択し、link:../admin/using-storagegrid-security-certificates.html#access-security-certificates["適切な証明書タブを選択します"]新しいカスタム証明書をインストールするか、デフォルトの証明書を続行します。
 ... StorageGRIDの管理手順で、の手順を参照してくださいlink:../admin/configuring-custom-server-certificate-for-grid-manager-tenant-manager.html#add-a-custom-management-interface-certificate["Grid Manager および Tenant Manager 用のカスタムサーバ証明書を設定する"]。
 
 

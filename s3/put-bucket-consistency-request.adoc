@@ -77,4 +77,4 @@ Authorization: _authorization string_
 Host: _host_
 ----
 .関連情報
-link:consistency-controls.html["整合性の値"]
+link:consistency.html["整合性"]

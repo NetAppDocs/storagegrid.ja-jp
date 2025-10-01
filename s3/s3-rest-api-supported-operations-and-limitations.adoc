@@ -44,13 +44,6 @@ AWS 署名バージョン 4 は次の例外を除いてサポートされます�
 * で実際のペイロードチェックサム値を指定すると `x-amz-content-sha256`、ヘッダーに値が指定されているかのように、値が検証されずに受け入れられ `UNSIGNED-PAYLOAD`ます。ストリーミングを意味するヘッダー値 `aws-chunked`（streaming-AWS4-HMAC-SHA256-payloadなど）を指定する `x-amz-content-sha256`と、チャンクシグネチャはチャンクデータに対して検証されません。
 
 
-
-
- a| 
-x-amz-security-token を指定します
- a| 
-実装されていませんが返されます。 `XNotImplemented`
-
 |===
 
 

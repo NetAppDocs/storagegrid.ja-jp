@@ -26,12 +26,14 @@ summary: 管理ノードとゲートウェイノードに仮想 LAN （ VLAN ）
 * トランクインターフェイスを追加する必要がある場合は、次の詳細を参照してください。
 +
 ** * VMware（ノードのインストール後）*：link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します"]
-** * RHEL（ノードのインストール前）*：link:../rhel/creating-node-configuration-files.html["ノード構成ファイルを作成"]
-** * UbuntuまたはDebian（ノードのインストール前）*：link:../ubuntu/creating-node-configuration-files.html["ノード構成ファイルを作成"]
-** * RHEL、Ubuntu、またはDebian（ノードのインストール後）*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します"]
+** *Linux (ノードをインストールする前)*:link:../swnodes/creating-node-configuration-files.html["ノード構成ファイルを作成"]
+** *Linux (ノードのインストール後)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["ノードにトランクまたはアクセスインターフェースを追加する"]
 
 
 
+
+
+NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^] 。
 
 
 
@@ -54,7 +56,7 @@ summary: 管理ノードとゲートウェイノードに仮想 LAN （ VLAN ）
 === ウィザードにアクセスします
 
 .手順
-. * configuration * > * Network * > * vlan interfaces * を選択します。
+. *構成* > *ネットワーク* > *VLAN インターフェース* を選択します。
 . 「 * Create * 」を選択します。
 
 
@@ -101,7 +103,7 @@ image::../media/vlan-create-parent-interfaces.png[VLAN 作成ウィザードの�
 
 
 . [ 保存（ Save ） ] を選択します。
-. 新しいインターフェイスが High Availability groups ページで選択されて、ノードの * Network Interfaces * テーブルに表示されるまで、最大 5 分待ちます（ * nodes * > * _parent interface node_name > * Network * ）。
+. 新しいインターフェイスが [高可用性グループ] ページに選択肢として表示され、ノードの [*ネットワーク インターフェイス*] テーブルにリストされるまで、最大 5 分間待機します (*[ノード] > [*親インターフェイス ノード] > [*ネットワーク*])。
 
 
 
@@ -126,7 +128,7 @@ VLAN インターフェイスを編集する場合、次の種類の変更を行
 
 
 .手順
-. * configuration * > * Network * > * vlan interfaces * を選択します。
+. *構成* > *ネットワーク* > *VLAN インターフェース* を選択します。
 . 編集するVLANインターフェイスのチェックボックスを選択します。次に、 * アクション * > * 編集 * を選択します。
 . 必要に応じて、 VLAN ID または概要 を更新します。次に、 [* Continue （続行） ] を選択します。
 +
@@ -153,7 +155,7 @@ HA グループで現在使用されている VLAN インターフェイスは�
 
 
 .手順
-. * configuration * > * Network * > * vlan interfaces * を選択します。
+. *構成* > *ネットワーク* > *VLAN インターフェース* を選択します。
 . 削除する各VLANインターフェイスのチェックボックスを選択します。次に、 * アクション * > * 削除 * を選択します。
 . 「 * はい * 」を選択して選択を確定します。
 +

@@ -1,31 +1,8 @@
 ---
 permalink: rhel/troubleshooting-installation-issues.html 
-sidebar: sidebar 
-keywords: how to troubleshoot red hat linux installation 
-summary: StorageGRID システムのインストール中に問題が発生した場合は、インストールログファイルにアクセスできます。テクニカルサポートが問題を解決するためにインストールログファイルを使用することもあります。 
+redirect: storagegrid/swnodes/troubleshooting-installation-issues.html 
 ---
-= インストールに関する問題のトラブルシューティング
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-StorageGRID システムのインストール中に問題が発生した場合は、インストールログファイルにアクセスできます。テクニカルサポートが問題を解決するためにインストールログファイルを使用することもあります。
-
-次のインストールログファイルは、各ノードを実行しているコンテナからアクセスできます。
-
-* `/var/local/log/install.log`（すべてのグリッドノードに存在）
-* `/var/local/log/gdu-server.log`（プライマリ管理ノードにあります）
-
-
-次のインストールログファイルは、ホストからアクセスできます。
-
-* `/var/log/storagegrid/daemon.log`
-* `/var/log/storagegrid/nodes/node-name.log`
-
-
-ログファイルへのアクセス方法については、を参照してくださいlink:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集"]。
-
-.関連情報
-link:../troubleshoot/index.html["StorageGRID システムのトラブルシューティングを行う"]

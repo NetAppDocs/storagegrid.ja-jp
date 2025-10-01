@@ -24,11 +24,10 @@ NOTE: ポリシーのデフォルトのILMルールを作成する場合は、�
 * 使用するクラウドストレージプールを設定しておきます。を参照して link:creating-cloud-storage-pool.html["クラウドストレージプールを作成"]
 * に精通しているlink:data-protection-options-for-ingest.html["取り込みオプション"]必要があります。
 * S3オブジェクトロックで使用する準拠ルールを作成する必要がある場合は、をlink:requirements-for-s3-object-lock.html["S3 オブジェクトのロックの要件"]参照してください。
-* 必要に応じて、次のビデオを視聴しました。 https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7["ビデオ：ILMルールの概要"^]
+* オプションとして、ビデオを視聴しました:
 +
-[link=https://netapp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9872d38f-80b3-4ad4-9f79-b1ff008760c7]
-image::../media/video-screenshot-ilm-rules-118.png[ビデオ：ILMルールの概要]
-
+.ILMルールの概要
+video::9872d38f-80b3-4ad4-9f79-b1ff008760c7[panopto]
 
 
 .タスクの内容

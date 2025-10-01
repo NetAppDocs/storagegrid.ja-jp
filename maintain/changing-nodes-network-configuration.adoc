@@ -17,13 +17,7 @@ IP 変更ツールを使用して、 1 つ以上のノードのネットワー�
 あなたはファイルを持ってい `Passwords.txt`ます。
 
 .タスクの内容
-* Linux ： * グリッドノードを管理ネットワークまたはクライアントネットワークに初めて追加する際に、ノード構成ファイルの ADMIN_NETWORK_TARGET または CLIENT_network_target を事前に設定していない場合は、ここで設定する必要があります。
-
-使用しているLinuxオペレーティングシステムに対応したStorageGRID のインストール手順を参照してください。
-
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-
+*Linux:* グリッド ノードを管理ネットワークまたはクライアント ネットワークに初めて追加する場合、以前にノード構成ファイルで ADMIN_NETWORK_TARGET または CLIENT_NETWORK_TARGET を構成していなかったときは、ここで構成する必要があります。  StorageGRIDをご覧くださいlink:../swnodes/index.html["インストール手順"]Linux オペレーティング システム用。
 
 *アプライアンス：* StorageGRID アプライアンスでは、初期インストール時にStorageGRID アプライアンスインストーラでクライアントネットワークまたは管理ネットワークを設定しなかった場合、IP変更ツールのみを使用してネットワークを追加することはできません。まず、リンクを設定し、アプライアンスを通常の動作モードに戻してから、IP変更ツールを使用してネットワーク設定を変更する必要があります https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/placing-appliance-into-maintenance-mode.html["アプライアンスをメンテナンスモードにします"^]。を参照してください https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["ネットワークリンクを設定するための手順"^]。
 
@@ -42,12 +36,13 @@ IP 変更ツールを使用して、 1 つ以上のノードのネットワー�
 NOTE: IPアドレスの交換は許可されていません。グリッドノード間で IP アドレスを交換する必要がある場合は、一時的な中間 IP アドレスを使用する必要があります。
 
 
-NOTE: StorageGRID システムでシングルサインオン（ SSO ）が有効になっている場合、管理ノードの IP アドレスを変更すると、（推奨される完全修飾ドメイン名ではなく）管理ノードの IP アドレスを使用して設定された証明書利用者信頼はすべて無効になります。ノードにサインインできなくなります。IP アドレスを変更したら、すぐに Active Directory フェデレーションサービス（ AD FS ）でそのノードの証明書利用者信頼を新しい IP アドレスで更新または再設定する必要があります。の手順を参照してくださいlink:../admin/configuring-sso.html["SSOの設定"]。
+NOTE: StorageGRIDシステムでシングル サインオン (SSO) が有効になっていて、管理ノードの IP アドレスを変更する場合は、管理ノードの IP アドレス (推奨されている完全修飾ドメイン名ではなく) を使用して設定された証明書利用者信頼が無効になることに注意してください。ノードにサインインできなくなります。 IP アドレスを変更した直後に、Active Directory フェデレーション サービス (AD FS) 内のノードの証明書利用者信頼を新しい IP アドレスで更新または再構成する必要があります。説明書をご覧くださいlink:../admin/configure-sso.html["SSOの設定"]。
 
 
 NOTE: IP 変更ツールを使用してネットワークに加えた変更は、 StorageGRID アプライアンスのインストーラファームウェアに反映されます。そのため、アプライアンスに StorageGRID ソフトウェアを再インストールした場合や、アプライアンスをメンテナンスモードにした場合も、正しいネットワーク設定が適用されます。
 
 .手順
+. デフォルトでは外部 SSH アクセスはブロックされます。必要に応じて、link:../admin/manage-external-ssh-access.html["一時的にアクセスを許可する"] 。
 . プライマリ管理ノードにログインします。
 +
 .. 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
@@ -186,7 +181,7 @@ Updating grid network configuration on Name
 
 
 +
-変更を適用またはステージングすると、グリッド設定が変更された結果として新しいリカバリパッケージが生成されます。
+変更を適用またはステージングすると、グリッド構成の変更の結果として新しいリカバリ パッケージが生成されます。
 
 . 「 * stage * 」を選択した場合は、プロビジョニングが完了したあとに次の手順を実行します。
 +
@@ -201,10 +196,52 @@ Updating grid network configuration on Name
 
 
 . 変更が完了したら、「 *0 」を選択して IP 変更ツールを終了します。
-. Grid Manager から新しいリカバリパッケージをダウンロードします。
+. グリッド マネージャーから新しいリカバリ パッケージをダウンロードします。
 +
-.. [* maintenance * （メンテナンス） ] > [* System * （システム * ） ] > [* Recovery packツケ （リカバリパッケージ * ）
+.. *メンテナンス* > *システム* > *回復パッケージ*を選択します。
 .. プロビジョニングパスフレーズを入力します。
 
 
+. 外部SSHアクセスを許可している場合は、link:../admin/manage-external-ssh-access.html["アクセスをブロックする"]ノードネットワーク構成の変更が完了したら。
 
+
+
+
+== LACP PDUレートを一時的に変更する
+
+NIC ファームウェアのアップグレードなど、アプライアンスにインストールされているネットワーク コンポーネントに対してメンテナンス操作を実行するには、現在の LACP PDU レート設定が NIC 通信タイミング要件を満たしていることを確認できます。必要に応じて、LACP PDU レートを高速 (1 秒待機) と低速 (30 秒待機) の間で非永続的に切り替えることができます。
+
+
+NOTE: LACP PDUレートを永続的に変更するには、 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/configuring-network-links.html["ネットワークリンクを設定する"^] 。
+
+.開始する前に
+* 管理ノードがインストールされ、実行されています。
+* あなたはファイルを持ってい `Passwords.txt`ます。
+
+
+.手順
+. プライマリ管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@primary_Admin_Node_IP`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+
+
+. 現在の LACP PDU レート設定を確認するには、次のコマンドを入力します。
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh'`
+
+. LACP PDU レートを一時的に変更するには、次のコマンドを入力します。
++
+`run-each-node --parallel --port 8022 '/usr/sbin/set-lacp-rate.sh _<speed>_'`
+
++
+どこ `_<speed>_`は `fast`または `slow`。
+
+
+
+LACP PDU レートは、アプライアンスの次回の再起動時に以前の設定に戻ります。

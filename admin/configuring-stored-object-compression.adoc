@@ -40,7 +40,7 @@ NOTE: オブジェクトを圧縮する必要があり、クライアントア�
 
 
 .手順
-. * configuration *>* System *>* Storage settings *>* Object compression *を選択します。
+. *構成* > *システム* > *ストレージ設定* > *オブジェクト圧縮*を選択します。
 . [Compress stored objects]*チェックボックスを選択します。
 . [ 保存（ Save ） ] を選択します。
 

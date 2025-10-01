@@ -44,7 +44,7 @@ Swagger のテナント管理 API のドキュメントにアクセスするに�
 NOTE: StorageGRID システムでシングルサインオン（ SSO ）が有効になっている場合は、別の手順による認証が必要です。を参照してくださいlink:../admin/using-grid-management-api.html["Grid 管理 API の使用手順"]。
 
 * * config *：製品リリースおよびテナント管理APIのバージョンに関連する処理。製品リリースバージョンおよびそのリリースでサポートされる API のメジャーバージョンを一覧表示できます。
-* * containers *：S3バケットまたはSwiftコンテナに対する処理。
+* *コンテナ*: S3 バケットに対する操作。
 * * deactivated-features *：非アクティブ化された可能性がある機能を表示する操作。
 * * endpoints *：エンドポイントを管理する処理。エンドポイントを使用することで、 S3 バケットは外部のサービスを StorageGRID CloudMirror レプリケーション、通知、または検索統合に使用できます。
 * * grid-federation-connections *：グリッドフェデレーション接続およびグリッド間レプリケーションに対する処理。

@@ -63,7 +63,7 @@ NOTE: 名前にが含まれる指標は``_private_``内部使用のみを目的�
 * *ntp-servers *：外部のネットワークタイムプロトコル（NTP）サーバをリストまたは更新する処理。
 * * objects *：オブジェクトおよびオブジェクトメタデータに対する処理。
 * * recovery*：リカバリ手順 の処理。
-* * recovery-package *：リカバリパッケージをダウンロードする処理。
+* *recovery-package*: リカバリ パッケージをダウンロードする操作。
 * *regions*:リージョンを表示および作成する操作。
 * * s3-object-lock *：グローバルS3オブジェクトロック設定に対する処理。
 * * server-certificate *：Grid Managerサーバ証明書を表示および更新する処理。

@@ -23,7 +23,7 @@ OWR
  a| 
 Object Overwrite ：あるオブジェクトを別のオブジェクトで上書きするトランザクションをログに記録します。
  a| 
-S3およびSwiftクライアント
+S3 クライアント
  a| 
 link:ovwr-object-overwrite.html["OVWR ：オブジェクトを上書き"]
 
@@ -74,27 +74,5 @@ S3 Metadata Updated ：既存のオブジェクトまたはバケットのメタ
 S3 クライアント
  a| 
 link:supd-s3-metadata-updated.html["SUPD ： S3 メタデータが更新されました"]
-
-
-
- a| 
-WDEL
- a| 
-Swift DELETE ：オブジェクトまたはコンテナを削除するトランザクションの成功をログに記録します。
- a| 
-Swift クライアント
- a| 
-link:wdel-swift-delete.html["WDEL ： Swift の削除"]
-
-
-
- a| 
-WPUT
- a| 
-Swift PUT ：オブジェクトまたはコンテナを新規に作成するトランザクションの成功をログに記録します。
- a| 
-Swift クライアント
- a| 
-link:wput-swift-put.html["WPUT：Swift PUT"]
 
 |===

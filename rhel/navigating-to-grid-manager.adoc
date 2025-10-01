@@ -1,51 +1,8 @@
 ---
 permalink: rhel/navigating-to-grid-manager.html 
-sidebar: sidebar 
-keywords: how to navigate to grid manager 
-summary: StorageGRID システムの設定に必要なすべての情報については、グリッドマネージャを使用して定義します。 
+redirect: storagegrid/swnodes/navigating-to-grid-manager.html 
 ---
-= Grid Manager に移動します
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
-
-
-[role="lead"]
-StorageGRID システムの設定に必要なすべての情報については、グリッドマネージャを使用して定義します。
-
-.開始する前に
-プライマリ管理ノードが導入され、最初の起動シーケンスが完了している必要があります。
-
-.手順
-. Webブラウザを開き、次の場所に移動します。
-+
-`https://_primary_admin_node_ip_`
-
-+
-ポート 8443 でグリッドマネージャにアクセスすることもできます。
-
-+
-`https://_primary_admin_node_ip_:8443`
-
-+
-ネットワーク設定に応じて、グリッドネットワーク上または管理ネットワーク上のプライマリ管理ノード IP の IP アドレスを使用できます。
-
-. 必要に応じて一時インストーラパスワードを管理します。
-+
-** いずれかの方法ですでにパスワードが設定されている場合は、パスワードを入力して続行します。
-+
-*** ユーザが以前にインストーラにアクセスしているときにパスワードを設定した
-*** パスワードは次の場所にあるノード構成ファイルから自動的にインポートされました： `/etc/storagegrid/nodes/_<node_name>_.conf`
-
-
-** パスワードが設定されていない場合は、必要に応じてStorageGRIDインストーラを保護するためのパスワードを設定します。
-
-
-. [Install a StorageGRID system]*を選択します。
-+
-StorageGRID システムの設定に使用したページが表示されます。
-
-+
-image::../media/gmi_installer_first_screen.gif[StorageGRIDインストーラの最初の画面]
 
 

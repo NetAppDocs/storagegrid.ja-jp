@@ -48,19 +48,15 @@ Linux RPMまたはDEBアーカイブ
  a| 
 Linuxホストにノードが導入されている場合は、アップグレードを開始する前に実行する必要がありますlink:linux-installing-rpm-or-deb-package-on-all-hosts.html["RPMパッケージまたはDEBパッケージをすべてのホストにダウンロードしてインストールします"]。
 
-お使いのオペレーティングシステムがStorageGRIDのカーネルバージョンの最小要件を満たしていることを確認します。
-
-* link:../rhel/installing-linux.html["Red Hat Enterprise LinuxホストへのStorageGRIDのインストール"]
-* link:../ubuntu/installing-linux.html["UbuntuホストまたはDebianホストへのStorageGRIDのインストール"]
-
+Linux オペレーティング システムが StorageGRID の最小カーネル バージョン要件を満たしていることを確認します。見るlink:../swnodes/installing-linux.html["LinuxホストにStorageGRIDをインストールする"] 。
 
 
 
  a| 
 StorageGRID のドキュメント
  a| 
-* link:../release-notes/index.html["リリースノート"]StorageGRID 11.9の場合（サインインが必要）。アップグレードを開始する前に、このドキュメントに記載されている情報をよくお読みください。
-* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["StorageGRID ソフトウェアアップグレード解決ガイド"^]アップグレード先のメジャーバージョン（サインインが必要）
+* link:../release-notes/index.html["リリースノート"]StorageGRID 12.0 の場合 (サインインが必要です)。アップグレードを開始する前に、これらを注意深くお読みください。
+* https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["StorageGRID ソフトウェアアップグレード解決ガイド"^]アップグレードするメジャーバージョン（サインインが必要です）
 * その他（ https://docs.netapp.com/us-en/storagegrid-family/index.html["StorageGRID のドキュメント"^]必要に応じて）。
 
 

@@ -58,7 +58,7 @@ StorageGRIDでグリッドノードをリブートすると、各ノードでコ
 最初の手順として、[Rolling reboot]ページにアクセスし、リブートするノードを選択します。
 
 .手順
-. * maintenance *>* Tasks *>* Rolling reboot *を選択します。
+. *メンテナンス* > *タスク* > *ローリング再起動*を選択します。
 . [ノード名]列の接続状態とアラートのアイコンを確認します。
 +
 
@@ -129,6 +129,6 @@ NOTE: プライマリ管理ノードが最後にリブートするノードに�
 プライマリ管理ノードからローリングリブート手順を停止できます。手順を停止すると、ステータスが「Stopping services」、「rebooting system」、または「Starting services」のノードのリブート処理が完了します。ただし、これらのノードは手順の一部として追跡されなくなります。
 
 .手順
-. * maintenance *>* Tasks *>* Rolling reboot *を選択します。
+. *メンテナンス* > *タスク* > *ローリング再起動*を選択します。
 . [Monitor reboot]ステップで、[Stop reboot procedure]*を選択します。
 

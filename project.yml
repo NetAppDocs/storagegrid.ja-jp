@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '11.9'
+  - version-number: '12.0'
     url: "/storagegrid"
+  - version-number: '11.9'
+    url: "/storagegrid-119"
   - version-number: '11.8'
     url: "/storagegrid-118"
   - version-number: '11.7'
@@ -23,7 +25,7 @@ settings:
   langs: ja-jp,us-en,de-de,es-es,fr-fr,it-it,pt-br,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 11.9ドキュメント
+  - title: StorageGRID 12.0 ソフトウェア
     url: "/index.html"
   - title: StorageGRIDアプライアンス
     url: "/storagegrid-hardware.html"
@@ -39,11 +41,9 @@ sidebar:
   - title: インストール、アップグレード、ホットフィックス
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: アプライアンスのインストール
+    - title: アプライアンスベースのノードをインストールする
       url: "/storagegrid-hardware.html"
-    - section: rhel
-    - section: ubuntu
-    - section: vmware
+    - section: swnodes
     - section: upgrade
     - title: StorageGRIDホットフィックスの適用
       entries:
@@ -149,6 +149,30 @@ sidebar:
       - title: ノードのメンテナンス手順
         pdf-filename: ノードの手順
         url: "/maintain/grid-node-procedures.html"
+      - title: ADCサービスの移動
+        url: "/maintain/move-adc-service.html"
+      - title: データのみのノードに変換する
+        url: "/maintain/convert-to-data-only-node.html"
+      - title: リブート、シャットダウン、および電源の手順
+        entries:
+        - title: ローリングリブートの実行
+          url: "/maintain/rolling-reboot-procedure.html"
+        - title: "[Tasks]タブからのノードのリブート"
+          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
+        - title: コマンドシェルからノードをリブート
+          url: "/maintain/rebooting-grid-node-from-command-shell.html"
+        - title: ノードをシャットダウン
+          url: "/maintain/shutting-down-grid-node.html"
+        - title: ホストの電源をオフにします
+          url: "/maintain/powering-down-host.html"
+        - title: すべてのノードの電源をオフにしてオンにする
+          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
+      - title: ポートの再マッピング手順
+        entries:
+        - title: StorageGRIDアプライアンスのポート再マップを削除します
+          url: "/maintain/removing-port-remaps.html"
+        - title: ベアメタルホストでのポートの再マッピングを削除します
+          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
       - title: Server Managerの手順
         entries:
         - title: Server Manager のステータスとバージョンを表示します
@@ -173,26 +197,6 @@ sidebar:
           url: "/maintain/using-donotstart-file.html"
         - title: Server Manager のトラブルシューティングを行います
           url: "/maintain/accessing-server-manager-log-file.html"
-      - title: リブート、シャットダウン、および電源の手順
-        entries:
-        - title: ローリングリブートの実行
-          url: "/maintain/rolling-reboot-procedure.html"
-        - title: "[Tasks]タブからのノードのリブート"
-          url: "/maintain/rebooting-grid-node-from-grid-manager.html"
-        - title: コマンドシェルからノードをリブート
-          url: "/maintain/rebooting-grid-node-from-command-shell.html"
-        - title: ノードをシャットダウン
-          url: "/maintain/shutting-down-grid-node.html"
-        - title: ホストの電源をオフにします
-          url: "/maintain/powering-down-host.html"
-        - title: すべてのノードの電源をオフにしてオンにする
-          url: "/maintain/powering-off-and-on-all-nodes-in-grid.html"
-      - title: ポートの再マッピング手順
-        entries:
-        - title: ポートの再マッピングを削除
-          url: "/maintain/removing-port-remaps.html"
-        - title: ベアメタルホストでのポートの再マッピングを削除します
-          url: "/maintain/removing-port-remaps-on-bare-metal-hosts.html"
     - title: ネットワーク手順
       entries:
       - title: Grid ネットワークのサブネットを更新します
@@ -376,7 +380,7 @@ sidebar:
         url: "/maintain/monitoring-services-appliance-installation.html"
     - title: テクニカルサポートによるサイトのリカバリ方法
       url: "/maintain/how-site-recovery-is-performed-by-technical-support.html"
-  - title: StorageGRID を有効にします
+  - title: StorageGRIDソリューションとリソース
     url: "/storagegrid-enable.html"
   - title: StorageGRIDとBlueXP
     url: "/storagegrid-bluexp.html"

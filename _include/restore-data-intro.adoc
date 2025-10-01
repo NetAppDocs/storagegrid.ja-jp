@@ -8,8 +8,8 @@
 
 可能なかぎり、Grid Managerの*[ボリュームのリストア]*ページを使用してオブジェクトデータをリストアします。
 
-* ボリュームが* maintenance *>* Volume restore *>* Nodes to restore *に表示された場合は、を使用してオブジェクトデータをリストアしますlink:../maintain/restoring-volume.html["Grid Managerのボリュームリストアページ"]。
-* ボリュームが* maintenance *>* Volume restore *>* Nodes to restore *に表示されない場合は、スクリプトを使用してオブジェクトデータをリストアするため、以下の手順に従ってください。 `repair-data`
+* ボリュームが*メンテナンス* > *ボリュームの復元* > *復元するノード*にリストされている場合は、link:../maintain/restoring-volume.html["Grid Managerのボリュームリストアページ"] 。
+* *メンテナンス* > *ボリュームの復元* > *復元するノード*にボリュームが表示されない場合は、以下の手順に従ってください。 `repair-data`オブジェクト データを復元するスクリプト。
 +
 リカバリされたストレージノードのボリューム数が交換対象のノードよりも少ない場合は、スクリプトを使用する必要があり `repair-data`ます。
 
@@ -23,7 +23,7 @@ NOTE: repair-dataスクリプトは廃止され、今後のリリースで削除
 == スクリプトを使用し `repair-data`てオブジェクトデータをリストアする
 
 .開始する前に
-* Grid Managerの* nodes *>* Overview *タブで、リカバリされたストレージノードの接続状態が* Connected *になっていることを確認してimage:../media/icon_alert_green_checkmark.png["緑色のチェックマークのアイコン"]おきます。
+* 回復したストレージノードの接続状態が「接続済み」であることを確認しましたimage:../media/icon_alert_green_checkmark.png["緑色のチェックマークのアイコン"]グリッド マネージャーの *ノード* > *概要* タブで。
 
 
 .タスクの内容

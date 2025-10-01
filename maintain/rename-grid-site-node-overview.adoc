@@ -29,7 +29,7 @@ StorageGRID を最初にインストールするときは、グリッド、各�
 
 次の表は、StorageGRID ユーザー・インターフェイスおよびStorageGRID ファイルでシステム名と表示名が表示される場所をまとめたものです。
 
-[cols="2a,2a,3a"]
+[cols="1a,1a,3a"]
 |===
 | 場所 | システム名 | 表示名 
 
@@ -55,20 +55,11 @@ Grid Managerのページ
 
 
  a| 
-*ノードの* nodes *>* Overview *タブ
+*ノード* > ノードの *概要* タブ
  a| 
 常に表示されます
  a| 
 項目の名前が変更された場合にのみ表示されます
-
-
-
- a| 
-Grid Managerのレガシーページ（* support *>* Grid Topology *など）
- a| 
-を示します
- a| 
-表示されません
 
 
 
@@ -99,7 +90,7 @@ SSHを使用してノードにアクセスするときにプロンプトを表�
 
 
  a| 
-`Passwords.txt`リカバリパッケージのファイル
+`Passwords.txt`リカバリパッケージ内のファイル
  a| 
 表示形式 `Server Name`
  a| 

@@ -67,7 +67,7 @@
 
 
  a| 
-このノードが属するグリッドのプライマリ管理ノードのグリッドネットワークの IPv4 アドレス。GRID_NETWORK_IP で指定した値を Node_type=VM_Admin_Node および ADMIN_NETWORK_role = Primary のグリッドノードに使用します。このパラメータを省略すると、 mDNS を使用してプライマリ管理ノードの検出が試行されます。
+Linux ベースのノードをインストールするために使用する管理ノードのグリッド ネットワーク IPv4 アドレス。リカバリの場合、プライマリ管理ノードの IP が使用可能な場合はそれを使用し、そうでない場合は非プライマリ管理ノードの IP を使用します。このパラメータを省略すると、ノードは mDNS を使用してプライマリ管理ノードを検出しようとします。
 
 link:how-grid-nodes-discover-primary-admin-node.html["グリッドノードによるプライマリ管理ノードの検出"]
 
@@ -277,11 +277,7 @@ StorageGRID コンテナで管理ネットワークのホストターゲット�
 
 * ベストプラクティス：プロミスキャスモードが必要なネットワークでは、「 ADMIN_NETWORK_TARGET_TYPE_interface_clone_MAC 」キーを使用してください。
 
-MAC クローニングの詳細については、次の URL を参照してください
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MACアドレスのクローニングに関する考慮事項と推奨事項（Red Hat Enterprise Linux）"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項（ Ubuntu または Debian ）"]
-
+LinuxのMACクローニングの詳細については、以下を参照してください。link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項"]
  a| 
 ベストプラクティス
 
@@ -639,11 +635,7 @@ interface（サポートされている値のみ）
 
 * ベストプラクティス：プロミスキャスモードが必要なネットワークでは、 client_network_target_type _interface_clone_MAC キーを使用してください。
 
-MAC クローニングの詳細については、次の URL を参照してください
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MACアドレスのクローニングに関する考慮事項と推奨事項（Red Hat Enterprise Linux）"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項（ Ubuntu または Debian ）"]
-
+LinuxのMACクローニングの詳細については、以下を参照してください。link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項"]
  a| 
 ベストプラクティス
 
@@ -834,11 +826,7 @@ interface（サポートされている値はこれだけです）
 
 * ベストプラクティス：プロミスキャスモードが必要なネットワークでは、 GRID_NETWORK_TARGET _TYPE_interface_clone_MAC キーを使用してください。
 
-MAC クローニングの詳細については、次の URL を参照してください
-
-* link:../rhel/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MACアドレスのクローニングに関する考慮事項と推奨事項（Red Hat Enterprise Linux）"]
-* link:../ubuntu/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項（ Ubuntu または Debian ）"]
-
+LinuxのMACクローニングの詳細については、以下を参照してください。link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項"]
  a| 
 ベストプラクティス
 
@@ -980,6 +968,9 @@ _nnnn_には、追加する各interface_targetエントリに一意の番号を�
 
 
 === ポートの再マッピングキー
+
+
+NOTE: ポート再マッピングのサポートは非推奨であり、将来のリリースでは削除される予定です。再マップされたポートを削除するには、link:../maintain/removing-port-remaps-on-bare-metal-hosts.html["ベアメタルホストでのポートの再マッピングを削除します"] 。
 
 
 

@@ -33,7 +33,7 @@ summary: 障害が発生した非プライマリ管理ノードから監査ロ�
 * 監査メッセージを生成したローカルノードにのみ保存するように明示的に指定します。
 
 
-詳細は、を参照してください link:../monitor/configure-audit-messages.html["監査メッセージとログの送信先を設定します"] 。
+見るlink:../monitor/configure-log-management.html["ログ管理と外部Syslogサーバーを構成する"]詳細については。
 
 ====
 .手順

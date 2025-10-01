@@ -63,3 +63,6 @@ NOTE: タグの名前と説明はテナントに表示されます。バケッ�
 
 . [はい]*を選択してタグを削除します。
 
+
+.関連情報
+link:creating-ilm-policy.html#activate-ilm-policy["ILMポリシータグの作成について学ぶ"]

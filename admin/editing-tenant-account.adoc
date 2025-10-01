@@ -25,7 +25,7 @@ TIP: テナントに* Use grid federation connection *権限がある場合は�
 NOTE: テナント設定をグリッド全体に適用する場合、ネットワーク接続、ノードのステータス、およびCassandraの処理によっては、15分以上かかることがあります。
 
 .手順
-. 「 * tenants * 」を選択します
+. *テナント*を選択します。
 +
 image::../media/tenant_accounts_page.png[テナントアカウントヘエシ]
 

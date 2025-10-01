@@ -13,11 +13,7 @@ summary: 管理ネットワークまたはクライアントネットワーク�
 [role="lead"]
 管理ネットワークまたはクライアントネットワーク上のインターフェイスをインストールしたあとに Linux ノードに追加するには、次の手順を実行します。
 
-インストール時に Linux ホスト上のノード構成ファイルで ADMIN_NETWORK_TARGET または ADMIN_NETWORK_TARGET を設定しなかった場合は、この手順 を使用してインターフェイスを追加します。ノード構成ファイルの詳細については、使用している Linux オペレーティングシステムの手順を参照してください。
-
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-
+インストール中に Linux ホストのノード構成ファイルで ADMIN_NETWORK_TARGET または CLIENT_NETWORK_TARGET を構成しなかった場合は、この手順を使用してインターフェイスを追加します。ノード構成ファイルの詳細については、以下を参照してください。link:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"] 。
 
 この手順 は、ノード内ではなく、新しいネットワーク割り当てが必要なノードをホストしている Linux サーバ上で実行します。この手順 で追加されるのはノードだけです。他のネットワークパラメータを指定しようとすると、検証エラーが発生します。
 

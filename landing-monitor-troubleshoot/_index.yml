@@ -27,8 +27,8 @@ indexpage:
       url: "../monitor/using-snmp-monitoring.html"
   - title: 監査メッセージおよびその他のログを使用する
     links:
-    - title: 監査メッセージの設定
-      url: "../monitor/configure-audit-messages.html"
+    - title: ログ管理を構成する
+      url: "../monitor/configure-log-management.html"
     - title: 外部syslogサーバを使用する
       url: "../monitor/considerations-for-external-syslog-server.html"
     - title: 監査ログを確認します
@@ -39,6 +39,8 @@ indexpage:
     links:
     - title: サポート指標を確認
       url: "../monitor/reviewing-support-metrics.html"
+    - title: I/Oの優先順位を変更する
+      url: "../monitor/manage-io-prioritization.html"
     - title: 診断を実行します
       url: "../monitor/running-diagnostics.html"
     - title: 一般的な問題のトラブルシューティング

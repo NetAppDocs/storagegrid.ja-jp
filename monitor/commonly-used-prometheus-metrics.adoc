@@ -39,7 +39,7 @@ image::../media/nodes_page_network_traffic_graph.png[Prometheus のグラフ]
 
 NOTE: 名前に _private_ が含まれる指標は内部専用です。 StorageGRID のリリースごとに予告なく変更されることがあります。
 
-* support *>* Tools *>* Diagnostics *ページと* support *>* Tools *>* Metrics *ページ：これらのページは主にテクニカルサポートが使用することを目的としており、Prometheus指標の値を使用するいくつかのツールとチャートを提供します。
+* *サポート* > *ツール* > *診断* ページと *サポート* > *ツール* > *メトリック* ページ: これらのページは主にテクニカル サポートによる使用を目的としており、Prometheus メトリックの値を使用するいくつかのツールとグラフを提供します。
 +
 
 NOTE: [Metrics] ページの一部の機能やメニュー項目は意図的に機能しないため、変更される場合があります。
@@ -65,8 +65,8 @@ storagegrid_administrative_down:: 想定内の理由でノードがグリッド�
 storagegrid_apply_compute_controller_hardware_status:: アプライアンスのコンピューティングコントローラハードウェアのステータス。
 storagegrid_apply_failed_disks を指定します:: アプライアンス内のストレージコントローラの場合、最適な状態でないドライブの数。
 storagegrid_apply_storage_controller_hardware_status:: アプライアンス内のストレージコントローラハードウェアの全体的なステータス。
-storagegrid_content_bbuckets_or_containers:: このストレージノードによって認識されている S3 バケットと Swift コンテナの総数。
-storagegrid_content_objects を参照してください:: このストレージノードによって認識されている S3 および Swift データオブジェクトの総数。S3経由でシステムと通信するクライアントアプリケーションで作成されたデータオブジェクトに対してのみ有効です。
+storagegrid_content_bbuckets_or_containers:: このストレージノードが認識している S3 バケットの合計数。
+storagegrid_content_objects を参照してください:: このストレージ ノードが認識している S3 データ オブジェクトの合計数。カウントは、S3 を介してシステムとインターフェースするクライアント アプリケーションによって作成されたデータ オブジェクトに対してのみ有効です。
 storagegrid_content_objects_lost:: StorageGRID システムに存在しないことが検出されたオブジェクトの合計数。損失の原因 を特定し、リカバリが可能かどうかを確認する必要があります。
 +
 --
@@ -135,11 +135,6 @@ storagegrid_storage_utilization_meta_allowed_bytes:: オブジェクトメタデ
 storagegrid_storage_utilization_metadata_bytes:: ストレージボリューム 0 上のオブジェクトメタデータのバイト数。
 storagegrid_storage_utilization_total_space_bytes:: すべてのオブジェクトストアに割り当てられているストレージスペースの総容量。
 storagegrid_storage_utilization_usable_space_bytes:: オブジェクトストレージスペースの残り容量。ストレージノード上のすべてのオブジェクトストアの使用可能スペースを合計して算出されます。
-storagegrid_swify_data_transfers _bytes_取り込み 済み:: 属性の前回リセット以降にこのストレージノードに取り込まれたデータの総容量。
-storagegrid_wift_data_transfers _byts_retrieved:: 属性の前回リセット後に Swift クライアントがこのストレージノードから読み出したデータの総容量。
-storagegrid_swift_operations_failed 」というエラーが発生しました:: 失敗した Swift 処理（ HTTP ステータスコード 4xx と 5xx ）の総数。 Swift の認証エラーが原因のものは除きます。
-storagegrid_swift_operations_successful:: 成功した Swift 処理（ HTTP ステータスコード 2xx ）の総数。
-storagegrid_swift_operations_unauthorized:: 認証エラーが原因で失敗した Swift 処理（ HTTP ステータスコード 401 、 403 、 405 ）の総数。
 storagegrid_stenantUsagedata_bytes:: テナントのすべてのオブジェクトの論理サイズ。
 storagegrid_stenantUsageobject_count:: テナントのオブジェクトの数。
 storagegrid_tenant_dusation_QUOTA_bytes:: テナントのオブジェクトに使用できる論理スペースの最大容量。クォータ指標を指定しない場合、使用可能なスペースは無制限です。
@@ -151,6 +146,7 @@ storagegrid_tenant_dusation_QUOTA_bytes:: テナントのオブジェクトに�
 
 [[objective-all-metrics]]すべての指標のリストを取得するには、グリッド管理APIを使用します。
 
+.手順
 . Grid Managerの上部でヘルプアイコンを選択し、*[API documentation]*を選択します。
 . 指標 * 処理を探します。
 . 操作を実行し `GET /grid/metric-names`ます。

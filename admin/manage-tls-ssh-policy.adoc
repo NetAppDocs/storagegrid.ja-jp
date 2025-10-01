@@ -28,56 +28,80 @@ NOTE: 一部のStorageGRID サービスは、これらのポリシーで暗号�
 == セキュリティポリシーを選択します
 
 .手順
-. * configuration *>* Security *>* Security settings *を選択します。
+. *構成* > *セキュリティ* > *セキュリティ設定*を選択します。
 +
 TLSおよびSSHポリシー*タブには、使用可能なポリシーが表示されます。ポリシーのタイルには、現在アクティブなポリシーが緑のチェックマークで表示されます。
 
 +
 image::../media/securitysettings_tls_ssh_policies_current.png[TLSおよびSSHポリシー]
 
-. タイルで使用可能なポリシーを確認します。
+. 利用可能なポリシーの詳細については、タブを確認してください。
 +
-[cols="1a,2a"]
-|===
-| ポリシー | 製品説明 
+[role="tabbed-block"]
+====
+.最新の互換性（デフォルト）
+--
+強力な暗号化が必要で、特別な要件がない場合は、デフォルトのポリシーを使用します。このポリシーは、ほとんどの TLS および SSH クライアントと互換性があります。
+
+--
+.レガシー互換性
+--
+古いクライアントに追加の互換性オプションが必要な場合は、レガシー互換性ポリシーを使用します。このポリシーの追加オプションにより、モダン互換性ポリシーよりも安全性が低くなる可能性があります。
+
+--
+.Common Criteriaの略
+--
+Common Criteria 認証が必要な場合は、Common Criteria ポリシーを使用します。
+
+--
+.FIPS strict
+--
+Common Criteria 認定が必要であり、ロード バランサ エンドポイント、Tenant Manager、および Grid Manager への外部クライアント接続にNetApp Cryptographic Security Module (NCSM) 3.0.8 またはNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 モジュールを使用する必要がある場合は、FIPS 厳密ポリシーを使用します。このポリシーを使用するとパフォーマンスが低下する可能性があります。
+
+NCSM 3.0.8 およびNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 モジュールは、次の操作で使用されます。
+
+** NCSM
++
+*** 次のサービス間の TLS 接続: ADC、AMS、CMN、DDS、LDR、SSM、NMS、mgmt-api、nginx、nginx-gw、cache-svc
+*** クライアントと nginx-gw サービス (ロードバランサのエンドポイント) 間の TLS 接続
+*** クライアントとLDRサービス間のTLS接続
+*** SSE-S3、SSE-C、および保存されたオブジェクトの暗号化設定のオブジェクトコンテンツの暗号化
+*** SSH 接続
 
 
- a| 
-最新の互換性（デフォルト）
- a| 
-特別な要件がないかぎり、強力な暗号化が必要な場合はデフォルトポリシーを使用します。このポリシーは、ほとんどのTLSおよびSSHクライアントと互換性があります。
++
+詳細については、NIST暗号アルゴリズム検証プログラムを参照してください。link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["証明書番号4838"^] 。
+
+** NetApp StorageGRIDカーネル暗号 API モジュール
++
+NetApp StorageGRIDカーネル暗号化 API モジュールは、VM およびStorageGRIDアプライアンス プラットフォームにのみ存在します。
+
++
+*** エントロピー収集
+*** ノード暗号化
+
+
++
+詳細については、NIST暗号アルゴリズム検証プログラムを参照してください。link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["証明書 #A6242 から #A6257"^]そしてlink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["エントロピー証明書 #E223"^]。
 
 
 
- a| 
-レガシー互換性
- a| 
-古いクライアントの互換性オプションを追加する必要がある場合は、このポリシーを使用します。このポリシーにオプションを追加すると、最新の互換性ポリシーよりもセキュリティが低下する可能性があります。
+*注意*: このポリシーを選択すると、link:../maintain/rolling-reboot-procedure.html["ローリングリブートを実行する"]すべてのノードでNCSMをアクティブ化します。再起動を開始および監視するには、[メンテナンス] > [ローリング再起動] を使用します。
 
-
-
- a| 
-Common Criteriaの略
- a| 
-情報セキュリティ国際評価基準の認定が必要な場合は、このポリシーを使用します。
-
-
-
- a| 
-FIPS strict
- a| 
-このポリシーは、Common Criteria認定が必要で、ロードバランサエンドポイント、Tenant Manager、およびGrid Managerへの外部クライアント接続にNetApp暗号化セキュリティモジュール3.0.8を使用する必要がある場合に使用します。このポリシーを使用するとパフォーマンスが低下することがあります。
-
-*注*:このポリシーを選択した後、すべてのノードがNetApp暗号化セキュリティモジュールをアクティブにする必要がありますlink:../maintain/rolling-reboot-procedure.html["ローリング方式でリブートされた"]。再起動を開始および監視するには、* Maintenance *>* Rolling reboot *を使用してください。
-
-
-
- a| 
-カスタム
- a| 
+--
+.カスタム
+--
 独自の暗号を適用する必要がある場合は、カスタムポリシーを作成します。
 
-|===
+オプションとして、 StorageGRIDに FIPS 140 暗号化要件がある場合は、FIPS モード機能を有効にして、NCSM 3.0.8 およびNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 モジュールを使用します。
+
+.. 設定する `fipsMode`パラメータに `true`。
+.. プロンプトが表示されたら、link:../maintain/rolling-reboot-procedure.html["ローリングリブートを実行する"]すべてのノードで暗号化モジュールをアクティブ化します。再起動を開始および監視するには、[メンテナンス] > [ローリング再起動] を使用します。
+.. アクティブな FIPS モジュール バージョンを表示するには、[サポート] > [診断] を選択します。
+
+
+--
+====
 . 各ポリシーの暗号、プロトコル、およびアルゴリズムの詳細を表示するには、*[詳細を表示]*を選択します。
 . 現在のポリシーを変更するには、*[ポリシーを使用]*を選択します。
 +

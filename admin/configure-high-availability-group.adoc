@@ -13,19 +13,24 @@ summary: ハイアベイラビリティ（ HA ）グループを設定して、�
 [role="lead"]
 ハイアベイラビリティ（ HA ）グループを設定して、管理ノードまたはゲートウェイノード上のサービスへの可用性の高いアクセスを提供できます。
 
+
+NOTE: StorageGRIDシステムには最大 255 個の HA グループを設定できます。
+
 .開始する前に
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
 * あなたはを持っていますlink:admin-group-permissions.html["rootアクセス権限"]。
 * HA グループで VLAN インターフェイスを使用する場合は、 VLAN インターフェイスを作成しておきます。を参照して link:../admin/configure-vlan-interfaces.html["VLAN インターフェイスを設定します"]
 * HA グループ内のノードに対してアクセスインターフェイスを使用する場合は、インターフェイスを作成しておきます。
 +
-** * Red Hat Enterprise Linux（ノードのインストール前）*：link:../rhel/creating-node-configuration-files.html["ノード構成ファイルを作成"]
-** * UbuntuまたはDebian（ノードのインストール前）*：link:../ubuntu/creating-node-configuration-files.html["ノード構成ファイルを作成"]
-** * Linux（ノードのインストール後）*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します"]
-** * VMware（ノードのインストール後）*：link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します"]
+** *Linux (ノードをインストールする前)*:link:../swnodes/creating-node-configuration-files.html["ノード構成ファイルを作成"]
+** *Linux (ノードのインストール後)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["ノードにトランクまたはアクセスインターフェースを追加する"]
+** *VMware (ノードのインストール後)*:link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["ノードにトランクまたはアクセスインターフェースを追加する"]
 
 
 
+
+
+NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^] 。
 
 
 
@@ -40,7 +45,7 @@ HA グループに含まれるゲートウェイノードまたは管理ノー�
 === ウィザードにアクセスします
 
 .手順
-. 構成 * > * ネットワーク * > * ハイアベイラビリティグループ * を選択します。
+. *構成* > *ネットワーク* > *高可用性グループ*を選択します。
 . 「 * Create * 」を選択します。
 
 
@@ -154,7 +159,7 @@ HA グループが作成され、設定済みの仮想 IP アドレスを使用�
 たとえば、サイトまたはノードの運用停止手順 で、選択したインターフェイスに関連付けられているノードを削除する場合、 HA グループの編集が必要になることがあります。
 
 .手順
-. 構成 * > * ネットワーク * > * ハイアベイラビリティグループ * を選択します。
+. *構成* > *ネットワーク* > *高可用性グループ*を選択します。
 +
 ハイアベイラビリティグループページには、既存のすべての HA グループが表示されます。
 
@@ -199,10 +204,10 @@ TIP: ロードバランサエンドポイントにバインドされているHA�
 クライアントの中断を防ぐには、HAグループを削除する前に、該当するS3クライアントアプリケーションを更新してください。各クライアントを更新して、別の IP アドレスを使用して接続します。たとえば、別の HA グループの仮想 IP アドレスや、インストール時にインターフェイスに設定された IP アドレスなどです。
 
 .手順
-. 構成 * > * ネットワーク * > * ハイアベイラビリティグループ * を選択します。
+. *構成* > *ネットワーク* > *高可用性グループ*を選択します。
 . 削除する各HAグループの*[ロードバランサエンドポイント]*列を確認します。ロードバランサエンドポイントが表示されている場合：
 +
-.. [設定]*>*[ネットワーク]*>*[ロードバランサエンドポイント]*の順に選択します。
+.. *構成* > *ネットワーク* > *ロードバランサーエンドポイント* に移動します。
 .. エンドポイントのチェックボックスを選択します。
 .. [ * アクション * （ Actions * ） ] > [ * エンドポイントバインドモードの編集（ Edit Endpoint binding mode ） ]
 .. バインドモードを更新してHAグループを削除します。

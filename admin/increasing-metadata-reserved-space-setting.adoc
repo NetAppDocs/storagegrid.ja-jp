@@ -15,11 +15,8 @@ summary: ストレージノードがRAMおよび使用可能スペースに関�
 
 .必要なもの
 * Grid Managerにサインインしておきますlink:web-browser-requirements.html["サポートされている Web ブラウザ"]。
-* あなたはを持っていますlink:admin-group-permissions.html["Root Access権限またはGrid Topology Page Configuration権限およびOther Grid Configuration権限"]。
+* あなたはlink:admin-group-permissions.html["ルートアクセス権限またはその他のグリッド構成権限"]。
 
-
-
-NOTE: Gridトポロジページは廃止され、今後のリリースで削除される予定です。
 
 .タスクの内容
 システム全体のMetadata Reserved Space設定を手動で8TBに増やすことができます。
@@ -40,13 +37,13 @@ Metadata Reserved Spaceの設定が特定のストレージノードでオブジ
 .手順
 . 現在の Metadata Reserved Space 設定を確認します。
 +
-.. * 設定 * > * システム * > * ストレージ・オプション * を選択します。
-.. [Storage Watermarks]セクションで、* Metadata Reserved Space *の値を確認します。
+.. *構成* > *システム* > *ストレージ設定*を選択します。
+.. *メタデータ予約領域*の値をメモします。
 
 
 . この値を増やすには、各ストレージノードのストレージボリューム 0 に十分な利用可能スペースがあることを確認してください。
 +
-.. [* nodes （ノード） ] を選択します
+.. *ノード*を選択します。
 .. グリッドの最初のストレージノードを選択します。
 .. Storage （ストレージ）タブを選択します。
 .. Volumes セクションで、 * /var/local/rangedb/0 * エントリを探します。
@@ -64,7 +61,7 @@ Metadata Reserved Spaceの設定が特定のストレージノードでオブジ
 
 . 各ストレージノードに 128GB 以上の RAM があることを確認してください。
 +
-.. [* nodes （ノード） ] を選択します
+.. *ノード*を選択します。
 .. グリッドの最初のストレージノードを選択します。
 .. [* ハードウェア * ] タブを選択します。
 .. メモリ使用状況グラフにカーソルを合わせます。合計メモリ * が 128 GB 以上であることを確認します。
@@ -78,17 +75,13 @@ Metadata Reserved Spaceの設定が特定のストレージノードでオブジ
 
 . Metadata Reserved Space 設定を更新します。
 +
-.. * 設定 * > * システム * > * ストレージ・オプション * を選択します。
-.. [ 構成 ] タブを選択します。
-.. [Storage Watermarks]セクションで、*[Metadata Reserved Space]*を選択します。
+.. *構成* > *システム* > *ストレージ設定*を選択します。
+.. *メタデータ予約領域*を選択します。
 .. 新しい値を入力します。
 +
 たとえば、サポートされている最大値である 8TB を入力するには、「 * 8000000000000 * （ 8 、 0 が 12 個）」と入力します。
 
-+
-image::../media/metadata_reserved_space.png[Metadata Reserved Space]
-
-.. 「 * 変更を適用する * 」を選択します。
+.. [ 保存（ Save ） ] を選択します。
 
 
 

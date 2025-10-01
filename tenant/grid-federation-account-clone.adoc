@@ -44,7 +44,7 @@ image::../media/grid-federation-account-clone-workflow-tm.png[アカウントク
 
 
 [role="quick-margin-list"]
-* アイデンティティフェデレーションを使用していない場合はlink:creating-groups-for-s3-tenant.html["新しいローカルグループを作成します"]、をlink:managing-local-users.html["ローカルユーザを作成します"]クリックします。
+* ID連携を使用していない場合は、link:creating-groups-for-s3-tenant.html["新しいローカルグループを作成します"]その後link:manage-users.html["ローカルユーザを作成します"]。
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4つ"]S3アクセスキーの作成
@@ -78,9 +78,9 @@ NOTE: ソースグリッドでローカルグループを作成するときに�
 
 === ソースグリッドに作成されたローカルユーザがクローニングされます
 
-ソースグリッドに新しいローカルユーザを作成すると、StorageGRID によってそのユーザがデスティネーショングリッドに自動的にクローニングされます。元のユーザとそのクローンのフルネーム、ユーザ名、および* Deny access *設定が同じです。両方のユーザも同じグループに属しています。手順については、を参照してくださいlink:managing-local-users.html["ローカルユーザを管理します"]。
+ソース グリッドに新しいローカル ユーザーを作成すると、 StorageGRIDによってそのユーザーが宛先グリッドに自動的に複製されます。元のユーザーとそのクローンの両方に、同じフルネーム、ユーザー名、および *アクセス拒否* 設定があります。両方のユーザーは同じグループに属しています。手順については、link:manage-users.html["ユーザの管理"] 。
 
-セキュリティ上の理由から、ローカルユーザのパスワードはデスティネーショングリッドにクローニングされません。デスティネーショングリッドでローカルユーザがTenant Managerにアクセスする必要がある場合は、テナントアカウントのrootユーザがデスティネーショングリッドでそのユーザのパスワードを追加する必要があります。手順については、を参照してくださいlink:managing-local-users.html["ローカルユーザを管理します"]。
+セキュリティ上の理由から、ローカル ユーザーのパスワードは宛先グリッドに複製されません。ローカル ユーザーが宛先グリッド上の Tenant Manager にアクセスする必要がある場合、テナント アカウントのルート ユーザーは、宛先グリッド上のそのユーザーのパスワードを追加する必要があります。手順については、link:manage-users.html["ユーザの管理"] 。
 
 image::../media/grid-federation-local-user-clone.png[ローカルユーザがソースグリッドからデスティネーショングリッドにクローンされていることを示すイメージ]
 

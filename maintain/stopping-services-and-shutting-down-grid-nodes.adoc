@@ -118,10 +118,10 @@ NOTE: コマンドを実行してアプライアンスストレージノード�
 
 
 .関連情報
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112およびSG6160ストレージアプライアンス"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000ストレージアプライアンス"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800ストレージアプライアンス"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700ストレージアプライアンス"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110およびSG1100サービスアプライアンス"^]
-* link:https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100およびSG1000サービス アプライアンス"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6100/index.html["SGF6112およびSG6160ストレージアプライアンス"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg6000/index.html["SG6000ストレージアプライアンス"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5800/index.html["SG5800ストレージアプライアンス"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg5700/index.html["SG5700ストレージアプライアンス"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg110-1100/index.html["SG110およびSG1100サービスアプライアンス"^]
+* https://docs.netapp.com/us-en/storagegrid-appliances/sg100-1000/index.html["SG100およびSG1000サービス アプライアンス"^]
 

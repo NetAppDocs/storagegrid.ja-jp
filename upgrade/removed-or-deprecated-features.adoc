@@ -103,7 +103,7 @@ Dockerコンテナエンジン
  a| 
 未定
  a| 
-ソフトウェアのみの環境のコンテナエンジンとしてのDockerのサポートは廃止されました。Dockerは、今後のリリースで別のコンテナエンジンに置き換えられる予定です。を参照してくださいlink:../ubuntu/software-requirements.html#docker-versions-tested["現在サポートされているDockerバージョンの一覧"]。
+ソフトウェアのみのデプロイメント用のコンテナ エンジンとしての Docker のサポートは非推奨になりました。 Docker は将来のリリースで別のコンテナ エンジンに置き換えられる予定です。参照link:../swnodes/software-requirements.html["ソフトウェアベースノードのソフトウェア要件"]現在サポートされている Docker バージョンのリスト。
 
 
 
@@ -117,6 +117,18 @@ NFS監査エクスポート
 12.0
  a| 
 https://docs.netapp.com/us-en/storagegrid-118/admin/configuring-audit-client-access.html["NFSの監査クライアントアクセスの設定（StorageGRID 11.8）"^]
+
+
+
+ a| 
+ポートの再マップ
+ a| 
+12.0
+ a| 
+12.1
+ a| 
+12.2
+ a| 
 
 
 

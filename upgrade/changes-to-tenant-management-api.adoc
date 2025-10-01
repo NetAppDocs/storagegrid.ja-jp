@@ -2,7 +2,7 @@
 permalink: upgrade/changes-to-tenant-management-api.html 
 sidebar: sidebar 
 keywords: tenant management api, api, api version, swagger, rest api 
-summary: StorageGRID 11.9では、バージョン4のテナント管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。 
+summary: StorageGRID 12.0 は、テナント管理 API バージョン 4 を使用します。バージョン 4 ではバージョン 3 は廃止されますが、バージョン 1、2、および 3 は引き続きサポートされます。 
 ---
 = テナント管理 API に変更が加えられました
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: StorageGRID 11.9では、バージョン4のテナント管理APIが使
 
 
 [role="lead"]
-StorageGRID 11.9では、バージョン4のテナント管理APIが使用されます。バージョン4ではバージョン3が廃止されましたが、バージョン1、2、3は引き続きサポートされます。
+StorageGRID 12.0 は、テナント管理 API バージョン 4 を使用します。バージョン 4 ではバージョン 3 は廃止されますが、バージョン 1、2、および 3 は引き続きサポートされます。
 
 
-NOTE: 廃止されたバージョンのテナント管理APIはStorageGRID 11.9で引き続き使用できますが、これらのバージョンのAPIのサポートはStorageGRIDの今後のリリースで削除される予定です。StorageGRID 11.9にアップグレードしたあと、APIを使用して廃止されたAPIを非アクティブ化できます `PUT /grid/config/management`。
+NOTE: StorageGRID 12.0 では、テナント管理 API の廃止バージョンを引き続き使用できますが、これらのバージョンの API のサポートは、 StorageGRIDの将来のリリースでは削除されます。  StorageGRID 12.0にアップグレードした後、廃止されたAPIを非アクティブ化するには、 `PUT /grid/config/management` API。
 
 詳細については、を参照してくださいlink:../tenant/understanding-tenant-management-api.html["テナント管理 API について理解する"]。
 
 
 
-== バケット容量制限用の新しいAPI
+== オブジェクト複製用の新しいAPI
 
-APIでGET / PUT処理を使用すると、バケットのストレージ容量の制限を取得および設定できます `/org/containers/{bucketName}/quota-object-bytes`。
+使用することができます `/org/cross-grid-replication/{versionId}/replicate`クロスグリッド レプリケーションが新しく構成された既存のバケット上のオブジェクトを手動で複製するための API。

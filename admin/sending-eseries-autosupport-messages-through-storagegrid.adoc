@@ -37,7 +37,7 @@ SANtricity System Managerでは、アプライアンスの管理ポートを使�
 NOTE: この手順は、EシリーズAutoSupportパッケージ用にStorageGRIDプロキシサーバを設定するためだけに使用します。EシリーズのAutoSupport構成の詳細については、を参照してください https://docs.netapp.com/us-en/e-series-family/index.html["NetApp E シリーズおよび SANtricity に関するドキュメント"^]。
 
 .手順
-. Grid Manager で * nodes * を選択します。
+. グリッド マネージャーで、[*ノード*] を選択します。
 . 左側のノードのリストから、設定するストレージアプライアンスノードを選択します。
 . SANtricity System Manager* を選択します。
 +
@@ -46,7 +46,7 @@ SANtricity の System Manager ホームページが表示されます。
 +
 image::../media/autosupport_santricity_home_page.png[AutoSupport SANtricity のホームページ]
 
-. サポート * > * サポートセンター * > * AutoSupport * を選択します。
+. *サポート* > *サポート センター* > * AutoSupport* を選択します。
 +
 AutoSupport operations ページが表示されます。
 

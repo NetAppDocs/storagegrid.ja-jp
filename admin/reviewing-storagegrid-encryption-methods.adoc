@@ -144,3 +144,6 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html["
 
 
 暗号化を必要とするオブジェクトがごく一部しかない場合は、暗号化をバケットレベルまたは個々のオブジェクトレベルで制御することを検討してください。複数レベルの暗号化を有効にすると、パフォーマンスコストが増加します。
+
+.関連情報
+link:manage-tls-ssh-policy.html#select-a-security-policy["FIPS認定の暗号化オプションについて学ぶ"]

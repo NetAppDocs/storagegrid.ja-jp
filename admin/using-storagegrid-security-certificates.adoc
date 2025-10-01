@@ -19,13 +19,15 @@ StorageGRID では、 2 種類のセキュリティ証明書が使用されま�
 * * クライアント証明書 * は、クライアントまたはユーザー ID をサーバーに対して認証し、パスワードだけではなく、より安全な認証を提供します。クライアント証明書はデータを暗号化しません。
 
 
-クライアントが HTTPS を使用してサーバに接続すると、サーバはサーバ証明書を返します。このサーバ証明書には公開鍵が含まれています。クライアントは、サーバの署名と証明書のコピーの署名を比較して、この証明書を検証します。署名が一致した場合、クライアントは同じ公開鍵を使用してサーバとのセッションを開始します。
+クライアントが HTTPS を使用してサーバーに接続すると、サーバーは公開キーを含むサーバー証明書で応答します。クライアントは、サーバーの署名を証明書のコピーの署名と比較します。署名が一致する場合、クライアントは同じ公開鍵を使用してサーバーとのセッションを開始します。
 
 StorageGRID は、一部の接続（ロードバランサエンドポイントなど）のサーバとして、または他の接続（ CloudMirror レプリケーションサービスなど）のクライアントとして機能します。
 
 * デフォルトの Grid CA 証明書 *
 
-StorageGRID には、システムのインストール時に内部のグリッド CA 証明書を生成する認証局（ CA ）が組み込まれています。デフォルトでは、グリッド CA 証明書を使用して内部 StorageGRID トラフィックが保護されます。外部の認証局（ CA ）は、組織の情報セキュリティポリシーに完全に準拠した問題 カスタム証明書を作成できます。グリッド CA 証明書は非本番環境で使用できますが、本番環境では外部の認証局が署名したカスタム証明書を使用することを推奨します。証明書のないセキュアでない接続もサポートされますが、推奨されません。
+StorageGRID には、システムのインストール中に内部グリッド CA 証明書を生成する証明機関 (CA) が組み込まれています。デフォルトでは、グリッド CA 証明書が、内部StorageGRIDトラフィックのセキュリティ保護に使用されます。外部証明機関 (CA) は、組織の情報セキュリティ ポリシーに完全に準拠したカスタム証明書を発行できます。
+
+非実稼働環境では Grid CA 証明書を使用します。運用環境では、外部の証明機関によって署名されたカスタム証明書を使用します。証明書のない安全でない接続はサポートされていますが、推奨されません。
 
 * カスタムCA証明書は内部証明書を削除しません。ただし、カスタム証明書は、サーバ接続の確認用に指定した証明書である必要があります。
 * すべてのカスタム証明書がを満たしている必要がありますlink:../harden/hardening-guideline-for-server-certificates.html["サーバ証明書に関するシステムセキュリティ強化ガイドライン"]。
@@ -44,7 +46,7 @@ NOTE: StorageGRID には、すべてのグリッドで同じオペレーティ�
 すべての StorageGRID 証明書に関する情報に一元的にアクセスでき、各証明書の設定ワークフローへのリンクも含まれます。
 
 .手順
-. Grid Managerで、* configuration *>* Security *>* Certificates *を選択します。
+. Grid Manager から、*構成* > *セキュリティ* > *証明書* を選択します。
 +
 image::security_certificates.png[証明書ページ]
 
@@ -178,7 +180,7 @@ NOTE: 他の証明書の情報を表示およびアクセスできるのは、�
 
 *** link:../ilm/creating-cloud-storage-pool.html["S3 、 C2S S3 、または Azure 用のクラウドストレージプール証明書を指定します"]
 *** link:../monitor/email-alert-notifications.html["アラート E メール通知用の証明書を指定します"]
-*** link:../monitor/configure-audit-messages.html#use-external-syslog-server["外部syslogサーバの証明書を使用する"]
+*** link:../monitor/configure-log-management.html#use-external-syslog-server["外部syslogサーバの証明書を使用する"]
 *** link:grid-federation-manage-connection.html#rotate-connection-certificates["グリッドフェデレーション接続の証明書をローテーションします"]
 *** link:using-identity-federation.html["アイデンティティフェデレーション証明書を表示および編集する"]
 *** link:kms-adding.html["キー管理サーバ（ KMS ）のサーバ証明書とクライアント証明書をアップロードします"]
@@ -215,7 +217,7 @@ NOTE: 他の証明書の情報を表示およびアクセスできるのは、�
 
 インストール時に作成されるデフォルトの証明書を使用することも、カスタム証明書をアップロードすることもできます。
  a| 
-* 設定 * > * セキュリティ * > * 証明書 * 、 * グローバル * タブを選択し、 * 管理インターフェイス証明書 * を選択します
+*構成* > *セキュリティ* > *証明書*で、*グローバル*タブを選択し、*管理インターフェース証明書*を選択します。
  a| 
 link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html["管理インターフェイス証明書を設定"]
 
@@ -234,7 +236,7 @@ link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html[
  a| 
 ストレージノードとロードバランサエンドポイントへのセキュアなS3クライアント接続を認証します（オプション）。
  a| 
-*設定*>*セキュリティ*>*証明書*。*グローバル*タブを選択し、* S3 API証明書*を選択します。
+*設定* > *セキュリティ* > *証明書* で、*グローバル* タブを選択し、*S3 API 証明書* を選択します。
  a| 
 link:configuring-custom-server-certificate-for-storage-node.html["S3 API証明書の設定"]
 
@@ -263,7 +265,7 @@ StorageGRID が外部クライアントアクセスを認証できるように�
 * 外部ツールを使用して StorageGRID をセキュアに監視できます。
 
  a| 
-* 設定 * > * セキュリティ * > * 証明書 * を選択し、 * クライアント * タブを選択します
+*構成* > *セキュリティ* > *証明書* を選択し、*クライアント* タブを選択します。
  a| 
 link:configuring-administrator-client-certificates.html["クライアント証明書を設定"]
 
@@ -286,7 +288,7 @@ S3クライアントとゲートウェイノードと管理ノード上のStorag
 
 * 注： * ロードバランサ認証に使用される証明書は、通常の StorageGRID 処理で最もよく使用される証明書です。
  a| 
-* 設定 * > * ネットワーク * > * ロードバランサエンドポイント *
+*構成* > *ネットワーク* > *ロードバランサエンドポイント*
  a| 
 * link:configuring-load-balancer-endpoints.html["ロードバランサエンドポイントを設定する"]
 * link:../fabricpool/creating-load-balancer-endpoint-for-fabricpool.html["FabricPool のロードバランサエンドポイントを作成します"]
@@ -330,7 +332,7 @@ link:../ilm/creating-cloud-storage-pool.html["クラウドストレージプー�
 * SMTP E メールサーバで認証用のクライアント証明書が必要な場合にのみ、クライアント証明書を指定してください。
 
  a| 
-* アラート *>* 電子メールセットアップ *
+*アラート* > *メール設定*
  a| 
 link:../monitor/email-alert-notifications.html["アラート用の E メール通知を設定します"]
 
@@ -351,9 +353,9 @@ StorageGRID にイベントを記録する外部 syslog サーバ間で、 TLS �
 
 * 注：外部 syslog サーバへの TCP 、 RELP/TCP 、および UDP 接続には、外部 syslog サーバ証明書は必要ありません。
  a| 
-*設定*>*監視*>*監査およびsyslogサーバ*
+*構成* > *監視* > *監査およびSyslogサーバー*
  a| 
-link:../monitor/configure-audit-messages.html#use-external-syslog-server["外部 syslog サーバを使用します"]
+link:../monitor/configure-log-management.html#use-external-syslog-server["外部 syslog サーバを使用します"]
 
 |===
 
@@ -370,7 +372,7 @@ link:../monitor/configure-audit-messages.html#use-external-syslog-server["外部
  a| 
 グリッドフェデレーション接続で、現在のStorageGRID システムと別のグリッドの間で送信される情報を認証して暗号化します。
  a| 
-*設定*>*システム*>*グリッドフェデレーション*
+*構成* > *システム* > *グリッドフェデレーション*
  a| 
 * link:grid-federation-create-connection.html["グリッドフェデレーション接続を作成する"]
 * link:grid-federation-manage-connection.html#rotate_grid_fed_certificates["接続証明書をローテーションします"]
@@ -391,7 +393,7 @@ link:../monitor/configure-audit-messages.html#use-external-syslog-server["外部
  a| 
 Active Directory 、 OpenLDAP 、 Oracle Directory Server などの外部のアイデンティティプロバイダと StorageGRID の間の接続を認証します。アイデンティティフェデレーションに使用します。管理者グループとユーザを外部システムで管理できます。
  a| 
-* 設定 * > * アクセス制御 * > * アイデンティティフェデレーション *
+*構成* > *アクセス制御* > *アイデンティティ連携*
  a| 
 link:using-identity-federation.html["アイデンティティフェデレーションを使用する"]
 
@@ -410,7 +412,7 @@ link:using-identity-federation.html["アイデンティティフェデレーシ�
  a| 
 StorageGRID と外部キー管理サーバ（ KMS ）の間の接続を認証します。この接続により、 StorageGRID アプライアンスノードに暗号化キーが提供されます。
  a| 
-* 設定 * > * セキュリティ * > * キー管理サーバ *
+*構成* > *セキュリティ* > *キー管理サーバー*
  a| 
 link:kms-adding.html["キー管理サーバの追加（ KMS ）"]
 
@@ -450,9 +452,9 @@ link:../tenant/editing-platform-services-endpoint.html["プラットフォーム
  a| 
 Active Directory フェデレーションサービス（ AD FS ）やシングルサインオン（ SSO ）要求に使用される StorageGRID などのアイデンティティフェデレーションサービスとの間の接続を認証します。
  a| 
-* 設定 * > * アクセス制御 * > * シングルサインオン *
+*構成* > *アクセス制御* > *シングルサインオン*
  a| 
-link:configuring-sso.html["シングルサインオンを設定します"]
+link:how-sso-works.html["シングルサインオンを設定します"]
 
 |===
 
@@ -469,7 +471,7 @@ link:configuring-sso.html["シングルサインオンを設定します"]
 . ロードバランサエンドポイントへのS3クライアント接続を設定し、同じ証明書をクライアントにアップロードします。
 . クライアントは、データを保存または取得する際に HTTPS を使用してロードバランサエンドポイントに接続します。
 . StorageGRID は、公開鍵を含むサーバ証明書と、秘密鍵に基づく署名を返します。
-. クライアントは、サーバの署名と証明書のコピーの署名を比較して、この証明書を検証します。署名が一致した場合、クライアントは同じ公開鍵を使用してセッションを開始します。
+. クライアントは、サーバーの署名を証明書のコピーの署名と比較します。署名が一致する場合、クライアントは同じ公開鍵を使用してセッションを開始します。
 . クライアントがオブジェクトデータを StorageGRID に送信
 
 

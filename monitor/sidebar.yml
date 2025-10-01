@@ -91,12 +91,12 @@ entries:
     url: "/monitor/deployment-and-maintenance-logs.html"
   - title: bycast.log について
     url: "/monitor/about-bycast-log.html"
-- title: 監査メッセージとログの送信先の設定
+- title: ログ管理と外部Syslogサーバーを構成する
   entries:
   - title: 外部 syslog サーバに関する考慮事項
     url: "/monitor/considerations-for-external-syslog-server.html"
-  - title: 監査メッセージと外部syslogサーバの設定
-    url: "/monitor/configure-audit-messages.html"
+  - title: ログ管理を構成する
+    url: "/monitor/configure-log-management.html"
 - title: SNMP による監視を使用する
   entries:
   - title: SNMPによる監視
@@ -110,26 +110,20 @@ entries:
     url: "/monitor/access-snmp-mib.html"
 - title: 追加の StorageGRID データを収集します
   entries:
-  - title: チャートとグラフを使用します
-    url: "/monitor/using-charts-and-reports.html"
-  - title: テキストレポートを使用する
-    url: "/monitor/types-of-text-reports.html"
   - title: PUT / GET パフォーマンスを監視
     url: "/monitor/monitoring-put-and-get-performance.html"
   - title: オブジェクト検証処理を監視する
     url: "/monitor/monitoring-object-verification-operations.html"
-  - title: イベントを監視する
-    url: "/monitor/monitoring-events.html"
   - title: 監査メッセージを確認します
     url: "/monitor/reviewing-audit-messages.html"
   - title: ログファイルとシステムデータを収集
     url: "/monitor/collecting-log-files-and-system-data.html"
   - title: AutoSupportパッケージを手動でトリガーする
     url: "/monitor/manually-triggering-autosupport-message.html"
-  - title: グリッドトポロジツリーを表示します
-    url: "/monitor/viewing-grid-topology-tree.html"
   - title: サポート指標を確認
     url: "/monitor/reviewing-support-metrics.html"
+  - title: I/Oの優先順位を変更する
+    url: "/monitor/manage-io-prioritization.html"
   - title: 診断を実行します
     url: "/monitor/running-diagnostics.html"
   - title: カスタムの監視アプリケーションを作成

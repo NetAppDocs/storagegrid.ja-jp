@@ -13,8 +13,8 @@ entries:
   entries:
   - title: 競合するクライアント要求です
     url: "/s3/conflicting-client-requests.html"
-  - title: 整合性の値
-    url: "/s3/consistency-controls.html"
+  - title: 整合性
+    url: "/s3/consistency.html"
   - title: オブジェクトのバージョン管理
     url: "/s3/object-versioning.html"
   - title: S3 REST APIを使用してS3オブジェクトロックを設定します
@@ -102,10 +102,12 @@ entries:
       url: "/s3/deprecated-get-bucket-compliance-request.html"
     - title: 廃止予定のPUT Bucket compliance要求
       url: "/s3/deprecated-put-bucket-compliance-request.html"
-- title: バケットとグループのアクセスポリシー
+- title: アクセスポリシーを管理する
   entries:
-  - title: バケットとグループのアクセスポリシーを使用
-    url: "/s3/bucket-and-group-access-policies.html"
+  - title: アクセスポリシーを使用する
+    url: "/s3/use-access-policies.html"
+  - title: セッションポリシーの例
+    url: "/s3/example-session-policies.html"
   - title: バケットポリシーの例
     url: "/s3/example-bucket-policies.html"
   - title: グループポリシーの例

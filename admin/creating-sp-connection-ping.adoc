@@ -15,12 +15,12 @@ PingFederate を使用して、システム内の管理ノードごとにサー�
 
 .開始する前に
 * StorageGRID にシングルサインオンを設定し、 SSO タイプとして「 Ping federate * 」を選択しました。
-* * Grid Manager のシングルサインオンページでサンドボックスモード * が選択されています。を参照して link:../admin/using-sandbox-mode.html["サンドボックスモードを使用する"]
-* システム内の管理ノードごとに * SP 接続 ID * を用意しておきます。これらの値は、 StorageGRID のシングルサインオンページの管理ノード詳細テーブルにあります。
+* あなたが持っているlink:../admin/configure-sso.html#enter-sandbox-mode["サンドボックスモードに入りました"]グリッド マネージャーで。
+* システム内の各管理ノードには * SP接続 ID* があります。これらの値は、「SSO の構成」ページの「管理ノード」の詳細テーブルで確認できます。
 * システムの管理ノードごとに * SAML メタデータ * をダウンロードしておきます。
 * PingFederate サーバーで SP 接続を作成した経験があります。
 * PingFederateサーバ用のがありhttps://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["管理者向けリファレンスガイド"^]ます。PingFederate ドキュメントでは、詳細な手順と説明を説明しています。
-* PingFederateサーバ用のがありlink:admin-group-permissions.html["管理者権限"]ます。
+* あなたはlink:../admin/admin-group-permissions.html["管理者権限"]PingFederate サーバー用。
 
 
 .タスクの内容
@@ -67,7 +67,7 @@ IdP アダプタのインスタンスをまだ作成していない場合は作�
 . [ 新規インスタンスの作成（ Create New Instance ） ] を選択します
 . [ タイプ ] タブで、 [* HTML フォーム IdP アダプタ * ] を選択します。
 . [IdP アダプタ ] タブで、 [ 資格情報検証ツール ] に新しい行を追加する *] を選択します。
-. 作成したを選択し<<password-validator,パスワードクレデンシャルバリデータ>>ます。
+. 選択してください<<password-validator,パスワードクレデンシャルバリデータ>>あなたが作成したもの。
 . [ アダプタの属性 ] タブで、 *pseudonym * の *username* 属性を選択します。
 . [ 保存（ Save ） ] を選択します。
 
@@ -109,7 +109,7 @@ TIP: ユーザが任意のノードに対して安全にサインインおよび
 
 .手順
 . メタデータのインポートタブで、 * ファイル * を選択します。
-. 管理ノードの StorageGRID シングルサインオンページからダウンロードした SAML メタデータファイルを選択します。
+. 管理ノードの SSO の構成ページからダウンロードした SAML メタデータ ファイルを選択します。
 . [Metadata Summary]と[General Info]タブに表示される情報を確認します。
 +
 パートナーのエンティティ ID と接続名は、 StorageGRID SP 接続 ID に設定されています。（例： 10.96.105.200-DC1-ADM1-105-200 ）。ベース URL は、 StorageGRID 管理ノードの IP です。
@@ -183,7 +183,7 @@ TIP: ユーザが任意のノードに対して安全にサインインおよび
 .手順
 . ［ SP 接続 ］ タブで ' ［ * 資格情報 * ］ を選択します
 . 資格情報タブで、 * 資格情報の設定 * を選択します。
-. 作成またはインポートしたを選択し<<signing-certificate,署名証明書>>ます。
+. 選択してください<<signing-certificate,署名証明書>>作成またはインポートした。
 . 「 * 次へ * 」を選択して、「 * 署名検証設定の管理 * 」に移動します。
 +
 .. [ 信頼モデル ] タブで、 [*Unanchored] を選択します。

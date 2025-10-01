@@ -23,7 +23,7 @@
 
 == 任意のタスク
 
-* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["グリッドノードのIPアドレスを更新します"]導入を計画してリカバリパッケージを生成したあとに変更された場合。
+* link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["グリッドノードのIPアドレスを更新します"]展開を計画して回復パッケージを生成してから変更があった場合。
 * link:../admin/changing-network-options-object-encryption.html["ストレージ暗号化を設定します"]（必要な場合）。
 * link:../admin/configuring-stored-object-compression.html["ストレージの圧縮を設定します"]必要に応じて、格納オブジェクトのサイズを縮小します。
 * link:../admin/configure-vlan-interfaces.html["VLAN インターフェイスを設定します"]必要に応じて、ネットワークトラフィックを分離して分割します。

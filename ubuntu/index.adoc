@@ -1,59 +1,8 @@
 ---
 permalink: ubuntu/index.html 
-sidebar: sidebar 
-keywords: about ubuntu, ubuntu overview 
-summary: UbuntuまたはDebian StorageGRIDノードをインストールする手順の概要を次に示します。 
+redirect: storagegrid/swnodes/index.html 
 ---
-= StorageGRIDをUbuntuまたはDebianにインストールするためのクイックスタート
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
-
-[role="lead"]
-UbuntuまたはDebian StorageGRIDノードをインストールする手順の概要を次に示します。
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]準備
-[role="quick-margin-list"]
-* 詳細はこちらをご覧ください link:../primer/storagegrid-architecture-and-network-topology.html["StorageGRID のアーキテクチャとネットワークトポロジ"]。
-* の詳細については、をlink:../network/index.html["StorageGRID ネットワーク"]参照してください。
-* を集めて準備しますlink:required-materials.html["必要な情報と資料"]。
-* 必要なを準備しますlink:cpu-and-ram-requirements.html["CPUおよびRAM"]。
-* を提供しlink:storage-and-performance-requirements.html["ストレージとパフォーマンスの要件"]ます。
-* link:how-host-wide-settings-change.html["Linuxサーバの準備"]StorageGRIDノードをホストします。
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"]導入
-[role="quick-margin-para"]
-グリッドノードを導入する。導入したグリッドノードは、 StorageGRID システムの一部として作成され、 1 つ以上のネットワークに接続されます。
-
-[role="quick-margin-list"]
-* 手順1で準備したホストにソフトウェアベースのグリッドノードを導入するには、Linuxコマンドラインとを使用しlink:creating-node-configuration-files.html["ノード構成ファイル"]ます。
-* StorageGRIDアプライアンスノードを導入するには、に従って https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["ハードウェア設置のクイックスタート"^]ください。
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]構成
-[role="quick-margin-para"]
-すべてのノードを導入したら、Grid Managerを使用してにlink:navigating-to-grid-manager.html["グリッドを設定し、インストールを完了する"]移動します。
-
-
-
-== インストールを自動化します
-
-時間を節約し、整合性を確保するために、StorageGRIDホストサービスのインストールとグリッドノードの設定を自動化できます。
-
-* Ansible、Puppet、Chefなどの標準的なオーケストレーションフレームワークを使用して自動化：
-+
-** UbuntuまたはDebianのインストール
-** ネットワークとストレージの構成
-** コンテナエンジンとStorageGRIDホストサービスのインストール
-** 仮想グリッドノードの導入
-
-
-+
-を参照して link:automating-installation.html#automate-the-installation-and-configuration-of-the-storagegrid-host-service["StorageGRID ホストサービスのインストールと設定を自動化する"]
-
-* インストールアーカイブに付属のPython設定スクリプトを使用して、グリッドノードを導入したあとにlink:automating-installation.html#automate-the-configuration-of-storagegrid["StorageGRIDシステムの設定を自動化"]実行します。
-* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/automating-appliance-installation-and-configuration.html["アプライアンスグリッドノードのインストールと設定を自動化する"^]
-* StorageGRID環境の高度な開発者は、を使用してグリッドノードのインストールを自動化しますlink:overview-of-installation-rest-api.html["インストールREST API"]。
 

@@ -125,7 +125,7 @@ NOTE: [Noncurrent time]は、バージョン管理が有効なバケット内の
  a| 
 S3 バケットが作成されたリージョン。表示されるリージョンを定義するには、 * ilm * > * Regions * を使用します。
 
-* 注： us-east-1 の値は、 us-east-1 リージョンで作成されたバケット内のオブジェクト、およびリージョンが指定されていないバケット内のオブジェクトに一致します。を参照して link:configuring-regions-optional-and-s3-only.html["リージョンを設定（オプション、 S3 のみ）"]
+*注:* us-east-1 の値は、us-east-1 リージョンで作成されたバケット内のオブジェクトと、リージョンが指定されていないバケット内のオブジェクトに一致します。見るlink:configuring-regions-optional-and-s3-only.html["S3リージョンを設定する"] 。
 
 
 

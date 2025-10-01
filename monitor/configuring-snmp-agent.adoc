@@ -30,7 +30,7 @@ StorageGRIDのSNMPエージェントは、SNMPv1、SNMPv2c、およびSNMPv3を�
 最初の手順として、StorageGRID SMNPエージェントを有効にし、基本情報を提供します。
 
 .手順
-. * configuration * > * Monitoring * > * SNMP agent * を選択します。
+. *構成* > *監視* > *SNMP エージェント* を選択します。
 +
 [SNMP agent]ページが表示されます。
 
@@ -347,6 +347,9 @@ SNMP エージェントのデフォルトの UDP ポートは 161 ですが、�
 == [[create-usm-users]] USMユーザの作成
 
 SNMPv3を使用している場合は、[Other configurations]セクションの[USM Users]タブを使用して、MIBの照会やトラップとインフォームの受信を許可するUSMユーザを定義します。
+
+
+NOTE: SNMPv3 _trap_ の宛先の場合は、管理ノードごとに USM ユーザーを作成することをお勧めします。各管理ノードに USM ユーザーが存在しない場合は、プライマリ管理ノードがダウンすると管理システムが通知の受信を停止する可能性があります。
 
 
 NOTE: SNMPv3_inform_destinationsには、エンジンIDを持つユーザが必要です。SNMPv3_trap_destinationには、エンジンIDを持つユーザを指定できません。

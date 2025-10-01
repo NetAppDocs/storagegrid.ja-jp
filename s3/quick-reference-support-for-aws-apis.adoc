@@ -784,7 +784,7 @@ link:operations-on-buckets.html["バケットの処理"]
 StorageGRIDはこの要求に対してすべてをサポートします<<common-params,共通のパラメータとヘッダー>>。
 
 .リクエストの本文
-サポートされているJSON本文フィールドの詳細については、を参照してくださいlink:bucket-and-group-access-policies.html["バケットとグループのアクセスポリシーを使用"]。
+サポートされているJSON本体フィールドの詳細については、以下を参照してください。link:use-access-policies.html["バケットとグループのアクセスポリシーを使用"] 。
 
 
 

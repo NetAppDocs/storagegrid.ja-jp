@@ -19,7 +19,7 @@ summary: トラフィック分類ポリシーが不要になった場合は、�
 
 
 .手順
-. * configuration * > * Network * > * traffic classification * を選択します。
+. *構成* > *ネットワーク* > *トラフィック分類*を選択します。
 +
 [Traffic Classification Policies]ページが表示され、既存のポリシーが表に示されます。
 

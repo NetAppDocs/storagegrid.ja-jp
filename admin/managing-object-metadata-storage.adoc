@@ -68,7 +68,7 @@ Metadata reserved space _は、各ストレージノードのボリューム0で
 
 
  a| 
-11.5～11.9
+11.5～12.0
  a| 
 グリッド内の各ストレージノードで 128GB 以上
  a| 
@@ -116,7 +116,7 @@ Metadata reserved space _は、各ストレージノードのボリューム0で
 StorageGRIDシステムのMetadata Reserved Space設定を表示するには、次の手順を実行します。
 
 .手順
-. [設定]*>*[システム]*>*[ストレージ設定]*を選択します。
+. *構成* > *システム* > *ストレージ設定*を選択します。
 . [ストレージ設定]ページで、*[メタデータリザーブスペース]*セクションを展開します。
 
 
@@ -161,7 +161,7 @@ StorageGRID 11.8以降では、Metadata Reserved Spaceの値が100GB以上1PB以
 特定のストレージノードでメタデータ用に実際にリザーブされているスペースを表示する手順は、次のとおりです。
 
 .手順
-. Grid Manager から * nodes * > * _ Storage Node_* を選択します。
+. グリッド マネージャーから、[ノード] > [ストレージ ノード] を選択します。
 . [ * ストレージ * ] タブを選択します。
 . [Storage Used - Object Metadata]グラフにカーソルを合わせ、* Actual Reserved *の値を確認します。
 +
@@ -173,7 +173,7 @@ image::../media/storage_used_object_metadata_actual_reserved.png[使用済みス
 
 
 
-== 実際にリザーブされているメタデータスペースの例
+=== 実際にリザーブされているメタデータスペースの例
 
 バージョン11.7以降を使用して新しいStorageGRIDシステムをインストールしたとします。この例では、各ストレージノードの RAM が 128GB を超え、ストレージノード 1 （ SN1 ）のボリューム 0 が 6TB であるとします。次の値に基づきます。
 
@@ -237,7 +237,7 @@ image::../media/metadata_allowed_space_volume_0.png[Metadata Allowed Space ：�
 ストレージノードで許可されているメタデータスペースを表示するには、次の手順を実行します。
 
 .手順
-. Grid Manager から * nodes * を選択します。
+. グリッド マネージャーから、[*ノード*] を選択します。
 . ストレージノードを選択します。
 . [ * ストレージ * ] タブを選択します。
 . [Storage Used - object metadata]グラフにカーソルを合わせ、* allowed *の値を確認します。

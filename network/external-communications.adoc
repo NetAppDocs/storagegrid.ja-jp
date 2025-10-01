@@ -21,13 +21,14 @@ summary: クライアントは、コンテンツの取り込みと読み出し�
 
 * ユーザ定義ポートでのアクセスを許可する場合に使用しlink:../admin/configuring-load-balancer-endpoints.html["ロードバランサエンドポイント"]ます。
 * ノード導入時にポートを再マッピングします。ただし、ロードバランサエンドポイントを再マッピングしないでください。StorageGRIDノードのポートの再マッピングに関する情報を参照してください。
-+
-** link:../rhel/creating-node-configuration-files.html#port-remap-keys["Red Hat Enterprise LinuxでのStorageGRIDのポート再マッピングキー"]
-** link:../ubuntu/creating-node-configuration-files.html#port-remap-keys["UbuntuまたはDebianでのStorageGRIDのポート再マッピングキー"]
-** link:../vmware/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["VMwareテノStorageGRIDノホオトノサイマツヒンク"]
-** https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["オプション：アプライアンスのネットワークポートの再マッピング"^]
 
 
+
+NOTE: ポート再マッピングのサポートは非推奨であり、将来のリリースでは削除される予定です。再マップされたポートを削除するには、link:../maintain/removing-port-remaps.html["StorageGRIDアプライアンスのポート再マップを削除します"]またはlink:../maintain/removing-port-remaps-on-bare-metal-hosts.html["ベアメタルホストでのポートの再マッピングを削除します"]。
+
+* link:../swnodes/creating-node-configuration-files.html["Red Hat Enterprise LinuxでのStorageGRIDのポート再マッピングキー"]
+* link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html#vmware-remap-ports["VMwareテノStorageGRIDノホオトノサイマツヒンク"]
+* https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["オプション：アプライアンスのネットワークポートの再マッピング"^]
 
 
 
@@ -42,21 +43,6 @@ NOTE: このリストには、として設定されている可能性のある�
 [cols="1a,1a,1a,1a,1a,4a"]
 |===
 | ポート | tcp または udp です | プロトコル | 開始 | 宛先 | 詳細 
-
-
- a| 
-22
- a| 
-TCP
- a| 
-SSH
- a| 
-サービスラップトップ
- a| 
-すべてのノード
- a| 
-コンソールの手順を実行するには、 SSH アクセスまたはコンソールアクセスが必要です。必要に応じて、 22 の代わりにポート 2022 を使用できます。
-
 
 
  a| 
@@ -176,25 +162,6 @@ HTTP
 AWS
  a| 
 HTTPを使用するAWSターゲットに送信されるCloud Storage Pools要求。クラウドストレージプールの設定時に、グリッド管理者がデフォルトの HTTP ポート設定である 80 を上書きできます。
-
-
-
- a| 
-111
- a| 
-TCP / UDP
- a| 
-rpcbind
- a| 
-NFSクライアント
- a| 
-管理ノード
- a| 
-NFS ベースの監査エクスポート（ portmap ）で使用します。
-
-*注：*このポートは、NFSベースの監査エクスポートが有効になっている場合にのみ必要です。
-
-*注：* NFSのサポートは廃止され、今後のリリースで削除される予定です。
 
 
 
@@ -329,59 +296,6 @@ HTTPSを使用するAWSターゲットに送信されるCloud Storage Pools要�
 
 
  a| 
-903
- a| 
-TCP
- a| 
-NFS
- a| 
-NFSクライアント
- a| 
-管理ノード
- a| 
-NFSベースの監査エクスポートで使用(`rpc.mountd`）。
-
-*注：*このポートは、NFSベースの監査エクスポートが有効になっている場合にのみ必要です。
-
-*注：* NFSのサポートは廃止され、今後のリリースで削除される予定です。
-
-
-
- a| 
-2022
- a| 
-TCP
- a| 
-SSH
- a| 
-サービスラップトップ
- a| 
-すべてのノード
- a| 
-コンソールの手順を実行するには、 SSH アクセスまたはコンソールアクセスが必要です。必要に応じて、 2022 の代わりにポート 22 を使用できます。
-
-
-
- a| 
-2049
- a| 
-TCP
- a| 
-NFS
- a| 
-NFSクライアント
- a| 
-管理ノード
- a| 
-NFS ベースの監査エクスポート（ NFS ）で使用します。
-
-*注：*このポートは、NFSベースの監査エクスポートが有効になっている場合にのみ必要です。
-
-*注：* NFSのサポートは廃止され、今後のリリースで削除される予定です。
-
-
-
- a| 
 5353
  a| 
 UDP
@@ -408,21 +322,6 @@ KMIP
 KMS
  a| 
 ノードの暗号化用に設定されたアプライアンスから Key Management Server （ KMS ）へのキー管理 Interoperability Protocol （ KMIP ）の外部トラフィック（ StorageGRID アプライアンスインストーラの KMS 構成のページで別のポートを指定している場合を除く）。
-
-
-
- a| 
-8022
- a| 
-TCP
- a| 
-SSH
- a| 
-サービスラップトップ
- a| 
-すべてのノード
- a| 
-ポート 8022 で SSH を使用すると、サポートとトラブルシューティング用に、アプライアンスと仮想ノードプラットフォーム上のベースのオペレーティングシステムへのアクセスが許可されます。このポートは Linux ベース（ベアメタル）ノードには使用されず、グリッドノード間または通常運用時にアクセス可能である必要はありません。
 
 
 
@@ -521,21 +420,6 @@ S3 クライアント
 
 
  a| 
-18083
- a| 
-TCP
- a| 
-HTTPS
- a| 
-Swift クライアント
- a| 
-ストレージノード
- a| 
-ストレージノードへのSwiftクライアントトラフィック（HTTPS）。
-
-
-
- a| 
 18084
  a| 
 TCP
@@ -547,21 +431,6 @@ S3 クライアント
 ストレージノード
  a| 
 ストレージノードへのS3クライアントトラフィックの直接転送（HTTP）。
-
-
-
- a| 
-18085
- a| 
-TCP
- a| 
-HTTP
- a| 
-Swift クライアント
- a| 
-ストレージノード
- a| 
-ストレージノードへのSwiftクライアントトラフィック（HTTP）。
 
 
 

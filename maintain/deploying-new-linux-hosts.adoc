@@ -13,11 +13,10 @@ summary: いくつかの例外を除き、最初のインストールプロセ�
 [role="lead"]
 いくつかの例外を除き、最初のインストールプロセス時と同じ方法で新しいホストを準備します。
 
-新規または再インストールした物理/仮想Linuxホストを導入するには、手順 に従って、使用しているLinuxオペレーティングシステムに対応したStorageGRID のインストール手順に記載されたホストを準備します。
+新規または再インストールされた物理または仮想 Linux ホストを展開するには、Linux オペレーティング システムのStorageGRIDインストール手順にあるホストの準備手順に従います。見るlink:../swnodes/installing-linux.html["Linux をインストールします"] 。
 
-* link:../rhel/installing-linux.html["Linuxのインストール（Red Hat Enterprise Linux）"]
-* link:../ubuntu/installing-linux.html["Linuxのインストール（UbuntuまたはDebian）"]
 
+NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^] 。
 
 この手順 には、次のタスクが含まれています。
 

@@ -1,10 +1,10 @@
 ---
 permalink: upgrade/whats-new.html 
 sidebar: sidebar 
-keywords: what is new in StorageGRID 11.9 
-summary: このリリースの StorageGRID には、次の機能が導入されています。 
+keywords: what is new in StorageGRID 12.0 
+summary: このリリースのStorageGRID では、次の機能変更が導入されています。 
 ---
-= StorageGRID 11.9の新機能
+= StorageGRID 12.0の新機能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -15,160 +15,94 @@ summary: このリリースの StorageGRID には、次の機能が導入され�
 
 
 
-== 拡張性
+== アプライアンス
 
+* ストレージ容量とコスト効率が大幅に向上しました。
+* ドライブ ファームウェアの自動アップグレードにより、システムの信頼性が向上し、メンテナンスのオーバーヘッドが削減されます。
 
 
-=== データ専用ストレージノード
 
-よりきめ細かな拡張を可能にするために、をインストールできるようになりlink:../primer/what-storage-node-is.html#types-of-storage-nodes["データ専用ストレージノード"]ました。メタデータ処理が重要でない場合は、インフラをコスト効率よく最適化できます。この柔軟性により、さまざまなワークロードや増加パターンに対応できます。
 
+== 人工知能（AI）と機械学習（ML）
 
+* link:../tenant/what-is-branch-bucket.html["ブランチバケット"]ランサムウェアからの迅速な復旧とテストおよび実験用の分離されたデータセットを容易にするバケットのポイントインタイム バージョンを許可します。
+* S3 キャッシュ レイヤーにより、AI/ML トレーニングのパフォーマンスが向上します。
 
-== クラウドストレージプールの機能拡張
 
 
 
-=== IAMのあらゆる場所での役割
+== 容量
 
-StorageGRIDでは、を使用した短期クレデンシャルがサポートされるlink:../ilm/creating-cloud-storage-pool.html["IAMがAmazon S3内のどこにいてもクラウドストレージプールに対応"]
+StorageGRID は現在、以前の制限の 2 倍を超える 1 兆個のオブジェクトをサポートしています。参照 https://fusion.netapp.com/["NetApp Fusionツール"^]StorageGRID のサイズと設計を決定します。
 
-S3バケットへのアクセスに長期のクレデンシャルを使用すると、クレデンシャルが漏えいした場合にセキュリティリスクが発生します。短期間のクレデンシャルの有効期間は限られているため、不正アクセスのリスクが軽減されます。
 
 
+== Cassandraのアップデート
 
-=== S3オブジェクトロックバケット
+StorageGRID は、メタデータ ストレージに Cassandra の新しいバージョンを使用するようになりました。このバージョンの Cassandra では、ディスク領域をより効率的に使用して、より多くのメタデータを保存します。
 
-お前ならできるlink:../ilm/creating-cloud-storage-pool.html["Amazon S3エンドポイントを使用したクラウドストレージプールの設定"]S3オブジェクトロックは、オブジェクトの偶発的な削除や故意の削除を防止するのに役立ちます。StorageGRIDからAmazon S3にデータを階層化する場合は、両方のシステムでオブジェクトロックを有効にすると、データのライフサイクル全体にわたるデータ保護が強化されます。
+お先にどうぞlink:../upgrade/index.html["StorageGRID 11.9 から 12.0 へのアップグレード"]、メタデータ形式の更新が 1 ～ 3 日間バックグラウンドで実行されます。この間、拡張などのメタデータ ストリーミングを伴う特定のメンテナンス手順は無効になります。
 
+。 link:../upgrade/performing-upgrade.html#upgrade-other-nodes["他のノードをアップグレードする"] 。
 
 
-== マルチテナンシー
 
+== フェデレーション
 
+* これでlink:../admin/managing-users.html#import-federated-users["最大100人のフェデレーションユーザーをインポート"]StorageGRIDに。
+* これでlink:../ilm/configuring-regions-optional-and-s3-only.html["デフォルトの領域を変更する"]S3 バケット用。この機能により、データのロケールとコンプライアンスの管理の柔軟性が向上します。
+* S3 オブジェクトロックが有効になっているバケット間でクロスグリッドレプリケーションを設定できるようになりました。。 link:../admin/grid-federation-what-is-cross-grid-replication.html#cgr-with-ol["S3 オブジェクトロックを使用したクロスグリッドレプリケーション"] 。
++
+NetApp、この機能をStorageGRID 12.0 のソース バケットと宛先バケット間でのみ使用することを推奨しています。ただし、この機能は、S3 オブジェクト ロックが無効になっているStorageGRID 11.9 ソース バケットと、S3 オブジェクト ロックが有効になっているStorageGRID 12.0 宛先バケット間でサポートされます。
 
-=== バケット制限
 
-を使用するlink:../tenant/creating-s3-bucket.html["S3ハケツトノセイケンノセツテイ"]と、テナントによる容量の独占を防ぐことができます。さらに、制御されていない成長は、予期しないコストにつながる可能性があります。制限を定義することで、テナントストレージのコストをより正確に見積もることができます。
 
 
 
-=== テナントあたり5、000バケット
+== 管理性
 
-拡張性を強化するために、StorageGRIDは最大でをサポートするようになりましlink:../s3/operations-on-buckets.html["テナントあたり5、000 S3バケット"]た。各グリッドには、最大100,000個のバケットを含めることができます。
+* 改良されたlink:../maintain/decommission-procedure.html["廃止手続き"]時間と複雑さを軽減し、運用効率を向上させます。
+* 強力なグローバル一貫性の動作が改善され、グリッドに 3 つ以上のサイトがある場合でも、クライアント要求に対するサイト障害耐性が提供されます。
++
+** StorageGRID 12.0以降の新規インストールでは、クォーラムセマンティクスを使用するのがデフォルトになります。link:../s3/consistency.html["強いグローバル一貫性"]が設定されています。
+** StorageGRID 11.9 からStorageGRID 12.0 にアップグレードすると、アップグレードされたグリッドでは、強力なグローバル一貫性の以前の動作が維持されます。
 
-5、000バケットをサポートするには、グリッド内の各ストレージノードに64GB以上のRAMが必要です。
 
 
 
-== S3オブジェクトロックの強化
 
-テナントごとの構成機能により、柔軟性とデータセキュリティの適切なバランスを実現できます。テナントごとに保持設定を構成して、次の処理を実行できるようになりました。
+NOTE: 強グローバル一貫性の以前の動作に戻す必要がある場合は、 https://kb.netapp.com/hybrid/StorageGRID/Object_Mgmt/Configuring_StorageGRID_quorum_semantics_for_strong-global_consistency["強力なグローバル整合性のためのStorageGRID Quorumセマンティクスの構成"^]手順についてはこちらをご覧ください。
 
-* コンプライアンスモードを許可または禁止する
-* 最大保持期間を設定する
-
-
-参照先：
-
-* link:../ilm/managing-objects-with-s3-object-lock.html["S3 オブジェクトロックでオブジェクトを管理します"]
-* link:../ilm/how-object-retention-is-determined.html#how-grid-administrators-control-object-retention["グリッド管理者によるオブジェクト保持期間の制御方法"]
-* link:../admin/creating-tenant-account.html["テナントアカウントを作成する"]
-
-
-
-
-== S3との互換性
-
-
-
-=== x-amz-checksum-SHA256チェックサム
-
-* S3 REST APIで、link：../s3/operations-on-objects.html checksum]がサポートされるようになりました[`x-amz-checksum-sha256`。
-* StorageGRIDでは、PUT、GET、HEADの各処理でSHA-256チェックサムがサポートされるようになりました。これらのチェックサムにより、データの整合性が向上します。
-
-
-
-
-=== S3プロトコルのサポートに対する変更
-
-* Amazon S3のマウントポイントのサポートが追加されました。これにより、アプリケーションはローカルファイルシステムのようにS3バケットに直接接続できます。StorageGRIDは、より多くのアプリケーションやユースケースで使用できるようになりました。
-* マウントポイントのサポートを追加する一環として、StorageGRID 11.9にはが含まれていlink:../s3/index.html#updates-to-rest-api-support["S3プロトコルのサポートに関するその他の変更点"]ます。
-
-
-
-
-== メンテナンスとサポート性
-
-
-
-=== AutoSupport
-
-link:../admin/what-is-autosupport.html["AutoSupport"]レガシーアプライアンスのハードウェア障害ケースが自動的に作成されるようになりました。
-
-
-
-=== ノード拡張のクローニング処理
-
-ノードクローンのユーザビリティが拡張され、大容量のストレージノードがサポートされるようになりました。
-
-
-
-=== ILMによる期限切れ削除マーカーの処理の改善
-
-期間が日数のILM取り込み時間ルールでは、期限切れのオブジェクト削除マーカーも削除されるようになりました。削除マーカーは、日数が経過し、現在の削除メーカーが期限切れになった場合にのみ削除されます(最新でないバージョンはありません)。
-
-link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 バージョン管理オブジェクトの削除方法"]およびを参照してくださいlink:../ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html#example-of-bucket-lifecycle-taking-priority-over-ilm-policy["ILMポリシーよりも優先するバケットライフサイクルの例"]。
-
-
-
-=== ノードの運用停止機能の向上
-
-StorageGRID次世代ハードウェアへのスムーズで効率的な移行を実現するために、がlink:../maintain/grid-node-decommissioning.html["ノードの運用停止"]改善されました。
-
-
-
-=== ロードバランサエンドポイントのsyslog
-
-ロードバランサエンドポイントのアクセスログには、HTTPステータスコードなどのトラブルシューティング情報が記録されています。StorageGRIDがサポートするlink:../monitor/configure-audit-messages.html["外部syslogサーバへのこれらのログのエクスポート"]ようになりましたこの機能拡張により、より効率的なログ管理と、既存の監視およびアラートシステムとの統合が可能になります。
-
-
-
-=== メンテナンスとサポートに関するその他の機能拡張
-
-* 指標UIの更新
-* オペレーティングシステムの新しい認定
-* 新しいサードパーティコンポーネントのサポート
+* ログアップロードを開始する機能link:../admin/configure-autosupport-grid-manager.html["AutoSupport"]サポートの応答性を向上させます。
+* 削減 https://docs.netapp.com/us-en/storagegrid-appliances/index.html["家電製品"^]再起動時間によりダウンタイムが最小限に抑えられ、システム全体の可用性が向上します。
+* link:../maintain/move-adc-service.html["ADCサービスを移動する機能"]別のストレージ ノードに移行すると、ADC サービスをホストするストレージ ノードの管理における柔軟性と回復力が向上します。ストレージ ノードを廃止する前、またはストレージ ノードをデータ専用ノードに変換する前に、ADC サービスを移動できます。
+* データストレージ容量を最大化するには、link:../maintain/convert-to-data-only-node.html["ストレージノードをデータ専用ノードに変換する"]これにより、そのノード上のメタデータが結合されたストレージ ノードまたはメタデータのみのストレージ ノードに移行されます。
+* 管理ノードがlink:../maintain/selecting-node-recovery-procedure.html["他のノードを回復する"](プライマリ管理ノードを除く) システムの回復力とフォールト トレランスが強化され、全体的な信頼性が向上します。
+* ユーザーはS3バケットを使用してlink:../monitor/configure-log-management.html#use-a-bucket["監査ログを長期間保存する"]。
 
 
 
 
 == セキュリティ
 
-
-
-=== SSHアクセスキーのローテーション
-
-グリッド管理者ができるようになりましたlink:../admin/change-ssh-access-passwords.html["SSHキーの更新とローテーション"]。SSHキーをローテーションする機能は、セキュリティのベストプラクティスであり、プロアクティブな防御メカニズムです。
-
-
-
-=== ルートログインのアラート
-
-不明なエンティティがrootとしてGrid Managerにサインインした場合、link:../monitor/alerts-reference.html["アラートがトリガーされた"]ルートSSHログインの監視は、インフラストラクチャを保護するためのプロアクティブなステップです。
+* より強力なデータ暗号化と整合性保護により、セキュリティとパフォーマンスが向上します。
+* 保存されたパスワードのセキュリティが強化され、不正アクセスのリスクが軽減されます。
+* link:../admin/manage-external-ssh-access.html["SSHはデフォルトでブロックされています"]制御されたアクセスを許可しながらセキュリティを強化します。
 
 
 
-== Grid Managerの機能拡張
+
+== テナントグループ
+
+* これでlink:../tenant/manage-groups.html["新しいS3信頼ポリシーを構成する"]AssumeRole API をサポートするため。  AssumeRole 関数は、セキュリティの強化と柔軟なアクセス制御のために短期的な資格情報を提供します。
+* バケットごとのオブジェクト数割り当てにより、ストレージ リソースの制御と管理が向上します。
 
 
 
-=== イレイジャーコーディングプロファイルページを移動
 
-イレイジャーコーディングプロファイルページが* configuration *>* System *>* Erasure coding *に表示されます。以前は[ILM]メニューにありました。
+== ユーザーインターフェース
 
+* ダーク テーマとシステム テーマの設定は、グリッド マネージャーとテナント マネージャーのユーザー メニューで使用できます。
+* 監査およびSyslogサーバーページの名前が変更されましたlink:../monitor/configure-log-management.html["ログ管理"]は、バックアップの目的でシステム バケットにログを保存するための機能が追加され、リファクタリングされました。
+* 従来のグリッド トポロジ ページは削除されました。過去数回のStorageGRIDリリースでは、このページから利用できる操作とメトリックは、グリッドマネージャの他のページ、特にlink:../monitor/viewing-nodes-page.html["[Nodes]ページ"]。
 
-
-=== 検索機能の強化
-
-では、link:../primer/exploring-grid-manager.html#search-field["Grid Managerの検索フィールド"]一般的な略語やページ内の特定の設定の名前を検索してページを検索できるようになりました。ノード、ユーザ、テナントアカウントなど、その他のタイプの項目も検索できます。

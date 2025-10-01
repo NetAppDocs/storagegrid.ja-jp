@@ -1,45 +1,8 @@
 ---
 permalink: vmware/software-requirements.html 
-sidebar: sidebar 
-keywords: software requirements 
-summary: 仮想マシンを使用して、あらゆるタイプのStorageGRIDノードをホストできます。グリッドノードごとに仮想マシンが1つ必要です。 
+redirect: storagegrid/swnodes/software-requirements.html 
 ---
-= VMwareのソフトウェア要件
+= 
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
 
-[role="lead"]
-仮想マシンを使用して、あらゆるタイプのStorageGRIDノードをホストできます。グリッドノードごとに仮想マシンが1つ必要です。
-
-
-
-== VMware vSphere ハイパーバイザー
-
-準備が整った物理サーバに VMware vSphere ハイパーバイザーをインストールする必要があります。VMware ソフトウェアをインストールする前に、ハードウェアが正しく設定されている必要があります（ファームウェアバージョンと BIOS 設定を含む）。
-
-* インストールする StorageGRID システムのネットワークをサポートできるように、ハイパーバイザーのネットワークを設定します。
-+
-link:../network/index.html["ネットワークのガイドライン"]
-
-* データストアが、グリッドノードをホストするために必要な仮想マシンと仮想ディスクに十分な大きさであることを確認します。
-* 複数のデータストアを作成する場合は、仮想マシン作成時に各グリッドノードに使用するデータストアを簡単に識別できるよう、各データストアに名前を付けます。
-
-
-
-
-== ESX ホストの設定要件
-
-
-CAUTION: 各 ESX ホストでネットワークタイムプロトコル（ NTP ）を適切に設定する必要があります。ホストの時刻が正しくないと、データ損失などのマイナスの影響が生じる可能性があります。
-
-
-
-== VMware の設定要件
-
-StorageGRIDノードを導入する前に、VMware vSphereとvCenterをインストールして設定する必要があります。
-
-サポートされるVMware vSphere HypervisorおよびVMware vCenter Serverソフトウェアのバージョンについては、を参照してください https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^]。
-
-これらの VMware 製品をインストールするために必要な手順については、 VMware のドキュメントを参照してください。

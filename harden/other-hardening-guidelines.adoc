@@ -21,9 +21,7 @@ StorageGRID ネットワークおよびノードに対する強化ガイドラ�
 
 詳細については、以下を参照してください。
 
-* link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-* link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-* link:../vmware/index.html["VMwareへのStorageGRIDのインストール"]
+* link:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"]
 * https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/index.html["StorageGRIDアプライアンスの設置"^]
 
 
@@ -53,7 +51,7 @@ AutoSupportでは、転送プロトコルとしてHTTPS、HTTP、およびSMTP�
 
 S3バケットとバケット内のオブジェクトに他のドメインにあるWebアプリケーションからアクセスできるようにするには、そのバケットにCross-Origin Resource Sharing（CORS）を設定します。一般的に、CORSは必要でない限り有効にしないでください。CORS が必要な場合は、信頼できるオリジンに制限します。
 
-の手順を参照してくださいlink:../tenant/configuring-cross-origin-resource-sharing-cors.html["Cross-Origin Resource Sharing（CORS）の設定"]。
+手順については、link:../tenant/configuring-cross-origin-resource-sharing-for-buckets-and-objects.html["バケットとオブジェクトのCORSの設定"] 。
 
 
 

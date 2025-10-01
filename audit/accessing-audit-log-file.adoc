@@ -13,6 +13,8 @@ summary: 監査共有には、アクティブな audit.log ファイルと圧縮
 [role="lead"]
 監査共有には、アクティブなファイルと圧縮された監査ログファイルが格納され `audit.log`ます。監査ログファイルには、管理ノードのコマンドラインから直接アクセスできます。
 
+その `audit.log`*管理ノード/ローカル ノード* または *管理ノードと外部 syslog サーバー* に対してStorageGRIDを構成しない限り、ファイルは空のままになります。詳細については、 link:../monitor/configure-log-management.html#select-log-location["ログの場所を選択"] 。
+
 .開始する前に
 * そうだな link:../admin/admin-group-permissions.html["特定のアクセス権限"]
 * ファイルが必要 `Passwords.txt`です。
@@ -33,7 +35,7 @@ rootとしてログインすると、プロンプトがからに `#`変わりま
 
 . 監査ログファイルが保存されているディレクトリに移動します。
 +
-`cd /var/local/log`
+`cd  /var/local/audit/export/`
 
 . 必要に応じて、現在の監査ログファイルまたは保存された監査ログファイルを表示します。
 

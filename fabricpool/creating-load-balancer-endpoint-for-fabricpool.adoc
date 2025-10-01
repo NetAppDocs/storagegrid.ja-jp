@@ -24,7 +24,7 @@ FabricPoolセットアップウィザードを使用してこのタスクを実�
 
 
 .手順
-. [ * configuration * > * Network * > * Load Balancer Endpoints * ] を選択します。
+. *構成* > *ネットワーク* > *ロードバランサーエンドポイント*を選択します。
 . 「 * Create * 」を選択します。
 . Enter endpoint details *ステップで、次のフィールドに値を入力します。
 +

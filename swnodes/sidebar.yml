@@ -1,0 +1,95 @@
+---
+section: swnodes
+title: ソフトウェアベースのノードをインストール
+entries:
+- title: クイックスタート
+  pdf-filename: ソフトウェアベースのノードにStorageGRIDをインストールする
+  url: "/swnodes/index.html"
+- title: ソフトウェアベースのノードへのインストールを計画および準備する
+  entries:
+  - title: 必要な情報と資料
+    url: "/swnodes/required-materials.html"
+  - title: StorageGRID インストールファイルをダウンロードして展開します
+    url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: インストールファイルを手動で検証する
+    url: "/swnodes/download-files-verify.html"
+  - title: ソフトウェア要件
+    url: "/swnodes/software-requirements.html"
+  - title: CPUオヨビRAMノヨウケン
+    url: "/swnodes/cpu-and-ram-requirements.html"
+  - title: ストレージとパフォーマンスの要件
+    url: "/swnodes/storage-and-performance-requirements.html"
+  - title: ノードコンテナの移行要件 (Linux)
+    url: "/swnodes/node-container-migration-requirements.html"
+  - title: ホストを準備する (Linux)
+    entries:
+    - title: ホスト全体の設定の変更方法
+      url: "/swnodes/how-host-wide-settings-change.html"
+    - title: Linux をインストールします
+      url: "/swnodes/installing-linux.html"
+    - title: AppArmor プロファイルのインストール (Ubuntu および Debian のみ)
+      url: "/swnodes/understanding-apparmor-profile-installation.html"
+    - title: ホストネットワークを設定する
+      url: "/swnodes/configuring-host-network.html"
+    - title: ホストストレージを設定する
+      url: "/swnodes/configuring-host-storage.html"
+    - title: コンテナエンジンのストレージボリュームを構成する
+      url: "/swnodes/configuring-docker-storage-volume.html"
+    - title: StorageGRID ホストサービスをインストールする
+      url: "/swnodes/installing-storagegrid-webscale-host-services.html"
+- title: インストールを自動化します
+  entries:
+  - title: インストールを自動化する（Linux）
+    url: "/swnodes/automating-installation-linux.html"
+  - title: インストールの自動化（VMware）
+    url: "/swnodes/automating-grid-node-deployment-in-vmware-vsphere.html"
+- title: 仮想グリッドノードを展開する
+  entries:
+  - title: 展開環境に関する情報を収集する (VMware)
+    url: "/swnodes/collecting-information-about-your-deployment-environment.html"
+  - title: デプロイメント用のノード構成ファイルを作成する (Linux)
+    url: "/swnodes/creating-node-configuration-files.html"
+  - title: グリッドノードによるプライマリ管理ノードの検出
+    url: "/swnodes/how-grid-nodes-discover-primary-admin-node.html"
+  - title: StorageGRIDノードを仮想マシンとして展開する（VMware）
+    url: "/swnodes/deploying-storagegrid-node-as-virtual-machine.html"
+  - title: ノード構成ファイルの例 (Linux)
+    url: "/swnodes/example-node-configuration-files.html"
+  - title: StorageGRID構成の検証 (Linux)
+    url: "/swnodes/validating-storagegrid-configuration.html"
+  - title: StorageGRIDホストサービスを開始する（Linux）
+    url: "/swnodes/starting-storagegrid-host-service.html"
+- title: グリッドを構成してインストールを完了する
+  entries:
+  - title: Grid Manager に移動します
+    url: "/swnodes/navigating-to-grid-manager.html"
+  - title: ライセンス情報を指定します
+    url: "/swnodes/specifying-storagegrid-license-information.html"
+  - title: サイトを追加します
+    url: "/swnodes/adding-sites.html"
+  - title: Grid ネットワークサブネットを指定してください
+    url: "/swnodes/specifying-grid-network-subnets.html"
+  - title: 保留中のグリッドノードを承認します
+    url: "/swnodes/approving-pending-grid-nodes.html"
+  - title: NTPサーバ情報の指定
+    url: "/swnodes/specifying-network-time-protocol-server-information.html"
+  - title: DNSサーバ情報の指定
+    url: "/swnodes/specifying-domain-name-system-server-information.html"
+  - title: システムパスワードを指定します
+    url: "/swnodes/specifying-storagegrid-system-passwords.html"
+  - title: 設定を確認し、インストールを完了します
+    url: "/swnodes/reviewing-your-configuration-and-completing-installation.html"
+  - title: インストール後のガイドライン
+    url: "/swnodes/post-installation-guidelines.html"
+- title: インストールREST API
+  url: "/swnodes/overview-of-installation-rest-api.html"
+- title: 次の手順
+  url: "/swnodes/where-to-go-next.html"
+- title: インストールに関する問題のトラブルシューティング
+  url: "/swnodes/troubleshooting-installation-issues.html"
+- title: スクリプトの例
+  entries:
+  - title: "/etc/sysconfig/network-scripts の例 (RHEL)"
+    url: "/swnodes/example-etc-sysconfig-network-scripts.html"
+  - title: "/etc/network/interfacesの例（UbuntuまたはDebian）"
+    url: "/swnodes/example-etc-network-interfaces.html"

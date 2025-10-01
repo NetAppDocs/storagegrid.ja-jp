@@ -22,7 +22,7 @@ summary: 拡張時に新しいグリッドノードを導入する手順は、�
 拡張で追加する VMware ノードごとに、 VMware vSphere で仮想マシンを導入する必要があります。
 
 .手順
-. link:../vmware/deploying-storagegrid-node-as-virtual-machine.html["新しいノードを仮想マシンとして導入"]1つ以上のStorageGRIDネットワークに接続します。
+. link:../swnodes/deploying-storagegrid-node-as-virtual-machine.html["新しいノードを仮想マシンとして導入"]1 つ以上のStorageGRIDネットワークに接続します。
 +
 ノードを導入する際には、必要に応じてノードポートを再マッピングしたり、 CPU やメモリの設定を増やしたりできます。
 
@@ -36,12 +36,7 @@ summary: 拡張時に新しいグリッドノードを導入する手順は、�
 グリッドノードは、新規の Linux ホストにも既存の Linux ホストにも導入できます。グリッドに追加する StorageGRID ノードの CPU 、 RAM 、およびストレージの要件に対応するために追加の Linux ホストが必要な場合は、最初にインストールしたときと同じ方法で準備します。その後、インストール時のグリッドノードと同じ方法で拡張ノードを導入します。
 
 .開始する前に
-* 使用している Linux のバージョンに対応した StorageGRID のインストール手順が必要です。また、ハードウェアとストレージの要件を確認しておく必要があります。
-+
-** link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-** link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-
-
+* Linuxのバージョンに応じてStorageGRIDをインストールするための手順があり、link:../swnodes/index.html["ハードウェアとストレージの要件"] 。
 * 既存のホストに新しいグリッドノードを導入する場合は、既存のホストが追加のノードに対応する十分な CPU 、 RAM 、ストレージ容量を備えていることを確認しておきます。
 * 障害ドメインを最小限に抑えるための計画が必要です。たとえば、すべてのゲートウェイノードを 1 つの物理ホストに導入することは避けてください。
 +
@@ -145,9 +140,6 @@ IP を手動で入力します
 
 . StorageGRID アプライアンスインストーラのホームページで、「インストールの開始」を選択します。
 +
-image::../media/appliance_installer_home_start_installation_enabled.gif[この図には説明が付随しています。]
-
-+
 現在の状態が「Installation is in progress」に変わり、[Monitor Installation]ページが表示されます。
 
 . 拡張に複数のアプライアンスノードが含まれている場合は、アプライアンスごとに上記の手順を繰り返します。
@@ -158,9 +150,6 @@ NOTE: 一度に複数のアプライアンスストレージノードを導入�
 . モニタのインストールページに手動でアクセスする必要がある場合は、メニューバーから * モニタのインストール * を選択します。
 +
 Monitor Installation ページにインストールの進行状況が表示されます。
-
-+
-image::../media/monitor_installation_configure_storage.gif[この図には説明が付随しています。]
 
 +
 青色のステータスバーは、現在進行中のタスクを示します。緑のステータスバーは、正常に完了したタスクを示します。
@@ -191,8 +180,5 @@ NOTE: インストーラは、以前のインストールで完了したタス�
 +
 
 NOTE: この拡張で追加したすべてのノードが承認できる状態になるまでは、 Grid Manager でノードを承認しないでください。
-
-+
-image::../media/monitor_installation_install_sgws.gif[この図には説明が付随しています。]
 
 

@@ -91,9 +91,11 @@ eth2
 
 * * VMware（ノードのインストール後）*：link:../maintain/vmware-adding-trunk-or-access-interfaces-to-node.html["VMware ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します"]
 +
-** * Red Hat Enterprise Linux（ノードのインストール前）*：link:../rhel/creating-node-configuration-files.html["ノード構成ファイルを作成"]
-** * UbuntuまたはDebian（ノードのインストール前）*：link:../ubuntu/creating-node-configuration-files.html["ノード構成ファイルを作成"]
-** * RHEL、Ubuntu、またはDebian（ノードのインストール後）*：link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["Linux ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します"]
+** *Linux (ノードをインストールする前)*:link:../swnodes/creating-node-configuration-files.html["ノード構成ファイルを作成"]
+** *Linux (ノードのインストール後)*:link:../maintain/linux-adding-trunk-or-access-interfaces-to-node.html["ノードにトランクまたはアクセスインターフェースを追加する"]
 
 
 
+
+
+NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^] 。

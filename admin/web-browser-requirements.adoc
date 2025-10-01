@@ -21,24 +21,24 @@ summary: サポートされている Web ブラウザを使用する必要があ
  a| 
 Google Chrome
  a| 
-119
+138
 
 
 
  a| 
 Microsoft Edge
  a| 
-119
+138
 
 
 
  a| 
 Mozilla Firefox
  a| 
-119
+140
 
 |===
-ブラウザウィンドウの幅を推奨される値に設定してください。
+ブラウザウィンドウを推奨幅に設定します。
 
 [cols="3a,1a"]
 |===

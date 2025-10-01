@@ -20,7 +20,7 @@ Grid Managerにサインインしておきますlink:../admin/web-browser-requir
 IPアドレスの変更については、を参照してくださいlink:../maintain/configuring-ip-addresses.html["IP アドレスを設定する"]。
 
 .手順
-. ノード * > * _grid node_* > * Overview * を選択します。
+. *ノード* > *_grid node_* > *概要*を選択します。
 . [IP Addresses] のタイトルの右側にある [*Show More*] を選択します。
 +
 このグリッドノードの IP アドレスがテーブルに表示されます。

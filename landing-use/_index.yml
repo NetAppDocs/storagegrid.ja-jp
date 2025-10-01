@@ -24,8 +24,8 @@ indexpage:
       url: "../tenant/creating-groups-for-s3-tenant.html"
     - title: テナント管理権限
       url: "../tenant/tenant-management-permissions.html"
-    - title: ローカルユーザを管理します
-      url: "../tenant/managing-local-users.html"
+    - title: ユーザの管理
+      url: "../tenant/manage-users.html"
   - title: S3アクセスキーとバケットの管理
     links:
     - title: S3 アクセスキーを管理します
@@ -55,7 +55,7 @@ indexpage:
     - title: オブジェクトの処理
       url: "../s3/operations-on-objects.html"
     - title: バケットとグループのアクセスポリシー
-      url: "../s3/bucket-and-group-access-policies.html"
+      url: "../s3/use-access-policies.html"
   - title: Swift REST APIの使用（サポート終了）
     links:
     - title: Swift を使用します

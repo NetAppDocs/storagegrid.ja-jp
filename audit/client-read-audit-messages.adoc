@@ -1,7 +1,7 @@
 ---
 permalink: audit/client-read-audit-messages.html 
 sidebar: sidebar 
-keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3, swift 
+keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: クライアント読み取り監査メッセージは、S3クライアントアプリケーションがオブジェクトの読み出しを要求するときに記録されます。 
 ---
 = クライアント読み取り監査メッセージ
@@ -50,27 +50,5 @@ S3 HEAD ：オブジェクトまたはバケットの存在を確認するトラ
 S3 クライアント
  a| 
 link:shea-s3-head.html["Shea ： S3 ヘッド"]
-
-
-
- a| 
-wget
- a| 
-Swift GET ：コンテナ内のオブジェクトを読み出しまたはリストアップするトランザクションの成功をログに記録します。
- a| 
-Swift クライアント
- a| 
-link:wget-swift-get.html["wget ： Swift GET"]
-
-
-
- a| 
-WHEA
- a| 
-Swift HEAD ：オブジェクトまたはコンテナの存在を確認するトランザクションの成功をログに記録します。
- a| 
-Swift クライアント
- a| 
-link:whea-swift-head.html["WHEA ： Swift ヘッド"]
 
 |===

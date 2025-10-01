@@ -44,7 +44,7 @@ StorageGRID インストールアーカイブ
  a| 
 `Passwords.txt`ファイル
  a| 
-コマンドラインでグリッドノードにアクセスするために必要なパスワードが含まれています。リカバリパッケージに含まれています。
+コマンド ラインでグリッド ノードにアクセスするために必要なパスワードが含まれます。リカバリパッケージに含まれています。
 
 
 
@@ -60,13 +60,7 @@ StorageGRID のドキュメント
  a| 
 * link:../admin/index.html["StorageGRID の管理"]
 * link:../release-notes/index.html["リリースノート"]
-* 使用しているプラットフォームに対応したインストール手順
-+
-** link:../rhel/index.html["Red Hat Enterprise LinuxへのStorageGRIDのインストール"]
-** link:../ubuntu/index.html["UbuntuまたはDebianへのStorageGRIDのインストール"]
-** link:../vmware/index.html["VMwareへのStorageGRIDのインストール"]
-
-
+* link:../swnodes/index.html["使用しているプラットフォームに対応したインストール手順"]
 
 
 
@@ -106,7 +100,7 @@ StorageGRID のドキュメント
 
 
  a| 
-Red Hat Enterprise Linux
+RHEL
 | `StorageGRID-Webscale-_version_-RPM-_uniqueID_.zip` 
 `StorageGRID-Webscale-_version_-RPM-_uniqueID_.tgz` 
 
@@ -134,7 +128,7 @@ OpenStack の既存の環境を拡張する場合は、上記のサポートさ�
 +
 各プラットフォームの手順に記載されているパスは、アーカイブファイルによってインストールされた最上位ディレクトリに対する相対パスです。
 
-. Red Hat Enterprise Linuxシステムを拡張する場合は、適切なファイルを選択します。
+. RHEL システムを拡張する場合は、適切なファイルを選択します。
 
 
 [cols="1a,1a"]
@@ -393,6 +387,9 @@ StorageGRID の API スキーマ
 . StorageGRID アプライアンスベースのシステムを拡張する場合は、該当するファイルを選択してください。
 
 
+
+NOTE: アプライアンスのインストールでは、ネットワーク トラフィックを回避する必要がある場合にのみこれらのファイルが必要です。アプライアンスは、リカバリ手順を実行する管理ノードから必要なファイルをダウンロードできます。
+
 [cols="1a,1a"]
 |===
 | パスとファイル名 | 製品説明 
@@ -408,9 +405,6 @@ StorageGRID の API スキーマ
 images-version-SHA.deb`。
 
 |===
-
-NOTE: アプライアンスのインストールの場合、これらのファイルが必要になるのは、ネットワークトラフィックを回避する必要がある場合だけです。アプライアンスは、プライマリ管理ノードから必要なファイルをダウンロードできます。
-
 
 
 == ハードウェアとネットワークの確認

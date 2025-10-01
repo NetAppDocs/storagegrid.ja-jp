@@ -11,7 +11,7 @@ summary: シングルサインオン（ SSO ）を設定して有効にし、 SS
 
 
 [role="lead"]
-Active DirectoryをSSOプロバイダとして使用している場合link:../admin/configuring-sso.html["シングルサインオン（ SSO ）の設定と有効化"]は、一連のAPI要求を実行して、グリッド管理APIまたはテナント管理APIで有効な認証トークンを取得する必要があります。
+もしあなたがlink:../admin/how-sso-works.html["シングルサインオン（ SSO ）の設定と有効化"]Active Directory を SSO プロバイダーとして使用する場合は、一連の API 要求を発行して、グリッド管理 API またはテナント管理 API に有効な認証トークンを取得する必要があります。
 
 
 
@@ -27,7 +27,7 @@ Active DirectoryをSSOプロバイダとして使用している場合link:../ad
 .タスクの内容
 認証トークンを取得するには、次のいずれかの例を使用します。
 
-*  `storagegrid-ssoauth.py`Pythonスクリプト。Red Hat Enterprise Linuxの場合は `./debs`StorageGRIDのインストールファイルディレクトリ（UbuntuまたはDebianの場合は、VMwareの場合 `./vsphere`は）にあり(`./rpms`ます。
+* その `storagegrid-ssoauth.py`StorageGRIDインストール ファイル ディレクトリにある Python スクリプト(`./rpms`RHELの場合、 `./debs` UbuntuまたはDebianの場合、 `./vsphere` VMware の場合)。
 * cURL 要求のワークフローの例。
 +
 cURL ワークフローは、実行に時間がかかりすぎるとタイムアウトする場合があります。「」というエラーが表示される場合があり `A valid SubjectConfirmation was not found on this Response`ます。

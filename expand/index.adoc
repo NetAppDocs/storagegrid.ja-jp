@@ -13,6 +13,8 @@ summary: システムの処理を中断することなく、StorageGRIDシステ
 [role="lead"]
 システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。
 
+グリッド ノードを展開する前に、アクティブなデータ修復ジョブがないことを確認する必要があります。修復に失敗した場合は、修復を再起動して完了させてから、廃止または拡張手順を実行する必要があります。。 link:../maintain/checking-data-repair-jobs.html["データ修復ジョブを確認します"] 。
+
 StorageGRIDを拡張すると、次の項目を追加できます。
 
 * ストレージボリュームからストレージノードへ
@@ -26,11 +28,6 @@ StorageGRIDを拡張すると、次の項目を追加できます。
 
 [role="tabbed-block"]
 ====
-.ストレージボリュームを追加します
---
-の手順に従いますlink:adding-storage-volumes-to-storage-nodes.html["ストレージノードへのストレージボリュームの追加"]。
-
---
 .グリッドノードの追加
 --
 . の手順に従いますlink:adding-grid-nodes-to-existing-site-or-adding-new-site.html["既存のサイトへのグリッドノードの追加"]。
@@ -40,15 +37,21 @@ StorageGRIDを拡張すると、次の項目を追加できます。
 ** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["アプライアンス"]
 ** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
 ** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
-+
-
-NOTE: 「Linux」とは、Red Hat Enterprise Linux、Ubuntu、またはDebian環境を指します。サポートされているバージョンの一覧については、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^]ください。
 
 
+
+
+
+NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^] 。
 
 . link:performing-expansion.html["拡張の実行"]です。
 . link:configuring-expanded-storagegrid-system.html["拡張したシステムの設定"]です。
 
+
+--
+.ストレージボリュームを追加します
+--
+の手順に従いますlink:adding-storage-volumes-to-storage-nodes.html["ストレージノードへのストレージボリュームの追加"]。
 
 --
 .新しいサイトを追加します
@@ -60,11 +63,12 @@ NOTE: 「Linux」とは、Red Hat Enterprise Linux、Ubuntu、またはDebian環
 ** link:deploying-new-grid-nodes.html#appliances-deploying-storage-gateway-or-non-primary-admin-nodes["アプライアンス"]
 ** link:deploying-new-grid-nodes.html#vmware-deploy-grid-nodes["VMware"]
 ** link:deploying-new-grid-nodes.html#linux-deploy-grid-nodes["Linux"]
-+
-
-NOTE: 「Linux」とは、Red Hat Enterprise Linux、Ubuntu、またはDebian環境を指します。サポートされているバージョンの一覧については、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^]ください。
 
 
+
+
+
+NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメントを指します。サポートされているバージョンのリストについては、 https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool（IMT）"^] 。
 
 . link:performing-expansion.html["拡張の実行"]です。
 . link:configuring-expanded-storagegrid-system.html["拡張したシステムの設定"]です。

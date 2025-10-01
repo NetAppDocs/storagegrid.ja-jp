@@ -30,7 +30,7 @@ StorageGRID ソフトウェアは、可能なかぎり、最新のメジャー�
 
 == 外部サービスへのアップグレード
 
-外部サービスには、 StorageGRID に間接的に影響する脆弱性が存在する場合がありますStorageGRID が依存するサービスが最新の状態に保たれていることを確認してください。LDAP 、 KMS （ KMIP サーバ）、 DNS 、 NTP などのサービスを利用できます。
+外部サービスには、 StorageGRID に間接的に影響を及ぼす脆弱性が存在する可能性があります。 StorageGRIDが依存するサービスが最新の状態に保たれていることを確認します。これらのサービスには、LDAP、KMS (または KMIP サーバー)、DNS、NTP が含まれます。
 
 サポートされているバージョンの一覧については、を参照して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^]ください。
 

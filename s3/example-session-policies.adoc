@@ -1,0 +1,33 @@
+---
+permalink: s3/example-session-policies.html 
+sidebar: sidebar 
+keywords: session policy example 
+summary: このセクションの例を使用して、 StorageGRIDセッション ポリシーを構築します。 
+---
+= セッションポリシーの例
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+次の例を使用して、 StorageGRIDセッション ポリシーを構築します。
+
+
+
+== 例: オブジェクトの取得を許可するセッションポリシーを設定する
+
+この例では、セッションのプリンシパルは bucket1 からオブジェクトを取得することのみが許可されます。  StorageGRID固有のアクション（link:use-access-policies/#use-putoverwriteobject-permission["S3 ： PutOverwriteObject"]許可。  AssumeRole API を呼び出すときに、セッション ポリシーを JSON ファイルとして提供できます。
+
+[listing]
+----
+{
+  "Statement": [
+    {
+      "Action": "s3:GetObject",
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::bucket1/*"
+    }
+  ]
+}
+----

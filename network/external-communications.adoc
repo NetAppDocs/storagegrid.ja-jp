@@ -244,9 +244,9 @@ HTTPS
  a| 
 管理ノード
  a| 
-Grid Manager と Tenant Manager にアクセスするために Web ブラウザと管理 API クライアントで使用します。
+Web ブラウザおよび管理 API クライアントが Grid Manager および Tenant Manager にアクセスするために使用します。
 
-*注*：Grid Managerポート443または8443を閉じると、ブロックされたポートに現在接続しているユーザ（ユーザを含む）は、ユーザのIPアドレスが特権アドレスリストに追加されていないかぎりGrid Managerにアクセスできなくなります。特権IPアドレスを設定するには、を参照してくださいlink:../admin/configure-firewall-controls.html["ファイアウォールコントロールを設定します"]。
+*注意*: Grid Manager ポート 443 または 8443 を閉じると、ブロックされたポートに現在接続しているすべてのユーザー (自分を含む) は、その IP アドレスが特権アドレス リストに追加されていない限り、Grid Manager にアクセスできなくなります。参照link:../admin/configure-firewall-controls.html["ファイアウォールコントロールを設定します"]特権 IP アドレスを構成します。
 
 
 
@@ -306,7 +306,7 @@ mDNS
  a| 
 すべてのノード
  a| 
-フルグリッドIPの変更、およびインストール、拡張、リカバリ時のプライマリ管理ノードの検出に使用するマルチキャストDNS（mDNS）サービスを提供します。
+インストール、拡張、リカバリ時のフルグリッド IP の変更やプライマリ管理ノードの検出に使用されるマルチキャスト DNS (mDNS) サービスを提供します。
 
 
 
@@ -336,9 +336,26 @@ HTTPS
  a| 
 管理ノード
  a| 
-オプション。Grid Manager にアクセスするために Web ブラウザと管理 API クライアントで使用されます。を使用して、 Grid Manager と Tenant Manager の通信を分離できます。
+オプション。 Web ブラウザおよび管理 API クライアントが Grid Manager にアクセスするために使用します。Grid Manager と Tenant Manager の通信を分離するために使用できます。
 
-*注*：Grid Managerポート443または8443を閉じると、ブロックされたポートに現在接続しているユーザ（ユーザを含む）は、ユーザのIPアドレスが特権アドレスリストに追加されていないかぎりGrid Managerにアクセスできなくなります。特権IPアドレスを設定するには、を参照してくださいlink:../admin/configure-firewall-controls.html["ファイアウォールコントロールを設定します"]。
+*注意*: Grid Manager ポート 443 または 8443 を閉じると、ブロックされたポートに現在接続しているすべてのユーザー (自分を含む) は、その IP アドレスが特権アドレス リストに追加されていない限り、Grid Manager にアクセスできなくなります。参照link:../admin/configure-firewall-controls.html["ファイアウォールコントロールを設定します"]特権 IP アドレスを構成します。
+
+
+
+ a| 
+8443
+ a| 
+TCP
+ a| 
+HTTPS
+ a| 
+ブラウザ
+ a| 
+アプライアンス
+ a| 
+Web ブラウザおよび管理 API クライアントがStorageGRIDアプライアンス インストーラにアクセスするために使用します。
+
+*注*: ポート 443 は、 StorageGRIDアプライアンス インストーラのポート 8443 にリダイレクトされます。
 
 
 
@@ -400,7 +417,7 @@ HTTPS
  a| 
 管理ノード
  a| 
-オプション。Tenant Manager にアクセスするために Web ブラウザと管理 API クライアントで使用します。を使用して、 Grid Manager と Tenant Manager の通信を分離できます。
+オプション。 Web ブラウザおよび管理 API クライアントがテナント マネージャにアクセスするために使用します。Grid Manager と Tenant Manager の通信を分離するために使用できます。
 
 
 

@@ -14,7 +14,7 @@ summary: Grid Manager を使用してNetAppコンソールからStorageGRIDシ�
 
 
 [role="lead"]
-へ移動 https://docs.netapp.com/us-en/console-storagegrid/index.html["NetAppコンソールを使用したStorageGRID管理"^]Grid Manager を使用してNetAppコンソールからStorageGRIDシステムを管理する方法と、バックアップ、データ階層化などにNetAppコンソールのデータ サービスを使用する方法を学習します。
+へ移動 https://docs.netapp.com/us-en/storage-management-storagegrid/index.html["NetAppコンソールを使用したStorageGRID管理"^]Grid Manager を使用してNetAppコンソールからStorageGRIDシステムを管理する方法と、バックアップ、データ階層化などにNetAppコンソールのデータ サービスを使用する方法を学習します。
 
 * BlueXPはNetAppコンソールになりました*
 

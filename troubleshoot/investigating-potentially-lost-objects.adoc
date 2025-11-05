@@ -2,7 +2,7 @@
 permalink: troubleshoot/investigating-potentially-lost-objects.html 
 sidebar: sidebar 
 keywords: lost objects, investigating, objects 
-summary: *オブジェクトが失われる可能性がある*アラートがトリガーされた場合は、すぐに調査する必要があります。影響を受けるオブジェクトに関する情報を収集し、テクニカル サポートに連絡してください。 
+summary: オブジェクトの紛失の可能性があるアラートがトリガーされた場合は、すぐに調査する必要があります。影響を受けるオブジェクトに関する情報を収集し、テクニカル サポートに連絡してください。 
 ---
 = 紛失した可能性のある物品を調査する
 :allow-uri-read: 

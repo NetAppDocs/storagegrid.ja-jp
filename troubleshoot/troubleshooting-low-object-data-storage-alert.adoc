@@ -2,7 +2,7 @@
 permalink: troubleshoot/troubleshooting-low-object-data-storage-alert.html 
 sidebar: sidebar 
 keywords: how to troubleshoot the Low object data storage alert 
-summary: Low object data storage * アラートは、オブジェクトデータを格納可能な各ストレージノードのスペースを監視します。 
+summary: 低オブジェクト データ ストレージ アラートは、各ストレージ ノードでオブジェクト データを格納するために使用できるスペースの量を監視します。 
 ---
 = Low object data storage アラートのトラブルシューティングを行います
 :allow-uri-read: 

@@ -20,4 +20,4 @@ summary: Grid Manager を使用してNetAppコンソールからStorageGRIDシ�
 
 NetAppコンソールは、強化され再構築されたBlueXP基盤上に構築され、オンプレミスとクラウド環境全体にわたるエンタープライズ グレードのNetAppストレージとNetAppデータ サービスの集中管理を提供し、リアルタイムの分析情報、ワークフローの高速化、および高度なセキュリティとコンプライアンスを備えた簡素化された管理を実現します。
 
-変更内容の詳細については、link:https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetAppコンソールのリリースノート"] 。
+変更内容の詳細については、 link:https://docs.netapp.com/us-en/console-relnotes/index.html["NetAppコンソールのリリースノート"]。

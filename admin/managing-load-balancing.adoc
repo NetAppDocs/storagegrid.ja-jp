@@ -24,7 +24,7 @@ StorageGRID ロードバランササービスはすべての管理ノードと�
 各ノード上のロードバランササービスは、クライアントトラフィックをストレージノードに転送する際に独立して動作します。重み付きのプロセスを使用すると、ロードバランササービスは、より多くの要求をより多くの CPU を使用可能なストレージノードにルーティングします。
 
 
-NOTE: 推奨されるロードバランシングメカニズムは StorageGRID ロードバランササービスですが、代わりにサードパーティのロードバランサを統合することもできます。詳細については、NetAppのアカウント担当者にお問い合わせいただくか、を参照してください https://fieldportal.netapp.com/content/2666394["TR-4626 ：『 StorageGRID Third-party and global load balancers 』"^]。
+NOTE: 推奨される負荷分散メカニズムとしてはStorageGRID Load Balancer サービスがありますが、代わりにサードパーティのロード バランサを統合することもできます。詳細については、 NetAppのアカウント担当者にお問い合わせいただくか、 https://docs.netapp.com/us-en/storagegrid-enable/technical-reports/load-balancer-index.html["StorageGRIDでサードパーティのロードバランサーを使用する"^]。
 
 
 

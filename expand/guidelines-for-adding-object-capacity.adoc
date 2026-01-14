@@ -1,10 +1,10 @@
 ---
 permalink: expand/guidelines-for-adding-object-capacity.html 
 sidebar: sidebar 
-keywords: adding storage capacity, guidelines, storage volumes, expansion 
+keywords: adding storage capacity, guidelines, storage volumes, expansion, StorageGRID 
 summary: StorageGRID システムのオブジェクトストレージ容量を拡張するには、既存のストレージノードにストレージボリュームを追加するか、または既存のサイトに新しいストレージノードを追加します。情報ライフサイクル管理（ ILM ）ポリシーの要件を満たす方法でストレージ容量を追加する必要があります。 
 ---
-= オブジェクト容量を追加する場合のガイドラインを次に示します
+= StorageGRIDでオブジェクト容量を追加するためのガイドライン
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

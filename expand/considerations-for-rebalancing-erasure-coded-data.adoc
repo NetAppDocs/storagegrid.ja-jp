@@ -1,10 +1,10 @@
 ---
 permalink: expand/considerations-for-rebalancing-erasure-coded-data.html 
 sidebar: sidebar 
-keywords: erasure coding, rebalance, ec rebalance, site rebalance 
+keywords: erasure coding, rebalance, ec rebalance, site rebalance, StorageGRID 
 summary: 拡張を実行してストレージノードを追加し、ILMルールを使用してデータをイレイジャーコーディングする場合、使用しているイレイジャーコーディングスキームに必要な数のストレージノードを追加できない場合は、ECリバランシング手順 の実行が必要になることがあります。 
 ---
-= イレイジャーコーディングデータのリバランシングに関する考慮事項
+= StorageGRIDの拡張後の EC 再バランス調整について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

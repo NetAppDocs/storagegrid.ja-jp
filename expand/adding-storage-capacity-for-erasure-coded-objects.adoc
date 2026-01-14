@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-capacity-for-erasure-coded-objects.html 
 sidebar: sidebar 
-keywords: erasure coding, capacity, storage nodes, ec, expand, expansion 
+keywords: erasure coding, capacity, storage nodes, ec, expand, expansion, StorageGRID 
 summary: イレイジャーコーディングコピーを作成するルールが ILM ポリシーに含まれている場合は、新しいストレージの追加場所と新しいストレージを追加するタイミングを計画する必要があります。追加するストレージの量と追加のタイミングは、グリッドの使用可能なストレージ容量に影響を与える可能性があります。 
 ---
-= イレイジャーコーディングオブジェクトのストレージ容量を追加します
+= StorageGRIDにおける消失訂正符号化（EC）データの拡張計画
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

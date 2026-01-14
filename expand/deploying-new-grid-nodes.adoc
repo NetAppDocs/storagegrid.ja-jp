@@ -1,10 +1,10 @@
 ---
 permalink: expand/deploying-new-grid-nodes.html 
 sidebar: sidebar 
-keywords: expansion, add nodes 
+keywords: expansion, add nodes, StorageGRID 
 summary: 拡張時に新しいグリッドノードを導入する手順は、グリッドを最初にインストールしたときに使用した手順と同じです。拡張を実行する前に、すべての新しいグリッドノードの導入が完了している必要があります。 
 ---
-= 新しいグリッドノードの導入
+= StorageGRIDに新しいグリッドノードを展開する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

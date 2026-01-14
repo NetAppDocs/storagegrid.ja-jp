@@ -1,10 +1,10 @@
 ---
 permalink: expand/copying-admin-node-database.html 
 sidebar: sidebar 
-keywords: copy Admin Node database, alert history, Admin Node expansion 
+keywords: copy Admin Node database, alert history, Admin Node expansion, StorageGRID 
 summary: 拡張手順 を使用して管理ノードを追加する場合は、必要に応じてプライマリ管理ノードから新しい管理ノードにデータベースをコピーできます。データベースをコピーすると、属性、アラート、およびアラートに関する履歴情報を保持できます。 
 ---
-= 管理ノードデータベースをコピーする
+= 管理ノードデータベースをStorageGRIDの新しい管理ノードにコピーします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

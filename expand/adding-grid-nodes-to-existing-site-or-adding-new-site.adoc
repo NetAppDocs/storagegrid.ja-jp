@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html 
 sidebar: sidebar 
-keywords: grid node, add node, add site, expand, expansion 
+keywords: grid node, add node, add site, expand, expansion, StorageGRID 
 summary: 既存のサイトにグリッドノードを追加する場合や新しいサイトを追加する場合は、次の手順に従ってください。一度に実行できる拡張のタイプは1つだけです。 
 ---
-= 既存のサイトにグリッドノードを追加するか、新しいサイトを追加してください
+= StorageGRIDにグリッド ノードまたは新しいサイトを追加するためのワークフローの概要
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -24,7 +24,7 @@ NOTE: 拡張は、別の拡張、アップグレード、リカバリ、また�
 
 
 .手順
-. link:updating-subnets-for-grid-network.html["Grid ネットワークのサブネットを更新します"]です。
-. link:deploying-new-grid-nodes.html["新しいグリッドノードの導入"]です。
-. link:performing-expansion.html["拡張を実行"]です。
+. link:updating-subnets-for-grid-network.html["グリッドネットワークのサブネットを更新する"]。
+. link:deploying-new-grid-nodes.html["新しいグリッドノードを展開する"]。
+. link:performing-expansion.html["拡張の実行"]です。
 

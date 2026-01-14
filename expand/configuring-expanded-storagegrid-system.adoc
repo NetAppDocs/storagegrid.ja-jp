@@ -1,10 +1,10 @@
 ---
 permalink: expand/configuring-expanded-storagegrid-system.html 
 sidebar: sidebar 
-keywords: expansion, configuration 
+keywords: expansion, configuration, StorageGRID 
 summary: 拡張が完了したら、統合と設定のための追加の手順を実行する必要があります。 
 ---
-= 拡張後の設定手順
+= StorageGRIDで新しく追加されたノードとサイトを構成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

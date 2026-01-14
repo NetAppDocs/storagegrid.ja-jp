@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-storage-volumes-to-storage-nodes.html 
 sidebar: sidebar 
-keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity 
+keywords: storage volumes, expand, expansion, add, storage nodes, adding storage capacity, StorageGRID 
 summary: サポートされている最大ボリューム数を下回るストレージ ノードのストレージ容量を拡張できます。複製されたコピーまたは消去コード化されたコピーの ILM 要件を満たすには、複数のストレージ ノードにストレージ ボリュームを追加する必要がある場合があります。 
 ---
-= ストレージノードにストレージボリュームを追加
+= StorageGRIDシステムにストレージボリュームを追加する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

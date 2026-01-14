@@ -1,10 +1,10 @@
 ---
 permalink: expand/gather-required-materials.html 
 sidebar: sidebar 
-keywords: expand, expansion, planning, storagrid files 
+keywords: expand, expansion, planning, storagegrid files, StorageGRID 
 summary: 拡張処理を実行する前に、機器を揃え、新しいハードウェアとネットワークの設置と設定を行ってください。 
 ---
-= 必要なデータや機器を揃えます
+= StorageGRIDシステムの拡張準備
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

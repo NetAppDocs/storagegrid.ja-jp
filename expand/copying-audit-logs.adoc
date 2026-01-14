@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: expand/copying-audit-logs.html 
-keywords: copy audit log, Admin Node expansion, 
+keywords: copy audit log, Admin Node expansion, StorageGRID 
 summary: 拡張手順を通じて新しい管理ノードを追加すると、その AMS サービスは、その管理ノードがシステムに参加した後に発生するイベントとアクションのみをログに記録します。必要に応じて、以前にインストールした管理ノードから新しい拡張管理ノードに監査ログをコピーして、 StorageGRIDシステムの残りの部分と同期させることができます。 
 ---
-= 監査ログをコピーする
+= 監査ログをStorageGRIDの新しい管理ノードにコピーする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

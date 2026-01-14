@@ -1,10 +1,10 @@
 ---
 permalink: expand/adding-metadata-capacity.html 
 sidebar: sidebar 
-keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage 
+keywords: metadata capacity, add, adding, expand, expansion, guidelines, Storage Nodes, metadata storage, StorageGRID 
 summary: オブジェクトメタデータ用のスペースを十分に確保するために、各サイトに新しいストレージノードを追加する拡張手順 の実行が必要になる場合があります。 
 ---
-= メタデータ容量を追加
+= StorageGRIDでメタデータ容量を追加するためのガイドライン
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

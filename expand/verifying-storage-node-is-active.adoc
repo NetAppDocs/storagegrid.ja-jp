@@ -1,10 +1,10 @@
 ---
 permalink: expand/verifying-storage-node-is-active.html 
 sidebar: sidebar 
-keywords: expand, expansion, add storage nodes, verify node is active 
+keywords: expand, expansion, add storage nodes, verify node is active, StorageGRID 
 summary: 新しいストレージノードを追加する拡張処理が完了すると、 StorageGRID システムは新しいストレージノードの使用を自動的に開始します。StorageGRID システムを使用して、新しいストレージノードがアクティブになっていることを確認する必要があります。 
 ---
-= ストレージノードがアクティブであることを確認します
+= StorageGRID拡張後にストレージノードがアクティブであることを確認する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,10 +1,10 @@
 ---
 permalink: expand/performing-expansion.html 
 sidebar: sidebar 
-keywords: expand, expansion procedure 
+keywords: expand, expansion procedure, StorageGRID 
 summary: 拡張を行うと、新しいグリッドノードが既存の StorageGRID 環境に追加されます。 
 ---
-= 拡張を実行
+= StorageGRID拡張を実行する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

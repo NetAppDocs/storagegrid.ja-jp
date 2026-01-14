@@ -1,10 +1,10 @@
 ---
 permalink: expand/contacting-technical-support.html 
 sidebar: sidebar 
-keywords: troubleshoot expansion, contact technical support 
+keywords: troubleshoot expansion, contact technical support, StorageGRID 
 summary: グリッド拡張プロセス中に解決できないエラーが発生した場合やグリッドタスクが失敗した場合は、ログファイルを収集してテクニカルサポートにお問い合わせください。 
 ---
-= 拡張のトラブルシューティング
+= StorageGRIDの拡張エラーのトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -1,6 +1,6 @@
 ---
 indexpage:
-  title: グリッドを展開する
+  title: StorageGRIDシステムの容量または機能を拡張します
   summary: システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。
   keywords: expand grid, add volume, add node, add site
   lead: システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。

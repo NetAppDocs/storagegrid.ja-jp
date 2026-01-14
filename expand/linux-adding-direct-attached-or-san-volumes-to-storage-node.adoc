@@ -1,12 +1,11 @@
 ---
 permalink: expand/linux-adding-direct-attached-or-san-volumes-to-storage-node.html 
 sidebar: sidebar 
-keywords: expansion, Linux, add storage volumes 
+keywords: expansion, Linux, add storage volumes, StorageGRID 
 summary: ストレージノードのストレージボリュームが 48 個より少ない場合は、新しいブロックストレージデバイスを追加して Linux ホストから認識されるようにし、ストレージノードで使用される StorageGRID 構成ファイルに新しいブロックデバイスマッピングを追加することで、ストレージノードの容量を増やすことができます。 
 ---
-= Linux ：ストレージノードに直接接続型ボリュームまたは SAN ボリュームを追加
+= StorageGRIDのLinuxストレージノードに直接接続またはSANボリュームを追加する
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

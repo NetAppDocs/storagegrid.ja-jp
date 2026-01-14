@@ -1,17 +1,17 @@
 ---
 permalink: expand/index.html 
 sidebar: sidebar 
-keywords: expand grid 
+keywords: expand grid, StorageGRID 
 summary: システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。 
 ---
-= カクチヨウタイフ
+= StorageGRIDシステムの拡張について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-システムの処理を中断することなく、StorageGRIDシステムの容量や機能を拡張できます。
+運用を中断することなく、 StorageGRIDシステムを拡張して容量や機能を増やす方法について説明します。既存のストレージ ノードにストレージ ボリュームを追加したり、既存のサイトに新しいグリッド ノードを追加したり、新しいサイトを追加したりできます。
 
 グリッド ノードを展開する前に、アクティブなデータ修復ジョブがないことを確認する必要があります。修復に失敗した場合は、修復を再起動して完了させてから、廃止または拡張手順を実行する必要があります。。 link:../maintain/checking-data-repair-jobs.html["データ修復ジョブを確認します"] 。
 

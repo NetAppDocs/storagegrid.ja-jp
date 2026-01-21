@@ -1,10 +1,10 @@
 ---
 permalink: primer/retrieve-data-flow.html 
 sidebar: sidebar 
-keywords: object data, retrieve 
+keywords: StorageGRID, object data, retrieve 
 summary: 読み出し処理は、 StorageGRID システムとクライアントの間の定義されたデータフローで構成されます。システムは、属性を使用して、ストレージノードからのオブジェクトの読み出し、または必要に応じてクラウドストレージプールからのオブジェクトの読み出しを追跡します。 
 ---
-= 読み出しのデータフロー
+= StorageGRIDによるオブジェクト取得の処理方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

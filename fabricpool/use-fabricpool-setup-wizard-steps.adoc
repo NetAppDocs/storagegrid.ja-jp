@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/use-fabricpool-setup-wizard-steps.html 
 sidebar: sidebar 
-keywords: fabricPool, FabricPool setup wizard, ontap system manager 
+keywords: fabricPool, StorageGRID, FabricPool setup wizard, ontap system manager 
 summary: FabricPool セットアップウィザードを使用して、StorageGRID をFabricPool クラウド階層用のオブジェクトストレージシステムとして設定できます。 
 ---
-= FabricPool セットアップウィザードにアクセスして完了します
+= StorageGRID FabricPool セットアップ ウィザードにアクセスして完了する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

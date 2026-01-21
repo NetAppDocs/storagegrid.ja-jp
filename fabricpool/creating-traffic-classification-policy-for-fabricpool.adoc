@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-traffic-classification-policy-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, traffic classification, traffic policy, QoS, quality of service 
+keywords: fabricPool, StorageGRID, traffic classification, traffic policy, QoS, quality of service 
 summary: 必要に応じて、 StorageGRID トラフィック分類ポリシーを設計して、 FabricPool ワークロードのサービス品質を最適化できます。 
 ---
-= FabricPool のトラフィック分類ポリシーを作成します
+= StorageGRIDでFabricPoolのトラフィック分類ポリシーを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

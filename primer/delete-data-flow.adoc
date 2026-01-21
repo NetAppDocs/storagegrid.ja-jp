@@ -1,10 +1,10 @@
 ---
 permalink: primer/delete-data-flow.html 
 sidebar: sidebar 
-keywords: object, delete, deletion, object lock, bucket lifecycle, expiration, ilm, placement instruction 
+keywords: StorageGRID, object, delete, deletion, object lock, bucket lifecycle, expiration, ilm, placement instruction 
 summary: クライアントまたはテナントが削除処理を実行するか、オブジェクトの有効期間が終了して自動削除がトリガーされると、すべてのオブジェクトコピーがStorageGRID システムから削除されます。オブジェクト削除のデータフローが定義されています。 
 ---
-= データフローを削除します
+= StorageGRIDでオブジェクトの削除を処理する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

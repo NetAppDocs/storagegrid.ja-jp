@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-storage-node-is.html 
 sidebar: sidebar 
-keywords: what is a storage node, how many storage nodes 
+keywords: StorageGRID, what is a storage node, how many storage nodes 
 summary: ストレージノードは、オブジェクトデータとメタデータを管理および格納します。ストレージノードには、ディスク上のオブジェクトデータとメタデータを格納、移動、検証、読み出すために必要なサービスとプロセスが含まれています。 
 ---
-= ストレージノードとは
+= StorageGRIDストレージ ノードとは何ですか？
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

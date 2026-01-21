@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network topology 
 summary: グリッドネットワークのみを設定すると、最もシンプルなネットワークトポロジが作成されます。 
 ---
-= グリッドネットワークトポロジ
+= StorageGRID の Grid Network トポロジ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

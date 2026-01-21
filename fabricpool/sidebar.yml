@@ -1,15 +1,15 @@
 ---
 section: fabricpool
-title: StorageGRID for FabricPool を設定します
+title: StorageGRIDとFabricPool
 entries:
-- title: クイックスタート
-  pdf-filename: StorageGRID for FabricPool を設定します
+- title: 設定ワークフロー
+  pdf-filename: StorageGRIDとFabricPool
   url: "/fabricpool/index.html"
-- title: StorageGRID をクラウド階層として接続するために必要な情報
+- title: FabricPoolクラウド層の情報
   url: "/fabricpool/information-needed-to-attach-storagegrid-as-cloud-tier.html"
 - title: FabricPool セットアップウィザードを使用する
   entries:
-  - title: 考慮事項と要件
+  - title: セットアップ ウィザードの概要
     url: "/fabricpool/use-fabricpool-setup-wizard.html"
   - title: ウィザードにアクセスして完了します
     url: "/fabricpool/use-fabricpool-setup-wizard-steps.html"
@@ -27,19 +27,19 @@ entries:
     url: "/fabricpool/using-storagegrid-ilm-with-fabricpool-data.html"
   - title: トラフィック分類ポリシーを作成します
     url: "/fabricpool/creating-traffic-classification-policy-for-fabricpool.html"
-- title: ONTAP システムマネージャを設定します
+- title: StorageGRID 用に ONTAP を設定する
   url: "/fabricpool/configure-ontap.html"
-- title: DNS サーバを設定します
+- title: DNS サーバー エントリを設定する
   url: "/fabricpool/configure-dns-server.html"
 - title: FabricPool に関するStorageGRID のベストプラクティス
   entries:
   - title: HA グループのベストプラクティスを参照してください
     url: "/fabricpool/best-practices-for-high-availability-groups.html"
-  - title: FabricPool のロードバランシングのベストプラクティス
+  - title: ロード バランシングのベスト プラクティス
     url: "/fabricpool/best-practices-for-load-balancing.html"
   - title: ILMのベストプラクティス
     url: "/fabricpool/best-practices-ilm.html"
-  - title: その他のベストプラクティス
+  - title: グローバル設定のベスト プラクティス
     url: "/fabricpool/other-best-practices-for-storagegrid-and-fabricpool.html"
 - title: StorageGRIDからFabricPoolデータを削除します
   url: "/fabricpool/remove-fabricpool-data.html"

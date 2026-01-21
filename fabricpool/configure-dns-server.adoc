@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/configure-dns-server.html 
 sidebar: sidebar 
-keywords: dns, vip, virtual ip, fqdn, server name 
+keywords: fabricPool, StorageGRID, dns, vip, virtual ip, fqdn, server name 
 summary: ハイアベイラビリティグループ、ロードバランサエンドポイント、およびS3ドメイン名を設定したら、DNSにStorageGRID に必要なエントリが含まれていることを確認する必要があります。 
 ---
-= DNSサーバの設定
+= FabricPoolを使用したStorageGRIDのDNSサーバーエントリを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

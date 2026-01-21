@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-networks.html 
 sidebar: sidebar 
-keywords: hardening guidelines, networks, networking, security 
+keywords: StorageGRID, hardening guidelines, networks, networking, security 
 summary: StorageGRID システムでは、グリッドノードあたり最大 3 つのネットワークインターフェイスがサポートされ、各グリッドノードのネットワークをセキュリティやアクセスの要件に応じて設定することができます。 
 ---
 = StorageGRID ネットワークのセキュリティ強化のガイドライン

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, networking requirements, network requirements, nat 
 summary: 計画した StorageGRID ネットワーク設計を、現在のネットワークインフラと構成がサポートできることを確認する必要があります。 
 ---
-= ネットワーク要件
+= StorageGRID のネットワーク要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

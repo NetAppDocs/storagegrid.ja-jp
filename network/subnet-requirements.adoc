@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network subnets 
 summary: ネットワークサブネットについては、次の要件およびガイドラインに従ってください。 
 ---
-= サブネットの要件
+= StorageGRID のサブネット要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

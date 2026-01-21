@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network port, external communications, ports, TCP, UDP, client communications 
 summary: クライアントは、コンテンツの取り込みと読み出しを行うためにグリッドノードと通信する必要があります。使用するポートは、選択したオブジェクトストレージプロトコルによって異なります。これらのポートはクライアントからアクセスできる必要があります。 
 ---
-= 外部との通信
+= StorageGRIDの外部通信
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

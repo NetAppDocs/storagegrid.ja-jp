@@ -1,7 +1,7 @@
 ---
 permalink: primer/hybrid-clouds-with-storagegrid.html 
 sidebar: sidebar 
-keywords: hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
+keywords: StorageGRID, hybrid cloud, cloud storage pool, platform services, fabricpool, ontap 
 summary: ポリシーベースのデータ管理を実装してクラウドストレージプールにオブジェクトを格納し、StorageGRID プラットフォームサービスを活用し、NetApp FabricPool を使用してONTAP からStorageGRID にデータを階層化することで、ハイブリッドクラウド構成でStorageGRID を使用します。 
 ---
 = StorageGRID を使用したハイブリッドクラウド

@@ -1,10 +1,10 @@
 ---
 permalink: harden/other-hardening-guidelines.html 
 sidebar: sidebar 
-keywords: Hardening guidelines, security 
+keywords: StorageGRID, hardening guidelines, security 
 summary: StorageGRID ネットワークおよびノードに対する強化ガイドラインに加えて、 StorageGRID システムの他の領域に対する強化ガイドラインに従う必要があります。 
 ---
-= その他のセキュリティ強化に関するガイドライン
+= StorageGRID のログ、パスワード、監査メッセージの強化ガイドライン
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: StorageGRID, fabricPool, ONTAP System Manager, ONTAP CLI, port, FQDN, object store name 
 summary: StorageGRID をFabricPool のクラウド階層として接続する前に、StorageGRID で設定手順を実行して特定の値を取得する必要があります。 
 ---
-= StorageGRID をクラウド階層として接続するために必要な情報
+= StorageGRID を FabricPool クラウド階層として接続するために必要な情報
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

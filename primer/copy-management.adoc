@@ -1,10 +1,10 @@
 ---
 permalink: primer/copy-management.html 
 sidebar: sidebar 
-keywords: object data, ilm policy, ilm rules, replicated copy, replication, erasure-coded copy, ec, cloud storage pool 
+keywords: StorageGRID, object data, ilm policy, ilm rules, replicated copy, replication, erasure-coded copy, ec, cloud storage pool 
 summary: オブジェクトデータは、アクティブな ILM ポリシーとその ILM ルールによって管理されます。ILMルールは、レプリケートコピーまたはイレイジャーコーディングコピーを作成してオブジェクトデータを損失から保護します。 
 ---
-= コピー管理
+= StorageGRIDでオブジェクトコピーを管理する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

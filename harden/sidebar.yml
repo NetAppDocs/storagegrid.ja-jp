@@ -1,9 +1,9 @@
 ---
 section: harden
-title: システムの保護対策
+title: StorageGRID のシステム強化
 entries:
-- title: 一般的な考慮事項
-  pdf-filename: StorageGRID システムのセキュリティ設定
+- title: システム強化について学ぶ
+  pdf-filename: StorageGRID のシステム強化
   url: "/harden/index.html"
 - title: アップグレードに関するセキュリティ強化ガイドライン
   url: "/harden/hardening-guidelines-for-software-upgrades.html"
@@ -13,5 +13,5 @@ entries:
   url: "/harden/hardening-guidelines-for-storagegrid-nodes.html"
 - title: TLSとSSHに関するセキュリティ強化ガイドライン
   url: "/harden/hardening-guideline-for-server-certificates.html"
-- title: その他のセキュリティ強化に関するガイドライン
+- title: ログとパスワードの強化ガイドライン
   url: "/harden/other-hardening-guidelines.html"

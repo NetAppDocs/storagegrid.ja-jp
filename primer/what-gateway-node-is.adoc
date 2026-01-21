@@ -1,10 +1,10 @@
 ---
 permalink: primer/what-gateway-node-is.html 
 sidebar: sidebar 
-keywords: gateway nodes, api gateway 
+keywords: StorageGRID, gateway nodes, api gateway 
 summary: ゲートウェイノードは、S3クライアントアプリケーションがStorageGRIDへの接続に使用できる専用のロードバランシングインターフェイスを提供します。ロードバランシングは、複数のストレージノードにワークロードを分散することで、速度と接続容量を最大化します。ゲートウェイノードはオプションです。 
 ---
-= ゲートウェイノードとは
+= StorageGRID ゲートウェイ ノードとは何ですか？
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

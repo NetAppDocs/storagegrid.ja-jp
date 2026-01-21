@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-load-balancer-endpoint-for-fabricpool.html 
 sidebar: sidebar 
-keywords: fabricPool, load balancer, endpoint, load balancing, create, creating, certificate 
+keywords: fabricPool, StorageGRID, load balancer, endpoint, load balancing, create, creating, certificate 
 summary: StorageGRID は、ロードバランサを使用して、FabricPool などのクライアントアプリケーションからワークロードを管理します。ロードバランシングは、複数のストレージノードにわたって速度と接続容量を最大化します。 
 ---
-= FabricPool のロードバランサエンドポイントを作成します
+= StorageGRID で FabricPool 用のロード バランシング エンドポイントを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking for appliance, port bond mode 
 summary: StorageGRID アプライアンスのネットワークポートは、スループット、冗長性、およびフェイルオーバーの要件を満たすポートボンディングモードを使用するように設定できます。 
 ---
-= アプライアンスノード
+= StorageGRIDアプライアンス ノードのネットワーク構成
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

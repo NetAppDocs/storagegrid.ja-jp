@@ -13,7 +13,7 @@ entries:
   entries:
   - title: ノードとサービス
     url: "/primer/nodes-and-services.html"
-    pdf-filename: ノードとサービス
+    pdf-filename: StorageGRID ノードとサービス
   - title: 管理ノードとは
     url: "/primer/what-admin-node-is.html"
   - title: ストレージノードとは
@@ -27,13 +27,13 @@ entries:
     url: "/primer/how-storagegrid-manages-data.html"
   - title: オブジェクトのライフサイクル
     url: "/primer/life-of-object.html"
-  - title: 取り込みのデータフロー
+  - title: データの取り込み
     url: "/primer/ingest-data-flow.html"
   - title: コピー管理
     url: "/primer/copy-management.html"
-  - title: 読み出しのデータフロー
+  - title: データ取得
     url: "/primer/retrieve-data-flow.html"
-  - title: データフローを削除します
+  - title: データの削除
     url: "/primer/delete-data-flow.html"
   - title: 情報ライフサイクル管理
     url: "/primer/using-information-lifecycle-management.html"

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network-specific requirements, network specific requirements, network requirements 
 summary: 各 StorageGRID ネットワークタイプの要件に従ってください。 
 ---
-= ネットワーク固有の要件
+= StorageGRID のネットワーク固有の要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

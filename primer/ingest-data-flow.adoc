@@ -1,10 +1,10 @@
 ---
 permalink: primer/ingest-data-flow.html 
 sidebar: sidebar 
-keywords: object data, ingest 
+keywords: StorageGRID, object data, ingest 
 summary: 取り込み処理、つまり保存の処理は、クライアントと StorageGRID システム間の定義されたデータフローで構成されます。 
 ---
-= 取り込みのデータフロー
+= StorageGRIDによるオブジェクト取り込みの処理方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

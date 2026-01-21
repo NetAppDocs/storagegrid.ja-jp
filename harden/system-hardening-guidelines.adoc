@@ -1,10 +1,10 @@
 ---
 permalink: harden/system-hardening-guidelines.html 
 sidebar: sidebar 
-keywords: security,system hardening 
+keywords: StorageGRID, security, system hardening 
 summary: StorageGRID をインストールして構成する際に、これらのガイドラインを使用して、情報システムの機密性、整合性、可用性に関する規定のセキュリティ目標を達成できます。 
 ---
-= システムの保護設定のガイドライン
+= StorageGRID のシステム強化ガイドライン
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

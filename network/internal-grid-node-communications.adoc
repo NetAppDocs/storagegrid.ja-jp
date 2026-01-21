@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network port, internal communications, ports, TCP, UDP, grid communications, port 
 summary: StorageGRID の内部ファイアウォールは、ポート 22 、 80 、 123 、 443 を除き、グリッドネットワーク上の特定のポートへの受信接続のみを許可します（外部通信に関する情報を参照）。ロードバランサエンドポイントで定義されたポートにも接続が許可されます。 
 ---
-= 内部でのグリッドノードの通信
+= StorageGRID の内部グリッド ノード通信
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

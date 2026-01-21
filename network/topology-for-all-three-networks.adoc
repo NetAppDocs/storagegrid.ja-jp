@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network topology for storagegrid 
 summary: 3 つのネットワークをすべて組み合わせて、プライベートグリッドネットワーク、サイトごとに境界を設定した管理ネットワーク、およびオープンなクライアントネットワークで構成されるネットワークトポロジを構成できます。ロードバランサエンドポイントと信頼されていないクライアントネットワークを使用すると、必要に応じてセキュリティを強化できます。 
 ---
-= 3 つのネットワークすべてのトポロジ
+= 3つのStorageGRIDネットワークすべてのネットワーク トポロジ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

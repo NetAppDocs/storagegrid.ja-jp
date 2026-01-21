@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network gateway requirements 
 summary: ネットワークゲートウェイまたはルータについては、次の要件およびガイドラインに従ってください。 
 ---
-= ネットワークゲートウェイの要件
+= StorageGRID のネットワーク ゲートウェイ要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

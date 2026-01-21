@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/creating-s3-bucket-and-access-key.html 
 sidebar: sidebar 
-keywords: fabricPool, S3 bucket, bucket, access key, secret access key 
+keywords: fabricPool, StorageGRID, S3 bucket, bucket, access key, secret access key 
 summary: FabricPool ワークロードで StorageGRID を使用する前に、 FabricPool データ用の S3 バケットを作成する必要があります。また、 FabricPool に使用するテナントアカウントのアクセスキーとシークレットアクセスキーを取得する必要があります。 
 ---
-= S3バケットを作成し、アクセスキーを取得する
+= StorageGRID で FabricPool 用の S3 バケットを作成してアクセス キーを取得
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

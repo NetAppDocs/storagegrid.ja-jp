@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid network requirements 
 summary: グリッドネットワークでは、次の要件およびガイドラインに従ってください。 
 ---
-= グリッドネットワークの要件
+= StorageGRID の Grid Network 要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

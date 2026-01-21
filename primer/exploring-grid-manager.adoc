@@ -1,10 +1,10 @@
 ---
 permalink: primer/exploring-grid-manager.html 
 sidebar: sidebar 
-keywords: what is the grid manager, grid manager dashboard 
+keywords: StorageGRID, what is the grid manager, grid manager dashboard 
 summary: Grid Manager はブラウザベースのグラフィカルインターフェイスで、 StorageGRID システムの設定、管理、監視に使用できます。 
 ---
-= Grid Manager の詳細を見る
+= StorageGRIDグリッドマネージャの詳細
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

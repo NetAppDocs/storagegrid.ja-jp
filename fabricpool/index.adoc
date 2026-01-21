@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure storagegrid for fabricpool, using fabricpool with storagegrid, 
 summary: NetApp ONTAP ソフトウェアを使用している場合は、NetApp FabricPool を使用して、アクセス頻度の低いデータをNetApp StorageGRID オブジェクトストレージシステムに階層化できます。 
 ---
-= StorageGRID for FabricPool を設定します
+= FabricPoolでStorageGRIDを使用するための設定ワークフロー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

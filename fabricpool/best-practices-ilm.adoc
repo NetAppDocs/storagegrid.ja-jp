@@ -1,10 +1,10 @@
 ---
 permalink: fabricpool/best-practices-ilm.html 
 sidebar: sidebar 
-keywords: FabricPool, best practices, ILM, information lifecycle management, ILM rule, ILM policy, erasure-coding, replication 
+keywords: FabricPool, StorageGRID, best practices, ILM, information lifecycle management, ILM rule, ILM policy, erasure-coding, replication 
 summary: FabricPool を使用してStorageGRID にデータを階層化する場合は、StorageGRID の情報ライフサイクル管理（ILM）をFabricPool データで使用するための要件を理解しておく必要があります。 
 ---
-= FabricPool データでILMを使用するためのベストプラクティス
+= StorageGRID ILMをFabricPoolデータで使用するためのベストプラクティス
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

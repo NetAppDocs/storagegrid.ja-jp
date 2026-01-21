@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network install, network provisioning 
 summary: ノードの導入時とグリッドの設定時にグリッドネットワークとオプションの管理ネットワークおよびクライアントネットワークがどのように使用されるかを理解しておく必要があります。 
 ---
-= ネットワークのインストールとプロビジョニング
+= StorageGRID のネットワーク インストールとプロビジョニング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

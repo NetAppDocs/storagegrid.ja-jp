@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: networking requirements, storagegrid networks 
 summary: すべての StorageGRID 環境で次の接続がサポートされている必要があります。 
 ---
-= 一般的なネットワーク要件
+= StorageGRIDの一般的なネットワーク要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

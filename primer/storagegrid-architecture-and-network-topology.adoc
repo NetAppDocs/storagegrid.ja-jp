@@ -1,7 +1,7 @@
 ---
 permalink: primer/storagegrid-architecture-and-network-topology.html 
 sidebar: sidebar 
-keywords: architecture, deployment, topology, site, node redundancy, services, nodes 
+keywords: StorageGRID, architecture, deployment, topology, site, node redundancy, services, nodes 
 summary: StorageGRID システムは、 1 つ以上のデータセンターサイトにある複数のタイプのグリッドノードで構成されます。 
 ---
 = StorageGRID のアーキテクチャとネットワークトポロジ

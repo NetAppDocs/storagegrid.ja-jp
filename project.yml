@@ -28,7 +28,7 @@ sidebar:
   - title: StorageGRID 12.0 ソフトウェア
     url: "/index.html"
   - title: StorageGRIDアプライアンス
-    url: "/storagegrid-hardware.html"
+    url: "/swnodes/storagegrid-hardware.html"
   - title: リリースノート
     url: "/release-notes/index.html"
   - title: 開始する
@@ -41,8 +41,6 @@ sidebar:
   - title: インストール、アップグレード、ホットフィックス
     url: "/landing-install-upgrade/index.html"
     entries:
-    - title: アプライアンスベースのノードをインストールする
-      url: "/storagegrid-hardware.html"
     - section: swnodes
     - section: upgrade
     - title: StorageGRIDホットフィックスの適用

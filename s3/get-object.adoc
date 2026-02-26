@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: get object 
 summary: S3 GET Object 要求を使用して、 S3 バケットからオブジェクトを読み出すことができます。 
 ---
-= GetObject
+= StorageGRID のバケットから GetObject リクエストでオブジェクトを取得する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

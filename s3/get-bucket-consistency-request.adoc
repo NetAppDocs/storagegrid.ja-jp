@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket consistency 
 summary: GET Bucket consistency要求を使用すると、特定のバケットに適用されている整合性を確認できます。 
 ---
-= GET Bucket consistency
+= StorageGRIDでGET Bucket整合性リクエストを使用してバケットの整合性レベルを取得する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

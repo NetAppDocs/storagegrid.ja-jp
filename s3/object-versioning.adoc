@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object version, object versioning 
 summary: オブジェクトの複数のバージョンを保持する場合は、バケットのバージョン管理の状態を設定できます。バケットのバージョン管理を有効にすると、オブジェクトが誤って削除されないように保護したり、以前のバージョンのオブジェクトを読み出してリストアしたりできます。 
 ---
-= オブジェクトのバージョン管理
+= StorageGRIDでのオブジェクトバージョン管理の使用方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

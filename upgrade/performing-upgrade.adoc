@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, how to perform a software upgrade 
 summary: StorageGRID 12.0 にアップグレードし、同時にそのリリースの最新の修正プログラムを適用できます。  StorageGRIDアップグレード ページには、推奨されるアップグレード パスと、適切なダウンロード ページへの直接リンクが記載されています。 
 ---
-= アップグレードを実行する
+= StorageGRIDアップグレードを実行する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

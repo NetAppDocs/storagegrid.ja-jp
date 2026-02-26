@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, grid tasks, firewall, ports 
 summary: StorageGRIDシステムをアップグレードする前に、システムがアップグレードに対応できる状態であることを確認します。システムが正常に動作し、すべてのグリッドノードが動作していることを確認します。 
 ---
-= システムの状態を確認します
+= アップグレード前にStorageGRIDシステムの状態を確認してください
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

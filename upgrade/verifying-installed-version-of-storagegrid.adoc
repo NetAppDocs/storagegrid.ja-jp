@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, version, current version, previous version 
 summary: アップグレードを開始する前に、以前のバージョンのStorageGRIDに最新のホットフィックスが適用されていることを確認してください。 
 ---
-= インストールされている StorageGRID のバージョンを確認します
+= アップグレードする前に、インストールされているStorageGRIDのバージョンを確認します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

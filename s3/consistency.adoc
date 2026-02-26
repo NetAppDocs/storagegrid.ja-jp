@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency, consistency control, consistency values 
 summary: 整合性では、オブジェクトの可用性と、異なるストレージノードおよびサイト間でのオブジェクトの整合性のバランスが維持されます。アプリケーションの必要に応じて整合性を変更できます。 
 ---
-= 整合性
+= StorageGRID S3 REST APIが可用性と一貫性のバランスをとる方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

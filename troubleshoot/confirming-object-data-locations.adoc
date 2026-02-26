@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: 問題の内容によっては、オブジェクトデータの格納場所の確認が必要になることがあります。たとえば、 ILM ポリシーが想定どおりに機能し、オブジェクトデータが意図した場所に格納されていることを確認できます。 
 ---
-= オブジェクトデータの場所を確認する
+= StorageGRID でオブジェクトデータの場所を確認
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

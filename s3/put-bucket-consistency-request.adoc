@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT bucket consistency request 
 summary: PUT Bucket consistency要求では、バケットで実行される処理に適用する整合性を指定できます。 
 ---
-= PUT Bucket consistency
+= PUT Bucket整合性リクエストを使用してStorageGRIDで整合性レベルを指定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

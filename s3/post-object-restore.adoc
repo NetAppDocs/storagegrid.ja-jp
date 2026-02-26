@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: post, RestoreObject, object 
 summary: S3 RestoreObject要求を使用して、クラウドストレージプールに格納されているオブジェクトをリストアできます。 
 ---
-= RestoreObject
+= S3 RestoreObjectリクエストを使用してStorageGRIDでオブジェクトを復元する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

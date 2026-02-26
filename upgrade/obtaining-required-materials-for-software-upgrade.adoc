@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, requirements, rhel, red hat, linux, ubuntu, debian 
 summary: ソフトウェアのアップグレードを開始する前に、必要な情報や情報をすべて入手しておきます。 
 ---
-= ソフトウェアのアップグレードに必要なファイル、機器、機器を揃えます
+= StorageGRIDソフトウェアのアップグレードに必要な材料を入手する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

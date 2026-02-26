@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests for compliance 
 summary: SGCompliance XML 要素は廃止されました。以前は、このStorageGRIDカスタム要素をCreateBucket要求のオプションのXML要求本文に含めて、準拠バケットを作成できました。 
 ---
-= 廃止予定：準拠のためのCreateBucket要求の変更
+= StorageGRIDのSGCompliance要素は廃止されました
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

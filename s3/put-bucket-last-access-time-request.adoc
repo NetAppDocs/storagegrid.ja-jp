@@ -2,9 +2,9 @@
 permalink: s3/put-bucket-last-access-time-request.html 
 sidebar: sidebar 
 keywords: S3 REST API, S3 operations, put bucket last access time request 
-summary: GET Bucket last access time 要求を使用すると、最終アクセス時間の更新が個々のバケットで有効になっているか無効になっているかを確認できます。 
+summary: PUT Bucket last access time リクエストを使用すると、個々のバケットの最終アクセス時刻の更新を有効または無効にすることができます。 
 ---
-= PUT Bucket last access time のように指定します
+= StorageGRID で PUT Bucket 最終アクセス時刻リクエストを使用して最終アクセス時刻の更新を有効または無効にする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: HeadObject 
 summary: S3 HeadObject要求を使用すると、オブジェクト自体を返さずにオブジェクトからメタデータを読み出すことができます。 
 ---
-= ヘッドオブジェクト
+= StorageGRID の S3 HeadObject リクエストを使用してオブジェクトからメタデータを取得する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

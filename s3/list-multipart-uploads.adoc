@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ListMultipartUploads, uploads, multipart uploads, bucket 
 summary: ListMultipartUploads処理を実行すると、バケットで実行中のマルチパートアップロードがリストされます。 
 ---
-= ListMultipartUploads
+= S3 ListMultipartUploads 操作と StorageGRID でサポートされているパラメータ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to confirm object location, object metadata lookup 
 summary: ストレージノードの基盤となるストレージは、複数のオブジェクトストアに分割されます。オブジェクトストアはストレージボリュームとも呼ばれます。 
 ---
-= オブジェクトストア（ストレージボリューム）の障害
+= StorageGRID のストレージボリュームのオブジェクトストア障害について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

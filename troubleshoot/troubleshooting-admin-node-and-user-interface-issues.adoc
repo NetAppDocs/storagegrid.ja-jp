@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot admin node issues, how to troubleshoot user interface issues 
 summary: 管理ノードとStorageGRIDユーザインターフェイスに関する問題の原因を特定するのに役立ついくつかのタスクを実行できます。 
 ---
-= 管理ノードとユーザインターフェイスの問題をトラブルシューティングする
+= StorageGRIDの管理ノードとユーザーインターフェースの問題のトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

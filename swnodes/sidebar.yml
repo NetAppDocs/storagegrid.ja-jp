@@ -63,6 +63,8 @@ entries:
       url: "/swnodes/validating-storagegrid-configuration.html"
     - title: StorageGRIDホストサービスを開始する（Linux）
       url: "/swnodes/starting-storagegrid-host-service.html"
+  - title: インストールREST API
+    url: "/swnodes/overview-of-installation-rest-api.html"
   - title: インストールに関する問題のトラブルシューティング
     url: "/swnodes/troubleshooting-installation-issues.html"
   - title: スクリプトの例
@@ -93,7 +95,5 @@ entries:
     url: "/swnodes/reviewing-your-configuration-and-completing-installation.html"
   - title: インストール後のガイドライン
     url: "/swnodes/post-installation-guidelines.html"
-- title: インストールREST API
-  url: "/swnodes/overview-of-installation-rest-api.html"
 - title: 次の手順
   url: "/swnodes/where-to-go-next.html"

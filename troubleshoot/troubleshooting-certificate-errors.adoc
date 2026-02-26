@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot certificate errors 
 summary: Webブラウザ、S3クライアント、または外部の監視ツールを使用してStorageGRIDに接続しようとしたときにセキュリティまたは証明書の問題が発生した場合は、証明書を確認する必要があります。 
 ---
-= 証明書エラーのトラブルシューティングを行う
+= StorageGRID の証明書エラーのトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

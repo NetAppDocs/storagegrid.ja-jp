@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket access policies, group access policies, session policies 
 summary:  
 ---
-= アクセスポリシーを使用する
+= StorageGRID が AWS ポリシーを使用して S3 バケットとオブジェクトへのアクセスを制御する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

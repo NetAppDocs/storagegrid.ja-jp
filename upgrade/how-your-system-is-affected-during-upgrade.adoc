@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, firmware, appliance, alert 
 summary: アップグレード時にStorageGRIDシステムがどのような影響を受けるかについて説明します。 
 ---
-= アップグレード中にシステムが受ける影響
+= StorageGRIDアップグレードがシステムに与える影響
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

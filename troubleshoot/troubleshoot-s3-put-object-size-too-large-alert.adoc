@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot S3 PUT Object size too large alert, S3 PutObject size 
 summary: S3 PUT Object size too largeアラートは、S3サイズの上限である5GiBを超えるマルチパートでないPutObject処理をテナントが試行するとトリガーされます。 
 ---
-= S3 PUT Object size too largeアラートのトラブルシューティングを行う
+= StorageGRIDでS3 PUTオブジェクトサイズが大きすぎるというアラートを解決する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

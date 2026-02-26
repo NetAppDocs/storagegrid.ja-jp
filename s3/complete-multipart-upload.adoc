@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: multipart upload, object, object size 
 summary: CompleteMultipartUpload処理は、以前にアップロードされたパートをアセンブルして、オブジェクトのマルチパートアップロードを完了します。 
 ---
-= CompleteMultipartUpload
+= StorageGRID S3 REST APIによるマルチパートアップロードの完了方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure S3 object lock, object lock, default bucket retention, governance, compliance, retain-until-date, legal hold 
 summary: StorageGRID システムでS3オブジェクトロックのグローバル設定が有効になっている場合は、S3オブジェクトロックを有効にしてバケットを作成できます。デフォルトの保持設定はバケットごとに指定することも、オブジェクトバージョンごとに指定することもできます。 
 ---
-= S3 REST APIを使用してS3オブジェクトロックを設定します
+= S3 REST APIを使用してStorageGRID S3 Object Lockを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

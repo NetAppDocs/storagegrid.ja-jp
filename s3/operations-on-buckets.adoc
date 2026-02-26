@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket, buckets, operations on buckets 
 summary: StorageGRIDシステムでは、S3テナントアカウントごとに最大5、000個のバケットがサポートされます。 
 ---
-= バケットの処理
+= StorageGRIDにおけるS3バケットの操作と実装の詳細
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

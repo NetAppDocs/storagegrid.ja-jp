@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET storage usage request 
 summary: GET Storage Usage 要求を使用すると、アカウントで使用しているストレージの総容量とアカウントに関連付けられているバケットごとの使用容量を確認できます。 
 ---
-= GET Storage Usage 要求の略
+= StorageGRIDでGET Storage Usageリクエストを使用してアカウントとバケットのストレージ使用量を取得
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

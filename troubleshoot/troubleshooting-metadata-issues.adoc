@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot metadata issues 
 summary: メタデータに問題が発生した場合は、問題の原因と推奨される対処方法をアラートで通知します。特に、Low metadata storageアラートがトリガーされた場合は、新しいストレージノードを追加する必要があります。 
 ---
-= メタデータに関する問題のトラブルシューティング
+= StorageGRID でメタデータの問題のトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

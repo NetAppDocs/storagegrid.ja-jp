@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit log, auditing bucket and object operations, S3 audit messages 
 summary: 監査メッセージは StorageGRID サービスによって生成され、テキスト形式のログファイルに保存されます。監査ログのS3固有の監査メッセージを確認して、バケットとオブジェクトの処理に関する詳細を確認できます。 
 ---
-= 監査ログで追跡される S3 処理
+= StorageGRID監査ログで追跡されるS3操作
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

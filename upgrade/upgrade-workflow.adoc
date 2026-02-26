@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade workflow 
 summary: アップグレードを開始する前に、一般的なワークフローを確認してください。アップグレード手順は、 StorageGRID のアップグレードページに示されています。 
 ---
-= アップグレードのクイックスタート
+= StorageGRIDアップグレードのクイックスタート
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

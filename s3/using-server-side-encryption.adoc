@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: server side encryption, encryption, operations on objects, objects 
 summary: サーバ側の暗号化を使用して、保存中のオブジェクトデータを保護できます。StorageGRID は、オブジェクトを書き込む際にデータを暗号化し、ユーザがオブジェクトにアクセスする際にデータを復号化します。 
 ---
-= サーバ側の暗号化を使用します
+= StorageGRIDがサーバー側の暗号化を使用する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

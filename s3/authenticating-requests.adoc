@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: authenticate requests, authenticating, requests 
 summary: StorageGRID システムでは、 S3 API を使用したオブジェクトへのアクセスについて、認証アクセスと匿名アクセスの両方をサポートしています。 
 ---
-= 要求を認証します
+= StorageGRID S3 REST APIによるリクエストの認証方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

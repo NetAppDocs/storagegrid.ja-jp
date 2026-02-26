@@ -4,9 +4,8 @@ sidebar: sidebar
 keywords: operations, buckets, custom, storagegrid bucket operations 
 summary: StorageGRIDシステムでは、S3 REST APIに追加されるカスタム処理をサポートしています。 
 ---
-= StorageGRIDのカスタム処理
+= StorageGRID でサポートされているカスタムバケット操作
 :allow-uri-read: 
-:icons: font
 :imagesdir: ../media/
 
 

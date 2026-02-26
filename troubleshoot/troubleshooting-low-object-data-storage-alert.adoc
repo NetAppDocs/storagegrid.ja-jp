@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot the Low object data storage alert 
 summary: 低オブジェクト データ ストレージ アラートは、各ストレージ ノードでオブジェクト データを格納するために使用できるスペースの量を監視します。 
 ---
-= Low object data storage アラートのトラブルシューティングを行います
+= StorageGRID でオブジェクトデータストレージ不足の警告を解決する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

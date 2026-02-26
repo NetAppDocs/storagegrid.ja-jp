@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, PUT bucket metadata notification configuration request 
 summary: PUT Bucket metadata notification configuration 要求を使用すると、個々のバケットで検索統合サービスを有効化できます。要求の本文に含めるメタデータ通知設定 XML では、デスティネーション検索インデックスにメタデータを送信するオブジェクトを指定します。 
 ---
-= PUT Bucket metadata notification configuration のコマンドです
+= PUT Bucketメタデータ通知設定リクエストを使用してStorageGRIDで検索統合サービスを有効にします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

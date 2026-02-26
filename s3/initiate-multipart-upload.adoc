@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: initiate multipart upload, CreateMultipartUpload, upload ID 
 summary: CreateMultipartUpload処理を実行すると、オブジェクトのマルチパートアップロードが開始され、アップロードIDが返されます。 
 ---
-= CreateMultipartUpload
+= StorageGRID での S3 CreateMultipartUpload リクエストヘッダーとオプション
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

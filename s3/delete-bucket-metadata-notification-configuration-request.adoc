@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, DELETE Bucket metadata notification configuration request 
 summary: DELETE Bucket metadata notification configuration 要求では、設定 XML を削除することで、個々のバケットで検索統合サービスを無効化できます。 
 ---
-= バケットのメタデータ通知設定を削除します
+= StorageGRIDのDELETE Bucketメタデータ通知設定リクエストで検索統合サービスを無効にします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

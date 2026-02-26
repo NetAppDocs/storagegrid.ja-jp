@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: group policy examples 
 summary: このセクションの例を使用して、グループのStorageGRID アクセスポリシーを作成します。 
 ---
-= グループポリシーの例
+= StorageGRID S3 REST API グループポリシーの例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

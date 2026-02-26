@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot low soft read-only watermark override alert, optimized watermarks 
 summary: ストレージボリュームのウォーターマークにカスタム値を使用する場合は、「読み取り専用の下限のウォーターマーク上書き」アラートを解決する必要があります。可能であれば、最適化された値の使用を開始するようにシステムを更新してください。 
 ---
-= 読み取り専用のローウォーターマーク上書きアラートのトラブルシューティング
+= StorageGRIDで透かしの上書きアラートを解決する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

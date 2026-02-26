@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords:  
 summary: 一部の機能は、このリリースで削除または廃止されました。以下の項目を確認して、アップグレードの前にクライアントアプリケーションを更新する必要があるか、または設定を変更する必要があるかを理解してください。 
 ---
-= 機能の削除または廃止
+= StorageGRIDで削除または廃止された機能
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

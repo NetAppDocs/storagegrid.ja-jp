@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot network, how to troubleshoot hardware, how to troubleshoot platform 
 summary: ここでは、 StorageGRID ネットワーク、ハードウェア、およびプラットフォームの問題に関連する問題の原因を特定するのに役立ついくつかのタスクを紹介します。 
 ---
-= ネットワーク、ハードウェア、およびプラットフォームの問題をトラブルシューティングする
+= StorageGRID のネットワーク、ハードウェア、プラットフォームの問題のトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

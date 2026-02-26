@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot load balancer caching 
 summary: ロードバランサーのキャッシュで発生する可能性のある問題とそのトラブルシューティング方法について説明します。 
 ---
-= ロードバランサのキャッシュのトラブルシューティング
+= StorageGRIDにおけるロードバランサのキャッシュの問題について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

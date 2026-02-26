@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, add object, put, PutObject request 
 summary: S3 PutObject要求を使用して、バケットにオブジェクトを追加できます。 
 ---
-= PutObject
+= S3 PutObjectリクエストを使用してStorageGRIDのバケットにオブジェクトを追加する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

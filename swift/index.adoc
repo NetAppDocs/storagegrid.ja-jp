@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: openstack swift api support, swift rest api 
 summary: Swift APIのサポートはすでに終了しており、今後のリリースで削除される予定です。 
 ---
-= Swift REST APIを使用する
+= StorageGRID での Swift REST API サポート
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

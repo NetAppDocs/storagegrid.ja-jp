@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put object copy, CopyObject 
 summary: S3 CopyObject要求を使用して、すでにS3に格納されているオブジェクトのコピーを作成できます。CopyObject処理は、GETを実行してからPUTを実行する処理と同じです。 
 ---
-= CopyObject
+= S3 CopyObjectリクエストを使用してStorageGRIDでオブジェクトのコピーを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

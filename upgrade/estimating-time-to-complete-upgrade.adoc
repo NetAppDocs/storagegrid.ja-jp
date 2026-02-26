@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, time estimate, duration, cassandra upgrade 
 summary: アップグレードにかかる時間に基づいて、アップグレードのタイミングを検討してください。アップグレードの各段階で実行できる処理と実行できない処理に注意してください。 
 ---
-= アップグレードが完了するまでの推定時間
+= StorageGRIDアップグレードの完了までの時間を見積もる
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

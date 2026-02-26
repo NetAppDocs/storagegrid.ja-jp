@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot lost object data, how to troubleshoot missing object data 
 summary: オブジェクトはさまざまな理由で読み出されます。たとえば、クライアントアプリケーションからの読み取り要求、レプリケートされたオブジェクトデータのバックグラウンド検証、 ILM ルールによる再評価、ストレージノードのリカバリ時のオブジェクトデータのリストアなどの目的で行われます。 
 ---
-= 失われたオブジェクトデータと欠落しているオブジェクトデータのトラブルシューティング
+= StorageGRIDで紛失したオブジェクトデータと行方不明のオブジェクトデータについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

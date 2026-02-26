@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: session policy example 
 summary: このセクションの例を使用して、 StorageGRIDセッション ポリシーを構築します。 
 ---
-= セッションポリシーの例
+= StorageGRID S3 REST API セッションポリシーの例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

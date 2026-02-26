@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, deprecated bucket requests 
 summary: 従来の準拠機能で作成されたバケットの管理には、 StorageGRID S3 REST API の使用が必要になる場合があります。 
 ---
-= 従来の準拠のためのバケット要求が廃止されました
+= レガシー StorageGRID コンプライアンス向けの非推奨のバケットリクエスト
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 UploadPart operation 
 summary: UploadPart処理は、オブジェクトのマルチパートアップロード内のパートをアップロードします。 
 ---
-= パーツのアップロード
+= StorageGRID の S3 UploadPart 処理でサポートされているリクエストヘッダーとサポートされていないリクエストヘッダー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

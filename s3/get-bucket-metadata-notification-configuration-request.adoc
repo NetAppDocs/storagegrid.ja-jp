@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3 REST API, S3 operations, GET bucket metadata notification configuration 
 summary: GET Bucket metadata notification configuration 要求では、個々のバケットで検索統合を設定するために使用する設定 XML を読み出すことができます。 
 ---
-= GET Bucket metadata notification configuration のコマンドです
+= GET Bucketメタデータ通知設定リクエストを使用してStorageGRIDで検索統合を設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

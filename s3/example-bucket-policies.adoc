@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bucket policy examples 
 summary: このセクションの例を使用して、バケットのStorageGRID アクセスポリシーを作成します。 
 ---
-= バケットポリシーの例
+= StorageGRID S3 REST API バケットポリシーの例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: upgrade, linux, rpm, deb, 
 summary: LinuxホストにStorageGRIDノードが導入されている場合は、アップグレードを開始する前に、これらの各ホストにRPMパッケージまたはDEBパッケージを追加でインストールしてください。 
 ---
-= Linux：すべてのホストにRPMパッケージまたはDEBパッケージをダウンロードしてインストールします
+= StorageGRIDのすべてのLinuxホストにRPMまたはDEBパッケージをダウンロードしてインストールします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

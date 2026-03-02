@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SREM, Object Store Remove 
 summary: このメッセージは、コンテンツが永続的ストレージから削除され、通常の API でアクセスできなくなった場合に表示されます。 
 ---
-= SREM ：オブジェクトストアの削除
+= StorageGRIDにおけるオブジェクトストア削除のSREM監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

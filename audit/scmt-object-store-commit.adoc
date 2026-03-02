@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SCMT, Object Store Commit 
 summary: グリッドコンテンツは、コミットされるまでは使用可能にならず、格納済みとして認識されません（永続的に格納されることを意味します）。永続的に格納されたコンテンツは、ディスクに完全に書き込まれ、関連する整合性チェックに合格したコンテンツです。このメッセージは、コンテンツブロックがストレージにコミットされたときに生成されます。 
 ---
-= SCMT ：オブジェクトストアのコミット
+= StorageGRIDのオブジェクトストアコミットのSCMT監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

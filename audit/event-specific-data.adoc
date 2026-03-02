@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message, event, shea, s3 head 
 summary: 監査ログ内の各監査メッセージはシステムイベントに固有のデータを記録します。 
 ---
-= イベント固有のデータ
+= StorageGRID監査メッセージ内のイベント固有のデータ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

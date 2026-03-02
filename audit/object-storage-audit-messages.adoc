@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit, object storage, object management, object retrieval, node transfer, verification, BROR, CBSE, CBRE, CGRR, EBDL, EBKR, SCMT, SREM 
 summary: オブジェクトストレージ監査カテゴリに属する監査メッセージについて十分に理解しておく必要があります。StorageGRID システム内のオブジェクトのストレージと管理に関連するイベントを示します。オブジェクトの格納と読み出し、グリッドノードからグリッドノードへの転送、および検証が含まれます。 
 ---
-= オブジェクトストレージ監査メッセージ
+= StorageGRID のオブジェクトストレージイベントの監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

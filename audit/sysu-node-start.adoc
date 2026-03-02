@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SYSU, Node Start 
 summary: サービスが再起動されると、このメッセージが生成され、前回のシャットダウンがクリーンか（コマンド済み \ ）不規則か（予期せぬ \ ）かが示されます。 
 ---
-= SYSU ：ノードが開始されました
+= StorageGRIDでノードのSYSU監査メッセージが開始されます
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

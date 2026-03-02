@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client read, S3SL, SGET, SHEA, WGET, WHEA, S3 
 summary: クライアント読み取り監査メッセージは、S3クライアントアプリケーションがオブジェクトの読み出しを要求するときに記録されます。 
 ---
-= クライアント読み取り監査メッセージ
+= StorageGRID におけるクライアントの読み取り操作の監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

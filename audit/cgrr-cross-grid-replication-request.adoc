@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cgrr, cross-grid replication request, audit message, 
 summary: このメッセージは、StorageGRID がグリッドフェデレーション接続内のバケット間でオブジェクトをレプリケートするためにグリッド間レプリケーション処理を試行したときに生成されます。 
 ---
-= CGRR：クロスグリッドレプリケーション要求
+= StorageGRIDのクロスグリッドレプリケーション要求のCGRR監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

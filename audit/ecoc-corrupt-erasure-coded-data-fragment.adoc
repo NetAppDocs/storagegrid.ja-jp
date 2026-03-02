@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECOC, Corrupt Erasure-Coded Data Fragment 
 summary: この監査メッセージは、イレイジャーコーディングされたデータフラグメントの破損がシステムで検出されたことを示します。 
 ---
-= ECOC：イレイジャーコーディングされたデータフラグメントの破損
+= StorageGRIDの破損した消去符号化データに関するECOC監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

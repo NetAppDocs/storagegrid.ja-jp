@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, MGAU, Management audit message 
 summary: 管理カテゴリでは、管理 API に対するユーザ要求がログに記録されます。API に対する GET または HEAD 以外のすべての要求は、応答に加えて要求のユーザ名、 IP 、およびタイプをログに記録します。 
 ---
-= MGAU ：管理監査メッセージ
+= StorageGRIDの管理APIリクエストのMGAU監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

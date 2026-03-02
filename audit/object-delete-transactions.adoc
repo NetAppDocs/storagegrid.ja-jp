@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object delete transaction, S3 delete, SDEL, WDEL 
 summary: 監査ログでオブジェクトの削除トランザクションを特定するには、S3 API固有の監査メッセージを検索します。 
 ---
-= オブジェクトの削除トランザクション
+= StorageGRIDにおけるオブジェクト削除トランザクションの監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

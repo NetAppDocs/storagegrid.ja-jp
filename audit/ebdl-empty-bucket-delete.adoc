@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBDL, Empty Bucket Delete 
 summary: すべてのオブジェクトを削除中のバケット内のオブジェクトがILMスキャナによって削除されました（空のバケット処理を実行中）。 
 ---
-= EBDL：空のバケット削除
+= StorageGRIDにおける空のバケットオブジェクトの削除に関するEBDL監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

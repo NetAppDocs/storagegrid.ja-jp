@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message, common elements, AMID, ANID, ASES, ASQN, ATID, ATIM, ATYP, AVER, RSLT 
 summary: すべての監査メッセージには、共通の要素が含まれています。 
 ---
-= 監査メッセージの共通要素
+= StorageGRID監査メッセージの共通要素
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

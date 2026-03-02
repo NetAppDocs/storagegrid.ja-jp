@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTSU, Grid Task Submitted 
 summary: この監査メッセージは、グリッドタスクが CMN サービスに送信されたことを示します。 
 ---
-= GTSU ： Grid タスクが送信されました
+= StorageGRIDで送信されたグリッドタスクのGTSU監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

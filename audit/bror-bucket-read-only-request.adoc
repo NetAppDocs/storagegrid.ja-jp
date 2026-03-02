@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bror, bucket read only request, empty bucket, audit message, 
 summary: この監査メッセージは、バケットが読み取り専用モードになったときまたは終了したときにLDRサービスによって生成されます。たとえば、空になっているバケットが読み取り専用モードになるとします。 
 ---
-= BROR：バケット読み取り専用要求
+= StorageGRIDのバケット読み取り専用リクエストのBROR監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

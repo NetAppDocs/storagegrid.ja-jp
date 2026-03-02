@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message formats, message format 
 summary: StorageGRID システム内でやり取りされる監査メッセージには、すべてのメッセージに共通の標準情報と、報告対象のイベントまたはアクティビティを説明する固有のコンテンツが含まれます。 
 ---
-= 監査メッセージの形式
+= StorageGRID監査メッセージの構造について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

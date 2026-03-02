@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SADD, Security Audit Disable 
 summary: このメッセージは、元のサービス（ノード ID ）が監査メッセージのロギングをオフにしたことを示します。監査メッセージの収集や配信は停止しています。 
 ---
-= SADD ：セキュリティ監査無効
+= StorageGRIDにおけるセキュリティ監査の無効化に関するSADD監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTST, Grid Task Started 
 summary: この監査メッセージは、 CMN サービスが指定されたグリッドタスクの処理を開始したことを示します。この監査メッセージは、内部の Grid Task Submission サービスによって開始されて自動アクティブ化用に選択されているグリッドタスクの Grid Task Submitted メッセージの直後に生成されます。Pending テーブルに送信されるグリッドタスクの場合、このメッセージはユーザがグリッドタスクを開始するときに生成されます。 
 ---
-= GTSt ： Grid タスクが開始されました
+= StorageGRIDで開始されたグリッドタスクのGTST監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, messages, message 
 summary: システムから返される監査メッセージの詳細について、次のセクションで説明します。各監査メッセージをメッセージが表すアクティビティのクラスでグループ化して、表に記載します。これらの分類は、監査対象のアクティビティのタイプを理解し、必要な監査メッセージフィルタリングのタイプを選択する場合に役立ちます。 
 ---
-= 監査メッセージの説明
+= StorageGRIDの監査メッセージの種類とコードについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

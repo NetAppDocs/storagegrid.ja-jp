@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, client write, OVWR, SDEL, SPOS, SPUT, SUPD, WDEL, WPUT, S3 
 summary: クライアント書き込み監査メッセージは、S3クライアントアプリケーションがオブジェクトを作成または変更する要求を行うと記録されます。 
 ---
-= クライアント書き込み監査メッセージ
+= StorageGRID におけるクライアント書き込み操作の監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

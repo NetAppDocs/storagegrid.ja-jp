@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, EBKR, Empty Bucket Request 
 summary: このメッセージは、ユーザが、空のバケットをオンまたはオフにする（バケットオブジェクトを削除する、またはオブジェクトの削除を停止する）要求を送信したことを示しています。 
 ---
-= EBKR：バケット要求が空です
+= StorageGRIDにおける空のバケットリクエストに対するEBKR監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

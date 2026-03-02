@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRF, Object Store Verify Fail 
 summary: このメッセージは、コンテンツブロックが検証プロセスに失敗したときに生成されます。レプリケートされたオブジェクトデータがディスクに対して読み書きされるたびに、要求元ユーザに送信されるデータがシステムにもともと取り込まれたデータと同一であることを確認するために複数の検証チェックと整合性チェックが実行されます。これらのチェックのいずれかが失敗した場合、破損したレプリケートオブジェクトデータは再び読み出されないように自動的に隔離されます。 
 ---
-= SVRF ：オブジェクトストアの検証に失敗しました
+= StorageGRIDにおけるオブジェクトストア検証失敗のSVRF監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

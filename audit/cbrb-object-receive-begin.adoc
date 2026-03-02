@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBRB, Object Receive Begin 
 summary: 通常のシステム運用中は、データへのアクセスおよびデータのレプリケートと保持が行われる際に、異なるノード間でコンテンツブロックが継続的に転送されます。このメッセージは、あるノードから別のノードへのコンテンツブロックの転送が開始したときに転送先のエンティティによって生成されます。 
 ---
-= CBRB ：オブジェクト受信が開始されました
+= StorageGRIDにおけるオブジェクト受信開始のCBRB監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

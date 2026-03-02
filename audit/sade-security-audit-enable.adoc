@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SADE, Security Audit Enable 
 summary: このメッセージは、元のサービス（ノード ID ）が監査メッセージのロギングをリストアしたことを示しています。監査メッセージの収集と配信は再開されています。 
 ---
-= Sade ：セキュリティ監査を有効にします
+= StorageGRIDにおけるセキュリティ監査有効化のためのSADE監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

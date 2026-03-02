@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, tool, audit-explain, audit explain, translate audit messages, translate messages, translate audit message, translate message 
 summary: audit-explainツールを使用すると、監査ログ内の監査メッセージを読みやすい形式に変換できます。 
 ---
-= audit-explain ツールを使用してください
+= audit-explainツールを使用してStorageGRID監査メッセージを翻訳する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

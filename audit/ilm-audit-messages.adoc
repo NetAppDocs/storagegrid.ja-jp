@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit messages, ILM, IDEL, LKCU, ORLM 
 summary: ILM監査カテゴリに属する監査メッセージは、情報ライフサイクル処理に関連するイベントに使用されます。 
 ---
-= ILM監査メッセージ
+= StorageGRID ILM監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

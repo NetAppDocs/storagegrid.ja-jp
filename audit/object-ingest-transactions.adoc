@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest transaction, S3 ingest, SPUT, ORLM, WPUT 
 summary: 監査ログでクライアントの取り込みトランザクションを特定するには、S3 API固有の監査メッセージを検索します。 
 ---
-= オブジェクトの取り込みトランザクション
+= StorageGRID でのオブジェクト取り込みトランザクションの監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

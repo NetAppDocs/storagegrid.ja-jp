@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, messages, system, ECOC, ETAF, GNRG, GNUR, GTED, GTST, GTSU, LLST, OLST, SADD, SADE, SVRF, SVRU, SYSD, SYST, SYSU, VLST 
 summary: システム監査カテゴリに属する監査メッセージは、監査システム自体、グリッドノードの状態、システム全体のタスクアクティビティ\（グリッドタスク\）、およびサービスバックアップ処理に関連するイベントに使用されます。 
 ---
-= システム監査メッセージ
+= StorageGRID のシステムイベントの監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: audit message examples, audit.log, atyp, sput, s3 put 
 summary: 各監査メッセージには詳細な情報が含まれています。監査メッセージはすべて同じ形式です。 
 ---
-= 監査メッセージの例
+= StorageGRID監査メッセージの形式と例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SPUT, S3 PUT 
 summary: S3 クライアントが PUT トランザクションを実行すると、新しいオブジェクトまたはバケットを作成する要求が送信されます。このメッセージは、トランザクションが成功した場合にサーバによって出力されます。 
 ---
-= SPUT ： S3 PUT
+= StorageGRIDにおけるS3 PUTトランザクションのSPUT監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

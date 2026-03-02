@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SVRU, Object Store Verify Unknown 
 summary: LDR サービスの Storage コンポーネントは、オブジェクトストア内のレプリケートされたオブジェクトデータのすべてのコピーを継続的にスキャンします。このメッセージは、レプリケートされたオブジェクトデータの不明または想定外のコピーがオブジェクトストアで検出されて隔離ディレクトリに移動されたときに生成されます。 
 ---
-= SVRU ：オブジェクトストア検証が不明です
+= StorageGRID の不明なオブジェクトストアコンテンツに関する SVRU 監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

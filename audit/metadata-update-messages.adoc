@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, Metadata update, S3 metadata update, SUPD 
 summary: S3 クライアントがオブジェクトのメタデータを更新すると、監査メッセージが生成されます。 
 ---
-= メタデータの更新メッセージです
+= StorageGRIDにおけるS3オブジェクトのメタデータ更新に関する監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

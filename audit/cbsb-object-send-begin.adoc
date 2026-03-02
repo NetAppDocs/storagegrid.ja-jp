@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, CBSB, Object Send Begin 
 summary: 通常のシステム運用中は、データへのアクセスおよびデータのレプリケートと保持が行われる際に、異なるノード間でコンテンツブロックが継続的に転送されます。このメッセージは、あるノードから別のノードへのコンテンツブロックの転送が開始したときにソースエンティティによって生成されます。 
 ---
-= CBSB ：オブジェクト送信の開始
+= StorageGRIDでのオブジェクト送信開始のCBSB監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

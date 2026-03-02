@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audi, message, GNRG, GNDS Registration 
 summary: CMN サービスは、 StorageGRID システムで CMN サービスに関する情報を更新または登録したときにこの監査メッセージを生成します。 
 ---
-= GNRG ： GNDS 登録
+= StorageGRIDにおけるGNDS登録のGNRG監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

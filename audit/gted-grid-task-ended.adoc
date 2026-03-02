@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, GTED, Grid Task Ended 
 summary: この監査メッセージは、 CMN サービスが指定されたグリッドタスクの処理を完了し、タスクを Historical テーブルに移動したことを示します。結果が SUCS 、 ABRT 、 ROLF のいずれかである場合は、対応する Grid Task Started 監査メッセージも生成されます。それ以外の結果は、このグリッドタスクの処理が開始されなかったことを示します。 
 ---
-= GTED ： Grid タスクが終了しました
+= StorageGRIDで終了したグリッドタスクのGTED監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

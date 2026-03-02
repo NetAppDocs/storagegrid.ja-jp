@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, OVWR, Object Overwrite 
 summary: このメッセージは、外部（クライアントが要求した）処理によって、あるオブジェクトが別のオブジェクトで上書きされた場合に生成されます。 
 ---
-= OVWR ：オブジェクトを上書き
+= StorageGRIDにおけるオブジェクトの上書きに関するOVWR監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

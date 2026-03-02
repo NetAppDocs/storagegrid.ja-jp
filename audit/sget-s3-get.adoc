@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, SGET, S3 GET 
 summary: S3 クライアントが GET トランザクションを実行すると、オブジェクトを読み出しまたはバケット内のオブジェクトを一覧表示する要求が送信されます。このメッセージは、トランザクションが成功した場合にサーバによって出力されます。 
 ---
-= SGET ： S3 GET
+= StorageGRIDのS3 GETトランザクションのSGET監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

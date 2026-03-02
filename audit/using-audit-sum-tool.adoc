@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, tool, audit-sum, audit sum, write, read, head, delete, minimum time, maximum time, average time, minimum size, maximum size, average size 
 summary: audit-sum ツールを使用して、書き込み、読み取り、 HEAD 、および削除の監査メッセージをカウントし、それぞれの処理タイプの最小、最大、平均時間を表示できます。 
 ---
-= audit-sum ツールを使用します
+= audit-sumツールを使用してStorageGRID監査メッセージを要約する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, log, object lifecycle, ingest, retrieve, delete, s3, timing, ILM, Information lifecycle management 
 summary: 監査メッセージは、オブジェクトの取り込み、読み出し、または削除が行われるたびに生成されます。監査ログでこれらのトランザクションを特定するには、S3 API固有の監査メッセージを検索します。 
 ---
-= 監査メッセージはいつ生成されますか？
+= StorageGRIDで監査メッセージが生成される場合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

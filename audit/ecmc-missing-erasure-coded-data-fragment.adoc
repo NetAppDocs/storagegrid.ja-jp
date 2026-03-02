@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, message, ECMC, Missing Erasure-Coded Data Fragment 
 summary: この監査メッセージは、イレイジャーコーディングされたデータフラグメントの欠落がシステムで検出されたことを示します。 
 ---
-= ECMC：イレイジャーコーディングされたデータフラグメントの欠落
+= StorageGRIDにおける消失訂正符号化データの欠落に関するECMC監査メッセージ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

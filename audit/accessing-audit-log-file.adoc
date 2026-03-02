@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit, log, log file, access, accessing 
 summary: 監査共有には、アクティブな audit.log ファイルと圧縮された監査ログファイルが含まれています。監査ログファイルには、管理ノードのコマンドラインから直接アクセスできます。 
 ---
-= 監査ログファイルにアクセスします
+= StorageGRID 管理ノードのコマンドラインから監査ログファイルにアクセスする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

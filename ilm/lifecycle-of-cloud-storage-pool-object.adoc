@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: lifecycle of cloud storage pool object 
 summary: クラウドストレージプールを実装する前に、クラウドストレージプールのタイプごとに格納されているオブジェクトのライフサイクルを確認してください。 
 ---
-= クラウドストレージプールオブジェクトのライフサイクル
+= StorageGRID におけるクラウドストレージプールオブジェクトのライフサイクル
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

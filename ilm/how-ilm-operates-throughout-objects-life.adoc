@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm lifecycle, object lifecycle and ILM 
 summary: StorageGRID での ILM を使用したオブジェクト管理方法を理解することは、ポリシーをより効果的に設計するうえで役立ちます。 
 ---
-= オブジェクトのライフサイクル全体にわたる ILM の動作
+= StorageGRID でオブジェクトのライフサイクル全体を通じて ILM がどのように動作するか
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

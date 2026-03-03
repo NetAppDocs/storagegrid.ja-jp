@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pool, troubleshoot 
 summary: 以下のトラブルシューティング手順を使用して、クラウドストレージプールを作成、編集、または削除するときに発生する可能性があるエラーを解決します。 
 ---
-= クラウドストレージプールのトラブルシューティング
+= StorageGRID でのクラウドストレージプールのトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

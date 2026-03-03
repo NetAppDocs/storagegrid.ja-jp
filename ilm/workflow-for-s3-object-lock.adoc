@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object lock workflow 
 summary: グリッド管理者は、テナントユーザと緊密に連携し、保持要件に応じてオブジェクトが保護されるようにする必要があります。 
 ---
-= S3オブジェクトロックタスク
+= StorageGRIDのS3 Object Lockワークフロー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

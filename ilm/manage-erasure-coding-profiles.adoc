@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename erasure-coding profile, ec profile 
 summary: イレイジャーコーディングプロファイルの詳細を表示し、必要に応じてプロファイルの名前を変更できます。現在どのILMルールでも使用されていないイレイジャーコーディングプロファイルは非アクティブ化できます。 
 ---
-= イレイジャーコーディングプロファイルの管理
+= StorageGRID でイレイジャー コーディング プロファイルを管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

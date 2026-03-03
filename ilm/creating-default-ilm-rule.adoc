@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create default ilm rule 
 summary: ILM ポリシーを作成する前に、デフォルトルールを作成して、ポリシー内の別のルールに一致しないオブジェクトを配置する必要があります。デフォルトルールではフィルタを使用できません。すべてのテナント、すべてのバケット、およびすべてのオブジェクトバージョンに適用する必要があります。 
 ---
-= デフォルトの ILM ルールを作成します
+= StorageGRIDでデフォルトのILMルールを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

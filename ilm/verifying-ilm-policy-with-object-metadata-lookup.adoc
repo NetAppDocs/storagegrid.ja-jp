@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: verify ilm policy, object metadata lookup 
 summary: ILMポリシーをアクティブ化したら、代表的なテストオブジェクトをStorageGRIDシステムに取り込み、オブジェクトメタデータの検索を実行して、コピーが意図したとおりに作成され、正しい場所に配置されていることを確認します。 
 ---
-= オブジェクトメタデータの検索による ILM ポリシーの検証
+= StorageGRID でオブジェクトメタデータ検索を使用して ILM ポリシーを検証する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

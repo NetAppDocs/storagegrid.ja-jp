@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: information lifecycle management overview, about information lifecycle management, ilm overview, about ilm 
 summary: ILMポリシーの情報ライフサイクル管理（ILM\）ルールは、オブジェクトデータのコピーを作成および分散し、それらのコピーを一定の期間にわたって管理する方法をStorageGRIDに指示します。 
 ---
-= ILM を使用してオブジェクトを管理する
+= StorageGRID で ILM を使用してオブジェクトを管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

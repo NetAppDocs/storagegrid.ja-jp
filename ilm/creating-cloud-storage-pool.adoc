@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create cloud storage pool 
 summary: クラウドストレージプールは、単一の外部Amazon S3バケット、その他のS3互換プロバイダ、またはAzure BLOBストレージコンテナを指定します。 
 ---
-= クラウドストレージプールを作成
+= StorageGRID でクラウドストレージプールを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

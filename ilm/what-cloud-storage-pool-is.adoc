@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool 
 summary: クラウドストレージプールでは、 ILM を使用して StorageGRID システムの外部にオブジェクトデータを移動できます。たとえば、アクセス頻度の低いオブジェクトを低コストのクラウドストレージ（Amazon S3 Glacier、S3 Glacier Deep Archive、Google Cloud、Microsoft Azure BLOBストレージのアーカイブアクセス層など）に移動できます。または、 StorageGRID オブジェクトのクラウドバックアップを保持して、ディザスタリカバリを強化することもできます。 
 ---
-= クラウドストレージプールとは
+= StorageGRID のクラウドストレージプールについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

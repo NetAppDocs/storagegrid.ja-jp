@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a cloud storage pool, considerations for a cloud storage pool 
 summary: クラウドストレージプールを使用して StorageGRID システムからオブジェクトを移動する場合は、クラウドストレージプールの設定と使用に関する考慮事項を確認しておく必要があります。 
 ---
-= クラウドストレージプールに関する考慮事項
+= StorageGRID におけるクラウドストレージプールの要件と制限
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

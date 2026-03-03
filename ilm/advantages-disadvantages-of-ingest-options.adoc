@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balance ingest, strict ingest, dual commit ingest 
 summary: 取り込み時にデータを保護するための 3 つのオプション（ Balanced 、 Strict 、 Dual commit ）のそれぞれのメリットとデメリットを理解すると、 ILM ルールに選択するオプションを決定する際に役立ちます。 
 ---
-= 取り込みオプションのメリット、デメリット、および制限事項
+= StorageGRIDにおけるILM取り込みオプションの利点、欠点、制限
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

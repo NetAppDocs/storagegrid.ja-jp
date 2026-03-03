@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cloud storage pools, cloudmirror replication 
 summary: クラウドストレージプールの使用を開始するにあたって、クラウドストレージプールと StorageGRID CloudMirror レプリケーションサービスの類似点と相違点を理解しておくと役立ちます。 
 ---
-= クラウドストレージプールと CloudMirror レプリケーションを比較してください
+= StorageGRID におけるクラウドストレージプールと CloudMirror レプリケーション
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

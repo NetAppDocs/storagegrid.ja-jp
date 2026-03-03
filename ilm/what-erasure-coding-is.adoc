@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is erasure coding, what is ec 
 summary: イレイジャーコーディングは、StorageGRID がオブジェクトデータを格納するために使用する2つの方法のうちの1つです。イレイジャーコーディングを使用するILMルールにオブジェクトが一致した場合、それらのオブジェクトはデータフラグメントにスライスされ、追加のパリティフラグメントが計算されて、各フラグメントが別 々 のストレージノードに格納されます。 
 ---
-= イレイジャーコーディングとは
+= StorageGRID のイレイジャー コーディングについて
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

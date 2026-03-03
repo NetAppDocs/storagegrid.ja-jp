@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage pool guidelines 
 summary: ストレージプールを構成して使用し、複数のサイトにデータを分散することでデータ損失からデータを保護します。レプリケートコピーとイレイジャーコーディングコピーには、異なるストレージプール構成が必要です。 
 ---
-= ストレージプールの作成に関するガイドラインを次に示します
+= StorageGRID のストレージプール構成ガイドライン
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

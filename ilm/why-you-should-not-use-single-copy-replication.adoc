@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: dual commit, single commit, number of copies for replication 
 summary: レプリケートコピーを作成する ILM ルールを作成するときは、配置手順の任意の期間に少なくとも 2 つのコピーを指定する必要があります。 
 ---
-= シングルコピーレプリケーションを使用しない理由
+= StorageGRIDにおける単一コピー複製のリスク
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

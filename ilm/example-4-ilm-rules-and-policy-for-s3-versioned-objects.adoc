@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object versions, example ILM rule, information lifecycle rule examples 
 summary: 'バージョン管理が有効なS3バケットでは、[Reference Time]に[Noncurrent time]を指定するルールをILMポリシーに含めることで、最新でないオブジェクトバージョンを管理できます。' 
 ---
-= 例 4 ： S3 バージョン管理オブジェクトの ILM ルールとポリシー
+= StorageGRIDにおけるS3オブジェクトの非最新バージョンに対するILMルールとポリシー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

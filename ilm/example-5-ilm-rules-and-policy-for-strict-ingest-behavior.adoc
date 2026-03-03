@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: strict ingest example, example ILM rule, information lifecycle rule examples 
 summary: ルールで場所フィルタと Strict 取り込み動作を使用すると、特定のデータセンターの場所にオブジェクトが保存されないようにすることができます。 
 ---
-= 例 5 ：取り込み動作が Strict の場合の ILM ルールとポリシー
+= StorageGRID の厳格な取り込み動作に関する ILM ルールとポリシー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

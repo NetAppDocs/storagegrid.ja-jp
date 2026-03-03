@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable s3 object lock, object lock 
 summary: オブジェクトデータの保存時に S3 テナントアカウントが規制要件に準拠する必要がある場合は、 StorageGRID システム全体で S3 オブジェクトのロックを有効にする必要があります。グローバルな S3 オブジェクトのロック設定を有効にすると、 S3 テナントユーザは S3 オブジェクトのロックでバケットとオブジェクトを作成および管理できるようになります。 
 ---
-= S3 オブジェクトのロックをグローバルに有効にします
+= StorageGRIDでS3オブジェクトロックをグローバルに有効にする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

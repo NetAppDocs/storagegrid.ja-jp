@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit storage pool 
 summary: ストレージプールを編集して、名前を変更したり、サイトやストレージグレードを更新したりできます。 
 ---
-= ストレージプールを編集します
+= StorageGRID でストレージプールを編集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

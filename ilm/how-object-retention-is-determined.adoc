@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how object retention is determined 
 summary: StorageGRID には、グリッド管理者と個々のテナントユーザが、オブジェクトを格納する期間を指定するためのオプションがあります。通常、テナントユーザが指定した保持手順は、グリッド管理者が指定した保持手順よりも優先されます。 
 ---
-= オブジェクト保持期間の決定方法
+= StorageGRIDがオブジェクトの保持を決定する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

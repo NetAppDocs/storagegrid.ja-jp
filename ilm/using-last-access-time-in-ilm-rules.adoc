@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: last access time, ilm rule reference time 
 summary: 最終アクセス時間をILMルールの参照時間として使用できます。たとえば、過去 3 カ月間に表示されたオブジェクトをローカルストレージノードに残しておき、最近表示されていないオブジェクトをオフサイトの場所に移動することができます。特定の日付に最後にアクセスされたオブジェクトにのみILMルールを適用する場合は、最終アクセス時間を高度なフィルタとして使用することもできます。 
 ---
-= ILMルールで最終アクセス時間を使用
+= StorageGRID ILM ルールで最終アクセス時間を使用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

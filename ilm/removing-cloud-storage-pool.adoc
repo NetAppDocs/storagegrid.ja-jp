@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove cloud storage pool 
 summary: ILMルールで使用されておらず、オブジェクトデータが含まれていないクラウドストレージプールは削除できます。 
 ---
-= クラウドストレージプールを削除
+= StorageGRID でクラウドストレージプールを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

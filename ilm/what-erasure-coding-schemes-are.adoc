@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure-coding scheme 
 summary: イレイジャーコーディングスキームは、各オブジェクト用に作成されるデータフラグメントとパリティフラグメントの数を制御します。 
 ---
-= イレイジャーコーディングスキームとは
+= StorageGRIDのイレイジャー コーディング方式について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: consistency error, s3 object lock and consistency 
 summary: データセンターサイトまたはサイトの複数のストレージノードが使用できなくなった場合は、 S3 テナントユーザが S3 オブジェクトロックまたは従来の準拠設定に変更を適用できるよう支援する必要があります。 
 ---
-= S3 オブジェクトロックまたは従来の準拠設定の更新時に発生する整合性の問題を解決する
+= StorageGRIDでS3 Object Lockまたはレガシーコンプライアンス設定を更新する際の整合性エラーを解決する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

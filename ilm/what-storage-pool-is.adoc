@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage pool 
 summary: ストレージプールは、ストレージノードを論理的にグループ化したものです。 
 ---
-= ストレージプールとは
+= StorageGRID のストレージプールについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

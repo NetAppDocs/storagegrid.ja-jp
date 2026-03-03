@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use cloud storage pool, benefits of cloud storage pools 
 summary: クラウドストレージプールを使用すると、データを外部の場所にバックアップまたは階層化できます。また、複数のクラウドにデータをバックアップまたは階層化することもできます。 
 ---
-= クラウドストレージプールを使用する状況
+= StorageGRID におけるクラウドストレージプールのユースケース
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

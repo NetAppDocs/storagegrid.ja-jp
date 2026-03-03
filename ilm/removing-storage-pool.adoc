@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: remove storage pool 
 summary: 使用されていないストレージプールは削除できます。 
 ---
-= ストレージプールを削除します
+= StorageGRID でストレージプールを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

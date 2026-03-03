@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: 以下に記載するサンプルルールとポリシーをベースに、それぞれのオブジェクトの保護および保持要件を満たす ILM ポリシーを定義できます。 
 ---
-= 例 1 ：オブジェクトストレージの ILM ルールとポリシー
+= StorageGRID での基本的なオブジェクトの保護と保持に関する ILM ルールとポリシー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

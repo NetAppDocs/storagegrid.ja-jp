@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: erasure coding advantages, disadvantages, EC requirements 
 summary: レプリケーションとイレイジャーコーディングのどちらを使用してオブジェクトデータを損失から保護するかを決定する前に、イレイジャーコーディングのメリット、デメリット、および要件を理解しておく必要があります。 
 ---
-= イレイジャーコーディングのメリット、デメリット、および要件
+= StorageGRID におけるイレイジャー コーディングの利点、欠点、および要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

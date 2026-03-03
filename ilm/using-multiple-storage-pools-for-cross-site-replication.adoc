@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: site-loss protection, cross-site replication, storage pools 
 summary: StorageGRID 環境に複数のサイトが含まれている場合は、レプリケーションとイレイジャーコーディングを適切に設定されたストレージプールで使用して、サイト障害から保護することができます。 
 ---
-= サイト障害からの保護を有効にします
+= StorageGRID のストレージプールによるサイト損失保護
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

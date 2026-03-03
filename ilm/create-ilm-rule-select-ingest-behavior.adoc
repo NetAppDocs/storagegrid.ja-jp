@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ilm rule step 3, define ingest behavior 
 summary: Create ILM Ruleウィザードのステップ3 \（取り込み動作を選択\）では、このルールでフィルタされたオブジェクトを取り込み時に保護する方法を選択できます。 
 ---
-= ステップ3 / 3：取り込み動作を選択します
+= StorageGRID ILM ルールの取り込み動作を選択します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

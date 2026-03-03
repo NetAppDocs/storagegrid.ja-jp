@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy,S3 Object Lock 
 summary: S3 オブジェクトのロックが有効なバケット内のオブジェクトの保護および保持の要件を満たす ILM ポリシーを定義する際は、以下の例の S3 バケット、 ILM ルール、 ILM ポリシーをベースとして使用できます。 
 ---
-= 例 7 ： S3 オブジェクトロックの準拠 ILM ポリシー
+= StorageGRID での S3 オブジェクトロックの準拠 ILM ポリシー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

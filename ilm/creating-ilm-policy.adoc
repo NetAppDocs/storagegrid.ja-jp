@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create ILM policy 
 summary: QoS要件を満たすILMポリシーを1つ以上作成します。 
 ---
-= ILMポリシーの作成
+= StorageGRIDでILMポリシーを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

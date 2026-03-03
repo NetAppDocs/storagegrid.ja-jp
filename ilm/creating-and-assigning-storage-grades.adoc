@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is a storage grade, create storage grade 
 summary: ストレージグレードは、ストレージノードで使用されているストレージのタイプを表します。ILMルールで特定のオブジェクトを特定のストレージノードに配置する場合は、ストレージグレードを作成できます。 
 ---
-= ストレージグレードを作成して割り当てます
+= StorageGRID でストレージグレードを作成して割り当てる
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

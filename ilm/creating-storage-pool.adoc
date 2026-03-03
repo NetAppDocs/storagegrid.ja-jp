@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create storage pool 
 summary: ストレージプールを作成することで、 StorageGRID システムがオブジェクトデータを格納する場所と、使用するストレージのタイプを決定します。各ストレージプールには、サイトとストレージグレードがそれぞれ 1 つ以上含まれています。 
 ---
-= ストレージプールを作成します
+= StorageGRID でストレージプールを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

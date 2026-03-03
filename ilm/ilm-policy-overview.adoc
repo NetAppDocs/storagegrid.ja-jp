@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM policy, information lifecycle policy considerations 
 summary: 情報ライフサイクル管理（ ILM ）ポリシーは、優先順位が付けられた一連の ILM ルールです。このポリシーによって、 StorageGRID システムが時間の経過に伴ってオブジェクトデータを管理する方法が決まります。 
 ---
-= ILMポリシーを使用する
+= StorageGRIDのILMポリシーについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

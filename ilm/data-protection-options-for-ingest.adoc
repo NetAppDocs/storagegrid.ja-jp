@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
 summary: ILMルールを作成するときは、取り込み時にオブジェクトを保護するための3つのオプション（Dual commit、Strict、またはBalanced）のいずれかを指定します。 
 ---
-= 取り込みオプション
+= StorageGRIDのILM取り込みオプション
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

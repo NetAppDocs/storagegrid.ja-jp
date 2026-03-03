@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: retention priority, example S3 bucket lifecycle, example ILM policy 
 summary: オブジェクトはライフサイクル設定に応じて、S3バケットライフサイクルまたはILMポリシーの保持設定に従います。 
 ---
-= 例8：S3バケットライフサイクルとILMポリシーの優先度
+= S3バケットライフサイクルとILMポリシーがStorageGRIDでどのように相互作用するか
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

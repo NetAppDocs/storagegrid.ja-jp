@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what is information lifecycle rule, ilm rule 
 summary: オブジェクトを管理するには、一連の情報ライフサイクル管理（ ILM ）ルールを作成して 1 つの ILM ポリシーにまとめます。 
 ---
-= ILMルールを使用したオブジェクトの管理
+= StorageGRIDのILMルールについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

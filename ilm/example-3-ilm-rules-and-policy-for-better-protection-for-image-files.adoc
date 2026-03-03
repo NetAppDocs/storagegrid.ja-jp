@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example ILM rule, information lifecycle rule examples 
 summary: 次の例のルールとポリシーを使用して、1MBを超えるイメージがイレイジャーコーディングされ、2つのコピーが小さいイメージで作成されるようにすることができます。 
 ---
-= 例 3 ：画像ファイルの保護を強化する ILM ルールとポリシー
+= StorageGRIDで画像ファイルを保護するためのILMルールとポリシー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

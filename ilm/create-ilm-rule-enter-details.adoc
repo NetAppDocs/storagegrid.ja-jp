@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ILM rule step 1, define basics 
 summary: ILMルールの作成ウィザードのステップ1（詳細を入力\）では、ルールの名前と概要 を入力し、ルールのフィルタを定義できます。 
 ---
-= ステップ1 / 3：詳細を入力します
+= StorageGRID ILM ルールの詳細とフィルターを入力してください
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

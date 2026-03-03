@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: view cloud storage pool 
 summary: クラウドストレージプールの詳細を表示して、そのプールがどこで使用されているかを確認したり、どのノードとストレージグレードが含まれているかを確認したりできます。 
 ---
-= クラウドストレージプールの詳細を表示
+= StorageGRID でクラウドストレージプールの詳細を表示する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

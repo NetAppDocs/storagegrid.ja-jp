@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example debian node configuration file, example ubuntu linux node configuration file, example red hat linux node configuration file, example rhel node configuration file 
 summary: ここでは、 StorageGRID システムで使用するノード構成ファイルを設定する際の参考として、すべてのタイプのグリッドノードのノード構成ファイルの例を示します。 
 ---
-= ノード構成ファイルの例 (Linux)
+= Linux上のStorageGRIDノードの設定ファイルの例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

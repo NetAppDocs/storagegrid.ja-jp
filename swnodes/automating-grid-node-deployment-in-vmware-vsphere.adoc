@@ -2,9 +2,9 @@
 permalink: swnodes/automating-grid-node-deployment-in-vmware-vsphere.html 
 sidebar: sidebar 
 keywords: how to automate installation 
-summary: VMware OVF Toolを使用すると、グリッドノードの導入を自動化できます。StorageGRID の設定を自動化することもできます。 
+summary: VMware OVF ツールを使用して、 StorageGRID でグリッドノードの導入を自動化できます。StorageGRID の設定を自動化することもできます。 
 ---
-= インストールの自動化（ VMware ）
+= StorageGRIDでVMware vSphereを使用してグリッドノードの導入を自動化
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

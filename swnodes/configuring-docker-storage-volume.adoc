@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure container engine storage volume, Docker, Podman 
 summary: Docker または Podman コンテナ エンジンをインストールする前に、ストレージ ボリュームをフォーマットしてマウントする必要がある場合があります。 
 ---
-= コンテナ エンジン ストレージ ボリュームを構成する (Linux)
+= Linux上のStorageGRID用にコンテナエンジンのストレージボリュームを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

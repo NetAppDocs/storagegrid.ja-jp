@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Grid Network subnets 
 summary: グリッドネットワークで使用されるサブネットを指定する必要があります。 
 ---
-= Grid ネットワークサブネットを指定してください
+= StorageGRID のグリッドネットワークサブネットを指定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

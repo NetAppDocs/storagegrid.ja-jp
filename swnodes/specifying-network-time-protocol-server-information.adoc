@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify Network Time Protocol server information 
 summary: 別々のサーバで実行された処理を常に同期された状態にするには、 StorageGRID システムのネットワークタイムプロトコル（ NTP ）設定情報を指定する必要があります。 
 ---
-= ネットワークタイムプロトコルサーバ情報を指定します
+= StorageGRID のネットワークタイムプロトコルサーバ情報を指定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

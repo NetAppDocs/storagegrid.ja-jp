@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure the host network 
 summary: ホストへの Linux のインストールの完了後、このあとに導入する StorageGRID ノードにマッピングする一連のネットワークインターフェイスを準備するために、各ホストでいくつかの追加の設定が必要になることがあります。 
 ---
-= ホストネットワークを構成する (Linux)
+= Linux デプロイメント用の StorageGRID ホストネットワークを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

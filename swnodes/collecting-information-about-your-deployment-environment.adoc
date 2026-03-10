@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect information about your vmware deployment environment 
 summary: グリッドノードを導入する前に、ネットワーク設定と VMware 環境に関する情報を収集する必要があります。 
 ---
-= 展開環境に関する情報を収集する (VMware)
+= StorageGRID用のVMware環境に関する情報を収集
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

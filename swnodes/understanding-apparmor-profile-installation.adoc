@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install AppArmor profile 
 summary: 自社で導入した Ubuntu 環境を運用し、 AppArmor の必須のアクセス制御システムを使用している場合、ベースシステムにインストールするパッケージに関連付けられた AppArmor プロファイルが、 StorageGRID と一緒にインストールされた対応するパッケージによってブロックされる可能性があります。 
 ---
-= AppArmor プロファイルのインストールを理解する (Ubuntu および Debian)
+= Ubuntu および Debian 上の StorageGRID の AppArmor プロファイルについて説明します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation files, how to verify files 
 summary: 必要に応じて、StorageGRIDインストールアーカイブ内のファイルを手動で検証できます。 
 ---
-= インストールファイルを手動で検証する（オプション）
+= StorageGRIDインストールファイルを確認する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

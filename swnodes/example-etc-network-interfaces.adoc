@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: example etc network interfaces 
 summary: /etc/network/interfaces ファイルには、物理インターフェイス、ボンディングインターフェイス、および VLAN インターフェイスを定義する 3 つのセクションがあります。以下の 3 つのセクションサンプルを 1 つのファイルに統合すれば、 4 つの Linux 物理インターフェイスを 1 つの LACP ボンドにまとめ、そのボンドを StorageGRID のグリッドネットワーク、管理ネットワーク、およびクライアントネットワークのインターフェイスとして使用するための 3 つの VLAN インターフェイスを確立できます。 
 ---
-= /etc/network/interfaces の例 (Ubuntu および Debian)
+= Ubuntu および Debian 上の StorageGRID の物理インターフェースを集約する例
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

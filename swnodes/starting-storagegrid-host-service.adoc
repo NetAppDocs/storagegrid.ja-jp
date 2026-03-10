@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to start host service 
 summary: StorageGRID ノードを起動し、ホストのリブート後もノードが再起動されるようにするには、 StorageGRID ホストサービスを有効にして開始する必要があります。 
 ---
-= StorageGRIDホストサービスを開始する（Linux）
+= LinuxでStorageGRIDホストサービスを開始します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

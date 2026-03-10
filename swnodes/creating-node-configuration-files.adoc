@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create rhel ubuntu or debian node configuration files, port, remap, port remap 
 summary: ノード構成ファイルは、ノードを起動して適切なネットワークおよびブロックストレージリソースに接続するために StorageGRID ホストサービスで必要となる情報をまとめた小さいテキストファイルです。ノード構成ファイルは仮想ノードに使用され、アプライアンスノードには使用されません。 
 ---
-= Linux デプロイメント用のノード構成ファイルを作成する
+= Linux デプロイメント用の StorageGRID ノード構成ファイルを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

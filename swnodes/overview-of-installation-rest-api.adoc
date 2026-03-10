@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: installation REST API 
 summary: StorageGRID には、インストールタスクを実行するための StorageGRID インストール API が用意されています。 
 ---
-= インストールREST API
+= StorageGRID インストール REST API について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

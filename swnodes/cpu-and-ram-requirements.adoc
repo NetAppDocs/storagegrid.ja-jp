@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cpu, ram, cpu cores 
 summary: StorageGRID ソフトウェアをインストールする前に、ハードウェアの確認と設定を行って、 StorageGRID システムをサポートできる状態にしておきます。 
 ---
-= CPUオヨビRAMノヨウケン
+= StorageGRIDのCPUとRAMの要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

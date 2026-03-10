@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to migrate a node 
 summary: ノード移行機能を使用すると、ホスト間でノードを手動で移動できます。通常、両方のホストが同じ物理データセンターにあります。 
 ---
-= ノードコンテナの移行要件 (Linux)
+= Linux の StorageGRID ノードコンテナ移行要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

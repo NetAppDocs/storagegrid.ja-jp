@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: after installation 
 summary: インストールが完了したら、必要な統合タスクと設定タスクを実行します。必要に応じてオプションのタスクを実行できます。 
 ---
-= 次の手順
+= StorageGRIDのインストール後の必須およびオプションの手順について学習します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

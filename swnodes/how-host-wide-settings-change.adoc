@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install on ubuntu, how to install on debian, how to install on red hat linux, how to install on rhel 
 summary: 'ベアメタルシステムでは、StorageGRIDによってホスト全体の設定が一部変更され `sysctl`ます。' 
 ---
-= インストール中にホスト全体の設定がどのように変更されるか (Linux)
+= StorageGRIDがホスト全体の設定を変更する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

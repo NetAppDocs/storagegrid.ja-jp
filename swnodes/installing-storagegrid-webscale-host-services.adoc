@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install StorageGRID host services 
 summary: StorageGRIDホスト サービスをインストールするには、オペレーティング システムの種類に応じたStorageGRIDパッケージを使用します。 
 ---
-= StorageGRIDホスト サービスをインストールする (Linux)
+= LinuxへのStorageGRIDホストサービスのインストール
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

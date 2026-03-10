@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to navigate to Grid Manager 
 summary: StorageGRID システムの設定に必要なすべての情報については、グリッドマネージャを使用して定義します。 
 ---
-= Grid Manager に移動します
+= StorageGRID Grid Managerに移動します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to approve pending grid nodes 
 summary: 各グリッドノードは、 StorageGRID システムに追加する前に承認する必要があります。 
 ---
-= 保留中のグリッドノードを承認します
+= StorageGRID の保留中のグリッドノードを承認する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

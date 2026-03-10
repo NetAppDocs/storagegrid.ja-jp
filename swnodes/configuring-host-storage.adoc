@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure host storage 
 summary: 各 Linux ホストにブロック ストレージ ボリュームを割り当てる必要があります。 
 ---
-= ホストストレージを構成する (Linux)
+= Linux デプロイメント用の StorageGRID ホストストレージを設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

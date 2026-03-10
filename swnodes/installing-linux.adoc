@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to install Linux 
 summary: すべての Linux グリッド ホストにStorageGRIDをインストールする必要があります。サポートされているバージョンの一覧については、 NetApp相互運用性マトリックス ツールを使用してください。 
 ---
-= Linux をインストールします
+= Linux グリッドホストに StorageGRID をインストールします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

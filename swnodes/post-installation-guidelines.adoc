@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: after installation guidelines 
 summary: グリッドノードの導入と設定が完了したら、 DHCP アドレスおよびネットワーク設定の変更について、次のガイドラインに従ってください。 
 ---
-= インストール後のガイドライン
+= StorageGRIDのインストール後のネットワークとDHCPの要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

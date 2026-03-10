@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage requirements, performance requirements, host storage, host volumes, netapp ontap, fabricpool 
 summary: 初期設定と将来のストレージ拡張に対応できる十分なスペースを確保できるよう、 StorageGRID ノードのストレージ要件を把握しておく必要があります。 
 ---
-= ストレージとパフォーマンスの要件
+= StorageGRIDのストレージとパフォーマンスの要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review your configuration and complete installation 
 summary: インストールを正常に完了するために、入力した設定情報をよく確認する必要があります。 
 ---
-= 構成を確認し、インストールを完了します
+= StorageGRID 構成を確認します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

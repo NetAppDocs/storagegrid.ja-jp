@@ -2,9 +2,9 @@
 permalink: swnodes/automating-installation-linux.html 
 sidebar: sidebar 
 keywords: how to automate linux installation 
-summary: StorageGRIDホスト サービスの Linux インストールとグリッド ノードの構成を自動化できます。 
+summary: Linux 上の StorageGRID ホストサービスのインストールとグリッドノードの設定を自動化できます。 
 ---
-= インストールを自動化する（Linux）
+= Linux上のStorageGRIDホストサービスのインストールとグリッドノードの構成を自動化
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

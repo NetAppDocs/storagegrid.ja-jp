@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to validate StorageGRID configuration 
 summary: 各 StorageGRID ノードの /etc/storagegrid/nodes に構成ファイルを作成したら、それらのファイルの内容を検証する必要があります。 
 ---
-= StorageGRID構成の検証 (Linux)
+= Linux での StorageGRID 設定を検証する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: software requirements 
 summary: 仮想マシンを使用して、あらゆるタイプのStorageGRIDノードをホストできます。グリッドノードごとに仮想マシンが1つ必要です。 
 ---
-= ソフトウェア要件
+= StorageGRIDのソフトウェア要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

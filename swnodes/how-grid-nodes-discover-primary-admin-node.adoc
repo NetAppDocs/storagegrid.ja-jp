@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how grid nodes discover the primary Admin Node 
 summary: グリッドノードは、設定や管理のためにプライマリ管理ノードと通信します。各グリッドノードがグリッドネットワーク上のプライマリ管理ノードの IP アドレスを認識している必要があります。 
 ---
-= グリッドノードによるプライマリ管理ノードの検出
+= グリッドノードがStorageGRIDでプライマリ管理ノードを検出する方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

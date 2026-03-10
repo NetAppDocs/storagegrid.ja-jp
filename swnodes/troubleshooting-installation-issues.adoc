@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot ubuntu or debian installation 
 summary: StorageGRID システムのインストール中に問題が発生した場合は、インストールログファイルにアクセスできます。テクニカルサポートが問題を解決するためにインストールログファイルを使用することもあります。 
 ---
-= インストールに関する問題のトラブルシューティング
+= StorageGRIDインストールの問題のトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

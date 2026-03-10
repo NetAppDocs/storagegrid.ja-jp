@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify domain name system server information, dns 
 summary: IPアドレスの代わりにホスト名を使用して外部サーバにアクセスできるように、StorageGRID システムのDNS情報を指定する必要があります。 
 ---
-= DNSサーバ情報の指定
+= StorageGRID のDNSサーバー情報を指定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

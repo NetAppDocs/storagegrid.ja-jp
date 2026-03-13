@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services tab 
 summary: プラットフォームサービスタブには、サイトでの S3 プラットフォームサービスの処理に関する情報が表示されます。 
 ---
-= プラットフォームサービスタブを表示します
+= StorageGRID プラットフォームサービスタブを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

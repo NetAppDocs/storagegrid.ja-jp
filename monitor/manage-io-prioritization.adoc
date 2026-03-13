@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ec repair priority, ec purge priority 
 summary: '入出力 (I/O) の優先順位付けにより、グリッド上の I/O 操作の相対的な優先順位を変更できます。' 
 ---
-= I/Oの優先順位を変更する
+= StorageGRIDでI/Oの優先順位を変更する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

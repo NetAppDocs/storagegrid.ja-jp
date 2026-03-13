@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: alerts reference 
 summary: このリファレンスでは、Grid Managerに表示されるデフォルトアラートを示します。推奨される対処方法は、受信したアラートメッセージに記載されています。 
 ---
-= アラート一覧
+= StorageGRID のアラート
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

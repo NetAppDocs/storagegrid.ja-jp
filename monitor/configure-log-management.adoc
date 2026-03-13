@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: log management, audit level, external syslog server, log destinations 
 summary: 必要に応じて、監査レベル、プロトコル ヘッダー、監査メッセージとログの場所を構成します。 
 ---
-= ログ管理を構成する
+= StorageGRIDでログ管理を構成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

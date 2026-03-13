@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object ingest rates, object retrieval rates, monitor s3, client operations 
 summary: オブジェクトの取り込み速度と読み出し速度、およびオブジェクト数、クエリ、検証関連の指標を監視できます。StorageGRID システムのオブジェクトに対してクライアントアプリケーションが試みた読み取り、書き込み、変更の各処理について、成功した回数と失敗した回数を表示できます。 
 ---
-= S3クライアント処理を監視する
+= StorageGRIDでS3クライアント操作を監視する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

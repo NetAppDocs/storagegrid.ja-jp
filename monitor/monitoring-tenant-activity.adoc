@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor tenant activity 
 summary: S3クライアントアクティビティはすべてStorageGRIDテナントアカウントに関連付けられます。Grid Managerを使用して、すべてのテナントまたは特定のテナントのストレージ使用量またはネットワークトラフィックを監視できます。監査ログまたはGrafanaダッシュボードを使用して、テナントによるStorageGRID の使用状況に関する詳細情報を収集できます。 
 ---
-= テナントのアクティビティを監視する
+= StorageGRID でテナントのアクティビティを監視する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

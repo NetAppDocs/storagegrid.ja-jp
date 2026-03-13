@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use snmp notifications for alerts 
 summary: アラート発生時に StorageGRID から SNMP 通知を送信するには、 StorageGRID SNMP エージェントを有効にし、 1 つ以上のトラップ送信先を設定する必要があります。 
 ---
-= アラートの SNMP 通知を設定します
+= StorageGRIDアラートのSNMP通知を設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

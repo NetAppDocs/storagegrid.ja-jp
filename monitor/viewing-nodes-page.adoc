@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: nodes page 
 summary: 'StorageGRID システムについて、ダッシュボードの情報よりも詳細な情報が必要な場合は、[Nodes]ページを使用してグリッド全体、グリッド内の各サイト、およびサイト内の各ノードの指標を表示できます。' 
 ---
-= Nodes ページを表示します
+= StorageGRIDノードページを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

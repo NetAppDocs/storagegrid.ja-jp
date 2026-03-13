@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom monitoring, monitoring, dashboard 
 summary: グリッド管理 API から取得される StorageGRID 指標を使用して、カスタムの監視アプリケーションやダッシュボードを構築できます。 
 ---
-= カスタムの監視アプリケーションを作成
+= StorageGRID のカスタム監視アプリケーションを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

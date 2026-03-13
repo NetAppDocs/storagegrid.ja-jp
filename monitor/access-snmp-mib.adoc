@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: mib, snmp, monitoring 
 summary: MIBファイルには、グリッド内のノードの管理対象リソースとサービスのプロパティの定義と情報が含まれています。StorageGRID のオブジェクトと通知を定義するMIBファイルにアクセスできます。これらのファイルは、グリッドの監視に役立ちます。 
 ---
-= MIBファイルにアクセスします
+= StorageGRID MIBファイルにアクセスする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

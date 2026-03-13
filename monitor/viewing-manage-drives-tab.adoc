@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Manage drives tab, hardware diagnostics, fail drive, logically replace drive 
 summary: '[Manage Drives]タブでは、この機能をサポートするアプライアンス内のドライブについて、詳細にアクセスし、トラブルシューティングとメンテナンスのタスクを実行できます。' 
 ---
-= [Manage Drives]タブを表示
+= StorageGRID の [ ドライブの管理 ] タブを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

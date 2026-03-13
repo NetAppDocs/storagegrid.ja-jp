@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: アラート発生時に E メール通知が送信されるようにするには、 SMTP サーバに関する情報を指定する必要があります。また、アラート通知の受信者の E メールアドレスを入力する必要があります。 
 ---
-= アラート用の E メール通知を設定します
+= StorageGRIDアラートのメール通知を設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

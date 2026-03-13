@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: prometheus, Prometheus metrics, metrics 
 summary: デフォルトのアラートルールの条件を詳しく理解したり、カスタムのアラートルールの条件を作成したりするには、ここに示すPrometheus指標のよく使用されるリストを参照してください。 
 ---
-= よく使用される Prometheus 指標
+= StorageGRIDでよく使用されるPrometheusメトリクス
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

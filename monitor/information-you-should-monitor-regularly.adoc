@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: when to monitor, what to monitor 
 summary: エラーが発生したりグリッドの一部が使用できなくなったりしてもStorageGRID システムは引き続き動作しますが、潜在的な問題がグリッドの効率や可用性に影響する前に監視して対処する必要があります。 
 ---
-= 何をいつ監視するか
+= StorageGRIDで何をいつ監視するか
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

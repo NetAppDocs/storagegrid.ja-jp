@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: Tasks tab, rename node, reboot node, storage state, maintenance mode 
 summary: 'すべてのノードに対して [タスク] タブが表示されます。このタブを使用して、ノードの名前を変更したり、ノードを再起動したり、アプライアンス ノードをメンテナンス モードにしたりできます。ストレージ ノードの場合、ストレージの状態を設定できます。' 
 ---
-= [タスク]タブの使用
+= StorageGRID タスク タブを使用します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

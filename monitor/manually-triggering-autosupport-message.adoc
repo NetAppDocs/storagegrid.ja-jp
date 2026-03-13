@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, triggering autosupport, manually triggering autosupport, autosupport triggers 
 summary: テクニカルサポートによるStorageGRIDシステムの問題のトラブルシューティングを支援するために、送信するAutoSupportパッケージを手動でトリガーできます。 
 ---
-= AutoSupportパッケージを手動でトリガーする
+= StorageGRID AutoSupport パッケージを手動でトリガーする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to monitor system health, how to view system health 
 summary: StorageGRID システム全体の健全性を毎日監視します。 
 ---
-= システムヘルスを監視する
+= StorageGRIDでシステムの健全性を監視する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

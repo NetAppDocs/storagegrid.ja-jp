@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage alert rules 
 summary: アラートルールは、特定のアラートをトリガーする条件を定義します。StorageGRID には一連のデフォルトアラートルールが用意されており、そのまま使用したり変更したりすることができます。また、カスタムのアラートルールを作成することもできます。 
 ---
-= アラートルールを表示します
+= StorageGRID アラートルールを表示
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

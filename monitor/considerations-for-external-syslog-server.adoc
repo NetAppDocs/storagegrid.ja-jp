@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: syslog server, external syslog server, sizing, sizing syslog server, audit messages 
 summary: 外部 syslog サーバは、 StorageGRID の外部にあるサーバであり、 1 箇所でシステム監査情報を収集できます。外部のsyslogサーバを使用すると、管理ノードのネットワークトラフィックを軽減し、監査情報をより効率的に管理できます。 
 ---
-= 外部syslogサーバを使用する場合の考慮事項
+= StorageGRIDの外部syslogサーバー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

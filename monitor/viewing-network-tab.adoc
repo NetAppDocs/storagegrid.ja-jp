@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network tab 
 summary: Network タブには、ノード、サイト、またはグリッド上のすべてのネットワークインターフェイスで送受信されたネットワークトラフィックがグラフで表示されます。 
 ---
-= [ ネットワーク ] タブを表示します
+= StorageGRID ネットワーク タブを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

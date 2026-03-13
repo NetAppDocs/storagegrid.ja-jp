@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deployment, logs, Maintenance 
 summary: 導入とメンテナンスのログを問題のトラブルシューティングに使用できます。 
 ---
-= 導入とメンテナンスのログ
+= StorageGRIDの導入とメンテナンスのログ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

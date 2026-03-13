@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: デフォルトまたはカスタムのアラートルールの有効 / 無効の状態を変更できます。 
 ---
-= アラートルールを無効化
+= StorageGRIDでアラートルールを無効にする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

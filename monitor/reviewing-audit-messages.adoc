@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to review audit messages, how to view audit messages 
 summary: 監査メッセージは、 StorageGRID システムの詳細な運用状況を的確に把握するために役立ちます。監査ログを使用して、問題のトラブルシューティングやパフォーマンスの評価を行うことができます。 
 ---
-= 監査メッセージを確認します
+= StorageGRID 監査メッセージを確認
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

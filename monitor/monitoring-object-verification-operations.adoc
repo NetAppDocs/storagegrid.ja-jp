@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object, verification 
 summary: StorageGRID システムは、ストレージノード上のオブジェクトデータの整合性を検証して、オブジェクトの破損や欠落の有無を確認します。 
 ---
-= オブジェクト検証処理を監視する
+= StorageGRIDでオブジェクト検証操作を監視する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to update the SNMP agent 
 summary: SNMP通知を無効にしたり、コミュニティストリングを更新したり、エージェントアドレス、USMユーザ、トラップ送信先を追加または削除したりできます。 
 ---
-= SNMP エージェントを更新します
+= StorageGRID SNMPエージェントを更新する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: monitoring, monitoring network connections, network, network performance 
 summary: 効率的な運用には、ノードとサイト間のネットワークの整合性と帯域幅、および個 々 のグリッドノードによるリソース使用量が不可欠です。 
 ---
-= ネットワークリソースとシステムリソースを監視します
+= StorageGRID でネットワークとシステムリソースを監視
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

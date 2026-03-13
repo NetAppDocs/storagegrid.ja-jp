@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, monitor connection, cross grid replication metrics 
 summary: すべてのグリッドフェデレーション接続に関する基本情報、特定の接続に関する詳細情報、またはグリッド間レプリケーション処理に関するPrometheus指標を監視できます。接続はどちらのグリッドからも監視できます。 
 ---
-= グリッドフェデレーション接続を監視する
+= StorageGRID グリッド フェデレーション接続を監視
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: objects tab 
 summary: '[Objects]タブには、S3の取り込み速度と読み出し速度に関する情報が表示されます。' 
 ---
-= [ オブジェクト ] タブを表示します
+= StorageGRID オブジェクトタブを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

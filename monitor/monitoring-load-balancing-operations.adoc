@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: load balancing, monitoring 
 summary: ロードバランサを使用して StorageGRID へのクライアント接続を管理している場合は、システムを最初に設定したあとと、設定を変更したり拡張を行ったあとに、ロードバランシング処理を監視する必要があります。 
 ---
-= ロードバランシング処理を監視する
+= StorageGRID でロード バランシング操作を監視
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

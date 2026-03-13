@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: put, get, performance 
 summary: オブジェクトストアや読み出しなどの特定の処理のパフォーマンスを監視して、詳しい調査が必要な変更を特定することができます。 
 ---
-= PUT / GET パフォーマンスを監視
+= StorageGRIDでPUTおよびGETのパフォーマンスを監視
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

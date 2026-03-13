@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view dashboard, how to configure dashboard 
 summary: ダッシュボードを使用すると、システムのアクティビティを一目で監視できます。StorageGRID の実装を監視するためのカスタムダッシュボードを作成できます。 
 ---
-= ダッシュボードを表示および管理します
+= StorageGRIDでダッシュボードを表示および管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

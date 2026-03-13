@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view support metrics, how to review support metrics 
 summary: 問題 のトラブルシューティングでは、テクニカルサポートと協力して StorageGRID システムの詳細な指標とグラフを確認することができます。 
 ---
-= サポート指標を確認
+= StorageGRID サポートメトリクスを確認
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

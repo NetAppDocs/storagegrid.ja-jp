@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit alert rules 
 summary: アラートルールを編集してトリガー条件を変更したり、カスタムのアラートルールを使用してルール名、概要 、および推奨される対処方法を更新したりできます。 
 ---
-= アラートルールを編集
+= StorageGRID でアラートルールを編集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

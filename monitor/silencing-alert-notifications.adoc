@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to disable alert rules, how to remove a custom alert rule 
 summary: 必要に応じて、サイレンスを設定してアラート通知を一時的に停止することができます。 
 ---
-= アラート通知をサイレント化する
+= StorageGRID でアラート通知をサイレンス
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

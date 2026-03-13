@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to collect system data, how to collect logs 
 summary: 'StorageGRIDログ ファイルとシステム データ (構成データを含む) を取得し、テクニカル サポートに送信できます。' 
 ---
-= ログファイルとシステムデータを収集
+= StorageGRIDログファイルとシステムデータを収集
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

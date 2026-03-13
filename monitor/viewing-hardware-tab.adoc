@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: hardware tab 
 summary: Hardware タブには、各ノードの CPU 利用率とメモリ使用量、およびアプライアンスに関する追加のハードウェア情報が表示されます。 
 ---
-= [ ハードウェア ] タブを表示します
+= StorageGRID ハードウェア タブを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: bycast, log 
 summary: '/var/local/log/bycast.log ファイルは、 StorageGRID ソフトウェアの主要なトラブルシューティングファイルです。ファイルはグリッドノードごとに1つあり `bycast.log`ます。ファイルに、そのグリッドノードに固有のメッセージが含まれています。' 
 ---
-= bycast.log について
+= StorageGRID bycast.log について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

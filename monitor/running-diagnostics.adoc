@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to run diagnostics 
 summary: 問題 のトラブルシューティングを行う場合、テクニカルサポートと協力して StorageGRID システムの診断を実行し、結果を確認します。 
 ---
-= 診断を実行します
+= StorageGRIDで診断を実行する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

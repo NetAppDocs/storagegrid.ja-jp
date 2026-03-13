@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage tab 
 summary: ストレージタブには、ストレージの可用性やその他のストレージ指標が表示されます。 
 ---
-= Storage （ストレージ）タブを表示します
+= StorageGRID ストレージタブを表示します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

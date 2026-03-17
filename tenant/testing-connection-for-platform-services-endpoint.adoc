@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to test platform services endpoint connection 
 summary: プラットフォームサービスへの接続が変更された場合は、エンドポイントへの接続をテストして、デスティネーションリソースが存在すること、および指定したクレデンシャルでアクセスできることを確認できます。 
 ---
-= プラットフォームサービスエンドポイントの接続をテストします
+= StorageGRIDプラットフォームサービスエンドポイントの接続をテストします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

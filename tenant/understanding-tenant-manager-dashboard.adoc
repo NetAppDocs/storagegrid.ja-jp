@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant manager dashboard 
 summary: テナント マネージャー ダッシュボードには、テナント アカウントの構成の概要と、テナントの S3 バケット内のオブジェクトによって使用されているスペースの量が表示されます。テナントにクォータがある場合は、ダッシュボードには使用されているクォータの量と残っている量が表示されます。テナント アカウントに関連するエラーがある場合は、ダッシュボードにエラーが表示されます。 
 ---
-= Tenant Managerのダッシュボードについて理解する
+= StorageGRIDのテナントマネージャーダッシュボード
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

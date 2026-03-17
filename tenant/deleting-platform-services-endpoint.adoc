@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant platform services endpoint 
 summary: 関連するプラットフォームサービスが不要になった場合は、エンドポイントを削除できます。 
 ---
-= プラットフォームサービスエンドポイントを削除します
+= StorageGRIDプラットフォームサービスエンドポイントを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

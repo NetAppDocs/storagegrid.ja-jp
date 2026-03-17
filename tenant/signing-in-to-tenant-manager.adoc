@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign in to tenant manager 
 summary: Tenant Manager にアクセスするには、サポート対象の Web ブラウザのアドレスバーにテナントの URL を入力します。 
 ---
-= Tenant Manager にサインインします
+= StorageGRID Tenant ManagerにSign in
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

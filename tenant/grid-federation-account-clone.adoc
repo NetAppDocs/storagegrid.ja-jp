@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, cloning tenant, grid federation, cross-grid replication 
 summary: グリッドフェデレーション接続を使用するようにテナントを作成または編集した場合、そのテナントは1つのStorageGRIDシステム（ソーステナント\）から別のStorageGRIDシステム（レプリカテナント\）にレプリケートされます。テナントがレプリケートされると、ソーステナントに追加されたすべてのグループおよびユーザがレプリカテナントにクローニングされます。 
 ---
-= テナントグループとテナントユーザのクローンを作成します
+= StorageGRID でテナントグループとユーザーをクローニング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

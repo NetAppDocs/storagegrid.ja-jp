@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete tenant group 
 summary: システムからグループを削除できます。そのグループに属するユーザは、 Tenant Manager にサインインしたりテナントアカウントを使用したりすることはできなくなります。 
 ---
-= グループの削除
+= StorageGRIDテナントグループを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

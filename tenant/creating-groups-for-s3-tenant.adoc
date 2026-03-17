@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 tenant groups, federated group, local group 
 summary: S3 ユーザグループの権限を管理するには、フェデレーテッドグループをインポートするか、ローカルグループを作成します。 
 ---
-= S3 テナント用のグループを作成します
+= StorageGRIDでS3テナントのグループを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

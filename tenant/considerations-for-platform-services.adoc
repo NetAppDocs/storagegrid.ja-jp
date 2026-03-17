@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: considerations for using platform services 
 summary: プラットフォームサービスを実装する前に、これらのサービスの使用に関する概要と考慮事項を確認してください。 
 ---
-= プラットフォームサービスの概要と考慮事項
+= StorageGRIDのプラットフォームサービスについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

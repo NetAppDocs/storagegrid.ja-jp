@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 bucket event notification, sequencer key 
 summary: S3バケットのイベント通知を有効にすると、指定したイベントに関する通知をStorageGRIDからデスティネーションKafkaクラスタまたはAmazon Simple Notification Serviceに送信できます。 
 ---
-= バケットの通知について理解します
+= S3バケットのStorageGRIDイベント通知について学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

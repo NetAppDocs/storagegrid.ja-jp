@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to change bucket versioning, disabled versioning, enabled versioning, suspended versioning 
 summary: S3テナントを使用している場合は、S3バケットのバージョン管理状態を変更できます。 
 ---
-= バケットのオブジェクトのバージョン管理を変更する
+= StorageGRID の S3 バケットのオブジェクトバージョニングを変更する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

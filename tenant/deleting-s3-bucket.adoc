@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 bucket 
 summary: Tenant Manager を使用して、空の S3 バケットを削除できます。 
 ---
-= S3 バケットを削除します
+= StorageGRID S3 バケットを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

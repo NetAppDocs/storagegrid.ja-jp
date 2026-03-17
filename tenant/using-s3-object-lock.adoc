@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use s3 object lock 
 summary: バケットとオブジェクトが保持に関する規制要件に準拠する必要がある場合は、S3オブジェクトロックを使用できます。 
 ---
-= S3オブジェクトロックを使用してオブジェクトを保持します
+= S3オブジェクトロックを使用してStorageGRIDでオブジェクトを保持します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

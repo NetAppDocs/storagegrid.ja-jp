@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view and edit group 
 summary: グループの詳細を表示すると、グループの表示名、権限、ポリシー、およびグループに属するユーザを変更できます。 
 ---
-= グループの詳細を表示および編集します
+= StorageGRIDでテナントグループの詳細を表示および編集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

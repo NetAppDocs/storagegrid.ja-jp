@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure platform services endpoint 
 summary: バケットのプラットフォームサービスを設定する前に、少なくとも 1 つのエンドポイントをプラットフォームサービスのデスティネーションとして設定する必要があります。 
 ---
-= プラットフォームサービスエンドポイントを設定する
+= StorageGRID でプラットフォームサービスエンドポイントを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

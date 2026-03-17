@@ -2,16 +2,16 @@
 permalink: tenant/grid-federation-clone-keys-with-api.html 
 sidebar: sidebar 
 keywords: s3 access key, secret key id, account clone, tenant manager api 
-summary: テナントアカウントにUse grid federation connection権限が割り当てられている場合は、テナント管理APIを使用して、ソースグリッドのテナントからデスティネーショングリッドのテナントにS3アクセスキーを手動でクローニングできます。 
+summary: StorageGRIDテナントアカウントにUse grid federation connection権限がある場合は、Tenant Management APIを使用してS3アクセスキーを手動でクローニングできます。 
 ---
-= APIを使用してS3アクセスキーをクローニングします
+= Tenant Management APIを使用してStorageGRIDグリッド間でS3アクセスキーをクローンする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-テナントアカウントに* Use grid federation connection *権限がある場合は、テナント管理APIを使用して、ソースグリッドのテナントからデスティネーショングリッドのテナントにS3アクセスキーを手動でクローニングできます。
+StorageGRIDテナントアカウントに*Use grid federation connection*権限がある場合は、Tenant Management APIを使用して、ソースグリッドのテナントから宛先グリッドのテナントにS3アクセスキーを手動でクローンできます。
 
 .開始する前に
 * テナントアカウントには、* Use grid federation connection *権限が割り当てられています。

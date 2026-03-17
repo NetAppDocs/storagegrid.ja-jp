@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create S3 bucket 
 summary: Tenant Manager を使用して、オブジェクトデータ用の S3 バケットを作成できます。 
 ---
-= S3 バケットを作成します。
+= StorageGRID S3バケットを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use tenant account 
 summary: 'テナント アカウントを使用すると、Simple Storage Service (S3) REST API を使用して、 StorageGRIDシステムにオブジェクトを保存および取得できます。' 
 ---
-= テナントアカウントを使用する
+= StorageGRID テナントアカウントを使用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

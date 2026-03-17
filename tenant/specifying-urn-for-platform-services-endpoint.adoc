@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to specify platform services urn 
 summary: プラットフォームサービスエンドポイントを作成するときは、 Unique Resource Name （ URN ）を指定する必要があります。プラットフォームサービスの設定XMLを作成するときは、URNを使用してエンドポイントを参照します。各エンドポイントの URN は一意である必要があります。 
 ---
-= プラットフォームサービスのエンドポイントの URN を指定してください
+= StorageGRID プラットフォームサービスエンドポイントの URN を指定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

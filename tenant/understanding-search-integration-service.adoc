@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand search integration service 
 summary: オブジェクトメタデータに外部の検索およびデータ分析サービスを使用する必要がある場合は、 S3 バケットの検索統合を有効にすることができます。 
 ---
-= 検索統合サービスについて理解する
+= StorageGRID検索統合サービスについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

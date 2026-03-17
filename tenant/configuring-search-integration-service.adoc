@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure search integration service 
 summary: バケットの検索統合を有効にするには、検索統合設定XMLを作成し、Tenant Managerを使用してそのXMLをバケットに適用します。 
 ---
-= 検索統合サービスを設定します
+= StorageGRID で検索統合サービスを設定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

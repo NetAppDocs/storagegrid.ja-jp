@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: update default retention for s3 object lock bucket, default retention mode, default retention period, compliance, governance 
 summary: バケットの作成時にS3 Object Lockを有効にした場合は、バケットを編集してデフォルトの保持設定を変更できます。デフォルトの保持を有効（または無効）にしたり、デフォルトの保持モードと保持期間を設定したりできます。 
 ---
-= S3オブジェクトロックのデフォルトの保持期間を更新します
+= StorageGRIDでS3オブジェクトロックのデフォルトの保持期間を更新
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

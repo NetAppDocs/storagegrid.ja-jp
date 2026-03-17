@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete bucket objects, empty bucket 
 summary: Tenant Managerを使用して、1つ以上のバケット内のオブジェクトを削除できます。 
 ---
-= バケット内のオブジェクトを削除する
+= StorageGRID S3バケットからオブジェクトを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

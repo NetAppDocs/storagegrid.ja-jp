@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to troubleshoot platform services endpoint 
 summary: StorageGRID がプラットフォームサービスエンドポイントと通信しようとしたときにエラーが発生すると、ダッシュボードにメッセージが表示されます。Platform services Endpoints ページの Last error 列は、エラーが発生してからの時間を示します。エンドポイントのクレデンシャルに関連付けられている権限が正しくない場合、エラーは表示されません。 
 ---
-= プラットフォームサービスのエンドポイントエラーのトラブルシューティングを行います
+= StorageGRIDプラットフォームサービスエンドポイントエラーのトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

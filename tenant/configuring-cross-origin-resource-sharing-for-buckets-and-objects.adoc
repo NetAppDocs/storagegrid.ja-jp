@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure cross-origin resource sharing, cors 
 summary: S3バケットとバケット内のオブジェクトに他のドメインにあるWebアプリケーションからアクセスできるようにするには、そのバケットにCross-Origin Resource Sharing \（CORS\）を設定します。 
 ---
-= バケットとオブジェクトのStorageGRID CORSを構成する
+= StorageGRIDでS3バケットのCORSを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

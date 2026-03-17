@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage bucket consistency, how to change bucket consistency, read after new write, read-after-new-write, strong site, strong-site, strong global, strong-global 
 summary: 整合性の値を使用して、バケット設定を変更できるかどうかを指定したり、バケット内のオブジェクトの可用性と異なるストレージノードやサイト間でのオブジェクトの整合性のバランスを調整したりできます。クライアントアプリケーションの運用上のニーズを満たすために、整合性の値をデフォルト値とは異なる値に変更することができます。 
 ---
-= バケットの整合性の管理
+= StorageGRIDバケットの整合性を管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

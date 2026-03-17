@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to edit platform services endpoint 
 summary: プラットフォームサービスエンドポイントの設定を編集して、名前、 URI 、またはその他の詳細を変更できます。たとえば、期限切れのクレデンシャルを更新したり、フェールオーバー用のバックアップ Elasticsearch インデックスを指すように URI を変更したりすることが必要な場合があります。プラットフォームサービスのエンドポイントの URN を変更することはできません。 
 ---
-= プラットフォームサービスエンドポイントを編集します
+= StorageGRIDでプラットフォームサービスエンドポイントを編集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -2,9 +2,9 @@
 permalink: tenant/grid-federation-manage-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: grid federation, cross-grid replication, use grid federation connection, replicate client delete markers, s3 bucket 
-summary: テナントアカウントの作成時にUse grid federation connection権限が割り当てられている場合は、グリッド間レプリケーションを使用して、テナントソースグリッド上のバケットとテナントデスティネーショングリッド上のバケット間でオブジェクトを自動的にレプリケートできます。グリッド間レプリケーションは、一方または両方の方向で実行できます。 
+summary: テナントアカウントの作成時に「グリッドフェデレーション接続の使用」権限が割り当てられている場合、クロスグリッドレプリケーションを使用して、テナントソースグリッド上のバケットとテナント宛先グリッド上のバケット間でオブジェクトを自動的にレプリケートできます。クロスグリッドレプリケーションは、一方向または両方向で発生する可能性があります。 
 ---
-= グリッド間レプリケーションを管理します
+= StorageGRID でクロスグリッドレプリケーションを管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

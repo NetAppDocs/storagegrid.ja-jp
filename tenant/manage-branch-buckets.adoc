@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: テナント マネージャを使用して、ブランチ バケットの詳細を作成および表示します。 
 ---
-= ブランチバケットを管理する
+= StorageGRID ブランチバケットを管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

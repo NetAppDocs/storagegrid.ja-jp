@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to understand tenant management api 
 summary: Tenant Manager のユーザインターフェイスの代わりにテナント管理 REST API を使用してシステム管理タスクを実行できます。たとえば、 API を使用して処理を自動化したり、ユーザなどの複数のエンティティを迅速に作成したりできます。 
 ---
-= テナント管理 API について理解する
+= StorageGRIDテナント管理APIについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

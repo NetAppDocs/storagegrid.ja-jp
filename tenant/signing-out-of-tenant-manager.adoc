@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to sign out of tenant manager 
 summary: Tenant Manager の使用が完了したら、サインアウトして、権限のないユーザが StorageGRID システムにアクセスできないようにする必要があります。ブラウザのクッキーの設定によっては、ブラウザを閉じてもシステムからサインアウトされない場合があります。 
 ---
-= Tenant Manager からサインアウトします
+= StorageGRID Tenant Managerからサインアウトします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

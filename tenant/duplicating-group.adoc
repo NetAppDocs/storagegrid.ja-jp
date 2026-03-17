@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to duplicate tenant group 
 summary: 既存のグループを複製することで、新しいグループをより迅速に作成できます。 
 ---
-= グループが重複しています
+= StorageGRIDテナントグループを複製する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

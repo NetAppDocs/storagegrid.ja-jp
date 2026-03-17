@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use identity federation, how to use federated groups with Tenant Manager 
 summary: アイデンティティフェデレーションを使用すると、テナントグループとテナントユーザを迅速に設定できます。またテナントユーザは、使い慣れたクレデンシャルを使用してテナントアカウントにサインインできます。 
 ---
-= アイデンティティフェデレーションを使用する
+= StorageGRIDでIDフェデレーションを使用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

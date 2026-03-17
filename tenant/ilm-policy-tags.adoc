@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to assign ilm policy tag to bucket 
 summary: オブジェクトストレージ要件に基づいてバケットに割り当てるILMポリシータグを選択します。 
 ---
-= ILMポリシータグをバケットに適用する
+= StorageGRID バケットに ILM ポリシータグを適用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

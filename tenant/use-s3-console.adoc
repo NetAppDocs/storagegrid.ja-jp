@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to use s3 console 
 summary: S3コンソールを使用して、S3バケット内のオブジェクトを表示および管理できます。 
 ---
-= S3コンソールを使用
+= StorageGRIDでS3コンソールを使用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

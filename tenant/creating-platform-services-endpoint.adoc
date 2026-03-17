@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create platform services endpoint 
 summary: プラットフォームサービスを有効にする前に、正しいタイプのエンドポイントを少なくとも 1 つ作成しておく必要があります。 
 ---
-= プラットフォームサービスエンドポイントを作成します
+= StorageGRIDプラットフォームサービスエンドポイントを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view other user access key 
 summary: S3 テナントを使用している場合は、適切な権限があれば、別のユーザの S3 アクセスキーを表示できます。有効期限でリストをソートすると、まもなく期限切れになるキーを確認できます。必要に応じて、新しいキーを作成したり、使用されなくなったキーを削除したりできます。 
 ---
-= 別のユーザの S3 アクセスキーを表示します
+= StorageGRID で他のユーザーの S3 アクセスキーを表示する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

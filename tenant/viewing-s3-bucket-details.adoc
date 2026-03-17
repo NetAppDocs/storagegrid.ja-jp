@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to view bucket details 
 summary: テナントアカウント内のバケットを表示できます。 
 ---
-= バケットの詳細を表示します
+= StorageGRID で S3 バケットの詳細を表示する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure event notifications, bucket notification 
 summary: バケットの通知を有効にするには、通知設定XMLを作成し、Tenant Managerを使用してそのXMLをバケットに適用します。 
 ---
-= イベント通知の設定
+= StorageGRID でイベント通知を設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

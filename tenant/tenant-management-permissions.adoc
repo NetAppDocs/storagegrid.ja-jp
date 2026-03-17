@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tenant management permissions 
 summary: テナントグループを作成する前に、そのグループに割り当てる権限を検討してください。テナント管理権限は、 Tenant Manager またはテナント管理 API を使用してユーザが実行できるタスクを決定します。ユーザは 1 つ以上のグループに属することができます。権限は、ユーザが複数のグループに属している場合に累積されます。 
 ---
-= テナント管理権限
+= StorageGRID テナント管理権限
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

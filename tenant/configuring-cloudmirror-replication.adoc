@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure CloudMirror replication, replication xml 
 summary: バケットのCloudMirrorレプリケーションを有効にするには、バケットのレプリケーション設定XMLを作成し、Tenant Managerを使用してそのXMLをバケットに適用します。 
 ---
-= CloudMirror レプリケーションを設定します
+= StorageGRIDでCloudMirrorレプリケーションを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

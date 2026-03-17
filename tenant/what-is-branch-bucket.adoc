@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create branch bucket 
 summary: ブランチ バケットは、特定の時間に存在していたバケット内のオブジェクトへのアクセスを提供します。 
 ---
-= ブランチバケットとは何ですか?
+= StorageGRIDブランチバケットについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

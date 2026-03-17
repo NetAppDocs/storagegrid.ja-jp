@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create local tenant users, manage users 
 summary: ローカルユーザを作成してローカルグループに割り当て、ユーザがアクセスできる機能を決定することができます。Tenant Managerには、「root」という名前の事前定義されたローカルユーザが1人含まれています。ローカルユーザは追加および削除できますが、rootユーザを削除することはできません。 
 ---
-= ユーザの管理
+= StorageGRIDテナントユーザーを管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

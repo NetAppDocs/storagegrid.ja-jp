@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create your own S3 access key 
 summary: S3 テナントを使用している場合は、適切な権限があれば、自分の S3 アクセスキーを作成できます。バケットとオブジェクトにアクセスするには、アクセスキーが必要です。 
 ---
-= 独自の S3 アクセスキーを作成します
+= StorageGRID で独自の S3 アクセスキーを作成
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

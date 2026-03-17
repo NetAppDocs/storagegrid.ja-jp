@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to delete S3 access key 
 summary: S3 テナントを使用している場合は、適切な権限があれば、自分の S3 アクセスキーを削除できます。アクセスキーを削除すると、テナントアカウント内のオブジェクトとバケットにそのアクセスキーでアクセスできなくなります。 
 ---
-= 自分の S3 アクセスキーを削除します
+= StorageGRID で自分の S3 アクセスキーを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

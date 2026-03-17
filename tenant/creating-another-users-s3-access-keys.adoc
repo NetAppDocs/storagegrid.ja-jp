@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to create other user S3 access key 
 summary: S3 テナントを使用している場合は、適切な権限があれば、バケットやオブジェクトにアクセスする必要があるアプリケーションなど、他のユーザの S3 アクセスキーを作成できます。 
 ---
-= 別のユーザの S3 アクセスキーを作成します
+= StorageGRID で別のユーザーのS3アクセスキーを作成します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

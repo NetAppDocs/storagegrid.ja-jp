@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation connection, view, clear error, last error 
 summary: テナントアカウントにUse grid federation connection権限が割り当てられている場合は、許可されている接続を表示できます。 
 ---
-= グリッドフェデレーション接続を表示します
+= StorageGRID でグリッドフェデレーション接続を表示する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

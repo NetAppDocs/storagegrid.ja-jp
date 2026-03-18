@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace linux node 
 summary: 障害発生時に新しい物理ホストまたは仮想ホストを導入するか、既存のホストにLinuxを再インストールする必要がある場合は、グリッドノードをリカバリする前に交換ホストを導入して設定します。この手順 は、すべてのタイプのグリッドノードのリカバリプロセスの 1 つのステップです。 
 ---
-= Linuxノードの交換
+= StorageGRIDのLinuxノードを置き換える
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

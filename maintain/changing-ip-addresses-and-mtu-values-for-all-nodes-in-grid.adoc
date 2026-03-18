@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node ip address, change node ip, change node ip address, changing node ip, changing node ip address 
 summary: グリッド内のすべてのノードのグリッドネットワーク IP アドレスを変更する必要がある場合は、次の特別な手順 に従う必要があります。手順 を使用してグリッド全体のグリッドネットワーク IP を変更し、個々のノードを変更することはできません。 
 ---
-= グリッド内のすべてのノードの IP アドレスを変更します
+= StorageGRIDグリッド内のすべてのノードのIPアドレスを変更します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

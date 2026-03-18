@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, grid node recovery, node recovery 
 summary: メンテナンス手順を実行する前に、障害グリッドノードのリカバリに必要な情報、ファイル、機器などが揃っていることを確認する必要があります。 
 ---
-= グリッドノードのリカバリに必要な項目を収集します
+= StorageGRIDグリッドノードのリカバリに必要な資料を収集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

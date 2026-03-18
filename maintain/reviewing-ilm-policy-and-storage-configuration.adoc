@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, ilm policy, storage configuration 
 summary: ストレージノードの運用を停止する場合は、運用停止プロセスを開始する前に、 StorageGRID システムの ILM ポリシーを確認してください。 
 ---
-= ILM ポリシーとストレージ構成を確認します
+= StorageGRID ILM ポリシーとストレージ構成を確認する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

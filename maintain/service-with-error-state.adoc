@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, service error state, error, error state 
 summary: サービスがエラー状態になったことが検出された場合は、サービスの再開を試みてください。 
 ---
-= エラー状態のサービス
+= StorageGRID でエラー状態のサービス
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

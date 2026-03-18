@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, maintenance, maintain, failed storage volumes, failed volumes, cassandra, cassandra rebuild, rebuild cassandra, cassandra database 
 summary: 障害が発生したストレージボリュームでストレージを再フォーマットして再マウントするスクリプトを実行し、システムが必要であると判断した場合にはストレージノードの Cassandra データベースを再構築する必要があります。 
 ---
-= 障害ストレージボリュームをリカバリし、 Cassandra データベースを再構築します
+= 障害が発生したストレージボリュームを復旧し、StorageGRID で Cassandra データベースを再構築します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

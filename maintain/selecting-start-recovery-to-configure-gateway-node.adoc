@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, gateway node 
 summary: ゲートウェイノードを交換したら、 Grid Manager で Start Recovery を選択して、障害が発生したノードの代わりとして新しいノードを設定する必要があります。 
 ---
-= Start Recovery を選択して、ゲートウェイノードを設定します
+= リカバリの開始を選択してStorageGRIDゲートウェイノードを構成します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

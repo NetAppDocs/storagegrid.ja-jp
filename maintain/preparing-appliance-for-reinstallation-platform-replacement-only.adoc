@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: サービスアプライアンスでホストされていたグリッドノードをリカバリする場合は、最初に StorageGRID ソフトウェアを再インストールするアプライアンスを準備する必要があります。 
 ---
-= 再インストールのためのアプライアンスの準備（プラットフォームの交換のみ）
+= StorageGRID アプライアンスの再設置の準備（プラットフォーム交換のみ）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

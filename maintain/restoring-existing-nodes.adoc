@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, restore node to host, node configuration file, start host service 
 summary: 障害グリッドノードを新しいLinuxホストにリストアするには、次の手順を実行してノード構成ファイルをリストアします。 
 ---
-= グリッドノードをホストにリストアします
+= StorageGRIDノードをホストにリストアします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery package 
 summary: リカバリ パッケージ ファイルを使用すると、障害が発生した場合にStorageGRIDシステムを復元できます。 
 ---
-= リカバリパッケージをダウンロード
+= StorageGRID 復旧パッケージをダウンロードします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

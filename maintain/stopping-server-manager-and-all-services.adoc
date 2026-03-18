@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop server manager, stop all services, stop services 
 summary: Server Manager は常時実行中であることが前提ですが、あるグリッドノードで実行されている Server Manager およびすべてのサービスの停止が必要になる場合もあります。 
 ---
-= Server Manager およびすべてのサービスを停止します
+= StorageGRIDサーバーマネージャーとすべてのサービスを停止します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

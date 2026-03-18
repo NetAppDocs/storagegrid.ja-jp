@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, storage volume failure, volume failure, system drive intact 
 summary: ストレージノードで 1 個以上のストレージボリュームに障害が発生したものの、システムドライブに損傷がない場合は、一連のタスクを実行してソフトウェアベースのストレージノードをリカバリする必要があります。ストレージボリュームだけで障害が発生した場合は、ストレージノードを引き続き StorageGRID システムで使用できます。 
 ---
-= システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします
+= システムドライブは無事だが、StorageGRIDストレージボリュームに障害が発生した場合の回復
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

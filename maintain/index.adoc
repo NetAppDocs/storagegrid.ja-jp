@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: maintain overview, maintenance overview, about maintain, about maintenance 
 summary: グリッドのメンテナンスタスクには、ノードまたはサイトの運用停止、グリッド、ノードまたはサイトの名前変更、ネットワークのメンテナンスが含まれます。ホストとミドルウェアの手順やグリッドノードの手順を実行することもできます。 
 ---
-= グリッドのメンテナンス
+= StorageGRIDグリッドのメンテナンス
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

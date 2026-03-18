@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, subnet, grid network, update subnets 
 summary: StorageGRID は、グリッドネットワーク上のグリッドノード間の通信に使用されるネットワークサブネットのリストを管理します（ eth0 ）。このエントリには、 StorageGRID システムの各サイトでグリッドネットワークに使用されているサブネット、およびグリッドネットワークゲートウェイ経由でアクセスされる NTP 、 DNS 、 LDAP 、またはその他の外部サーバに使用されるサブネットが含まれます。グリッドノードまたは新しいサイトを追加した場合は、サブネットの更新、またはグリッドネットワークへのサブネットの追加が必要になることがあります。 
 ---
-= Grid ネットワークのサブネットを更新します
+= StorageGRIDグリッドネットワークのサブネットを更新します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

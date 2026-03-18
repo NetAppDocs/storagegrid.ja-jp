@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, linux host, bare metal host, baremetal host, remove port remap, removing port remap, port remap 
 summary: ロードバランササービスのエンドポイントを設定する場合、ポートの再マッピングのマッピング先ポートとしてすでに設定されているポートを使用するには、まず既存のポートの再マッピングを削除する必要があります。そうしないと、エンドポイントが有効になりません。 
 ---
-= ベアメタルホストでのポートの再マッピングを削除します
+= ベアメタルホスト上のStorageGRIDポート再マッピングを削除
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

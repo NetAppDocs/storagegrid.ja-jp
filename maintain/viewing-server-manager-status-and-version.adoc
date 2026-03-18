@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, server manager, status, version 
 summary: グリッドノードごとに、そのグリッドノード上で実行されている Server Manager の現在のステータスとバージョンを表示できます。そのグリッドノード上で実行されているすべてのサービスの現在のステータスも取得できます。 
 ---
-= Server Manager のステータスとバージョンを表示します
+= StorageGRIDサーバーマネージャーのステータスとバージョンを表示
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

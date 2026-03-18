@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, stop services, shut down nodes, node shutdown 
 summary: StorageGRID システムの電源をオフにするには、各グリッドノードで実行されているすべてのサービスを停止してから、すべての VMware 仮想マシン、コンテナエンジン、および StorageGRID アプライアンスをシャットダウンする必要があります。 
 ---
-= サービスを停止し、グリッドノードをシャットダウンします
+= サービスを停止してStorageGRIDノードをシャットダウンする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

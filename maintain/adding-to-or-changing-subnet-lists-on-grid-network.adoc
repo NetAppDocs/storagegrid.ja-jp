@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, grid network 
 summary: IP 変更ツールを使用して、グリッドネットワークのサブネットを追加または変更することができます。 
 ---
-= グリッドネットワークのサブネットリストに対する追加または変更
+= StorageGRID のグリッドネットワークのサブネットリストを追加または変更します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

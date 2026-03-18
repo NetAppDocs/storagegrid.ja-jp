@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, network connection, restore network connection, isolated node, restore isolated node connection 
 summary: 状況によっては、1つ以上のノードグループがグリッドの残りの部分にアクセスできない場合があります。たとえば、サイト全体またはグリッド全体でIPアドレスを変更すると、ノードが分離される可能性があります。 
 ---
-= 分離されているノードのネットワーク接続をリストア
+= 隔離されたStorageGRIDノードのネットワーク接続を復元します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

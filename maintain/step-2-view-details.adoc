@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, view details 
 summary: 運用停止サイトウィザードの手順 2 から、サイトに含まれているノード、各ストレージノードで使用されているスペースの量、およびグリッド内の他のサイトで利用可能な空きスペースの量を確認できます。 
 ---
-= 手順 2 ：詳細を表示する
+= StorageGRID で運用停止前にサイトの詳細を確認してください
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

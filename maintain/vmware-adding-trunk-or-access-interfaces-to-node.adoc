@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add extra interface to node, access interface, VM interface 
 summary: VM ノードのインストール後に、トランクインターフェイスまたはアクセスインターフェイスを追加できます。追加したインターフェイスは、 VLAN インターフェイスのページと HA グループのページに表示されます。 
 ---
-= VMware ：ノードにトランクインターフェイスまたはアクセスインターフェイスを追加します
+= StorageGRIDのVMwareノードにトランクインターフェイスまたはアクセスインターフェイスを追加する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

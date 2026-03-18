@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, ntp, ntp server, configure ntp, configuring ntp 
 summary: ネットワークタイムプロトコル（NTP\）サーバを追加、更新、または削除することで、StorageGRID システム内のグリッドノード間でデータが正確に同期されるようにすることができます。 
 ---
-= NTPサーバを管理します。
+= StorageGRIDでNTPサーバーを管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

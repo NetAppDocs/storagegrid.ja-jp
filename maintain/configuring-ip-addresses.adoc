@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure ip address, change IP tool, ethernet, dhcp, ha group 
 summary: IP 変更ツールを使用してグリッドノードの IP アドレスを設定することで、ネットワーク設定を実行できます。 
 ---
-= IPアドレスのガイドライン
+= StorageGRID IP アドレスに関するガイドライン
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

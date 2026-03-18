@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, deploy linux host, new host, new linux host 
 summary: いくつかの例外を除き、最初のインストールプロセス時と同じ方法で新しいホストを準備します。 
 ---
-= 新しい Linux ホストを導入する
+= StorageGRID用の新しいLinuxホストをデプロイします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

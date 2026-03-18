@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace storage node, replacing storage node 
 summary: システムドライブで障害が発生した場合は、最初にストレージノードを交換する必要があります。 
 ---
-= ストレージノードを交換します
+= StorageGRIDストレージノードを交換する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

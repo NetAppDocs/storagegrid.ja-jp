@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore audit log, non-primary admin node 
 summary: 障害が発生した非プライマリ管理ノードから監査ログを保存できたために監査ログの履歴情報が保持されている場合は、リカバリする非プライマリ管理ノードにその情報をコピーできます。 
 ---
-= リカバリ済み非プライマリ管理ノードで監査ログをリストアする
+= 復旧した非プライマリStorageGRID管理ノードで監査ログを復元する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

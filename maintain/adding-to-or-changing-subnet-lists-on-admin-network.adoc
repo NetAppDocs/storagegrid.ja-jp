@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, subnet list, admin network 
 summary: ノードの管理ネットワークサブネットリストで、サブネットの追加、削除、または変更を行うことができます。 
 ---
-= 管理ネットワークのサブネットリストに対する追加または変更
+= StorageGRID の管理ネットワークのサブネットリストを追加または変更します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

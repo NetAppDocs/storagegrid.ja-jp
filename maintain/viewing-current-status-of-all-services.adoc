@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, service, status 
 summary: グリッドノード上で実行されているすべてのサービスの現在のステータスはいつでも表示できます。 
 ---
-= すべてのサービスの現在のステータスを表示します
+= すべてのStorageGRIDサービスの現在のステータスを表示する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

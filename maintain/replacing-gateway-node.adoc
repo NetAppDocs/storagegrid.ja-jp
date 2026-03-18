@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace gateway node, replacing gateway node 
 summary: 障害が発生したゲートウェイノードを同じ物理または仮想ハードウェアで実行されているゲートウェイノードと交換することも、 VMware または Linux ホストで実行されているゲートウェイノードをサービスアプライアンスでホストされているゲートウェイノードと交換することもできます。 
 ---
-= ゲートウェイノードの交換
+= StorageGRIDゲートウェイノードの交換
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

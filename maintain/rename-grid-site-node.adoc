@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename grid, rename sites, rename node, change display name, bulk rename tool 
 summary: この手順 を使用して、グリッド、サイト、およびノードに使用される表示名を追加または更新できます。1つのアイテム、複数の名前、またはすべてのアイテムの名前を同時に変更できます。表示名を定義または更新しても、StorageGRID の処理には影響しません。 
 ---
-= 表示名を追加または更新します
+= StorageGRID表示名の追加または更新
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

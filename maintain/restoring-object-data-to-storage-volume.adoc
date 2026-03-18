@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover storage node, recover storage volume 
 summary: 非アプライアンスストレージノードのストレージボリュームをリカバリしたら、ストレージノードの障害で失われたレプリケートオブジェクトデータまたはイレイジャーコーディングオブジェクトデータをリストアできます。 
 ---
-= オブジェクトデータをストレージボリュームにリストアする（システムドライブの障害）
+= オブジェクトデータをStorageGRIDストレージボリュームに復元（システムドライブ障害）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

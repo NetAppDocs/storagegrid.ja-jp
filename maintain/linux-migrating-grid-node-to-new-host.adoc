@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, linux, migrate node, migrating node, new host for node 
 summary: ホストのメンテナンスを実行するために、グリッドの機能や可用性に影響を与えることなく、1つ以上のStorageGRID ノードを別のLinuxホストに移行することができます。 
 ---
-= Linux ：グリッドノードを新しいホストに移行します
+= StorageGRIDノードを新しいLinuxホストに移行する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

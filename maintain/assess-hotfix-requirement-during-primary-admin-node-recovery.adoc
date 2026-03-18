@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, hotfix 
 summary: プライマリ管理ノードをリカバリしたら、ホットフィックスを適用する必要があるかどうかを確認します。 
 ---
-= プライマリ管理ノードのホットフィックスの要件を確認
+= StorageGRIDのプライマリ管理ノードのホットフィックス要件を決定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to pause decommission 
 summary: 2 回目のメンテナンス手順 を実行する必要がある場合は、ストレージノードの運用停止手順 を特定の段階で一時停止できます。もう一方の手順 の運用停止が完了したら、運用停止手順を再開できます。 
 ---
-= ストレージノードの運用停止プロセスを一時停止および再開します
+= StorageGRID ストレージノードの廃止プロセスを一時停止して再開します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover services appliance, recover appliance, recovering appliance, recovering services appliance, install services appliance, installing services appliance, services appliance 
 summary: 交換用ノードにサービスアプライアンスを使用してVMwareまたはLinuxホストでホストされていた障害グリッドノードをリカバリする場合は、最初に障害ノードと同じノード名（システム名）を使用して新しいアプライアンスハードウェアを設置する必要があります。 
 ---
-= サービスアプライアンスのインストール（プラットフォーム変更のみ）
+= StorageGRIDサービスアプライアンスのインストール（プラットフォーム変更のみ）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

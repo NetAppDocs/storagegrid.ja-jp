@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, storage node failure, Reaper 
 summary: 障害ストレージノードをリカバリする手順 は、障害のタイプおよび障害が発生したストレージノードのタイプによって異なります。 
 ---
-= ストレージノードの障害からリカバリします
+= StorageGRIDストレージノードの障害から回復する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

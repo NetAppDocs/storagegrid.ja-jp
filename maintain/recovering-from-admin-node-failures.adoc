@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: recover, admin node failure, workflow 
 summary: 管理ノードのリカバリプロセスは、プライマリ管理ノードと非プライマリ管理ノードで異なります。 
 ---
-= プライマリまたは非プライマリ管理ノードのリカバリ
+= StorageGRIDにおけるプライマリまたは非プライマリ管理ノードの復旧
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

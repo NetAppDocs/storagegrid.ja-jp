@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, connected nodes, decommission node 
 summary: グリッドに接続されているノードは、運用停止して完全に削除できます。 
 ---
-= 接続されているグリッドノードの運用を停止
+= 接続されたStorageGRIDノードの運用停止
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

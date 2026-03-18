@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: 'コマンドラインからスクリプトを使用して、修復ジョブのステータスを監視できます `repair-data`。' 
 ---
-= repair-dataジョブを監視します
+= StorageGRID repair-data ジョブの監視
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

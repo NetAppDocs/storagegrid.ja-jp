@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, system drive warning, storage node 
 summary: ストレージノードの障害システムドライブをリカバリする前に、グリッドノードのリカバリに関する一般的な警告と考慮事項、および次の固有の警告を確認してください。 
 ---
-= ストレージノードのシステムドライブのリカバリに関する警告
+= StorageGRIDストレージノードのシステムドライブ復旧に関する警告
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance 
 summary: StorageGRID アプライアンスインストーラでは、インストールが完了するまでステータスが提供されます。ソフトウェアのインストールが完了すると、アプライアンスがリブートされます。 
 ---
-= サービスアプライアンスの設置を監視する
+= StorageGRIDサービスアプライアンスのインストールの監視
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, service, start service, restart service 
 summary: 停止されたサービスの開始や、サービスの停止と再開が必要になる場合があります。 
 ---
-= サービスを開始または再開します
+= StorageGRIDサービスを開始または再起動する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, audit log, copy audit log, copying audit log, non-primary admin node, non primary admin node 
 summary: 障害が発生した管理ノードから監査ログをコピーできる場合は、グリッドのシステムアクティビティと使用状況のレコードを維持するために監査ログを保存します。リカバリした非プライマリ管理ノードが起動したら、保存しておいた監査ログをそのノードにリストアします。 
 ---
-= 障害が発生した非プライマリ管理ノードから監査ログをコピーする
+= 障害が発生した非プライマリStorageGRID管理ノードから監査ログをコピーする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

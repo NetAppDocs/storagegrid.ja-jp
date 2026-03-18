@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, primary admin node failure 
 summary: プライマリ管理ノードの障害からリカバリするには、特定のタスクを実行する必要があります。プライマリ管理ノードは、グリッドの Configuration Management Node \ （ CMN \ ）サービスをホストします。 
 ---
-= プライマリ管理ノードの障害からリカバリします
+= プライマリStorageGRID管理ノードの障害から回復する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

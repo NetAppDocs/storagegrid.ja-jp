@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: VMwareでホストされていた障害StorageGRID ノードをリカバリする場合は、障害ノードを削除してリカバリノードを導入します。 
 ---
-= VMwareノードの交換
+= StorageGRIDのVMwareノードを交換する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

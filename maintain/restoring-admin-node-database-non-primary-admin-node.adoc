@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore admin node database, restore database, non-primary admin node 
 summary: 障害が発生した非プライマリ管理ノード上の属性とアラートの履歴情報を保持するには、プライマリ管理ノードから管理ノードデータベースをリストアします。 
 ---
-= 非プライマリ管理ノードをリカバリする際に管理ノードデータベースをリストアする
+= プライマリ以外の管理ノードを復旧する際にStorageGRID管理ノードデータベースをリストアする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

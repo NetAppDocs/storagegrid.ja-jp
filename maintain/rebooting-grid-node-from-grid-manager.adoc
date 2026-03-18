@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: reboot grid node, tasks tab 
 summary: 'グリッドノードは、[Nodes]ページの[Tasks]タブで個別にリブートできます。' 
 ---
-= [Tasks]タブからのグリッドノードのリブート
+= タスクタブからStorageGRIDノードをリブートします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

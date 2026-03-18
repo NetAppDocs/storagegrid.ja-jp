@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, primary admin node, replace primary admin node, replacing primary admin node 
 summary: 交換用ノードは、 StorageGRID システムのプライマリ管理ノードとして設定する必要があります。 
 ---
-= 交換用プライマリ管理ノードを設定
+= StorageGRID で代替プライマリ管理ノードを構成します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

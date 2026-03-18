@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add interfaces, add client network interface, add admin network interface 
 summary: 管理ネットワークまたはクライアントネットワーク上のインターフェイスをインストールしたあとに Linux ノードに追加するには、次の手順を実行します。 
 ---
-= Linux ：既存のノードに管理インターフェイスまたはクライアントインターフェイスを追加
+= StorageGRIDのLinuxノードに管理者またはクライアントインターフェースを追加する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

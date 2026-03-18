@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to remove site 
 summary: サイトの運用停止手順 を使用してサイトを削除する前に、考慮事項を確認しておく必要があります。 
 ---
-= サイトの削除に関する考慮事項
+= StorageGRIDにおけるサイトの運用停止に関する考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

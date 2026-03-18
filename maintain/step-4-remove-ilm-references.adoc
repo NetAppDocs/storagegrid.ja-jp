@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, remove ilm reference 
 summary: '[Decommission Site]ウィザードの手順4（[Remove ILM References]）で、ILMポリシーで使用されていないルールも含め、サイトを参照する未使用のILMルールを削除または編集する必要があります。' 
 ---
-= 手順 4 ： ILM 参照を削除する
+= StorageGRID のサイトへの ILM 参照を削除します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

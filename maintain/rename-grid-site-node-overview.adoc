@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rename grid, rename site, rename node, display name, system name 
 summary: 必要に応じて、グリッド全体、各サイト、および各ノードについて、Grid Managerで表示される表示名を変更できます。表示名は、必要なときに安全に更新できます。 
 ---
-= 名前変更手順の使用
+= StorageGRID の名前変更手順を使用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

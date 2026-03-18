@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, select site 
 summary: サイトの運用を停止できるかどうかを判断するには、まず Decommission Site ウィザードにアクセスします。 
 ---
-= 手順 1 ： [ サイト ] を選択します
+= StorageGRIDで廃止措置を行うサイトを選択してください
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

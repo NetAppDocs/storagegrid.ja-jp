@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, power nodes, power on nodes, power off nodes, power down nodes 
 summary: データセンターの移行などで、 StorageGRID システム全体のシャットダウンが必要になる場合があります。ここでは、通常の方法でシャットダウンと起動を実行する場合の推奨手順について、その概要を記載します。 
 ---
-= グリッド内のすべてのノードの電源をオフにしてオンにします
+= すべてのStorageGRIDノードの電源をオフにしてオンにする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

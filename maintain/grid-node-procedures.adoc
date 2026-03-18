@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, grid node procedure 
 summary: 特定のグリッドノードまたはノードサービスに関連したメンテナンス手順の実行が必要になる場合があります。 
 ---
-= ノードのメンテナンス手順
+= StorageGRIDノードのメンテナンス手順
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

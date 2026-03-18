@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: restore replicated data, restore erasure-coded data, recover appliance storage node, recover storage volume 
 summary: アプライアンスストレージノードのストレージボリュームをリカバリしたら、ストレージノードの障害で失われたレプリケートオブジェクトデータまたはイレイジャーコーディングオブジェクトデータをリストアできます。 
 ---
-= アプライアンスのストレージボリュームにオブジェクトデータをリストアします
+= StorageGRIDアプライアンスのストレージボリュームにオブジェクトデータを復元します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

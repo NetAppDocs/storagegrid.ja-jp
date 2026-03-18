@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: システムにホットフィックスを適用する準備ができていることを確認する必要があります。 
 ---
-= ホットフィックスを適用する前に、システムの状態を確認してください
+= StorageGRIDホットフィックスを適用する前にシステムの状態を確認してください
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

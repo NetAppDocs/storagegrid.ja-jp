@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, restore, volume 
 summary: Grid Managerを使用して、障害が発生したストレージボリュームまたはストレージノードのオブジェクトデータをリストアできます。また、Grid Managerを使用して、進行中のリストアプロセスを監視したり、リストア履歴を表示したりすることもできます。 
 ---
-= Grid Managerを使用してオブジェクトデータをリストアする
+= StorageGRID Grid Managerを使用してオブジェクトデータを復元する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

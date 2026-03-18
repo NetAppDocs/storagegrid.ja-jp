@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix 
 summary: ホットフィックスを適用したときに、 StorageGRID システムにどのような影響が生じるのかを理解しておく必要があります。 
 ---
-= ホットフィックス適用時のシステムへの影響
+= ホットフィックスを適用したときのStorageGRIDへの影響
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

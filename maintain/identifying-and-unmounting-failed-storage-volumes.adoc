@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage volume, failed storage volume, unmount failed volume 
 summary: ストレージボリュームに障害が発生したストレージノードをリカバリする場合は、障害ボリュームを特定し、アンマウントする必要があります。障害ストレージボリュームのみがリカバリ手順 で再フォーマットされることを確認する必要があります。 
 ---
-= 障害ストレージボリュームを特定してアンマウントします
+= StorageGRIDで障害が発生したストレージボリュームを特定してアンマウントします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

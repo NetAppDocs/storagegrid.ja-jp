@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: グリッドノードの削除に関する考慮事項を確認し、イレイジャーコーディングデータのアクティブな修復ジョブがないことを確認する必要があります。 
 ---
-= グリッドノードの運用を停止する準備をします
+= StorageGRIDノードの運用停止を準備
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

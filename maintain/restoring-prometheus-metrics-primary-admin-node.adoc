@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore metrics, restore prometheus, primary admin node 
 summary: プライマリ管理ノードで障害が発生した場合、そのノード上の Prometheus で管理されていた過去の指標を必要に応じてリストアすることができます。Prometheus 指標をリストアできるのは、 StorageGRID システムに別の管理ノードがある場合のみです。 
 ---
-= プライマリ管理ノードをリカバリする際の Prometheus 指標のリストア
+= プライマリ StorageGRID 管理ノードの復旧時に Prometheus メトリクスを復元します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

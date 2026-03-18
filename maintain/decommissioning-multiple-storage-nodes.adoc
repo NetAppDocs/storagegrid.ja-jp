@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission nodes, storage node, multiple storage nodes 
 summary: 複数のストレージノードを削除する必要がある場合は、運用停止処理を順次実行することも並列に実行することもできます。 
 ---
-= 複数のストレージノードの運用を停止
+= 複数のStorageGRIDストレージノードを廃止する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

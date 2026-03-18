@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, network configuration, node network configuration 
 summary: IP 変更ツールを使用して、 1 つ以上のノードのネットワーク設定を変更できます。グリッドネットワークの設定を変更したり、管理ネットワークまたはクライアントネットワークを追加、変更、削除したりできます。 
 ---
-= ノードのネットワーク設定の変更
+= StorageGRIDでノードネットワーク構成を変更する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

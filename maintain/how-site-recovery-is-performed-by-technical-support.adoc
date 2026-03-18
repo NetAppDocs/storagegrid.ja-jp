@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, site recovery, technical support, tech support 
 summary: StorageGRID サイト全体に障害が発生した場合、または複数のストレージノードで障害が発生した場合は、テクニカルサポートにお問い合わせください。テクニカルサポートは、お客様の状況を評価し、リカバリプランを作成してから、障害が発生したノードまたはサイトをビジネス目標に沿った方法でリカバリし、リカバリ時間を最適化して、不要なデータ損失を防ぎます。 
 ---
-= テクニカルサポートによるサイトのリカバリ方法
+= テクニカルサポートによるStorageGRIDサイトの復旧方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

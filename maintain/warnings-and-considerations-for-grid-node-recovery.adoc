@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, warning 
 summary: グリッドノードに障害が発生した場合は、できるだけ早くリカバリする必要があります。ノードのリカバリを開始する前に、ノードのリカバリに関する警告と考慮事項をすべて確認しておく必要があります。 
 ---
-= グリッドノードのリカバリに関する警告と考慮事項
+= StorageGRIDノードリカバリに関する警告と考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission admin node, decommission gateway node 
 summary: 管理ノードまたはゲートウェイノードの運用停止に関する考慮事項を確認します。 
 ---
-= 管理ノードまたはゲートウェイノードの運用停止に関する考慮事項
+= StorageGRID AdminノードまたはGatewayノードの運用停止に関する考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

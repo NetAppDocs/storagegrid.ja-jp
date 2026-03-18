@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance storage volume, appliance volume, remount appliance storage volume, remount volume, remounting appliance storage volume, remounting volume, reformat appliance storage volume, reformat volume, reformatting appliance storage volume, reformatting volume 
 summary: 2 つのスクリプトを手動で実行して、保持されているストレージボリュームを再マウントし、障害ストレージボリュームを再フォーマットする必要があります。最初のスクリプトは、 StorageGRID ストレージボリュームとして適切にフォーマットされているボリュームを再マウントします。2 番目のスクリプトは、マウントされていないボリュームを再フォーマットし、必要に応じて Cassandra データベースを再構築して、サービスを開始します。 
 ---
-= アプライアンスストレージボリュームの再マウントと再フォーマット（手動手順）
+= StorageGRIDアプライアンスストレージボリュームの再マウントと再フォーマット（手動手順）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

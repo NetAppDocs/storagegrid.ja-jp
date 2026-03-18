@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, data repair 
 summary: グリッドノードの運用を停止する前に、アクティブなデータ修復ジョブがないことを確認する必要があります。修復に失敗した場合は、手順 の運用を停止する前に、修復を再開し、完了させておく必要があります。 
 ---
-= データ修復ジョブを確認します
+= StorageGRID でデータ修復ジョブを確認する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

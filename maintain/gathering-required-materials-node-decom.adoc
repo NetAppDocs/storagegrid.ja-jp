@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, node decommission, decommission 
 summary: グリッドノードの運用停止を実行する前に、次の情報を取得する必要があります。 
 ---
-= 必要なデータや機器を揃えます
+= StorageGRIDノードの運用停止に必要な資料を収集
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, stop services, power down host, power off host 
 summary: ホストの電源をオフにする前に、そのホスト上のすべてのグリッドノードのサービスを停止する必要があります。 
 ---
-= ホストの電源をオフにします
+= StorageGRIDホストの電源を切る
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

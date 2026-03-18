@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, corrective action, additional recovery 
 summary: 交換ホストで実行されている StorageGRID ノードをリカバリした方法によっては、ノードごとに追加のリカバリ手順を実行する必要があります。 
 ---
-= 次の手順：必要に応じて追加のリカバリ手順を実行します
+= 追加のStorageGRIDノードリカバリ手順を実行する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

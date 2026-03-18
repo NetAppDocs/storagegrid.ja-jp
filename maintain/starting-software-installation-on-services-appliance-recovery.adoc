@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, services appliance, start software installation 
 summary: ゲートウェイノードまたは管理ノードをサービスアプライアンスにインストールするには、アプライアンスに含まれているStorageGRIDアプライアンスインストーラを使用します。 
 ---
-= サービスアプライアンスでソフトウェアのインストールを開始します
+= サービスアプライアンスでStorageGRIDソフトウェアのインストールを開始する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

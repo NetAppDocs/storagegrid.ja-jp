@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, move adc, adc quorum 
 summary: ADC サービスを同じサイト上の別のストレージ ノードに移動できます。 
 ---
-= ADCサービスを移動する
+= StorageGRIDでADCサービスを移動します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

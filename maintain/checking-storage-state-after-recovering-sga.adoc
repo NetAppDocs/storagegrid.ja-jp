@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recovery, node recovery, storage state 
 summary: アプライアンスストレージノードをリカバリしたら、アプライアンスストレージノードに必要とされる状態が「 Online 」に設定されていることを確認し、ストレージノードサーバが再起動するたびにオンライン状態になるようにする必要があります。 
 ---
-= アプライアンスストレージノードのリカバリ後にストレージの状態を確認します
+= StorageGRID アプライアンスストレージノードの復元後にストレージの状態を確認する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

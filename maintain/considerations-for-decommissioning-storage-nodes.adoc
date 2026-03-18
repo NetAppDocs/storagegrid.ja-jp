@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node decommission, considerations, appliance node clone 
 summary: ストレージノードの運用を停止する前に、ノードをクローニングできるかどうかを検討してください。その後、ノードの運用を停止する場合は、手順の運用停止時にStorageGRIDがオブジェクトとメタデータをどのように管理するかを確認します。 
 ---
-= ストレージノードの運用停止に関する考慮事項
+= StorageGRIDにおけるストレージノードの廃止に関する考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

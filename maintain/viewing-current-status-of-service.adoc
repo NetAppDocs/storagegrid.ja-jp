@@ -2,16 +2,16 @@
 permalink: maintain/viewing-current-status-of-service.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, service, status 
-summary: グリッドノード上で実行されているサービスの現在のステータスはいつでも表示できます。 
+summary: グリッドノード上で実行されているサービスの現在のステータスは、いつでも確認できます。 
 ---
-= サービスの現在のステータスを表示します
+= StorageGRIDサービスの現在のステータスを表示する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-グリッドノード上で実行されているサービスの現在のステータスはいつでも表示できます。
+グリッドノード上で実行されているサービスの現在のステータスは、いつでも確認できます。
 
 .開始する前に
 あなたはファイルを持ってい `Passwords.txt`ます。

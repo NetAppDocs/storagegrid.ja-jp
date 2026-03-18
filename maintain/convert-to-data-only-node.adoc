@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, convert node, data-only node 
 summary: パフォーマンスを向上させるには、低速の非 ADC ストレージ ノードをデータ専用のストレージ ノードに変換できます。 
 ---
-= ストレージノードをデータ専用ノードに変換する
+= StorageGRIDストレージノードをデータ専用ノードに変換する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

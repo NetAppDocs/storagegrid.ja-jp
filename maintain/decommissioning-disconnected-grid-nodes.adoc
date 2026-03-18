@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, disconnected nodes, decommission node 
 summary: グリッドに現在接続されていないノード（「 Health 」が「 Unknown 」または「 Administratively Down 」のノード）の運用を停止することが必要になる場合があります。 
 ---
-= 切断されているグリッドノードの運用を停止
+= 切断されたStorageGRIDノードの運用を停止します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

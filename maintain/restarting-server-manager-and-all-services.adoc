@@ -2,16 +2,16 @@
 permalink: maintain/restarting-server-manager-and-all-services.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, server manager, restart server manager 
-summary: グリッドノード上で実行されている Server Manager およびすべてのサービスの再起動が必要になる場合があります。 
+summary: Server Managerと、グリッドノード上で実行されているすべてのサービスを再起動する必要がある場合があります。 
 ---
-= Server Manager とすべてのサービスを再起動します
+= StorageGRIDサーバーマネージャーとすべてのサービスを再起動
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-グリッドノード上で実行されている Server Manager およびすべてのサービスの再起動が必要になる場合があります。
+Server Managerと、グリッドノード上で実行されているすべてのサービスを再起動する必要がある場合があります。
 
 .開始する前に
 あなたはファイルを持ってい `Passwords.txt`ます。

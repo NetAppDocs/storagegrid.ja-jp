@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, appliance, reinstallation appliance, reinstall appliance 
 summary: アプライアンスストレージノードをリカバリする場合は、最初に StorageGRID ソフトウェアを再インストールするアプライアンスを準備する必要があります。 
 ---
-= 再インストールのためのアプライアンスストレージノードの準備
+= StorageGRIDアプライアンスストレージノードの再インストールの準備
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

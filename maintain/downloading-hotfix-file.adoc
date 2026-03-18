@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, download 
 summary: ホットフィックスを適用する前に、ホットフィックスファイルをダウンロードする必要があります。 
 ---
-= ホットフィックスファイルをダウンロードします
+= StorageGRIDホットフィックスファイルをダウンロードします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

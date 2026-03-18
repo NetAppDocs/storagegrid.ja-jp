@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, volume warning 
 summary: ストレージノードの障害ストレージボリュームをリカバリする前に、次の警告を確認する必要があります。 
 ---
-= ストレージボリュームのリカバリに関する警告
+= StorageGRIDストレージボリュームのリカバリに関する警告
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

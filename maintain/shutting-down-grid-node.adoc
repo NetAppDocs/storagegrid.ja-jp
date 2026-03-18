@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, node shutdown, shut down node, node shut down 
 summary: グリッドノードは、ノードのコマンドシェルからシャットダウンできます。 
 ---
-= グリッドノードをシャットダウンします
+= StorageGRIDノードをシャットダウンする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

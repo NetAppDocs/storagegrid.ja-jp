@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission 
 summary: サイトの運用を停止する前に、以下を準備しておく必要があります。 
 ---
-= 必要なデータや機器を揃えます
+= StorageGRIDサイトの運用停止に必要な資料を収集
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

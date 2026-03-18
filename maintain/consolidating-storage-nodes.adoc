@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, storage node, consolidate storage node, consolidating storage node 
 summary: ストレージノードを統合すると、サイトや環境のストレージノード数を減らしながら、ストレージ容量を増やすことができます。 
 ---
-= ストレージノードを統合します
+= StorageGRIDストレージノードの統合
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

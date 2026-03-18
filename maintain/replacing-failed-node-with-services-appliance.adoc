@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace failed node, services appliance 
 summary: サービスアプライアンスを使用して、障害が発生したゲートウェイノード、障害が発生した非プライマリ管理ノード、またはVMware、Linuxホスト、またはサービスアプライアンスでホストされていた障害が発生したプライマリ管理ノードをリカバリできます。この手順 は、グリッドノードのリカバリ手順 の 1 つのステップです。 
 ---
-= 障害が発生したノードをサービスアプライアンスと交換します
+= 障害が発生したStorageGRIDノードをサービスアプライアンスと交換
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

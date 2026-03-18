@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, dns, modify dns 
 summary: 導入環境全体でDNSをグローバルに設定する代わりに、スクリプトを実行してDNSをグリッドノードごとに設定することができます。 
 ---
-= 単一のグリッドノードの DNS 設定を変更します
+= 単一のStorageGRIDノードのDNS構成を変更する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

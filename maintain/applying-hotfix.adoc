@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, hotfix, software update 
 summary: ホットフィックスは、最初にプライマリ管理ノードに自動的に適用されます。その後、すべてのノードが同じバージョンのソフトウェアを実行するまでの間、他のグリッドノードへのホットフィックスの適用を承認する必要があります。個々のグリッドノード、グリッドノードのグループ、またはすべてのグリッドノードを選択して、承認順序をカスタマイズできます。 
 ---
-= ホットフィックスを適用する
+= StorageGRID でホットフィックスを適用します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

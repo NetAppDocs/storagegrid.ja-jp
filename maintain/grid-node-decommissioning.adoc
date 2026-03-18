@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, decommission, remove grid node 
 summary: ノードの運用停止手順を使用して、1つ以上のサイトにある1つ以上のグリッドノードを削除できます。プライマリ管理ノードは運用停止できません。 
 ---
-= グリッドノードの運用停止
+= StorageGRIDグリッドノードの運用停止
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

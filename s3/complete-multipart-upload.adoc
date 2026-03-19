@@ -60,7 +60,13 @@ NOTE:  `ETag`返される値はデータのMD5合計ではなく、Amazon S3 API
 次の要求ヘッダーはサポートされていません。
 
 * `If-Match`
++
+ `If-Match header`は受け入れられるが、機能しない。
+
 * `If-None-Match`
++
+ `If-None-Match header`は受け入れられるが、機能しない。
+
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
 

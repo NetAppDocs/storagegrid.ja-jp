@@ -142,7 +142,13 @@ NOTE: ILMルールでは、参照時間に*ユーザ定義の作成時間*を使
 次の要求ヘッダーはサポートされていません。
 
 * `If-Match`
++
+ `If-Match header`は受け入れられるが、機能しない。
+
 * `If-None-Match`
++
+ `If-None-Match header`は受け入れられるが、機能しない。
+
 * `x-amz-acl`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`

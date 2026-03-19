@@ -101,6 +101,14 @@ NOTE: StorageGRID 11.6以前からアップグレードした場合、5GiBを超
 * `Content-Encoding`
 * `Content-Language`
 * `Expires`
+* `If-Match`
++
+ `If-Match header`は受け入れられるが、機能しない。
+
+* `If-None-Match`
++
+ `If-None-Match header`は受け入れられるが、機能しない。
+
 * `x-amz-checksum-algorithm`
 +
 オブジェクトをコピーするときにソースオブジェクトにチェックサムがある場合、StorageGRIDはそのチェックサム値を新しいオブジェクトにコピーしません。この動作は、をオブジェクト要求で使用しようとしたかどうかに関係なく適用され `x-amz-checksum-algorithm`ます。

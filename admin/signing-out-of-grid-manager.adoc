@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid manager, sign on, log out 
 summary: Grid Manager の使用が完了したら、サインアウトして、権限のないユーザが StorageGRID システムにアクセスできないようにする必要があります。ブラウザのクッキーの設定によっては、ブラウザを閉じてもシステムからサインアウトされない場合があります。 
 ---
-= Grid Manager からサインアウトします
+= StorageGRID Grid Manager からログアウトします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

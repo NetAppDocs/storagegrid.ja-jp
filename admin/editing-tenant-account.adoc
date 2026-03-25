@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit tenant account, change tenant name, allow platform services, tenant quota 
 summary: テナントアカウントを編集して、表示名、ストレージクォータ、またはテナント権限を変更できます。 
 ---
-= テナントアカウントを編集します
+= StorageGRID テナント アカウントを編集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

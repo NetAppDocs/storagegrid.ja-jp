@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to access storagegrid API if SSO is enabled with Entra ID 
 summary: 'シングル サインオン (SSO) を構成して有効にし、Entra ID を SSO プロバイダーとして使用する場合は、2 つのサンプル スクリプトを使用して、グリッド管理 API またはテナント管理 API に有効な認証トークンを取得できます。' 
 ---
-= シングル サインオンが有効になっている場合は API を使用します (Entra ID)
+= シングル サインオン が有効になっている場合は StorageGRID API を使用します（Entra ID）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

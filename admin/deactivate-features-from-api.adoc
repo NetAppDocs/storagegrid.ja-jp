@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: deactivate features from api 
 summary: グリッド管理 API を使用すると、 StorageGRID システムの特定の機能を完全に非アクティブ化できます。機能を非アクティブ化すると、その機能に関連するタスクを実行する権限をユーザに割り当てることができなくなります。 
 ---
-= API で機能を非アクティブ化します
+= API を使用して StorageGRID 機能を無効化する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

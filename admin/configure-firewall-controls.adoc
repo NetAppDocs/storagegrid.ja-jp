@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall, privileged IP address, untrusted client network, configure firewall controls, monitor 
 summary: 特定の内部StorageGRID ポートに対してネットワークアクセスを設定できます。 
 ---
-= 内部ファイアウォールを設定します
+= StorageGRID 内部ファイアウォールを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

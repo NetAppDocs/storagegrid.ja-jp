@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: add kms, key management server 
 summary: StorageGRID キー管理サーバウィザードを使用して、各 KMS または KMS クラスタを追加します。 
 ---
-= キー管理サーバ（ KMS ）を追加する
+= StorageGRIDでキー管理サーバーを追加する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

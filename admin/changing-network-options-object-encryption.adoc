@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enable http, storage node connections 
 summary: ネットワークとオブジェクトのセキュリティを設定して、格納オブジェクトの暗号化、特定のS3要求の防止、ストレージノードへのクライアント接続でHTTPSではなくHTTPを使用できるようにすることができます。 
 ---
-= ネットワークとオブジェクトのセキュリティを設定します
+= StorageGRID ネットワークとオブジェクトのセキュリティを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

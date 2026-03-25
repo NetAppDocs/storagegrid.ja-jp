@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, S3, client application, TLS 
 summary: StorageGRIDテナントアカウントは、S3クライアントアプリケーションを使用してオブジェクトデータをStorageGRIDに保存します。クライアントアプリケーションに実装されているセキュリティ対策を確認する必要があります。 
 ---
-= S3クライアントノセキユリテイ
+= StorageGRID の S3 クライアントのセキュリティ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

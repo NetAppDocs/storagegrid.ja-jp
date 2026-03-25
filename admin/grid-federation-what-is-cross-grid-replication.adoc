@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
 summary: グリッド間レプリケーションは、グリッドフェデレーション接続で接続された2つのStorageGRID システム内の選択したS3バケット間でオブジェクトを自動的にレプリケーションする機能です。グリッド間レプリケーションにはアカウントのクローンが必要です。 
 ---
-= クロスグリッドレプリケーションとは何ですか。
+= StorageGRID のクロスグリッドレプリケーションについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

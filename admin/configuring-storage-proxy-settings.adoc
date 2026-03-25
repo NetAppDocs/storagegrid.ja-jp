@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage proxy, non-transparent proxy, platform service endpoint 
 summary: プラットフォームサービスまたはクラウドストレージプールを使用している場合は、ストレージノードと外部の S3 エンドポイントの間に非透過型プロキシを設定できます。たとえば、インターネット上のエンドポイントなどの外部エンドポイントへプラットフォームサービスメッセージを送信する場合などには、非透過型プロキシが必要です。 
 ---
-= ストレージプロキシの設定
+= StorageGRID ストレージ プロキシを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

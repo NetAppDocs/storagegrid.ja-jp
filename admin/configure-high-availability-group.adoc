@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure high availability group, node priority order, failover 
 summary: ハイアベイラビリティ（ HA ）グループを設定して、管理ノードまたはゲートウェイノード上のサービスへの可用性の高いアクセスを提供できます。 
 ---
-= ハイアベイラビリティグループを設定する
+= StorageGRIDで高可用性グループを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

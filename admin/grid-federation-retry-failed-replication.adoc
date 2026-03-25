@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, troubleshoot 
 summary: Cross-grid replication permanent failureアラートを解決したら、他のグリッドへのレプリケートに失敗したオブジェクトまたは削除マーカーがないかどうかを確認する必要があります。その後、これらのオブジェクトを再取り込みするか、グリッド管理APIを使用してレプリケーションを再試行できます。 
 ---
-= 失敗したレプリケーション処理を特定して再試行します
+= 失敗したStorageGRIDレプリケーション処理を特定して再試行する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

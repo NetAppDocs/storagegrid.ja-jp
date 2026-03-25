@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: custom certificates, grid manager, tenant manager, management interface certificate 
 summary: デフォルトの StorageGRID サーバ証明書を単一のカスタムサーバ証明書に置き換えると、ユーザがグリッドマネージャとテナントマネージャにアクセスする際にセキュリティの警告が表示されなくなります。デフォルトの管理インターフェイス証明書に戻すか、新しい証明書を生成することもできます。 
 ---
-= 管理インターフェイス証明書を設定
+= StorageGRID で管理インターフェイス証明書を設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

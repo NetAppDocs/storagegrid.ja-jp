@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: traffic classification, network traffic, traffic limits, policy 
 summary: バケット、テナント、 IP サブネット、またはロードバランサエンドポイントごとにネットワークトラフィックを監視し、必要に応じて制限する場合は、トラフィック分類ポリシーを作成します。必要に応じて、帯域幅、同時要求数、または要求速度に基づいてポリシーの制限を設定できます。 
 ---
-= トラフィック分類ポリシーを作成します
+= StorageGRID トラフィック分類ポリシーを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

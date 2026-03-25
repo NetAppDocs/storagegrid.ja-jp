@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ip addresses for client, how to connect to storagegrid, ports, vip 
 summary: S3クライアントアプリケーションは、オブジェクトの格納や読み出しを行うために、すべての管理ノードおよびゲートウェイノードに含まれるロードバランササービスまたはすべてのストレージノードに含まれるLocal Distribution Router（LDR）サービスに接続します。 
 ---
-= Summary ：クライアント接続の IP アドレスとポート
+= StorageGRIDクライアント接続のIPアドレスとポート
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

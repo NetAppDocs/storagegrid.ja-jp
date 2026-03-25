@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object segmentation, multipart upload 
 summary: オブジェクトのセグメント化は、オブジェクトを小さな固定サイズのオブジェクトの集まりに分割して、大きなオブジェクトのストレージとリソースの使用を最適化するプロセスです。S3 のマルチパートアップロードでもセグメント化されたオブジェクトが作成され、各パートを表すオブジェクトが 1 つ作成されます。 
 ---
-= オブジェクトのセグメント化とは
+= StorageGRIDのオブジェクトセグメンテーションについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

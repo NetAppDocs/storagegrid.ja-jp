@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object metadata, metadata capacity, best practices 
 summary: StorageGRID システムのオブジェクトメタデータ容量は、そのシステムに格納できるオブジェクトの最大数を制御します。StorageGRID システムに新しいオブジェクトを格納するための十分なスペースを確保するには、 StorageGRID がオブジェクトメタデータを格納する場所と方法を理解する必要があります。 
 ---
-= オブジェクトメタデータストレージを管理する
+= StorageGRID でのオブジェクト メタデータ ストレージの管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

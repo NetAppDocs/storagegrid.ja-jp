@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall controls, untrusted client network, privileged address, manage external access 
 summary: StorageGRID の各ノードには内部ファイアウォールがあり、グリッドネットワーク、管理ネットワーク、およびクライアントネットワークへのアクセスをカスタマイズできるため、グリッドのセキュリティが強化されます。 
 ---
-= 内部ファイアウォールコントロールを管理します
+= StorageGRIDで内部ファイアウォール制御を管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

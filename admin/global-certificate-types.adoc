@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: rsa, ecdsa, custom certificate encryption 
 summary: StorageGRID システムは、 RSA または ECDSA （ Elliptic Curve Digital Signature Algorithm ）で暗号化されたサーバ証明書をサポートします。 
 ---
-= サポートされているサーバ証明書のタイプ
+= StorageGRID でサポートされているサーバー証明書のタイプ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

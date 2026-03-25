@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: kms, appliance configuration, node encryption 
 summary: キー管理サーバ（ KMS ）を使用してアプライアンスノード上の StorageGRID データを保護する前に、 1 つ以上の KMS サーバを設定してアプライアンスノードのノード暗号化を有効にするという 2 つの設定タスクを完了しておく必要があります。これらの 2 つの設定タスクが完了すると、キー管理プロセスが自動的に実行されます。 
 ---
-= KMSとアプライアンスの設定
+= StorageGRID キー管理サーバとアプライアンスの設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services message delivery 
 summary: プラットフォームサービスの処理はすべてサイト単位で実行されます。 
 ---
-= サイト単位のプラットフォームサービスメッセージの配信
+= サイトごとの StorageGRID プラットフォーム サービス メッセージの配信
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

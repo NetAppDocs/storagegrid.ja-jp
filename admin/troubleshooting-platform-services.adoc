@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot platform services, platform services endpoint error 
 summary: プラットフォームサービスで使用されるエンドポイントは、テナントユーザが Tenant Manager で作成および管理します。ただし、テナントでプラットフォームサービスの設定または使用に関する問題がテナントで発生した場合は、グリッドマネージャを使用して問題 を解決できる可能性があります。 
 ---
-= プラットフォームサービスのトラブルシューティングを行う
+= StorageGRID プラットフォーム サービスのトラブルシューティング
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: web browser requirements, supported browser, chrome, edge, firefox 
 summary: サポートされている Web ブラウザを使用する必要があります。 
 ---
-= Web ブラウザの要件
+= StorageGRIDのWebブラウザ要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure vlan interfaces, vlan interfaces, trunk interface 
 summary: 管理ノードとゲートウェイノードに仮想 LAN （ VLAN ）インターフェイスを作成し、それらを HA グループとロードバランサエンドポイントで使用してトラフィックを分離し、セキュリティ、柔軟性、パフォーマンスを向上させることができます。 
 ---
-= VLAN インターフェイスを設定します
+= StorageGRIDでVLANインターフェイスを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

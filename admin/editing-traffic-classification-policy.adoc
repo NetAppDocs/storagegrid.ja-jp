@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: edit traffic classification policy 
 summary: トラフィック分類ポリシーを編集して、その名前または概要 を変更したり、ポリシーのルールや制限を作成、編集、削除したりできます。 
 ---
-= トラフィック分類ポリシーを編集します
+= StorageGRID トラフィック分類ポリシーを編集する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

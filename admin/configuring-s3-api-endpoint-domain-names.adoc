@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 endpoint domain names, virtual-hosted-style requests 
 summary: S3仮想ホスト形式の要求をサポートするには、Grid Managerを使用して、S3クライアントの接続先のS3エンドポイントのドメイン名のリストを設定する必要があります。 
 ---
-= S3エンドポイントのドメイン名を設定
+= StorageGRIDでS3エンドポイントドメイン名を設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

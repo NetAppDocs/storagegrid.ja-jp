@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 connection, connect to storagegrid, s3 setup wizard 
 summary: グリッド管理者は設定オプションを管理し、S3クライアントアプリケーションがデータの格納と読み出しを行うためにStorageGRIDシステムに接続する方法を制御します。 
 ---
-= S3クライアント接続の設定
+= S3 クライアント接続を StorageGRID に設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

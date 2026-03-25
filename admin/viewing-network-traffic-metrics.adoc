@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network traffic, traffic classification policy, monitor traffic 
 summary: トラフィック分類ポリシーページのグラフを表示して、ネットワークトラフィックを監視できます。 
 ---
-= ネットワークトラフィックの指標を表示します
+= StorageGRIDでネットワーク トラフィック指標を表示
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

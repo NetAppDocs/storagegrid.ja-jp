@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: client certificates, prometheus 
 summary: クライアント証明書を使用すると、許可された外部クライアントから StorageGRID の Prometheus データベースにアクセスして、外部ツールで StorageGRID を監視するための安全な方法を提供できます。 
 ---
-= クライアント証明書を設定
+= StorageGRID でクライアント証明書を設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

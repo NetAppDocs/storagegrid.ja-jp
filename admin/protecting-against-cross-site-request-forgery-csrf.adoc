@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: csrf, cross site request forgery, token 
 summary: CSRF トークンを使用してクッキーによる認証を強化すると、 StorageGRID に対するクロスサイトリクエストフォージェリ \ （ CSRF \ ）攻撃を防ぐことができます。Grid Manager と Tenant Manager はこのセキュリティ機能を自動的に有効にします。他の API クライアントは、サインイン時にこの機能を有効にするかどうかを選択できます。 
 ---
-= クロスサイトリクエストフォージェリ（ CSRF ）の防止
+= StorageGRID でクロスサイトリクエストフォージェリ（CSRF）から保護する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

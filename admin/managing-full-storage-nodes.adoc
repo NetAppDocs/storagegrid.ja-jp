@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storage node is full 
 summary: ストレージノードの容量が上限に達した場合は、新しいストレージを追加して StorageGRID システムを拡張する必要があります。ストレージボリュームの追加、ストレージ拡張シェルフの追加、ストレージノードの追加の 3 つのオプションがあります。 
 ---
-= ストレージノードがいっぱいになったときの管理
+= StorageGRID でストレージノード全体を管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

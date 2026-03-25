@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: global S3 API certificate 
 summary: ストレージノードまたはロードバランサエンドポイントへのS3クライアント接続に使用されるサーバ証明書を置き換えたりリストアしたりできます。置き換え用のカスタムサーバ証明書は組織に固有のものです。 
 ---
-= S3 API証明書の設定
+= StorageGRIDでS3 API証明書を設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: QoS, quality of service, traffic classification, best practices, limit traffic, monitor traffic 
 summary: トラフィック分類ポリシーを使用すると、さまざまなタイプのネットワークトラフィックを識別および監視できます。これらのポリシーは、トラフィックの制限と監視に役立ち、Quality of Service（QoS；サービス品質）サービスを強化できます。 
 ---
-= トラフィック分類ポリシーとは
+= StorageGRID のトラフィック分類ポリシー
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

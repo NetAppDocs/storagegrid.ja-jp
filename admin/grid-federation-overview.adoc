@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
 summary: グリッドフェデレーションを使用すると、ディザスタリカバリ用にテナントをクローニングし、2つのStorageGRID システム間でオブジェクトをレプリケートできます。 
 ---
-= グリッドフェデレーションとは
+= StorageGRID グリッド フェデレーションについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

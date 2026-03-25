@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: create tenant, tenant account 
 summary: StorageGRID システム内のストレージへのアクセスを制御するために、少なくとも 1 つのテナントアカウントを作成する必要があります。 
 ---
-= テナントアカウントを作成します
+= StorageGRID テナント アカウントを作成します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

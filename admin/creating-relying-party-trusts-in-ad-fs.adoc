@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: Active Directory フェデレーションサービス（ AD FS ）を使用して、システム内の管理ノードごとに証明書利用者信頼を作成する必要があります。PowerShell コマンドを使用するか、 StorageGRID から SAML メタデータをインポートするか、またはデータを手動で入力することによって、証明書利用者信頼を作成できます。 
 ---
-= AD FS に証明書利用者信頼を作成します
+= AD FS で StorageGRID の証明書利用者信頼を作成します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

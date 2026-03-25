@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: account clone, tenant replication, disaster recovery, grid federation 
 summary: アカウントのクローンは、テナントアカウント、テナントグループ、テナントユーザの自動レプリケーションです。必要に応じて、 グリッドフェデレーション接続内のStorageGRID システム間のS3アクセスキー。 
 ---
-= アカウントクローンとは何ですか？
+= StorageGRIDのアカウントクローンについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

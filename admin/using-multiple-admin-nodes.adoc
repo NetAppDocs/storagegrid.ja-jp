@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: admin nodes, more than one admin node, multiple admin nodes 
 summary: StorageGRID システムには複数の管理ノードを含めることができます。これにより、 1 つの管理ノードに障害が発生した場合でも、 StorageGRID システムを継続的に監視して設定することができます。 
 ---
-= 複数の管理ノードを使用する
+= StorageGRID で複数の管理ノードを使用する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

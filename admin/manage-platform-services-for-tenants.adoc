@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform service, cloudmirror replication, event notification, search integration service 
 summary: プラットフォームサービスには、 CloudMirror レプリケーション、イベント通知、および検索統合サービスがあります。 
 ---
-= プラットフォームサービスとは
+= StorageGRID プラットフォーム サービスについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

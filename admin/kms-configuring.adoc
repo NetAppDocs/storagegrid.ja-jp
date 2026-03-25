@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: configure kms, key management server, kmip, Key Management Interoperability Protocol 
 summary: キー管理サーバ\（KMS\）はサードパーティ製の外部システムで、Key Management Interoperability Protocol（KMIP\）を使用して、関連するStorageGRIDサイトのStorageGRIDアプライアンスノードに暗号化キーを提供します。 
 ---
-= キー管理サーバ（ KMS ）とは何ですか？
+= StorageGRIDのキー管理サーバーについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

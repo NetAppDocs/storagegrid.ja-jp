@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: tls cipher suites, transport layer security connections 
 summary: StorageGRID システムでは、アイデンティティフェデレーションとクラウドストレージプールに使用される外部システムへの Transport Layer Security （ TLS ）接続でサポートされる暗号スイートに制限があります。 
 ---
-= 発信 TLS 接続でサポートされる暗号
+= StorageGRIDの送信TLS接続でサポートされている暗号
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, create connection, configure connection 
 summary: テナントの詳細をクローニングしてオブジェクトデータをレプリケートする場合は、2つのStorageGRID システム間にグリッドフェデレーション接続を作成できます。 
 ---
-= グリッドフェデレーション接続を作成する
+= StorageGRID グリッド フェデレーション接続を作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

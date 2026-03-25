@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: kms cluster, copy kms encryption key 
 summary: 各キー管理サーバ（ KMS ）または KMS クラスタは、 1 つのサイトまたはサイトグループにあるすべてのアプライアンスノードに暗号化キーを提供します。サイトで使用する KMS を変更する必要がある場合は、暗号化キーを KMS から別の KMS にコピーする必要があります。 
 ---
-= サイトの KMS を変更する際の考慮事項
+= StorageGRID サイトの KMS を変更する際の考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

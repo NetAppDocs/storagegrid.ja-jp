@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security, browser inactivity timeout, management API stack track 
 summary: インターフェイスのセキュリティ設定では、ユーザが指定した時間以上非アクティブであった場合にサインアウトするかどうか、およびスタックトレースをAPIエラー応答に含めるかどうかを制御できます。 
 ---
-= インターフェイスセキュリティ設定の変更
+= StorageGRIDインターフェイスのセキュリティ設定を変更する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

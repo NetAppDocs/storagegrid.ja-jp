@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: troubleshoot, grid federation connection, account clone, cross-grid replication, alerts, errors 
 summary: グリッドフェデレーション接続、アカウントクローン、およびグリッド間レプリケーションに関連するアラートやエラーのトラブルシューティングが必要になる場合があります。 
 ---
-= グリッドフェデレーションエラーをトラブルシューティングする
+= StorageGRID でグリッドフェデレーションのエラーをトラブルシューティングします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

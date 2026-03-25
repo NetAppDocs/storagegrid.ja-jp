@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: S3, S3 setup wizard 
 summary: S3セットアップウィザードを使用して、StorageGRID をS3アプリケーションのオブジェクトストレージシステムとして設定できます。 
 ---
-= S3セットアップウィザードの「考慮事項と要件」を使用します
+= StorageGRID S3 セットアップ ウィザードの考慮事項と要件
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

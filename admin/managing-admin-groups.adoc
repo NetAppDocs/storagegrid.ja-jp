@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what are admin groups, user permissions 
 summary: 管理者グループを作成して、 1 人以上の管理者ユーザのセキュリティ権限を管理できます。StorageGRID システムへのアクセスを許可するには、ユーザがグループに属している必要があります。 
 ---
-= 管理者グループを管理する
+= StorageGRID で管理者グループを管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

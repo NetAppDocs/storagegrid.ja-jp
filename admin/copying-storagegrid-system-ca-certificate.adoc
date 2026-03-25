@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid ca certificate, copy certificate 
 summary: StorageGRID は、内部の認証局（ CA ）を使用して内部トラフィックを保護します。独自の証明書をアップロードしても、この証明書は変更されません。 
 ---
-= Grid CA 証明書をコピーする
+= StorageGRID グリッド CA 証明書をコピーします
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

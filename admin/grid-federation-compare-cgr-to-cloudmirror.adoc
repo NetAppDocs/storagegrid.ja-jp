@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: cross-grid replication, cloudmirror replication 
 summary: グリッドフェデレーションの使用を開始したら、グリッド間レプリケーションとStorageGRID CloudMirrorレプリケーションサービスの類似点と相違点を確認してください。 
 ---
-= グリッド間レプリケーションとCloudMirrorレプリケーションを比較してください
+= StorageGRIDにおけるグリッド間複製とCloudMirror複製の比較
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

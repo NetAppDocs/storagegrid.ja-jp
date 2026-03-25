@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: platform services, ports for platform services, 443, 80 
 summary: S3 テナントにプラットフォームサービスの使用を許可する場合は、プラットフォームサービスのメッセージがデスティネーションに配信されるようにグリッドのネットワークを設定する必要があります。 
 ---
-= プラットフォームサービス用のネットワークとポート
+= StorageGRID プラットフォーム サービスのネットワークとポート
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

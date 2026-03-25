@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage local users 
 summary: ローカルユーザとフェデレーテッドユーザを表示できます。また、ローカルユーザを作成してローカル管理者グループに割り当て、そのユーザがアクセスできる Grid Manager 機能を決定することもできます。 
 ---
-= ユーザの管理
+= StorageGRID でユーザーを管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

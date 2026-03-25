@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure load balancer endpoint, how to attach certificate to load balancer endpoint 
 summary: ロードバランサエンドポイントは、S3クライアントがゲートウェイノードと管理ノード上のStorageGRIDロードバランサに接続するときに使用できるポートとネットワークプロトコルを決定します。エンドポイントを使用してGrid Manager、Tenant Manager、またはその両方にアクセスすることもできます。 
 ---
-= ロードバランサエンドポイントを設定する
+= StorageGRIDロード バランサ エンドポイントを設定します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

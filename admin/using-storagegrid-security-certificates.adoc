@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: security certificates, grid CA certificate, types of certificates 
 summary: セキュリティ証明書は、 StorageGRID コンポーネント間、および StorageGRID コンポーネントと外部システム間のセキュアで信頼された接続の確立に使用される小さいデータファイルです。 
 ---
-= セキュリティ証明書を管理する
+= StorageGRIDでセキュリティ証明書を管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

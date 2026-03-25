@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: link cost, site latency, manage link costs, prioritize sites 
 summary: リンクコストを使用すると、複数のデータセンターサイトが存在する場合に、要求されたサービスを提供するデータセンターサイトの優先順位を決定できます。サイト間のレイテンシに合わせてリンクコストを調整できます。 
 ---
-= リンクコストを管理します
+= StorageGRIDでリンクコストを管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

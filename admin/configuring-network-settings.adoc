@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: network settings, vlan interface, traffic classification 
 summary: グリッドマネージャからさまざまなネットワーク設定を行い、 StorageGRID システムの動作を微調整できます。 
 ---
-= ネットワークの設定
+= StorageGRIDネットワーク設定を設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: use sandbox mode for sso, how to test single sign-on 
 summary: 'SSO の構成ウィザードに従ってサンドボックス モードに入り、すべてのStorageGRIDユーザーに対してシングル サインオン (SSO) を有効にする前に、シングル サインオン (SSO) を構成してテストすることができます。  SSO を有効にした後、構成を変更または再テストする必要がある場合は、サンドボックス モードに戻ることができます。' 
 ---
-= SSOの設定
+= StorageGRID で SSO を設定
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

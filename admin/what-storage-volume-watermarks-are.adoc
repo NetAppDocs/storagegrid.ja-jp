@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: what are storage volume watermarks, storage volume soft read-only watermark, storage volume hard read-only watermark, storage volume read-write watermark 
 summary: StorageGRID では、ストレージボリュームのウォーターマークを 3 つ使用して、スペースの深刻な低下を発生させる前にストレージノードを読み取り専用状態に安全に移行し、読み取り専用状態に移行して再び読み取り / 書き込み可能にすることができます。 
 ---
-= ストレージボリュームのウォーターマークとは何ですか？
+= StorageGRIDのストレージボリュームのウォーターマークについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

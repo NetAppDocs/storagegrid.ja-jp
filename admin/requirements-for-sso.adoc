@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: sso requirements, single sign on requirements, identity federation requirements for sso, pingfederate, entra id, ad fs 
 summary: StorageGRID システムでシングルサインオンを有効にする前に、要件と考慮事項を確認してください。 
 ---
-= SSO の要件と考慮事項
+= StorageGRID SSO の要件と考慮事項
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

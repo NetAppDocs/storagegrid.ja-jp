@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid federation, edit connection, remove connection, rotate certificates 
 summary: StorageGRID システム間のグリッドフェデレーション接続の管理には、接続の詳細の編集、証明書のローテーション、テナント権限の削除、未使用の接続の削除が含まれます。 
 ---
-= グリッドフェデレーション接続を管理します
+= StorageGRID グリッド フェデレーション接続を管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

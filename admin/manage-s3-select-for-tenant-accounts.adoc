@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: s3 select, selectobjectcontent, best practices, object format, s3 select requirements 
 summary: 特定の S3 テナントが、個々のオブジェクトに対する S3 Select から問題 SelectObjectContent 要求を使用できるようにすることができます。 
 ---
-= テナントアカウント用の S3 Select を管理します
+= StorageGRID でテナント アカウントの S3 Select を管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

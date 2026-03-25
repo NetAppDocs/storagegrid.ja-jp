@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to configure autosupport, what is autosupport-on-demand 
 summary: デフォルトでは、StorageGRID AutoSupport機能はStorageGRIDの初回インストール時に有効になっています。ただし、各アプライアンスでハードウェアAutoSupportを設定する必要があります。必要に応じて、AutoSupportの設定を変更できます。 
 ---
-= AutoSupportの設定
+= StorageGRIDでAutoSupportを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

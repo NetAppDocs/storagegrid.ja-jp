@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: object compression, compress stored objects 
 summary: オブジェクトの圧縮を有効にすると、StorageGRID に格納されているオブジェクトのサイズを縮小して、オブジェクトによるストレージ消費量を削減できます。 
 ---
-= 格納オブジェクトを圧縮します
+= StorageGRID に保存されたオブジェクトを圧縮
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

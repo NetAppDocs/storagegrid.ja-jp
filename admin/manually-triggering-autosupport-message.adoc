@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: autosupport, how to send asup message 
 summary: テクニカルサポートによるStorageGRIDシステムの問題のトラブルシューティングを支援するために、送信するAutoSupportパッケージを手動でトリガーできます。 
 ---
-= AutoSupportパッケージを手動でトリガーする
+= StorageGRIDでAutoSupportパッケージを手動でトリガーする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

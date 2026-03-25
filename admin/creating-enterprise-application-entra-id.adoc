@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: enterprise application, entra id, single sign on, sso 
 summary: Entra ID を使用して、システム内の各管理ノードに対してエンタープライズ アプリケーションを作成します。 
 ---
-= Entra IDでエンタープライズアプリケーションを作成する
+= Entra ID で StorageGRID のエンタープライズ アプリケーションを作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

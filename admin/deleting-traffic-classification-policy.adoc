@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: delete traffic classification policy 
 summary: トラフィック分類ポリシーが不要になった場合は、削除できます。 
 ---
-= トラフィック分類ポリシーを削除します
+= StorageGRID トラフィック分類ポリシーを削除する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

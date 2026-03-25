@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to manage security 
 summary: StorageGRID システムのセキュリティを保護するために、 Grid Manager でさまざまなセキュリティ設定を行うことができます。 
 ---
-= セキュリティを管理します
+= StorageGRID でセキュリティを管理する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

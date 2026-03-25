@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to access storagegrid API if SSO is enabled with PingFederate 
 summary: シングルサインオン（ SSO ）を設定して有効にし、かつ SSO プロバイダとして PingFederate を使用する場合は、一連の API 要求を問題 で実行して、グリッド管理 API またはテナント管理 API で有効な認証トークンを取得する必要があります。 
 ---
-= シングルサインオンが有効な場合は API を使用（ PingFederate ）
+= シングル サインオンが有効になっている場合は StorageGRID API を使用します（PingFederate）
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

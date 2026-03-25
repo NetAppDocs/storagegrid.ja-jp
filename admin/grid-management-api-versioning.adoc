@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: grid management api, api versioning 
 summary: グリッド管理 API では、バージョン管理を使用して無停止アップグレードがサポートされます。 
 ---
-= グリッド管理 API のバージョン管理
+= StorageGRID におけるグリッド管理 API のバージョン管理
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

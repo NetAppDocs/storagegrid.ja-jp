@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: FabricPool and S3 setup wizard, object storage system, S3 application 
 summary: S3セットアップウィザードを使用して、StorageGRID をS3アプリケーションのオブジェクトストレージシステムとして設定できます。 
 ---
-= S3セットアップウィザードにアクセスして実行します
+= StorageGRID で S3 セットアップ ウィザードにアクセスして完了します
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

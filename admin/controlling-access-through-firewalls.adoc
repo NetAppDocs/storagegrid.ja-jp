@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: firewall access, firewall ports, external firewall 
 summary: 外部ファイアウォールで特定のポートを開いたり閉じたりできます。 
 ---
-= 外部ファイアウォールでアクセスを制御します
+= 外部ファイアウォールでStorageGRIDアクセスを制御する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

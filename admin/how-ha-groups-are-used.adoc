@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: ha groups, high availability group 
 summary: ハイアベイラビリティ（ HA ）グループを使用すると、オブジェクトデータ用および管理用に StorageGRID への可用性の高い接続を提供できます。 
 ---
-= HA グループの用途
+= StorageGRID HA グループによる高可用性の提供方法
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: manage load balancing, balance workload, client ingest, client retrieval, distribute connection 
 summary: ロードバランシングを使用して、S3クライアントからの取り込みと読み出しのワークロードを処理できます。 
 ---
-= ロードバランシングに関する考慮事項
+= StorageGRID ロード バランシングについて学ぶ
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

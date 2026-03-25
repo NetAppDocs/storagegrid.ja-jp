@@ -4,14 +4,14 @@ sidebar: sidebar
 keywords: ha groups, best practices, high availability group options 
 summary: 次の図は、 HA グループのさまざまな設定方法を示しています。各オプションには長所と短所があります。 
 ---
-= HA グループの設定オプション
+= StorageGRID 高可用性グループの設定オプション
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-次の図は、 HA グループのさまざまな構成例を示しています。各オプションには長所と短所があります。
+以下の図は、高可用性（HA）グループを構成するさまざまな方法の例を示しています。それぞれの選択肢には長所と短所があります。
 
 次の図では、 HA グループのプライマリインターフェイスが青、 HA グループのバックアップインターフェイスが黄色で示されています。
 

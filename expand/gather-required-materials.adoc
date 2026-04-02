@@ -59,7 +59,7 @@ StorageGRID インストールアーカイブ
 StorageGRID のドキュメント
  a| 
 * link:../admin/index.html["StorageGRID の管理"]
-* link:../release-notes/index.html["リリースノート"]
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["リリースノート"^]。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
 * link:../swnodes/index.html["使用しているプラットフォームに対応したインストール手順"]
 
 

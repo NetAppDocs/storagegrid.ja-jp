@@ -9,10 +9,8 @@ indexpage:
   tiles:
   - title: 開始する
     links:
-    - title: リリースノート
-      url: "/release-notes/index.html"
     - title: 新機能
-      url: "/upgrade/whats-new.html"
+      url: "/release-notes/whats-new.html"
     - title: StorageGRID の詳細をご覧ください
       url: "/primer/index.html"
     - title: ネットワークのガイドライン

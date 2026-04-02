@@ -30,7 +30,15 @@ sidebar:
   - title: StorageGRIDアプライアンス
     url: "/swnodes/storagegrid-hardware.html"
   - title: リリースノート
-    url: "/release-notes/index.html"
+    entries:
+    - title: StorageGRID 12.0の新機能
+      url: "/release-notes/whats-new.html"
+    - title: 削除または非推奨となった機能
+      url: "/release-notes/removed-or-deprecated-features.html"
+    - title: Grid 管理 API に対する変更
+      url: "/release-notes/changes-to-grid-management-api.html"
+    - title: テナント管理 API に変更が加えられました
+      url: "/release-notes/changes-to-tenant-management-api.html"
   - title: 開始する
     url: "/landing-get-started/index.html"
     entries:

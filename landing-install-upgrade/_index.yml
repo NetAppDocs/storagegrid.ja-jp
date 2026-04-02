@@ -28,7 +28,7 @@ indexpage:
   - title: アップグレードまたはホットフィックス
     links:
     - title: 新機能
-      url: "../upgrade/whats-new.html"
+      url: "../release-notes/whats-new.html"
     - title: 完了までの推定時間
       url: "../upgrade/estimating-time-to-complete-upgrade.html"
     - title: アップグレード中にシステムが受ける影響

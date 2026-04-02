@@ -55,7 +55,7 @@ Linux オペレーティング システムが StorageGRID の最小カーネル
  a| 
 StorageGRID のドキュメント
  a| 
-* link:../release-notes/index.html["リリースノート"]StorageGRID 12.0 の場合 (サインインが必要です)。アップグレードを開始する前に、これらを注意深くお読みください。
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["リリースノート"^]。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。アップグレードを開始する前に、必ずこれらの内容をよくお読みください。
 * https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_12.0_software_upgrade_resolution_guide["StorageGRID ソフトウェアアップグレード解決ガイド"^]アップグレードするメジャーバージョン（サインインが必要です）
 * その他（ https://docs.netapp.com/us-en/storagegrid-family/index.html["StorageGRID のドキュメント"^]必要に応じて）。
 

@@ -825,7 +825,7 @@ RestoreObject
 |===
 
 
-== PutOverwriteObject 権限を使用します
+== [[use-putoverwriteobject-permission]]PutOverwriteObject 権限を使用する
 
 s3 ： PutOverwriteObject 権限は、オブジェクトの作成または更新を行う環境 処理のカスタムの StorageGRID 権限です。この権限の設定により、オブジェクトのデータ、ユーザ定義メタデータ、または S3 オブジェクトのタグをクライアントが上書きできるかどうかが決まります。
 

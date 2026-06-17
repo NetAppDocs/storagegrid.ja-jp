@@ -2,7 +2,7 @@
 permalink: maintain/understanding-adc-service-quorum.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, adc, adc quorum 
-summary: 運用停止後に残るAdministrative Domain Controller（ADC\）サービスの数が少なすぎる場合は、サイトの特定のストレージノードの運用を停止できないことがあります。 
+summary: 運用停止後に残るAdministrative Domain Controller（ADC；管理ドメインコントローラ）サービスが少なすぎる場合は、サイトの一部のストレージノードの運用を停止できないことがあります。 
 ---
 = StorageGRID ADC定足数とは何ですか？
 :allow-uri-read: 

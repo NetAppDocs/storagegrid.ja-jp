@@ -2,7 +2,7 @@
 permalink: admin/controlling-storagegrid-access.html 
 sidebar: sidebar 
 keywords: administrator access, single sign on, sso, users, groups, client certificates, passwords, passphrase 
-summary: StorageGRID にアクセスできるユーザ、およびユーザが実行できるタスクを制御するには、グループとユーザを作成またはインポートし、各グループに権限を割り当てます。必要に応じて、シングルサインオン \ （ SSO \ ）を有効にしたり、クライアント証明書を作成したり、グリッドのパスワードを変更したりできます。 
+summary: StorageGRID にアクセスできるユーザ、およびユーザが実行できるタスクを制御するには、グループとユーザを作成またはインポートし、各グループに権限を割り当てます。必要に応じて、シングルサインオン（ SSO ）を有効にしたり、クライアント証明書を作成したり、グリッドのパスワードを変更したりできます。 
 ---
 = StorageGRID アクセスを制御します
 :allow-uri-read: 

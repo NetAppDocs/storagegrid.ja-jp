@@ -2,7 +2,7 @@
 permalink: primer/using-information-lifecycle-management.html 
 sidebar: sidebar 
 keywords: StorageGRID, what is information lifecycle management, how to use ilm 
-summary: StorageGRID システム内のすべてのオブジェクトの配置、期間、および取り込み動作を制御するには、情報ライフサイクル管理\（ILM\）を使用します。ILM ルールは、 StorageGRID が時間の経過に伴ってオブジェクトを格納する方法を決定します1 つ以上の ILM ルールを設定して ILM ポリシーに追加します。 
+summary: 情報ライフサイクル管理（ILM）を使用して、StorageGRID システム内のすべてのオブジェクトの配置、期間、および取り込み動作を制御します。ILM ルールは、StorageGRID がオブジェクトを長期にわたって保存する方法を決定します。1 つ以上の ILM ルールを設定し、それらを ILM ポリシーに追加します。 
 ---
 = StorageGRID での情報ライフサイクル管理
 :allow-uri-read: 

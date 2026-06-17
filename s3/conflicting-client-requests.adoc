@@ -2,7 +2,7 @@
 permalink: s3/conflicting-client-requests.html 
 sidebar: sidebar 
 keywords: conflicting client requests 
-summary: 同じキーに書き込む 2 つのクライアントなど、競合するクライアント要求は、「 latest-wins 」ベースで解決されます。 
+summary: 2つのクライアントが同じキーに書き込むなど、クライアントの要求が競合する場合は、最新の要求が優先される方式で解決されます。 
 ---
 = StorageGRID S3 REST APIが競合するクライアント要求を解決する方法
 :allow-uri-read: 

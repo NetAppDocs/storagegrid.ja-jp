@@ -2,7 +2,7 @@
 permalink: maintain/step-5-resolve-node-conflicts.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, resolve node conflict 
-summary: 'Decommission Site ウィザードの手順 5\( ノードの競合の解決 \) から、 StorageGRID システム内のノードが切断されているか、選択したサイトのいずれかのノードがハイアベイラビリティグループに属しているかを確認できます。いずれかのノードの競合が解決されたら、このページから運用停止手順 を開始します。' 
+summary: Decommission Site ウィザードの Step 5 （ Resolve Node Conflicts ）から、 StorageGRID システム内のノードが切断されているか、選択したサイトのノードが High Availability （ HA ）グループに属しているかを確認できます。いずれかのノードの競合が解決されたら、このページから運用停止手順 を開始します。 
 ---
 = ノードの競合を解決し、StorageGRIDでサイトの廃止を開始します
 :allow-uri-read: 

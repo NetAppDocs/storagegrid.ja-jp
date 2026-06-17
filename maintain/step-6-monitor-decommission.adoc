@@ -2,7 +2,7 @@
 permalink: maintain/step-6-monitor-decommission.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, monitor decommission, decommission 
-summary: Decommission Site ページウィザードの Step 6\ （ Monitor Decommission\ ）から、サイトが削除されるまで進行状況を監視できます。 
+summary: Decommission Site ページウィザードの Step 6 （ Monitor Decommission ）では、サイトが削除されるまで進行状況を監視できます。 
 ---
 = StorageGRIDでサイトの廃止措置の進捗状況を監視する
 :allow-uri-read: 

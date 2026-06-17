@@ -2,7 +2,7 @@
 permalink: tenant/enabling-or-disabling-last-access-time-updates.html 
 sidebar: sidebar 
 keywords: how to enable or disable last access time updates 
-summary: グリッド管理者が StorageGRID システムの情報ライフサイクル管理（ ILM ）ルールを作成する場合、オブジェクトを別の格納場所に移動するかどうかを決定する際にオブジェクトの最終アクセス日時を使用するように指定できます。S3 テナントを使用している場合は、 S3 バケット内のオブジェクトに対して最終アクセス日時の更新を有効にすることで、このようなルールを活用できます。 
+summary: グリッド管理者が StorageGRID システムの情報ライフサイクル管理（ILM）ルールを作成する際に、オブジェクトの最終アクセス時刻を使用して、そのオブジェクトを別のストレージ場所に移動するかどうかを判断するようにオプションで指定できます。S3 テナントを使用している場合は、S3 バケット内のオブジェクトの最終アクセス時刻の更新を有効にすることで、これらのルールを活用できます。 
 ---
 = StorageGRIDで最終アクセス時刻の更新を有効または無効にする
 :allow-uri-read: 

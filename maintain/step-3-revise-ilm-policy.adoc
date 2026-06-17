@@ -2,7 +2,7 @@
 permalink: maintain/step-3-revise-ilm-policy.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, revise ilm policies 
-summary: '[Decommission Site]ウィザードの手順3\（[Revise ILM Policies]）では、サイトがILMポリシーで参照されているかどうかを確認できます。' 
+summary: '[Decommission Site]ウィザードの[Step 3（Revise ILM Policies]）では、サイトがILMポリシーで参照されているかどうかを確認できます。' 
 ---
 = StorageGRIDでサイトの廃止に関するILMポリシーを改訂する
 :allow-uri-read: 

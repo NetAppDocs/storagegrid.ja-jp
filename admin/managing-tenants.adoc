@@ -2,7 +2,7 @@
 permalink: admin/managing-tenants.html 
 sidebar: sidebar 
 keywords: manage tenants, tenant account, what is a tenant 
-summary: テナントアカウントを使用すると、Simple Storage Service（S3 \）REST APIを使用して、StorageGRIDシステムでオブジェクトの格納や読み出しを行うことができます。 
+summary: テナントアカウントを使用すると、Simple Storage Service（S3）REST APIを使用して、StorageGRIDシステム内のオブジェクトの格納と読み出しを行うことができます。 
 ---
 = StorageGRID のテナントアカウント
 :allow-uri-read: 

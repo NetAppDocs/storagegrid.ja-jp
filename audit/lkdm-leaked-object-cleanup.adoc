@@ -2,7 +2,7 @@
 permalink: audit/lkdm-leaked-object-cleanup.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, LKDM, Leaked Object Cleanup 
-summary:  
+summary: LKDM監査メッセージは、リークしたチャンクがクリーンアップまたは削除されたときに生成されます。 
 ---
 = StorageGRIDでリークされたオブジェクトのクリーンアップに関するLKDM監査メッセージ
 :allow-uri-read: 

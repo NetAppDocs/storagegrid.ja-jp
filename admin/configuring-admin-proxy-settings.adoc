@@ -2,7 +2,7 @@
 permalink: admin/configuring-admin-proxy-settings.html 
 sidebar: sidebar 
 keywords: admin proxy, autosupport, non-transparent proxy 
-summary: HTTPまたはHTTPSを使用してAutoSupportパッケージを送信する場合は、管理ノードとテクニカルサポートの間に非透過型プロキシサーバを設定できます\（AutoSupport \）。 
+summary: HTTPまたはHTTPSを使用してAutoSupportパッケージを送信する場合は、管理ノードとテクニカルサポート（AutoSupport）の間に非透過型プロキシサーバを設定できます。 
 ---
 = StorageGRIDで管理プロキシ設定を構成する
 :allow-uri-read: 

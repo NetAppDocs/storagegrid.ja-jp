@@ -2,7 +2,7 @@
 permalink: audit/syst-node-stopping.html 
 sidebar: sidebar 
 keywords: storagegrid, audit, message, SYST, Node Stopping 
-summary: サービスが正常に停止されると、シャットダウンが要求されてサービスがシャットダウンシーケンスを開始したことを示すためにこのメッセージが生成されます。SYST を使用すると、シャットダウンが要求されたかどうかをサービスが再起動される前に判断できます \ （ SYSD は通常、サービスの再起動後に送信されます） 
+summary: サービスが正常に停止されると、シャットダウンが要求されてサービスがシャットダウンシーケンスを開始したことを示すためにこのメッセージが生成されます。SYST を使用すると、シャットダウンが要求されたかどうかをサービスが再起動される前に特定できます（ SYSD は通常、サービスの再起動後に送信されます）。 
 ---
 = StorageGRIDでノードが停止する際のSYST監査メッセージ
 :allow-uri-read: 

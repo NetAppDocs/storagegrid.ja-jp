@@ -2,7 +2,7 @@
 permalink: maintain/step-2-view-details.html 
 sidebar: sidebar 
 keywords: storagegrid, recover, view details 
-summary: 運用停止サイトウィザードの手順 2 から、サイトに含まれているノード、各ストレージノードで使用されているスペースの量、およびグリッド内の他のサイトで利用可能な空きスペースの量を確認できます。 
+summary: 運用停止サイトウィザードの手順 2 （詳細を表示）では、サイトに含まれているノード、各ストレージノードで使用されているスペースの量、およびグリッド内の他のサイトで利用可能な空きスペースの量を確認できます。 
 ---
 = StorageGRID で運用停止前にサイトの詳細を確認してください
 :allow-uri-read: 

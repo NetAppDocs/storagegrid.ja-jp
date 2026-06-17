@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-define-placements.html 
 sidebar: sidebar 
 keywords: ilm rule step 2, define placements 
-summary: Create ILM RuleウィザードのDefine placementsステップでは、オブジェクトを格納する期間、コピーのタイプ（レプリケートまたはイレイジャーコーディング\）、格納場所、およびコピー数を決定する配置手順を定義できます。 
+summary: ILM ルール作成ウィザードの「配置の定義」ステップでは、オブジェクトの保存期間、コピーの種類（レプリケートまたはイレイジャー コーディング）、保存場所、およびコピー数を決定する配置手順を定義できます。 
 ---
 = StorageGRID ILM ルールの配置指示を定義する
 :allow-uri-read: 

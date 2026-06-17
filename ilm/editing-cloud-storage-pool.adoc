@@ -2,7 +2,7 @@
 permalink: ilm/editing-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: edit cloud storage pool 
-summary: クラウドストレージプールを編集して、名前、サービスエンドポイント、またはその他の詳細を変更できます。ただし、クラウドストレージプールの S3 バケットまたは Azure コンテナを変更することはできません。 
+summary: クラウドストレージプールは、名前、サービスエンドポイント、その他の詳細を変更するために編集できますが、クラウドストレージプールの S3 バケットや Azure コンテナーを変更することはできません。 
 ---
 = StorageGRID でクラウドストレージプールを編集する
 :allow-uri-read: 

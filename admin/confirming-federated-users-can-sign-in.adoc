@@ -2,7 +2,7 @@
 permalink: admin/confirming-federated-users-can-sign-in.html 
 sidebar: sidebar 
 keywords: sso configuration 
-summary: シングルサインオン \ （ SSO \ ）を有効にする前に、少なくとも 1 人のフェデレーテッドユーザが Grid Manager および既存のテナントアカウント用の Tenant Manager にサインインできることを確認しておく必要があります。 
+summary: シングルサインオン（ SSO ）を有効にする前に、少なくとも 1 人のフェデレーテッドユーザが既存のテナントアカウント用に Grid Manager および Tenant Manager にサインインできることを確認する必要があります。 
 ---
 = フェデレーションユーザーがStorageGRIDにサインインできることを確認してください
 :allow-uri-read: 

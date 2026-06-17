@@ -2,7 +2,7 @@
 permalink: ilm/create-ilm-rule-select-ingest-behavior.html 
 sidebar: sidebar 
 keywords: ilm rule step 3, define ingest behavior 
-summary: Create ILM Ruleウィザードのステップ3 \（取り込み動作を選択\）では、このルールでフィルタされたオブジェクトを取り込み時に保護する方法を選択できます。 
+summary: ILMルール作成ウィザードのステップ3（取り込み動作の選択）では、このルールでフィルタリングされたオブジェクトが取り込まれる際にどのように保護されるかを選択できます。 
 ---
 = StorageGRID ILM ルールの取り込み動作を選択します
 :allow-uri-read: 

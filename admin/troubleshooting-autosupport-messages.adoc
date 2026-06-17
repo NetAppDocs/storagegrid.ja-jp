@@ -2,7 +2,7 @@
 permalink: admin/troubleshooting-autosupport-messages.html 
 sidebar: sidebar 
 keywords: troubleshoot autosupport, asup package 
-summary: 'AutoSupportパッケージの送信が失敗した場合、StorageGRIDシステムはAutoSupportパッケージのタイプに応じて異なる処理を実行します。AutoSupportパッケージのステータスを確認するには、[サポート]>[ツール]>[ AutoSupport ]>[結果]を選択します。' 
+summary: AutoSupport パッケージの送信に失敗した場合、StorageGRID システムは AutoSupport パッケージのタイプに応じて異なるアクションを実行します。 
 ---
 = StorageGRID AutoSupport パッケージのトラブルシューティング
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: monitor/using-snmp-monitoring.html 
 sidebar: sidebar 
 keywords: snmp, monitoring 
-summary: 簡易ネットワーク管理プロトコル \ （ SNMP\ ）を使用して StorageGRID を監視する場合は、 StorageGRID に含まれる SNMP エージェントを設定する必要があります。 
+summary: 簡易ネットワーク管理プロトコル（ SNMP ）を使用して StorageGRID を監視する場合は、 StorageGRID に含まれる SNMP エージェントを設定する必要があります。 
 ---
 = StorageGRIDでSNMP監視を使用する
 :allow-uri-read: 

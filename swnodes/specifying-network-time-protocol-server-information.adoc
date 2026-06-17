@@ -2,7 +2,7 @@
 permalink: swnodes/specifying-network-time-protocol-server-information.html 
 sidebar: sidebar 
 keywords: how to specify Network Time Protocol server information 
-summary: 別々のサーバで実行された処理を常に同期された状態にするには、 StorageGRID システムのネットワークタイムプロトコル（ NTP ）設定情報を指定する必要があります。 
+summary: 別々のサーバで実行された処理を常に同期された状態にするには、 StorageGRID システムの NTP 設定情報を指定する必要があります。 
 ---
 = StorageGRID のネットワークタイムプロトコルサーバ情報を指定します
 :allow-uri-read: 

@@ -2,7 +2,7 @@
 permalink: expand/rebalancing-erasure-coded-data-after-adding-storage-nodes.html 
 sidebar: sidebar 
 keywords: erasure coding, EC, rebalancing, site rebalance procedure, StorageGRID 
-summary: ストレージノードを追加したら、イレイジャーコーディングのリバランシング手順を使用して、既存および新規のストレージノードにイレイジャーコーディングフラグメントを再配置できます。 
+summary: ストレージノードを追加したら、イレイジャー コーディング リバランス手順を使用して、既存および新規のストレージノード間でイレイジャー コーディングされたフラグメントを再分配できます。 
 ---
 = StorageGRIDシステムにノードを追加した後、消失訂正符号化データを再バランスします。
 :allow-uri-read: 

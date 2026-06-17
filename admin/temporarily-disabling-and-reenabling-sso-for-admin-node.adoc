@@ -2,7 +2,7 @@
 permalink: admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html 
 sidebar: sidebar 
 keywords: signing in when sso is down, single sign on failure 
-summary: シングルサインオン \ （ SSO \ ）システムが停止すると、 Grid Manager にサインインできない可能性があります。この場合は、 1 つの管理ノードに対して SSO を一時的に無効にしてから再度有効にすることができます。SSO を無効にしてから再度有効にするには、ノードのコマンドシェルにアクセスする必要があります。 
+summary: シングル サインオン（SSO）システムがダウンすると、Grid Manager にサインインできない場合があります。この場合、1つの管理ノードに対して SSO を一時的に無効化してから再度有効化することができます。SSO を無効化してから再度有効化するには、ノードのコマンドシェルにアクセスする必要があります。 
 ---
 = StorageGRID 管理ノードの SSO を一時的に無効にして再度有効にします
 :allow-uri-read: 

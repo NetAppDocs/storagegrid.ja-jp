@@ -2,7 +2,7 @@
 permalink: release-notes/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0 は、Grid Management API バージョン 4 を使用します。バージョン 4 ではバージョン 3 は廃止されますが、バージョン 1、2、および 3 は引き続きサポートされます。 
+summary: StorageGRID 12.0では、グリッド管理APIのバージョン4を使用しています。バージョン4はバージョン3を非推奨とします。ただし、バージョン1、2、3は引き続きサポートされています。 
 ---
 = StorageGRID のGrid Management APIの変更点
 :allow-uri-read: 

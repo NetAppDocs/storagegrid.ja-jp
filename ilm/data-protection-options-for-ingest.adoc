@@ -2,7 +2,7 @@
 permalink: ilm/data-protection-options-for-ingest.html 
 sidebar: sidebar 
 keywords: ingest options, balanced ingest, strict ingest, dual-commit ingest 
-summary: ILM ルールを作成する際には、取り込み時にオブジェクトを保護するための 3 つのオプション（デュアルコミット、厳格、またはバランス）のいずれかを指定します。 
+summary: ILMルールを作成する際、Dual commit、Strict、またはBalancedのいずれかを指定することで、取り込み時にオブジェクトを保護できます。 
 ---
 = StorageGRIDのILM取り込みオプション
 :allow-uri-read: 

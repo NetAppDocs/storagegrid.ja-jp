@@ -2,7 +2,7 @@
 permalink: admin/managing-full-storage-nodes.html 
 sidebar: sidebar 
 keywords: storage node is full 
-summary: ストレージノードが容量に達したら、新しいストレージを追加してStorageGRIDシステムを拡張する必要があります。ストレージボリュームの追加、ストレージ拡張シェルフの追加、ストレージノードの追加という3つのオプションがあります。 
+summary: ストレージノードが容量に達したら、新しいストレージを追加してStorageGRIDシステムを拡張する必要があります。ストレージボリュームの追加、ストレージ拡張シェルフの追加、およびストレージノードの追加によってこれを実現できます。 
 ---
 = StorageGRID でストレージノード全体を管理
 :allow-uri-read: 

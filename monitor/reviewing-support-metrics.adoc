@@ -30,7 +30,7 @@ NOTE: Metrics ページで使用可能なツールは、テクニカルサポー
 ここでは、 [Metrics] ページの例を示します。
 
 +
-image::../media/metrics_page.png[メトリクスページ]
+image:metrics_page.png["メトリクスページ"]
 
 . StorageGRID 指標の現在の値を照会し、一定期間の値のグラフを表示するには、 Prometheus セクション内のリンクをクリックします。
 +
@@ -45,6 +45,6 @@ NOTE: 名前に _private_ が含まれる指標は内部専用です。 StorageG
 選択したリンクに対応した Grafana インターフェイスが表示されます。
 
 +
-image::../media/metrics_page_grafana.png[指標ページ Grafana]
+image:metrics_page_grafana.png["指標ページ Grafana"]
 
 

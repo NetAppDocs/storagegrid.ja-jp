@@ -29,4 +29,4 @@ NOTE: S3オブジェクトロックが有効になっているバケット内の
 
 次の図は、オブジェクトのライフサイクル全体にわたる ILM の動作をまとめたものです。
 
-image::../media/overview_of_object_lifecycle.png[オブジェクトライフサイクルの概要]
+image:overview_of_object_lifecycle.png["オブジェクトライフサイクルの概要"]

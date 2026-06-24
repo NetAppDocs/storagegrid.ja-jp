@@ -28,9 +28,9 @@ Grid Managerには、を使用してlink:../admin/web-browser-requirements.html[
 
 ダッシュボードには、システムの健全性とパフォーマンス、ストレージの使用状況、ILMプロセス、S3処理、およびグリッド内のノードに関する情報が含まれています。システムを効果的に監視するために必要な情報を含むカードのコレクションから選択できますlink:../monitor/viewing-dashboard.html["ダッシュボードの設定"]。
 
-image::../media/grid_manager_dashboard_and_menu.png[Grid Manager のダッシュボード]
+image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード"]
 
-各カードに表示される情報の説明については、そのカードのヘルプアイコンを選択してimage:../media/icon_nms_question.png["疑問符アイコン"]ください。
+各カードに表示されている情報の説明については、そのカードのヘルプアイコンimage:icon_nms_question.png["疑問符アイコン"]を選択してください。
 
 
 
@@ -44,7 +44,7 @@ image::../media/grid_manager_dashboard_and_menu.png[Grid Manager のダッシュ
 
 == ヘルプメニュー
 
-ヘルプメニューimage:../media/icon-help-menu-bar.png["メニューバーのヘルプアイコン"]では、次の項目にアクセスできます。
+ヘルプメニューimage:icon-help-menu-bar.png["メニューバーのヘルプアイコン"]からアクセスできる項目：
 
 * そのlink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]そしてlink:../admin/use-s3-setup-wizard.html["S3のセットアップ"]魔法使い
 * 現在のリリースのStorageGRIDドキュメントサイト

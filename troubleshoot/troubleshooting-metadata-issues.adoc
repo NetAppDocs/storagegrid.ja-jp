@@ -21,7 +21,7 @@ Grid Managerにサインインしておきますlink:../admin/web-browser-requir
 
 StorageGRID は、各ストレージノードのボリューム 0 上にオブジェクトメタデータ用に一定量のスペースをリザーブします。このスペースは_actualリザーブスペース_と呼ばれ、オブジェクトメタデータに使用できるスペース（使用できるメタデータスペース）と、コンパクションや修復などの重要なデータベース処理に必要なスペースに分割されます。許可されるメタデータスペースは、オブジェクトの全体的な容量を決定します。
 
-image::../media/metadata_allowed_space_volume_0.png[Metadata Allowed Space ：ボリューム 0]
+image:metadata_allowed_space_volume_0.png["Metadata Allowed Space ：ボリューム 0"]
 
 オブジェクトメタデータがメタデータに使用できるスペースの100%を超えると、データベース処理を効率的に実行できず、エラーが発生します。
 

@@ -22,4 +22,4 @@ summary: 3 つのネットワークをすべて組み合わせて、プライベ
 
 *トポロジの例：グリッドネットワーク、管理ネットワーク、クライアントネットワーク*
 
-image::../media/grid_admin_client_networks.png[グリッド / 管理 / クライアントネットワーク]
+image:grid_admin_client_networks.png["グリッド / 管理 / クライアントネットワーク"]

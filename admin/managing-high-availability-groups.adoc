@@ -68,7 +68,7 @@ NOTE: DHCPによってIPアドレスが割り当てられたHAグループにイ
 
 この例では、プライマリ管理ノードが 2 つの HA グループに追加されています。このノードは、現在、 FabricPool クライアントグループのアクティブインターフェイスであり、クライアントグループのバックアップインターフェイスです。
 
-image::../media/ha_group_primary_interface.png[HA グループのプライマリインターフェイス]
+image:ha_group_primary_interface.png["HA グループのプライマリインターフェイス"]
 
 
 

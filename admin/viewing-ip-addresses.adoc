@@ -26,6 +26,6 @@ IPアドレスの変更については、を参照してくださいlink:../main
 このグリッドノードの IP アドレスがテーブルに表示されます。
 
 +
-image::../media/nodes_page_overview_tab_extended.png[Nodes ページの IP アドレス]
+image:nodes_page_overview_tab_extended.png["Nodes ページの IP アドレス"]
 
 

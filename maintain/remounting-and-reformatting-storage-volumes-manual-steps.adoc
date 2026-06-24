@@ -233,7 +233,7 @@ NOTE: 一部の StorageGRID リカバリ手順では、 Reaper を使用して C
 [Recovery]ページの[Progress]バーと[Stage]列には、スクリプトのステータスの概要が表示され `sn-recovery-postinstall.sh`ます。
 
 +
-image::../media/recovering_cassandra.png[グリッド管理インターフェイスにおけるリカバリの進行状況を示すスクリーンショット]
+image:recovering_cassandra.png["グリッド管理インターフェイスにおけるリカバリの進行状況を示すスクリーンショット"]
 
 . スクリプトでノードのサービスが開始されたら、 `sn-recovery-postinstall.sh`スクリプトでフォーマットされたストレージボリュームにオブジェクトデータをリストアできます。
 +

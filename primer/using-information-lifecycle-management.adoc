@@ -81,7 +81,7 @@ StorageGRIDシステムのアクティブなILMポリシーによって、すべ
 
 
 
-image::../media/ilm_policy_and_rules.png[ILM のポリシーとルール]
+image:ilm_policy_and_rules.png["ILM のポリシーとルール"]
 
 .関連情報
 * link:../ilm/index.html["ILM を使用してオブジェクトを管理する"]

@@ -5,7 +5,7 @@
 . ［ * アイデンティティフェデレーションを有効にする * ］ を選択
 . LDAP サービスタイプセクションで、設定する LDAP サービスのタイプを選択します。
 +
-image::../media/ldap_service_type.png[LDAP サービスタイプオプションを示すアイデンティティフェデレーションページ]
+image:ldap_service_type.png["LDAP サービスタイプオプションを示すアイデンティティフェデレーションページ"]
 
 +
 Oracle Directory Server を使用する LDAP サーバーの値を設定するには、 * その他 * を選択します。
@@ -116,7 +116,7 @@ NOTE: Active Directory サーバーが LDAP 署名を強制している場合、
 たとえば、自分のユーザ名とパスワードを入力します。ユーザ名に特殊文字（@、/など）を使用しないでください。
 
 +
-image::../media/identity_federation_test_connection.png[アイデンティティフェデレーションでは、バインドユーザ名の形式を検証するよう求められ]
+image:identity_federation_test_connection.png["アイデンティティフェデレーションでは、バインドユーザ名の形式を検証するよう求められ"]
 
 +
 ** 接続設定が有効な場合は、「Test connection successful」というメッセージが表示されます。[ 保存（ Save ） ] を選択して、構成を保存します。

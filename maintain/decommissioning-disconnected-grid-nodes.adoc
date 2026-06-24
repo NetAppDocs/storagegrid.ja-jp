@@ -24,7 +24,7 @@ summary: グリッドに現在接続されていないノード（「 Health 」
 
 
 .タスクの内容
-切断されているノードを特定するには、* Health *列で青の[不明]アイコンまたはグレーの[ Administratively Down]アイコンをimage:../media/icon_alarm_gray_administratively_down.png["Administratively Downのアイコン"]探しimage:../media/icon_alarm_blue_unknown.png["不明なアイコン"]ます。
+*Health* 列で青色の「不明」アイコン image:icon_alarm_blue_unknown.png["不明なアイコン"] または灰色の「管理上ダウン」アイコン image:icon_alarm_gray_administratively_down.png["Administratively Downのアイコン"] を探すことで、切断されたノードを特定できます。
 
 切断されているノードの運用を停止する前に、次の点に注意して
 

@@ -63,7 +63,7 @@ NOTE: StorageGRID システムでシングルサインオン（ SSO ）が有効
 
 各 API 処理を展開表示すると、 HTTP アクション、エンドポイント URL 、必須またはオプションのパラメータのリスト、要求の本文の例（必要な場合）、想定される応答を確認できます。
 
-image::../media/tenant_api_swagger_example.gif[Swagger API での GET groups 処理を示す例]
+image:tenant_api_swagger_example.gif["Swagger API での GET groups 処理を示す例"]
 
 
 

@@ -40,7 +40,7 @@ Decommission Nodes ページが表示されます。手順 の運用停止が次
 現在のステージが一時停止され、 * Resume * （続行）ボタンが有効になります。
 
 +
-image::../media/decommission_nodes_procedure_paused.png[ノード手順 の運用停止が一時停止され]
+image:decommission_nodes_procedure_paused.png["ノード手順 の運用停止が一時停止され"]
 
 . もう一方のメンテナンス手順 が終了したら、 [* Resume （続行） ] を選択して運用停止を続行します。
 

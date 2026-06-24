@@ -62,7 +62,7 @@ StorageGRIDでグリッドノードをリブートすると、各ノードでコ
 . [ノード名]列の接続状態とアラートのアイコンを確認します。
 +
 
-TIP: グリッドから切断されているノードはリブートできません。ノードのチェックボックスは、またはのアイコンが付いている場合は無効になりますimage:../media/icon_alarm_gray_administratively_down.png["グレーの疑問符アイコン"]image:../media/icon_alarm_blue_unknown.png["青の疑問符アイコン"]。
+TIP: ノードがグリッドから切断されている場合、ノードを再起動することはできません。これらのアイコンが付いているノードでは、チェックボックスが無効になります：image:icon_alarm_gray_administratively_down.png["グレーの疑問符アイコン"]またはimage:icon_alarm_blue_unknown.png["青の疑問符アイコン"]
 
 . アクティブなアラートがあるノードがある場合は、*[アラートの概要]*列でアラートのリストを確認します。
 +

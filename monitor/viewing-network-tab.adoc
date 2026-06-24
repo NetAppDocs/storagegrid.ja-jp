@@ -19,7 +19,7 @@ Network タブには、ノード、サイト、またはグリッド上のすべ
 
 ノードの場合、各ノードの物理ネットワークポートに関する情報がネットワークインターフェイスの表に表示されます。ネットワーク通信テーブルには、各ノードの送受信処理の詳細と、ドライバから報告された障害カウンタが表示されます。
 
-image::../media/nodes_page_network_tab.png[[ ノード ] ページの [ ネットワーク ] タブ]
+image:nodes_page_network_tab.png["[ ノード ] ページの [ ネットワーク ] タブ"]
 
 .関連情報
 link:monitoring-network-connections-and-performance.html["ネットワーク接続とパフォーマンスを監視します"]

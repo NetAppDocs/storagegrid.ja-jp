@@ -44,21 +44,21 @@ NOTE: この手順は、EシリーズAutoSupportパッケージ用にStorageGRID
 SANtricity の System Manager ホームページが表示されます。
 
 +
-image::../media/autosupport_santricity_home_page.png[AutoSupport SANtricity のホームページ]
+image:autosupport_santricity_home_page.png["AutoSupport SANtricity のホームページ"]
 
 . *サポート* > *サポート センター* > * AutoSupport* を選択します。
 +
 AutoSupport operations ページが表示されます。
 
 +
-image::../media/autosupport_santricity_operations.png[AutoSupport SANtricity AutoSupport 処理]
+image:autosupport_santricity_operations.png["AutoSupport SANtricity AutoSupport 処理"]
 
 . AutoSupport 配信方法の設定 * を選択します。
 +
 AutoSupport 配信方法の設定ページが表示されます。
 
 +
-image::../media/autosupport_configure_delivery_santricity.png[AutoSupport は AutoSupport 配信方法 SANtricity を設定します]
+image:autosupport_configure_delivery_santricity.png["AutoSupport は AutoSupport 配信方法 SANtricity を設定します"]
 
 . 配信方法として「 * HTTPS * 」を選択します。
 +

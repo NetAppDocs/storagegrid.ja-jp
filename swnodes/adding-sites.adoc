@@ -20,7 +20,7 @@ StorageGRID をインストールするときに、サイトを少なくとも 1
 グリッドトポロジに必要な数のサイトを追加します。サイトは最大 16 個まで追加できます。
 
 +
-image::../media/3_gmi_installer_sites_page.gif[この図には説明が付随しています。]
+image:3_gmi_installer_sites_page.gif["この図には説明が付随しています。"]
 
 . 「 * 次へ * 」をクリックします。
 

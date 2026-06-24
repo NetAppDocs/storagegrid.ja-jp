@@ -76,7 +76,7 @@ StorageGRID は KMS クラスタの使用をサポートしています。各 KM
 
 非アプライアンスノード、またはインストール時に* Node Encryption *設定が有効になっていないアプライアンスノードには、KMSを使用できないことに注意してください。
 
-image::../media/kms_per_site.png[1 サイトあたりの km 数]
+image:kms_per_site.png["1 サイトあたりの km 数"]
 
 
 

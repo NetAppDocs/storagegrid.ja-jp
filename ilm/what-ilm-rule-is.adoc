@@ -79,15 +79,15 @@ ILM ルールを作成する際には、フィルタを指定して環境 ルー
 
 この例では、Create ILM Ruleウィザードの[Define placements]ページに表示される2つの配置手順を示しています。
 
-image::../media/ilm_rule_multiple_placements_in_single_time_period.png[Grid Manager の ILM の配置画面]
+image:ilm_rule_multiple_placements_in_single_time_period.png["Grid Manager の ILM の配置画面"]
 
-1つ目の配置手順image:../media/icon_number_1.png["アイコン番号1"]には、1年目の2つの行があります。
+最初の配置指示image:icon_number_1.png["アイコン番号1"]には、最初の1年間に2つの行があります。
 
 * 1 行目では、 2 つのデータセンターサイトに 2 つのレプリケートオブジェクトコピーが作成されます。
 * 2行目は、すべてのデータセンターサイトを使用して6+3のイレイジャーコーディングコピーを作成します。
 
 
-2つ目の配置手順ではimage:../media/icon_number_2.png["アイコン番号1"]、1年後に2つのコピーを作成し、それらのコピーを無期限に保持します。
+2番目の配置指示image:icon_number_2.png["アイコン番号1"]は、1年後に2部のコピーを作成し、それらのコピーを永久に保管します。
 
 ルールに一連の配置手順を定義する場合は、少なくとも 1 つの配置手順が 0 日目に開始し、定義した期間の間にギャップがないことを確認する必要があります。 そして、最終的な配置手順は無期限またはオブジェクトコピーが不要になるまで継続されます。
 

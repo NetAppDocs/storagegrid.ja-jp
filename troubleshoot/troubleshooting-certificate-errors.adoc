@@ -24,7 +24,7 @@ IP アドレスではなくドメイン名を使用して Grid Manager または
 
 次の例は、カスタム管理インターフェイス証明書の有効期限が切れたときの証明書エラーを示しています。
 
-image::../media/certificate_error.png[証明書エラーの例]
+image:certificate_error.png["証明書エラーの例"]
 
 サーバ証明書の問題によって処理が中断されないようにするために、サーバ証明書の有効期限が近づくと* Expiration of server certificate for Management Interface *アラートがトリガーされます。
 

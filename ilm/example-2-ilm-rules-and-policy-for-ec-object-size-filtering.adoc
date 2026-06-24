@@ -57,7 +57,7 @@ EC Only Objects > 1MB
 3 つのサイトを使用して 2+1 のイレイジャーコーディングコピーを作成
 
 |===
-image::../media/policy_2_rule_1_ec_objects_adv_filtering.png[例 2 の ILM ルール 1 ： 1MB を超えるすべてのオブジェクトに EC を使用します]
+image:policy_2_rule_1_ec_objects_adv_filtering.png["例 2 の ILM ルール 1 ： 1MB を超えるすべてのオブジェクトに EC を使用します"]
 
 
 

@@ -16,7 +16,7 @@ Tenant Managerの操作が完了したら、サインアウトして、権限の
 .手順
 . ユーザインターフェイスの右上にあるユーザ名ドロップダウンを探します。
 +
-image::../media/tenant_user_sign_out.png[[サインアウト]リンク]
+image:tenant_user_sign_out.png["[サインアウト]リンク"]
 
 . ユーザ名を選択し、*[サインアウト]*を選択します。
 +

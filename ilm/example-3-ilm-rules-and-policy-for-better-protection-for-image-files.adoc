@@ -66,7 +66,7 @@ ECイメージファイルが1MBを超えています
 3 つのサイトを使用して 2+1 のイレイジャーコーディングコピーを作成
 
 |===
-image::../media/policy_3_rule_1_ec_images_adv_filtering.png[例 3 の ILM ルール 1 ： 1MB を超える画像ファイルに EC を使用します]
+image:policy_3_rule_1_ec_images_adv_filtering.png["例 3 の ILM ルール 1 ： 1MB を超える画像ファイルに EC を使用します"]
 
 このルールはポリシー内の最初のルールとして設定されているため、イレイジャーコーディング配置手順には1MBを超える環境 の.jpgファイルと.pngファイルのみが含まれます。
 
@@ -121,4 +121,4 @@ image::../media/policy_3_rule_1_ec_images_adv_filtering.png[例 3 の ILM ルー
 * デフォルトルールでは、残りのすべてのオブジェクト（画像以外のファイル）が環境 されます。
 
 
-image::../media/policy_3_configured_policy.png[例 3 の ILM ポリシー：画像ファイルの保護の強化]
+image:policy_3_configured_policy.png["例 3 の ILM ポリシー：画像ファイルの保護の強化"]

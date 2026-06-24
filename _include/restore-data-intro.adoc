@@ -23,7 +23,7 @@ NOTE: repair-dataスクリプトは廃止され、今後のリリースで削除
 == スクリプトを使用し `repair-data`てオブジェクトデータをリストアする
 
 .開始する前に
-* 回復したストレージノードの接続状態が「接続済み」であることを確認しましたimage:../media/icon_alert_green_checkmark.png["緑色のチェックマークのアイコン"]グリッド マネージャーの *ノード* > *概要* タブで。
+* 復旧したストレージノードの接続状態が *Connected* image:icon_alert_green_checkmark.png["緑色のチェックマークのアイコン"] であることを、Grid Manager の *Nodes* > *Overview* タブで確認しました。
 
 
 .タスクの内容

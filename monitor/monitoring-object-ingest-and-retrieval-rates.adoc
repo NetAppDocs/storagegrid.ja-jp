@@ -29,6 +29,6 @@ Grid Managerにサインインしておきますlink:../admin/web-browser-requir
 グラフには、ノードの取り込み速度と読み出し速度が表示されます。このタブには、オブジェクト数、メタデータクエリ、および検証処理の指標も表示されます。
 
 +
-image::../media/nodes_storage_node_objects_help.png[ノード > ストレージノード > オブジェクト > 属性ヘルプのスクリーンショット]
+image:nodes_storage_node_objects_help.png["Nodes > _Storage Node_ > Objects > 属性ヘルプのスクリーンショット"]
 
 

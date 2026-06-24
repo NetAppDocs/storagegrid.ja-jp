@@ -31,7 +31,7 @@ UUID、CBID、または S3 バケット/オブジェクト キーを入力でき
 
 . オブジェクトの特定のバージョンを検索する場合は、バージョン ID を入力します（オプション）。
 +
-image::../media/object_lookup.png[Object Lookup ページ]
+image:object_lookup.png["Object Lookup ページ"]
 
 . 「 * 検索 * 」を選択します。
 +
@@ -52,6 +52,6 @@ image::../media/object_lookup.png[Object Lookup ページ]
 
 
 +
-image::../media/object_lookup_results.png[オブジェクトの検索結果]
+image:object_lookup_results.png["オブジェクトの検索結果"]
 
 

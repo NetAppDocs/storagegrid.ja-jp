@@ -84,7 +84,7 @@ CAUTION: 以下の ILM ルールとポリシーは一例にすぎません。ILM
 厳しい取り込み時に必ずこのルールの配置手順を使用してください。パリデータセンターにオブジェクトのコピーを 2 つ保存できない場合、取り込みは失敗します。
 
 |===
-image::../media/ilm_rule_1_example_5_strict_ingest.png[ILM ルール 1 の例 5 での Strict 取り込み]
+image:ilm_rule_1_example_5_strict_ingest.png["ILM ルール 1 の例 5 での Strict 取り込み"]
 
 
 

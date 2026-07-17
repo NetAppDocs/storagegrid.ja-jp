@@ -15,6 +15,7 @@ S3 クライアントがオブジェクトのメタデータを更新すると�
 
 
 
+[[s3-metadata-update-audit-messages]]
 == S3 メタデータの更新監査メッセージ
 
 [cols="1a,1a,2a,1a,2a"]
@@ -36,12 +37,14 @@ link:supd-s3-metadata-updated.html["SUPD ： S3 メタデータが更新され�
 |===
 
 
+[[example-s3-metadata-update]]
 == 例： S3 メタデータの更新
 
 次の例は、既存の S3 オブジェクトのメタデータを更新するトランザクションの成功を示しています。
 
 
 
+[[supd-s3-metadata-update]]
 === SUPD ： S3 メタデータの更新
 
 S3クライアントは指定されたメタデータを更新するリクエスト（SUPD）を発行します。(`x-amz-meta-\*` ) を S3 オブジェクト (S3KY) 用に作成します。この例では、監査プロトコル ヘッダーとして構成されているため、要求ヘッダーは HTRH フィールドに含まれています (*[構成] > [監視] > [監査および syslog サーバー])。見るlink:../monitor/configure-log-management.html["ログ管理と外部Syslogサーバーを構成する"] 。

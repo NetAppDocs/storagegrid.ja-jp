@@ -28,6 +28,7 @@ NOTE: StorageGRID システムで管理ノードごとにエンタープライ�
 
 
 
+[[access-entra-id]]
 == アクセスエントラID
 
 .手順
@@ -38,6 +39,7 @@ NOTE: StorageGRID システムで管理ノードごとにエンタープライ�
 
 
 
+[[create-enterprise-applications-and-save-storagegrid-sso-configuration]]
 == エンタープライズアプリケーションを作成し、 StorageGRID SSO 設定を保存します
 
 Entra ID の SSO 構成をStorageGRIDに保存するには、Entra ID を使用して各管理ノードのエンタープライズ アプリケーションを作成する必要があります。  Entra ID からフェデレーション メタデータ URL をコピーし、[SSO の構成] ページの対応する *フェデレーション メタデータ URL* フィールドに貼り付けます。
@@ -61,6 +63,7 @@ Entra ID の SSO 構成をStorageGRIDに保存するには、Entra ID を使用�
 
 
 
+[[download-saml-metadata-for-every-admin-node]]
 == 管理ノードごとに SAML メタデータをダウンロードします
 
 SSO 設定を保存したら、 StorageGRID システム内の管理ノードごとに SAML メタデータファイルをダウンロードできます。
@@ -78,6 +81,7 @@ SSO 設定を保存したら、 StorageGRID システム内の管理ノードご
 
 
 
+[[upload-saml-metadata-to-each-enterprise-application]]
 == SAML メタデータを各エンタープライズアプリケーションにアップロードする
 
 各StorageGRID管理ノードの SAML メタデータ ファイルをダウンロードした後、Entra ID で次の手順を実行します。

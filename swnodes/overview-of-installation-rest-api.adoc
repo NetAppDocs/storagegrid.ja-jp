@@ -22,6 +22,7 @@ CAUTION: APIドキュメントWebページで実行するAPI処理はすべて�
 
 
 
+[[storagegrid-installation-api]]
 == StorageGRID インストール API
 
 StorageGRID インストールAPIは、StorageGRID システムを最初に設定するとき、およびプライマリ管理ノードのリカバリを実行する必要がある場合にのみ使用できます。インストール API には、 Grid Manager から HTTPS 経由でアクセスできます。

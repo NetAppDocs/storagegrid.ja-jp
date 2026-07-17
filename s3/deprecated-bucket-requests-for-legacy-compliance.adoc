@@ -15,6 +15,7 @@ summary: 従来の準拠機能で作成されたバケットの管理には、 S
 
 
 
+[[compliance-feature-deprecated]]
 == コンプライアンス機能は廃止されました
 
 以前のバージョンの StorageGRID で提供されていた StorageGRID 準拠機能は廃止され、 S3 オブジェクトロックに置き換えられました。

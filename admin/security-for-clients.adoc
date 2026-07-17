@@ -15,6 +15,7 @@ StorageGRIDテナントアカウントは、S3クライアントアプリケー�
 
 
 
+[[summary]]
 == 概要
 
 S3 REST APIのセキュリティの実装方法を次に示します。
@@ -27,6 +28,7 @@ S3 REST APIのセキュリティの実装方法を次に示します。
 
 
 
+[[how-storagegrid-provides-security-for-client-applications]]
 == StorageGRIDによるクライアントアプリケーションのセキュリティの仕組み
 
 S3クライアントアプリケーションは、ゲートウェイノードまたは管理ノード上のロードバランササービスに接続するか、またはストレージノードに直接接続できます。
@@ -52,6 +54,7 @@ HTTPは安全性が低く、暗号化されていない通信を提供します�
 
 
 
+[[security-certificates-and-client-applications]]
 === セキュリティ証明書とクライアントアプリケーション
 
 いずれの場合も、クライアントアプリケーションは、グリッド管理者がアップロードしたカスタムサーバ証明書または StorageGRID システムが生成した証明書を使用して、 TLS 接続を確立できます。
@@ -67,12 +70,14 @@ TLS 接続の確立に使用する証明書に署名した認証局を信頼す�
 
 
 
+[[supported-hashing-and-encryption-algorithms-for-tls-libraries]]
 == TLS ライブラリのハッシュアルゴリズムと暗号化アルゴリズムがサポートされます
 
 StorageGRIDシステムは、クライアント アプリケーションが TLS セッションを確立するときに使用できる暗号スイートのセットをサポートしています。暗号を設定するには、*構成* > *セキュリティ* > *セキュリティ設定* に移動し、*TLS および SSH ポリシー* を選択します。
 
 
 
+[[supported-versions-of-tls]]
 === サポートされる TLS のバージョン
 
 StorageGRID では、 TLS 1.2 と TLS 1.3 がサポートされています。

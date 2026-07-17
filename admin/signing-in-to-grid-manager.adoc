@@ -17,18 +17,21 @@ Grid Manager のサインインページにアクセスするには、サポー�
 
 
 
+[[connect-to-ha-group]]
 === HAグループに接続します
 
 管理ノードがハイアベイラビリティ（ HA ）グループに含まれている場合は、 HA グループの仮想 IP アドレスまたは仮想 IP アドレスにマッピングされる完全修飾ドメイン名を使用して接続します。プライマリ管理ノードが使用できない場合を除いてプライマリ管理ノード上のグリッド Manager にアクセスするよう、プライマリ管理ノードをグループのプライマリインターフェイスとして選択する必要があります。を参照して link:managing-high-availability-groups.html["ハイアベイラビリティグループを管理します"]
 
 
 
+[[use-sso]]
 === SSOを使用します
 
 サインインの手順は、以下の場合、若干異なります。link:how-sso-works.html["シングルサインオン（SSO）が設定されている"] 。
 
 
 
+[[sign-in-to-grid-manager-on-first-admin-node]]
 == 最初の管理ノードでGrid Managerにサインインします
 
 .開始する前に
@@ -100,6 +103,7 @@ NOTE: SSOは制限されたGrid Managerポートでは使用できません。�
 
 
 
+[[sign-into-another-admin-node]]
 == 別の管理ノードにサインインします
 
 次の手順に従って、別の管理ノードにサインインします。

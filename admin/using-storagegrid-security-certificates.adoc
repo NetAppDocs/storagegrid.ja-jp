@@ -23,6 +23,7 @@ StorageGRID では、 2 種類のセキュリティ証明書が使用されま�
 
 StorageGRID は、一部の接続（ロードバランサエンドポイントなど）のサーバとして、または他の接続（ CloudMirror レプリケーションサービスなど）のクライアントとして機能します。
 
+[[gridca_details]]
 * デフォルトの Grid CA 証明書 *
 
 StorageGRID には、システムのインストール中に内部グリッド CA 証明書を生成する証明機関 (CA) が組み込まれています。デフォルトでは、グリッド CA 証明書が、内部StorageGRIDトラフィックのセキュリティ保護に使用されます。外部証明機関 (CA) は、組織の情報セキュリティ ポリシーに完全に準拠したカスタム証明書を発行できます。
@@ -41,6 +42,7 @@ NOTE: StorageGRID には、すべてのグリッドで同じオペレーティ�
 
 
 
+[[access-security-certificates]]
 == アクセスセキュリティ証明書
 
 すべての StorageGRID 証明書に関する情報に一元的にアクセスでき、各証明書の設定ワークフローへのリンクも含まれます。
@@ -195,12 +197,15 @@ NOTE: 他の証明書の情報を表示およびアクセスできるのは、�
 
 
 
+[[security-certificate-details]]
 == セキュリティ証明書の詳細
 
 各タイプのセキュリティ証明書について、実装手順へのリンクとともに以下に説明します。
 
 
 
+[[management-interface-certificate]]
+[[adminclientcert_details]]
 === 管理インターフェイスの証明書
 
 [cols="1a,1a,1a,1a"]
@@ -224,6 +229,7 @@ link:configuring-custom-server-certificate-for-grid-manager-tenant-manager.html[
 |===
 
 
+[[s3-api-certificate]]
 === S3 APIシヨウメイシヨ
 
 [cols="1a,1a,1a,1a"]
@@ -243,12 +249,14 @@ link:configuring-custom-server-certificate-for-storage-node.html["S3 API証明�
 |===
 
 
+[[grid-ca-certificate]]
 === Grid CA 証明書
 
 を参照してください<<gridca_details,デフォルトの Grid CA 証明書概要>>。
 
 
 
+[[administrator-client-certificate]]
 === 管理者クライアント証明書
 
 [cols="1a,1a,1a,1a"]
@@ -272,6 +280,7 @@ link:configuring-administrator-client-certificates.html["クライアント証�
 |===
 
 
+[[load-balancer-endpoint-certificate]]
 === ロードバランサエンドポイントの証明書
 
 [cols="1a,1a,1a,1a"]
@@ -297,6 +306,7 @@ S3クライアントとゲートウェイノードと管理ノード上のStorag
 |===
 
 
+[[cloud-storage-pool-endpoint-certificate]]
 === クラウドストレージプールのエンドポイントの証明書
 
 [cols="1a,1a,1a,1a"]
@@ -316,6 +326,7 @@ link:../ilm/creating-cloud-storage-pool.html["クラウドストレージプー�
 |===
 
 
+[[email-alert-notification-certificate]]
 === E メールアラート通知の証明書
 
 [cols="1a,1a,1a,1a"]
@@ -339,6 +350,7 @@ link:../monitor/email-alert-notifications.html["アラート用の E メール�
 |===
 
 
+[[external-syslog-server-certificate]]
 === 外部 syslog サーバの証明書
 
 [cols="1a,1a,1a,1a"]
@@ -360,6 +372,7 @@ link:../monitor/configure-log-management.html#use-external-syslog-server["外部
 |===
 
 
+[[grid-federation-certificategrid-federation-connection-certificate]]
 === [[grid-federation-certificate]グリッドフェデレーション接続証明書
 
 [cols="1a,1a,1a,1a"]
@@ -381,6 +394,7 @@ link:../monitor/configure-log-management.html#use-external-syslog-server["外部
 |===
 
 
+[[identity-federation-certificate]]
 === アイデンティティフェデレーション証明書
 
 [cols="1a,1a,1a,1a"]
@@ -400,6 +414,7 @@ link:using-identity-federation.html["アイデンティティフェデレーシ�
 |===
 
 
+[[key-management-server-kms-certificate]]
 === キー管理サーバ（ KMS ）の証明書
 
 [cols="1a,1a,1a,1a"]
@@ -419,6 +434,7 @@ link:kms-adding.html["キー管理サーバの追加（ KMS ）"]
 |===
 
 
+[[platform-services-endpoint-certificate]]
 === プラットフォームサービスのエンドポイント証明書
 
 [cols="1a,1a,1a,1a"]
@@ -440,6 +456,7 @@ link:../tenant/editing-platform-services-endpoint.html["プラットフォーム
 |===
 
 
+[[single-sign-on-sso-certificate]]
 === シングルサインオン（ SSO ）証明書
 
 [cols="1a,1a,1a,1a"]
@@ -459,10 +476,12 @@ link:how-sso-works.html["シングルサインオンを設定します"]
 |===
 
 
+[[certificate-examples]]
 == 証明書の例
 
 
 
+[[example-1-load-balancer-service]]
 === 例 1 ：ロードバランササービス
 
 この例では、 StorageGRID がサーバとして機能します。
@@ -477,6 +496,7 @@ link:how-sso-works.html["シングルサインオンを設定します"]
 
 
 
+[[example-2-external-key-management-server-kms]]
 === 例 2 ：外部キー管理サーバ（ KMS ）
 
 この例では、 StorageGRID がクライアントとして機能します。

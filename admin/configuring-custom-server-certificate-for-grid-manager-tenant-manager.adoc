@@ -34,6 +34,7 @@ IP アドレスではなくドメイン名を使用して Grid Manager または
 ====
 
 
+[[add-a-custom-management-interface-certificate]]
 == カスタム管理インターフェイス証明書を追加します
 
 カスタムの管理インターフェイス証明書を追加するには、 Grid Manager を使用して独自の証明書を指定するか、証明書を生成します。
@@ -161,6 +162,7 @@ NOTE: 新しい証明書をアップロードまたは生成したあと、関�
 
 
 
+[[restore-the-default-management-interface-certificate]]
 == 管理インターフェイスのデフォルトの証明書をリストア
 
 Grid Manager 接続と Tenant Manager 接続でのデフォルトの管理インターフェイス証明書を使用するように戻すことができます。
@@ -177,6 +179,7 @@ Grid Manager 接続と Tenant Manager 接続でのデフォルトの管理イン
 
 
 
+[[use-a-script-to-generate-a-new-self-signed-management-interface-certificate]]
 == スクリプトを使用して、新しい自己署名管理インターフェイス証明書を生成します
 
 ホスト名の厳密な検証が必要な場合は、スクリプトを使用して管理インターフェイス証明書を生成できます。
@@ -238,6 +241,7 @@ BEGIN タグと END タグも含めて選択してください。
 
 
 
+[[download-or-copy-the-management-interface-certificate]]
 == 管理インターフェイス証明書をダウンロードまたはコピーします
 
 管理インターフェイスの証明書の内容を保存またはコピーして、他の場所で使用することができます。

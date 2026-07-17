@@ -15,6 +15,7 @@ summary: このセクションの例を使用して、 StorageGRIDセッショ�
 
 
 
+[[example-set-up-a-session-policy-that-allows-object-retrieval]]
 == 例: オブジェクトの取得を許可するセッションポリシーを設定する
 
 この例では、セッションのプリンシパルはbucket1からオブジェクトを取得することのみが許可されています。その他のアクションはすべて暗黙的に拒否されますが、link:../s3/use-access-policies.html#use-putoverwriteobject-permission["S3 ： PutOverwriteObject"]権限の使用などのStorageGRID固有のアクションは除きます。セッションポリシーは、AssumeRole APIの呼び出し時にJSONファイルとして提供できます。

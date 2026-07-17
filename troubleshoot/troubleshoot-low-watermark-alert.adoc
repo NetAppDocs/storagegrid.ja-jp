@@ -23,6 +23,7 @@ StorageGRID 11.6以降にアップグレードすると、次のいずれかに�
 
 
 
+[[understand-the-alert]]
 == アラートを確認します
 
 ストレージボリュームのウォーターマークにカスタム値を使用すると、 1 つ以上のストレージノードに対して * 読み取り専用の低ウォーターマーク上書き * アラートがトリガーされる可能性があります。
@@ -66,6 +67,7 @@ StorageGRID 11.6以降にアップグレードすると、次のいずれかに�
 
 
 
+[[resolve-the-alert]]
 == アラートを解決します
 
 1 つ以上の * 読み取り専用の低ウォーターマーク上書き * アラートがトリガーされた場合は、次の手順を実行します。また、現在カスタムのウォーターマーク設定を使用しており、アラートがトリガーされていない場合でも最適化された設定の使用を開始する場合にも、この手順を使用できます。
@@ -81,6 +83,7 @@ StorageGRID 11.6以降にアップグレードすると、次のいずれかに�
 
 
 
+[[assess-object-data-usage-for-entire-grid]]
 === グリッド全体のオブジェクトデータ使用量を評価します
 
 .手順
@@ -100,6 +103,7 @@ image:nodes_page_object_data_used_with_alert.png["3 つの SN で使用されて
 
 
 
+[[view-optimized-watermarksview-optimized-storage-watermarks]]
 === [[view-optimized-watermarks]]最適化されたストレージのウォーターマークの表示
 
 StorageGRIDでは、2つのPrometheus指標を使用して、ストレージボリュームのソフト読み取り専用ウォーターマークに対して計算された最適化された値が表示されます。グリッド内の各ストレージノードの最適化された最小値と最大値を表示できます。
@@ -126,6 +130,7 @@ StorageGRIDでは、2つのPrometheus指標を使用して、ストレージボ�
 
 
 
+[[determine-optimized-watermarksdetermine-if-you-can-use-optimized-watermarks]]
 === [[determine-optimized-watermarks]]最適化されたウォーターマークを使用できるかどうかを判断する
 
 .手順
@@ -150,6 +155,7 @@ NOTE: 各ストレージノード上の各ストレージボリュームには�
 
 
 
+[[use-optimized-watermarksuse-optimized-watermarks]]
 === [[use-optimized-watermarks]]最適化されたウォーターマークを使用する
 
 .手順

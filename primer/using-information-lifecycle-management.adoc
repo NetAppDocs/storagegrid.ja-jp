@@ -28,6 +28,7 @@ ILM ルールでは次の項目を定義
 
 
 
+[[example-ilm-rule]]
 == ILM ルールの例
 
 たとえば、ILMルールでは次のように指定できます。
@@ -43,6 +44,7 @@ ILM ルールでは次の項目を定義
 
 
 
+[[how-an-ilm-policy-evaluates-objects]]
 == ILM ポリシーによるオブジェクトの評価方法
 
 StorageGRIDシステムのアクティブなILMポリシーによって、すべてのオブジェクトの配置、期間、および取り込み動作が制御されます。
@@ -56,6 +58,7 @@ StorageGRIDシステムのアクティブなILMポリシーによって、すべ
 
 
 
+[[example-ilm-policy]]
 == ILM ポリシーの例
 
 たとえば、ILMポリシーに次の情報を指定する3つのILMルールを含めることができます。

@@ -26,6 +26,7 @@ summary: このセクションの例を使用して、バケットのStorageGRID
 
 
 
+[[example-allow-everyone-read-only-access-to-a-bucket]]
 == 例：すべてのユーザにバケットへの読み取り専用アクセスを許可する
 
 この例では、匿名ユーザを含むすべてのユーザにバケット内のオブジェクトのリストとバケット内のすべてのオブジェクトのGetObject処理を許可しています。それ以外の処理はすべて拒否されます。バケットへの書き込み権限がrootアカウント以外に付与されていないため、このポリシーは特に有用ではない場合があります。
@@ -46,6 +47,7 @@ summary: このセクションの例を使用して、バケットのStorageGRID
 ----
 
 
+[[example-allow-everyone-in-one-account-full-access-and-everyone-in-another-account-read-only-access-to-a-bucket]]
 == 例：あるアカウントのすべてのユーザにフルアクセスを許可し、別のアカウントのすべてのユーザにバケットへの読み取り専用アクセスを許可する
 
 この例では、指定したアカウントのすべてのユーザにバケットへのフルアクセスを許可し、別のアカウントのすべてのユーザには、バケットのList処理とオブジェクトキープレフィックスで始まるバケット内のオブジェクトのGetObject処理のみを許可して `shared/`います。
@@ -94,6 +96,7 @@ NOTE: StorageGRID では、非所有者アカウント（匿名アカウント�
 ----
 
 
+[[example-allow-everyone-read-only-access-to-a-bucket-and-full-access-by-specified-group]]
 == 例：すべてのユーザにバケットへの読み取り専用アクセスを許可し、指定したグループにフルアクセスを許可する
 
 この例では、匿名ユーザを含むすべてのユーザにバケットのList処理とバケット内のすべてのオブジェクトのGetObject処理を許可し、指定したアカウントのグループに属するユーザにのみ `Marketing`フルアクセスを許可しています。
@@ -127,6 +130,7 @@ NOTE: StorageGRID では、非所有者アカウント（匿名アカウント�
 ----
 
 
+[[example-allow-everyone-read-and-write-access-to-a-bucket-if-client-in-ip-range]]
 == 例：クライアントの IP 範囲を限定して、すべてのユーザにバケットへの読み取り / 書き込みアクセスを許可する
 
 この例では、指定した IP 範囲（ 54.240.143.0~54.240.143.255 で 54.240.143.188 を除く）からの要求についてのみ、匿名ユーザを含むすべてのユーザにバケットの List 処理とバケット内のすべてのオブジェクトの全処理を許可しています。それ以外の処理はすべて拒否され、 IP 範囲外の要求はすべて拒否されます。
@@ -151,6 +155,7 @@ NOTE: StorageGRID では、非所有者アカウント（匿名アカウント�
 ----
 
 
+[[example-allow-full-access-to-a-bucket-exclusively-by-a-specified-federated-user]]
 == 例：指定したフェデレーテッドユーザにのみバケットへのフルアクセスを許可します
 
 この例では、フェデレーテッドユーザAlexにバケットとそのオブジェクトへのフルアクセスが許可され `examplebucket`ています。'root' を含む他のすべてのユーザは ' すべての操作を明示的に拒否されますただし、「 root 」による Put/Get/DeleteBucketPolicy は拒否されません。
@@ -190,6 +195,7 @@ NOTE: StorageGRID では、非所有者アカウント（匿名アカウント�
 ----
 
 
+[[example-putoverwriteobject-permission]]
 == 例： PutOverwriteObject 権限
 
 この例では、PutOverwriteObjectとDeleteObjectの効果により、 `Deny`オブジェクトのデータ、ユーザ定義メタデータ、S3オブジェクトのタグを誰も上書きまたは削除できなくなります。

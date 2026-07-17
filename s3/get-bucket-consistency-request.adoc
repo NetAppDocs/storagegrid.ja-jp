@@ -19,6 +19,7 @@ GET Bucket consistency要求を使用すると、特定のバケットに適用�
 
 
 
+[[request-example]]
 == 要求例
 
 [listing, subs="specialcharacters,quotes"]
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == 応答
 
 応答XMLでは、 `<Consistency>`次のいずれかの値が返されます。
@@ -75,6 +77,7 @@ read-after-new-write の場合
 |===
 
 
+[[response-example]]
 == 応答例
 
 [listing]

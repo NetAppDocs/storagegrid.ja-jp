@@ -15,6 +15,7 @@ summary: ストレージノードの運用を停止する前に、ノードを�
 
 
 
+[[when-to-clone-a-node-instead-of-decommissioning-it]]
 == ノードの運用停止ではなくクローンを作成するタイミング
 
 古いアプライアンスストレージノードを新しいアプライアンス以上のアプライアンスに交換する場合は、拡張で新しいアプライアンスを追加してから古いアプライアンスの運用を停止するのではなく、アプライアンスノードをクローニングすることを検討してください。
@@ -33,6 +34,7 @@ summary: ストレージノードの運用を停止する前に、ノードを�
 
 
 
+[[considerations-for-connected-storage-nodes]]
 == 接続されているストレージノードに関する考慮事項
 
 接続されているストレージノードの運用停止に関する考慮事項を確認します。
@@ -57,6 +59,8 @@ NOTE: * Pause * ボタンは、 ILM 評価またはイレイジャーコーデ�
 
 
 
+[[considerations-for-disconnected-storage-nodes]]
+[[considerations-disconnected-storage-nodes]]
 == 切断されているストレージノードに関する考慮事項
 
 切断されているストレージノードの運用停止に関する考慮事項を確認してください。

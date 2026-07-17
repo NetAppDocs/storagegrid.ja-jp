@@ -15,6 +15,7 @@ summary: 'シングル サインオン (SSO) を構成して有効にし、Entra
 
 
 
+[[sign-in-to-the-api-if-entra-id-single-sign-on-is-enabled]]
 == Entra IDシングルサインオンが有効になっている場合は、APIにSign in。
 
 これらの手順は、Entra IDをSSO IDプロバイダーとして使用している場合に適用されます。

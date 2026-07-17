@@ -25,6 +25,7 @@ NOTE: 一部のStorageGRID サービスは、これらのポリシーで暗号�
 
 
 
+[[select-a-security-policy]]
 == セキュリティポリシーを選択します
 
 .手順
@@ -111,6 +112,7 @@ NetApp StorageGRIDカーネル暗号化 API モジュールは、VM およびSto
 
 
 
+[[create-a-custom-security-policy]]
 == カスタムセキュリティポリシーを作成します
 
 独自の暗号を適用する必要がある場合は、カスタムポリシーを作成できます。
@@ -132,6 +134,8 @@ image:securitysettings-custom-security-policy-copy.png["既存のポリシーを
 
 
 
+[[temporarily-revert-to-the-default-security-policy]]
+[[temporarily-revert-to-default-security-policy]]
 == 一時的にデフォルトのセキュリティポリシーに戻します
 
 カスタムセキュリティポリシーを設定した場合、設定したTLSポリシーがと互換性がないと、Grid Managerにサインインできないことがありますlink:global-certificate-types.html["サーバ証明書を設定しました"]。

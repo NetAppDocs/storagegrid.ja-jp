@@ -15,6 +15,7 @@ StorageGRID システムの基本的なビルディングブロックはグリ�
 
 
 
+[[types-of-grid-nodes]]
 == グリッドノードのタイプ
 
 StorageGRIDシステムは、次の 3 種類のグリッド ノードを使用します。
@@ -45,12 +46,14 @@ StorageGRIDシステムは、次の 3 種類のグリッド ノードを使用�
 
 
 
+[[hardware-and-software-nodes]]
 == ハードウェアノードとソフトウェアノード
 
 StorageGRIDノードは、 StorageGRIDアプライアンス ノードまたはソフトウェア ベースのノードとして展開できます。システムあたりのノードの最大数 (すべてのノード タイプを含む) は 220 です。
 
 
 
+[[storagegrid-appliance-nodes]]
 === StorageGRID アプライアンスノード
 
 StorageGRID ハードウェアアプライアンスは、 StorageGRID システム専用に設計されています。一部のアプライアンスはストレージノードとして使用できます。その他のアプライアンスは、管理ノードまたはゲートウェイノードとして使用できます。アプライアンスノードをソフトウェアベースのノードと組み合わせることができます。あるいは、外部のハイパーバイザー、ストレージ、コンピューティングハードウェアに依存しない、専用のアプライアンスのみで構成されたグリッドを導入することもできます。
@@ -63,6 +66,7 @@ StorageGRID ハードウェアアプライアンスは、 StorageGRID システ�
 
 
 
+[[software-based-nodes]]
 === ソフトウェアベースのノード
 
 ソフトウェア ベースのグリッド ノードは、VMware 仮想マシンとして、または Linux ホスト上のコンテナー エンジン内に展開できます。見るlink:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"] 。
@@ -71,6 +75,7 @@ StorageGRID ハードウェアアプライアンスは、 StorageGRID システ�
 
 
 
+[[storagegrid-services]]
 == StorageGRID サービス
 
 StorageGRID サービスの一覧を以下に示します。

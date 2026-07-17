@@ -38,6 +38,7 @@ NOTE: あるタブで行った設定は、別のタブで行ったアクセス�
 
 
 
+[[privileged-address-list-and-manage-external-access-tabs]]
 == [Privileged address list]タブと[Manage external access]タブ
 
 特権アドレスリストタブでは、閉じられているグリッドポートへのアクセスを許可する1つ以上のIPアドレスを登録できます。[Manage external access]タブでは、選択した外部ポートまたは開いているすべての外部ポート（デフォルトではグリッド以外のノードからアクセス可能なポート）への外部アクセスを閉じることができます。多くの場合、この2つのタブを一緒に使用して、グリッドに必要な正確なネットワークアクセスをカスタマイズできます。
@@ -47,6 +48,7 @@ NOTE: 特権IPアドレスには、デフォルトで内部グリッドポート
 
 
 
+[[example-1-use-a-jump-host-for-maintenance-tasks]]
 === 例1:メンテナンスタスクにジャンプホストを使用します
 
 ネットワーク管理にジャンプホスト（セキュリティ強化ホスト）を使用するとします。次の一般的な手順を使用できます。
@@ -62,6 +64,7 @@ CAUTION: ポート443と8443をブロックする前に、特権IPアドレス�
 
 
 
+[[example-2-lock-down-sensitive-ports]]
 === 例2：敏感なポートをロックダウンします
 
 機密ポートとそのポート上のサービスをロックダウンするとします。次の一般的な手順を使用できます。
@@ -77,12 +80,14 @@ CAUTION: Grid ManagerおよびTenant Managerへのアクセスを割り当てら
 
 
 
+[[example-3-disable-access-to-unused-services]]
 === 例3：未使用のサービスへのアクセスを無効にします
 
 ネットワークレベルでは、使用する予定のない一部のサービスを無効にすることができます。たとえば、HTTP S3クライアントトラフィックをブロックするには、[Manage external access]タブのトグルを使用してポート18084をブロックします。
 
 
 
+[[untrusted-client-networks-tab]]
 == [信頼されていないクライアントネットワーク]タブ
 
 クライアントネットワークを使用している場合は、明示的に設定されたエンドポイントでのみインバウンドクライアントトラフィックを受け入れることで、悪意のある攻撃から StorageGRID を保護できます。
@@ -93,6 +98,7 @@ CAUTION: Grid ManagerおよびTenant Managerへのアクセスを割り当てら
 
 
 
+[[example-1-gateway-node-only-accepts-https-s3-requests]]
 === 例 1 ：ゲートウェイノードが HTTPS S3 要求のみを受け入れる
 
 ゲートウェイノードで、 HTTPS S3 要求を除くクライアントネットワーク上のすべてのインバウンドトラフィックを拒否するとします。この場合、次の一般的な手順を実行します。
@@ -105,6 +111,7 @@ CAUTION: Grid ManagerおよびTenant Managerへのアクセスを割り当てら
 
 
 
+[[example-2-storage-node-sends-s3-platform-services-requests]]
 === 例 2 ：ストレージノードが S3 プラットフォームサービス要求を送信する
 
 あるストレージノードからのアウトバウンドS3プラットフォームサービストラフィックは有効にするが、クライアントネットワークではそのストレージノードへのインバウンド接続は禁止するとします。この場合は、次の手順を実行します。
@@ -116,6 +123,7 @@ CAUTION: Grid ManagerおよびTenant Managerへのアクセスを割り当てら
 
 
 
+[[example-3-limiting-access-to-grid-manager-to-a-subnet]]
 === 例3：Grid Managerへのアクセスをサブネットに制限する
 
 Grid Managerに特定のサブネットに対するアクセスのみを許可するとします。次の手順を実行します。

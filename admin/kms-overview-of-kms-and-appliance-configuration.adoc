@@ -21,6 +21,7 @@ image:kms_configuration_overview.png["次のテキストで説明するKMS構成
 
 
 
+[[set-up-the-key-management-server-kms]]
 == キー管理サーバ（ KMS ）のセットアップ
 
 キー管理サーバのセットアップには、主に次の手順が含まれます。
@@ -52,6 +53,7 @@ link:kms-adding.html["キー管理サーバ（ KMS ）を追加する"]
 |===
 
 
+[[set-up-the-appliance]]
 == アプライアンスをセットアップします
 
 KMS を使用するためにアプライアンスノードをセットアップするには、次の手順に従います。
@@ -74,6 +76,7 @@ NOTE: アプライアンスをグリッドに追加したあとに* Node Encrypt
 
 
 
+[[key-management-encryption-process-occurs-automatically]]
 == キー管理の暗号化プロセス（自動的に実行）
 
 キー管理の暗号化には、次の高度な手順が含まれています。これらの手順は自動的に実行されます。

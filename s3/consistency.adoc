@@ -33,6 +33,7 @@ NOTE: グリッド全体の整合性に対する変更は、設定の変更後�
 
 
 
+[[consistency-values]]
 == 整合性の値
 
 一貫性は、 StorageGRID がオブジェクトを追跡するために使用するメタデータがノード間でどのように分散されるかに影響します。一貫性は、クライアント要求に対するオブジェクトの可用性に影響します。
@@ -66,6 +67,7 @@ NOTE: グリッド全体の整合性に対する変更は、設定の変更後�
 
 
 
+[[use-read-after-new-write-and-available-consistency]]
 == 「Read-after-new-write」整合性と「available」整合性を使用
 
 HEAD処理またはGET処理で「Read-after-new-write」整合性が使用されている場合、StorageGRIDは次のように複数の手順で検索を実行します。
@@ -80,6 +82,7 @@ Amazon S3と同様の整合性の保証が必要ないかぎり、整合性を�
 
 
 
+[[api-operation-consistency-controlspecify-consistency-for-api-operation]]
 == [api-operation-consistency-control]] API処理の整合性を指定します。
 
 個 々 のAPI処理に対して整合性を設定するには、処理でサポートされている整合性の値を要求ヘッダーで指定する必要があります。この例では、GetObject処理の整合性を「strong-site」に設定しています。
@@ -97,6 +100,7 @@ NOTE: PutObject処理とGetObject処理では、同じ整合性を使用する�
 
 
 
+[[bucket-consistencyspecify-consistency-for-bucket]]
 == [[bucket-consistency]]バケットの一貫性を指定する
 
 バケットに整合性を設定するには、StorageGRID要求を使用しlink:put-bucket-consistency-request.html["PUT Bucket consistency"]ます。または、Tenant Managerから実行することもできますlink:../tenant/manage-bucket-consistency.html#change-bucket-consistency["バケットの整合性を変更する"]。
@@ -110,6 +114,7 @@ NOTE: PutObject処理とGetObject処理では、同じ整合性を使用する�
 
 
 
+[[how-consistency-and-ilm-rules-interacthow-consistency-and-ilm-rules-interact-to-affect-data-protection]]
 == [[一貫性とILMルールの相互作用]]一貫性とILMルールの相互作用がデータ保護にどのように影響するか
 
 選択した整合性とILMルールは、どちらもオブジェクトの保護方法に影響します。これらの設定は対話的に操作できます。
@@ -125,6 +130,7 @@ strict:: クライアントに成功が返される前に、ILMルールで指�
 
 
 
+[[example-of-how-the-consistency-and-ilm-rule-can-interact]]
 == 整合性とILMルールの相互作用の例
 
 次の ILM ルールと次の一貫性を持つ 3 つのサイト グリッドがあるとします。

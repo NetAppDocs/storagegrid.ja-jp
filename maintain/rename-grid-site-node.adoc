@@ -22,6 +22,7 @@ summary: この手順 を使用して、グリッド、サイト、およびノ�
 
 
 
+[[how-to-rename-grid-sites-or-nodes]]
 == グリッド、サイト、またはノードの名前を変更する方法
 
 StorageGRID システム、1つ以上のサイト、または1つ以上のノードの名前を変更できます。
@@ -30,6 +31,7 @@ StorageGRID システム、1つ以上のサイト、または1つ以上のノー
 
 
 
+[[select-items-to-rename]]
 === 名前を変更する項目を選択します
 
 開始するには、名前を変更する項目を選択します。
@@ -93,6 +95,7 @@ StorageGRID システム、1つ以上のサイト、または1つ以上のノー
 
 
 
+[[propose-new-names]]
 === 新しい名前を提案します
 
 [新しい名前を提案する]ステップでは、各項目の表示名を個別に入力することも、項目の名前を一括して変更することもできます。
@@ -161,6 +164,7 @@ image:rename-bulk-rename-tool-after.png["後にツールの名前を一括変更
 ====
 
 
+[[download-recovery-packagedownload-the-recovery-package]]
 === [[download-recovery-package]]リカバリパッケージをダウンロードする
 
 アイテムの名前変更が完了したら、新しい回復パッケージをダウンロードして保存します。名前を変更したアイテムの新しい表示名は、 `Passwords.txt`ファイル。
@@ -182,6 +186,7 @@ CAUTION: リカバリ パッケージ ファイルには、 StorageGRIDシステ
 
 
 
+[[revert-display-names-back-to-system-names]]
 == 表示名をシステム名に戻します
 
 名前を変更したグリッド、サイト、またはノードを元のシステム名に戻すことができます。アイテムをシステム名に戻すと、Grid Managerページやその他のStorageGRID ロケーションにそのアイテムの*表示名*が表示されなくなります。項目のシステム名のみが表示されます。

@@ -15,12 +15,14 @@ summary:
 
 
 
+[[copyright]]
 == 著作権
 
 link:https://www.netapp.com/company/legal/copyright/["https://www.netapp.com/company/legal/copyright/"^]
 
 
 
+[[trademarks]]
 == 商標
 
 NetApp、NetAppのロゴ、およびNetAppの商標ページに記載されているマークは、NetApp、Inc.の商標です。 その他の会社名および製品名は、それを所有する各社の商標である場合があります。
@@ -29,6 +31,7 @@ link:https://www.netapp.com/company/legal/trademarks/["https://www.netapp.com/co
 
 
 
+[[patents]]
 == 特許
 
 NetAppが所有する特許の最新リストは、次のサイトで参照できます。
@@ -37,18 +40,21 @@ link:https://www.netapp.com/pdf.html?item=/media/11887-patentspage.pdf["https://
 
 
 
+[[privacy-policy]]
 == プライバシーポリシー
 
 link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.com/company/legal/privacy-policy/"^]
 
 
 
+[[api-license]]
 == APIライセンス
 
 このドキュメントは、 StorageGRID S3 REST API に対するライセンスまたはその他の権利を付与するものではありません。StorageGRID S3 REST API の使用またはアクセスには、 NetAppとの個別のライセンス契約が必要であり、その契約に従います。
 
 
 
+[[open-source]]
 == オープンソース
 
 通知ファイルには、ネットアップソフトウェアで使用されるサードパーティの著作権およびライセンスに関する情報が記載されています。

@@ -25,6 +25,7 @@ CAUTION: 以下の ILM ルールとポリシーは一例にすぎません。ILM
 
 
 
+[[ilm-rule-1-for-example-5-strict-ingest-to-guarantee-paris-data-center]]
 == 例 5 の ILM ルール 1 ：パリデータセンターを確保するための Strict 取り込み
 
 この ILM ルールの例では Strict 取り込み動作を使用して、パリベースのテナントによって S3 バケットに保存されたオブジェクトのリージョンが eu-west-3 リージョン（パリ）に設定されたものが米国のデータセンターに格納されないようにします。
@@ -88,6 +89,7 @@ image:ilm_rule_1_example_5_strict_ingest.png["ILM ルール 1 の例 5 での St
 
 
 
+[[ilm-rule-2-for-example-5-balanced-ingest-for-other-objects]]
 == 例 5 の ILM ルール 2 ：他のオブジェクトに対してバランスのとれた取り込み
 
 この ILM ルールの例では、 Balanced 取り込み動作を使用して、最初のルールに一致しないオブジェクトの ILM 効率が最適化されます。このルールに一致するすべてのオブジェクトのコピーが 2 つ保存されます。 1 つは米国データセンターに、もう 1 つはパリデータセンターに格納されます。ルールをすぐに満たすことができない場合は、使用可能な任意の場所に中間コピーが格納されます。
@@ -149,6 +151,7 @@ _ 指定されていません _
 |===
 
 
+[[ilm-policy-for-example-5-combining-ingest-behaviors]]
 == 例 5 の ILM ポリシー：取り込み動作を組み合わせたもの
 
 この例の ILM ポリシーには、取り込み動作が異なる 2 つのルールが含まれています。

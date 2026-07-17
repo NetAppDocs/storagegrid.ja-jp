@@ -17,6 +17,7 @@ GET Bucket metadata notification configuration 要求では、個々のバケッ
 
 
 
+[[request-example]]
 == 要求例
 
 この要求は、というバケットのメタデータ通知設定を読み出します `bucket`。
@@ -30,6 +31,7 @@ Host: _host_
 ----
 
 
+[[response]]
 == 応答
 
 応答の本文には、バケットのメタデータ通知設定が含まれます。メタデータ通知設定では、バケットでの検索統合の設定を確認できます。つまり、どのオブジェクトにインデックスが付けられ、そのオブジェクトメタデータがどのエンドポイントに送信されるかを確認できます。
@@ -153,6 +155,7 @@ Urn は Destination 要素に含まれています。
 |===
 
 
+[[response-example]]
 == 応答例
 
 タグの間に含まれるXMLは `<MetadataNotificationConfiguration></MetadataNotificationConfiguration>`、バケットに対して検索統合エンドポイントとの統合がどのように設定されているかを示します。この例では、という名前のAWSドメインでホストされている `records`という名前およびタイプの `2017`Elasticsearchインデックスにオブジェクトメタデータが送信され `current`ます。

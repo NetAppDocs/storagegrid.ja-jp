@@ -4,6 +4,7 @@
 
 
 
+[[location-for-node-configuration-files]]
 == ノード構成ファイルの場所
 
 各StorageGRIDノードの構成ファイルを、そのノードを実行するホストのディレクトリに配置し `/etc/storagegrid/nodes`ます。たとえば、HostAで管理ノード、ゲートウェイノード、およびストレージノードを1つずつ実行する場合は、3つのノード構成ファイルをHostAのに配置する必要があります `/etc/storagegrid/nodes`。
@@ -12,6 +13,7 @@
 
 
 
+[[naming-of-node-configuration-files]]
 == ノード構成ファイルの命名
 
 構成ファイルの名前は、の形式はです `node-name.conf`。はノードに割り当てる名前です。 `node-name`この名前は StorageGRID インストーラに表示され、ノード移行などのノードのメンテナンス処理で使用されます。
@@ -36,6 +38,7 @@
 
 
 
+[[contents-of-a-node-configuration-file]]
 == ノード構成ファイルの内容
 
 構成ファイルには、1行に1つのキーと1つの値を持つキーと値のペアが含まれています。キーと値のペアごとに、次のルールに従ってください。
@@ -55,6 +58,7 @@
 
 
 
+[[admin-network-keys]]
 === 管理ネットワークキー
 
 
@@ -303,6 +307,7 @@ NODE_TYPE = VM_Admin_Nodeの場合は必須
 |===
 
 
+[[block-device-keys]]
 === ブロックデバイスキー
 
 
@@ -439,6 +444,7 @@ BLOCK_DEVICE_RANGEDB_015
 |===
 
 
+[[client-network-keys]]
 === クライアントネットワークキー
 
 
@@ -642,6 +648,7 @@ LinuxのMACクローニングの詳細については、以下を参照してく
 |===
 
 
+[[grid-network-keys]]
 === グリッドネットワークキー
 
 
@@ -833,6 +840,7 @@ LinuxのMACクローニングの詳細については、以下を参照してく
 |===
 
 
+[[installation-password-key-temporary]]
 === インストールパスワードキー（一時）
 
 
@@ -862,6 +870,7 @@ LinuxのMACクローニングの詳細については、以下を参照してく
 |===
 
 
+[[interfaces-key]]
 === interfacesキー
 
 
@@ -889,6 +898,7 @@ _nnnn_には、追加する各interface_targetエントリに一意の番号を�
 |===
 
 
+[[maximum-ram-key]]
 === 最大RAMキー
 
 
@@ -920,6 +930,7 @@ _nnnn_には、追加する各interface_targetエントリに一意の番号を�
 |===
 
 
+[[node-type-keys]]
 === ノードタイプキー
 
 
@@ -967,6 +978,7 @@ _nnnn_には、追加する各interface_targetエントリに一意の番号を�
 |===
 
 
+[[port-remap-keys]]
 === ポートの再マッピングキー
 
 

@@ -22,6 +22,8 @@ summary: 障害グリッドノードを新しいLinuxホストにリストアす
 
 
 
+[[restore-and-validate-grid-nodes]]
+[[restore-validate-grid-nodes]]
 == グリッドノードをリストアして検証する
 
 障害グリッドノードのグリッド構成ファイルをリストアして検証し、エラーをすべて解決する必要があります。
@@ -96,6 +98,7 @@ StorageGRID ホストサービスを開始する前に、すべてのエラー�
 
 
 
+[[fix-missing-network-interface-errors]]
 === ネットワークインターフェイスが見つからないエラーを修正
 
 ホストネットワークが正しく設定されていない場合や名前のスペルが間違っている場合は、StorageGRIDがファイルに指定されているマッピングをチェックするときにエラーが発生し `/etc/storagegrid/nodes/_node-name_.conf`ます。
@@ -118,6 +121,8 @@ ERROR: <node-name>: GRID_NETWORK_TARGET = <host-interface-name>
 
 
 
+[[fix-missing-block-device-errors]]
+[[fix-block-errors]]
 === ブロックデバイスが見つからないエラーを修正します
 
 システムは、リカバリされた各ノードが有効なブロックデバイススペシャルファイル、またはブロックデバイススペシャルファイルへの有効なソフトリンクにマッピングされていることを確認します。StorageGRIDがファイル内で無効なマッピングを検出すると、 `/etc/storagegrid/nodes/_node-name_.conf`ブロックデバイスが見つからないというエラーが表示されます。
@@ -152,6 +157,7 @@ NOTE: 障害が発生したホストで元のブロックデバイスが失わ�
 ====
 
 
+[[start-storagegrid-host-service]]
 == StorageGRID ホストサービスを開始する
 
 StorageGRID ノードを起動し、ホストのリブート後もノードが再起動されるようにするには、 StorageGRID ホストサービスを有効にして開始する必要があります。
@@ -186,6 +192,8 @@ sudo systemctl reload-or-restart storagegrid
 
 
 
+[[recover-nodes-that-fail-to-start-normally]]
+[[recover-nodes-fail-start]]
 == 正常に開始しないノードをリカバリします
 
 StorageGRID ノードがグリッドに正常に再参加できずリカバリ可能と表示されない場合は、ノードが破損している可能性があります。ノードを強制的にリカバリモードに設定することができます。

@@ -9,12 +9,14 @@ CAUTION: Active Directory または Microsoft Entra ID 以外の ID ソースの
 
 
 
+[[memberof-and-refint-overlays]]
 === memberof オーバーレイと refint オーバーレイ
 
 memberof オーバーレイと refint オーバーレイを有効にする必要があります。詳細については、のリバースグループメンバーシップのメンテナンス手順を参照してくださいhttp://www.openldap.org/doc/admin24/index.html["OpenLDAP のドキュメント：バージョン 2.4 管理者ガイド"^]。
 
 
 
+[[indexing]]
 === インデックス作成
 
 次の OpenLDAP 属性とインデックスキーワードを設定する必要があります。

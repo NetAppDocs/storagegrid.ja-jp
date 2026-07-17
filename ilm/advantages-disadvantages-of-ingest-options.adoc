@@ -17,6 +17,7 @@ summary: 取り込み時にデータを保護するための 3 つのオプシ�
 
 
 
+[[advantages-of-the-balanced-and-strict-options]]
 == Balanced オプションと Strict オプションのメリット
 
 取り込み時に中間コピーを作成する Dual commit と比較すると、 2 つの同期配置オプションには次のメリットがあります。
@@ -29,6 +30,7 @@ summary: 取り込み時にデータを保護するための 3 つのオプシ�
 
 
 
+[[disadvantages-of-the-balanced-and-strict-options]]
 == Balanced オプションと Strict オプションのデメリット
 
 Dual commit と比較すると、 Balanced オプションと Strict オプションにはいくつかのデメリットがあります。
@@ -46,6 +48,7 @@ Dual commit と比較すると、 Balanced オプションと Strict オプシ�
 
 
 
+[[limitations-on-object-placements-with-the-balanced-and-strict-options]]
 == BalancedオプションとStrictオプションを使用したオブジェクトの配置に関する制限事項
 
 BalancedオプションまたはStrictオプションは、次のいずれかの配置手順を含むILMルールには使用できません。
@@ -58,6 +61,7 @@ BalancedオプションまたはStrictオプションは、次のいずれかの
 
 
 
+[[how-ilm-rules-and-consistency-interact-to-affect-data-protection]]
 == ILMルールと整合性の相互作用によるデータ保護への影響
 
 ILMルールと整合性の選択は、どちらもオブジェクトの保護方法に影響します。これらの設定は対話的に操作できます。
@@ -96,6 +100,7 @@ NOTE: 一貫性値を選択する前に、link:../s3/consistency.html["概要of 
 
 
 
+[[example-of-how-consistency-and-ilm-rules-can-interact]]
 == 整合性ルールとILMルールの相互作用の例
 
 次の ILM ルールと次の一貫性を持つ 3 つのサイト グリッドがあるとします。

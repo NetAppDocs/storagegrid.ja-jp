@@ -20,6 +20,7 @@ StorageGRIDシステムは、アクティブなILMポリシーを適用するこ
 
 
 
+[[use-grid-manager-dashboard-tab]]
 == Grid Managerのダッシュボードタブを使用する
 
 .手順
@@ -34,6 +35,7 @@ Grid Managerのダッシュボードの[ILM]タブを使用して、ILMの処理
 
 
 
+[[use-the-nodes-page]]
 == ノードページを使用する
 
 .手順

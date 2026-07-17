@@ -184,6 +184,7 @@ NOTE: StorageGRID 管理者がグリッドマネージャまたは管理 API を
 
 
 
+[[example-notification-configexample-metadata-notification-configuration-that-applies-to-all-objects]]
 == [[example-notification-config]]例：すべてのオブジェクトに適用されるメタデータ通知設定
 
 この例では、すべてのオブジェクトのオブジェクトメタデータが同じデスティネーションに送信されます。
@@ -203,6 +204,7 @@ NOTE: StorageGRID 管理者がグリッドマネージャまたは管理 API を
 ----
 
 
+[[example-metadata-notification-configuration-with-two-rules]]
 == 例：2つのルールを使用したメタデータ通知の設定
 
 この例では、プレフィックスに一致するオブジェクトのオブジェクトメタデータが `/images`1つ目のデスティネーションに送信され、プレフィックスに一致するオブジェクトのオブジェクトメタデータが `/videos`2つ目のデスティネーションに送信されます。
@@ -231,6 +233,7 @@ NOTE: StorageGRID 管理者がグリッドマネージャまたは管理 API を
 ----
 
 
+[[metadata-notification-format]]
 == メタデータ通知の形式
 
 バケットで検索統合サービスを有効にすると、オブジェクトのメタデータまたはタグの追加、更新、削除が行われるたびに、 JSON ドキュメントが生成されてデスティネーションエンドポイントに送信されます。
@@ -257,6 +260,7 @@ NOTE: StorageGRID 管理者がグリッドマネージャまたは管理 API を
 ----
 
 
+[[fields-included-in-the-json-document]]
 === JSONドキュメントに含まれるフィールド
 
 ドキュメント名には、バケット名、オブジェクト名、バージョン ID （存在する場合）が含まれます。
@@ -301,6 +305,7 @@ NOTE: StorageGRID 管理者がグリッドマネージャまたは管理 API を
 
 
 
+[[how-to-view-results-in-elasticsearch]]
 === Elasticsearchで結果を表示する方法
 
 タグとユーザメタデータの場合、 StorageGRID は文字列または S3 イベント通知として Elasticsearch に日付と番号を渡します。これらの文字列を日付または数値として解釈するように Elasticsearch を設定するには、動的フィールドマッピングおよびマッピング日付形式に関する Elasticsearch の手順に従ってください。検索統合サービスを設定する前に、インデックスの動的フィールドマッピングを有効にします。ドキュメントのインデックス作成後は、インデックス内のドキュメントのフィールドタイプを編集することはできません。

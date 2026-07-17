@@ -17,6 +17,7 @@ Cross-grid replication permanent failure *アラートは、ユーザの介入�
 
 
 
+[[determine-if-any-objects-failed-to-be-replicated]]
 == レプリケートに失敗したオブジェクトがないかどうかを確認します
 
 他のグリッドにレプリケートされていないオブジェクトまたは削除マーカーがないかどうかを確認するには、監査ログでメッセージを検索しlink:../audit/cgrr-cross-grid-replication-request.html["CGRR（クロスグリッドレプリケーション要求）"]ます。このメッセージは、StorageGRID がオブジェクト、マルチパートオブジェクト、または削除マーカーをデスティネーションバケットにレプリケートできなかった場合にログに追加されます。
@@ -116,6 +117,7 @@ CGRR Cross-Grid Replication Request tenant:50736445269627437748 connection:44789
 
 
 
+[[retry-failed-replications]]
 == 失敗したレプリケーションを再試行します
 
 デスティネーションバケットにレプリケートされなかったオブジェクトのリストを生成して削除マーカーを削除し、根本的な問題を解決したら、次のいずれかの方法でレプリケーションを再試行できます。
@@ -150,6 +152,7 @@ NOTE: Pendingは、クロスグリッドレプリケーション要求が処理�
 
 
 
+[[monitor-replication-retries]]
 == レプリケーションの再試行を監視します
 
 レプリケーションの再試行処理を監視して、処理が完了していることを確認する必要があります。

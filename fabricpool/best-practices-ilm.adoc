@@ -18,6 +18,7 @@ CAUTION: FabricPool は、 StorageGRID の ILM ルールやポリシーを認識
 
 
 
+[[guidelines-for-using-ilm-with-fabricpool]]
 == FabricPool でILMを使用する場合のガイドライン
 
 FabricPoolセットアップウィザードを使用すると、作成したS3バケットごとに新しいILMルールが自動的に作成され、非アクティブなポリシーに追加されます。ポリシーをアクティブ化するように求められます。自動で作成されたルールは、推奨されるベストプラクティスに従います。1つのサイトで2+1のイレイジャーコーディングを使用します。

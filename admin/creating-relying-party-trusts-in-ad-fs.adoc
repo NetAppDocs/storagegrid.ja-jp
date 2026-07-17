@@ -31,6 +31,7 @@ NOTE: 証明書利用者信頼は StorageGRID システム内の管理ノード�
 
 
 
+[[create-a-relying-party-trust-using-windows-powershell]]
 == Windows PowerShell を使用して証明書利用者信頼を作成します
 
 Windows PowerShell を使用して証明書利用者信頼を簡単に作成できます。
@@ -93,6 +94,7 @@ AD FS 管理ツールが表示されます。
 
 
 
+[[create-a-relying-party-trust-by-importing-federation-metadata]]
 == フェデレーションメタデータをインポートして、証明書利用者信頼を作成します
 
 各証明書利用者信頼の値をインポートするには、各管理ノードの SAML メタデータにアクセスします。
@@ -144,6 +146,7 @@ NOTE: 表示名を入力するときは、管理ノードの証明書利用者 I
 
 
 
+[[create-a-relying-party-trust-manually]]
 == 証明書利用者信頼を手動で作成します
 
 証明書利用者信頼のデータをインポートしないことを選択した場合は、値を手動で入力できます。

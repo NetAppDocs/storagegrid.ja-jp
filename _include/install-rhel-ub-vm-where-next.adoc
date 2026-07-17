@@ -21,6 +21,7 @@
 
 
 
+[[optional-tasks]]
 == 任意のタスク
 
 * link:../maintain/changing-ip-addresses-and-mtu-values-for-all-nodes-in-grid.html["グリッドノードのIPアドレスを更新します"]展開を計画して回復パッケージを生成してから変更があった場合。

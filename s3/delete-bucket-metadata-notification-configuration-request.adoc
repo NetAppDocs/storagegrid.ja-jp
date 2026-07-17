@@ -17,6 +17,7 @@ DELETE Bucket metadata notification configuration 要求では、設定 XML を�
 
 
 
+[[request-example]]
 == 要求例
 
 次の例は、バケットの検索統合サービスを無効にする方法を示しています。

@@ -19,6 +19,7 @@ summary: 簡易ネットワーク管理プロトコル（ SNMP ）を使用し�
 
 
 
+[[capabilities]]
 == 機能
 
 各StorageGRID ノードは、MIBを提供するSNMPエージェント（デーモン）を実行します。StorageGRID MIBには、アラートのテーブルと通知の定義が含まれています。この MIB には、各ノードのプラットフォームやモデル番号など、システムの概要 情報も含まれています。各 StorageGRID ノードは MIB-II オブジェクトのサブセットもサポートしています。
@@ -54,6 +55,7 @@ StorageGRID SNMP エージェントは、 3 つのバージョンの SNMP プロ
 
 
 
+[[snmp-version-support]]
 == SNMP バージョンサポート
 
 次の表に、各 SNMP バージョンでサポートされる内容の概要を示します。
@@ -112,6 +114,7 @@ StorageGRID SNMP エージェントは、 3 つのバージョンの SNMP プロ
 |===
 
 
+[[limitations]]
 == 制限事項
 
 * StorageGRID は、読み取り専用 MIB アクセスをサポートしています。読み取り / 書き込みアクセスはサポートされていません。

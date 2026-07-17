@@ -22,6 +22,7 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[clauses]]
 == 句
 
 * リストを選択します
@@ -32,6 +33,7 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[data-types]]
 == データ型
 
 * ブール値
@@ -44,10 +46,12 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[operators]]
 == 運用者
 
 
 
+[[logical-operators]]
 === 論理演算子
 
 * および
@@ -57,6 +61,7 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[comparison-operators]]
 === 比較演算子
 
 * <
@@ -73,6 +78,7 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[pattern-matching-operators]]
 === パターンマッチング演算子
 
 * いいね
@@ -82,6 +88,7 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[unitary-operators]]
 === 単一の演算子
 
 * は NULL です
@@ -90,6 +97,7 @@ NOTE: リストされていない項目はサポートされていません。
 
 
 
+[[math-operators]]
 === 数学演算子
 
 * +
@@ -103,6 +111,7 @@ StorageGRID はAmazon S3 Selectオペレータの優先順位に従います。
 
 
 
+[[aggregate-functions]]
 == 集合関数
 
 * 平均 ()
@@ -114,6 +123,7 @@ StorageGRID はAmazon S3 Selectオペレータの優先順位に従います。
 
 
 
+[[conditional-functions]]
 == 条件付き関数
 
 * ケース
@@ -123,6 +133,7 @@ StorageGRID はAmazon S3 Selectオペレータの優先順位に従います。
 
 
 
+[[conversion-functions]]
 == 変換関数
 
 * CAST （サポートされているデータタイプ用）
@@ -130,6 +141,7 @@ StorageGRID はAmazon S3 Selectオペレータの優先順位に従います。
 
 
 
+[[date-functions]]
 == 日付関数
 
 * date_add
@@ -142,6 +154,7 @@ StorageGRID はAmazon S3 Selectオペレータの優先順位に従います。
 
 
 
+[[string-functions]]
 == 文字列関数
 
 * char_length 、 character_length

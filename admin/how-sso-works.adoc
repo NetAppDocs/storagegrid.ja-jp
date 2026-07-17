@@ -19,6 +19,7 @@ StorageGRID システムでは、 Security Assertion Markup Language 2.0 （ SAM
 
 
 
+[[sign-in-when-sso-is-enabled]]
 == SSO が有効な場合はサインインします
 
 SSO が有効な場合に StorageGRID にサインインすると、組織の SSO ページにリダイレクトされてクレデンシャルが検証されます。
@@ -69,6 +70,7 @@ SSOクレデンシャルを再入力する必要はありません。
 
 
 
+[[sign-out-when-sso-is-enabled]]
 == SSO が有効な場合はサインアウトします
 
 StorageGRID で SSO が有効になっている場合にサインアウトするとどうなるかは、サインイン先とサインアウト元によって異なります。

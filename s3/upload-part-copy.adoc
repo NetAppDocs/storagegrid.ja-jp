@@ -27,6 +27,7 @@ UploadPartCopy処理は、Amazon S3 REST APIのすべての動作で実装され
 
 
 
+[[request-headers-for-server-side-encryption]]
 == サーバ側の暗号化を行うための要求ヘッダー
 
 CreateMultipartUpload要求にSSE-C暗号化を指定した場合は、各UploadPartCopy要求に次の要求ヘッダーも含める必要があります。
@@ -48,6 +49,7 @@ CAUTION: 指定した暗号化キーが格納されることはありません�
 
 
 
+[[versioning]]
 == バージョン管理
 
 マルチパートアップロードは、アップロードの開始、アップロードのリストの表示、パートのアップロード、アップロードしたパートのアセンブル、およびアップロードの完了の個別の処理に分けられます。CompleteMultipartUpload処理が実行されると、オブジェクトが作成されます（該当する場合はバージョン管理されます）。

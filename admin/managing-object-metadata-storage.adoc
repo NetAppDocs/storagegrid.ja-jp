@@ -15,6 +15,7 @@ StorageGRID システムのオブジェクトメタデータ容量は、その�
 
 
 
+[[what-is-object-metadata]]
 == オブジェクトメタデータとは
 
 オブジェクトメタデータは、オブジェクトについて記述された任意の情報です。StorageGRID では、オブジェクトメタデータを使用してグリッド全体のすべてのオブジェクトの場所を追跡し、各オブジェクトのライフサイクルを継続的に管理します。
@@ -32,6 +33,7 @@ StorageGRID のオブジェクトの場合、オブジェクトメタデータ�
 
 
 
+[[how-is-object-metadata-stored]]
 == オブジェクトメタデータの格納方法
 
 StorageGRID は Cassandra データベースにオブジェクトメタデータを保持し、 Cassandra データベースはオブジェクトデータとは別に格納されます。冗長性を確保し、オブジェクトメタデータを損失から保護するために、 StorageGRID は各サイトのシステム内のすべてのオブジェクトにメタデータのコピーを 3 つずつ格納します。
@@ -42,6 +44,7 @@ image:metadata_space_across_sites.png["サイト間のメタデータスペー�
 
 
 
+[[where-is-object-metadata-stored]]
 == オブジェクトメタデータの格納先
 
 この図は、単一のストレージノードのストレージボリュームを表しています。
@@ -54,6 +57,7 @@ image:metadata_space_storage_node.png["Metadata Space ストレージノード"]
 
 
 
+[[metadata-reserved-space-setting]]
 == メタデータリザーブスペースの設定
 
 Metadata reserved space _は、各ストレージノードのボリューム0でメタデータ用にリザーブされるスペースの量を示すシステム全体の設定です。次の表に示すように、この設定のデフォルト値は次の基準に基づいています。
@@ -111,6 +115,7 @@ Metadata reserved space _は、各ストレージノードのボリューム0で
 |===
 
 
+[[view-metadata-reserved-space-setting]]
 === メタデータリザーブスペースの設定を表示
 
 StorageGRIDシステムのMetadata Reserved Space設定を表示するには、次の手順を実行します。
@@ -126,6 +131,7 @@ StorageGRID 11.8以降では、Metadata Reserved Spaceの値が100GB以上1PB以
 
 
 
+[[actual-reserved-space-for-metadata]]
 == メタデータ用にリザーブされている実際のスペース
 
 システム全体のMetadata Reserved Space設定とは異なり、オブジェクトメタデータ用の_actual reserved space_forはストレージノードごとに決定されます。あるストレージノードについて、メタデータ用に実際にリザーブされるスペースは、そのノードのボリューム0のサイズ、およびシステム全体でのMetadata Reserved Spaceの設定によって異なります。
@@ -156,6 +162,7 @@ StorageGRID 11.8以降では、Metadata Reserved Spaceの値が100GB以上1PB以
 |===
 
 
+[[view-actual-reserved-space-for-metadata]]
 === メタデータ用に実際にリザーブされているスペースを表示する
 
 特定のストレージノードでメタデータ用に実際にリザーブされているスペースを表示する手順は、次のとおりです。
@@ -173,6 +180,7 @@ image:storage_used_object_metadata_actual_reserved.png["使用済みストレー
 
 
 
+[[example-for-actual-reserved-metadata-space]]
 === 実際にリザーブされているメタデータスペースの例
 
 バージョン11.7以降を使用して新しいStorageGRIDシステムをインストールしたとします。この例では、各ストレージノードの RAM が 128GB を超え、ストレージノード 1 （ SN1 ）のボリューム 0 が 6TB であるとします。次の値に基づきます。
@@ -183,6 +191,7 @@ image:storage_used_object_metadata_actual_reserved.png["使用済みストレー
 
 
 
+[[allowed-metadata-space]]
 == 許可されているメタデータスペースです
 
 メタデータ用に実際に予約されている各ストレージノードは、オブジェクトメタデータに使用できるスペース（許容されるメタデータスペース _ ）と、重要なデータベース処理（コンパクションや修復など）や将来のハードウェアおよびソフトウェアのアップグレードに必要なスペースに分割されます。許可されるメタデータスペースは、オブジェクトの全体的な容量を決定します。
@@ -191,6 +200,7 @@ image:metadata_allowed_space_volume_0.png["Metadata Allowed Space ：ボリュ�
 
 次の表に、各ストレージノードのメモリ容量とメタデータ用に実際にリザーブされているスペースに基づいてStorageGRID で許容されるメタデータスペース*がどのように計算されるかを示します。
 
+[[table-allowed-space-for-metadata]]
 [cols="1a,1a,2a,2a"]
 |===
 
@@ -232,6 +242,7 @@ image:metadata_allowed_space_volume_0.png["Metadata Allowed Space ：ボリュ�
 |===
 
 
+[[view-allowed-metadata-space]]
 === 許可されているメタデータスペースを表示する
 
 ストレージノードで許可されているメタデータスペースを表示するには、次の手順を実行します。
@@ -254,6 +265,7 @@ image:storage_used_object_metadata_allowed.png["使用済みストレージ - �
 
 
 
+[[example-for-allowed-metadata-space]]
 == 許可されるメタデータスペースの例
 
 バージョン11.6を使用してStorageGRID システムをインストールするとします。この例では、各ストレージノードの RAM が 128GB を超え、ストレージノード 1 （ SN1 ）のボリューム 0 が 6TB であるとします。次の値に基づきます。
@@ -265,6 +277,7 @@ image:storage_used_object_metadata_allowed.png["使用済みストレージ - �
 
 
 
+[[how-storage-nodes-of-different-sizes-affect-object-capacity]]
 == サイズの異なるストレージノードがオブジェクト容量に与える影響
 
 前述したように、 StorageGRID は各サイトのストレージノードにオブジェクトメタデータを均等に分散します。このため、サイトにサイズが異なるストレージノードがある場合、サイトで一番小さいノードがサイトのメタデータ容量を決定します。

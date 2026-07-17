@@ -15,6 +15,7 @@ summary: 以下の手順に従って、 StorageGRID システムを設定およ�
 
 
 
+[[about-these-instructions]]
 == これらの手順について
 
 StorageGRIDの設定と管理の主なタスクでは、次のことを実行できます。
@@ -28,6 +29,7 @@ StorageGRIDの設定と管理の主なタスクでは、次のことを実行で
 
 
 
+[[before-you-begin]]
 == 開始する前に
 
 * StorageGRID システムに関する一般的な知識が必要です。

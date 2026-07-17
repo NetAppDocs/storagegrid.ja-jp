@@ -21,6 +21,7 @@ GET Storage Usage 要求を使用すると、アカウントで使用してい�
 
 
 
+[[request-example]]
 == 要求例
 
 [listing, subs="specialcharacters,quotes"]
@@ -32,6 +33,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == 応答例
 
 次の例は、 2 つのバケットに 4 つのオブジェクトと 12 バイトのデータが格納されたアカウントです。各バケットには、 2 つのオブジェクトと 6 バイトのデータが格納されています。
@@ -67,6 +69,7 @@ Content-Type: application/xml
 ----
 
 
+[[versioning]]
 == バージョン管理
 
 応答では、格納されているすべてのオブジェクトバージョンがとの `DataBytes`値に加算され `ObjectCount`ます。削除マーカーは合計に追加されません `ObjectCount`。

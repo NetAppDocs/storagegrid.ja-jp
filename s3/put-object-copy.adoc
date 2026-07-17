@@ -15,12 +15,14 @@ S3 CopyObject要求を使用して、すでにS3に格納されているオブ�
 
 
 
+[[resolve-conflicts]]
 == 競合を解決します
 
 同じキーに書き込む 2 つのクライアントなど、競合するクライアント要求は、「 latest-wins 」ベースで解決されます。「 latest-wins 」評価は、 S3 クライアントが処理を開始するタイミングではなく、 StorageGRID システムが特定の要求を完了したタイミングで行われます。
 
 
 
+[[object-size]]
 == オブジェクトのサイズ
 
 1回のPutObject処理の最大推奨サイズは5GiB（5、368、709、120バイト）です。5GiBを超えるオブジェクトがある場合は、代わりにを使用しますlink:operations-for-multipart-uploads.html["マルチパートアップロード"]。
@@ -32,6 +34,7 @@ NOTE: StorageGRID 11.6以前からアップグレードした場合、5GiBを超
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == ユーザメタデータ内の UTF-8 文字
 
 要求のユーザ定義メタデータのキー名または値に（エスケープされていない） UTF-8 文字が含まれている場合、 StorageGRID の動作は定義されていません。
@@ -44,6 +47,7 @@ NOTE: StorageGRID 11.6以前からアップグレードした場合、5GiBを超
 
 
 
+[[supported-request-headers]]
 == サポートされる要求ヘッダー
 
 次の要求ヘッダーがサポートされています。
@@ -92,6 +96,7 @@ NOTE: StorageGRID 11.6以前からアップグレードした場合、5GiBを超
 
 
 
+[[unsupported-request-headers]]
 == サポートされない要求ヘッダーです
 
 次の要求ヘッダーはサポートされていません。
@@ -118,6 +123,7 @@ NOTE: StorageGRID 11.6以前からアップグレードした場合、5GiBを超
 
 
 
+[[storage-class-options]]
 == ストレージクラスのオプション
 
  `x-amz-storage-class`要求ヘッダーはサポートされており、一致するILMルールでDual commitまたはBalancedが使用されている場合にStorageGRIDで作成されるオブジェクトコピーの数に影響しますlink:../ilm/data-protection-options-for-ingest.html["取り込みオプション"]。
@@ -138,6 +144,7 @@ NOTE: S3 Object Lockが有効なバケットにオブジェクトを取り込む
 
 
 
+[[using-x-amz-copy-source-in-copyobject]]
 == CopyObjectでのx-amz-copy-sourceの使用
 
 ヘッダーで指定されたソースのバケットおよびキーがデスティネーションのバケットおよびキーと異なる場合は `x-amz-copy-source`、ソースのオブジェクトデータのコピーがデスティネーションに書き込まれます。
@@ -153,6 +160,7 @@ NOTE: S3 Object Lockが有効なバケットにオブジェクトを取り込む
 
 
 
+[[request-headers-for-server-side-encryption]]
 == サーバ側の暗号化を行うための要求ヘッダー
 
 を使用する場合、link:using-server-side-encryption.html["サーバ側の暗号化を使用する"]指定する要求ヘッダーは、ソースオブジェクトが暗号化されているかどうか、およびターゲットオブジェクトを暗号化するかどうかによって異なります。
@@ -188,6 +196,7 @@ NOTE:  `server-side-encryption`オブジェクトの値を更新できません�
 
 
 
+[[versioning]]
 == バージョン管理
 
 ソースバケットがバージョン管理に対応している場合は、ヘッダーを使用してオブジェクトの最新バージョンをコピーできます `x-amz-copy-source`。オブジェクトの特定のバージョンをコピーするには'サブリソースを使用してコピーするバージョンを明示的に指定する必要があり `versionId`ますデスティネーションバケットがバージョン管理に対応している場合は、生成されたバージョンが応答ヘッダーで返され `x-amz-version-id`ます。ターゲットバケットでバージョン管理が一時停止されている場合は `x-amz-version-id`、「null」の値が返されます。

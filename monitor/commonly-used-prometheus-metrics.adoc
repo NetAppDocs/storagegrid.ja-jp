@@ -19,12 +19,14 @@ Prometheusクエリの構文の詳細については、を参照してくださ�
 
 
 
+[[what-are-prometheus-metrics]]
 == Prometheus指標とは
 
 Prometheus指標は時系列の測定値です。管理ノードのPrometheusサービスは、すべてのノード上のサービスからこれらの指標を収集します。指標は、 Prometheus データ用にリザーブされたスペースがフルになるまで各管理ノードに保存されます。ボリュームの容量が上限に達すると、 `/var/local/mysql_ibdata/`最も古い指標から順に削除されます。
 
 
 
+[[where-are-prometheus-metrics-used]]
 == Prometheus指標はどこで使用されますか？
 
 Prometheusで収集された指標は、Grid Managerのいくつかの場所で使用されます。
@@ -48,6 +50,7 @@ NOTE: [Metrics] ページの一部の機能やメニュー項目は意図的に�
 
 
 
+[[list-of-most-common-metrics]]
 == 最も一般的な指標のリスト
 
 次に、よく使用されるPrometheus指標を示します。
@@ -142,6 +145,7 @@ storagegrid_tenant_dusation_QUOTA_bytes:: テナントのオブジェクトに�
 
 
 
+[[get-a-list-of-all-metrics]]
 == すべての指標のリストを取得します
 
 [[objective-all-metrics]]すべての指標のリストを取得するには、グリッド管理APIを使用します。

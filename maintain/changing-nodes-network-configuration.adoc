@@ -207,6 +207,7 @@ Updating grid network configuration on Name
 
 
 
+[[temporarily-changing-the-lacp-pdu-rate]]
 == LACP PDUレートを一時的に変更する
 
 NIC ファームウェアのアップグレードなど、アプライアンスにインストールされているネットワーク コンポーネントに対してメンテナンス操作を実行するには、現在の LACP PDU レート設定が NIC 通信タイミング要件を満たしていることを確認できます。必要に応じて、LACP PDU レートを高速 (1 秒待機) と低速 (30 秒待機) の間で非永続的に切り替えることができます。

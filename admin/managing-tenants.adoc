@@ -34,6 +34,7 @@ NOTE: S3 クライアント プロトコルを使用する場合は、S3 バケ�
 
 
 
+[[how-do-i-create-a-tenant-account]]
 == テナントアカウントを作成するにはどうすればよいですか？
 
 Grid Managerを使用してテナントアカウントを作成する。テナントアカウントを作成する際には次の情報を指定します。
@@ -47,6 +48,7 @@ Grid Managerを使用してテナントアカウントを作成する。テナ�
 
 
 
+[[what-is-tenant-manager-used-for]]
 == Tenant Managerの用途
 
 テナントアカウントを作成したら、テナントユーザはTenant Managerにサインインして次のタスクを実行できます。

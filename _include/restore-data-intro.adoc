@@ -4,6 +4,7 @@
 
 
 
+[[which-procedure-should-i-use]]
 == どの手順 を使用すればよいですか。
 
 可能なかぎり、Grid Managerの*[ボリュームのリストア]*ページを使用してオブジェクトデータをリストアします。
@@ -20,6 +21,7 @@ NOTE: repair-dataスクリプトは廃止され、今後のリリースで削除
 
 
 
+[[use-the-repair-data-script-to-restore-object-data]]
 == スクリプトを使用し `repair-data`てオブジェクトデータをリストアする
 
 .開始する前に
@@ -37,6 +39,7 @@ NOTE: repair-dataスクリプトは廃止され、今後のリリースで削除
 
 
 
+[[about-the-repair-data-script]]
 == スクリプトについて `repair-data`
 
 オブジェクトデータをリストアするには、スクリプトを実行し `repair-data`ます。このスクリプトは、オブジェクトデータのリストアプロセスを開始し、 ILM スキャンと連動して ILM ルールを適用します。

@@ -15,6 +15,7 @@ StorageGRID システムでは、該当する S3 REST API の標準のエラー�
 
 
 
+[[supported-s3-api-error-codes]]
 == サポートされている S3 API のエラーコード
 
 [cols="1a,1a"]
@@ -289,6 +290,7 @@ UserKeyMustBeSpecified
 |===
 
 
+[[storagegrid-custom-error-codes]]
 == StorageGRID カスタムのエラーコード
 
 [cols="2a,2a,1a"]

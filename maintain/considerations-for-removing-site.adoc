@@ -15,6 +15,7 @@ summary: サイトの運用停止手順 を使用してサイトを削除する�
 
 
 
+[[what-happens-when-you-decommission-a-site]]
 == サイトの運用を停止した場合の動作
 
 サイトの運用を停止すると、 StorageGRID はサイトのすべてのノードとサイト自体を StorageGRID システムから完全に削除します。
@@ -27,6 +28,7 @@ summary: サイトの運用停止手順 を使用してサイトを削除する�
 
 
 
+[[differences-between-connected-site-and-disconnected-site-decommission-procedures]]
 == 接続されているサイトと切断されているサイトの運用停止手順の違い
 
 サイト運用停止手順 を使用すると、すべてのノードが StorageGRID に接続されているサイト（接続されていないサイトの運用停止と呼ばれる）を削除したり、すべてのノードが StorageGRID から切断されているサイト（切断されたサイトの運用停止と呼ばれる）を削除したりできます。作業を開始する前に、これらの手順の違いを理解しておく必要があります。
@@ -48,6 +50,7 @@ CAUTION: 切断されたサイトの運用停止手順 を実行する前に、�
 
 
 
+[[general-requirements-for-removing-a-connected-or-a-disconnected-site]]
 == 接続されているサイトまたは切断されているサイトを削除するための一般的な要件
 
 接続されているサイトや切断されているサイトを削除する前に、次の要件について確認しておく必要があります。
@@ -74,6 +77,7 @@ NOTE: 接続されているサイトの運用停止中に別のメンテナン�
 
 
 
+[[requirements-for-information-lifecycle-management-ilm]]
 == 情報ライフサイクル管理（ ILM ）の要件
 
 サイトを削除する場合は、 ILM 設定を更新する必要があります。Decommission Site ウィザードでは、次のことを確認するために、いくつかの前提条件となる手順を実行できます。
@@ -89,6 +93,7 @@ CAUTION: サイトを削除する前に、新しい ILM ルールを作成して
 
 
 
+[[considerations-for-the-object-data-at-a-connected-site]]
 == 接続されているサイトでのオブジェクトデータに関する考慮事項
 
 接続されたサイトの運用停止を実行する場合は、新しい ILM ルールと新しい ILM ポリシーを作成するときに、サイトの既存のオブジェクトデータで実行する処理を決定する必要があります。次のいずれか、または両方を実行できます。
@@ -113,6 +118,7 @@ CAUTION: サイトの削除に対応するためにシングルコピーの ILM 
 
 
 
+[[additional-requirements-for-a-connected-site-decommission]]
 == 接続されたサイトの運用停止に関する追加要件
 
 StorageGRID で接続されているサイトを削除する前に、次の点を確認してください。
@@ -136,6 +142,7 @@ NOTE: サイトからオブジェクトデータを移動または削除する�
 
 
 
+[[additional-requirements-for-a-disconnected-site-decommission]]
 == 切断されたサイトの運用停止に関する追加要件
 
 StorageGRID で切断されているサイトを削除する前に、次の点を確認してください。
@@ -162,6 +169,7 @@ NOTE: ILM ルールとポリシーが単一サイトの損失を防ぐように�
 
 
 
+[[considerations-for-consistency-when-you-remove-a-site]]
 == サイトを削除した場合の整合性に関する考慮事項
 
 S3バケットの整合性によって、StorageGRIDがオブジェクトメタデータをすべてのノードとサイトに完全にレプリケートしてから、オブジェクトの取り込みが成功したことをクライアントに通知するかどうかが決まります。整合性では、オブジェクトの可用性と、異なるストレージノードおよびサイト間でのオブジェクトの整合性のバランスが維持されます。

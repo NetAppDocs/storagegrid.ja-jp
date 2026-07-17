@@ -27,6 +27,7 @@ NOTE: StorageGRID AutoSupportが有効になっていない場合、Grid Manager
 
 
 
+[[what-is-active-iq]]
 == Active IQ とは
 
 Active IQ は、ネットアップのインストールベースが提供する予測分析と集合知を活用する、クラウドベースのデジタルアドバイザです。継続的なリスク評価、予測アラート、規範となるガイダンス、自動化されたアクションによって、問題が発生する前に予防できます。これにより、システムの健全性が向上し、システムの可用性が向上します。
@@ -37,6 +38,7 @@ https://docs.netapp.com/us-en/active-iq/index.html["Active IQ Digital Advisorの
 
 
 
+[[information-included-in-autosupport-package]]
 == AutoSupportパッケージに含まれる情報
 
 AutoSupportパッケージには、次のファイルと詳細が含まれています。

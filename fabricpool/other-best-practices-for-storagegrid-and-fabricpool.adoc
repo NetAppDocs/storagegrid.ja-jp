@@ -15,6 +15,7 @@ FabricPool で使用するStorageGRID システムを設定する場合は、他
 
 
 
+[[audit-message-and-log-destinations]]
 == 監査メッセージとログの送信先
 
 FabricPool ワークロードでは多くの場合読み取り処理の割合が高く、大量の監査メッセージが生成される可能性があります。
@@ -25,30 +26,35 @@ FabricPool ワークロードでは多くの場合読み取り処理の割合が
 
 
 
+[[object-encryption]]
 == オブジェクトの暗号化
 
 StorageGRIDを設定する際に、他のStorageGRIDクライアントでデータ暗号化が必要な場合は、オプションでを有効にすることができますlink:../admin/changing-network-options-object-encryption.html["格納オブジェクトの暗号化のグローバルオプション"]。FabricPool から StorageGRID に階層化されたデータはすでに暗号化されているため、 StorageGRID 設定を有効にする必要はありません。クライアント側の暗号化キーはONTAPが所有します。
 
 
 
+[[object-compression]]
 == オブジェクトの圧縮
 
 StorageGRIDを設定するときは、を有効にしないでlink:../admin/configuring-stored-object-compression.html["格納オブジェクトを圧縮するグローバルオプション"]ください。FabricPool から StorageGRID に階層化されたデータはすでに圧縮されています。StorageGRID オプションを使用しても、オブジェクトのサイズはさらに縮小されません。
 
 
 
+[[s3-object-lock]]
 == S3 オブジェクトのロック
 
 StorageGRIDシステムでグローバルS3オブジェクトロック設定が有効になっている場合は、有効にしないでください。link:../s3/use-s3-api-for-s3-object-lock.html["S3 オブジェクトのロック"] FabricPoolバケットを作成するとき。  S3 オブジェクト ロックはFabricPoolバケットではサポートされていません。
 
 
 
+[[bucket-consistency]]
 == バケット整合性
 
 FabricPoolバケットの場合、推奨されるバケット整合性は* Read-after-new-write *であり、これは新しいバケットのデフォルトの整合性です。FabricPoolバケットを編集して* available *または* strong-site *を使用しないでください。
 
 
 
+[[fabricpool-tiering]]
 == FabricPool による階層化
 
 StorageGRID ノードがNetApp ONTAP システムから割り当てられたストレージを使用している場合は、ボリュームでFabricPool 階層化ポリシーが有効になっていないことを確認してください。たとえば、 StorageGRID ノードが VMware ホストで実行されている場合は、 StorageGRID ノードのデータストアの作成元ボリュームで FabricPool 階層化ポリシーが有効になっていないことを確認します。StorageGRIDノードで使用するボリュームでFabricPool階層化を無効にすると、トラブルシューティングとストレージの処理が簡単になります。

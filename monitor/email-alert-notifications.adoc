@@ -161,6 +161,7 @@ E メール設定が保存されます。
 
 
 
+[[information-included-in-alert-email-notifications]]
 == アラート E メール通知に記載される情報
 
 SMTP E メールサーバを設定すると、アラートルールがサイレンスによって停止されていないかぎり、アラートがトリガーされたときに E メール通知が指定の受信者に送信されます。を参照して link:silencing-alert-notifications.html["アラート通知をサイレント化する"]
@@ -210,6 +211,7 @@ image:alerts_email_notification.png["アラートの E メール通知"]
 |===
 
 
+[[how-alerts-are-grouped]]
 == アラートのグループ化方法
 
 StorageGRID は、アラートがトリガーされたときに大量の E メール通知が送信されないように、複数のアラートを同じ通知にまとめます。
@@ -278,6 +280,7 @@ StorageGRID は、アラートのすべてのインスタンスが解決され�
 |===
 
 
+[[troubleshoot-alert-email-notifications]]
 == アラート E メール通知のトラブルシューティング
 
 * Email notification failure * アラートがトリガーされた場合、またはテストアラート E メール通知を受信できない場合は、次の手順に従って問題 を解決します。

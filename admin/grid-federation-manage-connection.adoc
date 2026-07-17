@@ -20,6 +20,7 @@ StorageGRID システム間のグリッドフェデレーション接続の管�
 
 
 
+[[editgridfedconnectionedit-a-grid-federation-connection]]
 == [[edit_grid_fed_connection]]グリッドフェデレーション接続を編集します
 
 グリッドフェデレーション接続を編集するには、接続内のいずれかのグリッドのプライマリ管理ノードにサインインします。最初のグリッドに変更を加えたら、新しい検証ファイルをダウンロードして、もう一方のグリッドにアップロードする必要があります。
@@ -29,6 +30,7 @@ NOTE: 接続の編集中も、アカウントのクローンまたはグリッ�
 
 
 
+[[start-editing-the-connection]]
 === 接続の編集を開始します
 
 .手順
@@ -85,6 +87,7 @@ NOTE: 接続の編集を開始したときに接続ステータスが* Connected
 
 
 
+[[finish-editing-the-connection]]
 === 接続の編集を終了します
 
 他のグリッドに検証ファイルをアップロードして、接続の編集を完了します。
@@ -107,6 +110,7 @@ NOTE: 接続の編集を開始したときに接続ステータスが* Connected
 
 
 
+[[testgridfedconnectiontest-a-grid-federation-connection]]
 == [[TEST_GRID_FED_CONNECTION]]グリッドフェデレーション接続をテストします
 
 .手順
@@ -177,6 +181,7 @@ NOTE: 接続の編集を開始したときに接続ステータスが* Connected
 
 
 
+[[rotategridfedcertificatesrotate-connection-certificates]]
 == [[rotate_grid_fed_certificates]接続証明書のローテーション
 
 各グリッドフェデレーション接続は、自動生成された4つのSSL証明書を使用して接続を保護します。各グリッドの2つの証明書が有効期限に近づくと、* Expiration of grid federation certificate *アラートによって証明書のローテーションを促すメッセージが表示されます。
@@ -201,6 +206,7 @@ CAUTION: 接続のいずれかの側の証明書が期限切れになると、�
 
 
 
+[[removegridfedconnectionremove-a-grid-federation-connection]]
 == [[remove_grid_fed_connection]]グリッドフェデレーション接続を削除します
 
 接続のいずれかのグリッドからグリッドフェデレーション接続を削除できます。次の図に示すように、両方のグリッドで前提条件となる手順を実行して、どちらのグリッドのテナントでも接続が使用されていないことを確認する必要があります。
@@ -215,6 +221,7 @@ image:grid-federation-remove-connection.png["グリッドフェデレーショ�
 
 
 
+[[disable-replication-for-all-tenant-buckets]]
 === すべてのテナントバケットでレプリケーションを無効にします
 
 .手順
@@ -231,6 +238,7 @@ TIP: テナントバケットでグリッド間レプリケーションが有効
 
 
 
+[[remove-permission-for-each-tenant]]
 === 各テナントの権限を削除します
 
 すべてのテナントバケットでグリッド間レプリケーションを無効にしたら、両方のグリッドのすべてのテナントから* Use grid federation permission *を削除します。
@@ -244,6 +252,7 @@ TIP: テナントバケットでグリッド間レプリケーションが有効
 
 
 
+[[remove-connection]]
 === 接続を削除します
 
 .手順
@@ -263,6 +272,7 @@ TIP: テナントバケットでグリッド間レプリケーションが有効
 
 
 
+[[force-removegridfedconnectionremove-a-grid-federation-connection-by-force]]
 == [[force-remove_grid_fed_connection]]グリッドフェデレーション接続を強制的に削除します
 
 必要に応じて、ステータスが*connected*でない接続を強制的に削除できます。

@@ -28,6 +28,7 @@ PUT Bucket compliance 要求を発行する際は、準拠設定のすべての�
 
 
 
+[[request-example]]
 == 要求例
 
 次の要求例では、という名前のバケットの準拠設定を変更し `mybucket`ます。この例では、のオブジェクト `mybucket`がグリッドに取り込まれてから1年ではなく2年間（1、051、200分）保持されます。このバケットにリーガルホールドはありません。各オブジェクトは 2 年後に自動的に削除されます。
@@ -79,6 +80,7 @@ LegalHold のようになります
 |===
 
 
+[[consistency-for-compliance-settings]]
 == 準拠設定の整合性
 
 PUT Bucket compliance 要求によって S3 バケットの準拠設定を更新すると、 StorageGRID は、グリッド全体のバケットのメタデータを更新しようとします。デフォルトでは、StorageGRIDは* strong-global *整合性を使用して、バケットのメタデータを含むすべてのデータセンターサイトとストレージノードで、変更された準拠設定のリードアフターライト整合性を保証します。
@@ -101,6 +103,7 @@ Consistency-Control: strong-site
 ----
 
 
+[[error-responses]]
 == エラー応答
 
 * バケットが準拠バケットとして作成されていない場合、応答のHTTPステータスコードはになります `404 Not Found`。

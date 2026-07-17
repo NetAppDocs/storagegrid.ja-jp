@@ -17,6 +17,7 @@ summary: バケットのプラットフォームサービスを設定する前�
 
 
 
+[[what-is-a-platform-services-endpoint]]
 == プラットフォームサービスエンドポイントとは何ですか。
 
 プラットフォームサービスエンドポイントは、StorageGRIDが外部のデスティネーションにアクセスするために必要な情報を指定します。
@@ -29,12 +30,14 @@ summary: バケットのプラットフォームサービスを設定する前�
 
 
 
+[[endpoints-for-cloudmirror-replication]]
 == CloudMirror レプリケーション用のエンドポイント
 
 StorageGRID は、 S3 バケットを表すレプリケーションエンドポイントをサポートします。このバケットは、 Amazon Web Services 、同一またはリモートの StorageGRID 環境、あるいは別のサービスでホストされている可能性があります。
 
 
 
+[[endpoints-for-notifications]]
 == 通知用のエンドポイント
 
 StorageGRID は、Amazon SNS、Kafka、Webhook エンドポイントをサポートしています。  Simple Queue Service (SQS) および AWS Lambda エンドポイントはサポートされていません。
@@ -43,6 +46,7 @@ Kafka エンドポイントでは、相互 TLS はサポートされていませ
 
 
 
+[[endpoints-for-the-search-integration-service]]
 == 検索統合サービスのエンドポイント
 
 StorageGRID は、 Elasticsearch クラスタを表す検索統合エンドポイントをサポートします。Elasticsearchクラスタは、ローカルデータセンターに配置することも、AWSクラウドなどの別の場所でホストすることもできます。

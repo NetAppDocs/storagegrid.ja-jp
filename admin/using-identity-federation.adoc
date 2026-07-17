@@ -15,6 +15,7 @@ summary: アイデンティティフェデレーションを使用すると、�
 
 
 
+[[configure-identity-federation-for-grid-manager]]
 == Grid Manager のアイデンティティフェデレーションを設定する
 
 管理者グループとユーザーを Active Directory、Microsoft Entra ID、OpenLDAP、Oracle Directory Server などの別のシステムで管理する場合は、Grid Manager で ID フェデレーションを構成できます。
@@ -41,6 +42,7 @@ Active Directory、Microsoft Entra ID、OpenLDAP、Oracle Directory Server な�
 
 
 
+[[enter-the-configuration]]
 === 設定を入力します
 
 .手順
@@ -142,6 +144,7 @@ NOTE: Active Directory サーバーが LDAP 署名を強制している場合、
 
 
 
+[[test-the-connection-and-save-the-configuration]]
 === 接続をテストして設定を保存します
 
 すべての値を入力したら、設定を保存する前に接続をテストする必要があります。StorageGRID では、 LDAP サーバの接続設定とバインドユーザ名の形式が指定されている場合は検証されます。
@@ -170,6 +173,7 @@ image:identity_federation_test_connection.png["アイデンティティフェデ
 
 
 
+[[force-synchronization-with-the-identity-source]]
 == アイデンティティソースとの強制同期
 
 StorageGRID システムは、アイデンティティソースからフェデレーテッドグループおよびユーザを定期的に同期します。ユーザの権限をすぐに有効にしたり制限したりする必要がある場合は、同期を強制的に開始できます。
@@ -188,6 +192,7 @@ NOTE: アイデンティティフェデレーション同期エラー * アラ�
 
 
 
+[[disable-identity-federation]]
 == アイデンティティフェデレーションを無効にする
 
 グループおよびユーザーの ID フェデレーションを一時的または永続的に無効にすることができます。アイデンティティ フェデレーションが無効になっている場合、 StorageGRIDとアイデンティティ ソース間の通信は行われません。ただし、構成した設定はすべて保持されるため、将来的に ID フェデレーションを簡単に再度有効にすることができます。
@@ -208,6 +213,7 @@ NOTE: アイデンティティフェデレーション同期エラー * アラ�
 
 
 
+[[guidelines-for-configuring-an-openldap-server]]
 == OpenLDAP サーバの設定に関するガイドライン
 
 アイデンティティフェデレーションに OpenLDAP サーバを使用する場合は、 OpenLDAP サーバで特定の設定が必要です。
@@ -217,12 +223,14 @@ CAUTION: Active Directory または Microsoft Entra ID 以外の ID ソースの
 
 
 
+[[memberof-and-refint-overlays]]
 === memberof オーバーレイと refint オーバーレイ
 
 memberof オーバーレイと refint オーバーレイを有効にする必要があります。詳細については、のリバースグループメンバーシップのメンテナンス手順を参照してくださいhttp://www.openldap.org/doc/admin24/index.html["OpenLDAP のドキュメント：バージョン 2.4 管理者ガイド"^]。
 
 
 
+[[indexing]]
 === インデックス作成
 
 次の OpenLDAP 属性とインデックスキーワードを設定する必要があります。

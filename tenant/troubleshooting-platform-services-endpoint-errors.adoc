@@ -15,6 +15,7 @@ StorageGRID がプラットフォームサービスエンドポイントと通�
 
 
 
+[[determine-if-error-has-occurred]]
 == エラーが発生したかどうかを確認します
 
 過去7日以内にプラットフォームサービスエンドポイントエラーが発生した場合は、Tenant Managerダッシュボードにアラートメッセージが表示されます。プラットフォームサービスのエンドポイントページに移動して、エラーの詳細を確認できます。
@@ -30,6 +31,7 @@ image:tenant_dashboard_endpoint_error.png["ダッシュボードのエンドポ�
 
 
 
+[[check-if-error-is-still-current]]
 == エラーがまだ最新であるかどうかを確認します
 
 一部のエラーは、解決後も「 * Last error * 」列に引き続き表示される場合があります。エラーが現在発生しているかどうかを確認したり、解決済みのエラーをテーブルから強制的に削除したりするには、次の手順を実行します。
@@ -46,6 +48,7 @@ image:tenant_dashboard_endpoint_error.png["ダッシュボードのエンドポ�
 
 
 
+[[resolve-endpoint-errors]]
 == エンドポイントエラーの解決
 
 エンドポイントの詳細ページの「 * Last error * 」メッセージを使用して、エラーの原因を特定できます。一部のエラーでは、問題 を解決するためにエンドポイントの編集が必要になります。たとえば、 StorageGRID に正しいアクセス権限がないか、アクセスキーが期限切れになっているためにデスティネーションの S3 バケットにアクセスできない場合、 CloudMirror のエラーが発生することがあります。メッセージは「Either the endpoint credentials or the destination access needs to be updated」で、詳細は「AccessDenied」または「InvalidAccessKeyId」です。
@@ -61,6 +64,7 @@ image:tenant_dashboard_endpoint_error.png["ダッシュボードのエンドポ�
 
 
 
+[[endpoint-credentials-with-insufficient-permissions]]
 == 必要な権限がないエンドポイントクレデンシャルです
 
 StorageGRID によるプラットフォームサービスエンドポイントの検証では、エンドポイントのクレデンシャルを使用してデスティネーションリソースに接続できること、および基本的な権限チェックを実行できることが確認されます。ただし、 StorageGRID では、特定のプラットフォームサービス処理に必要なすべての権限が検証されるわけではありません。そのため、プラットフォームサービスを使用しようとしたときにエラー（「403 Forbidden」など）が表示された場合は、エンドポイントのクレデンシャルに関連付けられている権限を確認してください。

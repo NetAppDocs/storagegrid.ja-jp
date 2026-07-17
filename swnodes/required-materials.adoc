@@ -15,6 +15,7 @@ StorageGRIDをインストールする前に、必要な情報や資料を収集
 
 
 
+[[required-information]]
 == 必要な情報
 
 ネットワーク計画:: 各StorageGRIDノードに接続するネットワーク。StorageGRIDは、トラフィックの分離、セキュリティ、および管理上の利便性のために、複数のネットワークをサポートしています。
@@ -37,6 +38,7 @@ NOTE: StorageGRID 環境でStorageGRID アプライアンス（ハードウェ�
 
 
 
+[[required-materials]]
 == 前提要件
 
 NetApp StorageGRID ライセンス:: デジタル署名された有効なNetAppライセンスが必要です。

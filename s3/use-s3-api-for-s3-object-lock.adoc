@@ -15,6 +15,7 @@ StorageGRID システムでS3オブジェクトロックのグローバル設定
 
 
 
+[[how-to-enable-s3-object-lock-for-a-bucket]]
 == バケットでS3オブジェクトロックを有効にする方法
 
 StorageGRID システムでグローバルな S3 オブジェクトのロック設定が有効になっている場合は、各バケットの作成時に S3 オブジェクトのロックを必要に応じて有効にすることができます。
@@ -31,12 +32,14 @@ S3オブジェクトロックにはバケットのバージョン管理が必要
 
 
 
+[[default-retention-settings-for-a-bucket]]
 == バケットのデフォルトの保持設定
 
 バケットでS3オブジェクトロックが有効になっている場合は、必要に応じてバケットのデフォルトの保持を有効にし、デフォルトの保持モードとデフォルトの保持期間を指定できます。
 
 
 
+[[default-retention-mode]]
 === デフォルトの保持モード
 
 * コンプライアンスモードの場合：
@@ -57,12 +60,14 @@ S3オブジェクトロックにはバケットのバージョン管理が必要
 
 
 
+[[default-retention-period]]
 === デフォルトの保持期間
 
 各バケットのデフォルトの保持期間は、年または日数で指定できます。
 
 
 
+[[how-to-set-default-retention-for-a-bucket]]
 == バケットのデフォルトの保持期間を設定する方法
 
 バケットのデフォルトの保持期間を設定するには、次のいずれかの方法を使用します。
@@ -73,6 +78,7 @@ S3オブジェクトロックにはバケットのバージョン管理が必要
 
 
 
+[[putobjectlockconfiguration]]
 === PutObjectLockConfiguration
 
 PutObjectLockConfiguration要求を使用すると、S3オブジェクトロックが有効になっているバケットに対して、デフォルトの保持モードとデフォルトの保持期間を設定および変更できます。以前に設定したデフォルトの保持設定を削除することもできます。
@@ -115,6 +121,7 @@ Authorization: _authorization-string_
 ----
 
 
+[[how-to-determine-the-default-retention-for-a-bucket]]
 == バケットのデフォルトの保持期間を確認する方法
 
 バケットでS3オブジェクトロックが有効になっているかどうかを確認し、デフォルトの保持モードと保持期間を確認するには、次のいずれかの方法を使用します。
@@ -125,6 +132,7 @@ Authorization: _authorization-string_
 
 
 
+[[getobjectlockconfiguration]]
 === GetObjectLockConfigurationの略
 
 GetObjectLockConfiguration要求を使用すると、S3 Object Lockがバケットで有効になっているかどうかを確認できます。有効になっている場合は、バケットにデフォルトの保持モードと保持期間が設定されているかどうかを確認できます。
@@ -173,6 +181,7 @@ Server: AmazonS3
 ----
 
 
+[[how-to-specify-retention-settings-for-an-object]]
 == オブジェクトの保持設定を指定する方法
 
 S3オブジェクトロックが有効なバケットには、S3オブジェクトロックの保持設定の有無に関係なく、オブジェクトを組み合わせて含めることができます。
@@ -227,6 +236,7 @@ NOTE: を指定する場合は `x-amz-object-lock-mode`、も指定する必要�
 
 
 
+[[how-to-update-retention-settings-for-an-object]]
 == オブジェクトの保持設定を更新する方法
 
 既存のオブジェクトのバージョンのリーガルホールドや保持の設定を更新する必要がある場合、次のオブジェクトサブリソース処理を実行できます。
@@ -246,6 +256,7 @@ NOTE: を指定する場合は `x-amz-object-lock-mode`、も指定する必要�
 
 
 
+[[how-to-use-governance-mode]]
 == ガバナンスモードの使用方法
 
 権限を持つユーザ `s3:BypassGovernanceRetention`は、ガバナンスモードを使用するオブジェクトのアクティブな保持設定をバイパスできます。DELETE処理やPutObjectRetention処理には要求ヘッダーを含める必要があります `x-amz-bypass-governance-retention:true`。これらのユーザは、次の追加操作を実行できます。

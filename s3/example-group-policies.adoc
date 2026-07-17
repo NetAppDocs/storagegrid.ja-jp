@@ -17,6 +17,7 @@ summary: このセクションの例を使用して、グループのStorageGRID
 
 
 
+[[example-set-group-policy-using-tenant-manager]]
 == 例： Tenant Manager を使用してグループポリシーを設定します
 
 Tenant Managerでグループを追加または編集するときに、グループポリシーを選択して、このグループのメンバーに付与するS3アクセス権限を決定できます。を参照して link:../tenant/creating-groups-for-s3-tenant.html["S3 テナント用のグループを作成します"]
@@ -33,6 +34,7 @@ Manage All Buckets権限を持つTenant Managerユーザは、このグループ
 
 
 
+[[example-allow-group-full-access-to-all-buckets]]
 == 例：グループにすべてのバケットへのフルアクセスを許可する
 
 この例では、バケットポリシーで明示的に拒否されている場合を除き、グループのすべてのメンバーにテナントアカウントが所有するすべてのバケットへのフルアクセスが許可されます。
@@ -51,6 +53,7 @@ Manage All Buckets権限を持つTenant Managerユーザは、このグループ
 ----
 
 
+[[example-allow-group-read-only-access-to-all-buckets]]
 == 例：グループにすべてのバケットへの読み取り専用アクセスを許可する
 
 この例では、バケットポリシーで明示的に拒否されている場合を除き、グループのすべてのメンバーに S3 リソースへの読み取り専用アクセスが許可されます。たとえば、オブジェクトをリストして、オブジェクトデータ、メタデータ、タグを読み取ることができます。
@@ -78,6 +81,7 @@ Manage All Buckets権限を持つTenant Managerユーザは、このグループ
 ----
 
 
+[[example-allow-group-members-full-access-to-only-their-folder-in-a-bucket]]
 == 例：グループメンバーにバケット内の「フォルダ」へのフルアクセスのみを許可する
 
 この例では、指定したバケット内の特定のフォルダ（キープレフィックス）のリストおよびアクセスのみがグループのメンバーに許可されます。これらのフォルダのプライバシー設定を決めるときは、他のグループポリシーやバケットポリシーのアクセス権限を考慮する必要があります。

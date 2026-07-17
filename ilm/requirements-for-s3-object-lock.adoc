@@ -15,6 +15,7 @@ summary: グローバルな S3 オブジェクトのロック設定を有効に�
 
 
 
+[[requirements-for-using-the-global-s3-object-lock-setting]]
 == グローバルな S3 オブジェクトロック設定を使用するための要件
 
 * S3 テナントが S3 オブジェクトロックを有効にしてバケットを作成できるようにするには、 Grid Manager またはグリッド管理 API を使用してグローバルな S3 オブジェクトロック設定を有効にする必要があります。
@@ -26,6 +27,7 @@ summary: グローバルな S3 オブジェクトのロック設定を有効に�
 
 
 
+[[requirements-for-compliant-ilm-rules]]
 == 準拠 ILM ルールの要件
 
 S3オブジェクトロックのグローバル設定を有効にする場合は、すべてのアクティブなILMポリシーのデフォルトルールが準拠していることを確認する必要があります。準拠ルールは、 S3 オブジェクトのロックが有効になっているバケットと従来の準拠が有効になっている既存のバケットの両方の要件を満たします。
@@ -39,6 +41,7 @@ S3オブジェクトロックのグローバル設定を有効にする場合は
 
 
 
+[[requirements-for-ilm-policies]]
 == ILMポリシーの要件
 
 グローバルなS3オブジェクトロック設定が有効になっている場合は、アクティブと非アクティブのILMポリシーに準拠ルールと非準拠ルールの両方を含めることができます。
@@ -52,6 +55,7 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["S3オブジェク�
 
 
 
+[[requirements-for-buckets-with-s3-object-lock-enabled]]
 == S3 オブジェクトのロックを有効にした場合のバケットの要件
 
 * StorageGRID システムでグローバルな S3 オブジェクトロック設定が有効になっている場合は、テナントマネージャ、テナント管理 API 、または S3 REST API を使用して、 S3 オブジェクトロックを有効にしたバケットを作成できます。
@@ -64,6 +68,7 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["S3オブジェク�
 
 
 
+[[requirements-for-objects-in-buckets-with-s3-object-lock-enabled]]
 == S3 オブジェクトのロックが有効になっているバケット内のオブジェクトの要件
 
 * オブジェクトバージョンを保護するには、バケットのデフォルトの保持設定を指定するか、オブジェクトバージョンごとに保持設定を指定します。オブジェクトレベルの保持設定は、S3クライアントアプリケーションまたはS3 REST APIを使用して指定できます。
@@ -72,6 +77,7 @@ link:example-7-compliant-ilm-policy-for-s3-object-lock.html["S3オブジェク�
 
 
 
+[[lifecycle-of-objects-in-buckets-with-s3-object-lock-enabled]]
 == S3 オブジェクトのロックが有効なバケット内のオブジェクトのライフサイクル
 
 S3オブジェクトロックが有効なバケットに保存された各オブジェクトは、次の段階を経ます。

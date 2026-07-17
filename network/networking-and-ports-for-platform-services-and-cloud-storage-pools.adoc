@@ -15,6 +15,7 @@ StorageGRID プラットフォームサービスまたはクラウドストレ�
 
 
 
+[[networking-for-platform-services]]
 == プラットフォームサービス用のネットワーク
 
 およびで説明するように、link:../admin/manage-platform-services-for-tenants.html["テナントのプラットフォームサービスを管理する"]link:../tenant/considerations-for-platform-services.html["プラットフォームサービスを管理します"]プラットフォームサービスには、検索統合、イベント通知、CloudMirrorレプリケーションを提供する外部サービスが含まれます。
@@ -27,12 +28,14 @@ StorageGRID プラットフォームサービスまたはクラウドストレ�
 
 
 
+[[networking-for-cloud-storage-pools]]
 == クラウドストレージプールのネットワーク
 
 また、クラウドストレージプールは、ストレージノードから、 Amazon S3 Glacier や Microsoft Azure BLOB ストレージなどの使用する外部サービスが提供するエンドポイントへのアクセスを必要とします。詳細については、を参照してください link:../ilm/what-cloud-storage-pool-is.html["クラウドストレージプールとは"]。
 
 
 
+[[ports-for-platform-services-and-cloud-storage-pools]]
 == プラットフォームサービスとクラウドストレージプールのポート
 
 デフォルトでは、プラットフォームサービスとクラウドストレージプールの通信には次のポートが使用されます。
@@ -47,6 +50,7 @@ StorageGRID プラットフォームサービスまたはクラウドストレ�
 
 
 
+[[vlans-and-platform-services-and-cloud-storage-pools]]
 == VLAN およびプラットフォームサービスとクラウドストレージプール
 
 プラットフォームサービスまたはクラウドストレージプールにVLANネットワークを使用することはできません。デスティネーションエンドポイントには、グリッドネットワーク、管理ネットワーク、またはクライアントネットワーク経由でアクセスできる必要があります。

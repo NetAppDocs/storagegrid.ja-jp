@@ -15,6 +15,7 @@ summary: クライアントまたはテナントが削除処理を実行する�
 
 
 
+[[deletion-hierarchy]]
 == 削除階層
 
 StorageGRID では、オブジェクトを保持するか削除するかを制御する方法がいくつかあります。オブジェクトはクライアント要求によって削除することも、自動で削除することもできます。StorageGRID は、 S3 バケットライフサイクルと ILM の配置手順よりも優先される S3 オブジェクトロックの設定をクライアントの削除要求よりも常に優先します。
@@ -41,6 +42,7 @@ NOTE: S3バケットライフサイクルが設定されている場合は、ラ
 
 
 
+[[data-flow-for-client-deletes]]
 == クライアント削除のデータフロー
 
 image:delete_data_flow.png["クライアントによる削除のデータフロー"]
@@ -52,6 +54,7 @@ image:delete_data_flow.png["クライアントによる削除のデータフロ�
 
 
 
+[[data-flow-for-ilm-deletes]]
 == ILM による削除のデータフローを示します
 
 image:automatic_deletion_data_flow.png["自動削除のデータフロー"]

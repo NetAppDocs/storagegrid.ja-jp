@@ -5210,7 +5210,6 @@
   <block id="308239ed7e43fc89ae81da72046a1cb5" category="summary">監査ログ内の各監査メッセージはシステムイベントに固有のデータを記録します。</block>
   <block id="43e9c4a674688908c439631161649671" category="doc">イベント固有のデータ</block>
   <block id="fe6f2eb2d34a6fb8fcd20196ff437c86" category="paragraph">メッセージ自体を識別する開いているコンテナに続く一連の属性は、<block ref="76918408696376cc0b0c9acf06dc901e" prefix=" " category="inline-code"></block>監査メッセージで説明されているイベントまたはアクションに関する情報を提供します。以下の例では、これらの属性を強調表示しています。</block>
-  <block id="0db84933e70a875f988a06f943ee983e" category="paragraph">2018-12-05T08 ： 24 ： 45.921845 [AUDT ： * \ [RSLT\ （ FC32\ ）： SUCS * \ [TIME \ （ UI64\ ）： 11454 \ [SAIP\ （ iP\ ）： "10.224.0.0.100"\\[S3A\ S64ZA\ （ CStr ）： 664KUG99\ アカウント： \SUG1264KH4\S12BKH4\S12BKG3K\ アカウント \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 6464646464646464625G3K3K3K3K3K3KUG99\ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ 住所 \ S625G3K3K3G3K3K3K625G3G3G3K625G3G3G3K625</block>
   <block id="330f957a5bec85ad2bedd3f07d7dc2a1" category="paragraph">エレメント（この例では下線付き）は、<block ref="77b67b7419230d63f01bbbe32666b7e8" prefix=" " category="inline-code"></block>メッセージを生成したイベントを識別します。この例のメッセージには、S3 HEAD要求が成功して生成されたことを示すメッセージコード（[ATYP（FC32）：Shea]）が含まれてい<block ref="93c5ff5de753ca04c1a8d5c3e6acd152" category="inline-link-macro-rx"></block>ます。</block>
   <block id="bc3cda0f98b17a806d22f17a594d539e" category="summary">CMN サービスは、 StorageGRID システムで CMN サービスに関する情報を更新または登録したときにこの監査メッセージを生成します。</block>
   <block id="372ef73078ea0cb4e30ab742e0c3d63d" category="doc">GNRG ： GNDS 登録</block>
@@ -22854,4 +22853,5 @@
   <block id="58a49eb623c4a6b9fafad050142d4526" category="paragraph"><block ref="58a49eb623c4a6b9fafad050142d4526" category="inline-image-macro-rx" type="image"></block></block>
   <block id="bb70c14ff3206571f466d4eba7c5ee22" category="paragraph"><block ref="bb70c14ff3206571f466d4eba7c5ee22" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cb92d4f4887328dd78af4c98d48eb460" category="paragraph"><block ref="cb92d4f4887328dd78af4c98d48eb460" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="07475a26866d8d6533c6342bd2454b1e" category="list-text">AutoSupport に関連するログが含まれています。</block>
 </blocks>

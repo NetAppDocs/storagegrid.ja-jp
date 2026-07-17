@@ -15,6 +15,7 @@ StorageGRID ネットワークおよびノードに対する強化ガイドラ�
 
 
 
+[[temporary-installation-password]]
 == 一時インストールパスワード
 
 インストール中にStorageGRIDシステムを保護するには、StorageGRIDインストールUIまたはインストールAPIの一時インストーラパスワードページでパスワードを設定します。このパスワードを設定すると、ユーザインターフェイス、インストールAPI、スクリプトなど、StorageGRIDをインストールするすべての方法に適用され `configure-storagegrid.py`ます。
@@ -27,6 +28,7 @@ StorageGRID ネットワークおよびノードに対する強化ガイドラ�
 
 
 
+[[logs-and-audit-messages]]
 == ログと監査メッセージ
 
 StorageGRID ログおよび監査メッセージ出力は必ず安全な方法で保護してください。StorageGRID のログと監査メッセージは、サポートやシステム可用性の観点から非常に重要な情報を提供します。また、 StorageGRID のログおよび監査メッセージの出力に含まれる情報や詳細情報は、一般に機密性が高いため、
@@ -37,6 +39,7 @@ StorageGRIDログの詳細については、を参照してくださいlink:../m
 
 
 
+[[netapp-autosupport]]
 == NetApp AutoSupport
 
 StorageGRIDのAutoSupport機能を使用すると、システムの健全性をプロアクティブに監視し、NetApp Support Site、組織内のサポートチーム、またはサポートパートナーにパッケージを自動的に送信できます。デフォルトでは、StorageGRIDを初めて設定すると、NetAppへのAutoSupportパッケージの送信が有効になります。
@@ -47,6 +50,7 @@ AutoSupportでは、転送プロトコルとしてHTTPS、HTTP、およびSMTP�
 
 
 
+[[cross-origin-resource-sharing-cors]]
 == Cross-Origin Resource Sharing（CORS）
 
 S3バケットとバケット内のオブジェクトに他のドメインにあるWebアプリケーションからアクセスできるようにするには、そのバケットにCross-Origin Resource Sharing（CORS）を設定します。一般的に、CORSは必要でない限り有効にしないでください。CORS が必要な場合は、信頼できるオリジンに制限します。
@@ -55,6 +59,7 @@ S3バケットとバケット内のオブジェクトに他のドメインにあ
 
 
 
+[[external-security-devices]]
 == 外部セキュリティデバイス
 
 完全なセキュリティ強化解決策 は、 StorageGRID 以外のセキュリティメカニズムに対応する必要があります。StorageGRID へのアクセスをフィルタリングおよび制限するために追加のインフラデバイスを使用すると、厳格なセキュリティ体制を確立し、維持するための効果的な方法となります。これらの外部セキュリティデバイスには、ファイアウォール、 Intrusion Prevention System （ IPS ；侵入防御システム）、およびその他のセキュリティデバイスが含まれます。
@@ -63,6 +68,7 @@ S3バケットとバケット内のオブジェクトに他のドメインにあ
 
 
 
+[[ransomware-mitigation]]
 == ランサムウェアの軽減
 
 の推奨事項に従って、ランサムウェア攻撃からオブジェクトデータを保護し https://www.netapp.com/media/69498-tr-4921.pdf["StorageGRID によるランサムウェア対策"^]ましょう。

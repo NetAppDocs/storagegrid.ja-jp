@@ -17,6 +17,7 @@ GET Bucket last access time 要求を使用すると、最終アクセス時間�
 
 
 
+[[request-example]]
 == 要求例
 
 [listing, subs="specialcharacters,quotes"]
@@ -28,6 +29,7 @@ Host: _host_
 ----
 
 
+[[response-example]]
 == 応答例
 
 次の例では、バケットの最終アクセス時間の更新が有効になっています。

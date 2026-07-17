@@ -24,6 +24,7 @@ NOTE: StorageGRID システムでシングルサインオン（SSO）が有効�
 
 
 
+[[create-usercreate-a-local-user]]
 == [[create-user]]ローカルユーザを作成します
 
 ローカルユーザを作成して1つ以上のローカルグループに割り当て、ユーザのアクセス権限を制御することができます。
@@ -32,6 +33,7 @@ NOTE: StorageGRID システムでシングルサインオン（SSO）が有効�
 
 
 
+[[access-the-create-user-wizard]]
 === Create userウィザードにアクセスします
 
 .手順
@@ -47,6 +49,7 @@ image:grid-federation-tenant-user-banner.png["テナントソースグリッド�
 
 
 
+[[enter-credentials]]
 === 資格情報を入力します
 
 .手順
@@ -93,6 +96,7 @@ image:grid-federation-tenant-user-banner.png["テナントソースグリッド�
 
 
 
+[[assign-to-groups]]
 === グループに割り当てます
 
 .手順
@@ -112,6 +116,7 @@ image:grid-federation-tenant-user-banner.png["テナントソースグリッド�
 
 
 
+[[view-or-edit-local-user]]
 == ローカルユーザを表示または編集します
 
 .手順
@@ -172,6 +177,7 @@ image:grid-federation-tenant-user-banner.png["テナントソースグリッド�
 
 
 
+[[import-federated-users]]
 == フェデレーションユーザーのインポート
 
 1 人以上のフェデレーション ユーザー (最大 100 人) を [ユーザー] ページに直接インポートできます。
@@ -199,6 +205,7 @@ image:grid-federation-tenant-user-banner.png["テナントソースグリッド�
 
 
 
+[[duplicate-local-user]]
 == ローカルユーザが重複しています
 
 ローカルユーザを複製して新しいユーザを迅速に作成することができます。
@@ -216,6 +223,7 @@ NOTE: テナントアカウントに* Use grid federation connection *権限が�
 
 
 
+[[clone-usersretry-user-clone]]
 == [[clone-users]]ユーザクローンの再試行
 
 失敗したクローンを再試行するには：
@@ -229,6 +237,7 @@ NOTE: テナントアカウントに* Use grid federation connection *権限が�
 
 
 
+[[delete-one-or-more-local-users]]
 == 1人以上のローカルユーザを削除します
 
 StorageGRID テナントアカウントにアクセスする必要がなくなった1人以上のローカルユーザを完全に削除できます。

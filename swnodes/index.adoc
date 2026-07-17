@@ -43,6 +43,7 @@ NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメント
 
 
 
+[[automate-the-installation]]
 == インストールを自動化します
 
 

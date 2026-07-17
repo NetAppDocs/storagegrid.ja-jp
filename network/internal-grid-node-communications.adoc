@@ -20,6 +20,7 @@ StorageGRID では、 ICMP と表に記載されているポートに加えて�
 
 
 
+[[guidelines-for-linux-based-nodes]]
 == Linux ベースのノードについてはガイドラインを参照してください
 
 エンタープライズ ネットワーク ポリシーによってこれらのポートへのアクセスが制限されている場合は、デプロイメント構成パラメータを使用してデプロイメント時にポートを再マップできます。ポートの再マッピングとデプロイメント構成パラメータの詳細については、以下を参照してください。link:../swnodes/index.html["ソフトウェアベースのノードにStorageGRIDをインストールする"] 。
@@ -29,6 +30,7 @@ NOTE: ポート再マッピングのサポートは非推奨であり、将来�
 
 
 
+[[guidelines-for-vmware-based-nodes]]
 == VMware ベースのノードについてのガイドラインを参照してください
 
 次のポートは、 VMware ネットワーク外部のファイアウォール制限を定義する必要がある場合にのみ設定してください。
@@ -40,6 +42,7 @@ NOTE: ポート再マッピングのサポートは非推奨であり、将来�
 
 
 
+[[guidelines-for-appliance-nodes]]
 == アプライアンスノードのガイドライン
 
 これらのいずれかのポートへのアクセスがエンタープライズネットワークポリシーで制限されている場合は、 StorageGRID アプライアンスインストーラを使用してポートを再マッピングできます。を参照してください https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-remapping-network-ports-for-appliance.html["オプション：アプライアンスのネットワークポートの再マッピング"^]
@@ -49,6 +52,7 @@ NOTE: ポート再マッピングのサポートは非推奨であり、将来�
 
 
 
+[[storagegrid-internal-ports]]
 == StorageGRID の内部ポート
 
 [cols="1a,1a,1a,1a,4a"]

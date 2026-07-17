@@ -18,6 +18,7 @@ CAUTION: 以下の ILM ルールとポリシーは一例にすぎません。ILM
 
 
 
+[[ilm-rule-1-for-example-1-copy-object-data-to-two-sites]]
 == 例1のILMルール1：オブジェクトデータを2つのサイトにコピーします
 
 このILMルールの例では、オブジェクトデータを2つのサイトのストレージプールにコピーします。
@@ -64,6 +65,7 @@ image:ilm_rule_two_copies_two_data_centers.png["例1のILMルール1：オブジ
 
 
 
+[[ilm-rule-2-for-example-1-erasure-coding-profile-with-bucket-matching]]
 == 例1のILMルール2：イレイジャーコーディングプロファイルとバケットの照合
 
 このILMルールの例では、イレイジャーコーディングプロファイルとS3バケットを使用して、オブジェクトの格納場所と格納期間を決定します。
@@ -106,6 +108,7 @@ image:ilm_rule_ec_for_s3_bucket_finance_records.png["例1のILMルール2：イ�
 
 
 
+[[ilm-policy-for-example-1]]
 == 例1のILMポリシー
 
 実際には、StorageGRID システムでは高度で複雑なILMポリシーを設計できますが、ほとんどのILMポリシーはシンプルです。

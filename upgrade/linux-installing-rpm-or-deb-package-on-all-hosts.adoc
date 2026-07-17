@@ -15,6 +15,7 @@ LinuxホストにStorageGRIDノードが導入されている場合は、アッ�
 
 
 
+[[download-upgrade-linux-and-hotfix-files]]
 == アップグレードファイル、Linuxファイル、ホットフィックスファイルをダウンロードします
 
 Grid ManagerからStorageGRID のアップグレードを実行すると、最初の手順として、アップグレードアーカイブと必要なホットフィックスをダウンロードするように求められます。ただし、Linuxホストをアップグレードするためにファイルをダウンロードする必要がある場合は、必要なファイルをすべて事前にダウンロードすることで時間を節約できます。
@@ -67,6 +68,7 @@ StorageGRID ソフトウェアのバージョンの形式は、 11._x.y_. です
 
 
 
+[[install-archive-on-all-linux-hosts]]
 == すべてのLinuxホストにアーカイブをインストールします
 
 StorageGRID ソフトウェアをアップグレードする前に、次の手順を実行します。
@@ -84,6 +86,7 @@ Linux用のStorageGRIDホストサービスのインストール手順につい�
 
 
 
+[[remove-installation-archives-for-previous-versions]]
 == 以前のバージョンのインストールアーカイブを削除
 
 Linuxホストのスペースを解放するには、不要になった以前のバージョンのStorageGRIDのインストールアーカイブを削除します。

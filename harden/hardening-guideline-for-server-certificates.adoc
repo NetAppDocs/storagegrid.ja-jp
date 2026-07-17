@@ -15,6 +15,7 @@ SSH アクセスを制御し、デフォルトの TLS 証明書を置き換え�
 
 
 
+[[hardening-guidelines-for-certificates]]
 == 証明書に関するセキュリティ強化ガイドライン
 
 インストール時に作成されたデフォルトの証明書を独自のカスタム証明書に置き換える必要があります。
@@ -44,6 +45,7 @@ NOTE: StorageGRID では、ロードバランサエンドポイントに使用�
 
 
 
+[[hardening-guidelines-for-tls-and-ssh-policy]]
 == TLSおよびSSHポリシーに関するセキュリティ強化ガイドライン
 
 セキュリティポリシーを選択して、クライアントアプリケーションとのセキュアなTLS接続の確立や内部StorageGRID サービスへのセキュアなSSH接続に使用するプロトコルと暗号を決定できます。
@@ -54,6 +56,7 @@ NOTE: StorageGRID では、ロードバランサエンドポイントに使用�
 
 
 
+[[manage-external-ssh-access]]
 == 外部SSHアクセスを管理する
 
 システム セキュリティを強化するために、外部からの SSH アクセスはデフォルトでブロックされます。トラブルシューティングなど、着信 SSH アクセスを必要とするタスクを実行する必要がある場合のみ、SSH アクセスを有効にします。参照link:../admin/manage-external-ssh-access.html["外部SSHアクセスを管理する"]詳細と手順についてはこちらをご覧ください。

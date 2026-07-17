@@ -77,6 +77,7 @@ StorageGRID インストールアーカイブ
 |===
 
 
+[[download-and-extract-storagegrid-installation-files]]
 == StorageGRID インストールファイルをダウンロードして展開します
 
 .[[download-and-extract-install-files-recover]]

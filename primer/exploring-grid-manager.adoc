@@ -22,6 +22,7 @@ Grid Managerには、を使用してlink:../admin/web-browser-requirements.html[
 
 
 
+[[grid-manager-dashboard]]
 == Grid Manager ダッシュボード
 
 グリッドマネージャに初めてサインインしたときに、ダッシュボードを使用して概要を確認できますlink:../monitor/viewing-dashboard.html["システムアクティビティの監視"]。
@@ -34,6 +35,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[search-field]]
 == 検索フィールド
 
 ヘッダーバーの * Search * フィールドを使用すると、 Grid Manager 内の特定のページにすばやく移動できます。たとえば、「* km *」と入力すると、キー管理サーバ（KMS）ページにアクセスできます。
@@ -42,6 +44,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[help-menu]]
 == ヘルプメニュー
 
 ヘルプメニューimage:icon-help-menu-bar.png["メニューバーのヘルプアイコン"]からアクセスできる項目：
@@ -54,6 +57,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[alerts-menu]]
 == ［ アラート ］ メニュー
 
 [Alerts] メニューには、 StorageGRID の動作中に発生する可能性のある問題を検出、評価、解決するための使いやすいインターフェイスが用意されています。
@@ -69,12 +73,14 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[nodes-page]]
 == [Nodes]ページ
 
 そのlink:../monitor/viewing-nodes-page.html["[Nodes]ページ"]グリッド全体、グリッド内の各サイト、およびサイトの各ノードに関する情報を表示します。特定のサイトまたはノードの情報を表示するには、そのサイトまたはノードを選択します。
 
 
 
+[[tenants-page]]
 == テナントページ
 
 ではlink:../admin/managing-tenants.html["テナントページ"]、StorageGRIDシステムに対してを実行できますlink:../tenant/index.html["ストレージテナントアカウントを作成および監視する"]。オブジェクトの格納と読み出しを実行できるユーザを指定し、どの機能を利用可能とするかを指定するには、少なくとも 1 つのテナントアカウントを作成する必要があります。
@@ -83,6 +89,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[ilm-menu]]
 == ILM メニュー
 
 ではlink:using-information-lifecycle-management.html["ILM メニュー"]、データの保持方法と可用性を管理できますlink:../ilm/index.html["情報ライフサイクル管理（ILM）のルールとポリシーを設定する"]。オブジェクト ID を入力して、そのオブジェクトのメタデータを表示することもできます。
@@ -100,12 +107,14 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[configuration-menu]]
 == 設定メニュー
 
 [Configuration] メニューでは、ネットワーク設定、セキュリティ設定、システム設定、モニタリングオプション、およびアクセスコントロールオプションを指定できます。
 
 
 
+[[network-tasks]]
 === ネットワークタスク
 
 ネットワークタスクは次のとおりです。
@@ -120,6 +129,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[security-tasks]]
 === セキュリティタスク
 
 セキュリティタスクは次のとおりです。
@@ -133,6 +143,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[system-tasks]]
 === システムタスク
 
 システムタスクは次のとおりです。
@@ -147,6 +158,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[monitoring-tasks]]
 === タスクの監視
 
 監視タスクは次のとおりです。
@@ -157,6 +169,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[access-control-tasks]]
 === アクセス制御タスク
 
 アクセス制御タスクは次のとおりです。
@@ -170,12 +183,14 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 
 
+[[maintenance-menu]]
 == メンテナンスメニュー
 
 Maintenance （メンテナンス）メニューでは、メンテナンスタスク、システムメンテナンス、およびネットワークメンテナンスを実行できます。
 
 
 
+[[tasks]]
 === タスク
 
 保守作業には次のものが含ま
@@ -191,6 +206,7 @@ Maintenance （メンテナンス）メニューでは、メンテナンスタ�
 
 
 
+[[system]]
 === システム
 
 実行可能なシステムメンテナンスタスクには、次のものがあります。
@@ -209,6 +225,7 @@ Maintenance （メンテナンス）メニューでは、メンテナンスタ�
 
 
 
+[[network]]
 === ネットワーク
 
 実行できるネットワークメンテナンス作業には、次のものがあります。
@@ -220,12 +237,14 @@ Maintenance （メンテナンス）メニューでは、メンテナンスタ�
 
 
 
+[[support-menu]]
 == サポートメニュー
 
 Support （サポート）メニューには、テクニカルサポートがシステムの分析とトラブルシューティングに役立つオプションが表示されます。
 
 
 
+[[tools]]
 === ツール
 
 [ サポート（ Support ） ] メニューの [ ツール（ Tools ） ] セクションから、次の操作を実行できます。
@@ -242,6 +261,7 @@ NOTE: [*Metrics] オプションで使用できるツールは、テクニカル
 
 
 
+[[other]]
 === その他
 
 [Support]メニューの[Other]セクションでは、次の操作を実行できます。

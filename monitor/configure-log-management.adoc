@@ -26,6 +26,7 @@ summary: 必要に応じて、監査レベル、プロトコル ヘッダー、�
 
 
 
+[[change-audit-message-levels]]
 == 監査メッセージレベルの変更
 
 監査ログでは、次のカテゴリのメッセージごとに異なる監査レベルを設定できます。
@@ -148,6 +149,7 @@ NOTE: S3 アプリケーションのクライアント読み取り操作の詳�
 
 
 
+[[define-http-request-headers]]
 == HTTP要求ヘッダーの定義
 
 オプションで、クライアントの読み取りおよび書き込み監査メッセージに含める HTTP 要求ヘッダーを定義できます。
@@ -170,6 +172,7 @@ NOTE: 監査プロトコル要求ヘッダーは、*クライアント読み取�
 
 
 
+[[configure-log-location]]
 == ログの場所を設定する
 
 デフォルトでは、監査メッセージとログは、生成されたノードに保存されます。ディスク領域を過剰に消費しないように、定期的にローテーションされ、最終的には削除されます。監査メッセージとログのサブセットを外部に保存する場合は、<<use-external-syslog-server,外部のsyslogサーバーを使用する>> 。
@@ -178,6 +181,7 @@ NOTE: 監査プロトコル要求ヘッダーは、*クライアント読み取�
 
 
 
+[[use-external-syslog-serveruse-an-external-syslog-server]]
 === [use-external-syslog-server]]外部syslogサーバを使用する
 
 必要に応じて、監査ログ、アプリケーションログ、およびセキュリティイベントログをグリッドの外部の場所に保存するように外部のsyslogサーバを設定できます。
@@ -579,6 +583,7 @@ NOTE: 外部 Syslog サーバを含む宛先を選択するまで、 StorageGRID
 
 
 
+[[select-log-location]]
 === ログの場所を選択
 
 監査ログ、セキュリティイベントログ、link:../monitor/storagegrid-software-logs.html["StorageGRIDアプリケーション ログ"] 、アクセスログが送信されます。
@@ -650,6 +655,7 @@ TIP: *ローカルノードのみ*および*外部syslogサーバ*の方が一�
 
 
 
+[[use-bucketuse-a-bucket]]
 === [[use-bucket]]バケットを使用する
 
 ログは定期的にローテーションされます。同じグリッド内の S3 バケットを使用して、ログを長期間保存します。

@@ -22,6 +22,7 @@ NetApp ONTAP ソフトウェアを使用している場合は、NetApp FabricPoo
 
 
 
+[[quick-start-for-configuring-storagegrid-for-fabricpool]]
 == StorageGRID for FabricPool を設定するためのクイックスタート
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]設定を計画する
@@ -69,6 +70,7 @@ ONTAP Toを使用するlink:configure-ontap.html["クラウド階層を追加し
 
 
 
+[[what-is-fabricpool]]
 == FabricPool とは
 
 FabricPool は、ハイパフォーマンスのフラッシュアグリゲートを高パフォーマンス階層として、オブジェクトストアをクラウド階層として使用する ONTAP ハイブリッドストレージ解決策 です。FabricPool 対応アグリゲートを使用すると、パフォーマンス、効率、保護を犠牲にすることなくストレージコストを削減できます。
@@ -79,12 +81,14 @@ FabricPool は、クラウド階層（StorageGRID などの外部オブジェク
 
 
 
+[[what-is-storagegrid]]
 == StorageGRID とは
 
 NetApp StorageGRID は、ファイルストレージやブロックストレージなどの他のストレージアーキテクチャとは対照的に、データをオブジェクトとして管理するストレージアーキテクチャです。オブジェクトは単一のコンテナ（バケットなど）内に保持され、他のディレクトリ内のディレクトリ内のファイルとしてネストされることはありません。一般にオブジェクトストレージはファイルストレージやブロックストレージよりもパフォーマンスは低くなりますが、拡張性は大幅に向上します。StorageGRID バケットは、ペタバイト規模のデータと数十億個のオブジェクトを保持できます。
 
 
 
+[[why-use-storagegrid-as-a-fabricpool-cloud-tier]]
 == StorageGRID を FabricPool クラウド階層として使用する理由
 
 FabricPool では、ONTAP データを複数のオブジェクトストレージプロバイダ（StorageGRID など）に階層化できます。サポートされる 1 秒あたりの最大入出力処理数（ IOPS ）をバケットレベルまたはコンテナレベルで設定する可能性があるパブリッククラウドとは異なり、 StorageGRID のパフォーマンスはシステム内のノード数に応じて拡張されます。StorageGRID を FabricPool クラウド階層として使用すると、コールドデータをプライベートクラウド内に保持することで、最高のパフォーマンスと完全なデータ管理を実現できます。

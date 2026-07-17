@@ -15,6 +15,7 @@ summary: 管理ノードは、システムの設定、監視、ロギングな�
 
 
 
+[[differences-between-primary-and-non-primary-admin-nodes]]
 == プライマリ管理ノードと非プライマリ管理ノードの違い
 
 Grid Manager または Tenant Manager にサインインすると、管理ノードに接続されます。任意の管理ノードに接続することができ、各管理ノードにはStorageGRIDシステムの同様のビューが表示されます。ただし、プライマリ管理ノードは、非プライマリ管理ノードよりも多くの機能を提供します。たとえば、ほとんどのメンテナンス手順はプライマリ管理ノードから実行する必要があります。
@@ -162,6 +163,7 @@ IPアドレスの変更やNTPサーバの更新など、ネットワーク関連
 |===
 
 
+[[preferred-senderpreferred-sender-admin-node]]
 == [[preferred-sender]]優先送信者管理ノード
 
 StorageGRID環境に複数の管理ノードが含まれている場合は、プライマリ管理ノードがアラート通知、AutoSupportパッケージ、SNMPトラップおよびインフォームの優先送信者となります。
@@ -180,6 +182,7 @@ NOTE: AutoSupportパッケージのテスト時には、すべての管理ノー
 
 
 
+[[primary-services-for-admin-nodes]]
 == 管理ノードのプライマリサービス
 
 次の表に、管理ノードのプライマリサービスを示します。ただし、この表にはすべてのノードサービスが表示されるわけではありません。

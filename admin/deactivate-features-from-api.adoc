@@ -36,6 +36,7 @@ _ 企業 A は、グリッド管理 API で Deactivate Features システムを�
 
 
 
+[[reactivate-deactivated-features]]
 == 非アクティブ化した機能を再アクティブ
 
 デフォルトでは、グリッド管理 API を使用して、非アクティブ化した機能を再アクティブ化できます。ただし、非アクティブ化された機能が再アクティブ化されないようにするには、 * activateFeatures * 機能自体を非アクティブ化します。

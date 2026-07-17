@@ -82,6 +82,7 @@ NOTE: ボリュームのリストアは、オブジェクトコピーが格納�
 
 
 
+[[enable-auto-restore-modeenable-automatic-restore-mode]]
 == [[enable-auto-restore-mode]]自動復元モードを有効にする
 
 自動リストアモードを有効にすると、ボリュームのリストア準備が整うと、ボリュームのリストアが自動的に開始されます。
@@ -108,6 +109,7 @@ NOTE: ボリュームのリストアは、オブジェクトコピーが格納�
 
 
 
+[[manually-restoremanually-restore-failed-volume-or-node]]
 == [[manually-restore]]障害が発生したボリュームまたはノードを手動でリストアする
 
 障害が発生したボリュームまたはノードをリストアする手順は、次のとおりです。
@@ -137,6 +139,7 @@ NOTE: ボリュームのリストアは、オブジェクトコピーが格納�
 
 
 
+[[view-restoration-progressview-restoration-progress]]
 == [[view-restoration-progres]]リストアの進捗状況を表示します
 
 [リストアの進捗状況]*タブには、ボリュームリストアプロセスのステータスと、リストア対象のノードのボリュームに関する情報が表示されます。
@@ -166,6 +169,7 @@ NOTE: レプリケートされたデータのリストアは、レプリケー�
 
 
 
+[[view-restoration-historyview-restoration-history]]
 == [[view-restoration-history]]リストア履歴を表示します
 
 [リストア履歴]*タブには、正常に完了したすべてのボリュームリストアに関する情報が表示されます。

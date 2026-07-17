@@ -15,6 +15,7 @@ StorageGRID にアクセスできるユーザ、およびユーザが実行で�
 
 
 
+[[control-access-to-the-grid-manager]]
 == Grid Manager へのアクセスを制御
 
 Grid Manager およびグリッド管理 API にアクセスできるユーザを指定するには、アイデンティティフェデレーションサービスからグループとユーザをインポートするか、またはローカルのグループおよびユーザを設定します。
@@ -30,18 +31,21 @@ NOTE: 別の LDAP v3 サービスを使用する場合は、テクニカルサ�
 
 
 
+[[enable-single-sign-on]]
 == シングルサインオンを有効にします
 
 StorageGRIDシステムは、Security Assertion Markup Language 2.0 (SAML 2.0) 標準を使用したシングル サインオン (SSO) をサポートしています。お先にどうぞlink:how-sso-works.html["SSOを設定して有効にします"]すべてのユーザーは、グリッド マネージャー、テナント マネージャー、グリッド管理 API、またはテナント管理 API にアクセスする前に、外部 ID プロバイダーによって認証される必要があります。ローカル ユーザーはStorageGRIDにサインインできません。
 
 
 
+[[change-provisioning-passphrase]]
 == プロビジョニングパスフレーズを変更します
 
 プロビジョニング パスフレーズは、多くのインストールおよびメンテナンス手順、およびStorageGRIDリカバリ パッケージのダウンロードに必要です。パスフレーズは、 StorageGRIDシステムのグリッド トポロジ情報と暗号化キーのバックアップをダウンロードする場合にも必要です。あなたはできるlink:changing-provisioning-passphrase.html["パスフレーズを変更します"]必要に応じて。
 
 
 
+[[change-node-console-passwords]]
 == ノードのコンソールパスワードを変更します
 
 グリッド内の各ノードにはノード コンソール パスワードがあり、SSH を使用して「admin」としてノードにログインするか、VM/物理コンソール接続で root ユーザーとしてログインする必要があります。必要に応じて、link:change-node-console-password.html["ノードのコンソールパスワードを変更します"]各ノードに対して。

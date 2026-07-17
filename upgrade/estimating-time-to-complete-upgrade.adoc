@@ -107,6 +107,7 @@ StorageGRID の今後の機能リリースでは、 Cassandra データベース
 |===
 
 
+[[estimate-time-to-upgrade]]
 == アップグレードにかかる時間を見積もる
 
 .手順
@@ -125,6 +126,7 @@ StorageGRID の今後の機能リリースでは、 Cassandra データベース
 
 
 
+[[example-estimated-time-to-upgrade-to-storagegrid-12-0]]
 == 例: StorageGRID 12.0 へのアップグレードにかかる推定時間
 
 システムにグリッドノードが 14 個あり、そのうち 8 個が Linux ノードであるとします。

@@ -100,6 +100,7 @@ sudo mount container-storage-volume-device /var/lib/podman
 
 
 
+[[install-docker]]
 == Docker をインストールする
 
 StorageGRIDシステムは、コンテナのコレクションとして Linux 上で実行できます。
@@ -141,6 +142,8 @@ sudo docker version
 
 
 
+[[install-podman]]
+[[install-podman-rhel]]
 == Podman をインストールします
 
 StorageGRIDシステムはコンテナのコレクションとして実行されます。 Podman コンテナ エンジンを使用することを選択した場合は、次の手順に従って Podman をインストールします。さもないと、<<Docker をインストールする,Docker をインストールする>> 。

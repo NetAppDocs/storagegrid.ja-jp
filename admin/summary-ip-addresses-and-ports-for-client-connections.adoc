@@ -71,6 +71,7 @@ LDR
 |===
 
 
+[[example-urls]]
 == URLの例
 
 クライアントアプリケーションをゲートウェイノードのHAグループのロードバランサエンドポイントに接続するには、次の構造のURLを使用します。
@@ -83,6 +84,7 @@ LDR
 
 
 
+[[where-to-find-ip-addresses]]
 == IPアドレスの検索場所
 
 . を使用してGrid Managerにサインインしlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。

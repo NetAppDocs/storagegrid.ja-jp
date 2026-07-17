@@ -25,6 +25,7 @@ StorageGRIDのSNMPエージェントは、SNMPv1、SNMPv2c、およびSNMPv3を�
 
 
 
+[[specify-basic-configuration]]
 == 基本設定の指定
 
 最初の手順として、StorageGRID SMNPエージェントを有効にし、基本情報を提供します。
@@ -79,6 +80,7 @@ SNMPエージェント通知の有効化
 
 
 
+[[enter-community-strings]]
 == コミュニティストリングの入力
 
 SNMPv1またはSNMPv2cを使用する場合は、[Community Strings]セクションに情報を入力します。
@@ -102,6 +104,7 @@ TIP: StorageGRIDシステムのセキュリティを確保するために、コ�
 
 
 
+[[selecttrapdestinationcreate-trap-destinations]]
 == [[select_trap_destination]]トラップ送信先の作成
 
 [Other configurations]セクションの[Trap destinations]タブを使用して、StorageGRIDトラップまたはインフォーム通知の送信先を1つ以上定義します。SNMPエージェントを有効にして*[保存]*を選択すると、アラートがトリガーされたときにStorageGRIDから定義された各送信先に通知が送信されます。標準通知は、サポートされている MIB-II エンティティ（ ifdown や coldStart など）についても送信されます。
@@ -277,6 +280,7 @@ USMユーザ
 
 
 
+[[create-agent-addresses]]
 == エージェントアドレスの作成
 
 必要に応じて、[その他の設定]セクションの[エージェントアドレス]タブを使用して、1つ以上の「リスニングアドレス」を指定します。SNMPエージェントがクエリを受信できるStorageGRIDアドレスです。
@@ -344,6 +348,7 @@ SNMP エージェントのデフォルトの UDP ポートは 161 ですが、�
 
 
 
+[[create-usm-userscreate-usm-users]]
 == [[create-usm-users]] USMユーザの作成
 
 SNMPv3を使用している場合は、[Other configurations]セクションの[USM Users]タブを使用して、MIBの照会やトラップとインフォームの受信を許可するUSMユーザを定義します。

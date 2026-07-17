@@ -22,6 +22,7 @@ CAUTION: 以下の ILM ルールとポリシーは一例にすぎません。ILM
 
 
 
+[[how-changing-an-ilm-policy-affects-performance]]
 == ILMポリシーの変更がパフォーマンスに与える影響
 
 新しい ILM ポリシーをアクティブ化すると、特に新しいポリシーの配置手順で多数の既存オブジェクトの新しい場所への移動が必要になった場合には、 StorageGRID システムのパフォーマンスに一時的に影響する可能性があります。
@@ -43,6 +44,7 @@ NOTE: StorageGRIDでは、イレイジャーコーディングプロファイル
 
 
 
+[[active-ilm-policy-for-example-6-data-protection-at-two-sites]]
 == 例 6 のアクティブな ILM ポリシー： 2 つのサイトでのデータ保護
 
 この例では、アクティブな ILM ポリシーは最初に 2 サイトの StorageGRID システム用に設計され、 2 つの ILM ルールを使用しています。
@@ -53,6 +55,7 @@ image:policy_6_active_policy.png["例： ILM ポリシー 6 アクティブポ�
 
 
 
+[[rule-1-one-site-erasure-coding-for-tenant-a]]
 === ルール 1 ：テナント A に 1 つのサイトのイレイジャーコーディング
 
 [cols="1a,2a"]
@@ -89,6 +92,7 @@ image:policy_6_active_policy.png["例： ILM ポリシー 6 アクティブポ�
 |===
 
 
+[[rule-2-two-site-replication-for-other-tenants]]
 === ルール 2 ：他のテナントに 2 つのサイトをレプリケートする
 
 [cols="1a,2a"]
@@ -125,6 +129,7 @@ image:policy_6_active_policy.png["例： ILM ポリシー 6 アクティブポ�
 |===
 
 
+[[ilm-policy-for-example-6-data-protection-at-three-sites]]
 == 例6のILMポリシー：3サイトでのデータ保護
 
 この例では、3サイトのStorageGRID システムのILMポリシーが新しいポリシーに置き換えられています。
@@ -135,6 +140,7 @@ image:policy_6_active_policy.png["例： ILM ポリシー 6 アクティブポ�
 
 
 
+[[rule-1-three-site-erasure-coding-for-tenant-a]]
 === ルール 1 ：テナント A に 3 サイトイレイジャーコーディング
 
 [cols="1a,2a"]
@@ -171,6 +177,7 @@ image:policy_6_active_policy.png["例： ILM ポリシー 6 アクティブポ�
 |===
 
 
+[[rule-2-three-site-replication-for-other-tenants]]
 === ルール 2 ：他のテナントに 3 つのサイトをレプリケーションする
 
 [cols="1a,2a"]
@@ -207,6 +214,7 @@ image:policy_6_active_policy.png["例： ILM ポリシー 6 アクティブポ�
 |===
 
 
+[[activating-the-ilm-policy-for-example-6]]
 == 例6のILMポリシーのアクティブ化
 
 新しいILMポリシーをアクティブ化すると、新規または更新されたルールの配置手順に基づいて、既存のオブジェクトが新しい場所に移動されたり、既存のオブジェクト用の新しいオブジェクトコピーが作成されたりすることがあります。
@@ -219,6 +227,7 @@ CAUTION: 新しい ILM ポリシーをアクティブ化すると、 StorageGRID
 
 
 
+[[what-happens-when-erasure-coding-instructions-change]]
 === イレイジャーコーディングの手順が変わったときの動作
 
 この例の現在アクティブなILMポリシーでは、テナントAに属するオブジェクトがサイト1で2+1のイレイジャーコーディングを使用して保護されています。新しいILMポリシーでは、テナントAに属するオブジェクトを、サイト1、2、3で2+1のイレイジャーコーディングを使用して保護します。
@@ -235,6 +244,7 @@ NOTE: サイト1の既存の2+1フラグメントは再利用されません。S
 
 
 
+[[what-happens-when-replication-instructions-change]]
 === レプリケーション手順が変わったときの動作
 
 この例の現在アクティブなILMポリシーでは、他のテナントに属するオブジェクトが、サイト1と2のストレージプールに2つのレプリケートコピーを格納して保護されます。新しいILMポリシーでは、他のテナントに属するオブジェクトを、サイト1、2、3のストレージプールに3つのレプリケートコピーを格納して保護します。
@@ -247,6 +257,7 @@ NOTE: サイト1の既存の2+1フラグメントは再利用されません。S
 
 
 
+[[performance-impact-of-activating-this-policy]]
 === このポリシーをアクティブ化した場合のパフォーマンスへの影響
 
 この例のILMポリシーをアクティブ化すると、このStorageGRIDシステムの全体的なパフォーマンスが一時的に低下します。テナントAの既存オブジェクト用に新しいイレイジャーコーディングフラグメントを作成し、他のテナントの既存オブジェクト用にサイト3にレプリケートコピーを作成するには、通常よりも多くのグリッドリソースが必要になります。

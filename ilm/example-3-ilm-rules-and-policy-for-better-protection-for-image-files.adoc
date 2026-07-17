@@ -18,6 +18,7 @@ CAUTION: 以下の ILM ルールとポリシーは一例にすぎません。ILM
 
 
 
+[[ilm-rule-1-for-example-3-use-ec-for-image-files-greater-than-1-mb]]
 == 例 3 の ILM ルール 1 ： 1MB を超える画像ファイルに EC を使用します
 
 この ILM ルールの例では、高度なフィルタリングを使用して、 1MB を超えるすべてのイメージファイルをイレイジャーコーディングします。
@@ -72,6 +73,7 @@ image:policy_3_rule_1_ec_images_adv_filtering.png["例 3 の ILM ルール 1 ：
 
 
 
+[[ilm-rule-2-for-example-3-create-2-replicated-copies-for-all-remaining-image-files]]
 == 例 3 の ILM ルール 2 ：残りのすべてのイメージファイルに対してレプリケートコピーを 2 つ作成します
 
 この ILM ルールの例では、高度なフィルタリングを使用して、より小さなイメージファイルをレプリケートするように指定します。ポリシーの最初のルールは 1MB より大きい画像ファイルにすでに一致しているため、このルールは 1MB 以下の環境 画像ファイルを示します。
@@ -112,6 +114,7 @@ image:policy_3_rule_1_ec_images_adv_filtering.png["例 3 の ILM ルール 1 ：
 |===
 
 
+[[ilm-policy-for-example-3-better-protection-for-image-files]]
 == 例 3 の ILM ポリシー：画像ファイルの保護の強化
 
 この例の ILM ポリシーには 3 つのルールが含まれています

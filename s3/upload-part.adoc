@@ -15,6 +15,7 @@ UploadPart処理は、オブジェクトのマルチパートアップロード�
 
 
 
+[[supported-request-headers]]
 == サポートされる要求ヘッダー
 
 次の要求ヘッダーがサポートされています。
@@ -26,6 +27,7 @@ UploadPart処理は、オブジェクトのマルチパートアップロード�
 
 
 
+[[request-headers-for-server-side-encryption]]
 == サーバ側の暗号化を行うための要求ヘッダー
 
 CreateMultipartUpload要求にSSE-C暗号化を指定した場合は、各UploadPart要求に次の要求ヘッダーも含める必要があります。
@@ -45,6 +47,7 @@ CreateMultipartUpload要求でSHA-256チェックサムを指定した場合は�
 
 
 
+[[unsupported-request-headers]]
 == サポートされない要求ヘッダーです
 
 次の要求ヘッダーはサポートされていません。
@@ -55,6 +58,7 @@ CreateMultipartUpload要求でSHA-256チェックサムを指定した場合は�
 
 
 
+[[versioning]]
 == バージョン管理
 
 マルチパートアップロードは、アップロードの開始、アップロードのリストの表示、パートのアップロード、アップロードしたパートのアセンブル、およびアップロードの完了の個別の処理に分けられます。CompleteMultipartUpload処理が実行されると、オブジェクトが作成されます（該当する場合はバージョン管理されます）。

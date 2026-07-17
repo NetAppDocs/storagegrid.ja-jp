@@ -15,6 +15,7 @@ VMware OVF Toolを使用すると、グリッドノードの導入を自動化�
 
 
 
+[[automate-grid-node-deployment]]
 == グリッドノードの導入を自動化
 
 VMware OVF Toolを使用すると、グリッドノードの導入を自動化できます。
@@ -81,6 +82,7 @@ NOTE: vApp に導入する場合、初回は仮想マシンが自動的に起動
 |===
 
 
+[[define-the-configuration-file-for-your-deployment]]
 === 導入環境に応じた構成ファイルを定義します
 
 StorageGRIDの仮想グリッドノードを導入するために必要な情報を構成ファイルで指定します。このファイルは、Bashスクリプトで使用され `deploy-vsphere-ovftool.sh`ます。サンプル構成ファイルを変更して、ファイルを最初から作成する必要がないようにすることができます。
@@ -97,6 +99,7 @@ StorageGRIDの仮想グリッドノードを導入するために必要な情報
 
 
 
+[[configuration-file-settings]]
 === 構成ファイルの設定
 
  `deploy-vsphere-ovftool.ini`構成ファイルには、仮想グリッドノードの導入に必要な設定が含まれています。
@@ -514,6 +517,7 @@ NOTE: 管理ノードの場合は、 INSTANCES を必ず 2 にする必要があ
 
 
 
+[[run-the-bash-script]]
 == Bash スクリプトを実行します
 
 VMware vSphereへのStorageGRIDノードの導入を自動化するために、Bashスクリプトと変更したdeploy-vsphere-ovftool.ini構成ファイルを使用できます `deploy-vsphere-ovftool.sh`。
@@ -581,6 +585,7 @@ Deployment Summary
 ----
 
 
+[[automate-the-configuration-of-storagegrid]]
 == StorageGRID の設定を自動化
 
 グリッドノードを導入したら、 StorageGRID システムの設定を自動化できます。

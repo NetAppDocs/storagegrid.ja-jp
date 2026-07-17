@@ -29,6 +29,7 @@ link:how-objects-are-deleted.html["オブジェクトの削除方法"]
 
 
 
+[[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
 == 例 4 の ILM ルール 1 ：コピーを 3 つ、 10 年間保存します
 
 この例のILMルールでは、各オブジェクトのコピーが3つのサイトに10年間格納されます。
@@ -69,6 +70,7 @@ link:how-objects-are-deleted.html["オブジェクトの削除方法"]
 |===
 
 
+[[ilm-rule-2-for-example-4-save-two-copies-of-noncurrent-versions-for-2-years]]
 == 例 4 の ILM ルール 2 ：最新でないバージョンのコピーを 2 つ、 2 年間保存します
 
 この例では、最新でないバージョンの S3 バージョン管理オブジェクトのコピーを 2 つ、 2 年間格納します。
@@ -117,6 +119,7 @@ image:ilm-rule-apply-only-to-older-object-verions.png["古いバージョンの�
 |===
 
 
+[[ilm-policy-for-example-4-s3-versioned-objects]]
 == 例 4 の ILM ポリシー： S3 バージョン管理オブジェクト
 
 古いバージョンのオブジェクトを現在のバージョンとは異なる方法で管理する場合は、ILMポリシーで参照時間に「noncurrent time」を使用するルールを、現在のオブジェクトバージョンに適用されるルールの前に配置する必要があります。

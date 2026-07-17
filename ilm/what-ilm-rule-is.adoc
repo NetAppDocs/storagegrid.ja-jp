@@ -20,6 +20,7 @@ NOTE: オブジェクトメタデータはILMルールで管理されません�
 
 
 
+[[elements-of-an-ilm-rule]]
 == ILM ルールの要素
 
 ILM ルールには次の 3 つの要素があります。
@@ -31,6 +32,7 @@ ILM ルールには次の 3 つの要素があります。
 
 
 
+[[ilm-rule-filtering]]
 == ILMルールのフィルタリング
 
 ILM ルールを作成する際には、フィルタを指定して環境 ルールを構成するオブジェクトを特定します。
@@ -60,6 +62,7 @@ ILM ルールを作成する際には、フィルタを指定して環境 ルー
 
 
 
+[[ilm-rule-placement-instructions]]
 == ILMルールの配置手順
 
 配置手順は、オブジェクトデータを格納する場所、タイミング、および方法を決定します。ILM ルールには 1 つ以上の配置手順を含めることができます。各配置手順環境 は一定期間です。
@@ -95,6 +98,7 @@ image:ilm_rule_multiple_placements_in_single_time_period.png["Grid Manager の I
 
 
 
+[[ilm-rule-ingest-behavior]]
 == ILMルールの取り込み動作
 
 取り込み動作は、ルールの手順に従ってオブジェクトコピーがすぐに配置されるか、または中間コピーが作成されて配置手順があとから適用されるかを制御します。ILM ルールでは、次の取り込み動作を使用できます。
@@ -112,6 +116,7 @@ image:ilm_rule_multiple_placements_in_single_time_period.png["Grid Manager の I
 
 
 
+[[example-ilm-rule]]
 == ILM ルールの例
 
 たとえば、ILMルールでは次のように指定できます。

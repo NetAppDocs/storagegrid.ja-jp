@@ -22,6 +22,7 @@ image:tenant_dashboard_with_buckets.png["dashboard - バケットリスト"]
 
 
 
+[[tenant-account-information]]
 == テナントアカウント情報
 
 ダッシュボードの上部には、設定済みのバケットまたはコンテナ、グループ、およびユーザの数が表示されます。また、プラットフォームサービスエンドポイントが設定されている場合はその数も表示されます。リンクを選択すると詳細が表示されます。
@@ -30,6 +31,7 @@ image:tenant_dashboard_with_buckets.png["dashboard - バケットリスト"]
 
 
 
+[[storage-and-quota-usage]]
 == ストレージとクォータの使用状況
 
 ストレージ使用状況パネルには、次の情報が表示されます。
@@ -64,6 +66,7 @@ NOTE: Tenant Managerに表示されるストレージ値の単位を変更する
 
 
 
+[[quota-usage-alerts]]
 == クォータ使用状況アラート
 
 Grid Managerでクォータ使用アラートが有効になっている場合は、クォータが少なくなるか超過すると、次のようにTenant Managerに表示されます。
@@ -77,6 +80,7 @@ Grid Managerでクォータ使用アラートが有効になっている場合�
 
 
 
+[[bucket-capacity-usagecapacity-limit-usage]]
 == [[bucket-capacity-usage]]使用容量制限
 
 バケットに容量制限を設定している場合は、Tenant Managerダッシュボードに容量制限の使用量を基準に上位のバケットのリストが表示されます。
@@ -85,6 +89,7 @@ Grid Managerでクォータ使用アラートが有効になっている場合�
 
 
 
+[[endpoint-errors]]
 == エンドポイントエラー
 
 Grid Managerを使用してプラットフォームサービスで使用する1つ以上のエンドポイントを設定した場合、過去7日以内にエンドポイントエラーが発生すると、Tenant Managerダッシュボードにアラートが表示されます。

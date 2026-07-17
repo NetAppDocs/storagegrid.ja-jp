@@ -20,6 +20,7 @@ PUT Bucket consistency要求では、バケットで実行される処理に適�
 
 
 
+[[request]]
 == リクエスト
 
  `x-ntap-sg-consistency`パラメータには、次のいずれかの値を指定する必要があります。
@@ -67,6 +68,7 @@ read-after-new-write の場合
 
 
 
+[[request-example]]
 == 要求例
 
 [listing, subs="specialcharacters,quotes"]

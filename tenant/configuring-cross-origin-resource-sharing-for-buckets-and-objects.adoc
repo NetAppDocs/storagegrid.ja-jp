@@ -25,6 +25,7 @@ Cross-Origin Resource Sharing （ CORS ）は、あるドメインのクライ�
 
 
 
+[[enable-cors-for-a-bucket]]
 == バケットのCORSを有効にします
 
 .手順
@@ -70,6 +71,7 @@ CORS設定XMLの詳細については、を参照してください http://docs.
 
 
 
+[[modify-cors-setting]]
 == CORS設定を変更します
 
 .手順
@@ -79,6 +81,7 @@ CORS設定XMLの詳細については、を参照してください http://docs.
 
 
 
+[[disable-cors-setting]]
 == CORS設定を無効にします
 
 .手順

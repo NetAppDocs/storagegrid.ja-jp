@@ -23,6 +23,7 @@ S3テナントアカウントに、2つのStorageGRIDシステム間のグリッ
 
 
 
+[[create-a-permitted-tenant]]
 == 許可されたテナントを作成します
 
 新規または既存のテナントアカウントがアカウントのクローニングおよびグリッド間レプリケーションにグリッドフェデレーション接続を使用できるようにする場合は、またはlink:editing-tenant-account.html["テナントアカウントを編集する"]への一般的な手順に従って、link:creating-tenant-account.html["新しいS3テナントを作成します"]次の点に注意してください。
@@ -47,6 +48,7 @@ TIP: ローカルrootユーザがデスティネーショングリッドでレ�
 
 
 
+[[view-a-permitted-tenant]]
 == 許可されたテナントを表示します
 
 グリッドフェデレーション接続の使用が許可されているテナントの詳細を確認できます。
@@ -65,6 +67,7 @@ image:grid-federation-tenant-detail.png["[Tenant details]ページの[Grid feder
 
 
 
+[[edit-a-permitted-tenant]]
 == 許可されたテナントを編集します
 
 Use grid federation connection *権限があるテナントを編集する必要がある場合は、の一般的な手順に従って、link:editing-tenant-account.html["テナントアカウントを編集しています"]次の点に注意してください。
@@ -76,6 +79,7 @@ Use grid federation connection *権限があるテナントを編集する必要
 
 
 
+[[delete-a-permitted-tenant]]
 == 許可されたテナントを削除します
 
 Use grid federation connection *権限が割り当てられているテナントを削除する必要がある場合は、の一般的な手順に従って、link:deleting-tenant-account.html["テナントアカウントを削除しています"]次の点に注意してください。
@@ -92,6 +96,7 @@ Use grid federation connection *権限が割り当てられているテナント
 
 
 
+[[remove-grid-federation-connection-permissionremove-use-grid-federation-connection-permission]]
 == [[remove-grid-federation-connection-permission]]グリッドフェデレーション接続の使用権限の削除
 
 テナントがグリッドフェデレーション接続を使用できないようにするには、* Use grid federation connection *権限を削除する必要があります。
@@ -115,6 +120,7 @@ NOTE: [Use grid federation connection]権限を再度有効にすると、ロー
 
 
 
+[[disable-replication-for-tenant-buckets]]
 === テナントバケットのレプリケーションを無効にする
 
 最初に、すべてのテナントバケットでグリッド間レプリケーションを無効にします。
@@ -133,6 +139,7 @@ TIP: テナントバケットでグリッド間レプリケーションが有効
 
 
 
+[[remove-permission-for-tenant]]
 === テナントの権限を削除します
 
 テナントバケットでグリッド間レプリケーションを無効にしたら、グリッドフェデレーション接続を使用するテナントの権限を削除できます。
@@ -184,6 +191,7 @@ image:grid-federation-remove-permission-error.png["テナントでバケット�
 
 
 
+[[forceremovepermissionremove-the-permission-by-force]]
 == [[force_remove_permission]]権限を強制的に削除します
 
 テナントバケットでグリッド間レプリケーションが有効になっている場合でも、必要に応じて、グリッドフェデレーション接続を使用するテナントの権限を強制的に削除できます。

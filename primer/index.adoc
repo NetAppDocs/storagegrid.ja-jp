@@ -24,6 +24,7 @@ NOTE: アーカイブノードのサポートが廃止されました。S3 API�
 
 
 
+[[storagegrid-benefits]]
 == StorageGRID のメリット
 
 StorageGRID システムには次の利点があります。

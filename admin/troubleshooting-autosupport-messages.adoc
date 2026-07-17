@@ -20,6 +20,7 @@ NOTE: AutoSupportパッケージをNetAppに転送するようにプロキシサ
 
 
 
+[[weekly-autosupport-package-failure]]
 == 週次AutoSupportパッケージエラー
 
 週次AutoSupportパッケージの送信に失敗した場合、StorageGRIDシステムは次の処理を実行します。
@@ -34,6 +35,7 @@ NOTE: AutoSupportパッケージをNetAppに転送するようにプロキシサ
 
 
 
+[[user-triggered-or-event-triggered-autosupport-package-failure]]
 == ユーザトリガー型またはイベントトリガー型のAutoSupportパッケージエラー
 
 ユーザトリガー型またはイベントトリガー型のAutoSupportパッケージの送信に失敗した場合、StorageGRIDシステムは次の処理を実行します。
@@ -49,6 +51,7 @@ NOTE: AutoSupportパッケージをNetAppに転送するようにプロキシサ
 
 
 
+[[correct-an-autosupport-package-failure]]
 == AutoSupportパッケージの障害を修正する
 
 プロトコルとして SMTP が選択されている状況で問題が発生した場合は、 StorageGRID システムの E メールサーバが正しく設定されていることと、 E メールサーバが実行されていることを確認します。AutoSupportページに次のエラーメッセージが表示されることがあります。 `AutoSupport packages cannot be sent using SMTP protocol due to incorrect settings on the E-mail Server page.`

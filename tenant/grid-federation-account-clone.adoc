@@ -19,6 +19,7 @@ summary: グリッドフェデレーション接続を使用するようにテ�
 
 
 
+[[tenant-workflow-for-account-clone]]
 == アカウントクローンのテナントワークフロー
 
 テナントアカウントに* Use grid federation connection *権限がある場合は、ワークフロー図を確認して、グループ、ユーザ、S3アクセスキーをクローニングする手順を確認してください。
@@ -57,12 +58,14 @@ image:grid-federation-account-clone-workflow-tm.png["アカウントクローン
 
 
 
+[[how-are-groups-users-and-s3-access-keys-cloned]]
 == グループ、ユーザ、S3アクセスキーのクローニング方法
 
 テナントソースグリッドとテナントデスティネーショングリッドの間で、グループ、ユーザ、S3アクセスキーがどのようにクローニングされるかを理解するには、このセクションを確認します。
 
 
 
+[[local-groups-created-on-source-grid-are-cloned]]
 === ソースグリッドに作成されたローカルグループがクローニングされます
 
 テナントアカウントが作成されてデスティネーショングリッドにレプリケートされると、StorageGRID はテナントのソースグリッドに追加したすべてのローカルグループをテナントのデスティネーショングリッドに自動的にクローニングします。
@@ -76,6 +79,7 @@ NOTE: ソースグリッドでローカルグループを作成するときに�
 
 
 
+[[local-users-created-on-source-grid-are-cloned]]
 === ソースグリッドに作成されたローカルユーザがクローニングされます
 
 ソース グリッドに新しいローカル ユーザーを作成すると、 StorageGRIDによってそのユーザーが宛先グリッドに自動的に複製されます。元のユーザーとそのクローンの両方に、同じフルネーム、ユーザー名、および *アクセス拒否* 設定があります。両方のユーザーは同じグループに属しています。手順については、link:manage-users.html["ユーザの管理"] 。
@@ -86,6 +90,7 @@ image:grid-federation-local-user-clone.png["ローカルユーザがソースグ
 
 
 
+[[federated-groups-created-on-source-grid-are-cloned]]
 === ソースグリッドに作成されたフェデレーテッドグループがクローニングされます
 
 アカウントクローンをとlink:../admin/grid-federation-what-is-account-clone.html#account-clone-identity-federation["アイデンティティフェデレーション"]で使用するための要件が満たされている場合、link:../admin/grid-federation-what-is-account-clone.html#account-clone-sso["シングルサインオン"]ソースグリッドでテナント用に作成（インポート）するフェデレーテッドグループは、デスティネーショングリッドのテナントに自動的にクローニングされます。
@@ -98,6 +103,7 @@ image:grid-federation-federated-group-clone.png["フェデレーテッドグル�
 
 
 
+[[s3-access-keys-can-be-manually-cloned]]
 === S3アクセスキーは手動でクローニングできます
 
 StorageGRID では、S3アクセスキーが自動的にクローニングされることはありません。これは、グリッドごとにキーが異なるためです。
@@ -115,6 +121,7 @@ NOTE: フェデレーテッドユーザのS3アクセスキーをクローニン
 
 
 
+[[groups-and-users-added-to-destination-grid-arent-cloned]]
 === デスティネーショングリッドに追加されたグループおよびユーザはクローンされません
 
 クローニングは、テナントのソースグリッドからテナントのデスティネーショングリッドにのみ実行されます。テナントのデスティネーショングリッドでグループとユーザを作成またはインポートした場合、StorageGRID はこれらの項目をテナントのソースグリッドにクローニングしません。
@@ -123,6 +130,7 @@ image:grid-federation-account-not-cloned.png["デスティネーショングリ�
 
 
 
+[[edited-or-deleted-groups-users-and-access-keys-arent-cloned]]
 === 編集または削除されたグループ、ユーザ、およびアクセスキーのクローンは作成されません
 
 クローニングは、新しいグループおよびユーザを作成した場合にのみ実行されます。

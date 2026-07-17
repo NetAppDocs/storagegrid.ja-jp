@@ -17,6 +17,7 @@ S3の詳細については、を参照してくださいlink:../s3/index.html["S
 
 
 
+[[overview-of-platform-services]]
 == プラットフォームサービスの概要
 
 StorageGRID プラットフォームサービスでは、イベント通知やS3オブジェクトとオブジェクトメタデータのコピーを外部のデスティネーションに送信できるため、ハイブリッドクラウド戦略の実装に役立ちます。
@@ -30,6 +31,7 @@ TIP: プラットフォームサービスの使用は、 StorageGRID 管理者�
 
 
 
+[[how-platform-services-are-configured]]
 == プラットフォームサービスの設定方法
 
 プラットフォームサービスは、link:configuring-platform-services-endpoints.html["テナントマネージャ"]またはlink:understanding-tenant-management-api.html["テナント管理 API"]。各エンドポイントは、 StorageGRID S3 バケット、Amazon Web Services バケット、Amazon SNS トピック、Webhook エンドポイント、ローカル、AWS、またはその他の場所でホストされている Elasticsearch クラスターなどの外部の宛先を表します。
@@ -90,6 +92,7 @@ CloudMirror レプリケーション
 |===
 
 
+[[considerations-for-using-platform-services]]
 == プラットフォームサービスの使用に関する考慮事項
 
 [cols="1a,3a"]
@@ -150,6 +153,7 @@ Kafkaエンドポイントの認証では、次の認証タイプが使用され
 |===
 
 
+[[considerations-for-using-cloudmirror-replication-service]]
 == CloudMirror レプリケーションサービスの使用に関する考慮事項
 
 [cols="1a,3a"]

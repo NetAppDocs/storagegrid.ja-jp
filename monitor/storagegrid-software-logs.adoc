@@ -18,6 +18,7 @@ NOTE: ログを外部のSyslogサーバーに送信したり、監査情報の�
 
 
 
+[[general-storagegrid-logs]]
 == 一般的な StorageGRID ログです
 
 [cols="3a,3a,2a"]
@@ -49,6 +50,7 @@ NOTE: ログを外部のSyslogサーバーに送信したり、監査情報の�
 |===
 
 
+[[cipher-related-logs]]
 == 暗号関連のログ
 
 [cols="3a,3a,2a"]
@@ -85,6 +87,7 @@ TLSおよびSSHポリシーの設定に関連するログが記録されます�
 |===
 
 
+[[grid-federation-logs]]
 == グリッドフェデレーションログ
 
 [cols="3a,3a,2a"]
@@ -100,6 +103,7 @@ TLSおよびSSHポリシーの設定に関連するログが記録されます�
 |===
 
 
+[[nms-logs]]
 == NMS ログ
 
 [cols="3a,3a,2a"]
@@ -113,6 +117,7 @@ TLSおよびSSHポリシーの設定に関連するログが記録されます�
 * システムで行われた設定の変更に伴う XML バンドルの更新が格納されます。
 * 1 日に 1 回実行される属性のダウンサンプリングに関連するエラーメッセージが格納されます。
 * ページ生成エラーや HTTP ステータス 500 エラーなど、 Java Web サーバのエラーメッセージが格納されます。
+* AutoSupport に関連するログが含まれています。
 
  a| 
 管理ノード
@@ -136,6 +141,7 @@ MySQL データベースのアップグレードに関連するエラーメッ�
 |===
 
 
+[[server-manager-logs]]
 == Server Manager のログです
 
 [cols="3a,3a,2a"]
@@ -165,6 +171,7 @@ Server Manager GUI のログファイルです。
 |===
 
 
+[[storagegrid-services-logs]]
 == StorageGRID サービスのログ
 
 [cols="3a,3a,2a"]

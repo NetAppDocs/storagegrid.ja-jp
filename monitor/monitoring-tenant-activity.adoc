@@ -20,6 +20,7 @@ S3クライアントアクティビティはすべてStorageGRIDテナントア�
 
 
 
+[[view-all-tenants]]
 == すべてのテナントを表示します
 
 [Tenants]ページには、現在のすべてのテナントアカウントの基本情報が表示されます。
@@ -60,6 +61,7 @@ image:tenant_accounts_example_csv.png["テナントアカウントの例： .csv
 
 
 
+[[view-a-specific-tenant]]
 == 特定のテナントを表示します
 
 特定のテナントの詳細を表示できます。
@@ -128,6 +130,7 @@ image:tenant_bucket_details_csv.png["テナントバケットの詳細の CSV �
 
 
 
+[[view-network-traffic]]
 == ネットワークトラフィックを表示します
 
 テナントにトラフィック分類ポリシーが設定されている場合は、そのテナントのネットワークトラフィックを確認します。
@@ -146,6 +149,7 @@ image:tenant_bucket_details_csv.png["テナントバケットの詳細の CSV �
 
 
 
+[[use-the-audit-log]]
 == 監査ログを使用します
 
 必要に応じて、監査ログを使用してテナントのアクティビティをより詳細に監視できます。
@@ -164,6 +168,7 @@ image:tenant_bucket_details_csv.png["テナントバケットの詳細の CSV �
 
 
 
+[[use-prometheus-metrics]]
 == Prometheus指標を使用
 
 必要に応じて、Prometheus指標を使用してテナントアクティビティをレポートします。

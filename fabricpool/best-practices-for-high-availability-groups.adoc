@@ -15,6 +15,7 @@ StorageGRID をFabricPool クラウド階層として接続する前に、Storag
 
 
 
+[[what-is-an-ha-group]]
 == HA グループとは何ですか？
 
 ハイアベイラビリティ（HA）グループは、複数のStorageGRID ゲートウェイノード、管理ノード、またはその両方のインターフェイスの集まりです。HAグループは、クライアントデータ接続の可用性を維持するのに役立ちます。HAグループのアクティブインターフェイスで障害が発生しても、FabricPool の処理にほとんど影響を与えずにバックアップインターフェイスでワークロードを管理できます。
@@ -25,6 +26,7 @@ StorageGRID をFabricPool クラウド階層として接続する前に、Storag
 
 
 
+[[using-ha-groups]]
 == HAグループを使用する
 
 FabricPool 用のStorageGRID HAグループを作成するためのベストプラクティスは、ワークロードによって異なります。

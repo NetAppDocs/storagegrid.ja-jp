@@ -99,6 +99,7 @@ NOTE: Active Directory サーバーが LDAP 署名を強制している場合、
 
 
 
+[[test-the-connection-and-save-the-configuration]]
 === 接続をテストして設定を保存します
 
 すべての値を入力したら、設定を保存する前に接続をテストする必要があります。StorageGRID では、 LDAP サーバの接続設定とバインドユーザ名の形式が指定されている場合は検証されます。

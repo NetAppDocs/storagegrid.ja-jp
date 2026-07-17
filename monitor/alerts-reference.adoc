@@ -19,6 +19,7 @@ summary: このリファレンスでは、Grid Managerに表示されるデフ�
 
 
 
+[[appliance-alerts]]
 == アプライアンスのアラート
 
 [cols="1a,2a"]
@@ -370,6 +371,7 @@ StorageGRID アプライアンスの電源装置 B が、推奨される動作�
 |===
 
 
+[[audit-and-syslog-alerts]]
 == 監査およびsyslogアラート
 
 [cols="1a,2a"]
@@ -406,6 +408,7 @@ StorageGRID アプライアンスの電源装置 B が、推奨される動作�
 |===
 
 
+[[bucket-alerts]]
 == バケットアラート
 
 [cols="1a,2a"]
@@ -428,6 +431,7 @@ FabricPoolバケットでバージョン管理またはS3オブジェクトロ�
 |===
 
 
+[[cassandra-alerts]]
 == Cassandraアラート
 
 [cols="1a,2a"]
@@ -499,6 +503,7 @@ Cassandra がテーブルの破損を検出しました。テーブルの破損�
 |===
 
 
+[[cloud-storage-pool-alerts]]
 == クラウドストレージプールのアラート
 
 [cols="1a,2a"]
@@ -521,6 +526,7 @@ IAM Roles Anywhereエンドエンティティ証明書の有効期限が近づ�
 |===
 
 
+[[cross-grid-replication-alerts]]
 == グリッド間レプリケーションのアラート
 
 [cols="1a,2a"]
@@ -543,6 +549,7 @@ IAM Roles Anywhereエンドエンティティ証明書の有効期限が近づ�
 |===
 
 
+[[dhcp-alerts]]
 == DHCPアラート
 
 [cols="1a,2a"]
@@ -572,6 +579,7 @@ DHCP サーバが使用できない。
 |===
 
 
+[[debug-and-trace-alerts]]
 == デバッグおよびトレースアラート
 
 [cols="1a,2a"]
@@ -594,6 +602,7 @@ DHCP サーバが使用できない。
 |===
 
 
+[[email-and-autosupport-alerts]]
 == EメールアラートとAutoSupport アラート
 
 [cols="1a,2a"]
@@ -651,6 +660,7 @@ SSHまたはコンソールログインが検出されました
 |===
 
 
+[[erasure-coding-ec-alerts]]
 == イレイジャーコーディング（EC）アラート
 
 [cols="1a,2a"]
@@ -687,6 +697,7 @@ ECデータの修復ジョブが停止しました。
 |===
 
 
+[[expiration-of-certificates-alerts]]
 == 証明書の有効期限に関するアラート
 
 [cols="1a,2a"]
@@ -751,6 +762,7 @@ S3 のグローバル サーバー証明書の有効期限が近づいていま�
 |===
 
 
+[[grid-network-alerts]]
 == グリッドネットワークのアラート
 
 [cols="1a,2a"]
@@ -766,6 +778,7 @@ Grid ネットワーク MTU が一致しません
 |===
 
 
+[[grid-federation-alerts]]
 == グリッドフェデレーションアラート
 
 [cols="1a,2a"]
@@ -788,6 +801,7 @@ Grid ネットワーク MTU が一致しません
 |===
 
 
+[[high-usage-or-high-latency-alerts]]
 == 高使用率または高レイテンシのアラート
 
 [cols="1a,2a"]
@@ -810,6 +824,7 @@ Cassandra メタデータクエリの平均時間が長すぎます。
 |===
 
 
+[[identity-federation-alerts]]
 == アイデンティティフェデレーションアラート
 
 [cols="1a,2a"]
@@ -832,6 +847,7 @@ Cassandra メタデータクエリの平均時間が長すぎます。
 |===
 
 
+[[information-lifecycle-management-ilm-alerts]]
 == 情報ライフサイクル管理（ILM）のアラート
 
 [cols="1a,2a"]
@@ -854,6 +870,7 @@ ILM のスキャン速度は 100 オブジェクト / 秒未満に設定され�
 |===
 
 
+[[key-management-server-kms-alerts]]
 == キー管理サーバ（KMS）のアラート
 
 [cols="1a,2a"]
@@ -932,6 +949,7 @@ KMSサーバの接続エラー
 |===
 
 
+[[load-balancer-alerts]]
 == ロードバランサのアラート
 
 [cols="1a,2a"]
@@ -947,6 +965,7 @@ KMSサーバの接続エラー
 |===
 
 
+[[local-clock-offset-alerts]]
 == ローカルクロックオフセットアラート
 
 [cols="1a,2a"]
@@ -962,6 +981,7 @@ KMSサーバの接続エラー
 |===
 
 
+[[low-memory-or-low-space-alerts]]
 == メモリ不足またはスペース不足のアラート
 
 [cols="1a,2a"]
@@ -1047,6 +1067,7 @@ tmp ディレクトリの空きスペースが不足しています
 |===
 
 
+[[node-or-node-network-alerts]]
 == ノードまたはノードのネットワークアラート
 
 [cols="1a,2a"]
@@ -1251,6 +1272,7 @@ TCP接続の使用状況
 |===
 
 
+[[object-alerts]]
 == オブジェクトアラート
 
 [cols="1a,2a"]
@@ -1301,6 +1323,7 @@ S3 PUTオブジェクトサイズが大きすぎます
 |===
 
 
+[[object-corruption-alerts]]
 == オブジェクト破損アラート
 
 [cols="1a,2a"]
@@ -1316,6 +1339,7 @@ S3 PUTオブジェクトサイズが大きすぎます
 |===
 
 
+[[platform-services-alerts]]
 == プラットフォームサービスのアラート
 
 [cols="1a,2a"]
@@ -1338,6 +1362,7 @@ S3 PUTオブジェクトサイズが大きすぎます
 |===
 
 
+[[storage-volume-alerts]]
 == ストレージボリュームのアラート
 
 [cols="1a,2a"]
@@ -1381,6 +1406,7 @@ S3 PUTオブジェクトサイズが大きすぎます
 |===
 
 
+[[storagegrid-services-alerts]]
 == StorageGRID サービスのアラート
 
 [cols="1a,2a"]
@@ -1424,6 +1450,7 @@ SSHサービスの設定が無効です。以前の設定が使用されてい�
 |===
 
 
+[[tenant-alerts]]
 == テナントアラート
 
 [cols="1a,2a"]

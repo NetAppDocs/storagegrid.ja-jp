@@ -15,6 +15,7 @@ StorageGRID システムでシングルサインオン（SSO）を有効にす�
 
 
 
+[[identity-provider-requirements]]
 == アイデンティティプロバイダの要件
 
 StorageGRID では、次の SSO アイデンティティプロバイダ（ IdP ）をサポートしています。
@@ -49,6 +50,7 @@ Active Directory
 |===
 
 
+[[ad-fs-requirements]]
 === AD FS の要件
 
 次のいずれかのバージョンの AD FS を使用できます。
@@ -63,6 +65,7 @@ NOTE: Windows Server 2016では、以上を使用している必要がありま�
 
 
 
+[[additional-requirements]]
 === その他の要件
 
 * Transport Layer Security （ TLS ） 1.2 または 1.3
@@ -71,12 +74,14 @@ NOTE: Windows Server 2016では、以上を使用している必要がありま�
 
 
 
+[[considerations-for-entra-id]]
 === Entra IDに関する考慮事項
 
 SSO タイプとして Entra ID を使用し、ユーザーのユーザー プリンシパル名にプレフィックスとして sAMAccountName が使用されていない場合、 StorageGRID がLDAP サーバーとの接続を失うとログインの問題が発生する可能性があります。ユーザーがサインインできるようにするには、LDAP サーバーへの接続を復元する必要があります。
 
 
 
+[[server-certificate-requirements]]
 == サーバ証明書の要件
 
 デフォルトでは、 StorageGRID は各管理ノードで管理インターフェイス証明書を使用して、グリッド マネージャ、テナント マネージャ、グリッド管理 API、およびテナント管理 API へのアクセスを保護します。  StorageGRIDに対して証明書利用者信頼 (AD FS)、エンタープライズ アプリケーション (Entra ID)、またはサービス プロバイダー接続 (PingFederate) を構成する場合は、サーバー証明書をStorageGRID要求の署名証明書として使用します。
@@ -90,6 +95,7 @@ NOTE: 管理ノードのデフォルトサーバ証明書を証明書利用者�
 
 
 
+[[port-requirements]]
 == ポートの要件
 
 シングルサインオン（ SSO ）は、制限された Grid Manager ポートまたは Tenant Manager ポートでは使用できません。ユーザをシングルサインオンで認証する場合は、デフォルトの HTTPS ポート（ 443 ）を使用する必要があります。を参照して link:controlling-access-through-firewalls.html["外部ファイアウォールでアクセスを制御します"]

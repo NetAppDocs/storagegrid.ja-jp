@@ -24,6 +24,7 @@ NOTE: 検索統合サービスではオブジェクトメタデータがデス�
 
 
 
+[[search-integration-and-s3-buckets]]
 == 検索統合とS3バケット
 
 検索統合サービスはバージョン管理に対応している / していないに関わらずすべてのバケットに対して有効にすることができ検索統合を設定するには、対象のオブジェクトおよびオブジェクトメタデータのデスティネーションを指定したメタデータ通知設定 XML をバケットに関連付けます。
@@ -35,6 +36,7 @@ NOTE: タグとユーザメタデータの場合、 StorageGRID は文字列ま�
 
 
 
+[[search-notifications]]
 == 通知の検索
 
 メタデータ通知は次の場合に生成され、配信のためにキューに登録されます。
@@ -52,6 +54,7 @@ NOTE: タグとユーザメタデータの場合、 StorageGRID は文字列ま�
 
 
 
+[[search-integration-service-and-elasticsearch]]
 == 検索統合サービスとElasticsearch
 
 StorageGRID 検索統合サービスは、デスティネーションとして Elasticsearch クラスタをサポートします。他のプラットフォームサービスと同様、 URN がサービスの設定 XML で使用されているエンドポイントにデスティネーションが指定されます。を使用して https://imt.netapp.com/matrix/#welcome["NetApp Interoperability Matrix Tool"^]、サポートされているElasticsearchのバージョンを確認します。

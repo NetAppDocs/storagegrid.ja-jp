@@ -17,6 +17,7 @@ StorageGRID 12.0では、オブジェクトストレージ容量が拡張され�
 
 
 
+[[appliances]]
 == アプライアンス
 
 * ストレージ容量とコスト効率が大幅に向上しました。
@@ -25,6 +26,7 @@ StorageGRID 12.0では、オブジェクトストレージ容量が拡張され�
 
 
 
+[[artificial-intelligence-ai-and-machine-learning-ml]]
 == 人工知能（AI）と機械学習（ML）
 
 * link:../tenant/what-is-branch-bucket.html["ブランチバケット"]ランサムウェアからの迅速な復旧とテストおよび実験用の分離されたデータセットを容易にするバケットのポイントインタイム バージョンを許可します。
@@ -33,12 +35,14 @@ StorageGRID 12.0では、オブジェクトストレージ容量が拡張され�
 
 
 
+[[capacity]]
 == 容量
 
 StorageGRID は現在、以前の制限の 2 倍を超える 1 兆個のオブジェクトをサポートしています。参照 https://fusion.netapp.com/["NetApp Fusionツール"^]StorageGRID のサイズと設計を決定します。
 
 
 
+[[cassandra-updates]]
 == Cassandraのアップデート
 
 StorageGRID は、メタデータ ストレージに Cassandra の新しいバージョンを使用するようになりました。このバージョンの Cassandra では、ディスク領域をより効率的に使用して、より多くのメタデータを保存します。
@@ -49,6 +53,7 @@ StorageGRID は、メタデータ ストレージに Cassandra の新しいバ�
 
 
 
+[[federation]]
 == フェデレーション
 
 * これでlink:../admin/managing-users.html#import-federated-users["最大100人のフェデレーションユーザーをインポート"]StorageGRIDに。
@@ -61,6 +66,7 @@ NetApp、この機能をStorageGRID 12.0 のソース バケットと宛先バ�
 
 
 
+[[manageability]]
 == 管理性
 
 * 改良されたlink:../maintain/decommission-procedure.html["廃止手続き"]時間と複雑さを軽減し、運用効率を向上させます。
@@ -85,6 +91,7 @@ NOTE: 強グローバル一貫性の以前の動作に戻す必要がある場�
 
 
 
+[[security]]
 == セキュリティ
 
 * より強力なデータ暗号化と整合性保護により、セキュリティとパフォーマンスが向上します。
@@ -94,6 +101,7 @@ NOTE: 強グローバル一貫性の以前の動作に戻す必要がある場�
 
 
 
+[[tenant-groups]]
 == テナントグループ
 
 * これでlink:../tenant/manage-groups.html["新しいS3信頼ポリシーを構成する"]AssumeRole API をサポートするため。  AssumeRole 関数は、セキュリティの強化と柔軟なアクセス制御のために短期的な資格情報を提供します。
@@ -102,6 +110,7 @@ NOTE: 強グローバル一貫性の以前の動作に戻す必要がある場�
 
 
 
+[[user-interface]]
 == ユーザーインターフェース
 
 * ダーク テーマとシステム テーマの設定は、グリッド マネージャーとテナント マネージャーのユーザー メニューで使用できます。

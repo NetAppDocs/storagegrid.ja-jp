@@ -15,6 +15,7 @@ StorageGRID をFabricPool のクラウド階層として接続する前に、Sto
 
 
 
+[[what-values-do-i-need]]
 == どのような価値が必要か？
 
 次の表に、StorageGRID で設定する必要がある値と、それらの値がONTAP およびDNSサーバでどのように使用されるかを示します。
@@ -79,6 +80,7 @@ StorageGRID > Tenant and bucketの順に選択します
 |===
 
 
+[[how-do-i-get-these-values]]
 == これらの値を取得するにはどうすればよいですか。
 
 要件に応じて、次のいずれかの方法で必要な情報を入手できます。

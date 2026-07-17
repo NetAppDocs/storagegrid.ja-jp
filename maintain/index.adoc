@@ -18,6 +18,7 @@ NOTE: これらの手順では、「Linux」は Red Hat® Enterprise Linux® (RH
 
 
 
+[[before-you-begin]]
 == 開始する前に
 
 * StorageGRID システムを幅広く理解している。
@@ -28,6 +29,7 @@ NOTE: これらの手順では、「Linux」は Red Hat® Enterprise Linux® (RH
 
 
 
+[[maintenance-procedures-for-appliances]]
 == アプライアンスのメンテナンス手順
 
 ハードウェアの手順については、を参照して https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/index.html["StorageGRIDアプライアンスのメンテナンス手順"^]ください。

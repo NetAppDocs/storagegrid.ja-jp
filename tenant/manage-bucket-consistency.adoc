@@ -20,12 +20,14 @@ summary: 整合性の値を使用して、バケット設定を変更できる�
 
 
 
+[[bucket-consistency-guidelines]]
 == バケットの整合性に関するガイドライン
 
 バケットの整合性は、そのS3バケット内のオブジェクトに影響しているクライアントアプリケーションの整合性を判断するために使用されます。一般に、バケットには* Read-after-new-write *整合性を使用する必要があります。
 
 
 
+[[change-bucket-consistencychange-bucket-consistency]]
 == [[change-bucket-consistency]]バケット整合性の変更
 
 Read-after-new-write *整合性がクライアントアプリケーションの要件を満たしていない場合は、バケットの整合性を設定するかヘッダーを使用して整合性を変更できます `Consistency-Control`。 `Consistency-Control`ヘッダーはバケットの整合性よりも優先されます。
@@ -54,6 +56,7 @@ NOTE: バケットの整合性を変更した場合、変更後に取り込ま�
 
 
 
+[[what-happens-when-you-change-bucket-settings]]
 == バケット設定を変更した場合の動作
 
 バケットには、バケットとバケット内のオブジェクトの動作に影響する複数の設定があります。

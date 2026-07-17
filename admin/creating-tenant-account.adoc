@@ -39,6 +39,7 @@ TIP: テナントを作成する前にこの管理者グループが両方のグ
 
 
 
+[[access-the-wizard]]
 == ウィザードにアクセスします
 
 .手順
@@ -48,6 +49,7 @@ TIP: テナントを作成する前にこの管理者グループが両方のグ
 
 
 
+[[enter-details]]
 == 詳細を入力します
 
 .手順
@@ -92,6 +94,7 @@ TIP: テナントを作成する前にこの管理者グループが両方のグ
 
 
 
+[[admin-tenant-select-permissionsselect-permissions]]
 == [[admin-tenant-select-permissions]]権限を選択
 
 .手順
@@ -163,6 +166,7 @@ S3 オブジェクトのロック
 
 
 
+[[define-root-access-and-create-tenant]]
 == ルートアクセスを定義してテナントを作成
 
 .手順
@@ -221,12 +225,14 @@ TIP: ローカルrootユーザは、パスワードが変更されるまで、�
 
 
 
+[[sign-in-to-tenant-optional]]
 == テナントへのサインイン（オプション）
 
 必要に応じて、新しいテナントにサインインして設定を完了するか、あとでテナントにサインインできます。のサインイン手順は、Grid Managerにサインインする際にデフォルトのポート（443）を使用するか制限されたポートを使用するかによって異なります。を参照して link:controlling-access-through-firewalls.html["外部ファイアウォールでアクセスを制御します"]
 
 
 
+[[sign-in-now]]
 === 今すぐサインインしてください
 
 [cols="1a,3a"]
@@ -278,6 +284,7 @@ Tenant Manager の URL の形式は次のとおりです。
 |===
 
 
+[[sign-in-later]]
 === 後でサインインします
 
 [cols="1a,3a"]
@@ -321,6 +328,7 @@ Tenant Manager の URL の形式は次のとおりです。
 |===
 
 
+[[configure-the-tenant]]
 == テナントを設定します
 
 テナントグループとユーザ、S3アクセスキー、バケット、プラットフォームサービス、アカウントのクローンとクロスグリッドレプリケーションを管理するには、の手順に従いますlink:../tenant/index.html["テナントアカウントを使用する"]。

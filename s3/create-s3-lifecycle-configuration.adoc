@@ -17,6 +17,7 @@ S3 ライフサイクル設定を作成して、特定のオブジェクトが S
 
 
 
+[[what-lifecycle-configuration-is]]
 == ライフサイクル構成とは
 
 ライフサイクル設定は、特定の S3 バケット内のオブジェクトに適用される一連のルールです。各ルールは、影響を受けるオブジェクトと、それらのオブジェクトの有効期限（特定の日付または日数後）を指定します。
@@ -46,6 +47,7 @@ StorageGRID では、次のバケット処理を使用してライフサイク�
 
 
 
+[[create-lifecycle-configuration]]
 == ライフサイクル構成を作成します
 
 ライフサイクル設定を作成するための最初の手順として、 1 つ以上のルールを含む JSON ファイルを作成します。たとえば、この JSON ファイルには次の 3 つのルールが含まれています。
@@ -106,6 +108,7 @@ CAUTION: 日数を指定するルールは、オブジェクトが取り込ま�
 ----
 
 
+[[apply-lifecycle-configuration-to-bucket]]
 == バケットにライフサイクル設定を適用
 
 ライフサイクル設定ファイルを作成したら、PutBucketLifecycleConfiguration要求を発行してバケットに適用します。
@@ -128,6 +131,7 @@ aws s3api --endpoint-url <StorageGRID endpoint> get-bucket-lifecycle-configurati
 
 
 
+[[validate-that-bucket-lifecycle-expiration-applies-to-object]]
 == バケットライフサイクルの有効期限が環境 オブジェクトであることを検証します
 
 PutObject、HeadObject、またはGetObjectのいずれか環境の要求を発行するときに、ライフサイクル設定の有効期限ルールが特定のオブジェクトであるかどうかを確認できます。ルールが適用される場合は、オブジェクトの有効期限と一致した有効期限ルールを示すパラメータが応答に含まれ `Expiration`ます。

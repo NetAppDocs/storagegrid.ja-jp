@@ -17,6 +17,7 @@ summary: ストレージプールを構成して使用し、複数のサイト�
 
 
 
+[[guidelines-for-all-storage-pools]]
 == すべてのストレージプールのガイドライン
 
 * ストレージプールの設定は可能なかぎりシンプルにします。必要以上にストレージプールを作成しないでください。
@@ -27,6 +28,7 @@ summary: ストレージプールを構成して使用し、複数のサイト�
 
 
 
+[[guidelines-for-storage-pools-used-for-replicated-copies]]
 == レプリケートコピーに使用するストレージプールのガイドライン
 
 * を使用したサイト障害からの保護のlink:what-replication-is.html["レプリケーション"]場合は、でサイト固有のストレージプールを1つ以上指定しますlink:create-ilm-rule-define-placements.html["各ILMルールの配置手順"]。
@@ -43,6 +45,7 @@ StorageGRID のインストール時に、サイトごとに1つのストレー�
 
 
 
+[[guidelines-for-storage-pools-used-for-erasure-coded-copies]]
 == イレイジャーコーディングされたコピーに使用するストレージプールのガイドラインを次に示します
 
 * を使用してサイト障害から保護するにlink:what-erasure-coding-is.html["イレイジャーコーディング"]は、3つ以上のサイトで構成されるストレージプールを作成します。ストレージプールにサイトが2つしかない場合、そのストレージプールをイレイジャーコーディングに使用することはできません。2 つのサイトを含むストレージプールではイレイジャーコーディングスキームを使用できません。

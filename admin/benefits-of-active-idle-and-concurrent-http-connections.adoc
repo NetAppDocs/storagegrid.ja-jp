@@ -22,6 +22,7 @@ StorageGRID システムのパフォーマンスに影響するのは、 HTTP �
 
 
 
+[[benefits-of-keeping-idle-http-connections-open]]
 == アイドル HTTP 接続を開いておくメリット
 
 クライアント アプリケーションがアイドル状態のときに HTTP 接続を開いたままにして、後のトランザクションを許可します。アイドル状態の HTTP 接続を最大 10 分間開いたままにします。  StorageGRID は、10 分以上開かれアイドル状態になっている HTTP 接続を自動的に閉じる場合があります。
@@ -40,6 +41,7 @@ StorageGRID システムのパフォーマンスに影響するのは、 HTTP �
 
 
 
+[[benefits-of-active-http-connections]]
 == アクティブ HTTP 接続のメリット
 
 ストレージノードに直接接続する場合は、HTTP接続でトランザクションを継続的に実行する場合でも、アクティブHTTP接続の継続時間を10分に制限する必要があります。
@@ -63,6 +65,7 @@ StorageGRID システムのパフォーマンスに影響するのは、 HTTP �
 
 
 
+[[benefits-of-concurrent-http-connections]]
 == 同時 HTTP 接続のメリット
 
 StorageGRID システムへの TCP / IP 接続を複数開いて並列処理を可能にしておくと、パフォーマンスが向上します。最適な並列接続数は、さまざまな要因によって異なります。
@@ -92,6 +95,7 @@ StorageGRIDシステムは、多くの場合、複数のクライアント ア�
 
 
 
+[[separation-of-http-connection-pools-for-read-and-write-operations]]
 == 読み取り処理用と書き込み処理用に別々の HTTP 接続プールを使用する
 
 読み取り処理と書き込み処理に別々の HTTP 接続プールを使用して、それぞれに使用するプールの容量を制御できます。HTTP 接続のプールを分けることで、トランザクションや負荷分散をより細かく制御できます。

@@ -15,6 +15,7 @@ summary: 外部キー管理サーバ（ KMS ）を設定する前に、考慮事
 
 
 
+[[which-version-of-kmip-is-supported]]
 == サポートされているKMIPのバージョンを教えてください。
 
 StorageGRID は KMIP バージョン 1.4 をサポートしています。
@@ -23,6 +24,7 @@ http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html["Key Managem
 
 
 
+[[what-are-the-network-considerations]]
 == ネットワークに関する考慮事項
 
 ネットワークのファイアウォールの設定で、各アプライアンスノードが Key Management Interoperability Protocol （ KMIP ）の通信に使用するポートを介して通信できるようにする必要があります。デフォルトの KMIP ポートは 5696 です。
@@ -31,6 +33,7 @@ http://docs.oasis-open.org/kmip/spec/v1.4/os/kmip-spec-v1.4-os.html["Key Managem
 
 
 
+[[which-versions-of-tls-are-supported]]
 == サポートされているTLSのバージョンを教えてください。
 
 アプライアンスノードと設定された KMS の間の通信には、セキュアな TLS 接続が使用されます。StorageGRIDでは、KMSがサポートする内容と使用している内容に基づいて、KMSまたはKMSクラスタへのKMIP接続を確立する際に、TLS 1.2またはTLS 1.3のいずれかのプロトコルをサポートできますlink:manage-tls-ssh-policy.html["TLSおよびSSHポリシー"]。
@@ -39,6 +42,7 @@ StorageGRID は、接続時に KMS とプロトコルと暗号 (TLS 1.2) また�
 
 
 
+[[which-appliances-are-supported]]
 == サポートされているアプライアンスはどれですか。
 
 キー管理サーバ（ KMS ）を使用して、「ノード暗号化 * 」が有効になっているグリッド内の StorageGRID アプライアンスの暗号化キーを管理できます。この設定は、 StorageGRID アプライアンスインストーラを使用してアプライアンスをインストールするハードウェア構成の段階でのみ有効にできます。
@@ -58,6 +62,7 @@ StorageGRID アプライアンスおよびアプライアンスノードに対�
 
 
 
+[[when-should-i-configure-key-management-servers]]
 == キー管理サーバを設定する必要があるのはいつですか？
 
 新規インストールの場合は、テナントを作成する前に Grid Manager で 1 つ以上のキー管理サーバをセットアップするのが一般的です。この順序により、ノード上に格納されるオブジェクトデータよりも先にノードが保護されます。
@@ -66,6 +71,7 @@ Grid Manager では、アプライアンスノードのインストール前ま�
 
 
 
+[[how-many-key-management-servers-do-i-need]]
 == 必要なキー管理サーバの数
 
 1 つ以上の外部キー管理サーバを設定して、 StorageGRID システム内のアプライアンスノードに暗号化キーを提供できます。各 KMS は、 1 つのサイトまたはサイトグループにある StorageGRID アプライアンスノードに単一の暗号化キーを提供します。
@@ -80,6 +86,7 @@ image:kms_per_site.png["1 サイトあたりの km 数"]
 
 
 
+[[what-happens-when-a-key-is-rotated]]
 == キーをローテーションするとどうなりますか。
 
 セキュリティのベストプラクティスとして、設定した各KMSで定期的に使用する必要がありますlink:kms-managing.html#rotate-key["暗号化キーのローテーション"]。
@@ -93,6 +100,7 @@ image:kms_per_site.png["1 サイトあたりの km 数"]
 
 
 
+[[can-i-reuse-an-appliance-node-after-it-has-been-encrypted]]
 == アプライアンスノードは暗号化したあとに再利用できますか。
 
 暗号化されたアプライアンスを別の StorageGRID システムにインストールする必要がある場合は、先にグリッドノードの運用を停止して、オブジェクトデータを別のノードに移動しておく必要があります。その後、StorageGRIDアプライアンスインストーラを使用してを実行できます https://docs.netapp.com/us-en/storagegrid-appliances/commonhardware/monitoring-node-encryption-in-maintenance-mode.html["KMS構成をクリアします"^]。KMS の設定をクリアすると、「ノード暗号化 * 」設定が無効になり、アプライアンスノードと StorageGRID サイトの KMS 設定の間の関連付けが解除されます。

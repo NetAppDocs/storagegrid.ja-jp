@@ -23,6 +23,7 @@ CAUTION: NetApp、次のバージョンにアップグレードする前に、�
 
 
 
+[[verify-installed-version]]
 == インストールされたバージョンを確認する
 
 .手順
@@ -37,6 +38,7 @@ CAUTION: NetApp、次のバージョンにアップグレードする前に、�
 
 
 
+[[example-upgrade-pathexample-upgrade-to-storagegrid-12-0-from-version-11-8]]
 == [[example-upgrade-path]]例: StorageGRIDバージョン 11.8 から 12.0 にアップグレード
 
 次の例は、 StorageGRID 12.0 へのアップグレードの準備として、 StorageGRIDバージョン 11.8 からバージョン 11.9 にアップグレードする手順を示しています。

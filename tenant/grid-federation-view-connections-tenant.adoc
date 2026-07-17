@@ -55,6 +55,7 @@ summary: テナントアカウントにUse grid federation connection権限が�
 
 
 
+[[clear-last-errorclear-the-last-error]]
 == [[clear-last-error]]最後のエラーをクリアします
 
 次のいずれかの理由で、* Last error *列にエラーが表示されることがあります。

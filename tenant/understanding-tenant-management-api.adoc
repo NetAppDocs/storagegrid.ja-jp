@@ -27,6 +27,7 @@ Swagger のテナント管理 API のドキュメントにアクセスするに�
 
 
 
+[[api-operations]]
 == API処理
 
 テナント管理 API では、使用可能な API 処理が次のセクションに分類されます。
@@ -59,6 +60,7 @@ NOTE: StorageGRID システムでシングルサインオン（ SSO ）が有効
 
 
 
+[[operation-details]]
 == 処理の詳細
 
 各 API 処理を展開表示すると、 HTTP アクション、エンドポイント URL 、必須またはオプションのパラメータのリスト、要求の本文の例（必要な場合）、想定される応答を確認できます。
@@ -67,6 +69,7 @@ image:tenant_api_swagger_example.gif["Swagger API での GET groups 処理を示
 
 
 
+[[issue-api-requests]]
 == 問題 API 要求
 
 

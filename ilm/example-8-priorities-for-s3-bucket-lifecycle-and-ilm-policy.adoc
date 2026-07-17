@@ -15,6 +15,7 @@ summary: オブジェクトはライフサイクル設定に応じて、S3バケ
 
 
 
+[[example-of-bucket-lifecycle-taking-priority-over-ilm-policy]]
 == ILMポリシーよりも優先するバケットライフサイクルの例
 
 ILMポリシー::
@@ -50,6 +51,7 @@ ILMポリシー::
 
 
 
+[[example-of-bucket-lifecycle-implicitly-keeping-forever]]
 == バケットライフサイクルの暗黙的なkeeping-foreverの例
 
 ILMポリシー::
@@ -85,6 +87,7 @@ ILMポリシー::
 
 
 
+[[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
 == バケットライフサイクルを使用してILMを複製し、期限切れの削除マーカーをクリーンアップする例
 
 ILMポリシー::

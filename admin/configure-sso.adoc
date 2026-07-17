@@ -60,6 +60,7 @@ StorageGRID (サービス プロバイダー) と SSO ID プロバイダーが�
 
 
 
+[[access-the-wizard]]
 == ウィザードにアクセスします
 
 .手順
@@ -73,6 +74,7 @@ NOTE: [SSO 設定の構成] ボタンが無効になっている場合は、ID �
 
 
 
+[[provide-identity-provider-details]]
 == IDプロバイダーの詳細を入力する
 
 .手順
@@ -101,6 +103,7 @@ CAUTION: CA証明書を変更した場合は、すぐにlink:../maintain/startin
 
 
 
+[[enter-sandbox-modeprovide-relying-party-identifier]]
 == [[enter-sandbox-mode]]証明書利用者識別子を提供する
 
 . 選択した SSO タイプに基づいて、[証明書利用者識別子を提供する] ページのフィールドに入力します。
@@ -171,6 +174,7 @@ https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId
 
 
 
+[[configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
 == 証明書利用者信頼、エンタープライズアプリケーション、または SP 接続を設定する
 
 構成を保存してサンドボックス モードに入ると、選択した SSO タイプの構成を完了してテストできます。
@@ -231,6 +235,7 @@ StorageGRID は、必要な限りサンドボックス モードのままにす�
 ====
 
 
+[[test-ssotest-configuration]]
 == [[test-sso]]テスト構成
 
 StorageGRIDシステム全体にシングル サインオンの使用を強制する前に、各管理ノードに対してシングル サインオンとシングル ログアウトが正しく設定されていることを確認してください。
@@ -294,6 +299,7 @@ URL は、 [ * フェデレーションサービス名 * （ * Federation servic
 ====
 
 
+[[enable-single-sign-on]]
 == シングルサインオンを有効にします
 
 SSO を使用して各管理ノードにサインインできることを確認したら、 StorageGRID システム全体で SSO を有効にできます。

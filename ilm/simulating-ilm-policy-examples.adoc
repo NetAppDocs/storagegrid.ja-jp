@@ -15,6 +15,7 @@ ILMポリシーシミュレーションの例では、環境に合わせてシ�
 
 
 
+[[example-1-verify-rules-when-simulating-an-ilm-policy]]
 == 例1：ILMポリシーをシミュレートしてルールを検証する
 
 この例では、ポリシーをシミュレートするときにルールを検証する方法について説明します。
@@ -39,6 +40,7 @@ image:simulate_policy_screen.png["ポリシーの結果をシミュレートし�
 
 
 
+[[example-2-reorder-rules-when-simulating-an-ilm-policy]]
 == 例2：ILMポリシーをシミュレートする際にルールの順序を変更する
 
 この例では、ポリシーをシミュレートする際に、ルールの順序を変更して結果を変更する方法を示します。
@@ -81,6 +83,7 @@ image:simulate_reorder_rules_correct_result.png["例2：ILMポリシーをシミ
 
 
 
+[[example-3-correct-a-rule-when-simulating-an-ilm-policy]]
 == 例3：ILMポリシーをシミュレートするときにルールを修正する
 
 この例では、ポリシーをシミュレートしてポリシー内のルールを修正し、シミュレーションを続行する方法を示します。

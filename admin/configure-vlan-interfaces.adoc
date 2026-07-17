@@ -15,6 +15,7 @@ summary: 管理ノードとゲートウェイノード上に仮想LAN（VLAN）�
 
 
 
+[[considerations-for-vlan-interfaces]]
 == VLAN インターフェイスに関する考慮事項
 
 * VLAN インターフェイスを作成するには、 VLAN ID を入力し、 1 つ以上のノード上で親インターフェイスを選択します。
@@ -37,6 +38,7 @@ NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメント
 
 
 
+[[create-a-vlan-interface]]
 == VLAN インターフェイスを作成します
 
 .開始する前に
@@ -53,6 +55,7 @@ NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメント
 
 
 
+[[access-the-wizard]]
 === ウィザードにアクセスします
 
 .手順
@@ -62,6 +65,7 @@ NOTE: 「Linux」は、RHEL、Ubuntu、または Debian のデプロイメント
 
 
 
+[[enter-details-for-the-vlan-interfaces]]
 === VLAN インターフェイスの詳細を入力します
 
 .手順
@@ -75,6 +79,7 @@ VLAN IDは一意である必要はありません。たとえば、あるサイ�
 
 
 
+[[choose-parent-interfaces]]
 === 親インターフェイスを選択します
 
 次の表に、グリッドの各サイトのすべての管理ノードとゲートウェイノードで使用可能なインターフェイスを示します。管理ネットワーク（eth1）インターフェイスを親インターフェイスとして使用することはできず、表示されていません。
@@ -92,6 +97,7 @@ image:vlan-create-parent-interfaces.png["VLAN 作成ウィザードの親イン�
 
 
 
+[[confirm-the-settings]]
 === 設定を確認します
 
 .手順
@@ -108,6 +114,7 @@ image:vlan-create-parent-interfaces.png["VLAN 作成ウィザードの親イン�
 
 
 
+[[edit-a-vlan-interface]]
 == VLAN インターフェイスを編集します
 
 VLAN インターフェイスを編集する場合、次の種類の変更を行うことができます。
@@ -141,6 +148,7 @@ HA グループで VLAN が使用されている場合、 VLAN ID は更新で�
 
 
 
+[[remove-a-vlan-interface]]
 == VLAN インターフェイスを削除します
 
 1 つ以上の VLAN インターフェイスを削除できます。

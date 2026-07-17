@@ -20,6 +20,7 @@ summary: 必要に応じてテナントグループを管理し、グループ�
 
 
 
+[[view-or-edit-group]]
 == グループを表示または編集します
 
 各グループの基本情報と詳細を表示および編集できます。
@@ -104,6 +105,7 @@ image:manage_users.png["ユーザの管理"]
 
 
 
+[[duplicate-group]]
 == グループが重複しています
 
 既存のグループを複製して、新しいグループをより迅速に作成できます。
@@ -121,6 +123,7 @@ NOTE: テナントアカウントに* Use grid federation connection *権限が�
 
 
 
+[[clone-groupsretry-group-clone]]
 == [[clone-groups]]グループクローンの再試行
 
 失敗したクローンを再試行するには：
@@ -134,6 +137,7 @@ NOTE: テナントアカウントに* Use grid federation connection *権限が�
 
 
 
+[[delete-one-or-more-groups]]
 == 1つ以上のグループを削除します
 
 1つ以上のグループを削除できます。削除したグループにのみ属しているユーザは、Tenant Managerにサインインしたりテナントアカウントを使用したりできなくなります。
@@ -153,6 +157,7 @@ NOTE: テナントアカウントに* Use grid federation connection *権限が�
 
 
 
+[[set-up-assumerole]]
 == AssumeRoleを設定する
 
 .開始する前に
@@ -176,6 +181,7 @@ AssumeRole を設定するには、グループがまだ存在しない場合は
 
 
 
+[[example-of-an-assumerole-s3-trust-policy]]
 === AssumeRole S3信頼ポリシーの例
 
 [listing]

@@ -69,6 +69,7 @@ Received call to deprecated v2 API at POST "/api/v2/authorize"
 
 
 
+[[determine-which-api-versions-are-supported-in-the-current-release]]
 == 現在のリリースでサポートされている API のバージョンを確認します
 
 API要求を使用して `GET /versions`、サポートされているAPIのメジャーバージョンのリストを返します。この要求は、Swagger APIドキュメントの* config *セクションにあります。
@@ -89,6 +90,7 @@ GET https://{{IP-Address}}/api/versions
 ----
 
 
+[[specify-an-api-version-for-a-request]]
 == 要求の API バージョンを指定します
 
 APIのバージョンは(`/api/v4`、パスパラメータを使用して指定できます）またはヘッダー(`Api-Version: 4`を指定できます。両方の値を指定した場合は、ヘッダー値がパス値よりも優先されます。

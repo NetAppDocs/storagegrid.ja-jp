@@ -17,6 +17,7 @@ summary: すべての StorageGRID サービスは通常のシステム運用中�
 
 
 
+[[audit-message-flow]]
 == 監査メッセージのフロー
 
 監査メッセージは、 StorageGRID が*管理ノード/ローカル ノード* または *管理ノードと外部 syslog サーバー* 用に構成されている場合、および管理ドメイン コントローラー (ADC) サービスを持つストレージ ノードによって処理されます。
@@ -31,6 +32,7 @@ image:audit_message_flow.gif["リレー経由の監査メッセージフロー�
 
 
 
+[[audit-message-retention]]
 === 監査メッセージの保持
 
 StorageGRID では、コピー / 削除プロセスを使用して、監査ログに書き込まれる前に監査メッセージが失われないようにします。
@@ -61,6 +63,7 @@ NOTE: ADCサービスを使用する使用可能なストレージノードが�
 
 
 
+[[large-audit-queue-alert-and-audit-messages-queued-amqs-alarm]]
 === Large audit queue アラートと Audit Messages Queued （ AMQS ）アラーム
 
 時間の経過に伴う監査メッセージキューのサイズを監視できるように、ストレージノードキューまたは管理ノードキュー内のメッセージの数が特定のしきい値に達すると、 * Large audit queue * アラートと従来の AMQS アラームがトリガーされます。
@@ -71,6 +74,7 @@ NOTE: ADCサービスを使用する使用可能なストレージノードが�
 
 
 
+[[duplicate-messages]]
 === 重複メッセージです
 
 StorageGRID システムは、ネットワークまたはノードの障害が発生した場合に保守的なアプローチを採用します。そのため、監査ログでメッセージが重複する可能性があります。

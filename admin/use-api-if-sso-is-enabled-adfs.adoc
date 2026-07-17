@@ -15,6 +15,7 @@ summary: シングルサインオン（ SSO ）を設定して有効にし、 SS
 
 
 
+[[sign-in-to-the-api-if-single-sign-on-is-enabled]]
 == シングルサインオンが有効な場合は、 API にサインインします
 
 ここで説明する手順は、 Active Directory を SSO アイデンティティプロバイダとして使用する場合に該当します。
@@ -242,6 +243,7 @@ SSOが使用されていない場合のAPIの使用方法と同様に、を他�
 
 
 
+[[sign-out-of-the-api-if-single-sign-on-is-enabled]]
 == シングルサインオンが有効な場合は、 API からサインアウトします
 
 シングルサインオン（ SSO ）が有効になっている場合は、グリッド管理 API またはテナント管理 API からサインアウトするための一連の API 要求を問題 で処理する必要があります。ここで説明する手順は、 Active Directory を SSO アイデンティティプロバイダとして使用する場合に該当します

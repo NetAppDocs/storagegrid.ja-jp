@@ -22,6 +22,7 @@ CAUTION: DoNotStart ファイルは、テクニカルサポートから指示が
 
 
 
+[[add-donotstart-file-for-service]]
 == サービスの DoNotStart ファイルを追加します
 
 個別のサービスが開始しないようにするには、グリッドノードのそのサービスのディレクトリに DoNotStart ファイルを追加します。
@@ -61,6 +62,7 @@ Server Manager またはグリッドノードが再起動されたときに Serv
 
 
 
+[[remove-donotstart-file-for-service]]
 == サービスの DoNotStart ファイルを削除します
 
 サービスを開始できないようにする DoNotStart ファイルを削除するには、そのサービスを開始する必要があります。

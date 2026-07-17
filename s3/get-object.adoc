@@ -15,6 +15,7 @@ S3 GetObject要求を使用すると、S3バケットからオブジェクトを
 
 
 
+[[getobject-and-multipart-objects]]
 == GetObjectオブジェクトとマルチパートオブジェクト
 
 要求パラメータを使用すると、マルチパートオブジェクトまたはセグメント化されたオブジェクトの特定の部分を読み出すことができます `partNumber`。 `x-amz-mp-parts-count`response要素は、オブジェクトに含まれるパーツの数を示します。
@@ -23,12 +24,14 @@ S3 GetObject要求を使用すると、S3バケットからオブジェクトを
 
 
 
+[[utf-8-characters-in-user-metadata]]
 == ユーザメタデータ内の UTF-8 文字
 
 StorageGRID は、ユーザ定義メタデータ内のエスケープされた UTF-8 文字を解析も解釈もしません。ユーザ定義メタデータにエスケープされたUTF-8文字が含まれているオブジェクトに対するGET要求で、キーの名前または値に印刷不能文字が含まれている場合にヘッダーが返されません `x-amz-missing-meta`。
 
 
 
+[[supported-request-header]]
 == サポートされる要求ヘッダー
 
 次の要求ヘッダーがサポートされます。
@@ -41,6 +44,7 @@ StorageGRID は、ユーザ定義メタデータ内のエスケープされた U
 
 
 
+[[unsupported-request-header]]
 == サポートされない要求ヘッダーです
 
 次の要求ヘッダーはサポートされておらず、が返されます。 `XNotImplemented`
@@ -50,12 +54,14 @@ StorageGRID は、ユーザ定義メタデータ内のエスケープされた U
 
 
 
+[[versioning]]
 == バージョン管理
 
 サブリソースを指定しない場合は `versionId`、バージョン管理されたバケット内のオブジェクトの最新バージョンが取得されます。オブジェクトの現在のバージョンが削除マーカーの場合は、「Not Found」ステータスが返され、 `x-amz-delete-marker`応答ヘッダーがに設定され `true`ます。
 
 
 
+[[request-headers-for-server-side-encryption-with-customer-provided-encryption-keys-sse-c]]
 == ユーザ指定の暗号化キーによるサーバ側の暗号化（ SSE-C ）の要求ヘッダー
 
 指定した一意のキーでオブジェクトが暗号化されている場合は、 3 つのヘッダーをすべて使用します。
@@ -70,6 +76,7 @@ CAUTION: 指定した暗号化キーが格納されることはありません�
 
 
 
+[[behavior-of-getobject-for-cloud-storage-pool-objects]]
 == クラウドストレージプールオブジェクトに対するGetObjectの動作
 
 オブジェクトがに格納されている場合link:../ilm/what-cloud-storage-pool-is.html["クラウドストレージプール"]、GetObject要求の動作はオブジェクトの状態によって異なります。詳細については、を参照してくださいlink:head-object.html["ヘッドオブジェクト"]。
@@ -128,6 +135,7 @@ RestoreObject要求が完了するまで待ちます。
 |===
 
 
+[[multipart-or-segmented-objects-in-a-cloud-storage-pool]]
 === クラウドストレージプール内のマルチパートオブジェクトまたはセグメント化されたオブジェクト
 
 マルチパートオブジェクトをアップロードした場合や StorageGRID が大きなオブジェクトをセグメントに分割した場合、 StorageGRID はオブジェクトのパーツまたはセグメントのサブセットをサンプリングすることでクラウドストレージプール内のオブジェクトが使用可能かどうかを判断します。オブジェクトの一部がすでに読み出し不可能な状態に移行されている場合や、オブジェクトの一部がまだリストアされていない場合に、GetObject要求が誤って返されることがあります `200 OK`。
@@ -140,6 +148,7 @@ RestoreObject要求が完了するまで待ちます。
 
 
 
+[[getobject-and-cross-grid-replication]]
 == GetObjectとグリッド間レプリケーション
 
 を使用していてlink:../tenant/grid-federation-manage-cross-grid-replication.html["グリッド間レプリケーション"]バケットで有効になっている場合link:../admin/grid-federation-overview.html["グリッドフェデレーション"]、S3クライアントはGetObject要求を発行してオブジェクトのレプリケーションステータスを確認できます。応答には、次のいずれかの値を持つStorageGRID固有の応答ヘッダーが含まれ `x-ntap-sg-cgr-replication-status`ます。

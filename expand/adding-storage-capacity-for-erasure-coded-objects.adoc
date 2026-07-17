@@ -19,6 +19,7 @@ summary: イレイジャーコーディングコピーを作成するルール�
 
 
 
+[[general-recommendation-for-adding-storage-capacity-for-erasure-coded-objects]]
 == イレイジャーコーディングオブジェクト用のストレージ容量の追加に関する一般的な推奨事項
 
 詳細な計算を行わない場合は、既存のストレージノードの容量が 70% に達した時点で各サイトに 2 つのストレージノードを追加できます。

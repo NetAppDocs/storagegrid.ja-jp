@@ -19,6 +19,7 @@ Server Managerに関連するエラーメッセージは、Server Managerログ�
 
 
 
+[[service-with-an-error-state]]
 == エラー状態のサービス
 
 サービスがエラー状態になったことが検出された場合は、サービスの再開を試みてください。

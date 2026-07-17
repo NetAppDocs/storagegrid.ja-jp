@@ -17,6 +17,7 @@ Overview タブには ' 各ノードに関する基本的な情報が表示さ�
 
 
 
+[[node-information]]
 == ノード情報
 
 [Overview]タブの[Node Information]セクションには、ノードに関する基本情報が表示されます。
@@ -53,6 +54,7 @@ NOTE: 管理されたシャットダウン処理の実行中に、ノードが U
 
 
 
+[[alerts]]
 == アラート
 
 [Overview]タブの[Alerts]セクションには、が表示されますlink:monitoring-system-health.html#view-current-and-resolved-alerts["このノードに現在影響しているアラートで、サイレント化されていないアラート"]。アラート名を選択すると、その他の詳細と推奨される対処方法が表示されます。

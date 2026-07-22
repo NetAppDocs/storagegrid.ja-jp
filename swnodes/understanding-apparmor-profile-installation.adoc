@@ -36,7 +36,7 @@ sudo apparmor_parser -R /etc/apparmor.d/<profile.name>
 sudo ln -s /etc/apparmor.d/bin.ping /etc/apparmor.d/disable/
 sudo apparmor_parser -R /etc/apparmor.d/bin.ping
 ----
-* AppArmor 全体を無効にする。Ubuntu 9.10以降の場合は、Ubuntuオンラインコミュニティの手順に従ってください。 https://help.ubuntu.com/community/AppArmor#Disable_AppArmor_framework["AppArmor を無効にします"^]新しいバージョンのUbuntuでは、AppArmorを完全に無効にできない場合があります。
+* AppArmorを完全に無効にします。Ubuntu 9.10以降の場合は、 https://help.ubuntu.com/community["Ubuntuオンラインコミュニティ"]の手順に従ってください。新しいバージョンのUbuntuでは、AppArmorを完全に無効にできない場合があります。
 +
 AppArmorを無効にすると、StorageGRIDログファイルにAppArmorが有効であることを示すエントリは表示されません。
 

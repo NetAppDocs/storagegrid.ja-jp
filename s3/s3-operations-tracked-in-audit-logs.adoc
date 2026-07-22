@@ -20,13 +20,18 @@ summary: 監査メッセージは StorageGRID サービスによって生成さ�
 
 * CreateBucket
 * DeleteBucket
+* DeleteBucketPolicy
 * DeleteBucketTagging
 * オブジェクトの削除
+* GetBucketLifecycleConfiguration
+* GetBucketPolicy
 * GetBucketTagging
 * ヘッドバケット
 * ListObjects
 * ListObjectVersions
 * PUT Bucket compliance で確認してください
+* PutBucketLifecycleConfiguration
+* PutBucketPolicy
 * PutBucketTaggingの略
 * PutBucketVersioning
 

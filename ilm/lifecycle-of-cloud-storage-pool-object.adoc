@@ -73,18 +73,18 @@ Azureクラウドストレージプールに格納されるオブジェクトの
 
 . * オブジェクトを Azure クラウドストレージプールに移動 *
 +
-Azureクラウドストレージプールを配置場所として使用するILMルールにオブジェクトが一致した場合、StorageGRIDはクラウドストレージプールで指定された外部のAzure BLOBストレージコンテナにオブジェクトを移動します。
+オブジェクトが、配置場所として Azure クラウド ストレージ プールを使用する ILM ルールに一致する場合、StorageGRID はオブジェクトを、クラウド ストレージ プールで指定された外部の Azure Blob Storage コンテナーに移動します。
 
 . * オブジェクトをアーカイブ層に移行（読み出し不可の状態） *
 +
-オブジェクトを Azure クラウドストレージプールに移動すると、 StorageGRID は自動的にオブジェクトを Azure BLOB ストレージのアーカイブ層に移行します。
+オブジェクトを Azure クラウド ストレージ プールに移動した直後、StorageGRID はオブジェクトを自動的に Azure Blob Storage アーカイブ層に移行します。
 
 . * アーカイブ層からオブジェクトを復元 *
 +
 オブジェクトがアーカイブ層に移行されている場合、クライアントアプリケーションはS3 RestoreObject要求を問題して、読み出し可能なコピーをAzureクラウドストレージプールにリストアできます。
 
 +
-StorageGRIDは、RestoreObjectを受信すると、オブジェクトを一時的にAzure BLOBストレージのクール層に移行します。RestoreObject要求の有効期限に達すると、StorageGRIDはすぐにオブジェクトをアーカイブ層に戻します。
+StorageGRID が RestoreObject を受信すると、オブジェクトは一時的に Azure Blob Storage Cool ティアに移行されます。RestoreObject リクエストの有効期限に達すると、StorageGRID はオブジェクトをアーカイブ階層に戻します。
 
 +
 

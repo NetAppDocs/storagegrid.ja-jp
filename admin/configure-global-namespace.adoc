@@ -1,0 +1,212 @@
+---
+permalink: admin/configure-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: 複数の StorageGRID システムにまたがるバケットへのテナントアクセスを可能にするグローバル名前空間を設定します。 
+---
+= グリッドフェデレーション用のグローバルネームスペースを設定する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+複数の StorageGRID システムにまたがるバケットへのテナントアクセスを可能にするグローバル名前空間を設定します。
+
+グローバル名前空間の詳細については、link:learn-about-global-namespace.html["グリッドフェデレーションのグローバルネームスペースについて"]を参照してください。
+
+.開始する前に
+* 各グリッドのGrid Managerにlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]を使用してサインインしています。
+* 各グリッドのlink:../admin/admin-group-permissions.html["rootアクセス権限"]があります。
+* グリッドフェデレーション接続のlink:../admin/grid-federation-overview.html["考慮事項と要件"]を確認しました。
+
+
+
+
+[[requirements-for-configuring-global-namespace]]
+== グローバルネームスペースを構成するための要件
+
+* グローバル名前空間内のすべてのグリッドは、グリッド間のすべてのペアにおいて、グローバル名前空間が有効になっているグリッドフェデレーション接続を持つ必要があります。
+* 単一のグローバルネームスペースに参加できるグリッドの最大数は11（ローカルグリッド1つとリモートグリッド10個）です。
++
+
+CAUTION: 10グリッド制限は、StorageGRID デプロイメントでサポートされるグリッドフェデレーション接続の最大総数によって制限されます。合計接続制限は、グローバル名前空間が有効になっていない接続も含め、デプロイメント内の*すべての*グリッドフェデレーション接続に適用されます。そのため、完全に接続されたグローバル名前空間とその他のグリッドフェデレーション接続の合計が、この全体的な制限を超えないようにする必要があります。
+
+* S3クライアントは、署名バージョン4（SigV4）認証を使用する必要があります。匿名リクエストおよび署名バージョン2リクエストは、グローバルネームスペースルーティング操作ではサポートされていません。
++
+** 通常の署名付きリクエストは、 https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-auth-using-authorization-header.html["リクエストの認証：認証ヘッダーの使用（AWS Signature Version 4）"]に記載されているとおりに指定されます。
+** 事前署名済みのリクエストは、 https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html["リクエストの認証：クエリパラメータの使用（AWS署名バージョン4）"]に記載されているとおりに指定されます。
+
+
+
+
+
+
+[[number-of-required-connectionsnumber-of-required-connections]]
+== [[number-of-required-connections]]必要な接続数
+
+グローバル名前空間では、すべてのグリッドのペアが接続されている必要があります。必要な接続数は、グリッドの数によって異なります。
+
+[cols="1a,1a"]
+|===
+| グリッドの数 | 必要な接続数 
+
+
+ a| 
+2
+ a| 
+1
+
+
+
+ a| 
+3
+ a| 
+3
+
+
+
+ a| 
+4
+ a| 
+6
+
+
+
+ a| 
+5
+ a| 
+10
+
+
+
+ a| 
+_n_
+ a| 
+_n_ × (_n_ − 1) / 2
+
+|===
+
+
+[[step-1-set-a-unique-default-region-for-each-grid]]
+[[configure-default-region]]
+== ステップ1：各グリッドに固有のデフォルトリージョンを設定する
+
+グローバル名前空間内の各グリッドには、一意のデフォルト領域が必要です。デフォルト領域は、バケットを所有するグリッドを識別します。
+
+CreateBucket および ListBuckets リクエストはこのリージョンに基づいてルーティングされ、その他のすべてのリクエストは送信先のデフォルトのリージョンと一致する必要があります。
+
+詳細については、link:../ilm/configuring-regions-optional-and-s3-only.html["S3リージョンを設定する"]を参照してください。
+
+.手順
+. 各グリッドで、link:../ilm/configuring-regions-optional-and-s3-only.html["デフォルトリージョンを一意の値に設定する"]。たとえば、Grid A を `us-east-1`に設定し、Grid B を `us-west-1`に設定します。
++
+
+NOTE: ILMポリシーの目的で、link:../s3/operations-on-buckets.html["CreateBucket リクエスト"]内の `LocationConstraint`要素を使用して設定されたデフォルト以外のリージョンを引き続き使用できます。デフォルト以外のリージョンは、グローバルネームスペース内のグリッド間で一意であるかどうかの検証は行われません。
+
+. グローバル名前空間内のすべてのグリッドに対して、この手順を繰り返します。各グリッドには、異なるデフォルト領域を設定する必要があります。
+. 必要に応じて追加のリージョンを設定してください。
+
+
+
+
+[[step-2-configure-s3-global-namespace-settings]]
+== ステップ2：S3グローバルネームスペース設定を構成する
+
+グローバル名前空間内の各グリッドに、2つのS3エンドポイントドメイン名を追加します。
+
+* すべてのグリッドで共通のグローバル名前空間エンドポイント
+* グリッド固有のCNAME
+
+
+外部DNSを設定することで、グローバル名前空間エンドポイントが1つ以上のグリッドに解決され、固有のCNAMEエンドポイントが特定のグリッドに解決されるようにします。
+
+
+CAUTION: S3グローバルネームスペース設定を構成する前に、<<configure-default-region,デフォルトリージョンを設定する>>必要があります。グローバル名前空間設定を有効にすると、正しいリージョンが指定されていない場合、S3リクエストは失敗します。すべてのS3リクエストは、グリッドのデフォルトリージョンで署名する必要があります。
+
+.手順
+. 各グリッドで、*Configuration* > *Network* > *S3 endpoint domain names* > *Domain names* を選択します。
+. すべてのグリッドで共通のグローバル名前空間エンドポイントドメイン名を追加します。例： `s3.example.com`。
+. グリッドに固有のCNAMEを追加します。例えば、 `s3.company.com`。
+. [ 保存（ Save ） ] を選択します。
+. 「グローバル名前空間設定」を選択します。
++
+.. グローバル名前空間エンドポイントを選択してください。
+.. グリッド固有のCNAMEドメイン名を選択してください。
+
+
+. [ 保存（ Save ） ] を選択します。
+. クライアントが使用するサーバー証明書に、新しいS3エンドポイントのドメイン名が含まれていることを確認してください。
++
+** クライアントが独自の証明書を使用するロードバランサエンドポイントに接続する場合は、link:../admin/configuring-load-balancer-endpoints.html["エンドポイントに関連付けられている証明書を更新します"]。
+** クライアントがグローバルS3 API証明書を使用するロードバランサエンドポイントに接続するか、またはストレージノードに直接接続する場合は、をlink:../admin/use-s3-setup-wizard-steps.html["グローバルS3 API証明書の更新"]実行します。
+
+
+. グローバル名前空間内のすべてのグリッドに対して、これらの手順を繰り返してください。
+
+
+詳細については、link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名を設定"]を参照してください。
+
+
+
+[[step-3-create-grid-federation-connections-with-global-namespace-enabled]]
+== ステップ3：グローバル名前空間を有効にしたグリッドフェデレーション接続を作成する
+
+すべてのグリッドでS3エンドポイントのドメイン名とデフォルトリージョンが設定されたら、グローバルネームスペースを有効にしたグリッドフェデレーション接続を作成できます。
+
+.タスクの内容
+グリッドフェデレーション接続を作成し、グローバル名前空間を有効にすると、グローバル名前空間エンドポイント、CNAME、およびデフォルトリージョンの各フィールドには、前の手順で設定した値が自動的に入力されます。これらのフィールドが正しく設定されていない場合、グリッドマネージャーはグローバル名前空間の有効化を防止します。
+
+
+CAUTION: グローバル名前空間を使用したグリッドフェデレーション接続が作成された後、その接続内のグリッドのグローバル名前空間エンドポイント、CNAME、およびデフォルトリージョンは変更できません。
+
+.手順
+. 最初のグリッドでは、link:../admin/grid-federation-create-connection.html["グリッドフェデレーション接続を作成する"]に記載されている手順に従ってください。
+. 接続の詳細を入力する際は、*グローバル名前空間を有効にする* を選択してください。
++
+グローバル名前空間エンドポイント、CNAME、およびデフォルトリージョンの各フィールドには、前の手順で設定した値が自動的に入力されます。いずれかの値が欠落しているか無効な場合、問題を解決するまでグローバル名前空間を有効にすることはできません。
+
+. 検証ファイルをダウンロードし、もう一方のグリッドにアップロードすることで、接続を完了してください。
+. グローバル名前空間内のすべてのグリッドのペアに対して、上記の手順を繰り返します。
++
+例えば、3つのグリッドがある場合、3つの接続（グリッドA–グリッドB、グリッドA–グリッドC、グリッドB–グリッドC）が必要です。グリッドが4つある場合、接続は6つ必要です。グローバル名前空間には、最大10個のグリッドを作成できます。<<number-of-required-connections,必要な接続数>>を参照してください。
+
+
+
+
+
+[[step-4-configure-load-balancer-endpoints]]
+== ステップ4：ロードバランサーのエンドポイントを設定する
+
+link:../admin/configuring-load-balancer-endpoints.html["ロードバランサーエンドポイントを設定する"] グローバル名前空間内の各グリッドについて。これらのエンドポイントには、すべて同じポートを使用してください。
+
+
+NOTE: DNS解決を設定する前に、ロードバランサーのエンドポイントを設定してください。
+
+
+
+[[config-dns-resolutionstep-5-configure-dns-resolution]]
+== [[config-dns-resolution]]ステップ5：DNS解決の設定
+
+StorageGRID はグローバル名前空間用の組み込み DNS リゾルバを提供していません。S3 リクエストを正しいグリッドにルーティングするには、外部 DNS インフラストラクチャを設定する必要があります。
+
+DNSリゾルバは次の要件を満たす必要があります：
+
+. グローバル名前空間エンドポイント（例： `s3.example.com`）を、通常はラウンドロビンDNSを使用して、1つまたは複数のグリッドのロードバランサーエンドポイントに解決します。
+. 各グリッドの固有の CNAME （例： `s3.grid-a.example.com`）を、その特定のグリッドのロードバランサーエンドポイントに解決します。
+. 仮想ホスト型バケットリクエストの場合（例： `_bucket_.s3.example.com`）、組織のルーティングポリシーを使用して、バケット名を適切なグリッドのCNAMEにマッピングします。
++
+StorageGRID は、どのグリッドがバケットを所有しているかを検出するための DNS ベースのメカニズムを提供していません。バケットの所有権に基づく自動ルーティングが必要な場合は、link:../tenant/understanding-tenant-management-api.html["テナント管理 API"] を使用して ListBucket リクエストを発行し、バケットの UUID を返します。バケットの UUID からグリッドへの内部マッピングを維持してください。外部 DNS は、StorageGRID に直接クエリを実行するのではなく、そのマッピングを使用してください。
+
+
+
+
+
+[[related-information]]
+== 関連情報
+
+* link:grid-federation-overview.html["グリッドフェデレーションとは"]
+* link:grid-federation-create-connection.html["グリッドフェデレーション接続を作成する"]
+* link:configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名を設定"]
+* link:grid-federation-manage-connection.html["グリッドフェデレーション接続を管理します"]
+

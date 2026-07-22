@@ -129,7 +129,12 @@ Admin: # grep OLST audit.log
  a| 
 出力に場所がリストされていない場合は、オブジェクトが欠落している可能性があります。テクニカル サポートにお問い合わせください。
 
-テクニカルサポートに問い合わせた際に、実行中のストレージリカバリ手順 がないかどうかを確認するように求められることがあります。およびの情報を参照してくださいlink:../maintain/restoring-volume.html["Grid Managerを使用したオブジェクトデータのリストア"]link:../maintain/restoring-object-data-to-storage-volume.html["ストレージボリュームへのオブジェクトデータのリストア"]。
+テクニカルサポートから、ストレージ復旧手順が進行中かどうかを確認するよう求められる場合があります。参照：
+
+*** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["アプライアンスのストレージボリュームにオブジェクトデータをリストアします"]
+*** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["システムドライブに損傷がない場合は、オブジェクトデータをストレージボリュームにリストアします"]
+*** link:../maintain/restoring-object-data-to-storage-volume.html["オブジェクトデータをストレージボリュームにリストアする（システムドライブの障害）"]
+
 
 |===
 

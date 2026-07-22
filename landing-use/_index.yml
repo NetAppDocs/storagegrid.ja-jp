@@ -38,8 +38,8 @@ indexpage:
       url: "../tenant/deleting-s3-bucket.html"
   - title: テナント機能の使用
     links:
-    - title: アカウントのクローン
-      url: "../tenant/grid-federation-account-clone.html"
+    - title: アカウント同期
+      url: "../tenant/grid-federation-account-sync.html"
     - title: グリッド間レプリケーション
       url: "../tenant/grid-federation-manage-cross-grid-replication.html"
     - title: プラットフォームサービス

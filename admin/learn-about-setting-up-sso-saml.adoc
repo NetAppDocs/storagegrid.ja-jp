@@ -1,0 +1,55 @@
+---
+permalink: admin/learn-about-setting-up-sso-saml.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: StorageGRID でシングル サインオン（SSO）を設定すると、StorageGRID（サービスプロバイダー）と SSO ID プロバイダーがユーザ認証リクエストについて安全に通信できるようになります。 
+---
+= SAMLを使用してStorageGRIDでシングル サインオンを設定する方法について説明します
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID でシングル サインオン（SSO）を設定すると、StorageGRID（サービスプロバイダー）と SSO ID プロバイダーがユーザ認証リクエストについて安全に通信できるようになります。
+
+StorageGRID では、OpenID Connect（OIDC）または SAML を使用してシングル サインオンを設定できます。SAML を使用して StorageGRID でシングル サインオンを設定するには、以下の概要手順に従うか、link:learn-about-setting-up-sso-oidc.html["OIDCを使用したSSOの設定"]について確認してください。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"] SSOの設定
+[role="quick-margin-para"]
+SAML の SSO 設定ウィザードを選択します。次に、ID プロバイダーで SSO を設定し、サンドボックス モードに切り替えます。
+
+[role="quick-margin-para"]
+link:configure-sso-saml.html["SAMLを使用したSSOの設定"]について学ぶ
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"]IDプロバイダーの設定
+[role="quick-margin-para"]
+使用するSSO IDプロバイダーに応じて、IDフェデレーションLDAPサービスタイプとしてActive DirectoryまたはEntra IDのいずれかを選択できます。
+
+[role="quick-margin-list"]
+* Active Directory Federation Service (AD FS) の場合、AD FS、Entra ID、またはPingFederate アイデンティティプロバイダーを使用できます。
+* Entra IDでは、Entra IDのIDプロバイダーのみを使用できます。
+
+
+[role="quick-margin-para"]
+SSO IDプロバイダーのソフトウェアを使用して、グリッド内の各管理ノードのSAMLを設定します。
+
+[role="quick-margin-list"]
+* Active Directory の link:creating-relying-party-trusts-in-ad-fs-saml.html["各管理ノードごとにアプリケーショングループを作成する"] について学ぶ
+* Entra ID のlink:creating-enterprise-application-entra-id-saml.html["各管理ノード用のアプリケーションを作成する"]について
+* PingFederate の link:creating-sp-connection-ping-saml.html["各管理ノードに対してサービスプロバイダー接続を作成する"] について学ぶ
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]テスト構成
+[role="quick-margin-para"]
+各管理ノードの SAML を設定したら、SSO 設定ウィザードに戻り、設定をテストしてください。
+
+[role="quick-margin-para"]
+link:configure-sso-saml.html#test-sso["SSOの設定をテストする"]について学ぶ
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4つ"] SSOを有効にする
+[role="quick-margin-para"]
+すべての StorageGRID ユーザーに対してシングル サインオンを有効にします。
+
+[role="quick-margin-para"]
+link:configure-sso-saml.html#enable-sso-saml["StorageGRID ユーザーのシングル サインオンの有効化"]について学ぶ

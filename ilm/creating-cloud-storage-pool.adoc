@@ -2,7 +2,7 @@
 permalink: ilm/creating-cloud-storage-pool.html 
 sidebar: sidebar 
 keywords: how to create cloud storage pool 
-summary: クラウドストレージプールは、単一の外部Amazon S3バケット、その他のS3互換プロバイダ、またはAzure BLOBストレージコンテナを指定します。 
+summary: クラウド ストレージ プールは、単一の外部 Amazon S3 バケット、その他の S3 互換プロバイダー、または Azure Blob Storage コンテナーを指定します。 
 ---
 = StorageGRID でクラウドストレージプールを作成する
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: クラウドストレージプールは、単一の外部Amazon S3バ�
 
 
 [role="lead"]
-クラウドストレージプールは、単一の外部Amazon S3バケット、その他のS3互換プロバイダ、またはAzure BLOBストレージコンテナを指定します。
+クラウド ストレージ プールは、単一の外部 Amazon S3 バケット、その他の S3 互換プロバイダー、または Azure Blob Storage コンテナーを指定します。
 
-クラウドストレージプールを作成するときは、StorageGRID がオブジェクトの格納に使用する外部バケットまたはコンテナの名前と場所、クラウドプロバイダのタイプ（Amazon S3 / GCPまたはAzure BLOBストレージ）、および外部バケットまたはコンテナにアクセスするためにStorageGRID が必要とする情報を指定します。
+クラウドストレージプールを作成する際に、外部バケットまたはコンテナの名前と場所、StorageGRID がオブジェクトの保存に使用するクラウド プロバイダ タイプ（Amazon S3/GCP または Azure Blob Storage）、および StorageGRID が外部バケットまたはコンテナにアクセスするために必要な情報を指定します。
 
 クラウドストレージプールは保存後すぐに StorageGRID で検証されます。そのため、クラウドストレージプールに指定されたバケットまたはコンテナが存在し、アクセス可能であることを確認しておく必要があります。
 
@@ -227,3 +227,6 @@ Azure Blob Storage、共有キーのみ_
 
 . エラーが発生した場合は、を参照しlink:troubleshooting-cloud-storage-pools.html["クラウドストレージプールのトラブルシューティング手順"]、問題を解決してから、クラウドストレージプールの保存を再試行してください。
 
+
+.関連情報
+link:../network/external-communications.html["外部との通信に使用するポート"]

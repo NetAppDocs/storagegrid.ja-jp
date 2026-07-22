@@ -37,7 +37,7 @@ StorageGRID システムには次の利点があります。
 * データストレージの高可用性と一部の管理機能。ロードバランシングの統合により、 StorageGRID リソース全体のデータ負荷を最適化します。
 * 複数のストレージテナントアカウントをサポート。システムに格納されているオブジェクトをエンティティごとに分離できます。
 * 包括的なアラートシステム、グラフィカルダッシュボード、すべてのノードとサイトの詳細なステータスなど、 StorageGRID システムの健全性を監視するための多数のツールが用意されています。
-* ソフトウェアベースまたはハードウェアベースの導入をサポート。StorageGRID は次のいずれかに導入できます。
+* ソフトウェアベースまたはハードウェアベースの展開をサポート。StorageGRID は次のいずれかに展開できます：
 +
 ** VMware で実行される仮想マシン。
 ** Linux ホスト上のコンテナエンジン。
@@ -57,5 +57,5 @@ StorageGRID システムには次の利点があります。
 
 
 * 無停止のアップグレード処理とメンテナンス処理。アップグレード、拡張、運用停止、メンテナンスの実行中も、コンテンツにアクセスできます。
-* フェデレーテッドアイデンティティ管理。ユーザ認証を行うために、 Active Directory 、 OpenLDAP 、または Oracle のディレクトリサービスと統合します。Security Assertion Markup Language 2.0 （ SAML 2.0 ）規格を使用してシングルサインオン（ SSO ）をサポートし、 StorageGRID と Active Directory フェデレーションサービス（ AD FS ）間で認証および許可データをやり取りします。
+* フェデレーション型ID管理。ユーザ認証のために、Active Directory、OpenLDAP、またはOracle Directory Serviceと統合します。Security Assertion Markup Language 2.0（SAML 2.0）またはOpenID Connect（OIDC）を使用して、StorageGRIDとActive Directory Federation Services (AD FS) などの外部IDプロバイダー間で認証および認可データを交換するシングル サインオン（SSO）をサポートします。
 

@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, replace primary admin node, replacing primary admin node, primary admin node 
 summary: プライマリ管理ノードをリカバリするには、まず物理または仮想ハードウェアの交換が必要です。 
 ---
-= プライマリStorageGRID管理ノードを置き換える
+= 同じプライマリ管理ノードを使用してStorageGRIDプライマリ管理ノードを交換する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -13,7 +13,12 @@ summary: プライマリ管理ノードをリカバリするには、まず物�
 [role="lead"]
 プライマリ管理ノードをリカバリするには、まず物理または仮想ハードウェアの交換が必要です。
 
-障害が発生したプライマリ管理ノードを同じプラットフォームで実行されているプライマリ管理ノードと交換することも、 VMware または Linux ホストで実行されているプライマリ管理ノードをサービスアプライアンスでホストされているプライマリ管理ノードと交換することもできます。
+プライマリ管理ノードをリカバリするには、まず物理または仮想ハードウェアの交換が必要です。
+
+* 障害が発生したプライマリ管理ノードは、同じプラットフォーム上で稼働しているプライマリ管理ノードに置き換えることができます。
+* VMware または Linux ホスト上で実行されているプライマリ管理ノードを、StorageGRID サービスアプライアンスでホストされているプライマリ管理ノードに置き換えることができます。
+* VMwareホスト上で稼働しているプライマリ管理ノードを、SG1000またはSG100サービスアプライアンスに置き換えることができます。
+
 
 ノードに対して選択した交換用プラットフォームに一致する手順 を使用します。（すべてのノードタイプに適した）ノード交換手順 を完了すると、プライマリ管理ノードのリカバリに関する次のステップが手順 から表示されます。
 
@@ -25,7 +30,9 @@ summary: プライマリ管理ノードをリカバリするには、まず物�
  a| 
 VMware
  a| 
-link:all-node-types-replacing-vmware-node.html["VMware ノードを交換"]
+link:all-node-types-replacing-vmware-node.html["VMwareノードをリカバリノードに置き換える"]
+
+link:replace-vmware-node-with-sg1000-sg100.html["VMwareノードをSG1000またはSG100に交換する"]
 
 
 

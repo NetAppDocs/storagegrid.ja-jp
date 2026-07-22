@@ -133,7 +133,7 @@ NOTE: AWSの検索統合エンドポイントの場合は、次に示すよう�
 +
 [listing]
 ----
-urn:mysite:s3:optional:optional:bucket-name
+urn:mysite:s3:::bucket-name
 ----
 +
 StorageGRIDでホストされるCloudMirrorエンドポイントの場合は、次の文字で始まる有効なURNを指定でき `urn:sgws`ます。
@@ -141,7 +141,7 @@ StorageGRIDでホストされるCloudMirrorエンドポイントの場合は、�
 +
 [listing]
 ----
-urn:sgws:s3:optional:optional:bucket-name
+urn:sgws:s3:::bucket-name
 ----
 * 通知：
 +
@@ -150,7 +150,7 @@ Amazon Simple Notification Serviceエンドポイントを指定します。
 +
 [listing]
 ----
-urn:mysite:sns:optional:optional:sns-topic-name
+urn:aws:sns:region:account-id:sns-topic-name
 ----
 +
 Kafkaエンドポイントを指定します。
@@ -158,21 +158,25 @@ Kafkaエンドポイントを指定します。
 +
 [listing]
 ----
-urn:mysite:kafka:optional:optional:kafka-topic-name
+urn::kafka:::kafka-topic-name
 ----
++
+
+NOTE: オプションで、Kafkaエンドポイントを指定する際に `mysite`を含めることができます： `urn:mysite:kafka:::kafka-topic-name`
+
 +
 Webhook エンドポイントを指定します。
 
 +
 [listing]
 ----
-urn:mysite:webhook:optional:optional:webhook-name
+urn:mysite:webhook:::webhook-name
 ----
 * 検索統合：
 +
 [listing]
 ----
-urn:mysite:es:optional:optional:domain-name/index-name/type-name
+urn:mysite:es:::domain-name/index-name/type-name
 ----
 +
 

@@ -13,7 +13,7 @@ summary: S3 ライフサイクル設定を作成して、特定のオブジェ�
 [role="lead"]
 S3 ライフサイクル設定を作成して、特定のオブジェクトが StorageGRID システムから削除されるタイミングを制御できます。
 
-このセクションの簡単な例では、 S3 ライフサイクル設定で特定のオブジェクトが特定の S3 バケットから削除（期限切れ）されるタイミングを制御する方法を示します。このセクションの例は、説明のみを目的としています。S3ライフサイクル設定の作成の詳細については、を参照してください https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon Simple Storage Serviceユーザガイド：オブジェクトのライフサイクル管理"^]。StorageGRID では、 Expiration アクションのみがサポートされ、移行アクションはサポートされません。
+このセクションの簡単な例では、S3ライフサイクル設定によって、特定のS3バケットから特定のオブジェクトが削除（期限切れ）されるタイミングをどのように制御できるかを示しています。このセクションの例は、あくまで説明のためのものです。S3ライフサイクル設定の作成に関する詳細については、 https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html["Amazon Simple Storage Service ユーザーガイド：オブジェクトのライフサイクル管理"^]を参照してください。StorageGRID は有効期限アクションのみをサポートしており、移行アクションはサポートしていません。
 
 
 

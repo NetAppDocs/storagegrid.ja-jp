@@ -45,4 +45,6 @@ NOTE: StorageGRID 環境が CloudMirror レプリケーションのデスティ�
 非透過型プロキシサーバを使用する場合は、インターネット上のエンドポイントなどの外部エンドポイントへのメッセージの送信も許可する必要がありますlink:configuring-storage-proxy-settings.html["ストレージプロキシを設定します"]。
 
 .関連情報
-link:../tenant/index.html["テナントアカウントを使用する"]
+* link:../tenant/index.html["テナントアカウントを使用する"]
+* link:../network/external-communications.html["外部との通信に使用するポート"]
+

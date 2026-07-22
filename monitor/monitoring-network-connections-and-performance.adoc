@@ -48,9 +48,6 @@ image:nodes_page_network_interfaces.png["Nodes ページネットワークイン
 +
 受信および送信テーブルには、各ネットワークで送受信されたバイト数とパケット数、およびその他の受信および送信メトリックが表示されます。
 
-+
-image:nodes_page_network_communication.png["Nodes Page Network Comm の略"]
-
 
 
 . トラフィック分類ポリシーに関連付けられたメトリックを使用して、ネットワークトラフィックを監視します。
@@ -62,7 +59,7 @@ image:nodes_page_network_communication.png["Nodes Page Network Comm の略"]
 +
 image:traffic_classification_policies_main_screen_w_examples.png["グラフのトラフィックポリシーの例"]
 
-.. ポリシーに関連付けられているネットワーク指標を示すグラフを表示するには、ポリシーの左側にあるオプションボタンを選択し、 [*Metrics] をクリックします。
+.. ポリシーに関連付けられたネットワークメトリックを示すグラフを表示するには、ポリシーの左側にあるラジオボタンを選択し、次に*Metrics*を選択します。
 .. グラフを確認して、ポリシーに関連付けられているネットワークトラフィックを把握します。
 +
 トラフィック分類ポリシーがネットワークトラフィックを制限するように設計されている場合は、トラフィックが制限される頻度を分析し、ポリシーがニーズを満たし続けるかどうかを判断します。時 々、link:../admin/managing-traffic-classification-policies.html["必要に応じて、各トラフィック分類ポリシーを調整します"]。

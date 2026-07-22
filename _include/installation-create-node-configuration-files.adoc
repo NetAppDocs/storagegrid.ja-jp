@@ -74,8 +74,6 @@
 Linux ベースのノードをインストールするために使用する管理ノードのグリッド ネットワーク IPv4 アドレス。リカバリの場合、プライマリ管理ノードの IP が使用可能な場合はそれを使用し、そうでない場合は非プライマリ管理ノードの IP を使用します。このパラメータを省略すると、ノードは mDNS を使用してプライマリ管理ノードを検出しようとします。
 
 link:how-grid-nodes-discover-primary-admin-node.html["グリッドノードによるプライマリ管理ノードの検出"]
-
-* 注 * ：この値は無視されます。また、プライマリ管理ノードでは禁止される場合があります。
  a| 
 ベストプラクティス
 
@@ -260,7 +258,7 @@ StorageGRID ノードで管理ネットワークのアクセスに使用する�
 
 
  a| 
-interface（サポートされている値はこれだけです）
+DedicatedInterface（これが唯一サポートされている値です。）
  a| 
 オプション
 
@@ -278,8 +276,6 @@ interface（サポートされている値はこれだけです）
 正しいか間違っているか
 
 StorageGRID コンテナで管理ネットワークのホストターゲットインターフェイスの MAC アドレスを使用するには、キーを「 true 」に設定して原因 に設定します。
-
-* ベストプラクティス：プロミスキャスモードが必要なネットワークでは、「 ADMIN_NETWORK_TARGET_TYPE_interface_clone_MAC 」キーを使用してください。
 
 LinuxのMACクローニングの詳細については、以下を参照してください。link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項"]
  a| 
@@ -620,7 +616,7 @@ StorageGRID ノードでクライアントネットワークのアクセスに�
 
 
  a| 
-interface（サポートされている値のみ）
+DedicatedInterface（これはサポートされている唯一の値です。）
  a| 
 オプション
 
@@ -638,8 +634,6 @@ interface（サポートされている値のみ）
 正しいか間違っているか
 
 クライアントネットワークでホストターゲットインターフェイスの MAC アドレスを使用するには、キーを「 true 」に設定して StorageGRID コンテナを原因 します。
-
-* ベストプラクティス：プロミスキャスモードが必要なネットワークでは、 client_network_target_type _interface_clone_MAC キーを使用してください。
 
 LinuxのMACクローニングの詳細については、以下を参照してください。link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項"]
  a| 
@@ -812,7 +806,7 @@ StorageGRID ノードでグリッドネットワークのアクセスに使用�
 
 
  a| 
-interface（サポートされている値はこれだけです）
+DedicatedInterface（これが唯一サポートされている値です。）
  a| 
 オプション
 
@@ -830,8 +824,6 @@ interface（サポートされている値はこれだけです）
 正しいか間違っているか
 
 グリッドネットワーク上のホストターゲットインターフェイスの MAC アドレスを使用するには、キーの値を「 true 」に設定して StorageGRID コンテナを原因 に設定します。
-
-* ベストプラクティス：プロミスキャスモードが必要なネットワークでは、 GRID_NETWORK_TARGET _TYPE_interface_clone_MAC キーを使用してください。
 
 LinuxのMACクローニングの詳細については、以下を参照してください。link:../swnodes/configuring-host-network.html#considerations-and-recommendations-for-mac-address-cloning["MAC アドレスのクローニングに関する考慮事項と推奨事項"]
  a| 

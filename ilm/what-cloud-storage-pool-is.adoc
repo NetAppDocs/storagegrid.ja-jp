@@ -2,7 +2,7 @@
 permalink: ilm/what-cloud-storage-pool-is.html 
 sidebar: sidebar 
 keywords: what is a cloud storage pool 
-summary: クラウドストレージプールでは、 ILM を使用して StorageGRID システムの外部にオブジェクトデータを移動できます。たとえば、アクセス頻度の低いオブジェクトを低コストのクラウドストレージ（Amazon S3 Glacier、S3 Glacier Deep Archive、Google Cloud、Microsoft Azure BLOBストレージのアーカイブアクセス層など）に移動できます。または、 StorageGRID オブジェクトのクラウドバックアップを保持して、ディザスタリカバリを強化することもできます。 
+summary: クラウドストレージプールを使用すると、ILMを使用してオブジェクトデータをStorageGRIDシステムの外部に移動できます。たとえば、アクセス頻度の低いオブジェクトを、Amazon S3 Glacier、S3 Glacier Deep Archive、Google Cloud、Microsoft Azure Blob Storageのアーカイブアクセス層などの低コストのクラウドストレージに移動することができます。または、災害復旧を強化するために、StorageGRIDオブジェクトのクラウドバックアップを保持することもできます。 
 ---
 = StorageGRID のクラウドストレージプールについて学ぶ
 :allow-uri-read: 
@@ -11,9 +11,9 @@ summary: クラウドストレージプールでは、 ILM を使用して Stora
 
 
 [role="lead"]
-クラウドストレージプールでは、 ILM を使用して StorageGRID システムの外部にオブジェクトデータを移動できます。たとえば、アクセス頻度の低いオブジェクトを低コストのクラウドストレージ（Amazon S3 Glacier、S3 Glacier Deep Archive、Google Cloud、Microsoft Azure BLOBストレージのアーカイブアクセス層など）に移動できます。または、 StorageGRID オブジェクトのクラウドバックアップを保持して、ディザスタリカバリを強化することもできます。
+クラウドストレージプールを使用すると、ILMを使用してオブジェクトデータをStorageGRIDシステムの外部に移動できます。たとえば、アクセス頻度の低いオブジェクトを、Amazon S3 Glacier、S3 Glacier Deep Archive、Google Cloud、Microsoft Azure Blob Storageのアーカイブアクセス層などの低コストのクラウドストレージに移動することができます。または、災害復旧を強化するために、StorageGRIDオブジェクトのクラウドバックアップを保持することもできます。
 
-ILM から見た場合、クラウドストレージプールはストレージプールに似ています。どちらの場所にオブジェクトを格納する場合も、 ILM ルールの配置手順の作成時にプールを選択します。ただし、ストレージプールはStorageGRIDシステム内のストレージノードで構成されますが、クラウドストレージプールは外部のバケット（S3）またはコンテナ（Azure BLOBストレージ）で構成されます。
+ILMの観点から見ると、クラウドストレージプールはストレージプールに似ています。オブジェクトをどちらの場所にも保存するには、ILMルールの配置指示を作成する際にプールを選択します。ただし、ストレージプールはStorageGRIDシステム内のストレージノードで構成されているのに対し、クラウドストレージプールは外部バケット（S3）またはコンテナ（Azure Blob Storage）で構成されます。
 
 次の表に、ストレージプールとクラウドストレージプールを比較し、類似点と相違点の概要を示します。
 
@@ -47,7 +47,7 @@ Grid Managerで* ILM *>* Storage pools *>* Cloud Storage Pools *オプション�
  a| 
 StorageGRID内の1つ以上のストレージノード。
  a| 
-Amazon S3バケット、Azure BLOBストレージコンテナ、またはStorageGRIDシステムの外部にあるGoogle Cloud。
+StorageGRIDシステムの外部にあるAmazon S3バケット、Azure Blob Storageコンテナ、またはGoogle Cloud。
 
 クラウドストレージプールが Amazon S3 バケットの場合：
 
@@ -55,9 +55,9 @@ Amazon S3バケット、Azure BLOBストレージコンテナ、またはStorage
 * AWS Commercial クラウド サービス （ C2S ）で使用するクラウドストレージプールを作成できます。 C2S は AWS Secret Region をサポートします。
 
 
-クラウドストレージプールが Azure BLOB ストレージコンテナの場合、 StorageGRID はオブジェクトをアーカイブ層に移行します。
+クラウドストレージプールが Azure Blob Storage コンテナである場合、StorageGRID はオブジェクトをアーカイブ階層に移行します。
 
-*注：*一般的に、クラウドストレージプールに使用するコンテナに対してAzure BLOBストレージのライフサイクル管理を構成しないでください。クラウドストレージプール内のオブジェクトに対するRestoreObject処理は、設定されたライフサイクルの影響を受ける可能性があります。
+*注:* 一般的に、クラウド ストレージ プールに使用されるコンテナーに対して、Azure Blob Storage のライフサイクル管理を構成しないでください。RestoreObject クラウド ストレージ プール内のオブジェクトに対する操作は、設定されたライフサイクルによって影響を受ける可能性があります。
 
 
 

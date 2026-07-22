@@ -37,7 +37,21 @@ rootとしてログインすると、プロンプトがからに `#`変わりま
 
 
 
-. 次のコマンドを実行します。``disable-saml``
+. SSO の設定に応じて、次のいずれかのコマンドを実行します。
++
+[role="tabbed-block"]
+====
+.SAML
+--
+`disable-saml`
+
+--
+.OIDC
+--
+`disable-oidc`
+
+--
+====
 +
 環境 this admin Node only コマンドのメッセージが表示されます。
 

@@ -1,0 +1,357 @@
+---
+permalink: admin/creating-sp-connection-ping-oidc.html 
+sidebar: sidebar 
+keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
+summary: PingFederate を使用して、システム内の管理ノードごとにサービスプロバイダ（ SP ）接続を作成します。この処理を高速化するために、 StorageGRID から SAML メタデータをインポートします。 
+---
+= StorageGRID の OIDC 向けに PingFederate でサービスプロバイダー接続を作成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+PingFederate を使用して、システム内の各管理ノード用に OpenID Connect （OIDC） のサービスプロバイダー （SP） 接続を作成します。
+
+.開始する前に
+* PingFederate サーバーで SP 接続を作成した経験があります。
+* PingFederateサーバ用のがありhttps://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/pf_administrators_reference_guide.html["管理者向けリファレンスガイド"^]ます。PingFederate ドキュメントでは、詳細な手順と説明を説明しています。
+* あなたはlink:../admin/admin-group-permissions.html["管理者権限"]PingFederate サーバー用。
+
+
+.タスクの内容
+これらの手順は、StorageGRID のSSOプロバイダーとしてPingFederate サーバーバージョン12.1.10を設定する方法をまとめたものです。別のバージョンのPingFederateを使用している場合は、これらの手順を適宜調整する必要があります。ご使用のリリースに関する詳細な手順については、PingFederate サーバーのドキュメントを参照してください。
+
+特に指定がない限り、デフォルト設定を使用してください。場合によっては、認証方法の設定など、組織で必要とされる設定を使用できます。
+
+
+
+[[step-1-create-data-storedata-store-oidc]]
+== ステップ 1：データストア [[data-store-oidc]] を作成する
+
+まだ作成していない場合は、PingFederateをAD FSのLDAPサーバに接続するためのデータストアを作成してください。
+
+.手順
+. *システム* ＞ *データと資格情報ストア* に移動します。
+. 「新しいデータストア」を選択します。
+. 「タイプ」で「ディレクトリ（LDAP）」を選択します。
+. 「 * 次へ * 」を選択します。
+. LDAP設定の下：
++
+** *ホスト名*、*ユーザーDN*（ユーザー名）、および*パスワード*の値を入力してください。
++
+StorageGRID でlink:../admin/using-identity-federation.html["アイデンティティフェデレーションの設定"]際に使用した値を使用してください。
+
+** Active Directoryの場合は、*LDAPタイプ*を選択してください。
+
+
+
+
+
+
+[[step-2-create-password-credential-validatorpassword-validator-oidc]]
+== ステップ2：パスワード認証情報バリデーター[[password-validator-oidc]]を作成する
+
+パスワード認証情報バリデータをまだ作成していない場合は、作成します。
+
+.手順
+. *Password Credential Validators* > *Create New instance* を選択します。
+. 「タイプ」タブで、以下の情報を入力します：
++
+.. インスタンス名とインスタンスID：両方に同じ値を使用できます。
+.. タイプ：*LDAP Username Password Credential Validator*を選択してください。
+
+
+. 「 * 次へ * 」を選択します。
+. 「インスタンス構成」タブで、以下の情報を入力します：
++
+** LDAPデータストア：作成した<<data-store-oidc,データストア>>を選択します。
+** 検索ベース：<<data-store-oidc,LDAPの構成>> の情報を入力します。
+** 検索フィルター：*sAMAccountName=${username}* と入力します。
+** 検索範囲：*サブツリー*を選択してください。
+
+
+. 「 * 次へ * 」を選択します。
+. 拡張契約タブで、以下の属性を追加します： `memberOf`、 `objectGUID`、 `sAMAccountName`、 `sn`、および `userPrincipalName`
+. 「次へ」 > 「保存」を選択します。
+
+
+
+
+[[step-3-create-idp-adapter-instanceadapter-instance-oidc]]
+== ステップ3：IdPアダプタインスタンス[[adapter-instance-oidc]]を作成する
+
+まだ作成していない場合は、IdP（アイデンティティプロバイダー）アダプターインスタンスを作成してください。
+
+
+NOTE: StorageGRID システムの各管理ノードには、IdP 接続が必要です。これにより、ユーザーはどの管理ノードにも安全にサインインおよびサインアウトできます。すべての管理ノードに対して単一の IdP 接続を作成すること（推奨）も、管理ノードごとに異なる IdP 接続を作成することもできます。
+
+.手順
+. 「 * 認証 * > * 統合 * > * IdP アダプタ * 」に移動します。
+. [ 新規インスタンスの作成（ Create New Instance ） ] を選択します
+. 「タイプ」タブで、以下の情報を入力します：
++
+** インスタンス名とインスタンスID：両方に同じ値を使用できます。
+** タイプ：*HTML Form IdP Adapter*を選択してください。
+
+
+. 「 * 次へ * 」を選択します。
+. 「IdP Adapter」タブで、「Credential Validators」に新しい行を追加するを選択します。
+. 作成した<<password-validator-oidc,パスワードクレデンシャルバリデータ>>を選択します。
+. 「 * 次へ * 」を選択します。
+. 拡張契約タブで、<<password-validator-oidc,パスワードクレデンシャルバリデータ>>にマッピングした属性を追加します。
+. 「 * 次へ * 」を選択します。
+. アダプター属性タブで、Pseudonym の *username* 属性を選択します。
+. 「次へ」>「次へ」を選択します。
+. 概要を確認し、*保存*を選択します。
+
+
+
+
+[[step-4-configure-oauth-server-and-authorization-server-settings]]
+== ステップ4：OAuthサーバーと認証サーバーの設定を構成する
+
+StorageGRID が受け入れるグラントタイプをサポートするように認証サーバーを設定します。
+
+.手順
+. *システム* > *認証サーバー設定*に移動します。
+. REUSE EXISTING PERSISTENT ACCESS GRANTS FOR GRANT TYPES について、以下のオプションが選択されていることを確認してください。
++
+** 暗黙
+** 認証コード
+** リソース所有者のパスワード認証情報
++
+
+NOTE: 会社がRESOURCE OWNER PASSWORD CREDENTIALSの使用を制限している場合、AUTHORIZATION CODEのみを使用できます。
+
+
+
+. OAuth 管理 Web サービス設定については、作成した <<password-validator-oidc,パスワードクレデンシャルバリデータ>> を選択してください。
+
+
+
+
+[[step-5-define-scopes]]
+== ステップ5：スコープを定義する
+
+PingFederate でスコープを定義します。
+
+.手順
+. *システム* > *OAuth設定* > *スコープ管理* に移動します。
+. 「共通スコープ」タブで、*openid*、*email*、*profile* の値が存在しない場合は追加します。
+
+
+
+
+[[step-6-configure-idp-adapter-mapping]]
+== ステップ6：IdPアダプタマッピングの設定
+
+IdPアダプタマッピングを設定して、IdPからの属性を、アクセストークンやリフレッシュトークンなど、クライアントに発行される永続的な権限にマッピングします。
+
+.手順
+. *Authentication* > *Policy Contract Grant Mapping* に移動します。
+. 「IdP Adapter Grant Mapping」を選択します。
+. SOURCE ADAPTER INSTANCE ドロップダウンから、作成した <<adapter-instance-oidc,HTMLフォームアダプタ>> を選択します。
+. 「マッピングの追加」 > 「契約履行」を選択します。
+. ソースで、USER_KEYとUSER_NAMEに*アダプター*を選択します。
+. 「値」で、USER_KEYに「sAMAccountName」を、USER_NAMEに「username」を選択します。
+. 「次へ」>「次へ」を選択して概要ページへ移動します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+[[step-7-set-up-resource-owner-credentials-mapping]]
+== ステップ7：リソース所有者の認証情報マッピングを設定する
+
+認証時にユーザー認証情報が正しく検証されるように、リソース所有者認証情報のマッピングを設定してください。
+
+.手順
+. *Authentication* > *Policy Contract Grant Mapping* に移動します。
+. 「Resource Owner Credentials Grant Mapping」を選択します。
+. SOURCE PASSWORD VALIDATOR INSTANCE ドロップダウンから、作成した <<password-validator-oidc,パスワードクレデンシャルバリデータ>> を選択します。
+. 「マッピングの追加」 > 「契約履行」を選択します。
+. USER_KEY のマッピングを追加します：
++
+** 「ソース」で「Password Credential Validator」を選択します。
+** 「値」で *sAMAccountName* を選択します。
+
+
+. 「次へ」>「次へ」を選択して概要ページへ移動します。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+[[step-8-create-or-import-signing-certificatesigning-certificate-oidc]]
+== ステップ 8: 署名証明書の作成またはインポート[[signing-certificate-oidc]]
+
+署名証明書を作成またはインポートしていない場合は、作成します。
+
+.手順
+. 「 * Security * > * Signing & Decryption keys & Certificates * 」に移動します。
+. 「新規作成」を選択し、以下の情報を入力します。
++
+** 共通名（CN）：これはサーバーの完全修飾ドメイン名（FQDN）である必要があります。
+** 組織名（Org）：組織の名前を入力してください。
+** 国：2文字の国コードを入力してください。例えば、アメリカ合衆国の場合は US と入力します。
+** 鍵アルゴリズム：適切な鍵アルゴリズム（例：*RSA*）を選択してください。
+** 鍵サイズ：*2048* ビットに設定してください。
+** 署名アルゴリズム：安全な暗号化操作を保証するために、署名アルゴリズムとして「RSA with SHA256」を選択してください。
+
+
+
+
+
+
+[[step-9-configure-access-token-managementaccess-token-oidc]]
+== ステップ9：アクセストークン管理の設定[[access-token-oidc]]
+
+StorageGRIDは、PingFederateでAPIリクエストを認証および認可するためにアクセストークンを使用します。
+
+.手順
+. *アプリケーション* > *アクセストークン管理* に移動します。
+. [ 新規インスタンスの作成（ Create New Instance ） ] を選択します
+. 「タイプ」タブで、以下の情報を入力します：
++
+** インスタンス名とインスタンスID：両方に同じ値を使用できます。
+** タイプ：値が *JSON Web Tokens* であることを確認してください。
+
+
+. 「 * 次へ * 」を選択します。
+. インスタンス構成タブで、証明書について以下の情報を入力します。
++
+** キーID：キーの一意の識別子を入力してください。
+** 証明書：作成した<<signing-certificate-oidc,証明書>>を追加します。
+** JWSアルゴリズム：*SHA256を使用したRSA*を選択してください。
+** 有効な署名証明書キーID：この手順で作成した*KEY ID*を選択してください。
+
+
+. 「次へ」>「次へ」を選択します。
+. アクセストークン属性コントラクトタブで、サブジェクト属性名に*USER_KEY*を、コントラクトの拡張に*username*を選択します。
+. 「 * 追加」を選択します。
+. 概要ページへ移動するには、「次へ」＞「次へ」＞「次へ」を選択してください。
+. [ 保存（ Save ） ] を選択します。
+
+
+
+
+[[step-10-configure-access-token-mapping]]
+== ステップ10：アクセストークンマッピングの設定
+
+作成したアクセストークンを使用するように、アクセストークンマッピングを設定します。
+
+.手順
+. 「アプリケーション」＞「アクセストークンのマッピング」に移動します。
+. 「アクセストークンのマッピング」を選択します。
+. 「マッピングを追加」を選択します。
+. コンテキストには、*デフォルト*を選択します。
+. Access Token Manager には、作成した <<access-token-oidc,アクセストークン>> を選択します。
+. 「次へ」 > 「Contract Fulfillment」を選択します：
+. ソースの「ユーザー名」で *Persistent Grant* を選択します。
+. 「値」で、ユーザー名として「*USER_KEY*」を選択してください。
+. 「次へ」 > 「保存」を選択します。
+
+
+
+
+[[step-11-set-up-the-openid-connect-policy]]
+== ステップ11：OpenID Connect ポリシーを設定する
+
+OpenID仕様に従ってマッピングされた属性へのクライアントアクセスに関するOpenID Connectポリシーを定義します。
+
+.手順
+. 「アプリケーション」＞「OAuthクライアント」に移動してください。
+. *OpenId Connect Policy Management* > *Add Policy* を選択します。
+. 「ポリシーの管理」タブで、以下の情報を入力します：
++
+** ポリシーID：ポリシーの一意の識別子。
+** ポリシー名：ポリシーの内容を説明する名称。
+** アクセストークンマネージャー：作成した<<access-token-oidc,アクセストークン>>を選択します。
+** ID TOKEN LIFETIME：ID トークンの有効期間を設定します。例：60 分または 1 時間。
+** IDトークンにユーザー情報を含める：IDトークンにユーザーの詳細を含める場合は、このボックスを選択してください。
+
+
+. 「 * 次へ * 」を選択します。
+. 「属性契約」タブで、作成した <<data-store-oidc,データストア>> に不要な既存の属性をすべて削除します。Ping Authentication から StorageGRID に渡す属性のみを保持します。
++
+
+NOTE: これは非常に重要なステップです。これは、IDトークンにどの属性値を含めるかを決定します。StorageGRID は、認証プロセス中にこれらの値を継承します。
+
+. 「次へ」>「次へ」を選択します。
+. 「属性ソースとユーザー検索」タブで、*「属性ソースの追加」*を選択します。次に、以下の情報を入力します。
++
+** ATTRIBUTE SOURCE ID と ATTRIBUTE SOURCE DESCRIPTION：両方に同じ値を使用できます。
+** アクティブデータストア：作成した<<data-store-oidc,データストア>>を選択します。
+
+
+. 「 * 次へ * 」を選択します。
+. LDAP ディレクトリ検索タブで、次の手順を実行します。
++
+.. 「 * ベース DN * 」を入力します。この DN は、 LDAP サーバの StorageGRID で入力した値と完全に一致している必要があります。
+.. 「ルートオブジェクトクラス」ドロップダウンから、*objectClass* を選択します。
+.. 「ATTRIBUTE」ドロップダウンから、マッピングするオブジェクトクラスごとに属性を追加します。例：
++
+*** InetOrgPerson：displayName、givenName、またはHomePhoneを追加します。
+*** ユーザー: LocalID または userPrincipalName （upn）を追加します。
+*** 上部：memberOf または名前を追加します。
+*** 人物：sn を追加します。
+
+
+
+
+. 「 * 次へ * 」を選択します。
+. LDAP Filter タブで、 * sAMAccountName = $ ｛ userName ｝ * と入力します。
++
+LDAPフィルターをカスタマイズして、StorageGRIDが組織固有のActive DirectoryまたはLDAP構造に基づいてユーザー属性を取得できるようにする必要があります。ご使用の環境に適したフィルタ式を入手するには、LDAP/AD管理者にご相談ください。
+
+. 「保存」を選択して、概要を確認してください。
+. 「契約履行」タブで、以下の情報を入力してください：
++
+** ソース：作成した<<data-store-oidc,LDAPデータストア>>を選択します。
+** 値：各属性コントラクトをそれぞれの値にマッピングします。
+
+
+. 「次へ」>「次へ」を選択します。
+. 概要を確認し、*保存*を選択します。
+. 「アプリケーション」>「OAuthクライアント」>「OpenID Connectポリシー管理」に移動します。
+. 作成したポリシーがデフォルトポリシーとして設定されていることを確認してください。
+
+
+
+
+[[step-12-create-oauth-client-for-oauth-server]]
+== ステップ12：OAuthサーバー用のOAuthクライアントを作成する
+
+必要なクライアント認証情報を設定し、PingFederate と StorageGRID 間の接続を承認するために、新しい OAuth クライアントを作成します。
+
+.手順
+. 「アプリケーション」＞「OAuthクライアント」に移動してください。
+. 「クライアントの追加」を選択し、以下の情報を入力します：
++
+** クライアントID：固有の値を入力してください。
+** クライアント認証：*クライアントシークレット*を選択します。
+** クライアントシークレット：*シークレットの変更* > *シークレットの生成* を選択します。
++
+これにより、クライアント用の秘密鍵が生成されます。このキーは後で使用するために保存してください。
+
+** リダイレクト URI：StorageGRID の返却 URL を「リダイレクト URI」セクションに入力します。これらの URL は、StorageGRID で OAuth 用に設定された URL と一致する必要があります。例：
+** `\https://<Admin IP or Hostname>/api/v4/oidc-callback`
+** `\https://<Admin IP or Hostname>/api/v4/oidc-logged-out`
+** 許可されるグラントの種類：以下のオプションを選択してください。
++
+*** *認証コード*：これにより OAuth フローが開始されます。
+*** *リフレッシュトークン*：アクセストークンの有効期限が切れたときに新しいトークンを取得します。
+*** *リソース所有者のパスワード認証情報*：認証のためにユーザー認証情報に直接アクセスする必要がある場合。
+
+
+** OPENID CONNECT：IDトークン署名アルゴリズムとして「SHA-256を使用したRSA」を選択してください。
+** ログアウトモード：*OIDC Back-Channel* を選択してください。
+** フロントチャネルログアウトURI、バックチャネルログアウトURI、およびポストログアウトリダイレクトURI：StorageGRID ログアウトURIを追加します： `\https://<Admin IP or Hostname>/api/v4/oidc-logged-out`
+
+
+. [ 保存（ Save ） ] を選択します。
+
+
+.次の手順
+SP接続を作成した後、link:configure-sso-oidc.html["OIDCを使用してSSOを構成する"]。

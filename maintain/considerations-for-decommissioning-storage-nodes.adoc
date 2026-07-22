@@ -40,7 +40,7 @@ summary: ストレージノードの運用を停止する前に、ノードを�
 接続されているストレージノードの運用停止に関する考慮事項を確認します。
 
 * 1 つのノードの運用停止手順 では、 10 個を超えるストレージノードの運用を停止しないでください。
-* アクティブなやなどの運用要件を満たす十分な数のストレージノードが常にシステムに搭載されている必要がありますlink:understanding-adc-service-quorum.html["ADCクォーラム"]link:reviewing-ilm-policy-and-storage-configuration.html["ILMポリシー"]。この要件を満たすために、拡張処理で新しいストレージノードを追加してから既存のストレージノードの運用を停止することが必要になる場合があります。
+* システムは常に、運用要件（link:understanding-adc-service-quorum.html["ADCクォーラム"]およびアクティブなlink:reviewing-ilm-policy-and-storage-configuration.html["ILMポリシー"]を含む）を満たすのに十分なストレージノードを備えている必要があります。廃止によってサイトのADC数がクォーラムを下回る場合、StorageGRID は ADC サービスを同じサイト内の利用可能な非ADCストレージノードに自動的に移動し、ADCクォーラムを維持します。ADCサービスを自動的に移動できない場合は、既存のストレージノードを廃止する前にlink:../expand/adding-grid-nodes-to-existing-site-or-adding-new-site.html["拡張操作で新しいストレージノードを追加する"]が必要になることがあります。
 +
 ソフトウェアベースのメタデータのみのノードを含むグリッド内のストレージノードの運用を停止する場合は注意が必要です。store_both_objectsとmetadataに設定されているすべてのノードの運用を停止すると、オブジェクトを格納する機能がグリッドから削除されます。メタデータ専用ストレージノードの詳細については、を参照してくださいlink:../primer/what-storage-node-is.html#types-of-storage-nodes["ストレージノードのタイプ"]。
 

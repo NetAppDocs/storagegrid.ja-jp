@@ -40,7 +40,7 @@ summary: すべてのグリッドフェデレーション接続に関する基�
 
 
 +
-image:grid-federation-connections-tab.png["グリッドフェデレーション接続タブ"]
+image:grid_federation_connections_tab.png["グリッドフェデレーション接続タブ"]
 
 . [Use grid federation connection]*権限があるこのグリッド上のすべてのテナントアカウントに関する基本情報を表示するには、*[Permitted tenants]*タブを選択します。
 +
@@ -52,7 +52,7 @@ image:grid-federation-connections-tab.png["グリッドフェデレーション�
 ** 許可されているテナントとを選択しますlink:../admin/grid-federation-manage-tenants.html["権限を削除します"]。
 ** グリッド間レプリケーションにエラーがないかどうかを確認し、最後のエラーがある場合はクリアします。を参照して link:../admin/grid-federation-troubleshoot.html["グリッドフェデレーションエラーをトラブルシューティングする"]
 +
-image:grid-federation-permitted-tenants-tab.png["[Grid Federation Permitted Tenants]タブ"]
+image:grid_federation_permitted_tenants_tab.png["[Grid Federation Permitted Tenants]タブ"]
 
 
 
@@ -84,7 +84,7 @@ image:grid-federation-permitted-tenants-tab.png["[Grid Federation Permitted Tena
 ** link:../admin/grid-federation-manage-tenants.html["テナントの権限を削除します"]接続を使用します。
 ** クロスグリッドレプリケーションエラーがないかどうかを確認し、最後のエラーをクリアします。を参照して link:../admin/grid-federation-troubleshoot.html["グリッドフェデレーションエラーをトラブルシューティングする"]
 +
-image:grid-federation-permitted-tenants-tab-for-connection.png["grid-federation-permitted-tenants-tab-for-connection"]
+image:grid_federation_permitted_tenants_tab_for_connection.png["grid-federation-permitted-tenants-tab-for-connection"]
 
 
 
@@ -96,7 +96,7 @@ image:grid-federation-permitted-tenants-tab-for-connection.png["grid-federation-
 ** link:../admin/grid-federation-manage-connection.html["接続証明書をローテーションします"]です。
 ** 関連する証明書を表示またはダウンロードするか、証明書PEMをコピーするには、* Server *または* Client *を選択します。
 +
-image:grid-federation-certificates-tab.png["grid-federation-certificates-tabの略"]
+image:grid_federation_certificates_tab.png["grid-federation-certificates-tabの略"]
 
 
 

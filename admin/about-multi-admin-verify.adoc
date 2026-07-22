@@ -1,0 +1,42 @@
+---
+permalink: admin/about-multi-admin-verify.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: StorageGRID管理者は、マルチ管理者検証（MAV）を使用して、特定の操作が指定された管理者の承認後にのみ実行されるようにすることができます。MAVは、StorageGRIDシステムへの偶発的または不正な変更を防ぐのに役立ちます。 
+---
+= StorageGRID マルチ管理者検証について
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID管理者は、マルチ管理者検証（MAV）を使用して、特定の操作が指定された管理者の承認後にのみ実行されるようにすることができます。MAVは、StorageGRIDシステムへの偶発的または不正な変更を防ぐのに役立ちます。
+
+MAVはデフォルトでは無効になっています。
+
+
+
+[[mav-configuration-overview]]
+== MAV構成 - 概要
+
+MAVを設定するには、以下のタスクを実行します：
+
+* 1つ以上の管理者グループを作成します。MAVの管理者は承認権限と拒否権限を持ちます。
+* 複数管理者による認証機能を有効にします。
+* 保護された操作のセットから選択します。
+
+
+初期設定を実行したり、後で変更を加えたりするには、ユーザーはルートアクセス権限を持っている必要があります。
+
+
+
+[[how-protected-operations-are-handled-under-mav]]
+== MAVにおける保護された操作の処理方法
+
+MAVが有効になっている場合、保護されたすべての操作を完了するには、以下の手順が必要です：
+
+. ユーザーが操作を開始すると、リクエストが生成されます。
+. 操作を実行する前に、少なくとも1名のMAV管理者の承認が必要です。
+. 承認されると、MAV保護された操作は自動的に実行されます。
+

@@ -444,3 +444,6 @@ USM ユーザが作成され、テーブルに追加されます。
 新しい SNMP エージェント設定がアクティブになります。
 
 
+
+.関連情報
+link:../network/external-communications.html["外部との通信に使用するポート"]

@@ -19,7 +19,7 @@ summary: グリッド拡張プロセス中に解決できないエラーが発�
 . デフォルトでは外部 SSH アクセスはブロックされます。必要に応じて、link:../admin/manage-external-ssh-access.html["一時的にアクセスを許可する"] 。
 . 障害が発生した拡張ノードに接続します。
 +
-.. 次のコマンドを入力します。``ssh -p 8022 admin@_grid_node_IP_``
+.. 次のコマンドを入力します： `ssh -p 8022 admin@_grid_node_IP_`
 +
 ポート 8022 はベース OS の SSH ポートで、ポート 22 は StorageGRID を実行しているコンテナエンジンの SSH ポートです。
 

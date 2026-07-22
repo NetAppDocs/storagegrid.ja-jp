@@ -186,7 +186,7 @@ NOTE: 他の証明書の情報を表示およびアクセスできるのは、�
 *** link:grid-federation-manage-connection.html#rotate-connection-certificates["グリッドフェデレーション接続の証明書をローテーションします"]
 *** link:using-identity-federation.html["アイデンティティフェデレーション証明書を表示および編集する"]
 *** link:kms-adding.html["キー管理サーバ（ KMS ）のサーバ証明書とクライアント証明書をアップロードします"]
-*** link:creating-relying-party-trusts-in-ad-fs.html#create-a-relying-party-trust-manually["証明書利用者信頼のSSO証明書を手動で指定します"]
+*** link:creating-relying-party-trusts-in-ad-fs-saml.html#create-a-relying-party-trust-manually["証明書利用者信頼のSSO証明書を手動で指定します"]
 
 
 --
@@ -317,7 +317,7 @@ S3クライアントとゲートウェイノードと管理ノード上のStorag
  a| 
 サーバ
  a| 
-StorageGRID クラウドストレージプールから S3 Glacier や Microsoft Azure BLOB ストレージなどの外部ストレージへの接続を認証します。クラウドプロバイダのタイプごとに別の証明書が必要です。
+StorageGRID クラウド ストレージ プールから S3 Glacier や Microsoft Azure Blob Storage などの外部ストレージ場所への接続を認証します。クラウド プロバイダの種類ごとに異なる証明書が必要です。
  a| 
 * ilm * > * ストレージ・プール *
  a| 

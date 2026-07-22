@@ -13,7 +13,7 @@ summary: 'シングル サインオン (SSO) が有効になっている場合�
 [role="lead"]
 シングル サインオン (SSO) が有効になっている場合、ユーザーは、組織によって実装された SSO サインイン プロセスを使用して資格情報が承認されている場合にのみ、Grid Manager、Tenant Manager、Grid Management API、または Tenant Management API にアクセスできます。ローカル ユーザーはStorageGRIDにサインインできません。
 
-StorageGRID システムでは、 Security Assertion Markup Language 2.0 （ SAML 2.0 ）標準を使用したシングルサインオン（ SSO ）がサポートされます。
+StorageGRID システムは、Security Assertion Markup Language 2.0（SAML 2.0）標準または OpenID Connect を使用したシングル サインオン（SSO）をサポートしています。
 
 シングルサインオン（ SSO ）を有効にする前に、 SSO が有効になった場合に StorageGRID のサインインとサインアウトのプロセスにどのような影響があるかを確認してください。
 

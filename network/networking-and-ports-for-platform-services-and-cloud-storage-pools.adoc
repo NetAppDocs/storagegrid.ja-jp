@@ -31,7 +31,7 @@ StorageGRID プラットフォームサービスまたはクラウドストレ�
 [[networking-for-cloud-storage-pools]]
 == クラウドストレージプールのネットワーク
 
-また、クラウドストレージプールは、ストレージノードから、 Amazon S3 Glacier や Microsoft Azure BLOB ストレージなどの使用する外部サービスが提供するエンドポイントへのアクセスを必要とします。詳細については、を参照してください link:../ilm/what-cloud-storage-pool-is.html["クラウドストレージプールとは"]。
+クラウドストレージプールでは、Amazon S3 GlacierやMicrosoft Azure Blob Storageなど、使用する外部サービスが提供するエンドポイントへのストレージノードからのアクセスも必要です。詳細については、link:../ilm/what-cloud-storage-pool-is.html["クラウドストレージプールとは"]を参照してください。
 
 
 

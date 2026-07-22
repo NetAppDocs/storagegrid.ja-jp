@@ -17,7 +17,7 @@ summary: システムに対するテナントのアクセス権を完全に削�
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
 * そうだな link:admin-group-permissions.html["特定のアクセス権限"]
 * テナントアカウントに関連付けられているS3バケットとオブジェクトをすべて削除しておきます。
-* テナントにグリッドフェデレーション接続の使用が許可されている場合は、の考慮事項を確認しておきlink:grid-federation-manage-tenants.html["Use grid federation connection権限が割り当てられたテナントを削除する"]ます。
+* テナントがグリッドフェデレーション接続の使用を許可されている場合、link:../admin/grid-federation-manage-tenants.html["Use grid federation connection権限が割り当てられたテナントを削除する"]に関する考慮事項を確認してください。削除は同期されるため、いずれかのグリッドでテナントが削除されると、選択されたすべてのグリッドで削除されます。
 
 
 .手順

@@ -24,6 +24,14 @@ summary: このセクションの例を使用して、バケットのStorageGRID
 ----
 
 
+StorageGRID では、プリンシパル：
+
+* `"Principal": "*"` 匿名（署名なし）リクエストを含む、すべてのユーザーに一致します
+* `"Principal": { "AWS": "*" }`認証済みのIDまたはユーザーに一致する（匿名リクエストには一致しない）
+* バケットポリシーにのみ適用されます
+* プリンシパルとは、権限が付与または拒否されるアカウント/ユーザーのことです。
+
+
 
 
 [[example-allow-everyone-read-only-access-to-a-bucket]]

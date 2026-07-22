@@ -66,6 +66,14 @@ Effect 要素では、指定した処理を許可するか拒否するかを指�
  a| 
 ユーザ、グループ、およびアカウントに特定のリソースへのアクセスと特定の操作の実行を許可できます。要求に S3 の署名が含まれていない場合は、ワイルドカード文字（ * ）をプリンシパルとして指定することで匿名アクセスが許可されます。デフォルトでは、アカウントが所有するリソースへのアクセスは root アカウントにのみ許可されます。
 
+プリンシパル：
+
+* `"Principal": "*"` 匿名（署名なし）リクエストを含む、すべてのユーザーに一致します
+* `"Principal": { "AWS": "*" }`認証済みのIDまたはユーザーに一致する（匿名リクエストには一致しない）
+* バケットポリシーにのみ適用されます
+* プリンシパルとは、権限が付与または拒否されるアカウント/ユーザーのことです。
+
+
 Principal 要素を指定する必要があるのはバケットポリシーだけです。グループポリシーの場合は、ポリシーが関連付けられたグループが暗黙的にプリンシパルになります。
 
 
@@ -186,7 +194,7 @@ arn:aws:iam::account_id:federated-group/group_name
 その他の考慮事項：
 
 * オブジェクトキーの一部にワイルドカードとしてアスタリスク（ * ）を使用すると、 0 文字以上の文字に一致します。
-* オブジェクトキーで指定できる国際文字は、 JSON UTF-8 形式または JSON \u エスケープシーケンスを使用してエンコードする必要があります。パーセントエンコーディングはサポートされていません。
+* オブジェクトキーで指定できる国際文字は、JSON UTF-8 または JSON \u エスケープシーケンスを使用してエンコードする必要があります。パーセントエンコーディングはサポートされていません。
 +
 https://www.ietf.org/rfc/rfc2141.txt["RFC 2141 の URN 構文"^]
 
@@ -215,7 +223,7 @@ PutBucketPolicy処理のHTTP要求の本文は、charset=UTF-8でエンコード
 ----
 "Resource": "arn:aws:s3:::mybucket/home/${aws:username}/*"
 ----
-* グループポリシーの作成時は、まだ存在しないバケットもリソースの値で指定することができます。
+* リソース値には、グループポリシー作成時にまだ存在しないバケットを指定できます。
 
 
 
@@ -273,7 +281,7 @@ arn:aws:iam::27233906934684427525:user-uuid/de305d54-75b4-431b-adb2-eb6b9e546013
 +
 たとえば、Alexが組織を離れ、ユーザ名が削除されたとし `Alex`ます。新しいAlexが組織に参加し、同じユーザー名が割り当てられている場合 `Alex`、新しいユーザーは元のユーザーに付与された権限を意図せず継承する可能性があります。
 
-* バケットポリシーの作成時は、まだ存在しないグループ / ユーザの名前もプリンシパルの値で指定することができます。
+* プリンシパル値には、バケットポリシー作成時にまだ存在しないグループ名またはユーザー名を指定できます。
 
 
 
@@ -486,9 +494,10 @@ S3 ： ListAllMyBuckets
  a| 
 S3 ： ListBucket
  a| 
-* ListObjects
+* GetObject
 * ヘッドバケット
-* RestoreObject
+* ヘッドオブジェクト
+* ListObjects
 
  a| 
 
@@ -498,7 +507,6 @@ S3 ： ListBucket
 S3 ： ListBucketMultipartUploads
  a| 
 * ListMultipartUploads
-* RestoreObject
 
  a| 
 
@@ -644,7 +652,6 @@ PutBucketReplicationの略
 S3 ： AbortMultipartUpload
  a| 
 * AbortMultipartUpload
-* RestoreObject
 
  a| 
 
@@ -666,7 +673,6 @@ S3 ： DeleteObject
  a| 
 * deleteObject
 * オブジェクトの削除
-* RestoreObject
 
  a| 
 
@@ -701,7 +707,6 @@ S3 ： GetObject
  a| 
 * GetObject
 * ヘッドオブジェクト
-* RestoreObject
 * SelectObjectContent の順に選択します
 
  a| 
@@ -759,7 +764,7 @@ GetObject（オブジェクトの特定のバージョン）
  a| 
 S3 ： ListMultipartUploadParts
  a| 
-ListParts、RestoreObject
+ListParts
  a| 
 
 
@@ -767,11 +772,10 @@ ListParts、RestoreObject
  a| 
 S3 ： PutObject
  a| 
-* PutObject
 * CopyObject
-* RestoreObject
-* CreateMultipartUpload
 * CompleteMultipartUpload
+* CreateMultipartUpload
+* PutObject
 * パーツのアップロード
 * パーツコピーをアップロード
 
@@ -814,11 +818,11 @@ PutObjectTagging（オブジェクトの特定のバージョン）
  a| 
 S3 ： PutOverwriteObject
  a| 
-* PutObject
-* CopyObject
-* PutObjectTagging
-* DeleteObjectTagging
 * CompleteMultipartUpload
+* CopyObject
+* DeleteObjectTagging
+* PutObject
+* PutObjectTagging
 
  a| 
 はい
@@ -851,10 +855,10 @@ s3 ： PutOverwriteObject 権限は、オブジェクトの作成または更新
 *** S3のバージョン管理が有効になっている場合は、Denyに設定すると、PutObjectTagging処理またはDeleteObjectTagging処理によってオブジェクトとその最新でないバージョンのTagSetが変更されなくなります。
 
 
-** 既存のオブジェクトが見つからない場合は、この権限の設定は影響しません。
+** 既存のオブジェクトが見つからない場合、この権限は無効です。
 
 
-* この権限がない場合、 Allow が設定されたものと同じ結果になります。
+* この権限が存在しない場合、効果は「許可」が設定されている場合と同じです。
 
 
 
@@ -1020,7 +1024,7 @@ NotIpAddress
  a| 
 存在する場合
  a| 
-Null 条件を除く任意の条件演算子に追加され、その条件キーが存在しないかどうかを確認します。条件キーが存在しない場合は TRUE を返します。
+Null条件を除く、任意の条件演算子に追加して、その条件キーが存在しないかどうかを確認します。条件キーが存在しない場合はTRUEを返します。
 
 |===
 
@@ -1038,11 +1042,11 @@ AWS ： sourceIP
  a| 
 IP 演算子
  a| 
-要求の送信元の IP アドレスと比較します。バケットまたはオブジェクトの処理に使用できます。
+リクエストが送信されたIPアドレスと比較します。バケット操作またはオブジェクト操作に使用できます。
 
-* 注： S3 要求が管理ノードおよびゲートウェイノード上のロードバランササービスを介して送信された場合は、ロードバランササービスのアップストリームの IP アドレスと比較します。
+*注:* S3 リクエストが管理ノードおよびゲートウェイノードのロードバランサーサービスを経由して送信された場合、これはロードバランサーサービスの上流の IP アドレスと比較されます。
 
-* 注 * ：サードパーティ製の非透過型ロードバランサを使用する場合は、そのロードバランサの IP アドレスと比較します。ヘッダーの有効性を確認できないため、すべての `X-Forwarded-For`ヘッダーは無視されます。
+*注*: サードパーティ製の非透過型ロードバランサーを使用する場合は、そのロードバランサーのIPアドレスと比較します。 `X-Forwarded-For`ヘッダーは有効性を確認できないため、無視されます。
 
 
 
@@ -1051,7 +1055,7 @@ AWS ：ユーザ名
  a| 
 リソース / ID
  a| 
-要求の送信者のユーザ名と比較します。バケットまたはオブジェクトの処理に使用できます。
+リクエストが送信された送信者のユーザー名と比較します。バケット操作またはオブジェクト操作に使用できます。
 
 
 
@@ -1062,7 +1066,7 @@ S3 ： ListBucket と
 
 S3 ： ListBucketVersions 権限
  a| 
-ListObjects要求またはListObjectVersions要求で指定されたdelimiterパラメータと比較します。
+ListObjects または ListObjectVersions リクエストで指定された区切り文字パラメータと比較します。
 
 
 
@@ -1093,7 +1097,7 @@ S3：PutObjectVersionAcl
 
 S3 ： PutObjectVersionTagging
  a| 
-既存のオブジェクトに特定のタグキーと値が必要になります。
+既存のオブジェクトに、特定のタグキーと値が存在する必要があります。
 
 
 
@@ -1104,7 +1108,7 @@ S3 ： ListBucket と
 
 S3 ： ListBucketVersions 権限
  a| 
-ListObjects要求またはListObjectVersions要求で指定されたmax-keysパラメータと比較します。
+ListObjectsまたはListObjectVersionsリクエストで指定された max-keys パラメータと比較します。
 
 
 
@@ -1156,7 +1160,7 @@ S3 ： ListBucket と
 
 S3 ： ListBucketVersions 権限
  a| 
-ListObjects要求またはListObjectVersions要求で指定されたprefixパラメータと比較します。
+ListObjectsまたはListObjectVersionsリクエストで指定されたプレフィックスパラメータ、あるいはGetObjectまたはHeadObjectに指定されたキーと比較します。
 
 
 
@@ -1169,7 +1173,16 @@ S3 ： PutObjectTagging
 
 S3 ： PutObjectVersionTagging
  a| 
-オブジェクト要求にタグ付けが含まれている場合は、特定のタグキーと値が必要になります。
+オブジェクト要求にタグ付けが含まれる場合、特定のタグキーと値が必要です。
+
+
+
+ a| 
+s3:x-amz-copy-source
+ a| 
+S3 ： PutObject
+ a| 
+リクエストヘッダーから展開された x-amz-copy-source を PutObject および UploadPartCopy リクエストと比較します。
 
 
 
@@ -1374,7 +1387,7 @@ username キーを指定の変数として使用します。
  a| 
 バケット
  a| 
-有効。オブジェクトは作成者アカウントによって所有され、バケットポリシーは適用されません。作成者アカウントは、オブジェクトの ACL を使用してオブジェクトにアクセス権限を付与する必要があります。
+有効。オブジェクトの所有権は作成者アカウントにあり、バケットポリシーは適用されません。作成者アカウントは、オブジェクトACLを使用してオブジェクトへのアクセス権限を付与する必要があります。
  a| 
 有効。オブジェクトはバケット所有者アカウントによって所有され、バケットポリシーが適用される。
 
@@ -1399,7 +1412,7 @@ username キーを指定の変数として使用します。
 
 
 
-NOTE: S3ポリシーでDeleteObjectをDENYに設定しても、「zero copies after 30 days」などのルールが存在する場合はILMによってオブジェクトが削除されます。
+NOTE: DeleteObject を S3 ポリシーで DENY に設定しても、「30日後にコピーをゼロにする」などのルールが存在する場合、ILM がオブジェクトを削除するのを防ぐことはできません。
 
 
 NOTE: これらのルールとポリシーがすべて適用されても、同時書き込みからは保護されません（状況Aを参照）。保護の対象になるのはシーケンシャルな上書きです（状況 B を参照）。

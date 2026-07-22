@@ -24,7 +24,7 @@ NTP サーバの IPv4 アドレスを指定する必要があります。
 ====
 本番レベルのStorageGRID インストール用に外部NTPソースを指定する場合は、Windows Server 2016より前のバージョンのWindowsでWindows Time (W32Time)サービスを使用しないでください。以前のバージョンの Windows のタイムサービスは精度が十分でないため、 StorageGRID などの高精度環境での使用は Microsoft でサポートされていません。
 
-https://support.microsoft.com/en-us/help/939322/support-boundary-to-configure-the-windows-time-service-for-high-accura["高精度環境用に Windows タイムサービスを構成するためのサポート境界"^]
+https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/support-boundary-high-accuracy-time["高精度時間のサポート境界"^]
 
 ====
 外部 NTP サーバは、以前にプライマリ NTP ロールを割り当てていたノードによって使用されます。

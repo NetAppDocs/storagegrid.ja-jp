@@ -1,0 +1,198 @@
+---
+permalink: admin/grid-federation-automate-connections.html 
+sidebar: sidebar 
+keywords: automate, automating, automation, automatic, configuration, configure 
+summary: バージョン12.1以降を実行している2つ以上のStorageGRIDシステムをインストールして設定したら、manage-grid-federation.py PythonスクリプトとJSON設定ファイルを使用して、グリッドフェデレーション接続の作成、編集、およびメンテナンスを自動化できます。 
+---
+= StorageGRID でグリッドフェデレーション接続を自動化する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+バージョン12.1以降を実行している2つ以上のStorageGRIDシステムをインストールして設定したら、 `manage-grid-federation.py` Pythonスクリプトと JSON設定ファイルを使用して、グリッドフェデレーション接続の作成、編集、およびメンテナンスを自動化できます。
+
+.開始する前に
+* すべてのグリッドで StorageGRID 12.1 以降が稼働しています。
+* いずれかのグリッドでシングル サインオン（SSO）が有効になっている場合は、無効にしてください。
+* Python 3.6以降がインストールされたLinuxマシンをお持ちです。
+* インストールアーカイブ内の以下のファイルの場所を確認しておいてください。
++
+[cols="1,2"]
+|===
+| ファイル名 | 製品説明 
+
+
+| manage-grid-federation.py | グリッドフェデレーション接続管理を自動化するために使用されるPythonスクリプト 
+
+
+| manage-grid-federation.sample.json | スクリプトで使用する構成ファイルの例 
+|===
+* あなたは `manage-grid-federation.json`設定ファイルを作成しました。このファイルを作成するには、サンプル設定ファイル `manage-grid-federation.sample.json`を変更してください。
+
+
+
+CAUTION: グリッド管理者パスワードとプロビジョニングパスフレーズを `manage-grid-federation.json`設定ファイルから安全な場所に保存してください。ファイルに認証情報が省略されている場合、スクリプトは対話形式で認証情報の入力を求めます。変更した設定ファイルのバックアップを安全な場所に保存しておくことも重要です。
+
+
+
+[[configuration-file-fields]]
+== 設定ファイルフィールド
+
+JSON設定ファイルはオブジェクトの配列です。各オブジェクトは1つのグリッドを表し、以下のフィールドをサポートします：
+
+[cols="1m,1,2"]
+|===
+| フィールド | 必須 | 製品説明 
+
+
+| hostname | はい | グリッドの管理者ノードのホスト名またはIPアドレス 
+
+
+| grid_name | はい | グリッドの表示名（最大12文字） 
+
+
+| ユーザ名 | いいえ | グリッド管理者ユーザー名（省略した場合は対話形式で入力を求められます） 
+
+
+| password | いいえ | グリッド管理者パスワード（省略した場合は対話形式で入力を求められます） 
+
+
+| パスフレーズ | いいえ | プロビジョニングパスフレーズ（省略した場合、対話形式で入力が求められます） 
+
+
+| ca_bundle | いいえ | SSL検証用のカスタムCA証明書バンドルへのパス 
+
+
+| リージョン | いいえ | グローバル名前空間接続に使用するデフォルトのS3リージョン 
+
+
+| CNAME | いいえ | グローバル名前空間接続に必要なCNAME 
+
+
+| globalEndpoint | いいえ | 目的のグローバル名前空間エンドポイント 
+|===
+
+NOTE: グローバル名前空間フィールドのいずれかを設定する場合（(`region`、 `CNAME`、 `globalEndpoint`）、各グリッドに対して3つすべてを指定する必要があります。リージョンと CNAME がグリッド全体で一意であることを確認し、 `globalEndpoint`の値はすべてのグリッドで同一である必要があります。
+
+.タスクの内容
+ `manage-grid-federation.py` Python スクリプトと `manage-grid-federation.json`設定ファイルを使用して、グリッドフェデレーション接続管理を自動化できます。このスクリプトは以下の操作を実行します：
+
+* グリッド管理APIを使用して各グリッドに対して認証を行います。
+* すべてのグリッドが StorageGRID 12.1 以降を実行していることを確認します
+* すべてのグリッドでシングル サインオンが無効になっていることを確認します。
+* 既存のグリッドフェデレーション接続とS3構成を取得します
+* 設定時にS3リージョン、CNAME、およびグローバルネームスペースエンドポイントの設定を更新します。
+* まだ接続されていないグリッドペアに対して、新しいグリッドフェデレーション接続を作成します。
+* 表示名またはグローバル名前空間設定が変更された場合に、既存の接続を編集します。
+* すべての接続とそのステータスの概要を表示します
+
+
+
+TIP: グリッドフェデレーション接続は、グリッドマネージャーのUIまたはグリッド管理APIを直接使用して管理することもできます。
+
+.手順
+. Python スクリプトを実行するために使用する Linux マシンにログインします。
+. スクリプトが格納されているディレクトリに移動してください。
++
+例：
+
++
+[listing]
+----
+cd StorageGRID-Webscale-version/platform
+----
++
+ここで *platform* は `debs`、 `rpms`、または `vsphere`です。
+
+. Python スクリプトを実行し、作成した構成ファイルを使用します。
++
+例：
+
++
+`./manage-grid-federation.py -i manage-grid-federation.json`
+
++
+以下のコマンドラインオプションを使用できます：
+
++
+[cols="2m,1,3"]
+|===
+| オプション | デフォルト | 製品説明 
+
+
+| -i、--input-json-file | _（必須）_ | グリッドのリストを含むJSON設定ファイルへのパス 
+
+
+| -b, --base-port | 23001 | 新規グリッドフェデレーション接続の開始ポート番号 
+
+
+| --no-verify-ssl | SSL検証が有効になっています | ローカルとグリッド間の接続におけるSSL証明書の検証を無効にします 
+|===
+
+
+
+
+[[edit-existing-connections]]
+== 既存の接続を編集する
+
+スクリプトが既存の接続に変更が必要であることを検出した場合（例えば、グリッド表示名が変更された場合や、グローバル名前空間設定を更新する必要がある場合など）、提案された編集内容の概要を表示し、処理を進める前に確認を求めます。
+
+グローバル名前空間が有効になっているグリッドで S3 構成の更新（(`region`、 `CNAME`、または `globalEndpoint`）が必要な場合、スクリプトは変更を適用するためにグローバル名前空間を一時的に無効にする必要があります。この場合、確認プロンプトには一時的なルーティング障害に関する警告が表示されます。
+
+[listing]
+----
+*** Global Namespace Disable Required ***
+Global Namespace must be disabled to update region/CNAME/globalEndpoint settings.
+Routing requests will not work until Global Namespace is re-enabled.
+Grids requiring S3 updates: grid1.example.com, grid2.example.com
+Proceed with these edits and the temporary routing outage? [y/N]:
+----
+
+CAUTION: S3の設定更新中はグローバルネームスペースが一時的に無効になるため、グローバルネームスペースのルーティング要求は機能しません。この作業はメンテナンス期間中に計画してください。
+
+.終了後
+グリッドフェデレーション接続が確立および構成されると、スクリプトに次のような確認概要が表示されます：
+
+[listing]
+----
+===== Newly Established Connections =====
+ • Grid-A and Grid-B — grid-a.example.com and grid-b.example.com on port 23001
+
+Total new connections: 1
+
+===== All Grid-Federation Connections =====
+  Name              Source                Target                Port   Status    Global Namespace
+  ----------------  --------------------  --------------------  -----  --------  ----------------
+  Grid-A and Grid-B grid-a.example.com    grid-b.example.com    23001  new       enabled
+
+Total connections listed: 1
+
+===== Grid S3 Configuration Summary =====
+ grid-a.example.com:
+    Default Region: us-east-1
+    CNAME: s3-a.example.com
+    Global namespace endpoint: gn.example.com
+ grid-b.example.com:
+    Default Region: us-west-1
+    CNAME: s3-b.example.com
+    Global namespace endpoint: gn.example.com
+----
+
+
+[[exit-status]]
+== 終了ステータス
+
+[cols="1m,4"]
+|===
+| コード | 製品説明 
+
+
+| 0 | スクリプトは正常に完了しました 
+
+
+| 1 | 検証に失敗したか、グリッドAPI呼び出しでエラーが返されました（ログ出力を確認してください） 
+|===
+
+NOTE: 接続が失敗した場合、スクリプトは残りのペアの処理を続行し、出力の「Failed Connections」セクションにすべての失敗を報告します。エラーメッセージを確認し、スクリプトを再実行する前に問題を解決してください。

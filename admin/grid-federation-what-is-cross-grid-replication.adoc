@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-what-is-cross-grid-replication.html 
 sidebar: sidebar 
 keywords: cross-grid replication, cgr, disaster recovery, grid federation 
-summary: グリッド間レプリケーションは、グリッドフェデレーション接続で接続された2つのStorageGRID システム内の選択したS3バケット間でオブジェクトを自動的にレプリケーションする機能です。グリッド間レプリケーションにはアカウントのクローンが必要です。 
+summary: クロスグリッドレプリケーションとは、グリッドフェデレーション接続で接続された 2 つの StorageGRID システム内の選択した S3 バケット間でオブジェクトを自動的にレプリケートする機能です。クロスグリッドレプリケーションにはアカウント同期が必要です。 
 ---
 = StorageGRID のクロスグリッドレプリケーションについて学ぶ
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: グリッド間レプリケーションは、グリッドフェデレ�
 
 
 [role="lead"]
-グリッド間レプリケーションは、に接続された2つのStorageGRIDシステム内の選択したS3バケット間でオブジェクトを自動的にレプリケートするレプリケーションですlink:grid-federation-overview.html["グリッドフェデレーション接続"]。link:grid-federation-what-is-account-clone.html["アカウントのクローン"]は、グリッド間レプリケーションに必要です。
+クロスグリッドレプリケーションとは、link:grid-federation-overview.html["グリッドフェデレーション接続"]で接続された 2 つの StorageGRID システム内の選択した S3 バケット間でオブジェクトを自動的にレプリケートすることです。link:grid-federation-what-is-account-sync.html["アカウント同期"]は、クロスグリッドレプリケーションに必要です。
 
 
 
@@ -20,22 +20,28 @@ summary: グリッド間レプリケーションは、グリッドフェデレ�
 
 ワークフロー図は、2 つのグリッド上のバケット間のクロスグリッド レプリケーションを構成する手順をまとめたものです。
 
-image:grid-federation-cgr-workflow.png["グリッド間レプリケーションのワークフロー"]
+image:grid_federation_cgr_workflow.png["グリッド間レプリケーションのワークフロー"]
 
 
 
 [[requirements-for-cross-grid-replication]]
 == グリッド間レプリケーションの要件
 
-テナントアカウントに*グリッドフェデレーション接続を使用する*権限があり、1つ以上のlink:grid-federation-overview.html["グリッドフェデレーション接続"]ルートアクセス権限を持つテナント ユーザーは、各グリッドの対応するテナント アカウントにバケットを作成できます。これらのバケット:
+テナントアカウントに「グリッドフェデレーション接続を使用する」権限があり、1つ以上のlink:grid-federation-overview.html["グリッドフェデレーション接続"]を使用できる場合、ルートアクセス権限を持つテナントユーザーは、各グリッド上の対応するテナントアカウントにバケット（「ソース」バケットと「宛先」バケット）を作成できます。これらのバケット：
 
 * それぞれ異なる名前を持つことができます
 * 異なる地域を持つことができる
 * バージョン管理が有効になっている必要があります
-* 空にする必要があります
+* 以下のいずれかの S3 オブジェクトロック構成が必要です：
++
+** 送信元：*無効*、宛先：*無効*
+** ソース：*有効*、宛先：*有効*
+** 送信元: *無効*、宛先: *有効*
 
 
-両方のバケットが作成されたら、一方または両方のバケットに対してクロスグリッドレプリケーションを設定できます。
+
+
+両方のバケットを作成したら、どちらか一方、または両方のバケットに対してクロスグリッドレプリケーションを設定できます。
 
 .詳細
 link:../tenant/grid-federation-manage-cross-grid-replication.html["グリッド間レプリケーションを管理します"]
@@ -54,7 +60,7 @@ link:../tenant/grid-federation-manage-cross-grid-replication.html["グリッド�
 
 1 つのグリッドのみのバケットに対してグリッド間レプリケーションを有効にすると、そのバケット (ソース バケット) に追加されたオブジェクトは、他のグリッドの対応するバケット (宛先バケット) に複製されます。ただし、宛先バケットに追加されたオブジェクトはソースに複製されません。図では、クロスグリッドレプリケーションが有効になっています。 `my-bucket`グリッド 1 からグリッド 2 への移動は可能ですが、逆方向では有効になっていません。
 
-image:grid-federation-cross-grid-replication-one-direction.png["一方向のグリッドフェデレーション接続を示す図"]
+image:grid_federation_cross_grid_replication_one_direction.png["一方向のグリッドフェデレーション接続を示す図"]
 
 
 
@@ -63,7 +69,7 @@ image:grid-federation-cross-grid-replication-one-direction.png["一方向のグ�
 
 両方のグリッドで同じバケットに対してクロスグリッドレプリケーションを有効にすると、一方のバケットに追加されたオブジェクトがもう一方のグリッドにレプリケートされます。次の図では、で双方向のグリッド間レプリケーションが有効になってい `my-bucket`ます。
 
-image:grid-federation-cross-grid-replication.png["双方向のレプリケーションと比較した、一方向のレプリケーションを示す画像"]
+image:grid_federation_cross_grid_replication.png["双方向のレプリケーションと比較した、一方向のレプリケーションを示す画像"]
 
 
 
@@ -144,7 +150,7 @@ S3クライアントがクロスグリッドレプリケーションが有効に
 
 図では、*削除マーカーの複製*が*はい*に設定されています。link:../tenant/grid-federation-manage-cross-grid-replication.html["クロスグリッドレプリケーションが有効になりました"] 。バージョン ID を含むソース バケットの削除リクエストでは、宛先バケットからオブジェクトは削除されません。バージョン ID を含まないソース バケットの削除リクエストは、宛先バケット内のオブジェクトを削除するように見えます。
 
-image:grid-federation-cross-grid-replication-delete.png["両方のグリッドでのレプリケートクライアントの削除を示すイメージ"]
+image:grid_federation_cross_grid_replication_delete.png["両方のグリッドでのレプリケートクライアントの削除を示すイメージ"]
 
 
 NOTE: オブジェクトの削除をグリッド間で同期したままにする場合は、両方のグリッドでバケットに対応するを作成しますlink:../s3/create-s3-lifecycle-configuration.html["S3ライフサイクル設定"]。
@@ -210,6 +216,12 @@ StorageGRID では、レプリケートオブジェクトの暗号化方法を�
 有効
 
 |===
+
+CAUTION: 既存のバケットに対して S3 Object Lock を有効にすることができますが、これは後々設定ミスにつながる可能性があります。
+
+
+NOTE: ソースバケットでS3オブジェクトロックが有効になっている場合は、宛先バケットでも有効になっていることを確認してください。宛先バケットでS3オブジェクトロックが無効になっている場合、レプリケーション中にエラーが発生します。link:../admin/grid-federation-troubleshoot.html#cross-grid-replication-alerts-and-errors["グリッド間レプリケーションのアラートとエラー"]を参照してください。
+
 ソースバケットの S3 オブジェクトロックが有効になっている場合:
 
 * オブジェクトは、次の順序で保存先で保持設定を使用してロックされます。

@@ -57,9 +57,9 @@ Common Criteria 認証が必要な場合は、Common Criteria ポリシーを使
 --
 .FIPS strict
 --
-Common Criteria 認定が必要であり、ロード バランサ エンドポイント、Tenant Manager、および Grid Manager への外部クライアント接続にNetApp Cryptographic Security Module (NCSM) 3.0.8 またはNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 モジュールを使用する必要がある場合は、FIPS 厳密ポリシーを使用します。このポリシーを使用するとパフォーマンスが低下する可能性があります。
+Common Criteria認証が必要で、ロードバランサエンドポイント、テナントマネージャ、およびグリッドマネージャへの外部クライアント接続にNetApp Cryptographic Security Module（NCSM）3.1.2またはNetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1モジュールを使用する必要がある場合は、FIPSの厳格なポリシーを使用してください。このポリシーを使用すると、パフォーマンスが低下する可能性があります。
 
-NCSM 3.0.8 およびNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 モジュールは、次の操作で使用されます。
+NCSM 3.1.2 と NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 モジュールは、以下の操作で使用されます。
 
 ** NCSM
 +
@@ -71,7 +71,7 @@ NCSM 3.0.8 およびNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 �
 
 
 +
-詳細については、NIST暗号アルゴリズム検証プログラムを参照してください。link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/4838["証明書番号4838"^] 。
+詳細については、NIST 暗号化アルゴリズム検証プログラム link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/details?validation=40426["証明書番号A7816"^] を参照してください。
 
 ** NetApp StorageGRIDカーネル暗号 API モジュール
 +
@@ -80,10 +80,13 @@ NetApp StorageGRIDカーネル暗号化 API モジュールは、VM およびSto
 +
 *** エントロピー収集
 *** ノード暗号化
++
+※注記：このモジュールは認証申請されていません。
+
 
 
 +
-詳細については、NIST暗号アルゴリズム検証プログラムを参照してください。link:https://csrc.nist.gov/projects/cryptographic-algorithm-validation-program/validation-search?searchMode=implementation&product=NetApp+StorageGRID+Kernel+Crypto+API&productType=-1&ipp=50["証明書 #A6242 から #A6257"^]そしてlink:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["エントロピー証明書 #E223"^]。
+詳細については、NIST 暗号化アルゴリズム検証プログラム link:https://csrc.nist.gov/projects/cryptographic-module-validation-program/entropy-validations/certificate/223["エントロピー証明書 #E223"^] を参照してください。
 
 
 
@@ -94,7 +97,7 @@ NetApp StorageGRIDカーネル暗号化 API モジュールは、VM およびSto
 --
 独自の暗号を適用する必要がある場合は、カスタムポリシーを作成します。
 
-オプションとして、 StorageGRIDに FIPS 140 暗号化要件がある場合は、FIPS モード機能を有効にして、NCSM 3.0.8 およびNetApp StorageGRID Kernel Crypto API 6.1.129-1-ntap1-amd64 モジュールを使用します。
+オプションとして、StorageGRID に FIPS 140 暗号化要件がある場合は、FIPS モード機能を有効にして NCSM 3.1.2 および NetApp StorageGRID Kernel Crypto API 6.12.63-1+ntap1 モジュールを使用してください：
 
 .. 設定する `fipsMode`パラメータに `true`。
 .. プロンプトが表示されたら、link:../maintain/rolling-reboot-procedure.html["ローリングリブートを実行する"]すべてのノードで暗号化モジュールをアクティブ化します。再起動を開始および監視するには、[メンテナンス] > [ローリング再起動] を使用します。
@@ -121,7 +124,7 @@ NetApp StorageGRIDカーネル暗号化 API モジュールは、VM およびSto
 . 作成するカスタムポリシーに最も近いポリシーのタイルで、*[詳細を表示]*を選択します。
 . [クリップボードにコピー]*を選択し、*[キャンセル]*を選択します。
 +
-image:securitysettings-custom-security-policy-copy.png["既存のポリシーをコピーしてカスタムポリシーを作成する"]
+image:securitysettings_custom_security_policy_copy.png["既存のポリシーをコピーしてカスタムポリシーを作成する"]
 
 . [カスタムポリシー]タイルで、*[設定と使用]*を選択します。
 . コピーしたJSONを貼り付けて、必要な変更を行います。

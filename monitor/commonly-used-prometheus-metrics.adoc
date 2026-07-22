@@ -15,7 +15,7 @@ summary: デフォルトのアラートルールの条件を詳しく理解し�
 
 あなたもできます<<obtain-all-metrics,すべての指標の完全なリストを取得します>>。
 
-Prometheusクエリの構文の詳細については、を参照してください https://prometheus.io/docs/prometheus/latest/querying/basics/["Prometheusを照会しています"^]。
+Prometheusクエリの構文の詳細については、 https://prometheus.io/docs/prometheus/latest/querying/basics/["クエリの基本"^]を参照してください。
 
 
 

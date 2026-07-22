@@ -1,8 +1,8 @@
 ---
 permalink: admin/grid-federation-overview.html 
 sidebar: sidebar 
-keywords: grid federation, cross-grid replication, account clone, cgr, disaster recovery 
-summary: グリッドフェデレーションを使用すると、ディザスタリカバリ用にテナントをクローニングし、2つのStorageGRID システム間でオブジェクトをレプリケートできます。 
+keywords: grid federation, cross-grid replication, account sync, cgr, disaster recovery 
+summary: グリッドフェデレーションを使用すると、テナントを同期し、ディザスタリカバリのために複数の StorageGRID システム間でオブジェクトをレプリケートできます。 
 ---
 = StorageGRID グリッド フェデレーションについて学ぶ
 :allow-uri-read: 
@@ -11,7 +11,7 @@ summary: グリッドフェデレーションを使用すると、ディザス�
 
 
 [role="lead"]
-グリッドフェデレーションを使用すると、ディザスタリカバリ用にテナントをクローニングし、2つのStorageGRID システム間でオブジェクトをレプリケートできます。
+グリッドフェデレーションを使用すると、テナントを同期し、ディザスタリカバリのために複数の StorageGRID システム間でオブジェクトをレプリケートできます。
 
 
 
@@ -27,7 +27,7 @@ summary: グリッドフェデレーションを使用すると、ディザス�
 
 次のワークフロー図は、2つのグリッド間のグリッドフェデレーション接続を設定する手順をまとめたものです。
 
-image:grid-federation-workflow.png["グリッドフェデレーション接続ワークフロー"]
+image:grid_federation_workflow.png["グリッドフェデレーション接続ワークフロー"]
 
 
 
@@ -36,11 +36,11 @@ image:grid-federation-workflow.png["グリッドフェデレーション接続�
 
 * グリッドフェデレーションに使用されるグリッドでは、同じバージョンのが実行されているか、メジャーバージョンの違いが1つ以上ないStorageGRIDが実行されている必要があります。
 +
-バージョン要件の詳細については、 https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["リリースノート"^]を参照してください。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
+バージョン要件の詳細については、 https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["リリースノート"^]を参照してください。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
 
 * グリッドは、他のグリッドへの1つ以上のグリッドフェデレーション接続を持つことができます。各グリッドフェデレーション接続は、他の接続とは独立しています。たとえば、Grid 1がGrid 2と1つの接続を持ち、Grid 3と2つ目の接続を持つ場合、Grid 2とGrid 3の間に暗黙的な接続はありません。
 * グリッドフェデレーション接続は双方向です。接続が確立されたら、どちらのグリッドからも接続を監視および管理できます。
-* またはを使用するには、グリッドフェデレーション接続が少なくとも1つ存在している必要がありますlink:grid-federation-what-is-account-clone.html["アカウントのクローン"]link:grid-federation-what-is-cross-grid-replication.html["グリッド間レプリケーション"]。
+* link:grid-federation-what-is-account-sync.html["アカウント同期"]またはlink:grid-federation-what-is-cross-grid-replication.html["グリッド間レプリケーション"]を使用するには、グリッドフェデレーション接続が少なくとも1つ存在する必要があります。
 
 
 
@@ -92,7 +92,7 @@ image:grid-federation-workflow.png["グリッドフェデレーション接続�
 * グリッド2からグリッド1に送信される情報を認証および暗号化するためのサーバ証明書とクライアント証明書
 
 
-image:grid-federation-certificates.png["グリッドフェデレーション証明書"]
+image:grid_federation_certificates.png["グリッドフェデレーション証明書"]
 
 デフォルトでは、証明書の有効期間は730日間（2年間）です。これらの証明書の有効期限が近づくと、* Expiration of grid federation certificate *アラートによって証明書のローテーションを要求されます。これはGrid Managerを使用して実行できます。
 

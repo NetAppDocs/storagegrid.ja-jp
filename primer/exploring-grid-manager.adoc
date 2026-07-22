@@ -47,7 +47,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 [[help-menu]]
 == ヘルプメニュー
 
-ヘルプメニューimage:icon-help-menu-bar.png["メニューバーのヘルプアイコン"]からアクセスできる項目：
+ヘルプメニューimage:icon_help_menu_bar.png["メニューバーのヘルプアイコン"]からアクセスできる項目：
 
 * そのlink:../fabricpool/use-fabricpool-setup-wizard.html["FabricPool"]そしてlink:../admin/use-s3-setup-wizard.html["S3のセットアップ"]魔法使い
 * 現在のリリースのStorageGRIDドキュメントサイト
@@ -68,7 +68,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 * 解決済みのアラートを確認
 * サイレンスを設定してアラート通知を停止する
 * アラートをトリガーする条件のアラートルールを定義
-* アラート通知用の E メールサーバを設定します
+* StorageGRID アラートのメール通知を設定する
 
 
 
@@ -148,7 +148,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 システムタスクは次のとおりです。
 
-* 使用link:../admin/grid-federation-overview.html["グリッドフェデレーション"]テナントアカウント情報を複製し、2つのStorageGRIDシステム間でオブジェクトデータを複製します。
+* link:../admin/grid-federation-overview.html["グリッドフェデレーション"]を使用して、テナントアカウント情報を同期し、2つのStorageGRIDシステム間でオブジェクトデータをレプリケートします
 * オプションで、link:../admin/configuring-stored-object-compression.html["格納オブジェクトを圧縮します"]オプション
 * オプションで、link:../s3/consistency.html["デフォルトのバケット一貫性設定"]
 * link:../ilm/managing-objects-with-s3-object-lock.html["S3 オブジェクトロックの管理"]
@@ -163,6 +163,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 
 監視タスクは次のとおりです。
 
+* link:../monitor/configure-email-server.html["メールサーバーの設定"]
 * link:../monitor/configure-log-management.html["ログ管理を構成する"]
 * link:../monitor/using-snmp-monitoring.html["SNMP による監視を使用する"]
 
@@ -179,6 +180,7 @@ image:grid_manager_dashboard_and_menu.png["Grid Manager のダッシュボード
 * 変更するlink:../admin/changing-provisioning-passphrase.html["プロビジョニングパスフレーズ"]またはlink:../admin/change-node-console-password.html["ノードコンソールのパスワード"]
 * link:../admin/using-identity-federation.html["アイデンティティフェデレーションを使用する"]
 * link:../admin/how-sso-works.html["SSOの設定"]
+* link:../admin/about-multi-admin-verify.html["複数管理者による検証を設定する"]
 
 
 
@@ -201,7 +203,13 @@ Maintenance （メンテナンス）メニューでは、メンテナンスタ�
 * link:../maintain/rename-grid-site-node-overview.html["プロシージャ名を変更します"]グリッド、サイト、およびノードの表示名を変更するには
 * link:../troubleshoot/verifying-object-integrity.html["オブジェクトの存在チェック操作"]オブジェクトデータの有無（正確性ではない）を確認するため
 * 実行するlink:../maintain/rolling-reboot-procedure.html["ローリングリブート"]複数のグリッドノードを再起動する
-* link:../maintain/restoring-volume.html["ボリュームのリストア処理"]
+* オブジェクトデータの復元
++
+** link:../maintain/restoring-object-data-to-storage-volume-for-appliance.html["アプライアンスのストレージボリュームにオブジェクトデータをリストアします"]
+** link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["システムドライブに損傷がない場合は、オブジェクトデータをストレージボリュームにリストアします"]
+** link:../maintain/restoring-object-data-to-storage-volume.html["オブジェクトデータをストレージボリュームにリストアする（システムドライブの障害）"]
+
+
 
 
 
@@ -249,7 +257,7 @@ Support （サポート）メニューには、テクニカルサポートがシ
 
 [ サポート（ Support ） ] メニューの [ ツール（ Tools ） ] セクションから、次の操作を実行できます。
 
-* link:../admin/configure-autosupport-grid-manager.html["AutoSupportの設定"]
+* link:../monitor/configure-autosupport-grid-manager.html["AutoSupportの設定"]
 * link:../monitor/running-diagnostics.html["診断を実行します"]グリッドの現在の状態
 * link:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集"]
 * link:../monitor/reviewing-support-metrics.html["サポート指標を確認"]
@@ -267,7 +275,6 @@ NOTE: [*Metrics] オプションで使用できるツールは、テクニカル
 [Support]メニューの[Other]セクションでは、次の操作を実行できます。
 
 * 設定link:../monitor/manage-io-prioritization.html["I/Oの優先順位付け"]
-* 設定link:../admin/configure-autosupport-grid-manager.html["AutoSupportメール設定（レガシー）"]
 * 管理link:../admin/manage-link-costs.html["リンクコスト"]
 * ノードサービスIDを表示する
 * 管理link:../admin/what-storage-volume-watermarks-are.html["ストレージのウォーターマーク"]

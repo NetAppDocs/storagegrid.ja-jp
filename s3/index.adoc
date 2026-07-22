@@ -67,10 +67,37 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616 ：『 Hypertext Tr
 
 
  a| 
+12.1.0
+ a| 
+* `If-Match`
++
+ `If-Match`ヘッダーの動作は、StorageGRIDの構成によって異なります。このヘッダーを指定すると、エラーメッセージ（501 Not Implemented）が返される可能性があります。 `If-Match`ヘッダーが受け入れられたものの機能しない場合、より厳格な501 Not Implementedエラー動作を有効にするための手順を示すアラートが表示される可能性があります。
+
+* `If-None-Match`
++
+ `If-None-Match`ヘッダーの動作は、StorageGRIDの構成によって異なります。このヘッダーを指定すると、エラーメッセージ（501 Not Implemented）が返される可能性があります。 `If-None-Match`ヘッダーが受け入れられたものの機能しない場合、より厳格な501 Not Implementedエラー動作を有効にするための手順を示すアラートが表示される可能性があります。
+
+* 以下のリクエストおよびサポートされているヘッダーに対して、事前計算されたチェックサム値のサポートを追加しました：
++
+** CompleteMultipartUpload： `x-amz-checksum-crc32`、 `x-amz-checksum-crc32c`、および `x-amz-checksum-crc64nvme`
+** CreateMultipartUpload： `CRC32`、 `CRC32C`、および `CRC64NVME`（ `x-amz-checksum-algorithm`用）
+** CopyObject： `CRC32`、 `CRC32C`、 `CRC64NVME`、および `SHA256`（ `x-amz-checksum-algorithm`用）
+** PutObject： `x-amz-checksum-crc32`、 `x-amz-checksum-crc32c`、および `x-amz-checksum-crc64nvme`
+** UploadPart： `x-amz-checksum-crc32`、 `x-amz-checksum-crc32c`、および `x-amz-checksum-crc64nvme`
+
+
+*  `x-amz-checksum-type`のCreateMultipartUploadおよびCompleteMultipartUploadのサポートを追加しました。
+*  `s3:x-amz-copy-source`ポリシー条件キーのサポートが追加されました。
+* 既存のバケットで S3 オブジェクトロックを有効にできるようにします。
+
+
+
+
+ a| 
 12.0
  a| 
 * 管理インターフェースのクロスオリジン リソース共有 (CORS) のサポートが追加されました。これにより、別のドメインが管理 API を使用してStorageGRID内のデータにアクセスできるようになります。link:../admin/enable-cross-origin-resource-sharing-for-management-interface.html["詳細"] 。
-* STS AssumeRole およびセッション ポリシーのサポートが追加されました。見るlink:example-session-policies.html["セッションポリシーの例"] 。テナント グループの下に AssumeRole を設定できます。
+* STS AssumeRole およびセッションポリシーのサポートを追加しました。link:../s3/example-session-policies.html["セッションポリシーの例"] を参照してください。テナントグループごとに AssumeRole を設定できます。
 
 
 
@@ -115,7 +142,7 @@ https://datatracker.ietf.org/doc/html/rfc2616["IETF RFC 2616 ：『 Hypertext Tr
  a| 
 11.7
  a| 
-* を追加link:quick-reference-support-for-aws-apis.html["クイックリファレンス：サポートされるS3 API要求"]。
+* link:../s3/quick-reference-support-for-aws-apis.html["クイックリファレンス：サポートされるS3 API要求"]を追加しました。
 * S3オブジェクトロックでのガバナンスモードの使用のサポートが追加されました。
 * GET Object要求とHEAD Object要求のStorageGRID固有の応答ヘッダーのサポートが追加されました `x-ntap-sg-cgr-replication-status`。このヘッダーは、グリッド間レプリケーションのオブジェクトのレプリケーションステータスを示します。
 * SelectObjectContent要求でParquetオブジェクトがサポートされるようになりました。
@@ -215,7 +242,7 @@ ILM スキャンのバージョン管理、エンドポイントドメインの�
  a| 
 10.1
  a| 
-マルチパートアップロード、仮想ホスト形式の要求、および v4 認証のサポートが追加されました。
+マルチパートアップロード、仮想ホスト型リクエスト、およびv4認証のサポートを追加しました。
 
 
 

@@ -97,4 +97,5 @@ restore copies of data.
 
 
 
-ストレージボリュームの再フォーマットと再マウントが完了し、必要なCassandra処理が完了したら、次のことを実行できますlink:../maintain/restoring-volume.html["Grid Managerを使用してオブジェクトデータをリストアする"]。
+.次の手順
+ストレージボリュームの再フォーマットと再マウントが完了し、必要な Cassandra 操作が完了したら、link:../maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html["Grid Managerを使用してオブジェクトデータをリストアする"]。

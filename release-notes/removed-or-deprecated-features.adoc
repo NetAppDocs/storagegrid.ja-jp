@@ -2,7 +2,7 @@
 permalink: release-notes/removed-or-deprecated-features.html 
 sidebar: sidebar 
 keywords:  
-summary: StorageGRID 12.0で削除または廃止された機能について説明します。アップグレードする前に、削除または廃止された機能がクライアントアプリケーションまたはグリッド構成に影響するかどうかを確認してください。 
+summary: StorageGRID 12.1.0 で削除または非推奨となった機能と性能について説明します。アップグレードを行う前に、削除または非推奨となった機能がクライアントアプリケーションやグリッド構成に影響するかどうかを確認してください。 
 ---
 = StorageGRIDで削除または廃止された機能
 :allow-uri-read: 
@@ -11,14 +11,14 @@ summary: StorageGRID 12.0で削除または廃止された機能について説�
 
 
 [role="lead"]
-StorageGRID 12.0で削除または廃止された機能について説明します。アップグレードする前に、削除または廃止された機能がクライアントアプリケーションまたはグリッド構成に影響するかどうかを確認してください。
+StorageGRID 12.1.0 で削除または非推奨となった機能と性能について説明します。アップグレードを行う前に、削除または非推奨となった機能がクライアントアプリケーションやグリッド構成に影響するかどうかを確認してください。
 
 
 
 [[definitions]]
 == 定義
 
-ハイシ:: この機能*は、新しい本番環境では使用しないでください。既存の本番環境では引き続きこの機能を使用できます。
+ハイシ:: 新しい本番環境では、この機能を使用しないでください。既存の運用環境では、引き続きこの機能を使用できます。
 サポート終了:: この機能をサポートする最後に出荷されたバージョン。場合によっては、この段階で機能のドキュメントが削除されることがあります。
 削除済み:: この機能を*サポートしていない*最初のバージョン。
 
@@ -38,6 +38,19 @@ NOTE: 特定の状況では、NetAppは特定の機能のサポートを指定�
 [cols="2a,1a,1a,1a,3a"]
 |===
 | 機能 | ハイシ | サポート終了 | 削除済み | 以前のドキュメントへのリンク 
+
+
+ a| 
+AES-128暗号化のグローバルSSE設定
+ a| 
+12.1
+ a| 
+12.2
+ a| 
+12.3
+ a| 
+StorageGRID 12.1.0以降、保存された新規オブジェクトデータのAES-128暗号化のサポートは非推奨となりました。AES-128で暗号化された保存済みオブジェクトの取得機能は引き続きサポートされます。
+
 
 
  a| 
@@ -66,8 +79,8 @@ https://docs.netapp.com/us-en/storagegrid-118/maintain/considerations-for-decomm
 
 *注*：アップグレードを開始する前に、次の作業を行う必要があります。
 
-. すべてのアーカイブノードの運用を停止します。を参照してください https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["グリッドノードの運用停止（StorageGRID 11.8ドキュメントサイト）"^]
-. ストレージプールとILMポリシーからアーカイブノードの参照をすべて削除します。を参照してください https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["NetAppナレッジベース：StorageGRID 11.9ソフトウェアアップグレード解決ガイド"^]
+. すべてのアーカイブノードを廃止します。 https://docs.netapp.com/us-en/storagegrid-118/maintain/grid-node-decommissioning.html["グリッドノードの運用停止（StorageGRID 11.8ドキュメントサイト）"^]を参照してください。
+. ストレージプールおよびILMポリシーから、すべてのアーカイブノード参照を削除します。 https://kb.netapp.com/hybrid/StorageGRID/Maintenance/StorageGRID_11.9_software_upgrade_resolution_guide["NetAppナレッジベース：StorageGRID 11.9ソフトウェアアップグレード解決ガイド"^]を参照してください。
 
 
 

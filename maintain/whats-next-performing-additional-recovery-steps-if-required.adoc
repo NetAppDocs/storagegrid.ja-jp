@@ -38,7 +38,9 @@ Linux ホストを交換、または障害グリッドノードを新しいホ�
  a| 
 プライマリ管理ノード
  a| 
-link:configuring-replacement-primary-admin-node.html["交換用プライマリ管理ノードを設定"]
+* link:selecting-start-recovery-to-configure-primary-admin-node.html["プライマリ管理ノードを設定するには、「リカバリの開始」を選択します。"]
+* link:selecting-start-recovery-to-configure-non-primary-admin-node.html["プライマリ管理ノードを非プライマリ管理ノードを使用して復旧する"]
+
 
 
 
@@ -74,6 +76,6 @@ link:selecting-start-recovery-to-configure-storage-node.html["Start Recovery を
 * 構成ファイル変数の値が `BLOCK_DEVICE_<PURPOSE>`（の場合） `<PURPOSE>`参照するブロックデバイスに、ホスト障害前と同じデータが格納されていない。
 
  a| 
-link:recovering-from-storage-volume-failure-where-system-drive-is-intact.html["システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします"]
+link:reviewing-warnings-about-storage-volume-recovery.html["システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします"]
 
 |===

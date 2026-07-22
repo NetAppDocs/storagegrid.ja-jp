@@ -1,21 +1,21 @@
 ---
-permalink: admin/creating-relying-party-trusts-in-ad-fs.html 
+permalink: admin/creating-relying-party-trusts-in-ad-fs-saml.html 
 sidebar: sidebar 
 keywords: relying party trust, active directory, ad fs, single sign on, sso 
 summary: Active Directory フェデレーションサービス（ AD FS ）を使用して、システム内の管理ノードごとに証明書利用者信頼を作成する必要があります。PowerShell コマンドを使用するか、 StorageGRID から SAML メタデータをインポートするか、またはデータを手動で入力することによって、証明書利用者信頼を作成できます。 
 ---
-= AD FS で StorageGRID の証明書利用者信頼を作成します
+= StorageGRID の SAML 用に AD FS で証明書利用者信頼を作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-Active Directory フェデレーションサービス（ AD FS ）を使用して、システム内の管理ノードごとに証明書利用者信頼を作成する必要があります。PowerShell コマンドを使用するか、 StorageGRID から SAML メタデータをインポートするか、またはデータを手動で入力することによって、証明書利用者信頼を作成できます。
+システム内の各管理ノードのSAMLに対して、Active Directory フェデレーションサービス（AD FS）を使用して証明書利用者信頼を作成する必要があります。証明書利用者信頼を作成するには、PowerShellコマンドを使用する方法、StorageGRID からSAMLメタデータをインポートする方法、またはデータを手動で入力する方法があります。
 
 .開始する前に
 * StorageGRID のシングルサインオンを設定し、 SSO タイプとして *AD FS* を選択しました。
-* あなたが持っているlink:../admin/configure-sso.html["サンドボックスモードに入りました"]グリッド マネージャーで。
+* Grid Manager に link:../admin/configure-sso-saml.html["サンドボックスモードに入りました"] があります。
 * システム内の各管理ノードの完全修飾ドメイン名 (または IP アドレス) と証明書利用者識別子がわかっています。これらの値は、 StorageGRID のSSO 設定ページの管理ノードの詳細テーブルで確認できます。
 +
 
@@ -89,7 +89,7 @@ AD FS 管理ツールが表示されます。
 
 
 . 上記の手順を繰り返して、 StorageGRID システム内のすべての管理ノードに対して証明書利用者信頼を設定します。
-. 完了したら、 StorageGRIDに戻り、link:../admin/configure-sso.html#test-sso["すべての証明書利用者信頼をテストする"]正しく設定されていることを確認します。
+. 完了したら、StorageGRID に戻り、link:../admin/configure-sso-saml.html#test-sso["すべての証明書利用者信頼をテストする"]正しく設定されていることを確認してください。
 
 
 
@@ -141,7 +141,7 @@ NOTE: 表示名を入力するときは、管理ノードの証明書利用者 I
 
 
 . 上記の手順を繰り返して、 StorageGRID システム内のすべての管理ノードに対して証明書利用者信頼を設定します。
-. 完了したら、 StorageGRIDに戻り、link:../admin/configure-sso.html#test-sso["すべての証明書利用者信頼をテストする"]正しく設定されていることを確認します。
+. 完了したら、StorageGRID に戻り、link:../admin/configure-sso-saml.html#test-sso["すべての証明書利用者信頼をテストする"]正しく設定されていることを確認してください。
 
 
 
@@ -236,5 +236,5 @@ NOTE: 管理ノードのデフォルト証明書を使用する(`server.crt`こ�
 
 
 . 上記の手順を繰り返して、 StorageGRID システム内のすべての管理ノードに対して証明書利用者信頼を設定します。
-. 完了したら、 StorageGRIDに戻り、link:../admin/configure-sso.html#test-sso["すべての証明書利用者信頼をテストする"]正しく設定されていることを確認します。
+. 完了したら、StorageGRID に戻り、link:../admin/configure-sso-saml.html#test-sso["すべての証明書利用者信頼をテストする"]正しく設定されていることを確認してください。
 

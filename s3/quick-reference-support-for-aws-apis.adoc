@@ -13,10 +13,10 @@ summary: このページでは、StorageGRID がAmazon Simple Storage Service（
 [role="lead"]
 このページでは、StorageGRID がAmazon Simple Storage Service（S3）APIをどのようにサポートしているかをまとめます。
 
-このページには、StorageGRID でサポートされるS3処理のみが含まれています。
+このページには、StorageGRID でサポートされている S3 操作のみが記載されています。リストに記載されていない S3 操作は、 `501 Not Implemented`が返されるか、意図しない動作が発生する可能性があります。
 
 
-NOTE: 各処理のAWSドキュメントを参照するには、見出しのリンクを選択します。
+TIP: 各処理のAWSドキュメントを参照するには、見出しのリンクを選択します。
 
 
 
@@ -73,12 +73,20 @@ link:operations-for-multipart-uploads.html["マルチパートアップロード
 StorageGRIDでは、この要求のすべてに加えて、次の追加のURIクエリパラメータがサポートされ<<common-params,共通のパラメータとヘッダー>>ます。
 
 * `uploadId`
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
+* `x-amz-checksum-type`
+* `x-amz-storage-class`
 
 
 .本文XMLタグを要求します
 StorageGRID は、次の要求本文XMLタグをサポートしています。
 
+* `ChecksumCRC32`
+* `ChecksumCRC32C`
+* `ChecksumCRC64NVME`
 * `ChecksumSHA256`
 * `CompleteMultipartUpload`
 * `ETag`
@@ -97,6 +105,7 @@ link:complete-multipart-upload.html["CompleteMultipartUpload"]
 .URIクエリパラメータと要求ヘッダー
 StorageGRIDは、この要求のすべてに加えて、次の追加ヘッダーをサポートし<<common-params,共通のパラメータとヘッダー>>ます。
 
+* `x-amz-checksum-algorithm`
 * `x-amz-copy-source`
 * `x-amz-copy-source-if-match`
 * `x-amz-copy-source-if-modified-since`
@@ -156,6 +165,7 @@ StorageGRIDは、この要求のすべてに加えて、次の追加ヘッダー
 * `Content-Language`
 * `Expires`
 * `x-amz-checksum-algorithm`
+* `x-amz-checksum-type`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
 * `x-amz-server-side-encryption-customer-algorithm`
@@ -898,6 +908,9 @@ StorageGRIDは、この要求のすべてに加えて、次の追加ヘッダー
 * `Content-Encoding`
 * `Content-Language`
 * `Expires`
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption`
 * `x-amz-storage-class`
@@ -938,10 +951,12 @@ link:use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジ�
 == https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectLockConfiguration.html["PutObjectLockConfiguration"^]
 
 .URIクエリパラメータと要求ヘッダー
-StorageGRIDはこの要求に対してすべてをサポートします<<common-params,共通のパラメータとヘッダー>>。
+StorageGRID は、このリクエストに対して_ほとんどの_<<common-params,共通のパラメータとヘッダー>>をサポートしています。
 
 .リクエストの本文
-StorageGRID は、実装時にAmazon S3 REST APIで定義されたすべての要求本文パラメータをサポートします。
+StorageGRID は、実装時点で Amazon S3 REST API によって定義されたリクエストボディパラメータの_ほとんど_をサポートしていますが、以下の例外があります：
+
+グリッド管理者から許可が与えられていない限り、PutObjectLockConfiguration を使用して既存のバケットで S3 オブジェクトロックを有効にすることはできません。
 
 .StorageGRID のドキュメント
 link:use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
@@ -1017,6 +1032,9 @@ StorageGRIDでは、この要求のすべてに加えて、次の追加のURIク
 
 追加の要求ヘッダーは次のとおりです。
 
+* `x-amz-checksum-crc32`
+* `x-amz-checksum-crc32c`
+* `x-amz-checksum-crc64nvme`
 * `x-amz-checksum-sha256`
 * `x-amz-server-side-encryption-customer-algorithm`
 * `x-amz-server-side-encryption-customer-key`

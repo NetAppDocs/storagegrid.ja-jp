@@ -21,7 +21,7 @@ StorageGRIDをインストールする前に、必要な情報や資料を収集
 ネットワーク計画:: 各StorageGRIDノードに接続するネットワーク。StorageGRIDは、トラフィックの分離、セキュリティ、および管理上の利便性のために、複数のネットワークをサポートしています。
 +
 --
-StorageGRIDを参照してくださいlink:../network/index.html["ネットワークのガイドライン"]。
+link:../network/index.html["ネットワークのガイドライン"]を参照してください。
 
 --
 ネットワーク情報:: 各グリッドノードに割り当てるIPアドレス、およびDNSサーバとNTPサーバのIPアドレス。
@@ -62,7 +62,7 @@ StorageGRID インストールアーカイブ:: link:downloading-and-extracting-
 StorageGRID のドキュメント::
 +
 --
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["リリースノート"^]。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["リリースノート"^]。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
 * link:../admin/index.html["StorageGRID の管理手順"]
 
 

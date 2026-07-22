@@ -41,7 +41,7 @@ image:dashboard_health_panel_license_status.png["ダッシュボードの[Health
 ** ライセンスの終了日。永久ライセンスの場合は「N/A *」と表示されます。
 ** サポート終了日
 +
-この日付は現在のライセンスファイルから読み取られます。ライセンスファイルの取得後にサポートサービス契約を延長または更新した場合は、期限が切れている可能性があります。この値を更新するには、を参照してくださいlink:updating-storagegrid-license-information.html["StorageGRID ライセンス情報を更新します"]。Active IQ を使用して実際の契約終了日を表示することもできます。
+この日付は現在のライセンスファイルから読み取られたもので、ライセンスファイルを取得後にサポート サービス契約を延長または更新した場合は、古くなっている可能性があります。この値を更新するには、link:updating-storagegrid-license-information.html["StorageGRID ライセンス情報を更新します"]を参照してください。また、Digital Advisor を使用して実際の契約終了日を確認することもできます。
 
 ** ライセンステキストファイルの内容
 

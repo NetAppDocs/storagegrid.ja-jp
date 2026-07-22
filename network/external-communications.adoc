@@ -315,6 +315,21 @@ HTTPSを使用するAWSターゲットに送信されるCloud Storage Pools要�
 
 
  a| 
+636
+ a| 
+TCP / UDP
+ a| 
+LDAP
+ a| 
+ADC を採用するストレージノード
+ a| 
+Active Directory / LDAP
+ a| 
+アイデンティティフェデレーション用の Active Directory または LDAP サーバに接続するために使用します。
+
+
+
+ a| 
 5353
  a| 
 UDP

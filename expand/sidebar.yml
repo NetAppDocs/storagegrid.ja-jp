@@ -50,8 +50,6 @@ entries:
     url: "/expand/configuring-expanded-storagegrid-system.html"
   - title: ストレージノードがアクティブであることを確認する
     url: "/expand/verifying-storage-node-is-active.html"
-  - title: 管理ノードデータベースをコピーする
-    url: "/expand/copying-admin-node-database.html"
   - title: Prometheus 指標をコピーする
     url: "/expand/copying-prometheus-metrics.html"
   - title: 監査ログをコピーする

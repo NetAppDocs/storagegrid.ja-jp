@@ -26,7 +26,7 @@ SANtricity システムマネージャを使用すると、次の操作を実行
 * 診断データの表示、EシリーズAutoSupport の設定など、サポート機能を実行する。
 +
 
-NOTE: SANtricity System Managerを使用してEシリーズAutoSupportのプロキシを設定する方法については、を参照してくださいlink:../admin/sending-eseries-autosupport-messages-through-storagegrid.html["StorageGRID経由でEシリーズAutoSupportパッケージを送信"]。
+NOTE: SANtricity System Manager を使用して E シリーズの AutoSupport のプロキシを設定するには、link:sending-eseries-autosupport-messages-through-storagegrid.html["StorageGRID経由でEシリーズAutoSupportパッケージを送信"]を参照してください。
 
 
 

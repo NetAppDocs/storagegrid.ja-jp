@@ -20,7 +20,23 @@ UploadPart処理は、オブジェクトのマルチパートアップロード�
 
 次の要求ヘッダーがサポートされています。
 
-* `x-amz-checksum-sha256`
+* チェックサム要求ヘッダー：
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+
+
+--
++
+CreateMultipartUploadリクエスト時にCRC-32、CRC-32C、CRC-64/NVME、またはSHA-256チェックサムを指定した場合は、各UploadPartリクエストにもチェックサムリクエストヘッダーを含める必要があります。
+
++
+
+NOTE: CreateMultipartUpload リクエストでチェックサムが指定されていない場合、StorageGRID はオブジェクトのデフォルトの CRC-64/NVME チェックサムを計算しません。
+
 * `Content-Length`
 * `Content-MD5`
 
@@ -40,11 +56,6 @@ CreateMultipartUpload要求にSSE-C暗号化を指定した場合は、各Upload
 
 CAUTION: 指定した暗号化キーが格納されることはありません。暗号化キーを紛失すると、対応するオブジェクトが失われます。ユーザ指定のキーを使用してオブジェクトデータを保護する前に、の考慮事項を確認してくださいlink:using-server-side-encryption.html["サーバ側の暗号化を使用します"]。
 
-CreateMultipartUpload要求でSHA-256チェックサムを指定した場合は、各UploadPart要求に次の要求ヘッダーも含める必要があります。
-
-* `x-amz-checksum-sha256`：この部分のSHA-256チェックサムを指定します。
-
-
 
 
 [[unsupported-request-headers]]
@@ -54,6 +65,12 @@ CreateMultipartUpload要求でSHA-256チェックサムを指定した場合は�
 
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

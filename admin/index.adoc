@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: how to administer storagegrid 
 summary: 以下の手順に従って、 StorageGRID システムを設定および管理します。 
 ---
-= StorageGRID の管理
+= StorageGRID 管理のクイックスタート
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -14,24 +14,67 @@ summary: 以下の手順に従って、 StorageGRID システムを設定およ�
 以下の手順に従って、 StorageGRID システムを設定および管理します。
 
 
+NOTE: StorageGRID システムの概要を理解し、Linux コマンドシェル、ネットワーク、サーバーハードウェアのセットアップと構成について十分な知識を持っていることを確認してください。
 
-[[about-these-instructions]]
-== これらの手順について
-
-StorageGRIDの設定と管理の主なタスクでは、次のことを実行できます。
-
-* Grid Managerを使用してグループとユーザを設定する
-* テナントアカウントを作成して、S3クライアントアプリケーションによるオブジェクトの格納と読み出しを許可する
-* StorageGRIDネットワークの設定と管理
-* AutoSupportの設定
-* ノード設定を管理します。
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]Grid Manager の使用を開始する
+[role="quick-margin-list"]
+* link:../admin/web-browser-requirements.html["グリッドマネージャーのユーザーインターフェースを使用するための基本的な手順を学びましょう"]
+* link:../admin/viewing-storagegrid-license-information.html["ライセンス情報について"]
+* link:../admin/using-grid-management-api.html["グリッド管理APIの使用方法について"]
 
 
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"] StorageGRID へのアクセスを制御する
+[role="quick-margin-list"]
+* link:../admin/controlling-storagegrid-access.html["パスフレーズ、パスワード、および権限について"]
+* link:../admin/using-identity-federation.html["IDフェデレーションの設定"]
+* link:../admin/managing-admin-groups.html["管理者グループを管理する"]
+* link:../admin/managing-users.html["ユーザの管理"]
+* link:../admin/how-sso-works.html["シングル サインオン（SSO）を設定する"]
 
 
-[[before-you-begin]]
-== 開始する前に
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"]グリッドフェデレーションを使用する
+[role="quick-margin-list"]
+* link:../admin/grid-federation-overview.html["グリッドフェデレーション接続の設定"]
+* link:../admin/grid-federation-what-is-account-sync.html["アカウント同期について"]
+* link:../admin/grid-federation-what-is-cross-grid-replication.html["クロスグリッドレプリケーションの詳細"]
+* link:../admin/learn-about-global-namespace.html["グローバル名前空間を設定する"]
 
-* StorageGRID システムに関する一般的な知識が必要です。
-* Linux のコマンドシェル、ネットワーク、サーバハードウェアのセットアップと設定について、詳しい知識が必要です。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["4つ"]セキュリティを管理する
+[role="quick-margin-list"]
+* link:../admin/reviewing-storagegrid-encryption-methods.html["StorageGRID の暗号化方式を確認します"]
+* link:../admin/using-storagegrid-security-certificates.html["証明書の管理"]
+* link:../admin/manage-tls-ssh-policy.html["セキュリティを設定します"]
+* link:../admin/kms-configuring.html["キー管理サーバを設定"]
+* link:../admin/configuring-storage-proxy-settings.html["プロキシ設定を管理します"]
+* link:../admin/controlling-access-through-firewalls.html["ファイアウォールを制御します"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["5 つ"]テナントの管理
+[role="quick-margin-list"]
+* link:../admin/managing-tenants.html["テナントアカウントの概要と管理"]
+* link:../admin/manage-platform-services-for-tenants.html["テナントのプラットフォームサービスを管理する"]
+* link:../admin/manage-s3-select-for-tenant-accounts.html["テナントアカウント用の S3 Select を管理します"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["6"]クライアント接続を構成する
+[role="quick-margin-list"]
+* link:../admin/security-for-clients.html["S3クライアントのセキュリティについて"]
+* link:../admin/use-s3-setup-wizard.html["S3セットアップウィザードを使用します"]
+* link:../admin/managing-high-availability-groups.html["ハイアベイラビリティグループを管理します"]
+* link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名を設定"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-7.png["7"]ネットワークと接続を管理する
+[role="quick-margin-list"]
+* link:../admin/configuring-network-settings.html["ネットワークの設定"]
+* link:../admin/configure-vlan-interfaces.html["VLAN インターフェイスを設定します"]
+* link:../admin/managing-traffic-classification-policies.html["トラフィック分類ポリシーを管理します"]
+* link:../admin/manage-link-costs.html["リンクコストを管理します"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-8.png["8"]ノードを管理する
+[role="quick-margin-list"]
+* link:../admin/what-object-segmentation-is.html["ストレージノードを管理します"]
+* link:../admin/using-multiple-admin-nodes.html["管理ノードを管理する"]
 

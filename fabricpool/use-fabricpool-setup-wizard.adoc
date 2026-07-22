@@ -69,7 +69,7 @@ StorageGRIDシステムで ID フェデレーションまたはシングル サ�
 === ドメイン名を取得して設定します
 
 * StorageGRID に使用するFully Qualified Domain Name（FQDN；完全修飾ドメイン名）を確認しておきます。ドメインネームサーバ（DNS）のエントリによって、このFQDNが、ウィザードを使用して作成するHAグループの仮想IP（VIP）アドレスにマッピングされます。を参照して link:../fabricpool/configure-dns-server.html["DNS サーバを設定します"]
-* S3仮想ホスト形式の要求を使用する場合は、を準備しておきlink:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名が設定されました"]ます。ONTAP はデフォルトでパス形式のURLを使用しますが、仮想ホスト形式の要求を使用することを推奨します。
+* S3仮想ホスト型リクエストを使用する予定であれば、link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名が設定されました"]。ONTAPはデフォルトではパス形式のURLを使用しますが、仮想ホスト形式のリクエストを使用することをお勧めします。
 
 
 

@@ -14,4 +14,4 @@ summary: StorageGRIDアプライアンスハードウェアのインストール
 
 
 [role="lead"]
-StorageGRIDストレージおよびサービスアプライアンスのインストール、設定、および保守の方法については、を参照して https://docs.netapp.com/us-en/storagegrid-appliances/index.html["StorageGRIDアプライアンスのマニュアル"^]ください。
+ https://docs.netapp.com/us-en/storagegrid-appliances/index.html["StorageGRID アプライアンスのドキュメント"^]にアクセスして、StorageGRIDストレージおよびサービスアプライアンスのインストール、設定、およびメンテナンスの方法を確認してください。

@@ -30,7 +30,21 @@ NOTE: StorageGRIDでは、CompleteMultipartUploadで要求パラメータの連�
 
 次の要求ヘッダーがサポートされています。
 
-* `x-amz-checksum-sha256`
+* チェックサム要求ヘッダー：
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+** `x-amz-checksum-type`
+
+
+--
++
+
+NOTE: CreateMultipartUpload リクエストでチェックサムが指定されていない場合、StorageGRID はオブジェクトのデフォルトの CRC-64/NVME チェックサムを計算しません。
+
 * `x-amz-storage-class`
 +
 ヘッダーは `x-amz-storage-class`、一致するILMルールでが指定されている場合にStorageGRIDで作成されるオブジェクトコピーの数に影響しますlink:../ilm/data-protection-options-for-ingest.html["デュアルコミットまたはBalanced取り込みオプション"]。
@@ -64,14 +78,18 @@ NOTE:  `ETag`返される値はデータのMD5合計ではなく、Amazon S3 API
 
 * `If-Match`
 +
- `If-Match header`は受け入れられるが、機能しない。
+ `If-Match`ヘッダーの動作は、StorageGRIDの構成によって異なります。このヘッダーを指定すると、エラーメッセージ（501 Not Implemented）が返される可能性があります。 `If-Match`ヘッダーが受け入れられたものの機能しない場合、より厳格な501 Not Implementedエラー動作を有効にするための手順を示すアラートが表示される可能性があります。
 
 * `If-None-Match`
 +
- `If-None-Match header`は受け入れられるが、機能しない。
+ `If-None-Match`ヘッダーの動作は、StorageGRIDの構成によって異なります。このヘッダーを指定すると、エラーメッセージ（501 Not Implemented）が返される可能性があります。 `If-None-Match`ヘッダーが受け入れられたものの機能しない場合、より厳格な501 Not Implementedエラー動作を有効にするための手順を示すアラートが表示される可能性があります。
 
-* `x-amz-sdk-checksum-algorithm`
-* `x-amz-trailer`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 
 
 

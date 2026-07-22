@@ -82,7 +82,7 @@ TIP: S3オブジェクトロックを使用するバケットは、すべての�
 
 
 +
-image:delete-bucket-objects-in-progress.png["削除されるバケットオブジェクトを示すスクリーンショット"]
+image:delete_bucket_objects_in_progress.png["削除されるバケットオブジェクトを示すスクリーンショット"]
 
 . 処理の実行中に必要に応じて、*[オブジェクトの削除の停止]*を選択してプロセスを停止します。次に、必要に応じて*[Delete objects in bucket]*を選択してプロセスを再開します。
 +
@@ -93,7 +93,7 @@ image:delete-bucket-objects-in-progress.png["削除されるバケットオブ�
 バケットが空の場合、ステータスバナーは更新されますが、バケットは読み取り専用のままです。
 
 +
-image:delete-bucket-objects-complete.png["すべてのバケットオブジェクトが削除されたことを示すスクリーンショット"]
+image:delete_bucket_objects_complete.png["すべてのバケットオブジェクトが削除されたことを示すスクリーンショット"]
 
 . 次のいずれかを実行します。
 +

@@ -77,11 +77,11 @@ StorageGRID では、非所有者アカウントまたは匿名ユーザによ�
 * `Content-Disposition`
 * `Content-Encoding`
 +
-for ``Content-Encoding``StorageGRIDを指定した場合、 `aws-chunked`次の項目は検証されません。
+ `aws-chunked`に `Content-Encoding`を指定した場合、StorageGRID は以下の項目を検証しません。
 
 +
-** StorageGRIDは、をチャンクデータに対して検証しません `chunk-signature`。
-** StorageGRIDでは、に指定した値がオブジェクトに対して検証されません `x-amz-decoded-content-length`。
+** StorageGRID は、 `chunk-signature`をチャンクデータと照合して検証しません。
+** StorageGRIDは、 `x-amz-decoded-content-length`に指定した値をオブジェクトに対して検証しません。
 
 
 * `Content-Language`
@@ -93,7 +93,20 @@ for ``Content-Encoding``StorageGRIDを指定した場合、 `aws-chunked`次の�
 +
 ペイロード署名も使用されている場合は、チャンク転送エンコーディングがサポートされ `aws-chunked`ます。
 
-* `x-amz-checksum-sha256`
+* チェックサム要求ヘッダー：
++
+--
+** `x-amz-checksum-crc32`
+** `x-amz-checksum-crc32c`
+** `x-amz-checksum-crc64nvme`
+** `x-amz-checksum-sha256`
+
+
+--
++
+
+NOTE: PutObjectリクエストでチェックサムが指定されていない場合、StorageGRIDはオブジェクトのデフォルトのCRC-64/NVMEチェックサムを計算しません。
+
 * `x-amz-meta-`に続けて、ユーザ定義のメタデータを含む名前と値のペアを指定します。
 +
 ユーザ定義メタデータの名前と値のペアを指定する場合、一般的な形式は次のとおりです。
@@ -151,13 +164,19 @@ NOTE: ILMルールでは、参照時間に*ユーザ定義の作成時間*を使
 
 * `If-Match`
 +
- `If-Match header`は受け入れられるが、機能しない。
+ `If-Match`ヘッダーの動作は、StorageGRIDの構成によって異なります。このヘッダーを指定すると、エラーメッセージ（501 Not Implemented）が返される可能性があります。 `If-Match`ヘッダーが受け入れられたものの機能しない場合、より厳格な501 Not Implementedエラー動作を有効にするための手順を示すアラートが表示される可能性があります。
 
 * `If-None-Match`
 +
- `If-None-Match header`は受け入れられるが、機能しない。
+ `If-None-Match`ヘッダーの動作は、StorageGRIDの構成によって異なります。このヘッダーを指定すると、エラーメッセージ（501 Not Implemented）が返される可能性があります。 `If-None-Match`ヘッダーが受け入れられたものの機能しない場合、より厳格な501 Not Implementedエラー動作を有効にするための手順を示すアラートが表示される可能性があります。
 
 * `x-amz-acl`
+* `x-amz-checksum-md5`
+* `x-amz-checksum-sha1`
+* `x-amz-checksum-sha512`
+* `x-amz-checksum-xxhash3`
+* `x-amz-checksum-xxhash64`
+* `x-amz-checksum-xxhash128`
 * `x-amz-sdk-checksum-algorithm`
 * `x-amz-trailer`
 * `x-amz-website-redirect-location`

@@ -36,7 +36,7 @@ NOTE: 既存手順 の DNS サーバが新しい IP アドレスでグリッド�
 
 +
 
-NOTE: StorageGRIDシステムで SSO が有効になっていて、証明書利用者信頼が管理ノードの IP アドレス (推奨されている完全修飾ドメイン名ではなく) を使用して構成されている場合は、IP アドレスを変更した直後に Active Directory フェデレーション サービス (AD FS) でこれらの証明書利用者信頼を更新または再構成する準備をしてください。見るlink:../admin/configure-sso.html["シングルサインオンを設定します"] 。
+NOTE: StorageGRID システムで SSO が有効になっており、証明書利用者信頼が（推奨されている完全修飾ドメイン名ではなく）管理ノードの IP アドレスを使用して構成されている場合は、IP アドレスを変更した直後に、Active Directory フェデレーション サービス（AD FS）でこれらの証明書利用者信頼を更新または再構成する準備をしてください。link:../admin/learn-about-setting-up-sso-oidc.html["OIDC"] または link:../admin/learn-about-setting-up-sso-saml.html["SAML"] を使用した SSO の設定については、該当するドキュメントを参照してください。
 
 +
 

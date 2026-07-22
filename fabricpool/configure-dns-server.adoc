@@ -30,6 +30,6 @@ StorageGRID サーバ名（完全修飾ドメイン名）を使用する各Stora
 
 
 [[dns-entries-for-virtual-hosted-style-requests]]
-== 仮想ホスト形式の要求のDNSエントリ
+== 仮想ホスト型リクエスト用のDNSエントリ
 
-を定義し、仮想ホスト形式の要求を使用する場合link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名"]は、必要なすべてのS3エンドポイントのドメイン名（ワイルドカード名を含む）にDNSエントリを追加します。
+link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名"]を定義済みで、仮想ホスト型のリクエストを使用する場合は、ワイルドカード名を含む必要なすべての S3 エンドポイントドメイン名の DNS エントリを追加してください。

@@ -1,21 +1,21 @@
 ---
-permalink: admin/creating-sp-connection-ping.html 
+permalink: admin/creating-sp-connection-ping-saml.html 
 sidebar: sidebar 
 keywords: service provider, sp connection, pingfederate, ping, single sign on, sso 
 summary: PingFederate を使用して、システム内の管理ノードごとにサービスプロバイダ（ SP ）接続を作成します。この処理を高速化するために、 StorageGRID から SAML メタデータをインポートします。 
 ---
-= PingFederateでStorageGRID用のサービスプロバイダー接続を作成する
+= StorageGRID の SAML 用に PingFederate でサービスプロバイダー接続を作成する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-PingFederate を使用して、システム内の管理ノードごとにサービスプロバイダ（ SP ）接続を作成します。処理時間を短縮するために、 StorageGRID から SAML メタデータをインポートします。
+PingFederate を使用して、システム内の SAML 用の各管理ノードのサービスプロバイダー （SP） 接続を作成します。処理を高速化するために、StorageGRID から SAML メタデータをインポートします。
 
 .開始する前に
 * StorageGRID にシングルサインオンを設定し、 SSO タイプとして「 Ping federate * 」を選択しました。
-* あなたが持っているlink:../admin/configure-sso.html#enter-sandbox-mode["サンドボックスモードに入りました"]グリッド マネージャーで。
+* Grid Manager に link:../admin/configure-sso-saml.html#enter-sandbox-mode["サンドボックスモードに入りました"] があります。
 * システム内の各管理ノードには * SP接続 ID* があります。これらの値は、「SSO の構成」ページの「管理ノード」の詳細テーブルで確認できます。
 * システムの管理ノードごとに * SAML メタデータ * をダウンロードしておきます。
 * PingFederate サーバーで SP 接続を作成した経験があります。

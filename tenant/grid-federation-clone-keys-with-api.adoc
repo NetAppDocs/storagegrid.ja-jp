@@ -40,7 +40,7 @@ NOTE: フェデレーテッドユーザのS3アクセスキーをクローニン
 `POST /org/users/current-user/replicate-s3-access-key`
 
 +
-image:grid-federation-post-current-user-replicate.png["自身のアクセスキーをレプリケートするためのPOSTエンドポイント"]
+image:grid_federation_post_current_user_replicate.png["自身のアクセスキーをレプリケートするためのPOSTエンドポイント"]
 
 . [* 試してみてください * ] を選択します。
 . body *テキストボックスで、* AccessKey *および* secretAccessKey *のエントリ例を、ダウンロードした*。csv *ファイルの値に置き換えます。
@@ -48,7 +48,7 @@ image:grid-federation-post-current-user-replicate.png["自身のアクセスキ�
 各文字列は必ず二重引用符で囲んでください。
 
 +
-image:grid-federation-clone-access-key.png["テナントマネージャAPI：アクセスキーをクローニングするための値を入力しています"]
+image:grid_federation_clone_access_key.png["テナントマネージャAPI：アクセスキーをクローニングするための値を入力しています"]
 
 . キーの有効期限が切れる場合は、*expires*の例のエントリを、ISO 8601形式の文字列（例：）で有効期限の日時に置き換えます `2024-02-28T22:46:33-08:00`。キーが期限切れにならない場合は、* expires *エントリの値として* null *を入力します（または* expires *行とその前のカンマを削除します）。
 . [* Execute] を選択します。
@@ -82,7 +82,7 @@ image:grid-federation-clone-access-key.png["テナントマネージャAPI：ア
 `POST /org/users/{userId}/replicate-s3-access-key`
 
 +
-image:grid-federation-post-other-user.png["別のユーザのアクセスキーをレプリケートするためのエンドポイントをPOSTします"]
+image:grid_federation_post_other_user.png["別のユーザのアクセスキーをレプリケートするためのエンドポイントをPOSTします"]
 
 . [* 試してみてください * ] を選択します。
 . [*userid*]テキストボックスに、コピーしたユーザIDを貼り付けます。

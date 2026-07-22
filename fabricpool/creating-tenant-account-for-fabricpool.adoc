@@ -70,7 +70,7 @@ FabricPool テナントでは、通常、CloudMirrorレプリケーションな�
 +
 通常、FabricPool テナントではS3 Selectを使用する必要はありません。
 
-.. 必要に応じて、*[Use grid federation connection]*を選択して、テナントがアカウントのクローニングとグリッド間レプリケーションにを使用できるようにしlink:../admin/grid-federation-overview.html["グリッドフェデレーション接続"]ます。次に、使用するグリッドフェデレーション接続を選択します。
+.. オプションで、*グリッドフェデレーション接続を使用する*を選択すると、テナントがアカウント同期およびグリッド間レプリケーションのためにlink:../admin/grid-federation-overview.html["グリッドフェデレーション接続"]を使用できるようになります。次に、使用するグリッドフェデレーション接続を選択します。
 
 
 . ルートアクセスの定義ステップでは、 StorageGRIDシステムがテナントアカウントの初期ルートアクセス権限を持つユーザーを指定します。link:../admin/using-identity-federation.html["アイデンティティフェデレーション"] 、link:../admin/how-sso-works.html["シングルサインオン（SSO）"] 、またはその両方。

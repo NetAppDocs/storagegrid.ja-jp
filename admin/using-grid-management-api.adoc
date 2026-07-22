@@ -43,10 +43,7 @@ Swagger のユーザインターフェイスでは、各 API 処理に関する�
 CAUTION: APIドキュメントWebページで実行するAPI処理はすべてライブ処理です。設定データやその他のデータを誤って作成、更新、または削除しないように注意してください。
 
 .手順
-. Grid Managerのヘッダーでヘルプアイコンを選択し、*[API documentation]*を選択します。
-+
-image:help_menu.png["ヘルプメニュー"]
-
+. グリッドマネージャーのヘッダーからヘルプアイコン image:icon_help_menu_bar.png["ヘルプアイコン"] を選択し、「API documentation」を選択します。
 . プライベート API を使用して操作を実行するには、 StorageGRID 管理 API ページで * プライベート API ドキュメントへ移動 * を選択します。
 +
 プライベート API は予告なく変更される場合があります。StorageGRID プライベートエンドポイントは、要求の API バージョンも無視します。

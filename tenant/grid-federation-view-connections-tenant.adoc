@@ -77,7 +77,7 @@ NOTE: この列には、最後に発生したグリッド間レプリケーシ�
 たとえば、このエラーは、クロスグリッドレプリケーションのデスティネーションバケットが無効な状態であることを示しています。バージョン管理が中断されたか、S3オブジェクトロックが有効になっている可能性があります。
 
 +
-image:grid-federation-cgr-object-example-last-error.png["grid-federation-cgr-object-example-last-error"]
+image:grid_federation_cgr_object_example_last_error.png["grid-federation-cgr-object-example-last-error"]
 
 . 推奨される対処方法を実行します。たとえば、グリッド間レプリケーションのためにデスティネーションバケットでバージョン管理が一時停止されていた場合は、そのバケットのバージョン管理を再度有効にします。
 . テーブルから接続を選択します。

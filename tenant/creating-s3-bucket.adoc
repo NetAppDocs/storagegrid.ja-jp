@@ -21,10 +21,10 @@ Tenant Manager を使用して、オブジェクトデータ用の S3 バケッ�
 NOTE: バケットまたはオブジェクトのS3オブジェクトロックプロパティを設定または変更する権限は、link:../s3/use-access-policies.html["バケットポリシーまたはグループポリシー"] 。
 
 * バケットでS3オブジェクトロックを有効にする場合は、グリッド管理者がStorageGRID システムに対してグローバルなS3オブジェクトロック設定を有効にし、S3オブジェクトロックのバケットとオブジェクトの要件を確認しておく必要があります。
-* 各テナントに5、000バケットがある場合は、グリッド内の各ストレージノードに64GB以上のRAMが搭載されます。
+* 複数のテナントがそれぞれ最大5,000個のバケットを持つ場合、グリッド内の各ストレージノードには最低64 GBのRAMが必要です。
 +
 
-NOTE: 各グリッドには最大100,000個のバケットを含めることができます。link:../tenant/what-is-branch-bucket.html["ブランチバケット"] 。
+NOTE: StorageGRIDシステムは、S3テナントアカウントごとに最大20,000個のバケットをサポートします。各グリッドには、link:../tenant/what-is-branch-bucket.html["ブランチバケット"]を含め、最大100,000個のバケットを含めることができます。また、link:../tenant/manage-branch-buckets.html["枝のバケット深度"]にも制限があります。
 
 
 
@@ -63,7 +63,7 @@ NOTE: 各グリッドには最大100,000個のバケットを含めることが�
 ** 仮想ホスト形式の要求にピリオドを含めることはできません。ピリオドを使用すると、サーバワイルドカード証明書の検証で原因 の問題が発生します。
 
 
-詳細については、を参照して https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["バケットの命名規則に関する Amazon Web Services （ AWS ）のドキュメント"^]ください。
+詳細については、 https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html["バケットの命名規則に関する Amazon Web Services （ AWS ）のドキュメント"^]を参照してください。
 
 *注*：バケットの作成後にバケット名を変更することはできません。
 

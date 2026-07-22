@@ -64,6 +64,11 @@ StorageGRID ログファイルアーカイブには、カテゴリごとに説�
 | アーカイブの場所 | 製品説明 
 
 
+| acct-tunnel.log  a| 
+ロードバランサーと連携するアカウントトンネルヘルパーのログ。
+
+
+
 | 監査  a| 
 通常のシステム動作中に生成される監査メッセージです。
 
@@ -114,6 +119,11 @@ Cassandra データベース情報と Reaper 修復ログ。
 
 
 
+| internal-access.log  a| 
+内部HTTPプロキシのトラフィックログ。
+
+
+
 | Lambda - アービトレータ  a| 
 S3 Select プロキシ要求に関連するログです。
 
@@ -126,6 +136,11 @@ leakd サービスからのログ。
 
 | lumberjack.log  a| 
 ログ収集に関連するデバッグメッセージ。
+
+
+
+| manage-audit.log  a| 
+`mgmt-api`監査ログにアクセスします。
 
 
 
@@ -174,6 +189,10 @@ MariaDB データベースの設定と関連ログ。
 
 
 * `nginx-gw-dns-check.log`：新しいDNSチェックアラートに関連します。
+* stream-access.log：ストリームブロックの TCP/TLS ストリーム（レイヤー 4）プロキシセッション。
++
+*注*：これはHTTPリクエストログではありません。
+
 
 
 
@@ -220,6 +239,16 @@ CPU 、ネットワーク、ディスク I/O のパフォーマンス情報
 
 
 
+| revision_history.json  a| 
+改訂履歴。
+
+
+
+| routed-s3-access.log.gz  a| 
+S3（グローバルネームスペース/フェデレーション URL）のようにルーティングされるグリッドフェデレーショントラフィックのアクセスログ。
+
+
+
 | SSH  a| 
 SSHの設定およびサービスに関連するログ。
 
@@ -235,6 +264,11 @@ SNMP通知の送信に使用するSNMPエージェントの設定。
 
 
 
+| system-bucket.log  a| 
+`update-system-bucket-configuration.log`：システムバケットのログ。
+
+
+
 | system-commands.txt  a| 
 StorageGRID コンテナコマンドの出力。ネットワークやディスクの使用状況などのシステム情報が含まれます。
 
@@ -242,5 +276,15 @@ StorageGRID コンテナコマンドの出力。ネットワークやディス�
 
 | synchronize-recovery-package  a| 
 ADC サービスをホストするすべての管理ノードとストレージ ノード間で最新のリカバリ パッケージの一貫性を維持することに関連します。
+
+
+
+| update-cipher-configurations.log  a| 
+`update-cors-configurations.log`：TLS/暗号化方式およびCORSの変更に関連するログをトレースします。
+
+
+
+| update-leakd-configurations.log  a| 
+孤立検出設定ログ。
 
 |===

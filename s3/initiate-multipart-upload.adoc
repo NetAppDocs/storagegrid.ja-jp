@@ -55,10 +55,12 @@ NOTE: S3 Object Lockが有効なバケットにオブジェクトを取り込む
 次の要求ヘッダーがサポートされています。
 
 * `Content-Type`
-* `x-amz-checksum-algorithm`
+* `x-amz-checksum-algorithm`： `CRC32`、 `CRC32C`、 `CRC64NVME`、または `SHA256`を指定します
 +
-現時点では、のSHA256値のみが `x-amz-checksum-algorithm`サポートされています。
 
+NOTE: CreateMultipartUpload リクエストでチェックサムが指定されていない場合、StorageGRID はオブジェクトのデフォルトの CRC-64/NVME チェックサムを計算しません。StorageGRID は無効またはサポートされていない `x-amz-checksum-algorithm`値を無視します。
+
+* `x-amz-checksum-type`
 * `x-amz-meta-`に続けて、ユーザ定義のメタデータを含む名前と値のペアを指定します。
 +
 ユーザ定義メタデータの名前と値のペアを指定する場合、一般的な形式は次のとおりです。

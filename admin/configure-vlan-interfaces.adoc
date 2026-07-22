@@ -90,7 +90,7 @@ VLAN IDは一意である必要はありません。たとえば、あるサイ�
 たとえば、ゲートウェイノードと管理ノードのクライアントネットワーク（ eth2 ）インターフェイスに VLAN を接続できます。
 
 +
-image:vlan-create-parent-interfaces.png["VLAN 作成ウィザードの親インターフェイス"]
+image:vlan_create_parent_interfaces.png["VLAN 作成ウィザードの親インターフェイス"]
 
 . 「 * Continue * 」を選択します。
 
@@ -105,7 +105,7 @@ image:vlan-create-parent-interfaces.png["VLAN 作成ウィザードの親イン�
 +
 ** VLAN ID または概要 を変更する必要がある場合は、ページの上部にある *Enter VLAN details * を選択します。
 ** 親インターフェイスを変更する必要がある場合は、ページの上部にある「親インターフェイスを選択」を選択するか、「 * 前へ * 」を選択します。
-** 親インターフェースを削除する必要がある場合は、ゴミ箱 image:icon-trash-can.png["ごみ箱のアイコン"] を選択してください。
+** 親インターフェースを削除する必要がある場合は、ゴミ箱 image:icon_trash_can.png["ごみ箱のアイコン"] を選択してください。
 
 
 . [ 保存（ Save ） ] を選択します。

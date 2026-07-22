@@ -13,7 +13,7 @@ summary: StorageGRID システムは Simple Storage Service API （ API バー�
 [role="lead"]
 StorageGRID システムは Simple Storage Service API （ API バージョン 2006-03-01 ）を実装しており、ほとんどの処理をサポートしていますが、いくつかの制限事項があります。S3 REST API クライアントアプリケーションを統合するときは、実装の詳細を理解しておく必要があります。
 
-StorageGRID システムでは、仮想ホスト形式の要求とパス形式の要求の両方がサポートされます。
+StorageGRID システムは、仮想ホスト形式のリクエストとパス形式のリクエストの両方をサポートしています。
 
 
 

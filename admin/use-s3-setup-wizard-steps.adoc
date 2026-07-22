@@ -25,10 +25,7 @@ S3セットアップウィザードを使用して、S3アプリケーション�
 
 .手順
 . を使用してGrid Managerにサインインしlink:web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
-. ダッシュボードに「FabricPool and S3 setup wizard」*バナーが表示された場合は、バナー内のリンクを選択します。バナーが表示されなくなった場合は、グリッドマネージャのヘッダーバーでヘルプアイコンを選択し、* FabricPool and S3 setup wizard *を選択します。
-+
-image:help_menu.png["[ヘルプ]メニュー"]
-
+. *FabricPool and S3 セットアップ ウィザード*のバナーがダッシュボードに表示されている場合は、バナー内のリンクを選択してください。バナーが表示されなくなった場合は、Grid Manager のヘッダーバーにあるヘルプアイコン image:icon_help_menu_bar.png["ヘルプアイコン"] を選択し、*FabricPool and S3 セットアップ ウィザード*を選択してください。
 . FabricPool とS3のセットアップウィザードのページのS3アプリケーションセクションで、*今すぐ設定*を選択します。
 
 

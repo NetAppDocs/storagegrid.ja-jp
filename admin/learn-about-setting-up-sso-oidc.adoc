@@ -1,0 +1,50 @@
+---
+permalink: admin/learn-about-setting-up-sso-oidc.html 
+sidebar: sidebar 
+keywords: use sandbox mode for sso, how to test single sign-on 
+summary: StorageGRID でシングル サインオン（SSO）を設定すると、StorageGRID（サービスプロバイダー）と SSO ID プロバイダーがユーザ認証リクエストについて安全に通信できるようになります。 
+---
+= StorageGRID で OIDC を使用したシングル サインオンの設定について
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID でシングル サインオン（SSO）を設定すると、StorageGRID（サービスプロバイダー）と SSO ID プロバイダーがユーザ認証リクエストについて安全に通信できるようになります。
+
+StorageGRID では、OpenID Connect（OIDC）または SAML を使用してシングル サインオンを設定できます。OIDC を使用して StorageGRID でシングル サインオンを設定するには、以下の概要手順に従うか、link:learn-about-setting-up-sso-saml.html["SAMLを使用したSSOの設定"]について確認してください。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["1つ"]IDプロバイダーの設定
+[role="quick-margin-para"]
+使用するSSO IDプロバイダーに応じて、IDフェデレーションLDAPサービスタイプとしてActive DirectoryまたはEntra IDのいずれかを選択できます。
+
+[role="quick-margin-list"]
+* Active Directory Federation Service (AD FS) の場合、AD FS、Entra ID、Keycloak、Okta、または PingFederate アイデンティティプロバイダーを使用できます。
+* Entra IDでは、Entra IDのIDプロバイダーのみを使用できます。
+
+
+[role="quick-margin-para"]
+SSO IDプロバイダーのソフトウェアを使用して、グリッド内の各管理ノードのOIDCを設定します。
+
+[role="quick-margin-list"]
+* Active Directory の link:creating-relying-party-trusts-in-ad-fs-oidc.html["各管理ノードごとにアプリケーショングループを作成する"] について学ぶ
+* Entra ID のlink:creating-enterprise-application-entra-id-oidc.html["各管理ノード用のアプリケーションを作成する"]について学ぶ
+* Keycloakのlink:create-client-keycloak-oidc.html["各管理ノードのクライアントを作成する"]について学ぶ
+* link:create-okta-application-oidc.html["各管理ノードごとにOktaアプリケーションを作成する"]について学ぶ
+* PingFederate の link:creating-sp-connection-ping-oidc.html["各管理ノードに対してサービスプロバイダー接続を作成する"] について学ぶ
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["2つ"] SSOの設定
+[role="quick-margin-para"]
+OIDC 用の SSO 設定ウィザードを選択します。次に、ID プロバイダーで SSO を設定し、サンドボックス モードに入って StorageGRID ユーザーに対して有効化する前に SSO の設定とテストを行います。
+
+[role="quick-margin-para"]
+link:configure-sso-oidc.html["OIDCを使用したSSOの設定"]について学ぶ
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["3つ"] SSOを有効にする
+[role="quick-margin-para"]
+各管理ノードへのサインインに SSO を使用できることを確認したら、すべての StorageGRID ユーザーに対して SSO を有効にしてください。
+
+[role="quick-margin-para"]
+link:configure-sso-oidc.html#enable-sso-oidc["StorageGRID ユーザーのシングル サインオンの有効化"]について学ぶ

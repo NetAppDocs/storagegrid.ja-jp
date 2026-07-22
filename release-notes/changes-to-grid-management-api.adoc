@@ -2,7 +2,7 @@
 permalink: release-notes/changes-to-grid-management-api.html 
 sidebar: sidebar 
 keywords: grid management api, api, api version, swagger, rest api, usageCacheDuration 
-summary: StorageGRID 12.0では、グリッド管理APIのバージョン4を使用しています。バージョン4はバージョン3を非推奨とします。ただし、バージョン1、2、3は引き続きサポートされています。 
+summary: StorageGRID 12.1では、グリッド管理APIのバージョン4を使用しています。バージョン4はバージョン3を非推奨とします。ただし、バージョン1、2、3は引き続きサポートされています。 
 ---
 = StorageGRID のGrid Management APIの変更点
 :allow-uri-read: 
@@ -11,46 +11,24 @@ summary: StorageGRID 12.0では、グリッド管理APIのバージョン4を使
 
 
 [role="lead"]
-StorageGRID 12.0 は、Grid Management API バージョン 4 を使用します。バージョン 4 ではバージョン 3 は廃止されますが、バージョン 1、2、および 3 は引き続きサポートされます。
+StorageGRID 12.1では、グリッド管理APIのバージョン4を使用しています。バージョン4ではバージョン3は非推奨となりますが、バージョン1、2、3は引き続きサポートされます。
 
 
-NOTE: StorageGRID 12.0 では管理 API の廃止バージョンを引き続き使用できますが、これらのバージョンの API のサポートはStorageGRIDの将来のリリースでは削除されます。  StorageGRID 12.0にアップグレードした後、廃止されたAPIを非アクティブ化するには、 `PUT /grid/config/management` API。
+NOTE: 非推奨バージョンの管理 API は StorageGRID で引き続き使用できます。ただし、これらのバージョンの API のサポートは、今後の StorageGRID のリリースで削除される予定です。StorageGRID 12.0 以降にアップグレードした後、 `PUT /grid/config/management` API を使用して非推奨の API を無効化できます。
 
 詳細については、を参照してくださいlink:../admin/using-grid-management-api.html["グリッド管理 API を使用します"]。
 
 
 
-[[new-endpoints-for-branch-buckets]]
-== ブランチバケットの新しいエンドポイント
+[[new-endpoints-for-changing-the-bmc-password-and-lan-ip-settings]]
+== BMCパスワードとLAN IP設定を変更するための新しいエンドポイント
 
-以下のエンドポイントが追加されました。link:../tenant/what-is-branch-bucket.html["ブランチバケットを管理する"] :
+以下のエンドポイントが追加され、link:../harden/hardening-guidelines-for-storagegrid-nodes.html#change-appliance-bmc-password["アプライアンスの BMC パスワードを変更する"]できるようになりました。
 
-`GET /org/containers/{branchBucketName}/branch`
+`PUT /bmc-configuration/root-password`
 
-`PUT /org/containers/{branchBucketName}/branch`
+以下のエンドポイントが追加され、link:../maintain/changing-nodes-network-configuration.html#change-appliance-node-bmc-lan-ip-settings["BMC LAN IP設定を変更または表示する"]できるようになりました。
 
+`PUT /grid/bmc/{node-id}/lan-ip-config`
 
-
-[[new-private-endpoints-for-move-adc]]
-== Move ADC の新しいプライベート エンドポイント
-
-以下のプライベートエンドポイントが追加されました。link:../maintain/move-adc-service.html["ADCサービスを移動する"]同じサイト内の 1 つのストレージ ノードから別のストレージ ノードへ:
-
-`/private/move-adc`
-
-`/private/move-adc/start`
-
-`/private/move-adc/retry`
-
-
-
-[[new-private-endpoints-for-convert-to-data-only-node]]
-== データ専用ノードへの変換用の新しいプライベート エンドポイント
-
-以下のプライベートエンドポイントが追加されました。link:../maintain/convert-to-data-only-node.html["1つまたは複数の結合ストレージノードを変換する"] ADC サービスを含まないノードをデータ専用ノードに移行します。
-
-`/private/convert-to-data-only-node`
-
-`/private/convert-to-data-only-node/start`
-
-`/private/convert-to-data-only-node/retry`
+`GET /grid/bmc/{node-id}/lan-ip-config`

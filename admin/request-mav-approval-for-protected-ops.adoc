@@ -1,0 +1,40 @@
+---
+permalink: admin/request-mav-approval-for-protected-ops.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: StorageGRID の管理者またはユーザーとして、MAV で保護された操作を StorageGRID で開始すると、リクエストが自動的に生成されます。操作には承認が必要であることを知らせるメッセージが表示されます。 
+---
+= StorageGRID でMAVで保護された操作の承認を申請する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+StorageGRID の管理者またはユーザーとして、MAV で保護された操作を StorageGRID で開始すると、リクエストが自動的に生成されます。操作には承認が必要であることを知らせるメッセージが表示されます。
+
+StorageGRID システムは、MAV によって保護される操作を定義します。MAV で保護された操作を開始すると、承認のために MAV 管理者へリクエストが送信されます。
+
+.手順
+StorageGRID システムは、MAV で保護された操作を開始したことを通知します。
+
+. 必要に応じて、以下のいずれかの作業を実行してください。
++
+.. *Configuration* > *Access control* > *Multi-admin verification* > *My requests* を選択して、リクエストのステータスを確認してください。
++
+*** *保留中*。リクエストが開始されました。
+*** *期限切れ*。リクエストは30日以内に対応されませんでした。または、Root アクセス権限を持つユーザーが MAV を無効にした場合、保留中のすべてのリクエストが期限切れになります。
+*** *取り下げ済み*。ユーザーがリクエストを取り下げました。
+*** *承認済み*。MAV管理者が保留中のリクエストを承認しました。
+*** *却下されました*。MAV管理者が保留中のリクエストを却下しました。
+
+
+.. *Configuration* > *Access control* > *Multi-admin verification* > *Other requests* を選択して、他のユーザーの保留中のリクエストを確認してください。
+.. 操作をキャンセルするには、*マイリクエスト* > *_キャンセルしたいリクエスト_* > *取り消し* を選択します。
+
+
+
+
+MAV管理者がリクエストを承認すると、操作は自動的に実行されます。
+
+リクエストが却下された場合、操作は実行されません。必要に応じて、新しいリクエストを送信できます。

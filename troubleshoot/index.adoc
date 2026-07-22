@@ -202,7 +202,7 @@ StorageGRID の処理の詳細については、監査メッセージを確認�
 テクニカルサポートに問い合わせた際に、問題のトラブルシューティングに役立つデータの収集や特定の情報の確認を求められることがあります。
  a| 
 * link:../monitor/collecting-log-files-and-system-data.html["ログファイルとシステムデータを収集"]
-* link:../monitor/manually-triggering-autosupport-message.html["AutoSupportパッケージを手動でトリガーする"]
+* link:../monitor/manually-triggering-autosupport-package.html["AutoSupportパッケージを手動でトリガーする"]
 * link:../monitor/reviewing-support-metrics.html["サポート指標を確認"]
 
 

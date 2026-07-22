@@ -43,7 +43,7 @@ Diagnostics （診断）ページが表示され、診断チェックごとの�
 +
 image:support_diagnostics_page.png["Support Diagnostics ページ"]
 
-. 特定の診断の詳細については、行の任意の場所をクリックしてください。
+. 特定の診断結果について詳しく知りたい場合は、該当する行を選択してください。
 +
 診断とその現在の結果の詳細が表示されます。以下の詳細が表示されます。
 
@@ -75,7 +75,7 @@ NOTE: *サポート* > *ツール* > *メトリック* ページの Grafana セ�
 +
 image:grafana_dashboard_nodes.png["Grafana ダッシュボードノード"]
 
-. * オプション * ：一定の期間にわたる Prometheus 式のチャートを表示するには、 * Prometheus で表示 * をクリックします。
+. *オプション*：Prometheus の式の経時的なグラフを表示するには、*Prometheus で表示*を選択します。
 +
 診断に使用された式の Prometheus グラフが表示されます。
 

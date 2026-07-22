@@ -13,7 +13,7 @@ summary: HTTPまたはHTTPSを使用してAutoSupportパッケージを送信す
 [role="lead"]
 HTTPまたはHTTPSを使用してAutoSupportパッケージを送信する場合は、管理ノードとテクニカルサポート（AutoSupport）の間に非透過型プロキシサーバを設定できます。
 
-AutoSupportの詳細については、を参照してくださいlink:configure-autosupport-grid-manager.html["AutoSupportの設定"]。
+AutoSupportの詳細については、link:../monitor/configure-autosupport-grid-manager.html["AutoSupportの設定"]を参照してください。
 
 .開始する前に
 * そうだな link:admin-group-permissions.html["特定のアクセス権限"]

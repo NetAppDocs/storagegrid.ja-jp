@@ -1,17 +1,17 @@
 ---
-permalink: admin/configure-sso.html 
+permalink: admin/configure-sso-saml.html 
 sidebar: sidebar 
 keywords: use sandbox mode for sso, how to test single sign-on 
-summary: SSO 構成ウィザードに従ってサンドボックスモードに入り、すべての StorageGRID ユーザーに対して有効にする前に、シングル サインオン（SSO）を構成してテストすることができます。SSO を有効にした後、必要に応じてサンドボックスモードに戻り、設定を変更したり再テストしたりできます。 
+summary: SAML 用の SSO 設定ウィザードに従ってサンドボックスモードに入り、すべての StorageGRID ユーザーに対して有効にする前に、シングル サインオン（SSO）の設定とテストを行うことができます。SSO を有効にした後、必要に応じてサンドボックスモードに戻り、設定を変更したり再テストしたりできます。 
 ---
-= StorageGRID で SSO を設定
+= SAMLを使用してStorageGRIDでSSOを設定する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
 
 
 [role="lead"]
-すべてのStorageGRIDユーザーに対してシングル サインオン (SSO) を有効にする前に、SSO の構成ウィザードに従ってサンドボックス モードに入り、シングル サインオン (SSO) を構成してテストすることができます。  SSO を有効にした後、構成を変更または再テストする必要がある場合は、サンドボックス モードに戻ることができます。
+SAML の SSO 設定ウィザードに従い、サンドボックスモードに入って、すべての StorageGRID ユーザーに対して有効にする前にシングル サインオン（SSO）の設定とテストを行います。SSO を有効にした後、必要に応じてサンドボックスモードに戻り、設定を変更したり再テストしたりできます。
 
 .開始する前に
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
@@ -49,10 +49,10 @@ SSO が有効な場合、ユーザが管理ノードにサインインしよう�
 * Entra ID からの応答には、ユーザー プリンシパル名 (UPN) が含まれます。
 
 
-StorageGRID (サービス プロバイダー) と SSO ID プロバイダーがユーザー認証要求について安全に通信できるようにするには、次のタスクを完了します。
+StorageGRID （サービスプロバイダー）と SSO ID プロバイダーがユーザ認証リクエストについて安全に通信できるようにするには、次のタスクを実行します。
 
 . StorageGRIDで設定を構成します。
-. SSO ID プロバイダーのソフトウェアを使用して、各管理ノードに対して証明書利用者信頼 (AD FS)、エンタープライズ アプリケーション (Entra ID)、またはサービス プロバイダー (PingFederate) を作成します。
+. SSO IDプロバイダーのソフトウェアを使用して、各管理ノードの証明書利用者信頼 （AD FS）、エンタープライズアプリケーション （Entra ID）、またはサービスプロバイダー （PingFederate） を作成します。
 . StorageGRIDに戻り、SSO を有効にします。
 
 
@@ -60,24 +60,23 @@ StorageGRID (サービス プロバイダー) と SSO ID プロバイダーが�
 
 
 
-[[access-the-wizard]]
-== ウィザードにアクセスします
+[[step-1-provide-identity-provider-details]]
+== ステップ1：IDプロバイダーの詳細を入力する
+
+ウィザードにアクセスし、「IDプロバイダーの詳細を入力する」ページの各項目を入力します。
 
 .手順
-. *構成* > *アクセス制御* > *シングル サインオン* を選択します。シングル サインオン ページが表示されます。
+. ウィザードにアクセスする：
++
+.. *構成* > *アクセス制御* > *シングル サインオン* を選択します。シングル サインオン ページが表示されます。
 +
 
 NOTE: [SSO 設定の構成] ボタンが無効になっている場合は、ID プロバイダーをフェデレーション ID ソースとして構成していることを確認します。。 link:requirements-for-sso.html["シングルサインオンの要件と考慮事項"] 。
 
-. *SSO設定の構成*を選択します。  「ID プロバイダーの詳細を提供する」ページが表示されます。
+.. *SSO設定の構成*を選択します。  「ID プロバイダーの詳細を提供する」ページが表示されます。
 
 
-
-
-[[provide-identity-provider-details]]
-== IDプロバイダーの詳細を入力する
-
-.手順
+. 「プロトコル」で「SAML」を選択します。
 . ドロップダウンリストから * SSO タイプ * を選択します。
 . SSO タイプとして Active Directory を選択した場合は、Active Directory フェデレーション サービス (AD FS) に表示されるとおりに、ID プロバイダーの *フェデレーション サービス名* を入力します。
 +
@@ -91,7 +90,7 @@ NOTE: フェデレーションサービス名を確認するには、 Windows Se
 +
 この設定を選択した場合は、カスタム証明書のテキストをコピーし、 * CA 証明書 * テキストボックスに貼り付けます。
 
-** * Do not use TLS* ： TLS 証明書を使用して接続を保護しないでください。
+** *TLS を使用しない*：接続を保護するために TLS 証明書を使用しません。
 +
 
 CAUTION: CA証明書を変更した場合は、すぐにlink:../maintain/starting-or-restarting-service.html["管理ノードでmgmt-apiサービスを再起動します。"]Grid ManagerでSSOが成功するかどうかをテストします。
@@ -103,60 +102,69 @@ CAUTION: CA証明書を変更した場合は、すぐにlink:../maintain/startin
 
 
 
-[[enter-sandbox-modeprovide-relying-party-identifier]]
-== [[enter-sandbox-mode]]証明書利用者識別子を提供する
+[[enter-sandbox-modestep-2-provide-relying-party-trusts-enterprise-applications-or-sp-connections]]
+== [[enter-sandbox-mode]]ステップ 2：依拠パーティの信頼、エンタープライズ アプリケーション、または SP 接続の提供
 
-. 選択した SSO タイプに基づいて、[証明書利用者識別子を提供する] ページのフィールドに入力します。
-+
+選択したSSOタイプに基づいて、ウィザードのステップ2の各項目を入力してください。
+
 [role="tabbed-block"]
 ====
 .Active Directory
 --
-.. StorageGRIDの *Relying party identifier* を指定します。この値は、AD FS 内の各証明書利用者信頼に使用する名前を制御します。
+「*依拠当事者識別子の提供*」の手順で、該当する項目をすべて入力してください。
+
+.手順
+. StorageGRIDの *Relying party identifier* を指定します。この値は、AD FS 内の各証明書利用者信頼に使用する名前を制御します。
 +
-*** たとえば、グリッドに管理ノードが1つしかなく、今後管理ノードを追加する予定がない場合は、または `StorageGRID`と入力し `SG`ます。
-*** グリッドに複数の管理ノードが含まれている場合は、文字列 `[HOSTNAME]`識別子内。例：  `SG-[HOSTNAME]` 。この文字列を含めると、ノードのホスト名に基づいて、グリッド内の各管理ノードの依存パーティ ID を示すテーブルが作成されます。
+** たとえば、グリッドに管理ノードが1つしかなく、今後管理ノードを追加する予定がない場合は、または `StorageGRID`と入力し `SG`ます。
+** グリッドに複数の管理ノードが含まれている場合は、文字列 `[HOSTNAME]`識別子内。例：  `SG-[HOSTNAME]` 。この文字列を含めると、ノードのホスト名に基づいて、グリッド内の各管理ノードの依存パーティ ID を示すテーブルが作成されます。
 +
 
 NOTE: 証明書利用者信頼は StorageGRID システム内の管理ノードごとに作成する必要があります。管理ノードごとに証明書利用者信頼を作成することで、ユーザは管理ノードに対して安全にサインイン / サインアウトすることができます。
 
 
 
-.. *保存してサンドボックスモードに入る*を選択します。
+. *保存してサンドボックスモードに入る*を選択します。
 
 
 --
 .エントラID
 --
-.. エンタープライズ アプリケーション セクションで、 StorageGRIDの *エンタープライズ アプリケーション名* を指定します。この値は、Entra ID 内の各エンタープライズ アプリケーションに使用する名前を制御します。
+「エンタープライズアプリケーションの構成」ステップの各項目を入力してください。
+
+.手順
+. エンタープライズ アプリケーション セクションで、 StorageGRIDの *エンタープライズ アプリケーション名* を指定します。この値は、Entra ID 内の各エンタープライズ アプリケーションに使用する名前を制御します。
 +
-*** たとえば、グリッドに管理ノードが1つしかなく、今後管理ノードを追加する予定がない場合は、または `StorageGRID`と入力し `SG`ます。
-*** グリッドに複数の管理ノードが含まれている場合は、文字列 `[HOSTNAME]`識別子内。例：  `SG-[HOSTNAME]` 。この文字列を含めると、ノードのホスト名に基づいて、システム内の各管理ノードのエンタープライズ アプリケーション名を示すテーブルが作成されます。
+** たとえば、グリッドに管理ノードが1つしかなく、今後管理ノードを追加する予定がない場合は、または `StorageGRID`と入力し `SG`ます。
+** グリッドに複数の管理ノードが含まれている場合は、文字列 `[HOSTNAME]`識別子内。例：  `SG-[HOSTNAME]` 。この文字列を含めると、ノードのホスト名に基づいて、システム内の各管理ノードのエンタープライズ アプリケーション名を示すテーブルが作成されます。
 +
 
 NOTE: StorageGRID システムで管理ノードごとにエンタープライズアプリケーションを作成する必要があります。管理ノードごとにエンタープライズアプリケーションを用意することで、ユーザはどの管理ノードに対しても安全にサインイン / サインアウトすることができます。
 
 
 
-.. 以下の手順に従ってくださいlink:../admin/creating-enterprise-application-entra-id.html["Entra IDでエンタープライズアプリケーションを作成する"]表にリストされている各管理ノードに対してエンタープライズ アプリケーションを作成します。
-.. Entra ID から、各エンタープライズ アプリケーションのフェデレーション メタデータ URL をコピーします。次に、この URL をStorageGRIDの対応する *Federation metadata URL* フィールドに貼り付けます。
-.. すべての管理ノードのフェデレーション メタデータ URL をコピーして貼り付けた後、[保存してサンドボックス モードに入る] を選択します。
+. 表に記載されている各管理ノードのエンタープライズアプリケーションを作成するには、link:../admin/creating-enterprise-application-entra-id-saml.html["Entra IDでエンタープライズアプリケーションを作成する"]の手順に従ってください。
+. Entra ID から、各エンタープライズ アプリケーションのフェデレーション メタデータ URL をコピーします。次に、この URL をStorageGRIDの対応する *Federation metadata URL* フィールドに貼り付けます。
+. すべての管理ノードのフェデレーション メタデータ URL をコピーして貼り付けた後、[保存してサンドボックス モードに入る] を選択します。
 
 
 --
 .PingFederate
 --
-.. Service Provider （ SP ；サービスプロバイダ）セクションで、 StorageGRID の * SP 接続 ID * を指定します。この値は、 PingFederate の各 SP 接続に使用する名前を制御します。
+*SP接続IDの指定*ステップのフィールドに入力します。
+
+.手順
+. Service Provider （ SP ；サービスプロバイダ）セクションで、 StorageGRID の * SP 接続 ID * を指定します。この値は、 PingFederate の各 SP 接続に使用する名前を制御します。
 +
-*** たとえば、グリッドに管理ノードが1つしかなく、今後管理ノードを追加する予定がない場合は、または `StorageGRID`と入力し `SG`ます。
-*** グリッドに複数の管理ノードが含まれている場合は、文字列 `[HOSTNAME]`識別子内。例：  `SG-[HOSTNAME]` 。この文字列を含めると、ノードのホスト名に基づいて、システム内の各管理ノードのSP接続 ID を示すテーブルが作成されます。
+** たとえば、グリッドに管理ノードが1つしかなく、今後管理ノードを追加する予定がない場合は、または `StorageGRID`と入力し `SG`ます。
+** グリッドに複数の管理ノードが含まれている場合は、文字列 `[HOSTNAME]`識別子内。例：  `SG-[HOSTNAME]` 。この文字列を含めると、ノードのホスト名に基づいて、システム内の各管理ノードのSP接続 ID を示すテーブルが作成されます。
 +
 
 NOTE: StorageGRID システムで管理ノードごとに SP 接続を作成する必要があります。管理ノードごとに SP 接続を確立することで、ユーザは管理ノードに対して安全にサインイン / サインアウトすることができます。
 
 
 
-.. 各管理ノードのフェデレーションメタデータの URL を * Federation metadata url * フィールドで指定します。
+. 各管理ノードのフェデレーションメタデータの URL を * Federation metadata url * フィールドで指定します。
 +
 次の形式を使用します。
 
@@ -165,17 +173,15 @@ NOTE: StorageGRID システムで管理ノードごとに SP 接続を作成す�
 ----
 https://<Federation Service Name>:<port>/pf/federation_metadata.ping?PartnerSpId=<SP Connection ID>
 ----
-.. *保存してサンドボックスモードに入る*を選択します。
+. *保存してサンドボックスモードに入る*を選択します。
 
 
 --
 ====
 
 
-
-
-[[configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
-== 証明書利用者信頼、エンタープライズアプリケーション、または SP 接続を設定する
+[[step-3-configure-relying-party-trusts-enterprise-applications-or-sp-connections]]
+== ステップ 3：証明書利用者の信頼、エンタープライズ アプリケーション、または SP 接続の設定
 
 構成を保存してサンドボックス モードに入ると、選択した SSO タイプの構成を完了してテストできます。
 
@@ -192,7 +198,7 @@ StorageGRID は、必要な限りサンドボックス モードのままにす�
 次の表に示す管理ノードごとに信頼を 1 つ作成する必要があります。
 
 +
-手順については、を参照してくださいlink:../admin/creating-relying-party-trusts-in-ad-fs.html["AD FS に証明書利用者信頼を作成します"]。
+手順については、link:../admin/creating-relying-party-trusts-in-ad-fs-saml.html["AD FS に証明書利用者信頼を作成します"]を参照してください。
 
 
 
@@ -209,7 +215,7 @@ StorageGRID は、必要な限りサンドボックス モードのままにす�
 
 
 . Azure ポータルに移動します。
-. 以下の手順に従ってくださいlink:../admin/creating-enterprise-application-entra-id.html["Entra IDでエンタープライズアプリケーションを作成する"]各管理ノードの SAML メタデータ ファイルを対応する Entra ID エンタープライズ アプリケーションにアップロードします。
+. link:../admin/creating-enterprise-application-entra-id-saml.html["Entra IDでエンタープライズアプリケーションを作成する"]の手順に従って、各管理ノードのSAMLメタデータファイルを対応するEntra IDエンタープライズアプリケーションにアップロードしてください。
 
 
 --
@@ -225,7 +231,7 @@ StorageGRID は、必要な限りサンドボックス モードのままにす�
 
 
 . 「 PingFederate 」に移動します。
-. link:../admin/creating-sp-connection-ping.html["StorageGRID 用に 1 つ以上の SP 接続を作成します"] 。各管理ノードのSP接続 ID ([SSO の構成] ページの表に表示) と、その管理ノード用にダウンロードした SAML メタデータを使用します。
+. link:../admin/creating-sp-connection-ping-saml.html["StorageGRID 用に 1 つ以上の SP 接続を作成します"]。各管理ノードのSP接続ID（「SSO設定」ページの表に表示）と、その管理ノード用にダウンロードしたSAMLメタデータを使用してください。
 +
 次の表に示す管理ノードごとに 1 つの SP 接続を作成する必要があります。
 
@@ -235,8 +241,8 @@ StorageGRID は、必要な限りサンドボックス モードのままにす�
 ====
 
 
-[[test-ssotest-configuration]]
-== [[test-sso]]テスト構成
+[[test-ssostep-4-test-configuration]]
+== [[test-sso]]ステップ4：設定のテスト
 
 StorageGRIDシステム全体にシングル サインオンの使用を強制する前に、各管理ノードに対してシングル サインオンとシングル ログアウトが正しく設定されていることを確認してください。
 
@@ -299,10 +305,10 @@ URL は、 [ * フェデレーションサービス名 * （ * Federation servic
 ====
 
 
-[[enable-single-sign-on]]
-== シングルサインオンを有効にします
+[[enable-sso-samlstep-5-enable-single-sign-on]]
+== [[enable-sso-saml]]ステップ5：シングル サインオンを有効にする
 
-SSO を使用して各管理ノードにサインインできることを確認したら、 StorageGRID システム全体で SSO を有効にできます。
+各管理ノードへのサインインにSSOを使用できることを確認したら、StorageGRIDシステム全体でSSOを有効にできます。
 
 
 TIP: SSO が有効になっている場合は、すべてのユーザが SSO を使用して Grid Manager 、テナントマネージャ、グリッド管理 API 、およびテナント管理 API にアクセスする必要があります。ローカルユーザは StorageGRID にアクセスできなくなります。
@@ -319,3 +325,32 @@ TIP: SSO が有効になっている場合は、すべてのユーザが SSO を
 
 
 TIP: Azure ポータルを使用しており、Entra ID にアクセスするために使用するのと同じコンピューターからStorageGRID にアクセスする場合は、Azure ポータル ユーザーが承認されたStorageGRIDユーザー ( StorageGRIDにインポートされたフェデレーション グループ内のユーザー) であることを確認するか、 StorageGRIDにサインインする前に Azure ポータルからログアウトしてください。
+
+.次の手順
+SAMLを使用してSSOを設定した後、管理ノードのIDプロバイダーを設定します。
+
+[cols="1a,2a"]
+|===
+| IDプロバイダーが… | 必要があります… 
+
+
+ a| 
+Active Directory
+ a| 
+link:creating-relying-party-trusts-in-ad-fs-saml.html["各管理ノードのアプリケーショングループを作成する"]
+
+
+
+ a| 
+エントラID
+ a| 
+link:creating-enterprise-application-entra-id-saml.html["各管理ノードのアプリケーションを作成する"]
+
+
+
+ a| 
+PingFederate
+ a| 
+link:creating-sp-connection-ping-saml.html["各管理ノードのサービスプロバイダー接続を作成する"]
+
+|===

@@ -176,7 +176,7 @@ Subject DN: /C=Country/ST=State/O=Company,Inc./CN=s3.storagegrid.example.com
 ----
 必要に応じて、ワイルドカードを使用して、ロードバランササービスを実行しているすべての管理ノードおよびゲートウェイノードの完全修飾ドメイン名を表すことができます。たとえば、は `*.storagegrid._example_.com`ワイルドカード*を使用してとを `gn1.storagegrid._example_.com`表します `adm1.storagegrid._example_.com`。
 
-S3仮想ホスト形式の要求を使用する場合は、設定した各の* Alternative Name *エントリ（ワイルドカード名も含む）も証明書に含める必要がありますlink:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名"]。例：
+S3仮想ホスト型リクエストを使用する予定の場合は、ワイルドカード名を含め、設定済みのすべてのlink:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名"]に対する*代替名*エントリも証明書に含まれている必要があります。例えば：
 
 [listing]
 ----

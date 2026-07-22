@@ -1,7 +1,7 @@
 ---
 permalink: harden/hardening-guidelines-for-storagegrid-nodes.html 
 sidebar: sidebar 
-keywords: StorageGRID, hardening guidelines, nodes, security 
+keywords: StorageGRID, hardening guidelines, nodes, security, bmc password 
 summary: StorageGRID ノードは、 VMware 仮想マシン、 Linux ホスト上のコンテナエンジン、または専用のハードウェアアプライアンスとして導入できます。プラットフォームのタイプとノードのタイプにはそれぞれ、強化に関するベストプラクティスがあります。 
 ---
 = StorageGRID ノードの保護対策のガイドライン
@@ -18,9 +18,9 @@ StorageGRID ノードは、 VMware 仮想マシン、 Linux ホスト上のコ�
 [[block-remote-ipmicontrol-remote-ipmi-access-to-bmc]]
 == [[block-remote-ipmi]] BMCへのリモートIPMIアクセスを制御する
 
-BMCを含むすべてのアプライアンスに対してリモートIPMIアクセスを有効または無効にすることができます。リモートIPMIインターフェイスを使用すると、BMCアカウントとパスワードを持つすべてのユーザが、低レベルのハードウェアからStorageGRIDアプライアンスにアクセスできます。BMCへのリモートIPMIアクセスが不要な場合は、このオプションを無効にします。
+BMC を含むすべてのアプライアンスに対して、リモート IPMI アクセスを有効または無効にすることができます。リモート IPMI インターフェイスを使用すると、BMC アカウントとパスワードを持つすべてのユーザーが StorageGRID アプライアンスへの低レベルのハードウェア アクセスを行えるようになります。BMC へのリモート IPMI アクセスが不要な場合は、このオプションを無効にしてください。
 
-* Grid Manager でBMCへのリモート IPMI アクセスを制御するには、[構成] > [セキュリティ] > [セキュリティ設定] > [アプライアンス] に移動します。
+* Grid Manager で BMC へのリモート IPMI アクセスを制御するには、*構成* > *セキュリティ* > *セキュリティ設定* > *アプライアンス* > *リモート IPMI アクセス* に移動します：
 +
 ** BMCへのIPMIアクセスを無効にするには、*リモートIPMIアクセスを有効にする*チェックボックスをオフにします。
 ** BMCへのIPMIアクセスを有効にするには、*リモートIPMIアクセスを有効にする*チェックボックスをオンにします。
@@ -29,6 +29,38 @@ BMCを含むすべてのアプライアンスに対してリモートIPMIアク�
 
 
 BMC強化の詳細については、 https://media.defense.gov/2023/Jun/14/2003241405/-1/-1/0/CSI_HARDEN_BMCS.PDF["ベースボード管理コントローラの強化"^]サイバーセキュリティ情報シート https://www.nsa.gov/["国家安全保障局（NSA）"^]そして https://www.cisa.gov/["サイバーセキュリティ・インフラストラクチャセキュリティ庁（CISA）"^]。
+
+
+
+[[change-appliance-bmc-password]]
+== アプライアンスのBMCパスワードを変更する
+
+アプライアンスの BMC パスワードを変更して、アクセスを制限し、システムのセキュリティを向上させることができます。
+
+. グリッドマネージャで、*ノード* > *_グリッドノード_* > *BMC設定* に移動します。
+. 「パスワードの変更」セクションで、*新しいパスワード*に8文字から16文字の長さの新しい BMC パスワードを入力し、*新しいパスワードの確認*にもう一度入力してください。
+. [ 保存（ Save ） ] を選択します。
+
+
+また、 `PUT /bmc-configuration/root-password` API を使用して BMC パスワードを変更することもできます。
+
+
+
+[[control-remote-access-through-usb-portscontrol-external-usb-port-access-on-appliances]]
+== [[control-remote-access-through-usb-ports]]アプライアンスの外部USBポートへのアクセスを制御する
+
+機器のUSBポートを有効にすることで、診断やトラブルシューティングのための技術サポートによるアクセスを許可できます。USBポートへのアクセスが必要ない場合は、セキュリティ上の理由からポートを無効にしてください。USBポートは、初回インストール後またはアップグレード後にデフォルトで有効になります。
+
+* Grid Manager で、*Configuration* > *Security* > *Security settings* > *Appliances* > *USB port access* に移動して、USB ポートを有効または無効にします：
++
+** 「USB ポートを有効にする」チェックボックスを選択して保存すると、ポートが有効になります。
++
+USB チェックボックスが以前にオフになって保存されていた場合は、USB ポートを再度有効にするために、*[USB ポートを有効にする]* チェックボックスを選択して保存してください。
+
+** *USBポートを有効にする* チェックボックスをオフにして保存すると、ポートが無効になります。
+
+
+
 
 
 
@@ -107,7 +139,7 @@ StorageGRID システムで管理ノードを保護するには、次のガイ�
 
 ストレージノードは、オブジェクトデータとメタデータを管理および格納します。StorageGRID システムでストレージノードを保護するには、次のガイドラインに従います。
 
-* 信頼されていないクライアントがストレージノードに直接接続することを許可しないでください。ゲートウェイノードまたはサードパーティのロードバランサによって処理されるロードバランサエンドポイントを使用します。
+* 信頼できないクライアントがストレージノードに直接接続することを許可しないでください。ゲートウェイノードまたはサードパーティ製のロードバランサーによって提供されるロードバランサーエンドポイントを使用してください。
 * 信頼されていないテナントに対してアウトバウンドサービスを有効にしないでください。たとえば、信頼されていないテナントのアカウントを作成する場合は、テナントに独自のアイデンティティソースの使用やプラットフォームサービスの使用を許可しないでください。の手順を参照してくださいlink:../admin/creating-tenant-account.html["テナントアカウントを作成する"]。
 * 信頼されないクライアントトラフィックには、サードパーティのロードバランサを使用します。サードパーティ製のロードバランシングにより、攻撃に対する制御性が向上し、追加の保護レイヤが提供されます。
 * 必要に応じて、ストレージプロキシを使用して、クラウドストレージプールとプラットフォームサービスのストレージノードから外部サービスへの通信を詳細に制御します。の手順を参照してくださいlink:../admin/configuring-storage-proxy-settings.html["ストレージプロキシの作成"]。
@@ -144,12 +176,13 @@ VLAN を確立して、 BMCネットワーク接続を分離し、 BMCインタ�
 安全で信頼できる内部管理ネットワークが利用できない場合は、 BMC管理ポートを未接続のままにするか、ブロックされたままにしておきます。テクニカル サポートでは、サポート ケース中に一時的なアクセスを要求する場合があります。
 
 * アプライアンスが Intelligent Platform Management Interface （ IPMI ）標準を使用したイーサネット経由でのコントローラハードウェアのリモート管理をサポートする場合は、ポート 623 での信頼されていないトラフィックをブロックします。
++
+また、<<block-remote-ipmi,リモートIPMIアクセスを無効にする>>。
+
 
 
 
 NOTE: BMCを含むすべてのアプライアンスに対してリモート IPMI アクセスを有効または無効にすることができます。リモート IPMI インターフェイスを使用すると、 BMCアカウントとパスワードを持つすべてのユーザーがStorageGRIDアプライアンスに低レベルのハードウェア アクセスできるようになります。  BMCへのリモート IPMI アクセスが必要ない場合は、次のいずれかの方法でこのオプションを無効にします。+ Grid Manager で、*構成* > *セキュリティ* > *セキュリティ設定* > *アプライアンス* に移動し、*リモート IPMI アクセスを有効にする* チェックボックスをオフにします。  + グリッド管理 API では、プライベート エンドポイントを使用します。 `PUT /private/bmc` 。
-
-+ また、<<block-remote-ipmi,リモートIPMIアクセスを無効にする>> 。
 
 * SANtricity System Managerで管理しているSED、FDE、またはFIPS NL-SASドライブを含むアプライアンスモデルの場合は、を参照してください https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/accessing-and-configuring-santricity-system-manager.html["SANtricityドライブセキュリティの有効化と設定"^]。
 * StorageGRIDアプライアンスインストーラおよびグリッドマネージャを使用して管理するSEDまたはFIPS NVMe SSDを搭載したアプライアンスモデルの場合、 https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/optional-enabling-node-encryption.html#enable-drive-encryption["StorageGRIDドライブ暗号化の有効化と設定"^] 。

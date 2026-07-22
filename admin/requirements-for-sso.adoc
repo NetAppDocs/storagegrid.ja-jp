@@ -18,13 +18,33 @@ StorageGRID システムでシングルサインオン（SSO）を有効にす�
 [[identity-provider-requirements]]
 == アイデンティティプロバイダの要件
 
-StorageGRID では、次の SSO アイデンティティプロバイダ（ IdP ）をサポートしています。
+StorageGRID は複数の SSO ID プロバイダー（IdP）をサポートしています。
+
+[role="tabbed-block"]
+====
+.OIDC
+--
+以下の SSO IdPs は OpenID Connect （OIDC） でサポートされています：
+
+* Active Directory フェデレーションサービス（ AD FS ）
+* Microsoft Entra ID
+* Keycloak
+* PingFederate
+* Okta
+
+
+--
+.SAML
+--
+以下の SSO IdPs は、Security Assertion Markup Language 2.0 （SAML 2.0） でサポートされています：
 
 * Active Directory フェデレーションサービス（ AD FS ）
 * Microsoft Entra ID
 * PingFederate
 
 
+--
+====
 SSO アイデンティティプロバイダを設定する前に、 StorageGRID システムのアイデンティティフェデレーションを設定する必要があります。アイデンティティフェデレーションに使用する LDAP サービスのタイプによって、実装できる SSO のタイプが制御されます。
 
 [cols="1a,1a"]
@@ -36,6 +56,8 @@ SSO アイデンティティプロバイダを設定する前に、 StorageGRID 
 Active Directory
  a| 
 * Active Directory
+* Keycloak
+* Okta
 * エントラID
 * PingFederate
 

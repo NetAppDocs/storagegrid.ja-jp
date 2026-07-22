@@ -1,0 +1,29 @@
+---
+permalink: admin/manage-mav-protected-ops-requests.html 
+sidebar: sidebar 
+keywords: multi-admin verification, mav 
+summary: MAV 管理者として、StorageGRID で MAV で保護された操作のリクエストを管理できます。自分または他のユーザーの保留中のリクエストを表示したり、リクエストを承認または拒否したり、過去のリクエスト履歴を表示したりできます。 
+---
+= StorageGRID で MAV で保護された操作リクエストを管理する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+MAV 管理者として、StorageGRID で MAV で保護された操作のリクエストを管理できます。自分または他のユーザーの保留中のリクエストを表示したり、リクエストを承認または拒否したり、過去のリクエスト履歴を表示したりできます。
+
+.開始する前に
+* あなたは MAV 管理者グループに属しており、link:../admin/admin-group-permissions.html["rootアクセス権限"] を持っています。
+* プライマリ管理ノードからGrid Managerにサインインしています。
+
+
+.手順
+. MAVリクエストに関するメール通知を受け取った場合は、「Configuration」>「Multi-admin verification」>「Other requests」を選択してください。
++
+さらに、グリッドマネージャーのダッシュボードには、保留中のMAVリクエストに関する通知が表示されます。
+
+. 管理する各リクエストのラジオボタンを選択してください。
+. 選択したリクエストを承認または拒否するには、*承認*または*拒否*を選択してください。
+. 過去のリクエスト履歴を表示するには、*履歴*を選択してください。
+

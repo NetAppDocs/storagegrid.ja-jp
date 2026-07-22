@@ -11,10 +11,12 @@ indexpage:
   tiles:
   - title: 開始する
     links:
+    - title: Web ブラウザの要件
+      url: "../admin/web-browser-requirements.html"
     - title: Grid Manager にサインインします
       url: "../admin/signing-in-to-grid-manager.html"
-    - title: AutoSupportの設定
-      url: "../admin/configure-autosupport-grid-manager.html"
+    - title: Grid Manager からサインアウトします
+      url: "../admin/signing-out-of-grid-manager.html"
     - title: グリッド管理 API を使用します
       url: "../admin/using-grid-management-api.html"
   - title: 管理者グループとユーザの管理
@@ -23,8 +25,8 @@ indexpage:
       url: "../admin/using-identity-federation.html"
     - title: 管理者グループを管理する
       url: "../admin/managing-admin-groups.html"
-    - title: 管理者グループの権限
-      url: "../admin/admin-group-permissions.html"
+    - title: 複数管理者による認証について学ぶ
+      url: "../admin/about-multi-admin-verify.html"
     - title: シングルサインオンを設定します
       url: "../admin/how-sso-works.html"
   - title: グリッドフェデレーションを使用する
@@ -37,6 +39,8 @@ indexpage:
       url: "../admin/grid-federation-create-connection.html"
     - title: 許可されたテナントを管理する
       url: "../admin/grid-federation-manage-tenants.html"
+    - title: グローバル名前空間を設定する
+      url: "../admin/configure-global-namespace.html"
   - title: クライアント接続とテナントの管理
     links:
     - title: S3エンドポイントのドメイン名を設定

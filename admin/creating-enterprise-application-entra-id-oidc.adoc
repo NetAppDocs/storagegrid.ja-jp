@@ -1,0 +1,109 @@
+---
+permalink: admin/creating-enterprise-application-entra-id-oidc.html 
+sidebar: sidebar 
+keywords: enterprise application, entra id, single sign on, sso 
+summary: Entra IDを使用して、システム内の各管理ノードに対応するアプリケーションを作成します。 
+---
+= StorageGRID の OIDC 向け Entra ID でエンタープライズアプリケーションを作成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+Entra IDを使用して、システム内のOpenID Connect（OIDC）用管理ノードごとにエンタープライズアプリケーションを作成します。
+
+.開始する前に
+* システム内の各管理ノードについて、証明書利用者識別子と完全修飾ドメイン名（FQDN）またはIPアドレスを確認しておく必要があります。
++
+
+NOTE: StorageGRID システムの各管理ノードには、エンタープライズアプリケーションが必要です。これにより、ユーザーはどの管理ノードにも安全にサインインおよびサインアウトできるようになります。すべての管理ノードに対して単一のエンタープライズアプリケーションを作成すること（推奨）も、管理ノードごとに異なるエンタープライズアプリケーションを作成することもできます。
+
+* Entra ID でアプリケーションを作成した経験があります。
+* 有効なサブスクリプションを持つ Entra ID アカウントをお持ちです。
+* Entra ID アカウントには、グローバル管理者、クラウド アプリケーション管理者、アプリケーション管理者、またはサービス プリンシパルの所有者のいずれかのロールがあります。
+
+
+
+
+[[step-1-access-entra-id]]
+== ステップ1：Entra ID にアクセスする
+
+.手順
+. にログインし https://portal.azure.com["Azure ポータル"^]ます。
+. link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/Overview["Microsoft Entra ID"^]を選択します。
+. link:https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps["アプリ登録"^]を選択します。
+
+
+
+
+[[step-2-register-a-new-application]]
+== ステップ2：新しいアプリケーションを登録する
+
+システム内の各管理ノードに対して、新しいエンタープライズアプリケーションを登録してください。
+
+.手順
+. Entra ID Enterprise アプリケーション ペインで、「アプリケーション登録」 > 「新規登録」を選択します。
+. *名前*には、依拠当事者識別子を入力してください。
+. *サポートされているアカウントの種類* の下で、アプリケーションを使用したり API にアクセスしたりできるアカウントの種類を選択します。たとえば、*シングルテナントのみ - <tenant_name>*。
+. 「リダイレクトURI」で、「プラットフォームを選択」>「Web」を選択します。
+. 管理ノードのFQDN（またはIPアドレス）リダイレクトURIを入力してください： `https://<FQDN>/api/v4/oidc-callback`または `https://<IP_address>/api/v4/oidc-callback`
++
+すべての管理ノードに同じエンタープライズアプリケーションを使用している場合は、各管理ノードのURIを入力してください。各管理ノードごとに異なるエンタープライズアプリケーションを使用している場合は、対応する管理ノードのURIのみを入力してください。
+
+. 「登録」を選択します。
+. 新規アプリケーション登録の概要ページで、*アプリケーション（クライアント）ID* と *ディレクトリ（テナント）ID* を記録してください。
+
+
+
+
+[[step-3-configure-a-client-secret]]
+== ステップ3：クライアントシークレットを設定する
+
+新しいアプリケーションごとにクライアントシークレットを登録してください。
+
+.手順
+. 新しいアプリケーション登録の概要ページで、*管理* > *証明書とシークレット* > *新しいクライアントシークレット* を選択します。
+. クライアントシークレットを入力し、希望する有効期限を設定してください。
+. クライアントシークレットを作成するには、*追加*を選択します。
+. 秘密の*値*をコピーします。
++
+
+NOTE: クライアントシークレットページを更新したり、別のページに移動したりすると、シークレットの値は表示されなくなります。
+
+
+
+
+
+[[step-4-set-up-the-api-permissions]]
+== ステップ4：API権限を設定する
+
+各新規アプリケーションのAPI権限を設定します。
+
+.手順
+. 新しいアプリケーション登録の概要ページで、*管理* > *API権限* > *権限の追加* を選択します。
+. 「Microsoft APIs」>「Microsoft Graph」>「Delegated permissions」を選択します。
+. *OpenId permissions* を展開し、*email*、*offline_access*、*openid*、*profile* を選択します。
+. 「権限を追加」を選択します。
+. *<tenant> に管理者の同意を付与する*を選択し、*はい*を選択します。
+
+
+
+
+[[step-5-add-the-logged-out-redirect-uri]]
+== ステップ5：ログアウト後のリダイレクトURIを追加する
+
+新規アプリケーションごとに、ログアウト後のリダイレクトURIを追加してください。
+
+.手順
+. 新規アプリケーション登録の概要ページで、*Manage* > *Authentication* を選択します。
+. 「リダイレクトURIの追加」 > 「Web」を選択します。
+. 管理ノードの FQDN（または IP アドレス）リダイレクト URI を入力してください： `https://<FQDN>/api/v4/oidc-logged-out`または `https://<IP_address>/api/v4/oidc-logged-out`
++
+すべての管理ノードに同じアプリケーショングループを使用している場合は、各管理ノードのURIを入力してください。各管理ノードに異なるアプリケーショングループを使用している場合は、対応する管理ノードのURIのみを入力してください。
+
+. 「設定」を選択します。
+
+
+.次の手順
+エンタープライズアプリケーションを作成した後、link:configure-sso-oidc.html["OIDCを使用してSSOを構成する"]。

@@ -1,0 +1,96 @@
+---
+permalink: admin/creating-relying-party-trusts-in-ad-fs-oidc.html 
+sidebar: sidebar 
+keywords: application group, active directory, ad fs, single sign on, sso 
+summary: 'システム内の各管理ノードに対してアプリケーショングループを作成するには、Active Directory Federation Services (AD FS) を使用する必要があります。' 
+---
+= StorageGRID の AD FS に OIDC 用のアプリケーショングループを作成する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+システム内のOpenID Connect（OIDC）用管理ノードごとにアプリケーショングループを作成するには、Active Directory Federation Services（AD FS）を使用する必要があります。
+
+.開始する前に
+* システム内の各管理ノードについて、完全修飾ドメイン名（またはIPアドレス）と証明書利用者識別子が必要です。
++
+
+NOTE: StorageGRID システムの各管理ノードには、アプリケーショングループが必要です。これにより、ユーザーはどの管理ノードにも安全にサインインおよびサインアウトできます。すべての管理ノードに対して単一のアプリケーショングループを作成するか（推奨）、管理ノードごとに異なるアプリケーショングループを作成することができます。
+
+* AD FSでアプリケーショングループを作成した経験があるか、Microsoft AD FSのドキュメントにアクセスできる環境にあること。
+* AD FS 管理スナップインを使用していて、 Administrators グループに属している必要があります。
+
+
+.タスクの内容
+これらの手順は、Windows Server 2022 AD FS に適用されます。AD FS の異なるバージョンを使用している場合は、手順に若干の違いがあります。ご不明な点がある場合は、Microsoft AD FS のドキュメントを参照してください。
+
+
+
+[[step-1-create-an-application-group]]
+== ステップ1：アプリケーショングループを作成する
+
+Windows PowerShell を使用して、アプリケーショングループを迅速に作成できます。
+
+.手順
+. Windows Server Manager で、 * Tools * > * AD FS Management * を選択します。
+. 「Application Groups」>「Add Application Group」を選択します。
+. *名前*には、依拠当事者識別子を入力してください。
+. テンプレートで、「クライアント/サーバーアプリケーション」>「Web APIにアクセスするサーバーアプリケーション」を選択します。
+. 「 * 次へ * 」を選択します。
+. クライアント識別子の値を記録してください。
+. *リダイレクトURI* に、管理ノードの FQDN （または IP アドレス） `callback`および `logged-out` URI を入力します：
++
+** `https://<FQDN>/api/v4/oidc-callback` または `https://<IP_address>/api/v4/oidc-callback`
+** `https://<FQDN>/api/v4/oidc-logged-out` または `https://<IP_address>/api/v4/oidc-logged-out`
+
+
++
+すべての管理ノードに同じアプリケーショングループを使用している場合は、各管理ノードのURIを入力してください。各管理ノードに異なるアプリケーショングループを使用している場合は、対応する管理ノードのURIのみを入力してください。
+
+. 「 * 追加」を選択します。
+. 「共有シークレットを生成」を選択し、「シークレット」の値を記録してから、「次へ」を選択します。
+. *Identifier* のクライアント識別子を入力してください。
+. 「追加」を選択し、次に「次へ」を選択します。
+. 「全員を許可する」を選択します。
+. *クライアントアプリケーション（呼び出し元）* でサーバーアプリケーションが選択されていることを確認してください。
+. *許可されたスコープ* で、以下のオプションのみが選択されていることを確認してください：
++
+** allatclaims
+** email
+** openid
+** プロフィール
+
+
+. 「次へ」>「次へ」を選択します。
+. *閉じる*を選択します。
+
+
+
+
+[[step-2-configure-issuance-transform-rules]]
+== ステップ2：発行変換ルールを設定する
+
+アプリケーショングループごとに発行変換ルールを設定します。
+
+.手順
+. 「AD FS Management」ページで、アプリケーショングループを右クリックし、「Properties」を選択します。
+. 以前に作成した Web API を選択し、*編集* を選択します。
+. 「発行変換ルール」>「ルールの追加…」を選択します。
+. 「クレームルールテンプレート：」で、「Send LDAP Attribute as Claims」を選択します。
+. 「 * 次へ * 」を選択します。
+. クレームルール名を入力してください。
+. 属性ストアとして *Active Directory* を選択します。
+. 送信クレームタイプにLDAP属性マッピングを追加します：
++
+** `E-Mail Addresses - E-Mail Address`
+** `Token-Groups - Unqualified Names - Group`
+
+
+. [ 完了 ] を選択します。
+. *Apply* > *OK* > *OK* を選択します。
+
+
+.次の手順
+アプリケーショングループを作成した後、link:configure-sso-oidc.html["OIDCを使用してSSOを構成する"]。

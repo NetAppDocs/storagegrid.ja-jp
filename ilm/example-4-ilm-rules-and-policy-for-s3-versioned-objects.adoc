@@ -24,9 +24,6 @@ CAUTION: 以下の ILM ルールとポリシーは一例にすぎません。ILM
 
 NOTE: 最新でないバージョンのオブジェクトに対してILMポリシーのシミュレーションを実行するには、オブジェクトバージョンのUUIDまたはCBIDを確認しておく必要があります。UUIDとCBIDを確認するには、オブジェクトが最新の状態でを使用しますlink:verifying-ilm-policy-with-object-metadata-lookup.html["オブジェクトメタデータの検索"]。
 
-.関連情報
-link:how-objects-are-deleted.html["オブジェクトの削除方法"]
-
 
 
 [[ilm-rule-1-for-example-4-save-three-copies-for-10-years]]
@@ -79,7 +76,7 @@ ILM ルール 1 ではすべてのバージョンのオブジェクトが環境 
 
 「noncurrent time」を参照時間として使用するルールを作成するには、「Apply this rule to older object versions only（S3バケットでバージョン管理が有効になっている場合）？」で* Yes *を選択します。 [Create an ILM rule]ウィザードの[Step 1（Enter details）]で、* Yes *を選択すると、参照時間として_noncurrent time_が自動的に選択され、別の参照時間を選択することはできません。
 
-image:ilm-rule-apply-only-to-older-object-verions.png["古いバージョンのオブジェクトにのみILMルールを適用（最新でない時間）"]
+image:ilm_rule_apply_only_to_older_object_verions.png["古いバージョンのオブジェクトにのみILMルールを適用（最新でない時間）"]
 
 この例では、最新でないバージョンのコピーが 2 つだけ格納され、その期間は 2 年間です。
 
@@ -139,3 +136,6 @@ NOTE: 「noncurrent time」ルールは、ポリシー内で現在のオブジ�
 * 最新でないオブジェクトバージョンがすべて最初のルールに一致します。最新でないオブジェクトバージョンが 2 年以上経過している場合は、 ILM によって完全に削除されます（最新でないバージョンのコピーがすべてグリッドから削除されます）。
 * 現在のオブジェクトバージョンが 2 つ目のルールに一致します。現在のオブジェクトバージョンが10年間格納されている場合、ILMプロセスはオブジェクトの現在のバージョンとして削除マーカーを追加し、以前のオブジェクトバージョンを「noncurrent」にします。次回のILM評価では、この最新でないバージョンが最初のルールに一致します。その結果、サイト3のコピーがパージされ、サイト1とサイト2の2つのコピーがさらに2年間格納されます。
 
+
+.関連情報
+link:how-objects-are-deleted.html["オブジェクトの削除方法"]

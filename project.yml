@@ -10,8 +10,10 @@ settings:
     harmony_enabled: false
     hide_language_selector: false
   versions:
-  - version-number: '12.0'
+  - version-number: '12.1'
     url: "/storagegrid"
+  - version-number: '12.0'
+    url: "/storagegrid-120"
   - version-number: '11.9'
     url: "/storagegrid-119"
   - version-number: '11.8'
@@ -25,13 +27,13 @@ settings:
   langs: ja-jp,us-en,de-de,es-es,fr-fr,it-it,pt-br,ko-kr,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: StorageGRID 12.0 ソフトウェア
+  - title: StorageGRID 12.1 ソフトウェア
     url: "/index.html"
   - title: StorageGRIDアプライアンス
     url: "/swnodes/storagegrid-hardware.html"
   - title: リリースノート
     entries:
-    - title: StorageGRID 12.0の新機能
+    - title: StorageGRID 12.1の新機能
       url: "/release-notes/whats-new.html"
     - title: 削除または非推奨となった機能
       url: "/release-notes/removed-or-deprecated-features.html"
@@ -39,6 +41,8 @@ sidebar:
       url: "/release-notes/changes-to-grid-management-api.html"
     - title: テナント管理 API に変更が加えられました
       url: "/release-notes/changes-to-tenant-management-api.html"
+    - title: S3 REST APIサポートの変更点
+      url: "/release-notes/changes-to-s3-rest-api.html"
   - title: 開始する
     url: "/landing-get-started/index.html"
     entries:
@@ -269,22 +273,20 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-appliance-storage-node.html"
         - title: アプライアンスストレージボリュームの再マウントと再フォーマット（手動手順）
           url: "/maintain/remounting-and-reformatting-appliance-storage-volumes.html"
-        - title: アプライアンスのストレージボリュームにオブジェクトデータをリストアします
+        - title: オブジェクトデータをアプライアンスのストレージボリュームに復元する
           url: "/maintain/restoring-object-data-to-storage-volume-for-appliance.html"
         - title: アプライアンスストレージノードのリカバリ後にストレージの状態を確認します
           url: "/maintain/checking-storage-state-after-recovering-sga.html"
       - title: システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします
+        pdf-filename: システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします
         entries:
-        - title: リカハリタスク
-          pdf-filename: システムドライブに損傷がない場合は、ストレージボリューム障害からリカバリします
-          url: "/maintain/recovering-from-storage-volume-failure-where-system-drive-is-intact.html"
         - title: ストレージボリュームのリカバリに関する警告
           url: "/maintain/reviewing-warnings-about-storage-volume-recovery.html"
         - title: 障害ストレージボリュームを特定してアンマウントします
           url: "/maintain/identifying-and-unmounting-failed-storage-volumes.html"
         - title: 障害ストレージボリュームをリカバリし、 Cassandra データベースを再構築します
           url: "/maintain/recovering-failed-storage-volumes-and-rebuilding-cassandra-database.html"
-        - title: システムドライブに損傷がない場合は、オブジェクトデータをストレージボリュームにリストアします
+        - title: システムドライブが損傷していない StorageGRID ボリュームへのオブジェクトデータの復元
           url: "/maintain/restoring-object-data-to-storage-volume-where-system-drive-is-intact.html"
         - title: ストレージボリュームのリカバリ後にストレージの状態を確認します
           url: "/maintain/checking-storage-state-after-recovering-storage-volumes.html"
@@ -298,23 +300,19 @@ sidebar:
           url: "/maintain/selecting-start-recovery-to-configure-storage-node.html"
         - title: ストレージボリュームの再マウントと再フォーマット（手動手順）
           url: "/maintain/remounting-and-reformatting-storage-volumes-manual-steps.html"
-        - title: オブジェクトデータをストレージボリュームにリストアする（システムドライブの障害）
+        - title: オブジェクトデータをストレージボリュームに復元する
           url: "/maintain/restoring-object-data-to-storage-volume.html"
         - title: ストレージノードシステムドライブのリカバリ後にストレージの状態を確認します
           url: "/maintain/checking-storage-state-after-recovering-storage-node-system-drive.html"
-      - title: Grid Managerを使用してオブジェクトデータをリストアする
-        url: "/maintain/restoring-volume.html"
-      - title: repair-dataジョブを監視します
-        url: "/maintain/monitor-repairs.html"
     - title: 管理ノードの障害からリカバリ
       entries:
       - title: プライマリまたは非プライマリ管理ノード
         pdf-filename: 管理ノードの障害からリカバリ
         url: "/maintain/recovering-from-admin-node-failures.html"
-      - title: プライマリ管理ノードの障害からリカバリします
+      - title: 同じプライマリ管理ノードを使用してプライマリ管理ノードの障害から復旧する
         entries:
-        - title: プライマリ管理ノードのリカバリ
-          pdf-filename: プライマリ管理ノードの障害からリカバリします
+        - title: 同じプライマリ管理ノードを使用してプライマリ管理ノードを復旧する
+          pdf-filename: 同じプライマリ管理ノードを使用してプライマリ管理ノードを復旧する
           url: "/maintain/recovering-from-primary-admin-node-failures.html"
         - title: 障害が発生したプライマリ管理ノードから監査ログをコピーする
           url: "/maintain/copying-audit-logs-from-failed-primary-admin-node.html"
@@ -330,6 +328,23 @@ sidebar:
           url: "/maintain/restoring-admin-node-database-primary-admin-node.html"
         - title: プライマリ管理ノードをリカバリする際の Prometheus 指標のリストア
           url: "/maintain/restoring-prometheus-metrics-primary-admin-node.html"
+      - title: プライマリ管理ノードの障害から非プライマリ管理ノードを使用して復旧する
+        entries:
+        - title: プライマリ管理ノードを非プライマリ管理ノードを使用して復旧する
+          pdf-filename: プライマリ管理ノードを非プライマリ管理ノードを使用して復旧する
+          url: "/maintain/recovering-from-primary-admin-node-failures-using-npan.html"
+        - title: 障害が発生したプライマリ管理ノードから監査ログをコピーする
+          url: "/maintain/copying-audit-logs-from-failed-primary-admin-node-using-npan.html"
+        - title: プライマリ管理ノードを交換
+          url: "/maintain/replacing-primary-admin-node-using-npan.html"
+        - title: プライマリ管理ノードを設定するには、「リカバリの開始」を選択します。
+          url: "/maintain/selecting-start-recovery-to-configure-primary-admin-node.html"
+        - title: プライマリ管理ノードのホットフィックスの要件を確認
+          url: "/maintain/assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html"
+        - title: リカバリされたプライマリ管理ノードで監査ログをリストアする
+          url: "/maintain/restoring-audit-log-on-recovered-primary-admin-node-using-npan.html"
+        - title: プライマリ管理ノードをリカバリする際の Prometheus 指標のリストア
+          url: "/maintain/restoring-prometheus-metrics-primary-admin-node-using-npan.html"
       - title: 非プライマリ管理ノードの障害からリカバリします
         entries:
         - title: 非プライマリ管理ノードのリカバリ
@@ -369,8 +384,10 @@ sidebar:
         url: "/maintain/restoring-existing-nodes.html"
       - title: 次の手順：必要に応じて追加のリカバリ手順を実行します
         url: "/maintain/whats-next-performing-additional-recovery-steps-if-required.html"
-    - title: VMwareノードの交換
+    - title: VMwareノードをリカバリノードに置き換える
       url: "/maintain/all-node-types-replacing-vmware-node.html"
+    - title: VMwareノードをSG1000またはSG100に交換する
+      url: "/maintain/replace-vmware-node-with-sg1000-sg100.html"
     - title: 障害が発生したノードをサービスアプライアンスと交換します
       entries:
       - title: コウカンノガイドライン

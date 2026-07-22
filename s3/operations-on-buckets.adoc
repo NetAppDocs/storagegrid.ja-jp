@@ -2,7 +2,7 @@
 permalink: s3/operations-on-buckets.html 
 sidebar: sidebar 
 keywords: bucket, buckets, operations on buckets 
-summary: StorageGRIDシステムでは、S3テナントアカウントごとに最大5、000個のバケットがサポートされます。 
+summary: StorageGRID システムは、S3 テナントアカウントごとに最大 20,000 個のバケットをサポートします。 
 ---
 = StorageGRIDにおけるS3バケットの操作と実装の詳細
 :allow-uri-read: 
@@ -11,15 +11,15 @@ summary: StorageGRIDシステムでは、S3テナントアカウントごとに�
 
 
 [role="lead"]
-StorageGRIDシステムでは、S3テナントアカウントごとに最大5、000個のバケットがサポートされます。
+StorageGRID システムは、S3 テナントアカウントごとに最大 20,000 個のバケットをサポートします。
 
 各グリッドには、最大100,000個のバケットを含めることができます。
 
-5、000バケットをサポートするには、グリッド内の各ストレージノードに64GB以上のRAMが必要です。
+複数のテナントがそれぞれ最大5,000個のバケットを持つ場合、グリッド内の各ストレージノードは最低64 GBのRAMを搭載する必要があります。
 
-バケット名にはAWS US Standardリージョンの制限事項が適用されますが、S3仮想ホスト形式の要求をサポートするためにDNSの命名規則にも制限する必要があります。
+バケット名の制限は AWS US Standard リージョンの制限に従いますが、S3 仮想ホスト型リクエストをサポートするために、さらに DNS 命名規則に基づいて制限する必要があります。
 
-詳細については、次を参照してください。
+詳細については、以下を参照してください。
 
 * https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html["Amazon Simple Storage Serviceユーザガイド：バケットのクォータ、制限事項"^]
 * link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名を設定"]
@@ -27,7 +27,7 @@ StorageGRIDシステムでは、S3テナントアカウントごとに最大5、
 
 ListObjects (GET Bucket) および ListObjectVersions (GET Bucket object versions) オペレーションはStorageGRIDをサポートしますlink:consistency.html["整合性の値"]。
 
-最終アクセス時間の更新が個々のバケットで有効になっているか無効になっているかを確認することができます。を参照して link:get-bucket-last-access-time-request.html["GET Bucket last access time のように指定します"]
+個々のバケットについて、最終アクセス時刻の更新が有効になっているか無効になっているかを確認できます。link:get-bucket-last-access-time-request.html["GET Bucket last access time のように指定します"]を参照してください。
 
 次の表に、 StorageGRID での S3 REST API バケット処理の実装方法を示します。これらの処理を実行するには、アカウントに必要なアクセスクレデンシャルが付与されている必要があります。
 
@@ -41,6 +41,8 @@ CreateBucket
  a| 
 新しいバケットを作成します。バケットを作成すると、そのバケットの所有者になります。
 
+*注*：S3ディレクトリバケットはサポートされていません。
+
 * バケット名は次のルールを満たす必要があります。
 +
 ** StorageGRID システム全体で（テナントアカウント内だけではなく）一意である必要があります。
@@ -53,11 +55,14 @@ CreateBucket
 
 * デフォルトではリージョン内にバケットが作成され `us-east-1`ますが、要求の本文のrequest要素を使用して別のリージョンを指定できます `LocationConstraint`。要素を使用する場合 `LocationConstraint`は、Grid Managerまたはグリッド管理APIを使用して定義されたリージョンの正確な名前を指定する必要があります。使用するリージョン名がわからない場合は、システム管理者にお問い合わせください。
 +
-*注*：CreateBucket要求がStorageGRIDで定義されていないリージョンを使用すると、エラーが発生します。
+*注*：CreateBucketリクエストで StorageGRID に定義されていないリージョンを使用すると、エラーが発生します。
 
-* 要求ヘッダーを指定して、S3オブジェクトロックを有効にしたバケットを作成できます `x-amz-bucket-object-lock-enabled`。を参照して link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+*  `x-amz-bucket-object-lock-enabled`リクエストヘッダーを含めることで、S3 Object Lockを有効にしたバケットを作成できます。link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]を参照してください。
 +
-バケットの作成時に S3 オブジェクトのロックを有効にする必要があります。バケットの作成後にS3オブジェクトロックを追加または無効にすることはできません。S3 オブジェクトロックにはバケットのバージョン管理が必要です。バケットの作成時に自動的に有効になります。
+S3オブジェクトロックにはバケットのバージョン管理が必要ですが、S3オブジェクトロックを有効にしてバケットを作成すると、自動的に有効になります。
+
++
+S3オブジェクトロックは、バケット作成時または後から有効にすることができます。
 
 
 
@@ -87,7 +92,7 @@ DeleteBucketEncryption
  a| 
 DeleteBucketLifecycle
  a| 
-バケットからライフサイクル設定を削除します。を参照して link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]
+バケットからライフサイクル設定を削除します。link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]を参照してください。
 
 
 
@@ -110,7 +115,7 @@ DeleteBucketTagging
  a| 
 サブリソースを使用し `tagging`てバケットからすべてのタグを削除します。
 
-*注意*：このバケットにデフォルト以外のILMポリシータグが設定されている場合は、値が割り当てられたバケットタグがあります `NTAP-SG-ILM-BUCKET-TAG`。バケットタグがある場合は、DeleteBucketTagging要求を実行しない `NTAP-SG-ILM-BUCKET-TAG`でください。代わりに、タグとその割り当てられた値のみを指定してPutBucketTagging要求を発行し `NTAP-SG-ILM-BUCKET-TAG`、他のすべてのタグをバケットから削除します。バケットタグを変更または削除しないで `NTAP-SG-ILM-BUCKET-TAG`ください。
+*注意*：このバケットにデフォルト以外の ILM ポリシータグが設定されている場合、値が割り当てられた `NTAP-SG-ILM-BUCKET-TAG`バケットタグが存在します。 `NTAP-SG-ILM-BUCKET-TAG`バケットタグが存在する場合は、DeleteBucketTaggingリクエストを発行しないでください。代わりに、 `NTAP-SG-ILM-BUCKET-TAG`タグとその割り当てられた値のみを指定してPutBucketTaggingリクエストを発行し、バケットから他のすべてのタグを削除してください。 `NTAP-SG-ILM-BUCKET-TAG`バケットタグを変更または削除しないでください。
 
 
 
@@ -140,14 +145,14 @@ GetBucketLifecycleConfiguration
 
 （以前のGET Bucket lifecycle）
  a| 
-バケットのライフサイクル設定を返します。を参照して link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]
+バケットのライフサイクル構成を返します。link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]を参照してください。
 
 
 
  a| 
 GetBucketLocation
  a| 
-CreateBucket要求の要素を使用して設定されたリージョンを返します `LocationConstraint`。バケットのリージョンがの場合は、リージョンに対して空の文字列が `us-east-1`返されます。
+ `LocationConstraint`要素を使用して CreateBucket リクエストで設定されたリージョンを返します。バケットのリージョンが `us-east-1`（デフォルト）の場合、 `LocationConstraint`には空の値が返されます。
 
 
 
@@ -179,7 +184,7 @@ GetBucketTagging
  a| 
 サブリソースを使用し `tagging`てバケットのすべてのタグを返します。
 
-*注意*：このバケットにデフォルト以外のILMポリシータグが設定されている場合は、値が割り当てられたバケットタグがあります `NTAP-SG-ILM-BUCKET-TAG`。このタグを変更または削除しないでください。
+*注意*：このバケットにデフォルト以外の ILM ポリシータグが設定されている場合、値が割り当てられた `NTAP-SG-ILM-BUCKET-TAG`バケットタグが存在します。このタグは変更または削除しないでください。
 
 
 
@@ -200,7 +205,7 @@ GetObjectLockConfigurationの略
  a| 
 バケットのデフォルトの保持モードとデフォルトの保持期間（設定されている場合）を返します。
 
-を参照して link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]
+link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]を参照してください。
 
 
 
@@ -285,7 +290,7 @@ StorageGRID では、次のアクションはサポートされません。
 * 移行
 
 
-を参照して link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]バケットライフサイクルのExpirationアクションとILMの配置手順の相互作用については、を参照してくださいlink:../ilm/how-ilm-operates-throughout-objects-life.html["オブジェクトのライフサイクル全体にわたる ILM の動作"]。
+link:create-s3-lifecycle-configuration.html["S3 ライフサイクル設定を作成する"]を参照してください。バケットライフサイクルの有効期限アクションがILM配置指示とどのように相互作用するかを理解するには、link:../ilm/how-ilm-operates-throughout-objects-life.html["オブジェクトのライフサイクル全体にわたる ILM の動作"]を参照してください。
 
 * 注：バケットライフサイクル設定は S3 オブジェクトロックが有効なバケットで使用できますが、従来の準拠バケットではバケットライフサイクル設定がサポートされません。
 
@@ -336,7 +341,7 @@ PutBucketNotificationConfigurationの略
  a| 
 PutBucketPolicy
  a| 
-バケットに添付されたポリシーを設定します。見るlink:use-access-policies.html["バケットとグループのアクセスポリシーを使用"] 。
+バケットに適用されるポリシーを設定します。link:use-access-policies.html["バケットとグループのアクセスポリシーを使用"]を参照してください。
 
 
 
@@ -345,10 +350,10 @@ PutBucketReplicationの略
  a| 
 要求の本文に含まれるレプリケーション設定XMLを使用してバケットを設定しますlink:../tenant/understanding-cloudmirror-replication-service.html["StorageGRID CloudMirrorレプリケーション"]。CloudMirror レプリケーションについては、実装に関する次の詳細事項に注意してください。
 
-* StorageGRID では、 V1 のレプリケーション設定のみがサポートされます。これは、StorageGRIDがルールに要素を使用することをサポートして `Filter`おらず、オブジェクトバージョンの削除に関するV1の規則に従います。詳細については、を参照してください https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html["Amazon Simple Storage Serviceユーザガイド：レプリケーションの設定"^]。
+* StorageGRID はレプリケーション構成の V1 のみをサポートしています。つまり、StorageGRID はルールに対して `Filter`要素の使用をサポートしておらず、オブジェクトバージョンの削除については V1 の規約に従います。詳細については、 https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html["Amazon Simple Storage Serviceユーザガイド：レプリケーションの設定"^]を参照してください。
 * バケットレプリケーションは、バージョン管理されているバケットでもバージョン管理されていないバケットでも設定でき
 * レプリケーション設定 XML の各ルールで異なるデスティネーションバケットを指定できます。1 つのソースバケットを複数のデスティネーションバケットにレプリケートできます。
-* デスティネーションバケットは、テナントマネージャまたはテナント管理 API で指定された StorageGRID エンドポイントの URN として指定する必要があります。を参照して link:../tenant/configuring-cloudmirror-replication.html["CloudMirror レプリケーションを設定します"]
+* 宛先バケットは、Tenant Manager またはTenant Management APIで指定されているStorageGRIDエンドポイントのURNとして指定する必要があります。link:../tenant/configuring-cloudmirror-replication.html["CloudMirror レプリケーションを設定します"]を参照してください。
 +
 レプリケーション設定が機能するためには、エンドポイントが存在している必要があります。エンドポイントが存在しない場合、要求はとして失敗し `400 Bad Request`ます。次のエラーメッセージが表示されます。 `Unable to save the replication policy. The specified endpoint URN does not exist: _URN_.`
 
@@ -375,7 +380,7 @@ PutBucketTaggingの略
 * キーと値では大文字と小文字が区別されます。
 
 
-*注意*：このバケットにデフォルト以外のILMポリシータグが設定されている場合は、値が割り当てられたバケットタグがあります `NTAP-SG-ILM-BUCKET-TAG`。すべてのPutBucketTagging要求で、バケットタグが割り当てられた値に含まれていることを確認し `NTAP-SG-ILM-BUCKET-TAG`てください。このタグを変更または削除しないでください。
+*注意*：このバケットにデフォルト以外の ILM ポリシータグが設定されている場合、値が割り当てられた `NTAP-SG-ILM-BUCKET-TAG`バケットタグが存在します。 `NTAP-SG-ILM-BUCKET-TAG`バケットタグが、割り当てられた値とともにすべての PutBucketTagging リクエストに含まれていることを確認してください。このタグは変更または削除しないでください。
 
 *注*：この処理を実行すると、バケットにすでに設定されている現在のタグが上書きされます。セットから既存のタグを省略すると、それらのタグはバケットから削除されます。
 
@@ -395,10 +400,12 @@ PutBucketVersioning
  a| 
 PutObjectLockConfiguration
  a| 
-バケットのデフォルトの保持モードとデフォルトの保持期間を設定または削除します。
+* バケットのデフォルトの保持モードとデフォルトの保持期間を設定または削除します。
+* グリッド管理者が許可を与えている場合、既存のバケットに対してS3オブジェクトロックを有効にします。
 
-デフォルトの保持期間を変更した場合、既存のオブジェクトバージョンの retain-until はそのまま残り、新しいデフォルトの保持期間を使用して再計算されることはありません。
 
-詳細については、を参照してくださいlink:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]。
+デフォルトの保持期間が変更された場合、既存のオブジェクトバージョンの保持期限は変更されず、新しいデフォルトの保持期間を使用して再計算されることはありません。
+
+詳細については、link:../s3/use-s3-api-for-s3-object-lock.html["S3 REST APIを使用してS3オブジェクトロックを設定します"]を参照してください。
 
 |===

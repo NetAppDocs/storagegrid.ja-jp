@@ -29,9 +29,6 @@ StorageGRID CloudMirrorレプリケーションサービスは、StorageGRIDバ�
 CloudMirrorレプリケーションには、クロスグリッドレプリケーション機能と重要な類似点と相違点がいくつかあります。詳細については、を参照してくださいlink:../admin/grid-federation-compare-cgr-to-cloudmirror.html["グリッド間レプリケーションとCloudMirrorレプリケーションを比較してください"]。
 
 
-NOTE: ソースバケットで S3 オブジェクトロックが有効になっている場合、CloudMirror レプリケーションはサポートされません。
-
-
 
 [[notifications]]
 == 通知

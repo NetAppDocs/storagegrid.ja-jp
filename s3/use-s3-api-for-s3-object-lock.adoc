@@ -14,6 +14,9 @@ summary: StorageGRID システムでS3オブジェクトロックのグローバ
 StorageGRID システムでS3オブジェクトロックのグローバル設定が有効になっている場合は、S3オブジェクトロックを有効にしてバケットを作成できます。デフォルトの保持設定はバケットごとに指定することも、オブジェクトバージョンごとに指定することもできます。
 
 
+NOTE: StorageGRIDは `x-amz-sdk-checksum-algorithm`リクエストヘッダーをサポートしていません。
+
+
 
 [[how-to-enable-s3-object-lock-for-a-bucket]]
 == バケットでS3オブジェクトロックを有効にする方法
@@ -22,10 +25,11 @@ StorageGRID システムでグローバルな S3 オブジェクトのロック�
 
 S3オブジェクトロックは永続的な設定で、バケットの作成時にのみ有効にできます。バケットの作成後にS3オブジェクトロックを追加または無効にすることはできません。
 
-バケットでS3オブジェクトロックを有効にするには、次のいずれかの方法を使用します。
+バケットに対してS3オブジェクトロックを有効にするには、次のいずれかの方法を使用します。
 
 * Tenant Manager を使用してバケットを作成します。を参照して link:../tenant/creating-s3-bucket.html["S3 バケットを作成する"]
 * CreateBucket要求と要求ヘッダーを使用してバケットを作成し `x-amz-bucket-object-lock-enabled`ます。を参照して link:operations-on-buckets.html["バケットの処理"]
+* テナントマネージャーからバケット設定を管理します。link:../tenant/update-default-retention-settings.html["S3オブジェクトロックのデフォルトの保持期間を更新します"]を参照してください。
 
 
 S3オブジェクトロックにはバケットのバージョン管理が必要です。バージョン管理はバケットの作成時に自動的に有効になります。バケットのバージョン管理を一時停止することはできません。を参照して link:object-versioning.html["オブジェクトのバージョン管理"]
@@ -83,19 +87,27 @@ S3オブジェクトロックにはバケットのバージョン管理が必要
 
 PutObjectLockConfiguration要求を使用すると、S3オブジェクトロックが有効になっているバケットに対して、デフォルトの保持モードとデフォルトの保持期間を設定および変更できます。以前に設定したデフォルトの保持設定を削除することもできます。
 
-とを指定しない場合、 `x-amz-object-lock-retain-until-date`新しいオブジェクトバージョンがバケットに取り込まれるときにデフォルトの保持モードが適用され `x-amz-object-lock-mode`ます。を指定しない場合、デフォルトの保持期間がretain-until-dateの計算に使用され `x-amz-object-lock-retain-until-date`ます。
+新しいオブジェクトバージョンがバケットに取り込まれると、 `x-amz-object-lock-mode`と `x-amz-object-lock-retain-until-date`が指定されていない場合、デフォルトの保持モードが適用されます。 `x-amz-object-lock-retain-until-date`が指定されていない場合、デフォルトの保持期間を使用して保持期限日が計算されます。
 
-オブジェクトバージョンの取り込み後にデフォルトの保持期間が変更された場合、オブジェクトバージョンの retain-until はそのまま残り、新しいデフォルトの保持期間を使用して再計算されることはありません。
+オブジェクトバージョンの取り込み後にデフォルトの保持期間が変更された場合、オブジェクトバージョンの保持期限は変更されず、新しいデフォルトの保持期間を使用して再計算されることはありません。
 
 この処理を完了するには、権限またはrootアカウントが必要です `s3:PutBucketObjectLockConfiguration`。
 
- `Content-MD5`要求ヘッダーはPUT要求に指定する必要があります。
+PutObjectLockConfiguration リクエストには、以下のリクエストヘッダーのいずれかを指定する必要があります：
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID は、この操作では x-amz-checksum-* ヘッダーの内容を検証しません。
 
 
 
 ==== 要求例
 
-この例では、バケットでS3オブジェクトロックを有効にし、デフォルトの保持モードを準拠に設定し、デフォルトの保持期間を6年に設定しています。
+この例では、バケットに対してS3オブジェクトロックを有効にし（グリッド管理者が許可を与えている場合）、デフォルトの保持モードをCOMPLIANCEに、デフォルトの保持期間を6年に設定します。
 
 [listing, subs="specialcharacters,quotes"]
 ----
@@ -137,7 +149,7 @@ Authorization: _authorization-string_
 
 GetObjectLockConfiguration要求を使用すると、S3 Object Lockがバケットで有効になっているかどうかを確認できます。有効になっている場合は、バケットにデフォルトの保持モードと保持期間が設定されているかどうかを確認できます。
 
-を指定しない場合、新しいオブジェクトバージョンがバケットに取り込まれると、デフォルトの保持モードが適用され `x-amz-object-lock-mode`ます。を指定しない場合、デフォルトの保持期間がretain-until-dateの計算に使用され `x-amz-object-lock-retain-until-date`ます。
+新しいオブジェクトバージョンがバケットに取り込まれると、 `x-amz-object-lock-mode`が指定されていない場合、デフォルトの保持モードが適用されます。デフォルトの保持期間は、 `x-amz-object-lock-retain-until-date`が指定されていない場合に保持期限日を計算するために使用されます。
 
 この処理を完了するには、権限またはrootアカウントが必要です `s3:GetBucketObjectLockConfiguration`。
 
@@ -226,8 +238,17 @@ NOTE: を指定する場合は `x-amz-object-lock-mode`、も指定する必要�
 
 次のいずれかの要求ヘッダーを使用する場合は、次の制限事項に注意してください。
 
-*  `Content-MD5`要求ヘッダーは、PutObject要求に要求ヘッダーがある場合に必要 `x-amz-object-lock-*`です。 `Content-MD5`CopyObjectまたはCreateMultipartUploadには必要ありません。
-* バケットでS3オブジェクトロックが有効になっておらず、要求ヘッダーがある場合 `x-amz-object-lock-*`は、400 Bad Request（InvalidRequest）エラーが返されます。
+* PutObject リクエストに x-amz-object-lock-* リクエストヘッダーが含まれている場合は、次のリクエストヘッダーのいずれかを含める必要があります：
++
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
++
+これらのヘッダーは、CopyObject または CreateMultipartUpload には必要ありません。
+
+* バケットで S3 オブジェクトロックが有効になっておらず、x-amz-object-lock-* リクエストヘッダーが存在する場合、400 Bad Request （InvalidRequest）エラーが返されます。
 * PutObject要求では、を使用してAWSの動作を照合できます `x-amz-storage-class: REDUCED_REDUNDANCY`。ただし、 S3 オブジェクトのロックが有効になっているバケットにオブジェクトが取り込まれると、 StorageGRID は常にデュアルコミットの取り込みを実行します。
 * 後続のGETまたはHeadObjectバージョンの応答には、ヘッダー、 `x-amz-object-lock-retain-until-date`、および `x-amz-object-lock-legal-hold`（設定されていて、要求の送信者に正しい権限がある場合） `s3:Get*`が含まれます `x-amz-object-lock-mode`。
 
@@ -254,6 +275,16 @@ NOTE: を指定する場合は `x-amz-object-lock-mode`、も指定する必要�
 
 
 
+リクエストには、以下のいずれかのリクエストヘッダーを指定する必要があります。
+
+[listing]
+----
+Content-MD5
+x-amz-checksum-*
+----
+
+NOTE: StorageGRID は、これらの操作では x-amz-checksum-* ヘッダーの内容を検証しません。
+
 
 
 [[how-to-use-governance-mode]]
@@ -264,6 +295,9 @@ NOTE: を指定する場合は `x-amz-object-lock-mode`、も指定する必要�
 * 保持期間が経過する前にオブジェクトバージョンを削除するには、DeleteObject処理またはDeleteObjects処理を実行します。
 +
 リーガルホールドの対象になっているオブジェクトは削除できません。リーガルホールドをオフにする必要があります。
+
++
+ `x-amz-bypass-governance-retention`ヘッダーは、S3 Object Lockのないオブジェクトには影響を与えません。
 
 * オブジェクトの保持期間が経過する前にオブジェクトバージョンのモードをガバナンスからコンプライアンスに変更するPutObjectRetention処理を実行します。
 +

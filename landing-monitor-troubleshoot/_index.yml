@@ -17,12 +17,14 @@ indexpage:
       url: "../monitor/monitoring-storage-capacity.html"
   - title: アラートと通知の管理
     links:
+    - title: AutoSupport を使用します
+      url: "../monitor/what-is-autosupport.html"
     - title: アラートの管理
       url: "../monitor/managing-alerts.html"
     - title: カスタムアラートの作成
       url: "../monitor/creating-custom-alert-rules.html"
-    - title: アラートEメールの管理
-      url: "../monitor/email-alert-notifications.html"
+    - title: メールサーバーの設定
+      url: "../monitor/configure-email-server.html"
     - title: SNMP による監視を使用する
       url: "../monitor/using-snmp-monitoring.html"
   - title: 監査メッセージおよびその他のログを使用する
@@ -37,6 +39,8 @@ indexpage:
       url: "../monitor/logs-files-reference.html"
   - title: 診断とトラブルシューティング
     links:
+    - title: AutoSupport を使用します
+      url: "../monitor/what-is-autosupport.html"
     - title: サポート指標を確認
       url: "../monitor/reviewing-support-metrics.html"
     - title: I/Oの優先順位を変更する

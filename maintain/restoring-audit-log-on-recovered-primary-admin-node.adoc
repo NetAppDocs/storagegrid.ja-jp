@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: storagegrid, recover, restore audit log, primary admin node 
 summary: 障害が発生したプライマリ管理ノードから監査ログを保存できた場合は、リカバリするプライマリ管理ノードにそのログをコピーできます。 
 ---
-= 復旧したプライマリStorageGRID管理ノードで監査ログを復元します
+= 復元された StorageGRID プライマリ管理ノードの監査ログを復元する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/

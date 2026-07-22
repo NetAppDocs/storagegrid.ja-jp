@@ -2,7 +2,7 @@
 permalink: release-notes/changes-to-tenant-management-api.html 
 sidebar: sidebar 
 keywords: tenant management api, api, api version, swagger, rest api 
-summary: StorageGRID 12.0では、テナント管理APIのバージョン4を使用しています。バージョン4はバージョン3を非推奨とします。ただし、バージョン1、2、3は引き続きサポートされています。 
+summary: StorageGRID 12.1では、テナント管理APIのバージョン4を使用しています。バージョン4はバージョン3を非推奨とします。ただし、バージョン1、2、3は引き続きサポートされています。 
 ---
 = StorageGRID のテナント管理 API の変更
 :allow-uri-read: 
@@ -11,10 +11,10 @@ summary: StorageGRID 12.0では、テナント管理APIのバージョン4を使
 
 
 [role="lead"]
-StorageGRID 12.0 は、テナント管理 API バージョン 4 を使用します。バージョン 4 ではバージョン 3 は廃止されますが、バージョン 1、2、および 3 は引き続きサポートされます。
+StorageGRID 12.1では、テナント管理APIのバージョン4を使用しています。バージョン4ではバージョン3は非推奨となりますが、バージョン1、2、3は引き続きサポートされます。
 
 
-NOTE: StorageGRID 12.0 では、テナント管理 API の廃止バージョンを引き続き使用できますが、これらのバージョンの API のサポートは、 StorageGRIDの将来のリリースでは削除されます。  StorageGRID 12.0にアップグレードした後、廃止されたAPIを非アクティブ化するには、 `PUT /grid/config/management` API。
+NOTE: 非推奨バージョンのテナント管理 API は StorageGRID で引き続き使用できます。ただし、これらのバージョンの API のサポートは、今後の StorageGRID のリリースで削除される予定です。StorageGRID 12.0 以降にアップグレードした後、 `PUT /grid/config/management` API を使用して非推奨の API を無効化できます。
 
 詳細については、を参照してくださいlink:../tenant/understanding-tenant-management-api.html["テナント管理 API について理解する"]。
 

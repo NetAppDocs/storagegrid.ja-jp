@@ -1,10 +1,10 @@
 ---
-permalink: ilm/enabling-s3-object-lock-globally.html 
+permalink: ilm/enabling-s3-object-lock.html 
 sidebar: sidebar 
 keywords: enable s3 object lock, object lock 
 summary: オブジェクトデータの保存時に S3 テナントアカウントが規制要件に準拠する必要がある場合は、 StorageGRID システム全体で S3 オブジェクトのロックを有効にする必要があります。グローバルな S3 オブジェクトのロック設定を有効にすると、 S3 テナントユーザは S3 オブジェクトのロックでバケットとオブジェクトを作成および管理できるようになります。 
 ---
-= StorageGRIDでS3オブジェクトロックをグローバルに有効にする
+= StorageGRID で S3 オブジェクトロックを有効にする
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -17,23 +17,30 @@ summary: オブジェクトデータの保存時に S3 テナントアカウン�
 * あなたはを持っていますlink:../admin/admin-group-permissions.html["rootアクセス権限"]。
 * Grid Managerにサインインしておきますlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]。
 * S3オブジェクトロックのワークフローを確認し、考慮事項を理解しておきます。
-* アクティブなILMポリシーのデフォルトルールが準拠していることを確認しました。詳細は、を参照してください link:creating-default-ilm-rule.html["デフォルトの ILM ルールを作成します"] 。
+* 有効なILMポリシーのデフォルトルールが準拠していることを確認しました。詳細については、link:creating-default-ilm-rule.html["デフォルトの ILM ルールを作成します"]を参照してください。
 
 
 .タスクの内容
 テナントユーザが S3 オブジェクトのロックを有効にした新しいバケットを作成できるようにするには、グリッド管理者がグローバルな S3 オブジェクトロック設定を有効にする必要があります。この設定を有効にすると、無効にすることはできません。
 
+S3オブジェクトロックを有効にした後、グリッド管理者はテナントユーザーが既存のバケットでS3オブジェクトロックを有効にすることを許可することもできます。グリッド管理者はこの設定を有効にした後、無効にすることができます。詳細については、link:requirements-for-s3-object-lock.html#s3-object-lock-existing-buckets["S3 Object Lock の要件"]を参照してください。
+
 S3オブジェクトロックのグローバル設定を有効にしたら、既存のテナントの準拠設定を確認します。この設定を有効にすると、S3オブジェクトロックのテナント単位の設定は、テナント作成時のStorageGRIDリリースによって異なります。
 
 
-NOTE: グローバル準拠設定は廃止されました。以前のバージョンのStorageGRID を使用してこの設定を有効にした場合、S3オブジェクトロック設定は自動的に有効になります。既存の準拠バケットの設定は引き続きStorageGRID を使用して管理できますが、新しい準拠バケットを作成することはできません。詳細については、を参照してください https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["ネットアップのナレッジベース： StorageGRID 11.5 でレガシー準拠バケットを管理する方法"^]。
+NOTE: グローバルコンプライアンス設定は非推奨です。以前のバージョンの StorageGRID を使用してこの設定を有効にした場合、S3 オブジェクトロック設定は自動的に有効になります。引き続き StorageGRID を使用して既存の準拠バケットの設定を管理できますが、新しい準拠バケットを作成することはできません。詳細については、 https://kb.netapp.com/Advice_and_Troubleshooting/Hybrid_Cloud_Infrastructure/StorageGRID/How_to_manage_legacy_Compliant_buckets_in_StorageGRID_11.5["ネットアップのナレッジベース： StorageGRID 11.5 でレガシー準拠バケットを管理する方法"^]を参照してください。
 
 .手順
 . *構成* > *システム* > *S3 オブジェクト ロック* を選択します。
 +
 S3 Object Lock Settings （ S3 オブジェクトロック設定）ページが表示されます。
 
-. S3 オブジェクトロックを有効にする * を選択します。
+. StorageGRID システム全体で S3 オブジェクト ロックを有効にするには、*S3 オブジェクト ロックを有効にする* を選択します。
+. 必要に応じて、*既存のバケットで S3 Object Lock を有効にする* を選択します。
++
+
+CAUTION: 既存のバケットで S3 オブジェクト ロックを有効にすると、ILM ルールによっては、クラウド ストレージ プールから StorageGRID への意図しないデータ移行が発生する可能性があります。移行が開始されると、この移行を停止することはできません。詳細については、link:requirements-for-s3-object-lock.html#s3-object-lock-existing-buckets["S3 Object Lock の要件"]を参照してください。
+
 . * 適用 * を選択します。
 +
 確認のダイアログボックスが表示され、S3オブジェクトロックを有効にすると無効にできないことを示すメッセージが表示されます。
@@ -44,7 +51,7 @@ S3 Object Lock Settings （ S3 オブジェクトロック設定）ページが�
 
 +
 ** アクティブなILMポリシーのデフォルトルールが準拠ルールの場合、S3オブジェクトロックはグリッド全体で有効になり、無効にすることはできません。
-** デフォルトルールが準拠していない場合は、エラーが表示されます。準拠ルールをデフォルトルールとして含む新しいILMポリシーを作成してアクティブ化する必要があります。「* OK *」を選択します。次に、新しいポリシーを作成してシミュレートし、アクティブ化します。手順については'を参照して link:creating-ilm-policy.html["ILM ポリシーを作成する"] ください
+** デフォルトルールが準拠していない場合、エラーが表示されます。準拠ルールをデフォルトルールとして含む新しい ILM ポリシーを作成して有効化する必要があります。「OK」を選択します。次に、新しいポリシーを作成し、シミュレーションを実行してから、有効化します。手順については、link:creating-ilm-policy.html["ILM ポリシーを作成する"]を参照してください。
 
 
 

@@ -11,7 +11,7 @@ summary: StorageGRID にアクセスできるユーザ、およびユーザが�
 
 
 [role="lead"]
-StorageGRID にアクセスできるユーザ、およびユーザが実行できるタスクを制御するには、グループとユーザを作成またはインポートし、各グループに権限を割り当てます。必要に応じて、シングルサインオン（ SSO ）を有効にしたり、クライアント証明書を作成したり、グリッドのパスワードを変更したりできます。
+グループやユーザーを作成またはインポートし、各グループに権限を割り当てることで、StorageGRID へのアクセス権を持つユーザーと、ユーザーが実行できるタスクを制御できます。オプションで、シングル サインオン（SSO）の有効化、クライアント証明書の作成、グリッドパスワードの変更、およびマルチ管理者認証の使用が可能です。
 
 
 
@@ -34,7 +34,7 @@ NOTE: 別の LDAP v3 サービスを使用する場合は、テクニカルサ�
 [[enable-single-sign-on]]
 == シングルサインオンを有効にします
 
-StorageGRIDシステムは、Security Assertion Markup Language 2.0 (SAML 2.0) 標準を使用したシングル サインオン (SSO) をサポートしています。お先にどうぞlink:how-sso-works.html["SSOを設定して有効にします"]すべてのユーザーは、グリッド マネージャー、テナント マネージャー、グリッド管理 API、またはテナント管理 API にアクセスする前に、外部 ID プロバイダーによって認証される必要があります。ローカル ユーザーはStorageGRIDにサインインできません。
+StorageGRID システムは、Security Assertion Markup Language 2.0（SAML 2.0）または OpenID Connect（OIDC）標準を使用したシングル サインオン（SSO）をサポートしています。link:how-sso-works.html["SSOを設定して有効にします"]を実行すると、すべてのユーザーは、Grid Manager、Tenant Manager、Grid Management API、または Tenant Management API にアクセスする前に、外部の ID プロバイダーによって認証される必要があります。ローカルユーザーは StorageGRID にサインインできません。
 
 
 
@@ -49,3 +49,10 @@ StorageGRIDシステムは、Security Assertion Markup Language 2.0 (SAML 2.0) �
 == ノードのコンソールパスワードを変更します
 
 グリッド内の各ノードにはノード コンソール パスワードがあり、SSH を使用して「admin」としてノードにログインするか、VM/物理コンソール接続で root ユーザーとしてログインする必要があります。必要に応じて、link:change-node-console-password.html["ノードのコンソールパスワードを変更します"]各ノードに対して。
+
+
+
+[[use-multi-admin-verification]]
+== 複数管理者による認証を使用する
+
+マルチ管理者検証（MAV）を使用すると、特定のStorageGRID操作を指定された管理者の承認後にのみ実行できるようにすることができます。MAVは、侵害された管理者、悪意のある管理者、または経験の浅い管理者が、望ましくない変更を行ったり、データを削除したりすることを防止します。

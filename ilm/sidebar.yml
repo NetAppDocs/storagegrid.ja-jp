@@ -113,8 +113,8 @@ entries:
     url: "/ilm/workflow-for-s3-object-lock.html"
   - title: S3 オブジェクトのロックの要件
     url: "/ilm/requirements-for-s3-object-lock.html"
-  - title: S3 オブジェクトのロックをグローバルに有効にします
-    url: "/ilm/enabling-s3-object-lock-globally.html"
+  - title: S3オブジェクトロックを有効にする
+    url: "/ilm/enabling-s3-object-lock.html"
   - title: S3 オブジェクトロックまたは従来の準拠設定の更新時に発生する整合性の問題を解決する
     url: "/ilm/resolving-consistency-errors-when-updating-bucket-s3-object-lock-configuration.html"
 - title: ILM ルールとポリシーの例

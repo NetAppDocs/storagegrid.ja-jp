@@ -4,7 +4,7 @@ sidebar: sidebar
 keywords: replace VMware node 
 summary: VMwareでホストされていた障害StorageGRID ノードをリカバリする場合は、障害ノードを削除してリカバリノードを導入します。 
 ---
-= StorageGRIDのVMwareノードを交換する
+= StorageGRID の VMware ノードをリカバリノードに交換する
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/
@@ -49,16 +49,9 @@ NOTE: 新しいノードを導入したら、ストレージ要件に従って�
 
 
  a| 
-プライマリ管理ノード
+管理ノード
  a| 
-link:configuring-replacement-primary-admin-node.html["交換用プライマリ管理ノードを設定"]
-
-
-
- a| 
-非プライマリ管理ノード
- a| 
-link:selecting-start-recovery-to-configure-non-primary-admin-node.html["[ リカバリの開始 ] を選択して、非プライマリ管理ノードを設定します"]
+link:recovering-from-admin-node-failures.html["StorageGRIDにおけるプライマリまたは非プライマリ管理ノードの復旧"]
 
 
 

@@ -58,5 +58,5 @@ StorageGRID システムのネットワークを設定するには、イーサ�
 
 .StorageGRID ソフトウェアを設定および管理する
 * link:../admin/index.html["StorageGRID の管理"]
-* https://library.netapp.com/ecm/ecm_download_file/ECMLP3351267["リリースノート"^]。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
+* https://library.netapp.com/ecm/ecm_download_file/ECMLP3373065["リリースノート"^]。NetAppアカウントでサインインするか、アカウントを作成してリリースノートにアクセスする必要があります。
 

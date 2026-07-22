@@ -363,9 +363,9 @@ TLS
 
 |===
 --
-.Webhookエンドポイントのみ
+.WebhookとKafkaエンドポイント
 --
-Webhook エンドポイントの TLS 接続を確認します。
+ウェブフックまたはKafkaエンドポイントのTLS接続を確認してください。
 
 [cols="1a,2a"]
 |===
@@ -397,6 +397,15 @@ mTLS
 カスタム CA 証明書を使用する
  a| 
 カスタム CA 証明書は、エンドポイントに接続するときにサーバーの ID を確認するために使用されます。
+
+
+
+ a| 
+オペレーティングシステムの CA 証明書を使用します
+ a| 
+オペレーティングシステムにインストールされているデフォルトの Grid CA 証明書を使用して接続を保護します。
+
+*注*：Webhookエンドポイントにはこのオプションはありません。
 
 |===
 *mTLS* を選択すると、これらのオプションが利用可能になります。
@@ -454,4 +463,5 @@ NOTE: テナントアカウントでプラットフォームサービスが有�
 * link:configuring-cloudmirror-replication.html["CloudMirror レプリケーションを設定します"]
 * link:configuring-event-notifications.html["イベント通知の設定"]
 * link:configuring-search-integration-service.html["検索統合サービスを設定する"]
+* link:../network/external-communications.html["外部との通信に使用するポート"]
 

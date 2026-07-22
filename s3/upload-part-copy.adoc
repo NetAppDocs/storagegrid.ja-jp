@@ -17,6 +17,11 @@ UploadPartCopy処理は、Amazon S3 REST APIのすべての動作で実装され
 
 この要求は、StorageGRIDシステム内でで指定されたオブジェクトデータの読み取りと書き込みを行い `x-amz-copy-source-range`ます。
 
+
+
+[[supported-request-headers]]
+== サポートされる要求ヘッダー
+
 次の要求ヘッダーがサポートされています。
 
 * `x-amz-copy-source-if-match`
@@ -53,3 +58,10 @@ CAUTION: 指定した暗号化キーが格納されることはありません�
 == バージョン管理
 
 マルチパートアップロードは、アップロードの開始、アップロードのリストの表示、パートのアップロード、アップロードしたパートのアセンブル、およびアップロードの完了の個別の処理に分けられます。CompleteMultipartUpload処理が実行されると、オブジェクトが作成されます（該当する場合はバージョン管理されます）。
+
+
+
+[[s3-checksum-support]]
+== S3チェックサムサポート
+
+StorageGRID は、CreateMultipartUpload リクエスト時にチェックサムが指定されていたかどうかを自動的に検出し、UploadPartCopy 操作でそのチェックサムを使用します。UploadPartCopy リクエストでチェックサムを指定する必要はありません。CreateMultipartUpload リクエストでチェックサムが指定されていない場合、StorageGRID はオブジェクトのデフォルトの CRC-64/NVME チェックサムを計算しません。CreateMultipartUpload でチェックサムが指定されていない場合、StorageGRID はコピーされたパートにチェックサムを含めません。

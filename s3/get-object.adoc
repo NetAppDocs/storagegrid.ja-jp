@@ -31,10 +31,14 @@ StorageGRID は、ユーザ定義メタデータ内のエスケープされた U
 
 
 
-[[supported-request-header]]
+[[supported-request-headers]]
 == サポートされる要求ヘッダー
 
-次の要求ヘッダーがサポートされます。
+次の要求ヘッダーがサポートされています。
+
+* `Accept-Encoding`
++
+オブジェクトに保存された `Content-Encoding`がない場合、 `Accept-Encoding: gzip`を使用したGETリクエストは、レスポンスにリアルタイムで圧縮を適用します。 `gzip`のみがGETレスポンスのエンコーディングに影響します。 `deflate`、 `br`、および `identity`は影響しません。既に保存された `Content-Encoding`があるオブジェクトの場合、StorageGRIDは保存されたエンコーディングを返し、 `Accept-Encoding`に基づくリアルタイム圧縮は追加で適用しません。StorageGRIDは、 `Accept-Encoding: gzip`を使用したGETリクエストに対する範囲読み取り操作をサポートしていません。
 
 * `x-amz-checksum-mode`:指定 `ENABLED`
 +

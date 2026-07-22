@@ -1,0 +1,143 @@
+---
+permalink: admin/learn-about-global-namespace.html 
+sidebar: sidebar 
+keywords: global namespace, grid federation, S3 endpoint domain names, default region, grid federation connection, multi-grid 
+summary: グローバルネームスペースにより、テナントは複数の StorageGRID システムにまたがるバケットにアクセスできます。グリッドフェデレーション接続でグローバルネームスペースが有効になっている場合、グローバルネームスペースエンドポイントを対象とする S3 CreateBucket および ListBuckets リクエストは、任意のグリッドのロードバランサーエンドポイントに送信でき、リクエスト内の署名リージョンに基づいて適切なグリッドに自動的にルーティングされます。 
+---
+= グリッドフェデレーションのグローバルネームスペースについて
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+グローバルネームスペースにより、テナントは複数の StorageGRID システムにまたがるバケットにアクセスできます。グリッドフェデレーション接続でグローバルネームスペースが有効になっている場合、グローバルネームスペースエンドポイントを対象とする S3 CreateBucket および ListBuckets リクエストは、任意のグリッドのロードバランサーエンドポイントに送信でき、リクエスト内の署名リージョンに基づいて適切なグリッドに自動的にルーティングされます。
+
+
+
+[[what-is-a-global-namespace]]
+== グローバル名前空間とは何ですか？
+
+グローバルネームスペースにより、テナントは複数の StorageGRID システムにまたがるバケットにアクセスできます。グリッドフェデレーション接続でグローバルネームスペースが有効になっている場合、グローバルネームスペースエンドポイントを対象とする S3 CreateBucket および ListBuckets リクエストは、任意のグリッドのロードバランサーエンドポイントに送信でき、リクエスト内の署名リージョンに基づいて適切なグリッドに自動的にルーティングされます。
+
+
+NOTE: バケットURLを特定のグリッドにDNSマッピングするために、DNSリゾルバを設定する必要があります。必要に応じて、ネットワーク管理者に相談し、DNSリゾルバが正しく設定されていることを確認してください。link:../admin/configure-global-namespace.html#config-dns-resolution["DNS解決を設定する"]を参照してください。
+
+StorageGRID はグローバル名前空間内のグリッド間で一意のバケット名を強制しないため、同じ名前のバケットが異なるグリッド上に存在できます。リクエスト内の署名リージョンは、どのグリッドがバケットを所有し、リクエストを受信すべきかを判断するために使用されます。
+
+たとえば、グリッドAがリージョン `us-east-1`を使用し、グリッドBがリージョン `us-west-1`を使用する場合、リージョン `us-west-1`を指定して任意のグリッドに送信されたCreateBucketリクエストは、自動的にグリッドBにルーティングされます。
+
+グリッドフェデレーションの詳細については、link:grid-federation-overview.html["グリッドフェデレーションとは"]を参照してください。
+
+
+
+[[gns-exampleglobal-namespace-example]]
+== [[gns-example]]グローバル名前空間の例
+
+.グリッド1
+* デフォルトリージョン： `region-1`
+* デフォルトのCNAME： `s3.region-1.company.com`
+* グローバルエンドポイント： `s3.company.com`
+
+
+.グリッド 2
+* デフォルトのリージョン： `region-2`
+* デフォルトのCNAME： `s3.region-2.company.com`
+* グローバルエンドポイント： `s3.company.com`
+
+
+.グリッド3
+* デフォルトのリージョン： `region-3`
+* デフォルトのCNAME： `s3.region-3.company.com`
+* グローバルエンドポイント： `s3.company.com`
+
+
+
+
+[[createbucket-and-listbuckets-operations]]
+=== CreateBucket および ListBuckets オペレーション
+
+バケットを作成する場合(`bucket123`）署名リージョン付き `region-2`グローバルエンドポイントをターゲットとする `s3.company.com`、リクエストを受け取ったグリッドはすべて、Grid 2上にバケットを作成します。
+
+
+
+[[bucket-specific-and-general-object-operations]]
+=== バケット固有の操作と一般的なオブジェクト操作
+
+特定のグリッド上にバケットが作成されると、DNSリゾルバはバケットのURLをバケットとグリッドのCNAMEに解決します。
+
+<<gns-example,上記の例>>では、DNSリゾルバは `bucket123.s3.company.com`を `bucket123.s3.grid3.company.com`（バケットとグリッドのCNAME）に解決する必要があります。つまり、すべてのリクエストは追加のルーティングを必要とせずに、そのグリッドに直接送信されます。
+
+.例
+`PutObject to bucket123.s3.company.com`解決先： `bucket123.s3.grid3.company.com`
+
+
+
+[[s3-behavior-with-global-namespace]]
+== グローバルネームスペースを使用したS3の動作
+
+グローバルネームスペースが完全に設定されると、以下のS3の動作が適用されます。
+
+
+
+[[region-enforcement]]
+=== リージョン強制
+
+グローバル名前空間エンドポイントへのすべての S3 リクエストは、link:../s3/operations-on-buckets.html["CreateBucket"] および link:../s3/operations-on-the-service.html["ListBuckets"] を除き、V4 認証ヘッダー内の署名リージョンがグリッドのデフォルトリージョンと一致する必要があります。
+
+* 署名リージョンが一致しない場合、リクエストは次のエラーで拒否されます：
++
+[listing]
+----
+An error occurred (AuthorizationHeaderMalformed) when calling the <operation> operation: The authorization header is malformed; the region '<signing-region>' is wrong; expecting '<grid-default-region>'
+----
+* リージョンの適用は、グローバル名前空間が有効になる前に作成されたバケットを含め、グリッド上のすべてのバケットに適用されます。
+* 地域制限はV4認証要求にのみ適用されます。匿名リクエストおよびV2リクエストは、地域制限の対象外です。
+
+
+
+
+[[createbucket-routing]]
+=== CreateBucket ルーティング
+
+CreateBucket グローバル名前空間エンドポイント（(`s3.company.com`）に送信されるリクエストは、任意のグリッドのロードバランサーエンドポイントにルーティングできます。リクエストは、リクエスト内の署名リージョンとデフォルトリージョンが一致するグリッドに自動的にルーティングされます。
+
+例：
+
+* グリッドAのデフォルトリージョンは `us-east-1`、グリッドBのデフォルトリージョンは `us-west-1`です。
+* クライアントはCreateBucketリクエストを `s3.company.com`に送信します。署名リージョンは `us-west-1`です。
+* ラウンドロビンDNSはリクエストをグリッドAに転送します。
+* グリッドAはリクエストをグリッドBにルーティングします。
+* バケットはグリッドB上に作成されます。
+
+
+CreateBucket の追加の考慮事項：
+
+*  `LocationConstraint`要素は、グリッドのデフォルト領域または非デフォルト領域のいずれにも設定できます。これは、バケットを作成するグリッドではなく、ILM ポリシーにのみ影響します（ `us-east-1`を使用した AWS の動作とは異なります）。
+* リクエスト内の署名領域によって、どのグリッドがバケットを作成するかが決まります（署名領域は、ターゲットグリッドのデフォルト領域と一致する必要があります）。
+* 署名済みのV4リクエストがサポートされています。
+* 匿名リクエストおよびV2リクエストは、グローバルネームスペースルーティングではサポートされていません。
+
+
+
+
+[[listbuckets-routing]]
+=== ListBucketsルーティング
+
+ListBuckets グローバル名前空間エンドポイントに送信されたリクエストは、署名リージョンを使用して正しいグリッドを決定する CreateBucket リクエストと同様にルーティングされます。
+
+HEAD Bucket も ListBuckets 応答のいずれにも、グリッドのデフォルトリージョンは含まれません。デフォルトのリージョンは署名リージョンによって暗黙的に指定され、グリッドのデフォルトリージョンと一致するように強制されます。
+
+
+
+[[account-and-access-key-management]]
+=== アカウントとアクセスキーの管理
+
+テナントアカウントと S3 アクセスキーは、link:grid-federation-what-is-account-sync.html["アカウント同期"]を使用してすべてのグリッド間で同期できますが、各グリッドがそれぞれ独自のアクセスキーセットを持っている場合でも、グローバル名前空間は機能します。個別のアクセスキーを使用する場合は、S3 クライアントが各グリッドにリクエストを送信する際に正しいアクセスキーを使用していることを確認してください。
+
+
+
+[[whats-next]]
+== 次の手順
+
+これでlink:../admin/configure-global-namespace.html["グローバル名前空間を設定する"]する準備が整いました。

@@ -65,7 +65,7 @@ StorageGRID に取り込まれているがまだ ILM によって評価されて
 
 必要に応じて、request要素を使用し `Tier`てリストアジョブの完了にかかる時間を指定します(`Expedited`。 `Standard`または `Bulk`）指定しない場合は `Tier` `Standard`、階層が使用されます。
 
-*重要*：オブジェクトがS3 Glacier Deep Archiveに移行された場合、またはクラウドストレージプールがAzure BLOBストレージを使用している場合は、階層を使用してリストアできませ `Expedited`ん。次のエラーが返されます `403 Forbidden` `InvalidTier`。 `Retrieval option is not supported by this storage class`
+*重要*：オブジェクトが S3 Glacier Deep Archive に移行されている場合、またはクラウドストレージプールが Azure Blob Storage を使用している場合、 `Expedited`階層を使用してオブジェクトを復元することはできません。以下のエラーが返されます `403 Forbidden`、 `InvalidTier`： `Retrieval option is not supported by this storage class`。
 
 
 

@@ -1,0 +1,285 @@
+---
+permalink: maintain/replace-vmware-node-with-sg1000-sg100.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node, SG1000, SG100, appliance, services, prepare, installation, software 
+summary: VMwareノードとして稼働しているプライマリ管理ノードを、SG1000またはSG100サービスアプライアンスに置き換えます。 
+---
+= StorageGRID の VMware ノードを SG1000 または SG100 に交換する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プライマリ管理ノードがVMwareノードとして動作している場合、それをSG1000またはSG100サービスアプライアンスに置き換えることができます。
+
+
+CAUTION: ノードの交換が完了し、検証が済んだら、元のVMwareノードを削除する必要があります。古いノードをそのまま放置しておくと、再びオンラインになった場合にグリッドに重大な障害を引き起こす危険性があります。
+
+.開始する前に
+* 仮想マシンをリストアできないため、交換する必要があることを確認しました。
+* グリッドの保守作業が進行中ではないことを確認しました。
+* SG1000またはSG100サービスアプライアンスのStorageGRIDアプライアンスインストーラーのバージョンが、StorageGRIDシステムのソフトウェアバージョンと一致していることを確認しました。
+* 既存のプライマリ管理ノードに関する以下の情報があります。
++
+*ノード名*：サービスアプライアンスをインストールする際は、既存のプライマリ管理ノードと同じノード名を使用する必要があります。ノード名はホスト名（システム名）です。
+
++
+*IPアドレス*：サービスアプライアンスには、既存のプライマリ管理ノードと同じIPアドレスを割り当てることができます（推奨）。または、各ネットワークで新しい未使用のIPアドレスを選択することもできます。
+
+* プロビジョニングパスフレーズを用意します。
+
+
+
+
+[[step-1-replace-the-vmware-node]]
+== ステップ1：VMwareノードを交換する
+
+まず、グリッドマネージャーで既存のプライマリ管理ノードを削除します。次に、StorageGRID アプライアンスインストーラーを使用して、SG1000 または SG100 サービスアプライアンスを新しいプライマリ管理ノードとしてインストールし、ノードを復旧します。新しい IP アドレスを使用する場合は、既存のプライマリ管理ノードを削除する前にサービスアプライアンスをインストールできます。
+
+[role="tabbed-block"]
+====
+.既存のIPアドレスを使用する
+--
+既存のプライマリ管理ノードのIPアドレスを使用して、プライマリ管理ノードを置き換えます。
+
+.手順
+. [[download-recovery-package-a]]Grid Manager からリカバリパッケージをダウンロードします：
++
+.. *Maintenance* > *Recovery package* を選択します。
+.. プロビジョニングパスフレーズを入力して、パッケージをダウンロードしてください。
+
+
+. 既存のプライマリ管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@grid_node_IP`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. root に切り替えます： `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. link:copying-audit-logs-from-failed-primary-admin-node.html["既存のプライマリ管理ノードから監査ログをコピーする"]。
+. グリッドノード上のサーバーマネージャーとすべてのサービスを停止します。
++
+[listing]
+----
+shutdown -h now
+----
++
+サービス停止まで最大15分かかる場合があります。
+
+. link:https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/installing-appliance-in-cabinet-or-rack-sg100-and-sg1000.html["SG1000またはSG100サービスアプライアンスのインストール"^]。
+. link:https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/deploying-services-appliance-node.html#deploy-services-appliance-as-primary-admin-node["SG1000またはSG100サービスアプライアンスのデプロイ"^]。
+. 「インストールの開始」を選択後、インストールが「StorageGRID インストーラーのロード」の手順に達するまで約 10 分お待ちください。
++
+6～7分後、ブラウザはリダイレクトされ、リカバリが開始されます。
+
+. アプライアンスの時計が正しいことを確認してください。
++
+.. SSHを使用してポート8022に接続します：
++
+... コマンドを入力してください： `ssh -p 8022 admin@_grid_node_IP_`。
+... root に切り替えます： `su -`
+... と入力します `netapp1!`。
+
+
+.. 機器の時計が現在のUTC時刻から数分以内の誤差に収まっていることを確認してください。必要に応じて、正しい日付と時刻を設定してください：
++
+[listing]
+----
+date -s "DD Mon YYYY HH:MM:SS"
+----
+
+
+. ウェブブラウザに戻り、*障害が発生したプライマリ管理ノードを復旧する*を選択してください。
+. <<download-recovery-package-a,ダウンロードしたリカバリーパッケージ>>をアップロードします。
+. プロビジョニングパスフレーズを入力し、*リカバリの開始*を選択します。
++
+復旧の進行状況を示すバーが表示されます。復旧プロセスが完了し、サービスが開始されるまで、6分から10分ほどかかります。
+
+. 指示が表示されたら、グリッドマネージャーにログインしてください。
+
+
+--
+.新しいIPアドレスを使用する
+--
+プライマリ管理ノードを新しいIPアドレスに置き換えます。
+
+.手順
+. link:https://docs.netapp.com/us-en/storagegrid-appliances/installconfig/installing-appliance-in-cabinet-or-rack-sg100-and-sg1000.html["SG1000またはSG100サービスアプライアンスのインストール"^]。
+. 復旧時にNTPエラーが発生しないよう、機器の時計が正しいことを確認してください。
++
+.. SSHを使用してポート8022に接続します：
++
+... コマンドを入力してください： `ssh -p 8022 admin@_grid_node_IP_`。
+... root に切り替えます： `su -`
+... と入力します `netapp1!`。
+
+
+.. 機器の時計が現在の協定世界時（UTC）から数分以内の誤差に収まっていることを確認してください。必要に応じて、正しい日付と時刻を設定してください。
++
+[listing]
+----
+date -s "DD Mon YYYY HH:MM:SS"
+----
+
+
+. StorageGRID アプライアンスインストーラーの *StorageGRID ソフトウェアのアップロード* に移動し、アプライアンスにプリロードされているソフトウェアバージョンが、グリッドで実行されている StorageGRID のバージョンと一致していることを確認してください。バージョンが一致しない場合：
++
+.. link:https://mysupport.netapp.com/site/["NetAppサポート サイト"^]から、正しい StorageGRID Debian インストールパッケージをダウンロードしてください。
+.. インストールソフトウェアを削除するには、「削除」を選択します。
+..  `storagegrid-webscale-images-<sg-version>.deb`と `storagegrid-webscale-images-<sgversion>.deb.md5`ファイルをアップロードします。
+
+
+. StorageGRID アプライアンスインストーラーの「ホーム」タブで、ノードタイプとして「Primary Admin (with Load Balancer)」を選択します。
+. ノード名を入力してください。ノード名は、既存のプライマリ管理ノード名と一致している必要があります。
++
+
+IMPORTANT: *インストールの開始* を選択しないでください。
+
+. 新しいIPアドレスのサブネットがグリッドネットワーク内にあるかどうかを確認してください。新しいIPサブネットが存在しない場合は、グリッドネットワークに追加します。
++
+.. Grid Managerで、*Maintenance* > *Grid Network*を選択します。
+.. サブネットリストを更新するには、プロビジョニングパスフレーズを入力してください。
+
+
+. [[download-recovery-package]]GRID Managerからリカバリパッケージをダウンロードします。
++
+.. *Maintenance* > *Recovery package* を選択します。
+.. プロビジョニングパスフレーズを入力し、パッケージをダウンロードしてください。
+
+
+. 既存のプライマリ管理ノードにログインします。
++
+.. 次のコマンドを入力します。 `ssh admin@grid_node_IP`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+.. 次のコマンドを入力してrootに切り替えます。 `su -`
+.. ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
++
+rootとしてログインすると、プロンプトがからに `#`変わります `$`。
+
+. link:copying-audit-logs-from-failed-primary-admin-node.html["既存のプライマリ管理ノードから監査ログをコピーする"]。
+. グリッドノード上のサーバーマネージャーとすべてのサービスを停止します。
++
+[listing]
+----
+service servermanager stop
+----
++
+サービス停止まで最大15分かかる場合があります。
+
+. StorageGRID アプライアンスインストーラの「ホーム」タブで、次の操作を行います：
++
+.. 以下の設定を確認してください：
++
+*** ノードタイプは *Primary Admin (with Load Balancer)* に設定されています。
+*** ノード名が既存のプライマリ管理ノード名と一致します
+
+
+.. 新しいIPアドレスを記録してください。
+
+
+. 「インストール開始」を選択します。
++
+インストールが *StorageGRID インストーラーのロード* ステップに達するまで、約 10 分かかります。
+
++
+6～7分後、ブラウザはリダイレクトされ、リカバリ手順が開始されます。
+
+. アプライアンスの時計が正しいことを確認してください。
++
+.. SSHを使用してポート8022に接続します：
++
+... コマンドを入力してください： `ssh -p 8022 admin@_grid_node_IP_`。
+... root に切り替えます： `su -`
+... と入力します `netapp1!`。
+
+
+.. 機器の時計が現在のUTC時刻から数分以内の誤差に収まっていることを確認してください。必要に応じて、正しい日付と時刻を設定してください：
++
+[listing]
+----
+date -s "DD Mon YYYY HH:MM:SS"
+----
+
+
+. ウェブブラウザに戻り、*障害が発生したプライマリ管理ノードを復旧する*を選択します。
+. <<download-recovery-package,ダウンロードしたリカバリーパッケージ>>をアップロードします。
+. プロビジョニングパスフレーズを入力し、*リカバリの開始*を選択します。
++
+プライマリ管理ノードの復旧ページが消え、その後再び表示されます。もう一度 *Start Recovery* を選択すると、 `500: Internal Server Error`が表示されます。これは、復旧が開始されたものの、新しい IP アドレスを使用している Grid Manager に更新情報を送信できないためです。この問題を解決するには、 `/etc/hosts`ファイルでプライマリ管理ノードの IP アドレスを更新してください：
+
++
+.. SSHを使用してポート8022に接続します：
++
+... コマンドを入力してください： `ssh -p 8022 admin@_grid_node_IP_`。
+... root に切り替えます： `su -`
+... ファイルに記載されているパスワードを入力し `Passwords.txt`ます。
+
+
+.. ログにアクセスする：
++
+[listing]
+----
+tail /var/local/log/install.log
+----
++
+以下のエラーが繰り返し表示されます： `curl: (7) Failed to connect to <primary_Admin_Node_name> port9999: No route to host`
+
++
+これは想定される動作です。StorageGRID は、既存のプライマリ管理ノードの IP アドレスを使用して、プライマリ管理ノードにアップデートを送信しようとしています。
+
+.. コンテナが実行されていることを確認します。
++
+`storagegrid node status`
+
++
+`storagegrid node enter <primary_Admin_Node_name>`
+
+.. コンテナ内の `/etc/hosts`ファイルで、既存のプライマリ管理ノードのIPアドレスを新しいIPアドレスに置き換えます。
+.. ファイルを保存します。
+.. ウェブブラウザに戻ります。数秒後、復旧の進行状況を示すバーが表示されます。
++
+復旧プロセスが完了し、サービスが開始されるまで、6分から10分ほどかかります。
+
+
+
+. 指示が表示されたら、グリッドマネージャーにログインしてください。
+. リカバリパッケージを更新します。
++
+.. プライマリ管理ノードにログインします。
++
+... 次のコマンドを入力します。 `ssh admin@_primary_Admin_Node_IP_`
+... root に切り替えます： `su -`
+... 次のコマンドを入力します： `change-ip`
+
+
+.. オプション *3 – Edit admin network subnet lists* を選択し、新しいサブネットを追加します。
+
+
++
+StorageGRID は、新しいプライマリ管理ノードの IP アドレスを使用して、新しいリカバリパッケージを自動的に生成します。
+
+. Grid Managerから最新のリカバリパッケージをダウンロードしてください。
+
+
+--
+====
+
+
+[[step-2-complete-node-recovery]]
+== ステップ2：ノードの完全復旧
+
+復元手順（監査ログ、管理ノードデータベース、およびPrometheusメトリクス）のソース管理ノードとして、既存のプライマリ以外の管理ノードを使用します。グリッドにプライマリ以外の管理ノードがない場合、復旧したプライマリ管理ノードとは異なるIPアドレスで実行されている、交換対象の元のVMwareノードを使用できます。
+
+.手順
+. link:restoring-audit-log-on-recovered-primary-admin-node.html["監査ログを復元する"]。
+. link:restoring-admin-node-database-primary-admin-node.html["管理ノードデータベースを復元する"]。
+. link:restoring-prometheus-metrics-primary-admin-node-using-npan.html["Prometheusメトリクスを復元する"]。
+. 新しいプライマリ管理ノードが正しく機能していることを確認してください。次に、元の VM ノードまたはベアメタルコンテナをすぐに削除してください。
+

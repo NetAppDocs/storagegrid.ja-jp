@@ -57,9 +57,9 @@ summary: 必要なStorageGRID 情報を入手したら、ONTAP に移動してSt
  a| 
 URLスタイル
  a| 
-この場合はlink:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名が設定されました"]、*[仮想ホスト形式のURL]*を選択します。
+link:../admin/configuring-s3-api-endpoint-domain-names.html["S3エンドポイントのドメイン名が設定されました"]の場合は、*仮想ホスト型URL* を選択してください。
 
-*パス形式のURL*はONTAP のデフォルトですが、StorageGRID では仮想ホスト形式の要求を使用することを推奨します。[サーバ名（FQDN）]*フィールドにドメイン名の代わりにIPアドレスを指定する場合は、*パス形式のURL *を使用する必要があります。
+*パス形式のURL* は ONTAP のデフォルトですが、StorageGRID では仮想ホスト形式のリクエストの使用が推奨されます。*サーバー名（FQDN）* フィールドにドメイン名の代わりに IP アドレスを指定する場合は、*パス形式のURL* を使用する必要があります。
 
 
 

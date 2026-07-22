@@ -2,7 +2,7 @@
 permalink: admin/grid-federation-create-connection.html 
 sidebar: sidebar 
 keywords: grid federation, create connection, configure connection 
-summary: テナントの詳細をクローニングしてオブジェクトデータをレプリケートする場合は、2つのStorageGRID システム間にグリッドフェデレーション接続を作成できます。 
+summary: テナントの詳細を同期してオブジェクトデータをレプリケートする場合は、StorageGRID システム間でグリッドフェデレーション接続を作成できます。 
 ---
 = StorageGRID グリッド フェデレーション接続を作成する
 :allow-uri-read: 
@@ -11,11 +11,14 @@ summary: テナントの詳細をクローニングしてオブジェクトデ�
 
 
 [role="lead"]
-テナントの詳細をクローニングしてオブジェクトデータをレプリケートする場合は、2つのStorageGRID システム間にグリッドフェデレーション接続を作成できます。
+テナントの詳細を同期してオブジェクトデータをレプリケートする場合は、StorageGRID システム間でグリッドフェデレーション接続を作成できます。
 
 図に示すように、グリッド連携接続の作成には、両方のグリッドでの手順が含まれます。一方のグリッドに接続を追加し、もう一方のグリッドで接続を完了します。どちらのグリッドからでも開始できます。
 
-image:grid-federation-create-connection.png["2つのグリッド上に接続を作成する手順の概要図"]
+
+TIP: オプションで、link:../admin/grid-federation-automate-connections.html["グリッドフェデレーション接続の作成、編集、および保守を自動化する"]。
+
+image:grid_federation_create_connection.png["2つのグリッド上に接続を作成する手順の概要図"]
 
 .開始する前に
 * グリッドフェデレーション接続を設定するためのを確認しておきますlink:grid-federation-overview.html["考慮事項と要件"]。
@@ -35,18 +38,15 @@ image:grid-federation-create-connection.png["2つのグリッド上に接続を�
 . いずれかのグリッドのプライマリ管理ノードからGrid Managerにサインインします。
 . *構成* > *システム* > *グリッド フェデレーション* を選択します。
 . [接続の追加]*を選択します。
-. 接続の詳細を入力します。
-+
+. 接続名を入力してください。これは、この接続を識別するための固有の名前です。例えば、 `Grid 1-Grid 2`。
+. link:../admin/configure-global-namespace.html["グローバル名前空間を構成する"]を使用する場合は、*グローバル名前空間を有効にする*を選択してください。
+. 「 * Continue * 」を選択します。
+. グリッドの詳細を以下のように入力してください：
+
+
 [cols="1a,2a"]
 |===
 | フィールド | 製品説明 
-
-
- a| 
-接続名
- a| 
-この接続を識別するための一意の名前（「Grid 1 - Grid 2」など）。
-
 
 
  a| 
@@ -54,9 +54,9 @@ image:grid-federation-create-connection.png["2つのグリッド上に接続を�
  a| 
 次のいずれか
 
-** 現在サインインしているグリッドのFQDN
-** このグリッド上のHAグループのVIPアドレスです
-** このグリッド上の管理ノードまたはゲートウェイノードのIPアドレス。IPは、デスティネーショングリッドが到達可能な任意のネットワーク上に設定できます。
+* 現在サインインしているグリッドのFQDN
+* このグリッド上のHAグループのVIPアドレスです
+* このグリッド上の管理ノードまたはゲートウェイノードのIPアドレス。IPは、デスティネーショングリッドが到達可能な任意のネットワーク上に設定できます。
 
 
 
@@ -91,9 +91,9 @@ image:grid-federation-create-connection.png["2つのグリッド上に接続を�
  a| 
 次のいずれか
 
-** 接続先のグリッドのFQDN
-** もう一方のグリッド上のHAグループのVIPアドレスです
-** もう一方のグリッド上の管理ノードまたはゲートウェイノードのIPアドレス。IPは、ソースグリッドが到達可能な任意のネットワーク上に設定できます。
+* 接続先のグリッドのFQDN
+* もう一方のグリッド上のHAグループのVIPアドレスです
+* もう一方のグリッド上の管理ノードまたはゲートウェイノードのIPアドレス。IPは、ソースグリッドが到達可能な任意のネットワーク上に設定できます。
 
 
 |===
@@ -155,5 +155,5 @@ CAUTION: 接続のいずれかの側の証明書が期限切れになると、�
 * link:creating-tenant-account.html["新しいテナントアカウントを1つ以上作成します"]をクリックし、*[Use grid federation connection]*権限を割り当てて、新しい接続を選択します。
 * link:grid-federation-manage-connection.html["接続を管理します"]必要に応じて。接続値の編集、接続のテスト、接続証明書のローテーション、接続の削除を行うことができます。
 * link:../monitor/grid-federation-monitor-connections.html["接続を監視します"]通常のStorageGRID監視アクティビティの一部として使用します。
-* link:grid-federation-troubleshoot.html["接続のトラブルシューティングを行います"]アカウントクローンやグリッド間レプリケーションに関連するアラートやエラーの解決などが含まれます。
+* link:grid-federation-troubleshoot.html["接続のトラブルシューティングを行います"]アカウント同期やクロスグリッドレプリケーションに関連するアラートやエラーの解決を含みます。
 

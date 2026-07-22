@@ -1,0 +1,24 @@
+---
+permalink: maintain/recovering-from-primary-admin-node-failures-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, recover, primary admin node, non-primary admin node 
+summary: プライマリ管理ノードの障害から復旧するために、非プライマリ管理ノードを使用して特定のタスクセットを完了します。 
+---
+= プライマリ以外の管理ノードを使用して StorageGRID プライマリ管理ノードの障害から回復する
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プライマリ管理ノードの障害から非プライマリ管理ノードを使用して復旧するには、特定の一連のタスクを完了する必要があります。プライマリ管理ノードは、グリッドの構成管理ノード（CMN）サービスをホストします。
+
+非プライマリ管理ノードを使用してプライマリ管理ノードを復旧するための概要手順は次のとおりです：
+
+. link:copying-audit-logs-from-failed-primary-admin-node-using-npan.html["障害が発生したプライマリ管理ノードから監査ログをコピーする"]
+. link:replacing-primary-admin-node-using-npan.html["プライマリ管理ノードを交換"]
+. link:selecting-start-recovery-to-configure-primary-admin-node.html["プライマリ管理ノードを構成するには、「リカバリの開始」を選択してください。"]
+. link:assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html["プライマリ管理ノードのホットフィックスの要件を確認"]
+. link:restoring-audit-log-on-recovered-primary-admin-node-using-npan.html["リカバリされたプライマリ管理ノードで監査ログをリストアする"]
+. link:restoring-prometheus-metrics-primary-admin-node-using-npan.html["プライマリ管理ノードをリカバリする際の Prometheus 指標のリストア"]
+

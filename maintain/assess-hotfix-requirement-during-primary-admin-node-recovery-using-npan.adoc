@@ -1,0 +1,31 @@
+---
+permalink: maintain/assess-hotfix-requirement-during-primary-admin-node-recovery-using-npan.html 
+sidebar: sidebar 
+keywords: storagegrid, hotfix, primary admin node recovery 
+summary: プライマリ管理ノードを非プライマリ管理ノードを使用して復旧する際に、ホットフィックスが必要かどうかを判断します。 
+---
+= プライマリ管理ノードの StorageGRID ホットフィックス要件の確認
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+[role="lead"]
+プライマリ管理ノードを復旧した後、ホットフィックスを適用する必要があるかどうかを判断してください。
+
+.開始する前に
+プライマリ管理ノードの復旧が完了しました。
+
+.手順
+. を使用してGrid Managerにサインインしlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
+. *ノード*を選択します。
+. 左側のリストで、プライマリ管理ノードを選択します。
+. [ 概要 ] タブの [ ソフトウェアバージョン ] フィールドに表示されているバージョンを確認します。
+. 他のグリッドノードを選択します。
+. 概要タブで、*ソフトウェアバージョン*フィールドに表示されているバージョンを確認してください。
++
+** [ソフトウェアバージョン]フィールドに表示されているバージョンが同じ場合は、ホットフィックスを適用する必要はありません。
+** [ソフトウェアバージョン]フィールドに表示されたバージョンが異なる場合は、リカバリしたプライマリ管理ノードを同じバージョンに更新する必要がありlink:storagegrid-hotfix-procedure.html["ホットフィックスを適用します"]ます。
+
+
+

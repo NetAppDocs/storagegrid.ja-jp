@@ -16,9 +16,9 @@ StorageGRIDシステムをアップグレードする前に、システムがア
 .手順
 . を使用してGrid Managerにサインインしlink:../admin/web-browser-requirements.html["サポートされている Web ブラウザ"]ます。
 . アクティブなアラートがないかを確認し、ある場合は解決します。
-. 参照link:../network/internal-grid-node-communications.html["内部でのグリッドノードの通信"]そしてlink:../network/external-communications.html["外部との通信"]アップグレードする前に、 StorageGRID 12.0 に必要なすべてのポートが開いていることを確認します。
+. アップグレードの前に、StorageGRID 12.1 に必要なすべてのポートが開いていることを確認するには、link:../network/internal-grid-node-communications.html["内部でのグリッドノードの通信"]およびlink:../network/external-communications.html["外部との通信"]を参照してください。
 +
 
-NOTE: StorageGRID 12.0 にアップグレードする場合、追加のポートは必要ありません。
+NOTE: StorageGRID 12.1 へのアップグレード時に追加のポートは必要ありません。
 
 

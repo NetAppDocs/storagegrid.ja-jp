@@ -31,7 +31,7 @@ S3テナントを使用している場合は、S3バケットのバージョン�
 
 * link:../s3/object-versioning.html["オブジェクトのバージョン管理"]
 * link:../ilm/example-4-ilm-rules-and-policy-for-s3-versioned-objects.html["S3 バージョン管理オブジェクトの ILM ルールとポリシー（例 4 ）"]
-* link:../ilm/how-objects-are-deleted.html["オブジェクトの削除方法"]
+* link:../ilm/how-objects-and-delete-markers-are-deleted.html["オブジェクトと削除マーカーの削除方法"]
 
 
 .手順

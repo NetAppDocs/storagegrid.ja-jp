@@ -44,6 +44,7 @@ summary: ブランチ バケットは、特定の時間に存在していたバ�
 
 
 [[operations-on-objects-in-branch-buckets]]
+[[operations-in-branch-buckets]]
 == ブランチバケット内のオブジェクトに対する操作
 
 * ブランチ バケットに対する PUT オブジェクト操作により、ブランチ内にオブジェクトが作成されます。
@@ -110,4 +111,4 @@ HEAD/GETはオブジェクトバージョンが存在しないという結果を
 |===
 
 
-参照link:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 バージョン管理オブジェクトの削除方法"]。
+また、link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["S3 バージョン管理オブジェクトの削除方法"]を参照してください。

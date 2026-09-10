@@ -138,4 +138,4 @@ NOTE: 「noncurrent time」ルールは、ポリシー内で現在のオブジ�
 
 
 .関連情報
-link:how-objects-are-deleted.html["オブジェクトの削除方法"]
+link:how-objects-and-delete-markers-are-deleted.html["オブジェクトと削除マーカーの削除方法"]

@@ -38,7 +38,7 @@ NOTE: S3バケットライフサイクルが設定されている場合は、ラ
 
 
 
-詳細については、を参照してください link:../ilm/how-objects-are-deleted.html["オブジェクトの削除方法"] 。
+詳細については、link:../ilm/how-objects-and-delete-markers-are-deleted.html["オブジェクトと削除マーカーの削除方法"]を参照してください。
 
 
 

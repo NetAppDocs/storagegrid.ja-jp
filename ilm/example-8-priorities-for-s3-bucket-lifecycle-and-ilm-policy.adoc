@@ -88,6 +88,7 @@ ILMポリシー::
 
 
 [[example-of-using-bucket-lifecycle-to-duplicate-ilm-and-clean-up-expired-delete-markers]]
+[[use-bucket-to-lifecycle-remove-expired-delete-markers]]
 == バケットライフサイクルを使用してILMを複製し、期限切れの削除マーカーをクリーンアップする例
 
 ILMポリシー::

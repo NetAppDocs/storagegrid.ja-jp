@@ -29,8 +29,8 @@ entries:
       url: "/ilm/advantages-disadvantages-and-requirements-for-ec.html"
   - title: オブジェクト保持期間の決定方法
     url: "/ilm/how-object-retention-is-determined.html"
-  - title: オブジェクトの削除方法
-    url: "/ilm/how-objects-are-deleted.html"
+  - title: オブジェクトと削除マーカーの削除方法
+    url: "/ilm/how-objects-and-delete-markers-are-deleted.html"
 - title: ストレージグレードを作成して割り当てます
   url: "/ilm/creating-and-assigning-storage-grades.html"
 - title: ストレージプールを使用する
@@ -135,3 +135,5 @@ entries:
     url: "/ilm/example-7-compliant-ilm-policy-for-s3-object-lock.html"
   - title: 例8：S3バケットライフサイクルとILMポリシーの優先度
     url: "/ilm/example-8-priorities-for-s3-bucket-lifecycle-and-ilm-policy.html"
+  - title: 例9：バージョン管理を一時停止した後、非現行バージョンと削除マーカーを削除する
+    url: "/ilm/example-9-delete-noncurrent-versions-and-expired-delete-markers.html"

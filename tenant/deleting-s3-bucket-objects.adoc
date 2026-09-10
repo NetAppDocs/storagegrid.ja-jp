@@ -32,7 +32,7 @@ TIP: S3オブジェクトロックを使用するバケットは、すべての�
 
 
 * バケットでオブジェクトのバージョン管理が有効になっている場合は、StorageGRID 11.8以降で作成された削除マーカーを削除するには、[Delete objects in bucket]処理を使用します。
-* バケットでオブジェクトのバージョン管理が有効になっている場合、StorageGRID 11.7以前で作成された削除マーカーは削除されません。のバケット内のオブジェクトの削除に関する情報を参照してくださいlink:../ilm/how-objects-are-deleted.html#delete-s3-versioned-objects["S3 バージョン管理オブジェクトの削除方法"]。
+* バケットでオブジェクトのバージョニングが有効になっている場合、オブジェクトの削除操作では、StorageGRID 11.7以前で作成された削除マーカーは削除されません。バケット内のオブジェクトの削除については、link:../ilm/how-objects-and-delete-markers-are-deleted.html#delete-s3-versioned-objects["S3 バージョン管理オブジェクトの削除方法"]を参照してください。
 * を使用する場合はlink:grid-federation-manage-cross-grid-replication.html["グリッド間レプリケーション"]、次の点に注意してください。
 +
 ** このオプションを使用しても、他のグリッドのバケットからオブジェクトは削除されません。

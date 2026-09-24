@@ -19,27 +19,25 @@ entries:
     url: "/admin/viewing-storagegrid-license-information.html"
   - title: StorageGRID ライセンス情報を更新します
     url: "/admin/updating-storagegrid-license-information.html"
-  - title: API を使用します
+  - title: グリッド管理 API を使用します
+    pdf-filename: Grid 管理 API
+    url: "/admin/using-grid-management-api.html"
+  - title: グリッド管理 API の処理
+    url: "/admin/grid-management-api-operations.html"
+  - title: グリッド管理 API のバージョン管理
+    url: "/admin/grid-management-api-versioning.html"
+  - title: クロスサイトリクエストフォージェリ（ CSRF ）の防止
+    url: "/admin/protecting-against-cross-site-request-forgery-csrf.html"
+  - title: シングルサインオンが有効な場合は、 API を使用します
     entries:
-    - title: グリッド管理 API を使用します
-      pdf-filename: Grid 管理 API
-      url: "/admin/using-grid-management-api.html"
-    - title: グリッド管理 API の処理
-      url: "/admin/grid-management-api-operations.html"
-    - title: グリッド管理 API のバージョン管理
-      url: "/admin/grid-management-api-versioning.html"
-    - title: クロスサイトリクエストフォージェリ（ CSRF ）の防止
-      url: "/admin/protecting-against-cross-site-request-forgery-csrf.html"
-    - title: シングルサインオンが有効な場合は、 API を使用します
-      entries:
-      - title: Active Directory
-        url: "/admin/use-api-if-sso-is-enabled-adfs.html"
-      - title: エントラID
-        url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
-      - title: PingFederate
-        url: "/admin/use-api-if-sso-is-enabled-ping.html"
-    - title: API で機能を非アクティブ化します
-      url: "/admin/deactivate-features-from-api.html"
+    - title: Active Directory
+      url: "/admin/use-api-if-sso-is-enabled-adfs.html"
+    - title: エントラID
+      url: "/admin/use-api-if-sso-is-enabled-entra-id.html"
+    - title: PingFederate
+      url: "/admin/use-api-if-sso-is-enabled-ping.html"
+  - title: API で機能を非アクティブ化します
+    url: "/admin/deactivate-features-from-api.html"
 - title: StorageGRID へのアクセスを制御します
   entries:
   - title: StorageGRIDアクセス
@@ -59,46 +57,44 @@ entries:
     url: "/admin/admin-group-permissions.html"
   - title: ユーザの管理
     url: "/admin/managing-users.html"
-  - title: シングルサインオン（ SSO ）を使用
+  - title: SSOの動作
+    url: "/admin/how-sso-works.html"
+  - title: SSOの要件
+    url: "/admin/requirements-for-sso.html"
+  - title: フェデレーテッドユーザがサインインできることを確認する
+    url: "/admin/confirming-federated-users-can-sign-in.html"
+  - title: OIDCを使用してSSOを設定する
     entries:
-    - title: SSOの動作
-      url: "/admin/how-sso-works.html"
-    - title: SSOの要件
-      url: "/admin/requirements-for-sso.html"
-    - title: フェデレーテッドユーザがサインインできることを確認する
-      url: "/admin/confirming-federated-users-can-sign-in.html"
-    - title: OIDCを使用してSSOを設定する
-      entries:
-      - title: 詳細情報
-        url: "/admin/learn-about-setting-up-sso-oidc.html"
-      - title: AD FSでアプリケーショングループを作成する
-        url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
-      - title: Entra IDでアプリケーションを作成する
-        url: "/admin/creating-enterprise-application-entra-id-oidc.html"
-      - title: Keycloakでクライアントを作成する
-        url: "/admin/create-client-keycloak-oidc.html"
-      - title: Oktaアプリケーションを作成する
-        url: "/admin/create-okta-application-oidc.html"
-      - title: PingFederate で SP 接続を作成します
-        url: "/admin/creating-sp-connection-ping-oidc.html"
-      - title: SSOの設定
-        url: "/admin/configure-sso-oidc.html"
-    - title: SAMLを使用してSSOを設定する
-      entries:
-      - title: 詳細情報
-        url: "/admin/learn-about-setting-up-sso-saml.html"
-      - title: SSOの設定
-        url: "/admin/configure-sso-saml.html"
-      - title: AD FS に証明書利用者信頼を作成します
-        url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
-      - title: Entra IDでエンタープライズアプリケーションを作成する
-        url: "/admin/creating-enterprise-application-entra-id-saml.html"
-      - title: PingFederate で SP 接続を作成します
-        url: "/admin/creating-sp-connection-ping-saml.html"
-    - title: SSOを無効にする
-      url: "/admin/disabling-single-sign-on.html"
-    - title: 1 つの管理ノードの SSO を一時的に無効にし、再度有効にする
-      url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
+    - title: 詳細情報
+      url: "/admin/learn-about-setting-up-sso-oidc.html"
+    - title: AD FSでアプリケーショングループを作成する
+      url: "/admin/creating-relying-party-trusts-in-ad-fs-oidc.html"
+    - title: Entra IDでアプリケーションを作成する
+      url: "/admin/creating-enterprise-application-entra-id-oidc.html"
+    - title: Keycloakでクライアントを作成する
+      url: "/admin/create-client-keycloak-oidc.html"
+    - title: Oktaアプリケーションを作成する
+      url: "/admin/create-okta-application-oidc.html"
+    - title: PingFederate で SP 接続を作成します
+      url: "/admin/creating-sp-connection-ping-oidc.html"
+    - title: SSOの設定
+      url: "/admin/configure-sso-oidc.html"
+  - title: SAMLを使用してSSOを設定する
+    entries:
+    - title: 詳細情報
+      url: "/admin/learn-about-setting-up-sso-saml.html"
+    - title: SSOの設定
+      url: "/admin/configure-sso-saml.html"
+    - title: AD FS に証明書利用者信頼を作成します
+      url: "/admin/creating-relying-party-trusts-in-ad-fs-saml.html"
+    - title: Entra IDでエンタープライズアプリケーションを作成する
+      url: "/admin/creating-enterprise-application-entra-id-saml.html"
+    - title: PingFederate で SP 接続を作成します
+      url: "/admin/creating-sp-connection-ping-saml.html"
+  - title: SSOを無効にする
+    url: "/admin/disabling-single-sign-on.html"
+  - title: 1 つの管理ノードの SSO を一時的に無効にし、再度有効にする
+    url: "/admin/temporarily-disabling-and-reenabling-sso-for-admin-node.html"
   - title: 複数管理者による認証を使用する
     entries:
     - title: 複数管理者による認証について学ぶ

@@ -9,38 +9,36 @@ entries:
   - title: クイックスタート
     pdf-filename: ソフトウェアベースのノードにStorageGRIDをインストールする
     url: "/swnodes/index.html"
-  - title: ソフトウェアベースのノードへのインストールを計画および準備する
+  - title: 必要な情報と資料
+    url: "/swnodes/required-materials.html"
+  - title: StorageGRID インストールファイルをダウンロードして展開します
+    url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
+  - title: インストールファイルを手動で検証する
+    url: "/swnodes/download-files-verify.html"
+  - title: ソフトウェア要件
+    url: "/swnodes/software-requirements.html"
+  - title: CPUオヨビRAMノヨウケン
+    url: "/swnodes/cpu-and-ram-requirements.html"
+  - title: ストレージとパフォーマンスの要件
+    url: "/swnodes/storage-and-performance-requirements.html"
+  - title: ノードコンテナの移行要件 (Linux)
+    url: "/swnodes/node-container-migration-requirements.html"
+  - title: ホストを準備する (Linux)
     entries:
-    - title: 必要な情報と資料
-      url: "/swnodes/required-materials.html"
-    - title: StorageGRID インストールファイルをダウンロードして展開します
-      url: "/swnodes/downloading-and-extracting-storagegrid-installation-files.html"
-    - title: インストールファイルを手動で検証する
-      url: "/swnodes/download-files-verify.html"
-    - title: ソフトウェア要件
-      url: "/swnodes/software-requirements.html"
-    - title: CPUオヨビRAMノヨウケン
-      url: "/swnodes/cpu-and-ram-requirements.html"
-    - title: ストレージとパフォーマンスの要件
-      url: "/swnodes/storage-and-performance-requirements.html"
-    - title: ノードコンテナの移行要件 (Linux)
-      url: "/swnodes/node-container-migration-requirements.html"
-    - title: ホストを準備する (Linux)
-      entries:
-      - title: ホスト全体の設定の変更方法
-        url: "/swnodes/how-host-wide-settings-change.html"
-      - title: Linux をインストールします
-        url: "/swnodes/installing-linux.html"
-      - title: AppArmor プロファイルのインストール (Ubuntu および Debian のみ)
-        url: "/swnodes/understanding-apparmor-profile-installation.html"
-      - title: ホストネットワークを設定する
-        url: "/swnodes/configuring-host-network.html"
-      - title: ホストストレージを設定する
-        url: "/swnodes/configuring-host-storage.html"
-      - title: コンテナエンジンのストレージボリュームを構成する
-        url: "/swnodes/configuring-docker-storage-volume.html"
-      - title: StorageGRID ホストサービスをインストールする
-        url: "/swnodes/installing-storagegrid-webscale-host-services.html"
+    - title: ホスト全体の設定の変更方法
+      url: "/swnodes/how-host-wide-settings-change.html"
+    - title: Linux をインストールします
+      url: "/swnodes/installing-linux.html"
+    - title: AppArmor プロファイルのインストール (Ubuntu および Debian のみ)
+      url: "/swnodes/understanding-apparmor-profile-installation.html"
+    - title: ホストネットワークを設定する
+      url: "/swnodes/configuring-host-network.html"
+    - title: ホストストレージを設定する
+      url: "/swnodes/configuring-host-storage.html"
+    - title: コンテナエンジンのストレージボリュームを構成する
+      url: "/swnodes/configuring-docker-storage-volume.html"
+    - title: StorageGRID ホストサービスをインストールする
+      url: "/swnodes/installing-storagegrid-webscale-host-services.html"
   - title: ソフトウェアベースのノードのインストールを自動化する
     entries:
     - title: インストールを自動化する（Linux）

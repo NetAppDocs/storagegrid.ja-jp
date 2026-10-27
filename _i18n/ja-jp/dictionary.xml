@@ -7313,7 +7313,6 @@
   <block id="5e29712b330c53e5197741af40c687be" category="list-text">カスタムのストレージグレードを定義：</block>
   <block id="408ea845582fc67ccb1d6fd994905d7e" category="inline-image-macro">[ 挿入 ] アイコン</block>
   <block id="55d5ccdf1b43bb95dea2bbae395c7100" category="list-text">説明ラベルを入力します。</block>
-  <block id="8db46e44720002b9905d8722431c89b8" category="image-alt">[ ストレージグレード ] ページ</block>
   <block id="44040e214e919d86d6a1f3f26db3d22c" category="inline-image-macro">編集アイコン</block>
   <block id="5264e8aa60ddc8946b0e142d402dbbab" category="admonition">ストレージグレードを削除することはできません。</block>
   <block id="98c138e07d1130e2c1e45731598e1c4c" category="list-text">新しいストレージグレードをストレージノードに割り当てます。</block>
@@ -11192,12 +11191,10 @@
   <block id="aa5539028c9b3d011d3d7e8668161465" category="sidebar">次の手順：必要に応じて追加のリカバリ手順を実行します</block>
   <block id="d3eafc8e324ffcc28713f09ecdbe0f64" category="sidebar">コウカンノガイドライン</block>
   <block id="0e64c6d47e1e64f85c3218fa142c4e7d" category="sidebar">Grid Managerの使用を開始する</block>
-  <block id="15d50a7a5cf4c032d2ff3358f8c40506" category="sidebar">API を使用します</block>
   <block id="d665fc9cd387f1c3109c57749f94dc8e" category="sidebar">シングルサインオンが有効な場合は、 API を使用します</block>
   <block id="4b0cf458ef35425ce2e8ce9bc4a30b73" category="sidebar">StorageGRID へのアクセスを制御します</block>
   <block id="2029c13f4c084121ade7b0d45e3abbe4" category="sidebar">StorageGRIDアクセス</block>
   <block id="668aa3baa0371adeebc3151300cf858a" category="sidebar">SSHアクセスパスワードの変更</block>
-  <block id="ed76b89f4a82a75ceec8ccf31d796a3a" category="sidebar">シングルサインオン（ SSO ）を使用</block>
   <block id="671acfeb23b874283fb7d6cb00f23d5a" category="sidebar">PingFederate で SP 接続を作成します</block>
   <block id="50afb0045a7590a535362f7f16ab8e49" category="sidebar">グリッドフェデレーションとは</block>
   <block id="064c7d8840ac3011d63b748e377ecdbd" category="sidebar">セキュリティコンポーネント</block>
@@ -20775,7 +20772,6 @@
   <block id="62ed4b0a61f62c977216fc9d416892da" category="sidebar">管理インターフェースで CORS を有効にする</block>
   <block id="f83e2e7c993092c3eb38c2a2aae88107" category="sidebar">アクセスポリシーを管理する</block>
   <block id="44ba47746c894b6428a84c4055c7d755" category="sidebar">セッションポリシーの例</block>
-  <block id="6e641153adc292811cd64cd30f62cce0" category="sidebar">ソフトウェアベースのノードへのインストールを計画および準備する</block>
   <block id="f41eb31ef15ade3078f9552afed1302c" category="sidebar">ホストを準備する (Linux)</block>
   <block id="fd615e1ea7acc68bc999f463dd2c060f" category="sidebar">AppArmor プロファイルのインストール (Ubuntu および Debian のみ)</block>
   <block id="5cc06745ff9839ff5904cd7620b6b7ea" category="sidebar">コンテナエンジンのストレージボリュームを構成する</block>
@@ -21597,10 +21593,8 @@
   <block id="11ac3b1688e6df08697d739967492a05" category="paragraph"><block ref="11ac3b1688e6df08697d739967492a05" category="inline-image-macro-rx" type="image"></block></block>
   <block id="615b4dad87c60e9d7a13b702a0452476" category="paragraph"><block ref="615b4dad87c60e9d7a13b702a0452476" category="inline-image-macro-rx" type="image"></block></block>
   <block id="411161433047b87fb3a4515684f931f4" category="list-text">追加するカスタムストレージグレードごとに、*挿入* <block ref="3e594dc98d94f2c40d70586a4c3267a6" category="inline-image-macro-rx" type="image"></block> を選択して行を追加します。</block>
-  <block id="2faabba81aa5f5ee43e0003de3899a89" category="paragraph"><block ref="2faabba81aa5f5ee43e0003de3899a89" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9405bc43ac4f2b09bb2ab2aa12de9f82" category="list-text">必要に応じて、保存済みのラベルを変更する場合は、*編集* <block ref="0ebcf8caa3ab7a11eee1d4c56c33220c" category="inline-image-macro-rx" type="image"></block> を選択し、*変更を適用* を選択します。</block>
   <block id="973bb897b0d4e0f06b2d25fd51360130" category="list-text">LDRリストからストレージノードを探し、その*編集*アイコン<block ref="0ebcf8caa3ab7a11eee1d4c56c33220c" category="inline-image-macro-rx" type="image"></block>を選択します。</block>
-  <block id="2ef47ca8960bcfc68f9fafdffbceb69a" category="paragraph"><block ref="2ef47ca8960bcfc68f9fafdffbceb69a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="118291f749e716c20abad554956d599e" category="paragraph"><block ref="118291f749e716c20abad554956d599e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c8c430402db1f2292c915cec77e8a1c5" category="paragraph"><block ref="c8c430402db1f2292c915cec77e8a1c5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0bd4ce8d20ac68f8d8410bbe868546bb" category="paragraph"><block ref="0bd4ce8d20ac68f8d8410bbe868546bb" category="inline-image-macro-rx" type="image"></block></block>
@@ -23970,4 +23964,5 @@
   <block id="05725098980525ddb96dd78658c23348" category="paragraph">また、<block ref="14f21ef532dcb3a00cda4550e83faafb" category="inline-link-macro-rx"></block>を参照してください。</block>
   <block id="63981efce677212da0fd4eb0b567b15d" category="sidebar">例9：バージョン管理を一時停止した後、非現行バージョンと削除マーカーを削除する</block>
   <block id="94e45950fc7164e33eb987ad6f8c2f3d" category="list-text"><block ref="94e45950fc7164e33eb987ad6f8c2f3d" category="inline-link-macro-rx"></block></block>
+  <block id="731a2e9615c46dc92a43d17a4ed3ebcd" category="paragraph">AutoSupportを有効にすると、健全性およびステータスパッケージがテクニカルサポートに送信されます。すべてのAutoSupportパッケージに対して、追加の宛先を1つ指定できます。</block>
 </blocks>

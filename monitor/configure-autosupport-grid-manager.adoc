@@ -139,7 +139,7 @@ AutoSupport On Demand は有効になっており、テクニカルサポート�
 [[add-an-additional-autosupport-destination]]
 == AutoSupport デスティネーションを追加します
 
-AutoSupportを有効にすると、ヘルスパッケージとステータスパッケージがテクニカルサポートに送信されます。すべてのAutoSupportパッケージに対して、追加の送信先を1つ指定できます。
+AutoSupportを有効にすると、健全性およびステータスパッケージがテクニカルサポートに送信されます。すべてのAutoSupportパッケージに対して、追加の宛先を1つ指定できます。
 
 AutoSupportパッケージの送信に使用されるプロトコルを確認または変更するには、<<configure-autosupport,AutoSupportを設定する>>の手順を参照してください。
 
